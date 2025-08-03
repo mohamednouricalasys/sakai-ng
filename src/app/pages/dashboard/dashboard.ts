@@ -4,10 +4,11 @@ import { StatsWidget } from './components/statswidget';
 import { RecentSalesWidget } from './components/recentsaleswidget';
 import { BestSellingWidget } from './components/bestsellingwidget';
 import { RevenueStreamWidget } from './components/revenuestreamwidget';
+import { LanguageSwitcherComponent, TranslatePipe } from '../../core/shared';
 
 @Component({
     selector: 'app-dashboard',
-    imports: [StatsWidget, RecentSalesWidget, BestSellingWidget, RevenueStreamWidget, NotificationsWidget],
+    imports: [StatsWidget, RecentSalesWidget, BestSellingWidget, RevenueStreamWidget, NotificationsWidget, TranslatePipe, LanguageSwitcherComponent],
     template: `
         <div class="grid grid-cols-12 gap-8">
             <app-stats-widget class="contents" />
@@ -19,7 +20,8 @@ import { RevenueStreamWidget } from './components/revenuestreamwidget';
                 <app-revenue-stream-widget />
                 <app-notifications-widget />
             </div>
+            <app-language-switcher></app-language-switcher>
         </div>
-    `
+    `,
 })
 export class Dashboard {}

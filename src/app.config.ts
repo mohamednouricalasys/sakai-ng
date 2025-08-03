@@ -7,38 +7,53 @@ import { providePrimeNG } from 'primeng/config';
 import { appRoutes } from './app.routes';
 import { KeycloakService } from 'keycloak-angular';
 
+import { UserService } from './app/core/services/user.service'; // adjust path
+import { TranslationService } from './app/core/services/translation.service';
 
-function initializeKeycloak(keycloak: KeycloakService) {
-  return () =>
-    keycloak.init({
-      config: {
-        url: 'http://localhost:8080',
-        realm: 'prodigy',
-        clientId: 'angular-dev-client'
-      },
-      initOptions: {
-        checkLoginIframe: false,
-        flow: 'standard',
-      },
-      shouldAddToken: () => false,
-    });
+function initializeKeycloak(keycloak: KeycloakService, userService: UserService) {
+    return async () => {
+        await keycloak.init({
+            config: {
+                url: 'http://localhost:8080',
+                realm: 'prodigy',
+                clientId: 'angular-dev-client',
+            },
+            initOptions: {
+                checkLoginIframe: false,
+                flow: 'standard',
+            },
+            shouldAddToken: () => false,
+        });
+
+        if (keycloak.isLoggedIn()) {
+            await userService.loadUserProfile();
+        }
+    };
 }
 
-
-
+function initializeTranslations(translationService: TranslationService) {
+    return () => translationService.init();
+}
 
 export const appConfig: ApplicationConfig = {
     providers: [
         KeycloakService,
+        TranslationService,
         {
             provide: APP_INITIALIZER,
             useFactory: initializeKeycloak,
             multi: true,
-            deps: [KeycloakService]
+            deps: [KeycloakService, UserService],
+        },
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initializeTranslations,
+            multi: true,
+            deps: [TranslationService],
         },
         provideRouter(appRoutes, withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' }), withEnabledBlockingInitialNavigation()),
         provideHttpClient(withFetch()),
         provideAnimationsAsync(),
-        providePrimeNG({ theme: { preset: Aura, options: { darkModeSelector: '.app-dark' } } })
-    ]
+        providePrimeNG({ theme: { preset: Aura, options: { darkModeSelector: '.app-dark' } } }),
+    ],
 };

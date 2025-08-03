@@ -12,14 +12,20 @@ export const appRoutes: Routes = [
         component: AppLayout,
         canActivate: [authGuard], // Apply guard to the layout
         children: [
-            { path: '', component: Dashboard, pathMatch: 'full'},
+            { path: '', component: Dashboard, pathMatch: 'full' },
             { path: 'uikit', loadChildren: () => import('./app/pages/uikit/uikit.routes') },
             { path: 'documentation', component: Documentation },
-            { path: 'pages', loadChildren: () => import('./app/pages/pages.routes') }
-        ]
+            { path: 'pages', loadChildren: () => import('./app/pages/pages.routes') },
+            { path: '', redirectTo: 'professional', pathMatch: 'full' }, // Default route
+            {
+                path: 'professional',
+                // Lazy load the professional routes
+                loadChildren: () => import('./app/features/professional/professional.routes').then((m) => m.PROFESSIONAL_ROUTES),
+            },
+        ],
     },
     { path: 'landing', component: Landing },
     { path: 'notfound', component: Notfound },
     { path: 'auth', loadChildren: () => import('./app/pages/auth/auth.routes') },
-    { path: '**', redirectTo: '/notfound' }
+    { path: '**', redirectTo: '/notfound' },
 ];

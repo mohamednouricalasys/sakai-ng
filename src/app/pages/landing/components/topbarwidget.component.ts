@@ -59,7 +59,7 @@ import { ButtonModule } from 'primeng/button';
                 <button pButton pRipple label="Login" routerLink="/auth/login" [rounded]="true" [text]="true"></button>
                 <button pButton pRipple label="Register" routerLink="/auth/login" [rounded]="true"></button>
             </div>
-        </div> `
+        </div> `,
 })
 export class TopbarWidget {
     constructor(public router: Router) {}
