@@ -1,0 +1,176 @@
+<p-toast />
+
+<p-toolbar styleClass="mb-6">
+    <ng-template #start>
+        <p-button label="Nouveau Prodige" icon="pi pi-plus" severity="secondary" class="mr-2" (onClick)="openNew()" />
+        <p-button severity="secondary" label="Supprimer" icon="pi pi-trash" outlined (onClick)="deleteSelectedProdigies()" [disabled]="!selectedProdigies || !selectedProdigies.length" />
+    </ng-template>
+
+    <ng-template #end>
+        <p-button label="Exporter" icon="pi pi-upload" severity="secondary" (onClick)="exportCSV()" />
+    </ng-template>
+</p-toolbar>
+
+<p-table
+    #dt
+    [value]="prodigies()"
+    [rows]="10"
+    [columns]="cols"
+    [paginator]="true"
+    [globalFilterFields]="['nom', 'sport']"
+    [tableStyle]="{ 'min-width': '75rem' }"
+    [(selection)]="selectedProdigies"
+    [rowHover]="true"
+    dataKey="id"
+    currentPageReportTemplate="Affichage de {first} à {last} sur {totalRecords} prodiges"
+    [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10, 20, 30]"
+>
+    <ng-template #caption>
+        <div class="flex items-center justify-between">
+            <h5 class="m-0">Gestion des Prodiges</h5>
+            <p-iconfield>
+                <p-inputicon styleClass="pi pi-search" />
+                <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Rechercher..." />
+            </p-iconfield>
+        </div>
+    </ng-template>
+
+    <ng-template #header>
+        <tr>
+            <th style="width: 3rem">
+                <p-tableHeaderCheckbox />
+            </th>
+            <th pSortableColumn="nom" style="min-width: 16rem">
+                Nom
+                <p-sortIcon field="nom" />
+            </th>
+            <th pSortableColumn="age" style="min-width: 8rem">
+                Âge
+                <p-sortIcon field="age" />
+            </th>
+            <th pSortableColumn="sport" style="min-width: 12rem">
+                Sport
+                <p-sortIcon field="sport" />
+            </th>
+            <th style="min-width: 12rem">Tags</th>
+            <th pSortableColumn="dateCreation" style="min-width: 12rem">
+                Date de Création
+                <p-sortIcon field="dateCreation" />
+            </th>
+            <th style="min-width: 12rem">Actions</th>
+        </tr>
+    </ng-template>
+
+    <ng-template #body let-prodige>
+        <tr>
+            <td style="width: 3rem">
+                <p-tableCheckbox [value]="prodige" />
+            </td>
+            <td style="min-width: 16rem">{{ prodige.nom }}</td>
+            <td>
+                <p-tag [value]="prodige.age + ' ans'" [severity]="getAgeSeverity(prodige.age)" />
+            </td>
+            <td>{{ getSportLabel(prodige.sport) }}</td>
+            <td>
+                <div class="flex flex-wrap gap-1">
+                    <p-tag *ngFor="let tag of prodige.tags?.slice(0, 3)" [value]="getTagLabel(tag)" severity="info" class="text-xs" />
+                    <p-tag *ngIf="(prodige.tags?.length || 0) > 3" [value]="'+' + ((prodige.tags?.length || 0) - 3)" severity="secondary" class="text-xs" />
+                </div>
+            </td>
+            <td>{{ prodige.dateCreation | date: 'dd/MM/yyyy' }}</td>
+            <td>
+                <p-button icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true" (click)="editProdige(prodige)" />
+                <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteProdige(prodige)" />
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<!-- Dialog for creating/editing prodige -->
+<p-dialog [(visible)]="prodigeDialog" [style]="{ width: '450px' }" header="Détails du Prodige" [modal]="true">
+    <ng-template #content>
+        <div class="flex flex-col gap-6">
+            <div>
+                <label for="nom" class="block font-bold mb-3">Nom *</label>
+                <input type="text" pInputText id="nom" [(ngModel)]="prodige.nom" required autofocus fluid />
+                <small class="text-red-500" *ngIf="submitted && !prodige.nom"> Le nom est obligatoire. </small>
+            </div>
+
+            <div>
+                <label for="age" class="block font-bold mb-3">Âge *</label>
+                <p-inputnumber id="age" [(ngModel)]="prodige.age" [min]="5" [max]="25" fluid />
+                <small class="text-red-500" *ngIf="submitted && !prodige.age"> L'âge est obligatoire. </small>
+            </div>
+
+            <div>
+                <label for="description" class="block font-bold mb-3">
+                    Description
+                    <span *ngIf="isDescriptionRequired()" class="text-red-500">*</span>
+                </label>
+                <textarea
+                    id="description"
+                    pTextarea
+                    [(ngModel)]="prodige.description"
+                    rows="3"
+                    cols="20"
+                    [placeholder]="isDescriptionRequired() ? 'Description obligatoire pour le sport \'Autre\'' : 'Décrivez les qualités et le potentiel du prodige...'"
+                    fluid
+                >
+                </textarea>
+                <small class="text-red-500" *ngIf="submitted && isDescriptionRequired() && (!prodige.description || !prodige.description.trim())"> La description est obligatoire pour le sport "Autre". </small>
+            </div>
+
+            <div>
+                <label for="sport" class="block font-bold mb-3">Sport *</label>
+                <p-select [(ngModel)]="prodige.sport" inputId="sport" [options]="sportOptions" optionLabel="label" optionValue="value" placeholder="Sélectionner un sport" appendTo="body" fluid />
+                <small class="text-red-500" *ngIf="submitted && prodige.sport === undefined"> Le sport est obligatoire. </small>
+            </div>
+
+            <div>
+                <label class="block font-bold mb-3">Tags (min: 3, max: 10) *</label>
+
+                <!-- Selected tags display -->
+                <div class="flex flex-wrap gap-2 mb-3" *ngIf="prodige.tags && prodige.tags.length > 0">
+                    <p-chip *ngFor="let tag of prodige.tags" [label]="getTagLabel(tag)" [removable]="true" (onRemove)="removeTag(tag)" />
+                </div>
+
+                <!-- Add new tag -->
+                <div class="flex gap-2 mb-3">
+                    <p-select
+                        [(ngModel)]="selectedTagToAdd"
+                        [options]="getAvailableTags()"
+                        optionLabel="label"
+                        optionValue="value"
+                        placeholder="Ajouter un tag..."
+                        appendTo="body"
+                        [style]="{ 'min-width': '200px' }"
+                        [disabled]="(prodige.tags?.length || 0) >= 10"
+                    />
+                    <p-button icon="pi pi-plus" (click)="addTag()" [disabled]="!selectedTagToAdd || (prodige.tags?.length || 0) >= 10" severity="secondary" size="small" />
+                </div>
+
+                <small class="text-gray-600"> {{ prodige.tags?.length || 0 }}/10 tags sélectionnés </small>
+                <small class="text-red-500 block" *ngIf="submitted && (!prodige.tags || prodige.tags.length < 3)"> Minimum 3 tags requis. </small>
+            </div>
+
+            <div *ngIf="prodige.videos && prodige.videos.length > 0">
+                <label class="block font-bold mb-3">Vidéos associées</label>
+                <div class="border border-gray-200 rounded p-3">
+                    <div *ngFor="let video of prodige.videos" class="flex items-center gap-2 mb-2">
+                        <i class="pi pi-video text-blue-500"></i>
+                        <span>{{ video.titre || 'Vidéo sans titre' }}</span>
+                    </div>
+                    <small class="text-gray-500"> {{ prodige.videos.length }} vidéo(s) associée(s) </small>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #footer>
+        <p-button label="Annuler" icon="pi pi-times" text (click)="hideDialog()" />
+        <p-button label="Sauvegarder" icon="pi pi-check" (click)="saveProdige()" />
+    </ng-template>
+</p-dialog>
+
+<p-confirmdialog [style]="{ width: '450px' }" />
