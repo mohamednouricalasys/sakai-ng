@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table, TableModule } from 'primeng/table';
 import { CommonModule } from '@angular/common';
@@ -21,6 +21,9 @@ import { ProdigeService } from '../../../../core/services/prodige.service';
 import { Prodige } from '../../../../core/interfaces/prodige.interface';
 import { Sport } from '../../../../core/enums/sport.enum';
 import { Tag } from '../../../../core/enums/tag.enum';
+import { TranslationService } from '../../../../core/services/translation.service';
+import { TranslateCountPipe, TranslateParamsPipe, TranslatePipe } from '../../../../core/shared';
+
 interface Column {
     field: string;
     header: string;
@@ -53,6 +56,9 @@ interface ExportColumn {
         InputIconModule,
         IconFieldModule,
         ConfirmDialogModule,
+        TranslatePipe,
+        TranslateParamsPipe,
+        TranslateCountPipe,
     ],
     templateUrl: './prodige-crud.component.html',
     providers: [MessageService, ProdigeService, ConfirmationService],
@@ -80,11 +86,23 @@ export class ProdigeCrudComponent implements OnInit {
 
     cols!: Column[];
 
+    private translationService = inject(TranslationService);
+
     constructor(
         private prodigeService: ProdigeService,
         private messageService: MessageService,
         private confirmationService: ConfirmationService,
     ) {}
+
+    // Helper method for direct translation calls in component logic
+    protected t(key: string, params?: Record<string, any>): string {
+        return this.translationService.translate(key, params);
+    }
+
+    // Helper for count translations
+    protected translateCount(key: string, count: number): string {
+        return this.translationService.translateWithCount(key, count);
+    }
 
     ngOnInit() {
         this.loadData();
@@ -98,15 +116,35 @@ export class ProdigeCrudComponent implements OnInit {
         this.sportOptions = this.prodigeService.getSportOptions();
         this.tagOptions = this.prodigeService.getTagOptions();
 
+        // Internationalized column definitions
         this.cols = [
-            { field: 'nom', header: 'Nom', customExportHeader: 'Nom du Prodige' },
-            { field: 'age', header: 'Âge' },
-            { field: 'sport', header: 'Sport' },
-            { field: 'videosCount', header: 'Nombre de Vidéos' },
-            { field: 'dateCreation', header: 'Date de Création' },
+            {
+                field: 'nom',
+                header: this.t('procrud.columns.nom'),
+                customExportHeader: this.t('procrud.columns.nomExport'),
+            },
+            {
+                field: 'age',
+                header: this.t('procrud.columns.age'),
+            },
+            {
+                field: 'sport',
+                header: this.t('procrud.columns.sport'),
+            },
+            {
+                field: 'videosCount',
+                header: this.t('procrud.columns.videosCount'),
+            },
+            {
+                field: 'dateCreation',
+                header: this.t('procrud.columns.dateCreation'),
+            },
         ];
 
-        this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
+        this.exportColumns = this.cols.map((col) => ({
+            title: col.header,
+            dataKey: col.field,
+        }));
     }
 
     onGlobalFilter(table: Table, event: Event) {
@@ -128,16 +166,16 @@ export class ProdigeCrudComponent implements OnInit {
 
     deleteSelectedProdigies() {
         this.confirmationService.confirm({
-            message: 'Êtes-vous sûr de vouloir supprimer les prodiges sélectionnés ?',
-            header: 'Confirmation',
+            message: this.t('procrud.messages.confirmDeleteProdigies'),
+            header: this.t('shared.common.confirmation'),
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 this.prodigies.set(this.prodigies().filter((val) => !this.selectedProdigies?.includes(val)));
                 this.selectedProdigies = null;
                 this.messageService.add({
                     severity: 'success',
-                    summary: 'Succès',
-                    detail: 'Prodiges supprimés',
+                    summary: this.t('shared.common.success'),
+                    detail: this.t('procrud.messages.prodigiesDeleted'),
                     life: 3000,
                 });
             },
@@ -152,16 +190,16 @@ export class ProdigeCrudComponent implements OnInit {
 
     deleteProdige(prodige: Prodige) {
         this.confirmationService.confirm({
-            message: 'Êtes-vous sûr de vouloir supprimer ' + prodige.nom + ' ?',
-            header: 'Confirmation',
+            message: this.t('procrud.messages.confirmDeleteProdige', { name: prodige.nom }),
+            header: this.t('shared.common.confirmation'),
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 this.prodigies.set(this.prodigies().filter((val) => val.id !== prodige.id));
                 this.prodige = {};
                 this.messageService.add({
                     severity: 'success',
-                    summary: 'Succès',
-                    detail: 'Prodige supprimé',
+                    summary: this.t('shared.common.success'),
+                    detail: this.t('procrud.messages.prodigeDeleted'),
                     life: 3000,
                 });
             },
@@ -204,8 +242,8 @@ export class ProdigeCrudComponent implements OnInit {
             } else {
                 this.messageService.add({
                     severity: 'warn',
-                    summary: 'Limite atteinte',
-                    detail: 'Maximum 10 tags autorisés',
+                    summary: this.t('shared.messages.limitReached'),
+                    detail: this.t('procrud.validation.maxTagsReached'),
                     life: 3000,
                 });
             }
@@ -245,8 +283,8 @@ export class ProdigeCrudComponent implements OnInit {
             if (!this.prodige.tags || this.prodige.tags.length < 3) {
                 this.messageService.add({
                     severity: 'error',
-                    summary: 'Erreur de validation',
-                    detail: 'Minimum 3 tags requis',
+                    summary: this.t('shared.messages.validationError'),
+                    detail: this.t('procrud.validation.minTagsRequired'),
                     life: 3000,
                 });
                 return;
@@ -255,19 +293,19 @@ export class ProdigeCrudComponent implements OnInit {
             if (this.prodige.tags.length > 10) {
                 this.messageService.add({
                     severity: 'error',
-                    summary: 'Erreur de validation',
-                    detail: 'Maximum 10 tags autorisés',
+                    summary: this.t('shared.messages.validationError'),
+                    detail: this.t('procrud.validation.maxTagsReached'),
                     life: 3000,
                 });
                 return;
             }
 
-            // NEW: Validate description for "autre" sport
+            // Validate description for "autre" sport
             if (this.prodige.sport === Sport.Autre && (!this.prodige.description || !this.prodige.description.trim())) {
                 this.messageService.add({
                     severity: 'error',
-                    summary: 'Erreur de validation',
-                    detail: 'La description est obligatoire pour le sport "Autre"',
+                    summary: this.t('shared.messages.validationError'),
+                    detail: this.t('procrud.validation.descriptionRequired'),
                     life: 3000,
                 });
                 return;
@@ -279,8 +317,8 @@ export class ProdigeCrudComponent implements OnInit {
                 this.prodigies.set([..._prodigies]);
                 this.messageService.add({
                     severity: 'success',
-                    summary: 'Succès',
-                    detail: 'Prodige mis à jour',
+                    summary: this.t('shared.common.success'),
+                    detail: this.t('procrud.messages.prodigeUpdated'),
                     life: 3000,
                 });
             } else {
@@ -291,8 +329,8 @@ export class ProdigeCrudComponent implements OnInit {
                 this.prodigies.set([..._prodigies, this.prodige]);
                 this.messageService.add({
                     severity: 'success',
-                    summary: 'Succès',
-                    detail: 'Prodige créé',
+                    summary: this.t('shared.common.success'),
+                    detail: this.t('procrud.messages.prodigeCreated'),
                     life: 3000,
                 });
             }
@@ -302,12 +340,35 @@ export class ProdigeCrudComponent implements OnInit {
         }
     }
 
-    // Add a helper method to check if description is required
+    // Helper method to check if description is required
     isDescriptionRequired(): boolean {
         return this.prodige.sport === Sport.Autre;
     }
 
     exportCSV() {
         this.dt.exportCSV();
+    }
+
+    // Additional helper methods for template usage
+    getTagCountText(): string {
+        const count = this.prodige.tags?.length || 0;
+        return this.t('procrud.tags.selectedCount', { count });
+    }
+
+    getVideoCountText(): string {
+        const count = this.prodige.videos?.length || 0;
+        return this.t('procrud.tags.associatedVideosCount', { count });
+    }
+
+    getDescriptionPlaceholder(): string {
+        return this.isDescriptionRequired() ? this.t('procrud.validation.descriptionRequiredForOther') : this.t('procrud.placeholders.describeQualities');
+    }
+
+    getAgeLabel(age: number): string {
+        return `${age} ${this.t('shared.common.years')}`;
+    }
+
+    getPaginationTemplate(): string {
+        return this.t('procrud.pagination.showing');
     }
 }

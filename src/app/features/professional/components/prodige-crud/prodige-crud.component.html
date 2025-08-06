@@ -2,12 +2,12 @@
 
 <p-toolbar styleClass="mb-6">
     <ng-template #start>
-        <p-button label="Nouveau Prodige" icon="pi pi-plus" severity="secondary" class="mr-2" (onClick)="openNew()" />
-        <p-button severity="secondary" label="Supprimer" icon="pi pi-trash" outlined (onClick)="deleteSelectedProdigies()" [disabled]="!selectedProdigies || !selectedProdigies.length" />
+        <p-button [label]="'procrud.labels.newProdige' | translate" icon="pi pi-plus" severity="secondary" class="mr-2" (onClick)="openNew()" />
+        <p-button severity="secondary" [label]="'shared.actions.delete' | translate" icon="pi pi-trash" outlined (onClick)="deleteSelectedProdigies()" [disabled]="!selectedProdigies || !selectedProdigies.length" />
     </ng-template>
 
     <ng-template #end>
-        <p-button label="Exporter" icon="pi pi-upload" severity="secondary" (onClick)="exportCSV()" />
+        <p-button [label]="'shared.actions.export' | translate" icon="pi pi-upload" severity="secondary" (onClick)="exportCSV()" />
     </ng-template>
 </p-toolbar>
 
@@ -22,16 +22,16 @@
     [(selection)]="selectedProdigies"
     [rowHover]="true"
     dataKey="id"
-    currentPageReportTemplate="Affichage de {first} à {last} sur {totalRecords} prodiges"
+    [currentPageReportTemplate]="'procrud.pagination.showing' | translate"
     [showCurrentPageReport]="true"
     [rowsPerPageOptions]="[10, 20, 30]"
 >
     <ng-template #caption>
         <div class="flex items-center justify-between">
-            <h5 class="m-0">Gestion des Prodiges</h5>
+            <h5 class="m-0">{{ 'procrud.title' | translate }}</h5>
             <p-iconfield>
                 <p-inputicon styleClass="pi pi-search" />
-                <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Rechercher..." />
+                <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" [placeholder]="'shared.actions.search' | translate" />
             </p-iconfield>
         </div>
     </ng-template>
@@ -42,23 +42,23 @@
                 <p-tableHeaderCheckbox />
             </th>
             <th pSortableColumn="nom" style="min-width: 16rem">
-                Nom
+                {{ 'shared.common.name' | translate }}
                 <p-sortIcon field="nom" />
             </th>
             <th pSortableColumn="age" style="min-width: 8rem">
-                Âge
+                {{ 'shared.common.age' | translate }}
                 <p-sortIcon field="age" />
             </th>
             <th pSortableColumn="sport" style="min-width: 12rem">
-                Sport
+                {{ 'procrud.labels.sport' | translate }}
                 <p-sortIcon field="sport" />
             </th>
-            <th style="min-width: 12rem">Tags</th>
+            <th style="min-width: 12rem">{{ 'shared.common.tags' | translate }}</th>
             <th pSortableColumn="dateCreation" style="min-width: 12rem">
-                Date de Création
+                {{ 'shared.common.creationDate' | translate }}
                 <p-sortIcon field="dateCreation" />
             </th>
-            <th style="min-width: 12rem">Actions</th>
+            <th style="min-width: 12rem">{{ 'shared.common.actions' | translate }}</th>
         </tr>
     </ng-template>
 
@@ -69,7 +69,7 @@
             </td>
             <td style="min-width: 16rem">{{ prodige.nom }}</td>
             <td>
-                <p-tag [value]="prodige.age + ' ans'" [severity]="getAgeSeverity(prodige.age)" />
+                <p-tag [value]="prodige.age + ' ' + ('shared.common.years' | translate)" [severity]="getAgeSeverity(prodige.age)" />
             </td>
             <td>{{ getSportLabel(prodige.sport) }}</td>
             <td>
@@ -88,25 +88,35 @@
 </p-table>
 
 <!-- Dialog for creating/editing prodige -->
-<p-dialog [(visible)]="prodigeDialog" [style]="{ width: '450px' }" header="Détails du Prodige" [modal]="true">
+<p-dialog [(visible)]="prodigeDialog" [style]="{ width: '450px' }" [header]="'procrud.labels.prodigeDetails' | translate" [modal]="true">
     <ng-template #content>
         <div class="flex flex-col gap-6">
             <div>
-                <label for="nom" class="block font-bold mb-3">Nom *</label>
+                <label for="nom" class="block font-bold mb-3">
+                    {{ 'shared.common.name' | translate }}
+                    <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
+                </label>
                 <input type="text" pInputText id="nom" [(ngModel)]="prodige.nom" required autofocus fluid />
-                <small class="text-red-500" *ngIf="submitted && !prodige.nom"> Le nom est obligatoire. </small>
+                <small class="text-red-500" *ngIf="submitted && !prodige.nom">
+                    {{ 'shared.validation.nameRequired' | translate }}
+                </small>
             </div>
 
             <div>
-                <label for="age" class="block font-bold mb-3">Âge *</label>
+                <label for="age" class="block font-bold mb-3">
+                    {{ 'shared.common.age' | translate }}
+                    <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
+                </label>
                 <p-inputnumber id="age" [(ngModel)]="prodige.age" [min]="5" [max]="25" fluid />
-                <small class="text-red-500" *ngIf="submitted && !prodige.age"> L'âge est obligatoire. </small>
+                <small class="text-red-500" *ngIf="submitted && !prodige.age">
+                    {{ 'shared.validation.ageRequired' | translate }}
+                </small>
             </div>
 
             <div>
                 <label for="description" class="block font-bold mb-3">
-                    Description
-                    <span *ngIf="isDescriptionRequired()" class="text-red-500">*</span>
+                    {{ 'shared.common.description' | translate }}
+                    <span *ngIf="isDescriptionRequired()" class="text-red-500">{{ 'shared.common.required' | translate }}</span>
                 </label>
                 <textarea
                     id="description"
@@ -114,21 +124,31 @@
                     [(ngModel)]="prodige.description"
                     rows="3"
                     cols="20"
-                    [placeholder]="isDescriptionRequired() ? 'Description obligatoire pour le sport \'Autre\'' : 'Décrivez les qualités et le potentiel du prodige...'"
+                    [placeholder]="isDescriptionRequired() ? ('procrud.validation.descriptionRequiredForOther' | translate) : ('procrud.placeholders.describeQualities' | translate)"
                     fluid
                 >
                 </textarea>
-                <small class="text-red-500" *ngIf="submitted && isDescriptionRequired() && (!prodige.description || !prodige.description.trim())"> La description est obligatoire pour le sport "Autre". </small>
+                <small class="text-red-500" *ngIf="submitted && isDescriptionRequired() && (!prodige.description || !prodige.description.trim())">
+                    {{ 'procrud.validation.descriptionRequired' | translate }}
+                </small>
             </div>
 
             <div>
-                <label for="sport" class="block font-bold mb-3">Sport *</label>
-                <p-select [(ngModel)]="prodige.sport" inputId="sport" [options]="sportOptions" optionLabel="label" optionValue="value" placeholder="Sélectionner un sport" appendTo="body" fluid />
-                <small class="text-red-500" *ngIf="submitted && prodige.sport === undefined"> Le sport est obligatoire. </small>
+                <label for="sport" class="block font-bold mb-3">
+                    {{ 'procrud.labels.sport' | translate }}
+                    <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
+                </label>
+                <p-select [(ngModel)]="prodige.sport" inputId="sport" [options]="sportOptions" optionLabel="label" optionValue="value" [placeholder]="'procrud.labels.selectSport' | translate" appendTo="body" fluid />
+                <small class="text-red-500" *ngIf="submitted && prodige.sport === undefined">
+                    {{ 'procrud.validation.sportRequired' | translate }}
+                </small>
             </div>
 
             <div>
-                <label class="block font-bold mb-3">Tags (min: 3, max: 10) *</label>
+                <label class="block font-bold mb-3">
+                    {{ 'shared.common.tags' | translate }} {{ 'procrud.tags.minMaxInfo' | translate }}
+                    <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
+                </label>
 
                 <!-- Selected tags display -->
                 <div class="flex flex-wrap gap-2 mb-3" *ngIf="prodige.tags && prodige.tags.length > 0">
@@ -142,7 +162,7 @@
                         [options]="getAvailableTags()"
                         optionLabel="label"
                         optionValue="value"
-                        placeholder="Ajouter un tag..."
+                        [placeholder]="'procrud.labels.addTag' | translate"
                         appendTo="body"
                         [style]="{ 'min-width': '200px' }"
                         [disabled]="(prodige.tags?.length || 0) >= 10"
@@ -150,26 +170,32 @@
                     <p-button icon="pi pi-plus" (click)="addTag()" [disabled]="!selectedTagToAdd || (prodige.tags?.length || 0) >= 10" severity="secondary" size="small" />
                 </div>
 
-                <small class="text-gray-600"> {{ prodige.tags?.length || 0 }}/10 tags sélectionnés </small>
-                <small class="text-red-500 block" *ngIf="submitted && (!prodige.tags || prodige.tags.length < 3)"> Minimum 3 tags requis. </small>
+                <small class="text-gray-600">
+                    {{ 'procrud.tags.selectedCount:count:' + (prodige.tags?.length || 0) | translateParams }}
+                </small>
+                <small class="text-red-500 block" *ngIf="submitted && (!prodige.tags || prodige.tags.length < 3)">
+                    {{ 'procrud.validation.minTagsRequired' | translate }}
+                </small>
             </div>
 
             <div *ngIf="prodige.videos && prodige.videos.length > 0">
-                <label class="block font-bold mb-3">Vidéos associées</label>
+                <label class="block font-bold mb-3">{{ 'procrud.labels.associatedVideos' | translate }}</label>
                 <div class="border border-gray-200 rounded p-3">
                     <div *ngFor="let video of prodige.videos" class="flex items-center gap-2 mb-2">
                         <i class="pi pi-video text-blue-500"></i>
-                        <span>{{ video.titre || 'Vidéo sans titre' }}</span>
+                        <span>{{ video.titre || ('procrud.labels.videoWithoutTitle' | translate) }}</span>
                     </div>
-                    <small class="text-gray-500"> {{ prodige.videos.length }} vidéo(s) associée(s) </small>
+                    <small class="text-gray-500">
+                        {{ 'procrud.tags.associatedVideosCount:count:' + prodige.videos.length | translateParams }}
+                    </small>
                 </div>
             </div>
         </div>
     </ng-template>
 
     <ng-template #footer>
-        <p-button label="Annuler" icon="pi pi-times" text (click)="hideDialog()" />
-        <p-button label="Sauvegarder" icon="pi pi-check" (click)="saveProdige()" />
+        <p-button [label]="'shared.actions.cancel' | translate" icon="pi pi-times" text (click)="hideDialog()" />
+        <p-button [label]="'shared.actions.save' | translate" icon="pi pi-check" (click)="saveProdige()" />
     </ng-template>
 </p-dialog>
 

@@ -1,5 +1,95 @@
 {
   "nav": {
     "profesional": "Professional de sport"
+  },
+  "shared": {
+    "actions": {
+      "new": "Nouveau",
+      "delete": "Supprimer",
+      "export": "Exporter",
+      "edit": "Modifier",
+      "save": "Sauvegarder",
+      "cancel": "Annuler",
+      "search": "Rechercher...",
+      "add": "Ajouter",
+      "confirm": "Confirmer"
+    },
+    "common": {
+      "name": "Nom",
+      "age": "Âge",
+      "description": "Description",
+      "actions": "Actions",
+      "creationDate": "Date de Création",
+      "tags": "Tags",
+      "required": "*",
+      "years": "ans",
+      "success": "Succès",
+      "error": "Erreur",
+      "warning": "Avertissement",
+      "confirmation": "Confirmation"
+    },
+    "validation": {
+      "required": "obligatoire",
+      "nameRequired": "Le nom est obligatoire.",
+      "ageRequired": "L'âge est obligatoire."
+    },
+    "messages": {
+      "confirmDelete": "Êtes-vous sûr de vouloir supprimer {item} ?",
+      "confirmDeleteMultiple": "Êtes-vous sûr de vouloir supprimer les éléments sélectionnés ?",
+      "itemDeleted": "{item} supprimé",
+      "itemsDeleted": "Éléments supprimés",
+      "itemCreated": "{item} créé",
+      "itemUpdated": "{item} mis à jour",
+      "validationError": "Erreur de validation",
+      "limitReached": "Limite atteinte"
+    }
+  },
+  "procrud": {
+    "title": "Gestion des Prodiges",
+    "labels": {
+      "newProdige": "Nouveau Prodige",
+      "prodigeDetails": "Détails du Prodige",
+      "sport": "Sport",
+      "selectSport": "Sélectionner un sport",
+      "addTag": "Ajouter un tag...",
+      "associatedVideos": "Vidéos associées",
+      "videoWithoutTitle": "Vidéo sans titre",
+      "videosCount": "Nombre de Vidéos"
+    },
+    "columns": {
+      "nom": "Nom",
+      "nomExport": "Nom du Prodige",
+      "age": "Âge",
+      "sport": "Sport",
+      "videosCount": "Nombre de Vidéos",
+      "dateCreation": "Date de Création"
+    },
+    "pagination": {
+      "itemName": "prodiges",
+      "showing": "Affichage de {first} à {last} sur {totalRecords} prodiges"
+    },
+    "validation": {
+      "sportRequired": "Le sport est obligatoire.",
+      "descriptionRequired": "La description est obligatoire pour le sport \"Autre\".",
+      "minTagsRequired": "Minimum 3 tags requis.",
+      "maxTagsReached": "Maximum 10 tags autorisés",
+      "descriptionRequiredForOther": "Description obligatoire pour le sport 'Autre'"
+    },
+    "placeholders": {
+      "describeQualities": "Décrivez les qualités et le potentiel du prodige..."
+    },
+    "tags": {
+      "minMaxInfo": "(min: 3, max: 10)",
+      "selectedCount": "{count}/10 tags sélectionnés",
+      "associatedVideosCount": "{count} vidéo(s) associée(s)"
+    },
+    "messages": {
+      "prodigeCreated": "Prodige créé",
+      "prodigeUpdated": "Prodige mis à jour",
+      "prodigeDeleted": "Prodige supprimé",
+      "prodigiesDeleted": "Prodiges supprimés",
+      "confirmDeleteProdige": "Êtes-vous sûr de vouloir supprimer {name} ?",
+      "confirmDeleteProdigies": "Êtes-vous sûr de vouloir supprimer les prodiges sélectionnés ?"
+    }
   }
-}
+  }

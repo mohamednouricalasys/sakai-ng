@@ -1,5 +1,95 @@
 {
   "nav": {
     "profesional": "Sport Professional"
+  },
+  "shared": {
+    "actions": {
+      "new": "New",
+      "delete": "Delete",
+      "export": "Export",
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel",
+      "search": "Search...",
+      "add": "Add",
+      "confirm": "Confirm"
+    },
+    "common": {
+      "name": "Name",
+      "age": "Age",
+      "description": "Description",
+      "actions": "Actions",
+      "creationDate": "Creation Date",
+      "tags": "Tags",
+      "required": "*",
+      "years": "years",
+      "success": "Success",
+      "error": "Error",
+      "warning": "Warning",
+      "confirmation": "Confirmation"
+    },
+    "validation": {
+      "required": "required",
+      "nameRequired": "Name is required.",
+      "ageRequired": "Age is required."
+    },
+    "messages": {
+      "confirmDelete": "Are you sure you want to delete {item}?",
+      "confirmDeleteMultiple": "Are you sure you want to delete the selected items?",
+      "itemDeleted": "{item} deleted",
+      "itemsDeleted": "Items deleted",
+      "itemCreated": "{item} created",
+      "itemUpdated": "{item} updated",
+      "validationError": "Validation Error",
+      "limitReached": "Limit Reached"
+    }
+  },
+  "procrud": {
+    "title": "Prodigies Management",
+    "labels": {
+      "newProdige": "New Prodigy",
+      "prodigeDetails": "Prodigy Details",
+      "sport": "Sport",
+      "selectSport": "Select a sport",
+      "addTag": "Add a tag...",
+      "associatedVideos": "Associated Videos",
+      "videoWithoutTitle": "Video without title",
+      "videosCount": "Videos Count"
+    },
+    "columns": {
+      "nom": "Name",
+      "nomExport": "Prodigy Name",
+      "age": "Age",
+      "sport": "Sport",
+      "videosCount": "Videos Count",
+      "dateCreation": "Creation Date"
+    },
+    "pagination": {
+      "itemName": "prodigies",
+      "showing": "Showing {first} to {last} of {totalRecords} prodigies"
+    },
+    "validation": {
+      "sportRequired": "Sport is required.",
+      "descriptionRequired": "Description is required for \"Other\" sport.",
+      "minTagsRequired": "Minimum 3 tags required.",
+      "maxTagsReached": "Maximum 10 tags allowed",
+      "descriptionRequiredForOther": "Description required for 'Other' sport"
+    },
+    "placeholders": {
+      "describeQualities": "Describe the prodigy's qualities and potential..."
+    },
+    "tags": {
+      "minMaxInfo": "(min: 3, max: 10)",
+      "selectedCount": "{count}/10 tags selected",
+      "associatedVideosCount": "{count} associated video(s)"
+    },
+    "messages": {
+      "prodigeCreated": "Prodigy created",
+      "prodigeUpdated": "Prodigy updated",
+      "prodigeDeleted": "Prodigy deleted",
+      "prodigiesDeleted": "Prodigies deleted",
+      "confirmDeleteProdige": "Are you sure you want to delete {name}?",
+      "confirmDeleteProdigies": "Are you sure you want to delete the selected prodigies?"
+    }
   }
 }

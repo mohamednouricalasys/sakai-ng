@@ -58,7 +58,8 @@ export class TranslationService {
         return this.currentLang();
     }
 
-    translate(key: string): string {
+    // Updated translate method with parameters support
+    translate(key: string, params?: Record<string, any>): string {
         if (!this.isLoaded()) {
             return key; // Return key while loading
         }
@@ -78,10 +79,66 @@ export class TranslationService {
             return key;
         }
 
+        // Handle parameter interpolation
+        if (params && typeof result === 'string') {
+            return this.interpolateParams(result, params);
+        }
+
         return result;
+    }
+
+    // Helper method to interpolate parameters in translation strings
+    private interpolateParams(text: string, params: Record<string, any>): string {
+        return Object.keys(params).reduce((result, param) => {
+            const regex = new RegExp(`{${param}}`, 'g');
+            return result.replace(regex, String(params[param]));
+        }, text);
+    }
+
+    // Convenience method for translations with count parameter
+    translateWithCount(key: string, count: number): string {
+        return this.translate(key, { count });
+    }
+
+    // Convenience method for translations with multiple common parameters
+    translateWithParams(key: string, params: Record<string, any>): string {
+        return this.translate(key, params);
     }
 
     isTranslationsLoaded(): boolean {
         return this.isLoaded();
+    }
+
+    // Helper method to get nested translation object (useful for dropdowns, etc.)
+    getTranslationObject(key: string): any {
+        if (!this.isLoaded()) {
+            return {};
+        }
+
+        const lang = this.getCurrentLanguage();
+        const translation = this.translations[lang];
+
+        if (!translation) {
+            return {};
+        }
+
+        return key.split('.').reduce((obj, k) => obj?.[k], translation) || {};
+    }
+
+    // Method to check if a translation key exists
+    hasTranslation(key: string): boolean {
+        if (!this.isLoaded()) {
+            return false;
+        }
+
+        const lang = this.getCurrentLanguage();
+        const translation = this.translations[lang];
+
+        if (!translation) {
+            return false;
+        }
+
+        const result = key.split('.').reduce((obj, k) => obj?.[k], translation);
+        return result !== undefined && result !== null;
     }
 }
