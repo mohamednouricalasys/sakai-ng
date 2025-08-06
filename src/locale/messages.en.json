@@ -90,6 +90,13 @@
       "prodigiesDeleted": "Prodigies deleted",
       "confirmDeleteProdige": "Are you sure you want to delete {name}?",
       "confirmDeleteProdigies": "Are you sure you want to delete the selected prodigies?"
+    },
+    "sort": {
+      "name": {
+        "placeholder": "Sort By Name",
+        "down": "Name ▼",
+        "up": "Name ▲"
+      }
     }
   }
 }

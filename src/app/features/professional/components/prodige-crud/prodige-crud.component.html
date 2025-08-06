@@ -1,93 +1,79 @@
-<p-toast />
+<div class="flex flex-col">
+    <div class="card">
+        <p-dataview #dv [value]="prodigies()" [layout]="layout" [rows]="5" [paginator]="true" [sortField]="sortField" [sortOrder]="sortOrder">
+            <ng-template #header>
+                <div class="flex justify-between flex-wrap gap-4">
+                    <p-button [label]="'procrud.labels.newProdige' | translate" icon="pi pi-plus" severity="secondary" (onClick)="openNew()" />
 
-<p-toolbar styleClass="mb-6">
-    <ng-template #start>
-        <p-button [label]="'procrud.labels.newProdige' | translate" icon="pi pi-plus" severity="secondary" class="mr-2" (onClick)="openNew()" />
-        <p-button severity="secondary" [label]="'shared.actions.delete' | translate" icon="pi pi-trash" outlined (onClick)="deleteSelectedProdigies()" [disabled]="!selectedProdigies || !selectedProdigies.length" />
-    </ng-template>
+                    <p-select [options]="sortOptions" [placeholder]="'procrud.sort.name.placeholder' | translate" (onChange)="onSortChange($event)" />
 
-    <ng-template #end>
-        <p-button [label]="'shared.actions.export' | translate" icon="pi pi-upload" severity="secondary" (onClick)="exportCSV()" />
-    </ng-template>
-</p-toolbar>
-
-<p-table
-    #dt
-    [value]="prodigies()"
-    [rows]="10"
-    [columns]="cols"
-    [paginator]="true"
-    [globalFilterFields]="['nom', 'sport']"
-    [tableStyle]="{ 'min-width': '75rem' }"
-    [(selection)]="selectedProdigies"
-    [rowHover]="true"
-    dataKey="id"
-    [currentPageReportTemplate]="'procrud.pagination.showing' | translate"
-    [showCurrentPageReport]="true"
-    [rowsPerPageOptions]="[10, 20, 30]"
->
-    <ng-template #caption>
-        <div class="flex items-center justify-between">
-            <h5 class="m-0">{{ 'procrud.title' | translate }}</h5>
-            <p-iconfield>
-                <p-inputicon styleClass="pi pi-search" />
-                <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" [placeholder]="'shared.actions.search' | translate" />
-            </p-iconfield>
-        </div>
-    </ng-template>
-
-    <ng-template #header>
-        <tr>
-            <th style="width: 3rem">
-                <p-tableHeaderCheckbox />
-            </th>
-            <th pSortableColumn="nom" style="min-width: 16rem">
-                {{ 'shared.common.name' | translate }}
-                <p-sortIcon field="nom" />
-            </th>
-            <th pSortableColumn="age" style="min-width: 8rem">
-                {{ 'shared.common.age' | translate }}
-                <p-sortIcon field="age" />
-            </th>
-            <th pSortableColumn="sport" style="min-width: 12rem">
-                {{ 'procrud.labels.sport' | translate }}
-                <p-sortIcon field="sport" />
-            </th>
-            <th style="min-width: 12rem">{{ 'shared.common.tags' | translate }}</th>
-            <th pSortableColumn="dateCreation" style="min-width: 12rem">
-                {{ 'shared.common.creationDate' | translate }}
-                <p-sortIcon field="dateCreation" />
-            </th>
-            <th style="min-width: 12rem">{{ 'shared.common.actions' | translate }}</th>
-        </tr>
-    </ng-template>
-
-    <ng-template #body let-prodige>
-        <tr>
-            <td style="width: 3rem">
-                <p-tableCheckbox [value]="prodige" />
-            </td>
-            <td style="min-width: 16rem">{{ prodige.nom }}</td>
-            <td>
-                <p-tag [value]="prodige.age + ' ' + ('shared.common.years' | translate)" [severity]="getAgeSeverity(prodige.age)" />
-            </td>
-            <td>{{ getSportLabel(prodige.sport) }}</td>
-            <td>
-                <div class="flex flex-wrap gap-1">
-                    <p-tag *ngFor="let tag of prodige.tags?.slice(0, 3)" [value]="getTagLabel(tag)" severity="info" class="text-xs" />
-                    <p-tag *ngIf="(prodige.tags?.length || 0) > 3" [value]="'+' + ((prodige.tags?.length || 0) - 3)" severity="secondary" class="text-xs" />
+                    <p-select-button [(ngModel)]="layout" [options]="layoutOptions" [allowEmpty]="false">
+                        <ng-template #item let-option>
+                            <i class="pi" [ngClass]="{ 'pi-bars': option === 'list', 'pi-table': option === 'grid' }"></i>
+                        </ng-template>
+                    </p-select-button>
                 </div>
-            </td>
-            <td>{{ prodige.dateCreation | date: 'dd/MM/yyyy' }}</td>
-            <td>
-                <p-button icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true" (click)="editProdige(prodige)" />
-                <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteProdige(prodige)" />
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
+            </ng-template>
 
-<!-- Dialog for creating/editing prodige -->
+            <ng-template #list let-items>
+                <div class="flex flex-col">
+                    <div *ngFor="let item of items; let i = index" class="p-6 border-b border-surface-200">
+                        <div class="flex items-center gap-4">
+                            <div class="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div class="flex flex-col">
+                                    <div class="text-xl font-medium">{{ item.nom }}</div>
+                                    <div class="text-sm text-gray-500">{{ getSportLabel(item.sport) }}</div>
+                                    <p-tag [value]="item.age + ' ' + ('shared.common.years' | translate)" [severity]="getAgeSeverity(item.age)" class="mt-2" />
+                                </div>
+                                <div class="flex flex-col items-end gap-2">
+                                    <div class="flex flex-wrap gap-1">
+                                        <p-tag *ngFor="let tag of item.tags?.slice(0, 3)" [value]="getTagLabel(tag)" severity="info" class="text-xs" />
+                                        <p-tag *ngIf="(item.tags?.length || 0) > 3" [value]="'+' + ((item.tags?.length || 0) - 3)" severity="secondary" class="text-xs" />
+                                    </div>
+                                    <span class="text-sm text-gray-500 mt-2">{{ item.dateCreation | date: 'dd/MM/yyyy' }}</span>
+                                    <div class="flex gap-2">
+                                        <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editProdige(item)" />
+                                        <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteProdige(item)" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template #grid let-items>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div *ngFor="let item of items; let i = index" class="p-4 border rounded shadow-sm flex flex-col gap-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="font-medium text-lg">{{ item.nom }}</span>
+                            </div>
+                            <p-tag [value]="item.age + ' ' + ('shared.common.years' | translate)" [severity]="getAgeSeverity(item.age)" />
+                        </div>
+
+                        <div class="flex-grow flex flex-col gap-2">
+                            <div class="text-sm text-gray-500">{{ getSportLabel(item.sport) }}</div>
+                            <div class="flex flex-wrap gap-1">
+                                <p-tag *ngFor="let tag of item.tags?.slice(0, 3)" [value]="getTagLabel(tag)" severity="info" class="text-xs" />
+                                <p-tag *ngIf="(item.tags?.length || 0) > 3" [value]="'+' + ((item.tags?.length || 0) - 3)" severity="secondary" class="text-xs" />
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-sm text-gray-500">{{ item.dateCreation | date: 'dd/MM/yyyy' }}</span>
+                            <div class="flex gap-2">
+                                <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editProdige(item)" />
+                                <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteProdige(item)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataview>
+    </div>
+</div>
+
 <p-dialog [(visible)]="prodigeDialog" [style]="{ width: '450px' }" [header]="'procrud.labels.prodigeDetails' | translate" [modal]="true">
     <ng-template #content>
         <div class="flex flex-col gap-6">
@@ -150,12 +136,10 @@
                     <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
                 </label>
 
-                <!-- Selected tags display -->
                 <div class="flex flex-wrap gap-2 mb-3" *ngIf="prodige.tags && prodige.tags.length > 0">
                     <p-chip *ngFor="let tag of prodige.tags" [label]="getTagLabel(tag)" [removable]="true" (onRemove)="removeTag(tag)" />
                 </div>
 
-                <!-- Add new tag -->
                 <div class="flex gap-2 mb-3">
                     <p-select
                         [(ngModel)]="selectedTagToAdd"
@@ -200,3 +184,5 @@
 </p-dialog>
 
 <p-confirmdialog [style]="{ width: '450px' }" />
+
+<p-toast />

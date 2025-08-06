@@ -90,6 +90,13 @@
       "prodigiesDeleted": "Prodiges supprimés",
       "confirmDeleteProdige": "Êtes-vous sûr de vouloir supprimer {name} ?",
       "confirmDeleteProdigies": "Êtes-vous sûr de vouloir supprimer les prodiges sélectionnés ?"
+    },
+    "sort":{
+      "name" : {
+        "placeholder" : "Trier Par Nom",
+        "down" : "Nom ▼",
+        "up" : "Nom ▲"
+      }
     }
   }
   }

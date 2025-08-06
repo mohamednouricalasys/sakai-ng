@@ -1,6 +1,5 @@
 import { Component, inject, OnInit, signal, ViewChild } from '@angular/core';
-import { ConfirmationService, MessageService } from 'primeng/api';
-import { Table, TableModule } from 'primeng/table';
+import { ConfirmationService, MessageService, SelectItem } from 'primeng/api';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
@@ -24,6 +23,12 @@ import { Tag } from '../../../../core/enums/tag.enum';
 import { TranslationService } from '../../../../core/services/translation.service';
 import { TranslateCountPipe, TranslateParamsPipe, TranslatePipe } from '../../../../core/shared';
 
+// PrimeNG DataView and SelectButton modules
+import { DataView, DataViewModule } from 'primeng/dataview';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { PickListModule } from 'primeng/picklist';
+import { OrderListModule } from 'primeng/orderlist';
+
 interface Column {
     field: string;
     header: string;
@@ -39,8 +44,9 @@ interface ExportColumn {
     selector: 'app-prodige-crud',
     standalone: true,
     imports: [
+        PickListModule,
+        OrderListModule,
         CommonModule,
-        TableModule,
         FormsModule,
         ButtonModule,
         RippleModule,
@@ -59,9 +65,18 @@ interface ExportColumn {
         TranslatePipe,
         TranslateParamsPipe,
         TranslateCountPipe,
+        DataViewModule, // Added DataViewModule
+        SelectButtonModule, // Added SelectButtonModule
     ],
     templateUrl: './prodige-crud.component.html',
     providers: [MessageService, ProdigeService, ConfirmationService],
+    styles: `
+        ::ng-deep {
+            .p-orderlist-list-container {
+                width: 100%;
+            }
+        }
+    `,
 })
 export class ProdigeCrudComponent implements OnInit {
     prodigeDialog: boolean = false;
@@ -80,13 +95,24 @@ export class ProdigeCrudComponent implements OnInit {
 
     selectedTagToAdd: Tag | null = null;
 
-    @ViewChild('dt') dt!: Table;
+    sortOptions!: SelectItem[];
+
+    sortOrder!: number;
+
+    sortField!: string;
+
+    // Changed ViewChild from 'dt' (Table) to 'dv' (DataView)
+    @ViewChild('dv') dv!: DataView;
 
     exportColumns!: ExportColumn[];
 
     cols!: Column[];
 
     private translationService = inject(TranslationService);
+
+    // Properties for DataView layout selection
+    layout: 'list' | 'grid' = 'list';
+    layoutOptions = ['list', 'grid'];
 
     constructor(
         private prodigeService: ProdigeService,
@@ -106,6 +132,23 @@ export class ProdigeCrudComponent implements OnInit {
 
     ngOnInit() {
         this.loadData();
+
+        this.sortOptions = [
+            { label: this.t('procrud.sort.name.down'), value: '!nom' },
+            { label: this.t('procrud.sort.name.up'), value: 'nom' },
+        ];
+    }
+
+    onSortChange(event: any) {
+        let value = event.value;
+
+        if (value.indexOf('!') === 0) {
+            this.sortOrder = -1;
+            this.sortField = value.substring(1, value.length);
+        } else {
+            this.sortOrder = 1;
+            this.sortField = value;
+        }
     }
 
     loadData() {
@@ -116,7 +159,7 @@ export class ProdigeCrudComponent implements OnInit {
         this.sportOptions = this.prodigeService.getSportOptions();
         this.tagOptions = this.prodigeService.getTagOptions();
 
-        // Internationalized column definitions
+        // Internationalized column definitions (kept for potential CSV export, though not directly used by DataView rendering)
         this.cols = [
             {
                 field: 'nom',
@@ -147,8 +190,9 @@ export class ProdigeCrudComponent implements OnInit {
         }));
     }
 
-    onGlobalFilter(table: Table, event: Event) {
-        table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
+    // Updated onGlobalFilter method to use DataView's filter API
+    onGlobalFilter(dataview: DataView, event: Event) {
+        dataview.filter((event.target as HTMLInputElement).value);
     }
 
     openNew() {
@@ -274,6 +318,11 @@ export class ProdigeCrudComponent implements OnInit {
         return 'success';
     }
 
+    // Helper method to check if description is required
+    isDescriptionRequired(): boolean {
+        return this.prodige.sport === Sport.Autre;
+    }
+
     saveProdige() {
         this.submitted = true;
         const _prodigies = this.prodigies();
@@ -340,13 +389,59 @@ export class ProdigeCrudComponent implements OnInit {
         }
     }
 
-    // Helper method to check if description is required
-    isDescriptionRequired(): boolean {
-        return this.prodige.sport === Sport.Autre;
-    }
-
+    // The exportCSV method needs to be adapted as DataView does not have a direct exportCSV() method like Table.
+    // You would typically implement custom CSV export logic here based on your `prodigies` data.
     exportCSV() {
-        this.dt.exportCSV();
+        // Example of how you might implement a basic CSV export for DataView data:
+        const data = this.prodigies();
+        if (!data || data.length === 0) {
+            this.messageService.add({
+                severity: 'warn',
+                summary: this.t('shared.messages.noData'),
+                detail: this.t('procrud.messages.noDataToExport'),
+                life: 3000,
+            });
+            return;
+        }
+
+        const headers = this.exportColumns.map((col) => col.title).join(',');
+        const rows = data.map((prodige) => {
+            return this.exportColumns
+                .map((col) => {
+                    let value = prodige[col.dataKey as keyof Prodige];
+                    if (col.dataKey === 'sport') {
+                        value = this.getSportLabel(value as Sport);
+                    } else if (col.dataKey === 'dateCreation') {
+                        value = (value as Date)?.toLocaleDateString('en-GB'); // Format date for CSV
+                    } else if (col.dataKey === 'tags') {
+                        value = (value as Tag[])?.map((tag) => this.getTagLabel(tag)).join(';');
+                    } else if (col.dataKey === 'videosCount') {
+                        value = (prodige.videos?.length || 0).toString();
+                    }
+                    return `"${value !== undefined && value !== null ? String(value).replace(/"/g, '""') : ''}"`;
+                })
+                .join(',');
+        });
+
+        const csvContent = [headers, ...rows].join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        if (link.download !== undefined) {
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'prodigies.csv');
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            this.messageService.add({
+                severity: 'error',
+                summary: this.t('shared.common.error'),
+                detail: this.t('procrud.messages.exportNotSupported'),
+                life: 3000,
+            });
+        }
     }
 
     // Additional helper methods for template usage
