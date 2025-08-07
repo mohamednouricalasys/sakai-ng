@@ -1,6 +1,7 @@
 import { Video } from './video.interface';
 import { Sport } from '../enums/sport.enum';
 import { Tag } from '../enums/tag.enum';
+import { Gender } from '../enums/gender.enum';
 
 export interface Prodige {
     id?: string;
@@ -15,4 +16,6 @@ export interface Prodige {
     dateModification?: Date;
     creePar?: string;
     modifiePar?: string;
+    pays?: string;
+    gender?: Gender;
 }

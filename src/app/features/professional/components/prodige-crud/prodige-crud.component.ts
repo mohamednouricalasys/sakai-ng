@@ -16,10 +16,12 @@ import { ChipModule } from 'primeng/chip';
 import { InputIconModule } from 'primeng/inputicon';
 import { IconFieldModule } from 'primeng/iconfield';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { RadioButtonModule } from 'primeng/radiobutton';
 import { ProdigeService } from '../../../../core/services/prodige.service';
 import { Prodige } from '../../../../core/interfaces/prodige.interface';
 import { Sport } from '../../../../core/enums/sport.enum';
 import { Tag } from '../../../../core/enums/tag.enum';
+import { Gender } from '../../../../core/enums/gender.enum';
 import { TranslationService } from '../../../../core/services/translation.service';
 import { TranslateCountPipe, TranslateParamsPipe, TranslatePipe } from '../../../../core/shared';
 
@@ -28,6 +30,9 @@ import { DataView, DataViewModule } from 'primeng/dataview';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { PickListModule } from 'primeng/picklist';
 import { OrderListModule } from 'primeng/orderlist';
+import { Country } from '../../../../core/interfaces/country.interface';
+import { DropdownModule } from 'primeng/dropdown';
+import { COUNTRIES_DATA } from '../../../../core/shared/countries-data';
 
 interface Column {
     field: string;
@@ -62,11 +67,13 @@ interface ExportColumn {
         InputIconModule,
         IconFieldModule,
         ConfirmDialogModule,
+        RadioButtonModule,
         TranslatePipe,
         TranslateParamsPipe,
         TranslateCountPipe,
-        DataViewModule, // Added DataViewModule
-        SelectButtonModule, // Added SelectButtonModule
+        DataViewModule,
+        SelectButtonModule,
+        DropdownModule,
     ],
     templateUrl: './prodige-crud.component.html',
     providers: [MessageService, ProdigeService, ConfirmationService],
@@ -74,6 +81,12 @@ interface ExportColumn {
         ::ng-deep {
             .p-orderlist-list-container {
                 width: 100%;
+            }
+            .country-flag {
+                width: 20px;
+                height: 15px;
+                margin-right: 8px;
+                border-radius: 2px;
             }
         }
     `,
@@ -100,6 +113,16 @@ export class ProdigeCrudComponent implements OnInit {
     sortOrder!: number;
 
     sortField!: string;
+
+    // Gender options
+    genderOptions = [
+        { label: '', value: Gender.Homme },
+        { label: '', value: Gender.Femme },
+    ];
+
+    countries = COUNTRIES_DATA;
+
+    selectedCountry: Country | null = null;
 
     // Changed ViewChild from 'dt' (Table) to 'dv' (DataView)
     @ViewChild('dv') dv!: DataView;
@@ -137,6 +160,18 @@ export class ProdigeCrudComponent implements OnInit {
             { label: this.t('procrud.sort.name.down'), value: '!nom' },
             { label: this.t('procrud.sort.name.up'), value: 'nom' },
         ];
+
+        // Initialize gender options after translation service is available
+        this.genderOptions = [
+            { label: this.t('shared.common.male'), value: Gender.Homme },
+            { label: this.t('shared.common.female'), value: Gender.Femme },
+        ];
+
+        // Populate the countries array with translated names
+        this.countries = COUNTRIES_DATA.map((country) => ({
+            ...country,
+            name: this.t(`countries.${country.code.toLowerCase()}`),
+        }));
     }
 
     onSortChange(event: any) {
@@ -152,6 +187,8 @@ export class ProdigeCrudComponent implements OnInit {
     }
 
     loadData() {
+        this.prodigeService.getProdigiess().subscribe((data) => console.log('data : ', data));
+
         this.prodigeService.getProdigies().then((data) => {
             this.prodigies.set(data);
         });
@@ -175,6 +212,14 @@ export class ProdigeCrudComponent implements OnInit {
                 header: this.t('procrud.columns.sport'),
             },
             {
+                field: 'gender',
+                header: this.t('procrud.columns.gender'),
+            },
+            {
+                field: 'pays',
+                header: this.t('procrud.columns.country'),
+            },
+            {
                 field: 'videosCount',
                 header: this.t('procrud.columns.videosCount'),
             },
@@ -196,14 +241,19 @@ export class ProdigeCrudComponent implements OnInit {
     }
 
     openNew() {
-        this.prodige = { videos: [], tags: [] };
+        this.prodige = { videos: [], tags: [], gender: Gender.Homme, pays: 'FR' };
         this.submitted = false;
         this.selectedTagToAdd = null;
         this.prodigeDialog = true;
     }
 
     editProdige(prodige: Prodige) {
-        this.prodige = { ...prodige, tags: [...(prodige.tags || [])] };
+        this.prodige = {
+            ...prodige,
+            tags: [...(prodige.tags || [])],
+            gender: prodige.gender ?? Gender.Homme,
+            pays: prodige.pays || 'FR',
+        };
         this.selectedTagToAdd = null;
         this.prodigeDialog = true;
     }
@@ -278,6 +328,20 @@ export class ProdigeCrudComponent implements OnInit {
         return this.prodigeService.getTagLabel(tag);
     }
 
+    getGenderLabel(gender: Gender): string {
+        return gender === Gender.Homme ? this.t('shared.common.male') : this.t('shared.common.female');
+    }
+
+    getGenderIcon(gender: Gender): string {
+        return gender === Gender.Homme ? 'pi pi-mars' : 'pi pi-venus';
+    }
+
+    getCountryName(countryCode: string): string {
+        // You might want to use a proper country name mapping service
+        // For now, return the country code
+        return countryCode?.toUpperCase() || '';
+    }
+
     addTag() {
         if (this.selectedTagToAdd !== null && this.prodige.tags && !this.prodige.tags.includes(this.selectedTagToAdd)) {
             if (this.prodige.tags.length < 10) {
@@ -327,7 +391,7 @@ export class ProdigeCrudComponent implements OnInit {
         this.submitted = true;
         const _prodigies = this.prodigies();
 
-        if (this.prodige.nom?.trim() && this.prodige.age && this.prodige.sport !== undefined) {
+        if (this.prodige.nom?.trim() && this.prodige.age && this.prodige.sport !== undefined && this.prodige.gender !== undefined) {
             // Validate tags
             if (!this.prodige.tags || this.prodige.tags.length < 3) {
                 this.messageService.add({
@@ -411,6 +475,10 @@ export class ProdigeCrudComponent implements OnInit {
                     let value = prodige[col.dataKey as keyof Prodige];
                     if (col.dataKey === 'sport') {
                         value = this.getSportLabel(value as Sport);
+                    } else if (col.dataKey === 'gender') {
+                        value = this.getGenderLabel(value as Gender);
+                    } else if (col.dataKey === 'pays') {
+                        value = this.getCountryName(value as string);
                     } else if (col.dataKey === 'dateCreation') {
                         value = (value as Date)?.toLocaleDateString('en-GB'); // Format date for CSV
                     } else if (col.dataKey === 'tags') {
@@ -465,5 +533,9 @@ export class ProdigeCrudComponent implements OnInit {
 
     getPaginationTemplate(): string {
         return this.t('procrud.pagination.showing');
+    }
+
+    getSelectedCountry(): Country | undefined {
+        return this.countries.find((c) => c.code === this.prodige.pays);
     }
 }

@@ -1,19 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Prodige } from '../interfaces/prodige.interface';
 import { Sport } from '../enums/sport.enum';
 import { Tag } from '../enums/tag.enum';
+import { Gender } from '../enums/gender.enum';
+import { environment } from '../../../environments/environment';
+import { KeycloakService } from 'keycloak-angular';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ProdigeService {
-    private apiUrl = 'api/prodiges'; // Adjust URL as needed
+    private apiUrl;
 
-    constructor(private http: HttpClient) {}
+    constructor(
+        private http: HttpClient,
+        private keycloakService: KeycloakService,
+    ) {
+        this.apiUrl = environment.apiUrl + '/prodiges'; // Adjust URL as needed
+    }
+
+    /**
+     * permets de récupérer la liste des agences
+     */
+    getProdigiess(): Observable<Prodige[]> {
+        return this.http.get<Prodige[]>(`${this.apiUrl}/all`);
+    }
 
     getProdigies(): Promise<Prodige[]> {
+        //return this.http.get<Prodige[]>(`${this.apiUrl}`);
         // Mock data for demo - replace with actual HTTP call
         return Promise.resolve(this.getMockData());
     }
@@ -240,6 +256,8 @@ export class ProdigeService {
                 ],
                 dateCreation: new Date('2024-01-15'),
                 creePar: 'admin',
+                gender: Gender.Femme,
+                pays: 'FR',
             },
             {
                 id: '2',
@@ -251,6 +269,8 @@ export class ProdigeService {
                 videos: [{ id: '3', titre: 'Techniques de dribble', url: 'video3.mp4' }],
                 dateCreation: new Date('2024-02-20'),
                 creePar: 'admin',
+                gender: Gender.Homme,
+                pays: 'FR',
             },
             {
                 id: '3',
@@ -265,6 +285,8 @@ export class ProdigeService {
                 ],
                 dateCreation: new Date('2024-03-10'),
                 creePar: 'admin',
+                gender: Gender.Femme,
+                pays: 'CA',
             },
             {
                 id: '4',
@@ -276,6 +298,8 @@ export class ProdigeService {
                 videos: [],
                 dateCreation: new Date('2024-04-05'),
                 creePar: 'admin',
+                gender: Gender.Homme,
+                pays: 'GB',
             },
             {
                 id: '5',
@@ -287,6 +311,8 @@ export class ProdigeService {
                 videos: [{ id: '6', titre: 'Entraînement combat', url: 'video6.mp4' }],
                 dateCreation: new Date('2024-05-12'),
                 creePar: 'admin',
+                gender: Gender.Femme,
+                pays: 'US',
             },
         ];
     }

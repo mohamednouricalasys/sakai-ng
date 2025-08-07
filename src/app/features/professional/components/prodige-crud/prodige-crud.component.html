@@ -1,6 +1,6 @@
 <div class="flex flex-col">
     <div class="card">
-        <p-dataview #dv [value]="prodigies()" [layout]="layout" [rows]="5" [paginator]="true" [sortField]="sortField" [sortOrder]="sortOrder">
+        <p-dataview #dv [value]="prodigies()" [layout]="layout" [rows]="6" [paginator]="true" [sortField]="sortField" [sortOrder]="sortOrder">
             <ng-template #header>
                 <div class="flex justify-between flex-wrap gap-4">
                     <p-button [label]="'procrud.labels.newProdige' | translate" icon="pi pi-plus" severity="secondary" (onClick)="openNew()" />
@@ -21,9 +21,16 @@
                         <div class="flex items-center gap-4">
                             <div class="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <div class="flex flex-col">
-                                    <div class="text-xl font-medium">{{ item.nom }}</div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="text-xl font-medium">{{ item.nom }}</div>
+                                        <i [class]="getGenderIcon(item.gender)" class="text-sm"></i>
+                                        <img [src]="'https://flagcdn.com/w20/' + (item.pays || 'fr').toLowerCase() + '.png'" [alt]="getCountryName(item.pays)" class="country-flag" *ngIf="item.pays" />
+                                    </div>
                                     <div class="text-sm text-gray-500">{{ getSportLabel(item.sport) }}</div>
-                                    <p-tag [value]="item.age + ' ' + ('shared.common.years' | translate)" [severity]="getAgeSeverity(item.age)" class="mt-2" />
+                                    <div class="flex items-center gap-2 mt-2">
+                                        <p-tag [value]="item.age + ' ' + ('shared.common.years' | translate)" [severity]="getAgeSeverity(item.age)" />
+                                        <span class="text-xs text-gray-500">{{ getCountryName(item.pays) }}</span>
+                                    </div>
                                 </div>
                                 <div class="flex flex-col items-end gap-2">
                                     <div class="flex flex-wrap gap-1">
@@ -48,8 +55,12 @@
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-2">
                                 <span class="font-medium text-lg">{{ item.nom }}</span>
+                                <i [class]="getGenderIcon(item.gender)" class="text-sm"></i>
                             </div>
-                            <p-tag [value]="item.age + ' ' + ('shared.common.years' | translate)" [severity]="getAgeSeverity(item.age)" />
+                            <div class="flex items-center gap-2">
+                                <p-tag [value]="item.age + ' ' + ('shared.common.years' | translate)" [severity]="getAgeSeverity(item.age)" />
+                                <img [src]="'https://flagcdn.com/w20/' + (item.pays || 'fr').toLowerCase() + '.png'" [alt]="getCountryName(item.pays)" class="country-flag" *ngIf="item.pays" />
+                            </div>
                         </div>
 
                         <div class="flex-grow flex flex-col gap-2">
@@ -100,20 +111,70 @@
             </div>
 
             <div>
+                <label class="block font-bold mb-3">
+                    {{ 'shared.common.gender' | translate }}
+                    <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
+                </label>
+                <div class="flex gap-4">
+                    <div class="flex items-center">
+                        <p-radiobutton [(ngModel)]="prodige.gender" [value]="0" inputId="male" name="gender" />
+                        <label for="male" class="ml-2">
+                            <i class="pi pi-mars mr-1"></i>
+                            {{ 'shared.common.male' | translate }}
+                        </label>
+                    </div>
+                    <div class="flex items-center">
+                        <p-radiobutton [(ngModel)]="prodige.gender" [value]="1" inputId="female" name="gender" />
+                        <label for="female" class="ml-2">
+                            <i class="pi pi-venus mr-1"></i>
+                            {{ 'shared.common.female' | translate }}
+                        </label>
+                    </div>
+                </div>
+                <small class="text-red-500" *ngIf="submitted && prodige.gender === undefined">
+                    {{ 'shared.validation.genderRequired' | translate }}
+                </small>
+            </div>
+
+            <div>
+                <label for="country" class="block font-bold mb-3">
+                    {{ 'shared.common.country' | translate }}
+                    <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
+                </label>
+                <p-select [options]="countries" class="w-full" [(ngModel)]="prodige.pays" optionLabel="name" optionValue="code" placeholder="Select a country" [filter]="true" [virtualScroll]="true" [itemSize]="40" [showClear]="true">
+                    <!-- Template for each item in the dropdown -->
+                    <ng-template let-country pTemplate="item">
+                        <div class="flex align-items-center gap-2">
+                            <span>{{ country.flag }}</span>
+                            <span>{{ country.name }}</span>
+                        </div>
+                    </ng-template>
+
+                    <!-- Template for selected item -->
+                    <ng-template pTemplate="selectedItem">
+                        <ng-container *ngIf="getSelectedCountry(); else noSelection">
+                            <div class="flex align-items-center gap-2">
+                                <span>{{ getSelectedCountry()?.flag }}</span>
+                                <span>{{ getSelectedCountry()?.name }}</span>
+                            </div>
+                        </ng-container>
+                        <ng-template #noSelection>
+                            <span>Select a country</span>
+                        </ng-template>
+                    </ng-template>
+                </p-select>
+
+                <small class="text-red-500" *ngIf="submitted && !prodige.pays">
+                    {{ 'shared.validation.countryRequired' | translate }}
+                </small>
+            </div>
+
+            <div>
                 <label for="description" class="block font-bold mb-3">
                     {{ 'shared.common.description' | translate }}
                     <span *ngIf="isDescriptionRequired()" class="text-red-500">{{ 'shared.common.required' | translate }}</span>
                 </label>
-                <textarea
-                    id="description"
-                    pTextarea
-                    [(ngModel)]="prodige.description"
-                    rows="3"
-                    cols="20"
-                    [placeholder]="isDescriptionRequired() ? ('procrud.validation.descriptionRequiredForOther' | translate) : ('procrud.placeholders.describeQualities' | translate)"
-                    fluid
-                >
-                </textarea>
+                <textarea id="description" pTextarea [(ngModel)]="prodige.description" rows="3" cols="20" [placeholder]="getDescriptionPlaceholder()" fluid> </textarea>
                 <small class="text-red-500" *ngIf="submitted && isDescriptionRequired() && (!prodige.description || !prodige.description.trim())">
                     {{ 'procrud.validation.descriptionRequired' | translate }}
                 </small>
