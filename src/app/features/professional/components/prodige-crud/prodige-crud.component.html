@@ -112,7 +112,7 @@
 
             <div>
                 <label class="block font-bold mb-3">
-                    {{ 'shared.common.gender' | translate }}
+                    {{ 'procrud.columns.gender' | translate }}
                     <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
                 </label>
                 <div class="flex gap-4">
@@ -138,7 +138,7 @@
 
             <div>
                 <label for="country" class="block font-bold mb-3">
-                    {{ 'shared.common.country' | translate }}
+                    {{ 'procrud.columns.country' | translate }}
                     <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
                 </label>
                 <p-select [options]="countries" class="w-full" [(ngModel)]="prodige.pays" optionLabel="name" optionValue="code" placeholder="Select a country" [filter]="true" [virtualScroll]="true" [itemSize]="40" [showClear]="true">
