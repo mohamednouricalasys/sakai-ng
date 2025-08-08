@@ -26,8 +26,9 @@ export class AppMenu {
             {
                 label: this.translationService.translate('nav.profesional'),
                 items: [
+                    { label: 'Prodiges', icon: 'pi pi-fw pi-eye', routerLink: ['/professional/prodiges'] },
+                    { label: 'Videos', icon: 'pi pi-fw pi-eye', routerLink: ['/professional/videos'] },
                     { label: 'Dashboard', icon: 'pi pi-fw pi-eye', routerLink: ['/professional'] },
-                    { label: 'Prodiges', icon: 'pi pi-fw pi-eye', routerLink: ['/professional//prodiges'] },
                     { label: 'My Athletes', icon: 'pi pi-users', routerLink: '/professional/my-athletes' },
                     { label: 'Upload Video', icon: 'pi pi-upload', routerLink: '/professional/upload-video' },
                     { label: 'Messages', icon: 'pi pi-envelope', routerLink: '/professional/messages' },

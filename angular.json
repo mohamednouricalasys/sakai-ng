@@ -33,7 +33,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "flag-icons/css/flag-icons.min.css"
+              "flag-icons/css/flag-icons.min.css",
+              "node_modules/video.js/dist/video-js.css"
             ],
             "scripts": []
           },
