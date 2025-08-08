@@ -1,4 +1,6 @@
-import { Component, inject, OnInit, signal, ViewChild } from '@angular/core';
+// prodige-crud.component.ts
+
+import { Component, inject, OnInit, signal, ViewChild, computed, ChangeDetectorRef } from '@angular/core';
 import { ConfirmationService, MessageService, SelectItem } from 'primeng/api';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -24,33 +26,18 @@ import { Tag } from '../../../../core/enums/tag.enum';
 import { Gender } from '../../../../core/enums/gender.enum';
 import { TranslationService } from '../../../../core/services/translation.service';
 import { TranslateCountPipe, TranslateParamsPipe, TranslatePipe } from '../../../../core/shared';
-
-// PrimeNG DataView and SelectButton modules
 import { DataView, DataViewModule } from 'primeng/dataview';
 import { SelectButtonModule } from 'primeng/selectbutton';
-import { PickListModule } from 'primeng/picklist';
-import { OrderListModule } from 'primeng/orderlist';
 import { Country } from '../../../../core/interfaces/country.interface';
-import { DropdownModule } from 'primeng/dropdown';
 import { COUNTRIES_DATA } from '../../../../core/shared/countries-data';
-
-interface Column {
-    field: string;
-    header: string;
-    customExportHeader?: string;
-}
-
-interface ExportColumn {
-    title: string;
-    dataKey: string;
-}
+import { validateProdige } from './prodige-crud.validation';
+import { ProdigeApiHelper, ApiCallbacks } from './prodige-api.helper';
+import { ProdigeStore } from './prodige-store';
 
 @Component({
     selector: 'app-prodige-crud',
     standalone: true,
     imports: [
-        PickListModule,
-        OrderListModule,
         CommonModule,
         FormsModule,
         ButtonModule,
@@ -73,15 +60,11 @@ interface ExportColumn {
         TranslateCountPipe,
         DataViewModule,
         SelectButtonModule,
-        DropdownModule,
     ],
     templateUrl: './prodige-crud.component.html',
-    providers: [MessageService, ProdigeService, ConfirmationService],
+    providers: [MessageService, ProdigeService, ConfirmationService, ProdigeStore],
     styles: `
         ::ng-deep {
-            .p-orderlist-list-container {
-                width: 100%;
-            }
             .country-flag {
                 width: 20px;
                 height: 15px;
@@ -94,63 +77,44 @@ interface ExportColumn {
 export class ProdigeCrudComponent implements OnInit {
     prodigeDialog: boolean = false;
 
-    prodigies = signal<Prodige[]>([]);
+    // Use a store instance for state management
+    private readonly store = inject(ProdigeStore);
 
+    // Expose store selectors to the component's template
+    readonly prodigies = this.store.prodigies;
+    readonly loading = this.store.loading;
+    readonly saving = this.store.saving;
+    readonly deleting = this.store.deleting;
+    readonly error = this.store.error;
+
+    // The current prodige being edited/created
     prodige: Prodige = {};
-
-    selectedProdigies: Prodige[] | null = null;
-
     submitted: boolean = false;
-
     sportOptions: any[] = [];
-
     tagOptions: any[] = [];
-
     selectedTagToAdd: Tag | null = null;
-
     sortOptions!: SelectItem[];
-
     sortOrder!: number;
-
     sortField!: string;
+    countries: Country[] = COUNTRIES_DATA;
 
-    // Gender options
-    genderOptions = [
-        { label: '', value: Gender.Homme },
-        { label: '', value: Gender.Femme },
-    ];
-
-    countries = COUNTRIES_DATA;
-
-    selectedCountry: Country | null = null;
-
-    // Changed ViewChild from 'dt' (Table) to 'dv' (DataView)
     @ViewChild('dv') dv!: DataView;
 
-    exportColumns!: ExportColumn[];
-
-    cols!: Column[];
-
     private translationService = inject(TranslationService);
+    private prodigeService = inject(ProdigeService);
+    private messageService = inject(MessageService);
+    private confirmationService = inject(ConfirmationService);
+    private cdr = inject(ChangeDetectorRef);
 
     // Properties for DataView layout selection
     layout: 'list' | 'grid' = 'list';
     layoutOptions = ['list', 'grid'];
 
-    constructor(
-        private prodigeService: ProdigeService,
-        private messageService: MessageService,
-        private confirmationService: ConfirmationService,
-    ) {}
+    constructor() {}
 
     // Helper method for direct translation calls in component logic
     protected t(key: string, params?: Record<string, any>): string {
         return this.translationService.translate(key, params);
-    }
-
-    // Helper for count translations
-    protected translateCount(key: string, count: number): string {
-        return this.translationService.translateWithCount(key, count);
     }
 
     ngOnInit() {
@@ -159,12 +123,6 @@ export class ProdigeCrudComponent implements OnInit {
         this.sortOptions = [
             { label: this.t('procrud.sort.name.down'), value: '!nom' },
             { label: this.t('procrud.sort.name.up'), value: 'nom' },
-        ];
-
-        // Initialize gender options after translation service is available
-        this.genderOptions = [
-            { label: this.t('shared.common.male'), value: Gender.Homme },
-            { label: this.t('shared.common.female'), value: Gender.Femme },
         ];
 
         // Populate the countries array with translated names
@@ -187,57 +145,16 @@ export class ProdigeCrudComponent implements OnInit {
     }
 
     loadData() {
-        this.prodigeService.getProdigiess().subscribe((data) => console.log('data : ', data));
+        const callbacks = this.getApiCallbacks();
 
-        this.prodigeService.getProdigies().then((data) => {
-            this.prodigies.set(data);
+        ProdigeApiHelper.loadProdigies(this.prodigeService, this.translationService, this.messageService, callbacks).subscribe({
+            next: (data) => {
+                this.store.setProdigies(data);
+            },
         });
 
         this.sportOptions = this.prodigeService.getSportOptions();
         this.tagOptions = this.prodigeService.getTagOptions();
-
-        // Internationalized column definitions (kept for potential CSV export, though not directly used by DataView rendering)
-        this.cols = [
-            {
-                field: 'nom',
-                header: this.t('procrud.columns.nom'),
-                customExportHeader: this.t('procrud.columns.nomExport'),
-            },
-            {
-                field: 'age',
-                header: this.t('procrud.columns.age'),
-            },
-            {
-                field: 'sport',
-                header: this.t('procrud.columns.sport'),
-            },
-            {
-                field: 'gender',
-                header: this.t('procrud.columns.gender'),
-            },
-            {
-                field: 'pays',
-                header: this.t('procrud.columns.country'),
-            },
-            {
-                field: 'videosCount',
-                header: this.t('procrud.columns.videosCount'),
-            },
-            {
-                field: 'dateCreation',
-                header: this.t('procrud.columns.dateCreation'),
-            },
-        ];
-
-        this.exportColumns = this.cols.map((col) => ({
-            title: col.header,
-            dataKey: col.field,
-        }));
-    }
-
-    // Updated onGlobalFilter method to use DataView's filter API
-    onGlobalFilter(dataview: DataView, event: Event) {
-        dataview.filter((event.target as HTMLInputElement).value);
     }
 
     openNew() {
@@ -258,24 +175,6 @@ export class ProdigeCrudComponent implements OnInit {
         this.prodigeDialog = true;
     }
 
-    deleteSelectedProdigies() {
-        this.confirmationService.confirm({
-            message: this.t('procrud.messages.confirmDeleteProdigies'),
-            header: this.t('shared.common.confirmation'),
-            icon: 'pi pi-exclamation-triangle',
-            accept: () => {
-                this.prodigies.set(this.prodigies().filter((val) => !this.selectedProdigies?.includes(val)));
-                this.selectedProdigies = null;
-                this.messageService.add({
-                    severity: 'success',
-                    summary: this.t('shared.common.success'),
-                    detail: this.t('procrud.messages.prodigiesDeleted'),
-                    life: 3000,
-                });
-            },
-        });
-    }
-
     hideDialog() {
         this.prodigeDialog = false;
         this.submitted = false;
@@ -283,41 +182,33 @@ export class ProdigeCrudComponent implements OnInit {
     }
 
     deleteProdige(prodige: Prodige) {
+        if (!prodige.id) {
+            return;
+        }
+
         this.confirmationService.confirm({
             message: this.t('procrud.messages.confirmDeleteProdige', { name: prodige.nom }),
             header: this.t('shared.common.confirmation'),
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
-                this.prodigies.set(this.prodigies().filter((val) => val.id !== prodige.id));
-                this.prodige = {};
-                this.messageService.add({
-                    severity: 'success',
-                    summary: this.t('shared.common.success'),
-                    detail: this.t('procrud.messages.prodigeDeleted'),
-                    life: 3000,
+                const callbacks = this.getApiCallbacks();
+
+                ProdigeApiHelper.deleteProdige(prodige.id!, this.prodigeService, this.translationService, this.messageService, callbacks).subscribe({
+                    next: () => {
+                        this.store.removeProdige(prodige.id!);
+                        this.prodige = {};
+                        setTimeout(() => this.dv?.cd?.detectChanges?.(), 0);
+
+                        this.messageService.add({
+                            severity: 'success',
+                            summary: this.t('shared.common.success'),
+                            detail: this.t('procrud.messages.prodigeDeleted'),
+                            life: 3000,
+                        });
+                    },
                 });
             },
         });
-    }
-
-    findIndexById(id: string): number {
-        let index = -1;
-        for (let i = 0; i < this.prodigies().length; i++) {
-            if (this.prodigies()[i].id === id) {
-                index = i;
-                break;
-            }
-        }
-        return index;
-    }
-
-    createId(): string {
-        let id = '';
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for (let i = 0; i < 8; i++) {
-            id += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return id;
     }
 
     getSportLabel(sport: Sport): string {
@@ -328,18 +219,13 @@ export class ProdigeCrudComponent implements OnInit {
         return this.prodigeService.getTagLabel(tag);
     }
 
-    getGenderLabel(gender: Gender): string {
-        return gender === Gender.Homme ? this.t('shared.common.male') : this.t('shared.common.female');
-    }
-
     getGenderIcon(gender: Gender): string {
         return gender === Gender.Homme ? 'pi pi-mars' : 'pi pi-venus';
     }
 
     getCountryName(countryCode: string): string {
-        // You might want to use a proper country name mapping service
-        // For now, return the country code
-        return countryCode?.toUpperCase() || '';
+        const country = this.countries.find((c) => c.code === countryCode);
+        return country?.name || countryCode?.toUpperCase() || '';
     }
 
     addTag() {
@@ -376,12 +262,6 @@ export class ProdigeCrudComponent implements OnInit {
         return 'danger';
     }
 
-    getVideosCountSeverity(count: number): string {
-        if (count === 0) return 'danger';
-        if (count <= 2) return 'warn';
-        return 'success';
-    }
-
     // Helper method to check if description is required
     isDescriptionRequired(): boolean {
         return this.prodige.sport === Sport.Autre;
@@ -389,153 +269,89 @@ export class ProdigeCrudComponent implements OnInit {
 
     saveProdige() {
         this.submitted = true;
-        const _prodigies = this.prodigies();
 
-        if (this.prodige.nom?.trim() && this.prodige.age && this.prodige.sport !== undefined && this.prodige.gender !== undefined) {
-            // Validate tags
-            if (!this.prodige.tags || this.prodige.tags.length < 3) {
-                this.messageService.add({
-                    severity: 'error',
-                    summary: this.t('shared.messages.validationError'),
-                    detail: this.t('procrud.validation.minTagsRequired'),
-                    life: 3000,
-                });
-                return;
-            }
-
-            if (this.prodige.tags.length > 10) {
-                this.messageService.add({
-                    severity: 'error',
-                    summary: this.t('shared.messages.validationError'),
-                    detail: this.t('procrud.validation.maxTagsReached'),
-                    life: 3000,
-                });
-                return;
-            }
-
-            // Validate description for "autre" sport
-            if (this.prodige.sport === Sport.Autre && (!this.prodige.description || !this.prodige.description.trim())) {
-                this.messageService.add({
-                    severity: 'error',
-                    summary: this.t('shared.messages.validationError'),
-                    detail: this.t('procrud.validation.descriptionRequired'),
-                    life: 3000,
-                });
-                return;
-            }
-
-            if (this.prodige.id) {
-                // Update existing prodige
-                _prodigies[this.findIndexById(this.prodige.id)] = this.prodige;
-                this.prodigies.set([..._prodigies]);
-                this.messageService.add({
-                    severity: 'success',
-                    summary: this.t('shared.common.success'),
-                    detail: this.t('procrud.messages.prodigeUpdated'),
-                    life: 3000,
-                });
-            } else {
-                // Create new prodige
-                this.prodige.id = this.createId();
-                this.prodige.dateCreation = new Date();
-                this.prodige.creePar = 'current-user'; // Replace with actual user
-                this.prodigies.set([..._prodigies, this.prodige]);
-                this.messageService.add({
-                    severity: 'success',
-                    summary: this.t('shared.common.success'),
-                    detail: this.t('procrud.messages.prodigeCreated'),
-                    life: 3000,
-                });
-            }
-
-            this.prodigeDialog = false;
-            this.prodige = {};
-        }
-    }
-
-    // The exportCSV method needs to be adapted as DataView does not have a direct exportCSV() method like Table.
-    // You would typically implement custom CSV export logic here based on your `prodigies` data.
-    exportCSV() {
-        // Example of how you might implement a basic CSV export for DataView data:
-        const data = this.prodigies();
-        if (!data || data.length === 0) {
+        // Centralized validation
+        const validationError = validateProdige(this.prodige);
+        if (validationError) {
             this.messageService.add({
-                severity: 'warn',
-                summary: this.t('shared.messages.noData'),
-                detail: this.t('procrud.messages.noDataToExport'),
+                severity: 'error',
+                summary: this.t('shared.messages.validationError'),
+                detail: this.t(`procrud.validation.${validationError}`) || validationError,
                 life: 3000,
             });
             return;
         }
 
-        const headers = this.exportColumns.map((col) => col.title).join(',');
-        const rows = data.map((prodige) => {
-            return this.exportColumns
-                .map((col) => {
-                    let value = prodige[col.dataKey as keyof Prodige];
-                    if (col.dataKey === 'sport') {
-                        value = this.getSportLabel(value as Sport);
-                    } else if (col.dataKey === 'gender') {
-                        value = this.getGenderLabel(value as Gender);
-                    } else if (col.dataKey === 'pays') {
-                        value = this.getCountryName(value as string);
-                    } else if (col.dataKey === 'dateCreation') {
-                        value = (value as Date)?.toLocaleDateString('en-GB'); // Format date for CSV
-                    } else if (col.dataKey === 'tags') {
-                        value = (value as Tag[])?.map((tag) => this.getTagLabel(tag)).join(';');
-                    } else if (col.dataKey === 'videosCount') {
-                        value = (prodige.videos?.length || 0).toString();
+        const callbacks = this.getApiCallbacks();
+
+        ProdigeApiHelper.saveProdige(this.prodige, this.prodigeService, this.translationService, this.messageService, callbacks).subscribe({
+            next: (savedProdige) => {
+                if (savedProdige) {
+                    if (this.prodige.id) {
+                        this.store.updateProdige(savedProdige);
+                    } else {
+                        this.store.addProdige(savedProdige);
                     }
-                    return `"${value !== undefined && value !== null ? String(value).replace(/"/g, '""') : ''}"`;
-                })
-                .join(',');
+
+                    this.messageService.add({
+                        severity: 'success',
+                        summary: this.t('shared.common.success'),
+                        detail: this.prodige.id ? this.t('procrud.messages.prodigeUpdated') : this.t('procrud.messages.prodigeCreated'),
+                        life: 3000,
+                    });
+
+                    this.prodigeDialog = false;
+                    this.prodige = {};
+                    setTimeout(() => this.dv?.cd?.detectChanges?.(), 0);
+                }
+            },
         });
-
-        const csvContent = [headers, ...rows].join('\n');
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement('a');
-        if (link.download !== undefined) {
-            const url = URL.createObjectURL(blob);
-            link.setAttribute('href', url);
-            link.setAttribute('download', 'prodigies.csv');
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        } else {
-            this.messageService.add({
-                severity: 'error',
-                summary: this.t('shared.common.error'),
-                detail: this.t('procrud.messages.exportNotSupported'),
-                life: 3000,
-            });
-        }
-    }
-
-    // Additional helper methods for template usage
-    getTagCountText(): string {
-        const count = this.prodige.tags?.length || 0;
-        return this.t('procrud.tags.selectedCount', { count });
-    }
-
-    getVideoCountText(): string {
-        const count = this.prodige.videos?.length || 0;
-        return this.t('procrud.tags.associatedVideosCount', { count });
     }
 
     getDescriptionPlaceholder(): string {
         return this.isDescriptionRequired() ? this.t('procrud.validation.descriptionRequiredForOther') : this.t('procrud.placeholders.describeQualities');
     }
 
-    getAgeLabel(age: number): string {
-        return `${age} ${this.t('shared.common.years')}`;
-    }
-
-    getPaginationTemplate(): string {
-        return this.t('procrud.pagination.showing');
-    }
-
     getSelectedCountry(): Country | undefined {
         return this.countries.find((c) => c.code === this.prodige.pays);
+    }
+
+    // Helper method to force DataView refresh
+    refreshDataView() {
+        if (this.dv) {
+            const currentValue = this.dv.value;
+            this.dv.value = [];
+            setTimeout(() => {
+                this.dv.value = currentValue;
+                this.dv.cd?.detectChanges?.();
+            }, 0);
+        }
+    }
+
+    // API callbacks for the helper
+    private getApiCallbacks(): ApiCallbacks {
+        return {
+            onLoadingStart: () => this.store.setLoading(true),
+            onLoadingEnd: () => this.store.setLoading(false),
+            onSavingStart: () => this.store.setSaving(true),
+            onSavingEnd: () => this.store.setSaving(false),
+            onDeletingStart: () => this.store.setDeleting(true),
+            onDeletingEnd: () => this.store.setDeleting(false),
+            onError: (error: string) => this.store.setError(error),
+            onSuccess: (prodige: Prodige) => {
+                if (this.prodige.id) {
+                    this.store.updateProdige(prodige);
+                } else {
+                    this.store.addProdige(prodige);
+                }
+                this.cdr.detectChanges();
+                setTimeout(() => this.refreshDataView(), 0);
+            },
+            onDelete: (prodigeId: string) => {
+                this.store.removeProdige(prodigeId);
+                this.cdr.detectChanges();
+                setTimeout(() => this.refreshDataView(), 0);
+            },
+        };
     }
 }

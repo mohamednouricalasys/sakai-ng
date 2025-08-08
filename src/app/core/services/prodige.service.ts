@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Prodige } from '../interfaces/prodige.interface';
@@ -7,12 +7,15 @@ import { Tag } from '../enums/tag.enum';
 import { Gender } from '../enums/gender.enum';
 import { environment } from '../../../environments/environment';
 import { KeycloakService } from 'keycloak-angular';
+import { TranslationService } from './translation.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ProdigeService {
     private apiUrl;
+
+    private translationService = inject(TranslationService);
 
     constructor(
         private http: HttpClient,
@@ -24,14 +27,8 @@ export class ProdigeService {
     /**
      * permets de récupérer la liste des agences
      */
-    getProdigiess(): Observable<Prodige[]> {
+    getProdigies(): Observable<Prodige[]> {
         return this.http.get<Prodige[]>(`${this.apiUrl}/all`);
-    }
-
-    getProdigies(): Promise<Prodige[]> {
-        //return this.http.get<Prodige[]>(`${this.apiUrl}`);
-        // Mock data for demo - replace with actual HTTP call
-        return Promise.resolve(this.getMockData());
     }
 
     getProdigeById(id: string): Observable<Prodige> {
@@ -68,252 +65,180 @@ export class ProdigeService {
             }));
     }
 
+    // Updated methods with i18n support
     getTagLabel(tag: Tag): string {
         switch (tag) {
             // Capacités physiques
             case Tag.Vitesse:
-                return 'Vitesse';
+                return this.translationService.translate('tags.physical.vitesse');
             case Tag.Endurance:
-                return 'Endurance';
+                return this.translationService.translate('tags.physical.endurance');
             case Tag.Puissance:
-                return 'Puissance';
+                return this.translationService.translate('tags.physical.puissance');
             case Tag.Reflexes:
-                return 'Réflexes';
+                return this.translationService.translate('tags.physical.reflexes');
             case Tag.Agilite:
-                return 'Agilité';
+                return this.translationService.translate('tags.physical.agilite');
             case Tag.Explosivite:
-                return 'Explosivité';
+                return this.translationService.translate('tags.physical.explosivite');
             case Tag.Souplesse:
-                return 'Souplesse';
+                return this.translationService.translate('tags.physical.souplesse');
             case Tag.Coordination:
-                return 'Coordination';
+                return this.translationService.translate('tags.physical.coordination');
             case Tag.Equilibre:
-                return 'Équilibre';
+                return this.translationService.translate('tags.physical.equilibre');
 
             // Capacités techniques
             case Tag.Technique:
-                return 'Technique';
+                return this.translationService.translate('tags.technical.technique');
             case Tag.MaitriseDuBallon:
-                return 'Maîtrise du ballon';
+                return this.translationService.translate('tags.technical.maitriseDuBallon');
             case Tag.Precision:
-                return 'Précision';
+                return this.translationService.translate('tags.technical.precision');
             case Tag.Finition:
-                return 'Finition';
+                return this.translationService.translate('tags.technical.finition');
             case Tag.PasseDecisive:
-                return 'Passe décisive';
+                return this.translationService.translate('tags.technical.passeDecisive');
             case Tag.TirCadre:
-                return 'Tir cadré';
+                return this.translationService.translate('tags.technical.tirCadre');
             case Tag.Dribble:
-                return 'Dribble';
+                return this.translationService.translate('tags.technical.dribble');
             case Tag.JeuDeTete:
-                return 'Jeu de tête';
+                return this.translationService.translate('tags.technical.jeuDeTete');
             case Tag.Tacle:
-                return 'Tacle';
+                return this.translationService.translate('tags.technical.tacle');
             case Tag.Interception:
-                return 'Interception';
+                return this.translationService.translate('tags.technical.interception');
             case Tag.GesteTechnique:
-                return 'Geste technique';
+                return this.translationService.translate('tags.technical.gesteTechnique');
             case Tag.Polyvalence:
-                return 'Polyvalence';
+                return this.translationService.translate('tags.technical.polyvalence');
 
             // Intelligence et mental
             case Tag.IntelligenceTactique:
-                return 'Intelligence tactique';
+                return this.translationService.translate('tags.mental.intelligenceTactique');
             case Tag.LectureDuJeu:
-                return 'Lecture du jeu';
+                return this.translationService.translate('tags.mental.lectureDuJeu');
             case Tag.Anticipation:
-                return 'Anticipation';
+                return this.translationService.translate('tags.mental.anticipation');
             case Tag.Concentration:
-                return 'Concentration';
+                return this.translationService.translate('tags.mental.concentration');
             case Tag.Mental:
-                return 'Mental';
+                return this.translationService.translate('tags.mental.mental');
             case Tag.SangFroid:
-                return 'Sang-froid';
+                return this.translationService.translate('tags.mental.sangFroid');
             case Tag.Maturite:
-                return 'Maturité';
+                return this.translationService.translate('tags.mental.maturite');
             case Tag.GestionDuTemps:
-                return 'Gestion du temps';
+                return this.translationService.translate('tags.mental.gestionDuTemps');
             case Tag.Resilience:
-                return 'Résilience';
+                return this.translationService.translate('tags.mental.resilience');
             case Tag.VisionDeJeu:
-                return 'Vision de jeu';
+                return this.translationService.translate('tags.mental.visionDeJeu');
             case Tag.Decisif:
-                return 'Décisif';
+                return this.translationService.translate('tags.mental.decisif');
             case Tag.PriseDeDecision:
-                return 'Prise de décision';
+                return this.translationService.translate('tags.mental.priseDeDecision');
             case Tag.Adaptabilite:
-                return 'Adaptabilité';
+                return this.translationService.translate('tags.mental.adaptabilite');
             case Tag.Competiteur:
-                return 'Compétiteur';
+                return this.translationService.translate('tags.mental.competiteur');
             case Tag.Leadership:
-                return 'Leadership';
+                return this.translationService.translate('tags.mental.leadership');
             case Tag.EspritDEquipe:
-                return "Esprit d'équipe";
+                return this.translationService.translate('tags.mental.espritDEquipe');
             case Tag.Determination:
-                return 'Détermination';
+                return this.translationService.translate('tags.mental.determination');
             case Tag.ConfianceEnSoi:
-                return 'Confiance en soi';
+                return this.translationService.translate('tags.mental.confianceEnSoi');
             case Tag.Motivation:
-                return 'Motivation';
+                return this.translationService.translate('tags.mental.motivation');
             case Tag.ApprentissageRapide:
-                return 'Apprentissage rapide';
+                return this.translationService.translate('tags.mental.apprentissageRapide');
             case Tag.Discipline:
-                return 'Discipline';
+                return this.translationService.translate('tags.mental.discipline');
             case Tag.Regularite:
-                return 'Régularité';
+                return this.translationService.translate('tags.mental.regularite');
             case Tag.EnduranceMentale:
-                return 'Endurance mentale';
+                return this.translationService.translate('tags.mental.enduranceMentale');
 
             // Comportement et personnalité
             case Tag.Travailleur:
-                return 'Travailleur';
+                return this.translationService.translate('tags.behavior.travailleur');
             case Tag.Perseverant:
-                return 'Persévérant';
+                return this.translationService.translate('tags.behavior.perseverant');
             case Tag.Passionne:
-                return 'Passionné';
+                return this.translationService.translate('tags.behavior.passionne');
             case Tag.Humilite:
-                return 'Humilité';
+                return this.translationService.translate('tags.behavior.humilite');
             case Tag.Exemplaire:
-                return 'Exemplaire';
+                return this.translationService.translate('tags.behavior.exemplaire');
             case Tag.Respectueux:
-                return 'Respectueux';
+                return this.translationService.translate('tags.behavior.respectueux');
             case Tag.Charismatique:
-                return 'Charismatique';
+                return this.translationService.translate('tags.behavior.charismatique');
             case Tag.Dynamique:
-                return 'Dynamique';
+                return this.translationService.translate('tags.behavior.dynamique');
             case Tag.Engage:
-                return 'Engagé';
+                return this.translationService.translate('tags.behavior.engage');
             case Tag.FairPlay:
-                return 'Fair-play';
+                return this.translationService.translate('tags.behavior.fairPlay');
             case Tag.InfluenceurDeVestiaire:
-                return 'Influenceur de vestiaire';
+                return this.translationService.translate('tags.behavior.influenceurDeVestiaire');
             case Tag.AttitudeProfessionnelle:
-                return 'Attitude professionnelle';
+                return this.translationService.translate('tags.behavior.attitudeProfessionnelle');
 
             // Créativité et style
             case Tag.Creativite:
-                return 'Créativité';
+                return this.translationService.translate('tags.creativity.creativite');
             case Tag.StyleDeJeuUnique:
-                return 'Style de jeu unique';
+                return this.translationService.translate('tags.creativity.styleDeJeuUnique');
             case Tag.Spectaculaire:
-                return 'Spectaculaire';
+                return this.translationService.translate('tags.creativity.spectaculaire');
             case Tag.Showman:
-                return 'Showman';
+                return this.translationService.translate('tags.creativity.showman');
             case Tag.Imagination:
-                return 'Imagination';
+                return this.translationService.translate('tags.creativity.imagination');
 
             // Potentiel / projection
             case Tag.GrosPotentiel:
-                return 'Gros potentiel';
+                return this.translationService.translate('tags.potential.grosPotentiel');
             case Tag.EnProgres:
-                return 'En progrès';
+                return this.translationService.translate('tags.potential.enProgres');
             case Tag.JeunePrometteur:
-                return 'Jeune prometteur';
+                return this.translationService.translate('tags.potential.jeunePrometteur');
             case Tag.TalentNaturel:
-                return 'Talent naturel';
+                return this.translationService.translate('tags.potential.talentNaturel');
+
+            default:
+                return this.translationService.translate('tags.unknown');
         }
     }
 
     getSportLabel(sport: Sport): string {
         switch (sport) {
             case Sport.Football:
-                return 'Football';
+                return this.translationService.translate('sports.football');
             case Sport.Basketball:
-                return 'Basketball';
+                return this.translationService.translate('sports.basketball');
             case Sport.Rugby:
-                return 'Rugby';
+                return this.translationService.translate('sports.rugby');
             case Sport.Tennis:
-                return 'Tennis';
+                return this.translationService.translate('sports.tennis');
             case Sport.Boxe:
-                return 'Boxe';
+                return this.translationService.translate('sports.boxe');
             case Sport.FootballAmericain:
-                return 'Football Américain';
+                return this.translationService.translate('sports.footballAmericain');
             case Sport.HockeySurGlace:
-                return 'Hockey sur glace';
+                return this.translationService.translate('sports.hockeySurGlace');
             case Sport.Baseball:
-                return 'Baseball';
+                return this.translationService.translate('sports.baseball');
             case Sport.MMA:
-                return 'MMA';
+                return this.translationService.translate('sports.mma');
             case Sport.Autre:
-                return 'Autre';
+                return this.translationService.translate('sports.autre');
             default:
-                return 'Sport inconnu';
+                return this.translationService.translate('sports.unknown');
         }
-    }
-
-    private getMockData(): Prodige[] {
-        return [
-            {
-                id: '1',
-                nom: 'Marie Dubois',
-                age: 16,
-                sport: Sport.Tennis,
-                description: 'Jeune prodige du tennis français avec un revers à deux mains exceptionnel et une grande maturité tactique.',
-                tags: [Tag.Technique, Tag.Mental, Tag.Precision, Tag.Competiteur, Tag.JeunePrometteur],
-                videos: [
-                    { id: '1', titre: 'Entraînement Tennis', url: 'video1.mp4' },
-                    { id: '2', titre: 'Match de qualification', url: 'video2.mp4' },
-                ],
-                dateCreation: new Date('2024-01-15'),
-                creePar: 'admin',
-                gender: Gender.Femme,
-                pays: 'FR',
-            },
-            {
-                id: '2',
-                nom: 'Paul Martin',
-                age: 14,
-                sport: Sport.Football,
-                description: 'Attaquant prometteur avec une vitesse exceptionnelle et un excellent sens du but.',
-                tags: [Tag.Vitesse, Tag.Finition, Tag.Dribble, Tag.GrosPotentiel, Tag.Passionne],
-                videos: [{ id: '3', titre: 'Techniques de dribble', url: 'video3.mp4' }],
-                dateCreation: new Date('2024-02-20'),
-                creePar: 'admin',
-                gender: Gender.Homme,
-                pays: 'FR',
-            },
-            {
-                id: '3',
-                nom: 'Sophie Leroy',
-                age: 15,
-                sport: Sport.Basketball,
-                description: 'Meneuse de jeu avec une excellente vision et un leadership naturel sur le terrain.',
-                tags: [Tag.VisionDeJeu, Tag.Leadership, Tag.IntelligenceTactique, Tag.PasseDecisive],
-                videos: [
-                    { id: '4', titre: 'Compétition régionale', url: 'video4.mp4' },
-                    { id: '5', titre: 'Entraînement technique', url: 'video5.mp4' },
-                ],
-                dateCreation: new Date('2024-03-10'),
-                creePar: 'admin',
-                gender: Gender.Femme,
-                pays: 'CA',
-            },
-            {
-                id: '4',
-                nom: 'Lucas Bernard',
-                age: 17,
-                sport: Sport.Rugby,
-                description: "Pilier avec une puissance physique remarquable et un mental d'acier.",
-                tags: [Tag.Puissance, Tag.Mental, Tag.EspritDEquipe, Tag.Determination, Tag.Travailleur, Tag.Resilience],
-                videos: [],
-                dateCreation: new Date('2024-04-05'),
-                creePar: 'admin',
-                gender: Gender.Homme,
-                pays: 'GB',
-            },
-            {
-                id: '5',
-                nom: 'Emma Rousseau',
-                age: 13,
-                sport: Sport.MMA,
-                description: 'Jeune combattante avec des réflexes extraordinaires et une discipline exemplaire.',
-                tags: [Tag.Reflexes, Tag.Discipline, Tag.Agilite, Tag.JeunePrometteur, Tag.ApprentissageRapide],
-                videos: [{ id: '6', titre: 'Entraînement combat', url: 'video6.mp4' }],
-                dateCreation: new Date('2024-05-12'),
-                creePar: 'admin',
-                gender: Gender.Femme,
-                pays: 'US',
-            },
-        ];
     }
 }
