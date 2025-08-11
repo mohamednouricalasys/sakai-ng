@@ -33,6 +33,7 @@ import { COUNTRIES_DATA } from '../../../../core/shared/countries-data';
 import { validateProdige } from './prodige-crud.validation';
 import { ProdigeApiHelper, ApiCallbacks } from './prodige-api.helper';
 import { ProdigeStore } from './prodige-store';
+import { UserService } from '../../../../core/services/user.service';
 
 @Component({
     selector: 'app-prodige-crud',
@@ -100,6 +101,7 @@ export class ProdigeCrudComponent implements OnInit {
 
     @ViewChild('dv') dv!: DataView;
 
+    private userService = inject(UserService);
     private translationService = inject(TranslationService);
     private prodigeService = inject(ProdigeService);
     private messageService = inject(MessageService);
@@ -147,7 +149,7 @@ export class ProdigeCrudComponent implements OnInit {
     loadData() {
         const callbacks = this.getApiCallbacks();
 
-        ProdigeApiHelper.loadProdigies(this.prodigeService, this.translationService, this.messageService, callbacks).subscribe({
+        ProdigeApiHelper.loadProdigies(this.prodigeService, this.userService, this.translationService, this.messageService, callbacks).subscribe({
             next: (data) => {
                 this.store.setProdigies(data);
             },
@@ -284,7 +286,7 @@ export class ProdigeCrudComponent implements OnInit {
 
         const callbacks = this.getApiCallbacks();
 
-        ProdigeApiHelper.saveProdige(this.prodige, this.prodigeService, this.translationService, this.messageService, callbacks).subscribe({
+        ProdigeApiHelper.saveProdige(this.prodige, this.prodigeService, this.userService, this.translationService, this.messageService, callbacks).subscribe({
             next: (savedProdige) => {
                 if (savedProdige) {
                     if (this.prodige.id) {

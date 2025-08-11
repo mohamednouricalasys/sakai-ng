@@ -24,11 +24,13 @@ import { ProdigeService } from '../../../../core/services/prodige.service';
 import { Prodige } from '../../../../core/interfaces/prodige.interface';
 import { FluidModule } from 'primeng/fluid';
 import { DividerModule } from 'primeng/divider';
+import { Mp4UploaderComponent } from '../../../../core/shared/components/mp4-uploader/mp4-uploader.component';
 
 @Component({
     selector: 'app-prodige-video-crud',
     standalone: true,
     imports: [
+        Mp4UploaderComponent,
         CommonModule,
         DividerModule,
         FormsModule,
@@ -51,9 +53,17 @@ import { DividerModule } from 'primeng/divider';
     styles: `
         .video-container {
             width: 100%;
-            height: 200px;
-            background: #000;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px; /* Optional: rounded corners */
         }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* or 'contain' depending on preference */
+        }
+
         .vjs-tech {
             object-fit: cover;
         }
@@ -62,6 +72,7 @@ import { DividerModule } from 'primeng/divider';
 export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChildren('videoElement') videoElements!: QueryList<ElementRef>;
 
+    baseUploadCallBack: string;
     showVideo = true;
     showProdigeSidebar = true;
 
@@ -89,7 +100,9 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     public translationService = inject(TranslationService);
     public prodigeService = inject(ProdigeService); // Inject ProdigeService
 
-    constructor(private cdr: ChangeDetectorRef) {}
+    constructor(private cdr: ChangeDetectorRef) {
+        this.baseUploadCallBack = this.videoService.getBaseUploadCallBack();
+    }
 
     ngOnInit() {
         this.sortOptions = [
@@ -120,6 +133,8 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             this.sortOrder = 1;
             this.sortField = value;
         }
+
+        this.refreshVideo();
     }
 
     ngAfterViewInit(): void {
@@ -276,5 +291,13 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         setTimeout(() => {
             this.showVideo = true;
         }, 0);
+    }
+
+    onFileUploaded(file: any) {
+        console.log('File uploaded:', file);
+    }
+
+    onFileRemoved(fileId: string) {
+        console.log('File removed:', fileId);
     }
 }

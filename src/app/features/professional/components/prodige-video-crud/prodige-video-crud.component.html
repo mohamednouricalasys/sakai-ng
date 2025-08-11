@@ -73,6 +73,8 @@
     </div>
 </div>
 
+<app-mp4-uploader [backendUrl]="'http://localhost:3000/api'" (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)"> </app-mp4-uploader>
+
 <p-dialog [(visible)]="videoDialog" [style]="{ width: '500px' }" [header]="'video.labels.videoDetails' | translate" [modal]="true" [closable]="true">
     <ng-template #content>
         <p-fluid>
@@ -111,7 +113,7 @@
                 <!-- File Upload -->
                 <div class="flex flex-col gap-2">
                     <label class="font-bold">{{ 'video.labels.uploadFile' | translate }}</label>
-                    <p-fileupload name="videofile[]" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onUpload($event)" accept="video/*" mode="advanced">
+                    <p-fileupload name="videofile[]" [url]="baseUploadCallBack" (onUpload)="onUpload($event)" accept="video/*" mode="advanced">
                         <ng-template #empty>
                             <div class="text-gray-500 text-sm">
                                 {{ 'video.labels.dragDropHint' | translate }}

@@ -4,54 +4,64 @@ import { Video } from '../interfaces/video.interface';
 import { VideoStatus } from '../enums/video-status.enum';
 import { v4 as uuidv4 } from 'uuid';
 import { TranslationService } from './translation.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root',
 })
 export class VideoService {
+    private apiUrl;
+
     private translationService = inject(TranslationService);
 
     // Updated mock data with MP4 URLs
     private videos: Video[] = [
         {
             id: '1',
-            prodigeId: '01988a47-92c0-7769-aba7-91f2799ee100',
-            titre: 'Football Skills',
-            description: 'A highlight reel of a young football player demonstrating various skills.',
-            url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            prodigeId: '0198907b-e20c-7b04-a084-4a9a189a3554',
+            titre: this.translationService.translate('video.mock.title.footballSkills'),
+            description: this.translationService.translate('video.mock.description.footballSkills'),
+            url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
             etat: VideoStatus.Approuve,
             dateCreation: new Date(),
         },
         {
             id: '2',
-            prodigeId: '01988a47-92c0-7769-aba7-91f2799ee100',
-            titre: 'Dribbling Drills',
-            description: 'Training footage of dribbling exercises.',
-            url: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4',
+            prodigeId: '0198907b-e20c-7b04-a084-4a9a189a3554',
+            titre: this.translationService.translate('video.mock.title.dribblingDrills'),
+            description: this.translationService.translate('video.mock.description.dribblingDrills'),
+            url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4',
             etat: VideoStatus.EnInspection,
             dateCreation: new Date(),
         },
         {
             id: '3',
-            prodigeId: '01988a47-92c0-7769-aba7-91f2799ee100',
-            titre: 'Tennis Match Point',
-            description: 'A decisive point from a junior tennis tournament.',
-            url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+            prodigeId: '0198907b-e20c-7b04-a084-4a9a189a3554',
+            titre: this.translationService.translate('video.mock.title.tennisMatchPoint'),
+            description: this.translationService.translate('video.mock.description.tennisMatchPoint'),
+            url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4',
             etat: VideoStatus.Approuve,
             dateCreation: new Date(),
         },
         {
             id: '4',
-            prodigeId: '01988a47-92c0-7769-aba7-91f2799ee100',
-            titre: 'Basketball Training',
-            description: 'A young prodigy performing different basketball drills.',
-            url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+            prodigeId: '0198907d-72e9-7d25-9a68-5ee1bb4021d5',
+            titre: this.translationService.translate('video.mock.title.basketballTraining'),
+            description: this.translationService.translate('video.mock.description.basketballTraining'),
+            url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
             etat: VideoStatus.EnTraitement,
             dateCreation: new Date(),
         },
     ];
 
-    constructor() {}
+    constructor(private http: HttpClient) {
+        this.apiUrl = environment.apiUrl + '/videos'; // Adjust URL as needed
+    }
+
+    getBaseUploadCallBack(): string {
+        return this.apiUrl + '/UploadCallBack';
+    }
 
     getVideosByProdigeId(prodigeId: string): Observable<Video[]> {
         const prodigeVideos = this.videos.filter((v) => v.prodigeId === prodigeId);

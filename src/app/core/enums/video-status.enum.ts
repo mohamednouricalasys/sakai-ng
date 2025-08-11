@@ -1,6 +1,6 @@
 export enum VideoStatus {
-    EnTraitement = 'intreatment',
-    EnInspection = 'ininspection',
-    Approuve = 'approved',
-    Rejete = 'declined',
+    EnTraitement = 'EnTraitement',
+    EnInspection = 'EnInspection',
+    Approuve = 'Approuve',
+    Rejete = 'Rejete',
 }

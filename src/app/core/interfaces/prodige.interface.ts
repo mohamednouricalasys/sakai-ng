@@ -5,6 +5,7 @@ import { Gender } from '../enums/gender.enum';
 
 export interface Prodige {
     id?: string;
+    userId?: string;
     nom?: string;
     age?: number;
     sport?: Sport;

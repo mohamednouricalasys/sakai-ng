@@ -31,6 +31,13 @@ export class ProdigeService {
         return this.http.get<Prodige[]>(`${this.apiUrl}/all`);
     }
 
+    /**
+     * permets de récupérer la liste des agences
+     */
+    getProdigiesByUserId(userId: string): Observable<Prodige[]> {
+        return this.http.get<Prodige[]>(`${this.apiUrl}/all/${userId}`);
+    }
+
     getProdigeById(id: string): Observable<Prodige> {
         return this.http.get<Prodige>(`${this.apiUrl}/${id}`);
     }

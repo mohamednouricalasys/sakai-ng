@@ -3,8 +3,10 @@ import { MessageService } from 'primeng/api';
 import { Prodige } from '../../../../core/interfaces/prodige.interface';
 import { ProdigeService } from '../../../../core/services/prodige.service';
 import { TranslationService } from '../../../../core/services/translation.service';
+import { UserService } from '../../../../core/services/user.service';
 
 export interface ApiPayload {
+    userId?: string;
     nom?: string;
     age?: number;
     sport?: number;
@@ -32,6 +34,7 @@ export class ProdigeApiHelper {
      */
     static prepareApiPayload(prodige: Prodige): ApiPayload {
         return {
+            userId: prodige.userId,
             nom: prodige.nom,
             age: prodige.age,
             sport: prodige.sport,
@@ -45,10 +48,17 @@ export class ProdigeApiHelper {
     /**
      * Loads prodigies with error handling and loading states
      */
-    static loadProdigies(prodigeService: ProdigeService, translationService: TranslationService, messageService: MessageService, callbacks: Pick<ApiCallbacks, 'onLoadingStart' | 'onLoadingEnd' | 'onError' | 'onSuccess'>): Observable<Prodige[]> {
+    static loadProdigies(
+        prodigeService: ProdigeService,
+        userService: UserService,
+        translationService: TranslationService,
+        messageService: MessageService,
+        callbacks: Pick<ApiCallbacks, 'onLoadingStart' | 'onLoadingEnd' | 'onError' | 'onSuccess'>,
+    ): Observable<Prodige[]> {
         callbacks.onLoadingStart();
 
-        return prodigeService.getProdigies().pipe(
+        const profile = userService.getProfile();
+        return prodigeService.getProdigiesByUserId(profile?.id!).pipe(
             catchError((error) => {
                 console.error('Error loading prodigies:', error);
                 callbacks.onError('Failed to load prodigies');
@@ -70,13 +80,16 @@ export class ProdigeApiHelper {
     static createProdige(
         prodige: Prodige,
         prodigeService: ProdigeService,
+        userService: UserService,
         translationService: TranslationService,
         messageService: MessageService,
         callbacks: Pick<ApiCallbacks, 'onSavingStart' | 'onSavingEnd' | 'onError' | 'onSuccess'>,
     ): Observable<Prodige | null> {
         callbacks.onSavingStart();
 
+        const profile = userService.getProfile();
         const apiPayload = this.prepareApiPayload(prodige);
+        apiPayload.userId = profile?.id; // Set userId from profile
 
         return prodigeService.createProdige(apiPayload).pipe(
             catchError((error) => {
@@ -162,6 +175,7 @@ export class ProdigeApiHelper {
     static saveProdige(
         prodige: Prodige,
         prodigeService: ProdigeService,
+        userService: UserService,
         translationService: TranslationService,
         messageService: MessageService,
         callbacks: Pick<ApiCallbacks, 'onSavingStart' | 'onSavingEnd' | 'onError' | 'onSuccess'>,
@@ -169,7 +183,7 @@ export class ProdigeApiHelper {
         if (prodige.id) {
             return this.updateProdige(prodige, prodigeService, translationService, messageService, callbacks);
         } else {
-            return this.createProdige(prodige, prodigeService, translationService, messageService, callbacks);
+            return this.createProdige(prodige, prodigeService, userService, translationService, messageService, callbacks);
         }
     }
 }

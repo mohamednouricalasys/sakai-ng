@@ -1,0 +1,90 @@
+<p-toast></p-toast>
+
+<p-card styleClass="uploader-card">
+    <ng-template pTemplate="header">
+        <div class="flex align-items-center gap-2 p-3">
+            <i class="pi pi-video text-2xl text-primary"></i>
+            <div>
+                <h2 class="m-0 text-xl font-semibold">MP4 Video Uploader</h2>
+                <p class="m-0 text-sm text-color-secondary">Record from camera/webcam or upload MP4 files</p>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="content">
+        <!-- Uppy Dashboard Container -->
+        <div #uppyDashboard class="mb-4"></div>
+
+        <!-- Upload Statistics -->
+        <div *ngIf="files.length > 0" class="mb-4">
+            <div class="flex flex-wrap gap-2">
+                <p-chip [label]="files.length + ' file(s)'" icon="pi pi-cloud-upload"></p-chip>
+                <p-chip *ngIf="getUploadingCount() > 0" [label]="getUploadingCount() + ' uploading'" icon="pi pi-clock" styleClass="p-chip-outlined"> </p-chip>
+                <p-chip *ngIf="getCompletedCount() > 0" [label]="getCompletedCount() + ' completed'" icon="pi pi-check-circle" styleClass="p-chip-outlined"> </p-chip>
+            </div>
+        </div>
+
+        <p-divider *ngIf="files.length > 0"></p-divider>
+
+        <!-- File List -->
+        <div *ngFor="let file of files; let i = index" class="mb-3">
+            <p-panel [toggleable]="false">
+                <ng-template pTemplate="header">
+                    <div class="flex align-items-center gap-2 w-full">
+                        <i class="pi pi-file-video text-lg"></i>
+                        <div class="flex-1">
+                            <div class="font-medium text-sm">{{ file.name }}</div>
+                            <div class="text-xs text-color-secondary">{{ formatFileSize(file.size) }}</div>
+                        </div>
+                    </div>
+                </ng-template>
+
+                <div class="flex flex-column gap-3">
+                    <!-- Progress Section -->
+                    <div *ngIf="file.uploading">
+                        <div class="flex justify-content-between align-items-center mb-2">
+                            <span class="text-sm">Uploading...</span>
+                            <span class="text-sm font-medium">{{ file.progress }}%</span>
+                        </div>
+                        <p-progressBar [value]="file.progress" [showValue]="false"></p-progressBar>
+                    </div>
+
+                    <!-- Status Tags -->
+                    <div *ngIf="!file.uploading" class="flex gap-2">
+                        <p-tag *ngIf="file.url" value="Completed" severity="success" icon="pi pi-check"> </p-tag>
+                        <p-tag *ngIf="file.locked" value="Locked" severity="warning" icon="pi pi-lock"> </p-tag>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex gap-2 flex-wrap">
+                        <p-button *ngIf="file.url && !file.uploading" label="Preview" icon="pi pi-play" size="small" (onClick)="previewFile(file)"> </p-button>
+
+                        <p-button *ngIf="!file.locked && !file.uploading" label="Remove" icon="pi pi-trash" severity="danger" size="small" (onClick)="removeFile(file.id)"> </p-button>
+                    </div>
+                </div>
+            </p-panel>
+        </div>
+
+        <!-- Empty State -->
+        <p-card *ngIf="files.length === 0" styleClass="text-center">
+            <ng-template pTemplate="content">
+                <div class="py-6">
+                    <i class="pi pi-video text-6xl text-color-secondary mb-3"></i>
+                    <h3 class="text-lg font-medium text-color-secondary mb-2">No files uploaded yet</h3>
+                    <p class="text-sm text-color-secondary m-0">Use the uploader above to record or upload MP4 videos</p>
+                </div>
+            </ng-template>
+        </p-card>
+    </ng-template>
+</p-card>
+
+<!-- Video Preview Dialog -->
+<p-dialog [(visible)]="showPreviewDialog" [modal]="true" [draggable]="false" [resizable]="false" [closable]="true" header="Video Preview" styleClass="preview-dialog" [style]="{ width: '90vw', maxWidth: '800px' }">
+    <ng-template pTemplate="content">
+        <video *ngIf="previewUrl" [src]="previewUrl" controls class="w-full" style="max-height: 70vh"></video>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <p-button label="Close" icon="pi pi-times" (onClick)="closePreview()"> </p-button>
+    </ng-template>
+</p-dialog>

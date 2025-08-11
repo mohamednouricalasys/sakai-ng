@@ -34,7 +34,10 @@
             "styles": [
               "src/styles.scss",
               "flag-icons/css/flag-icons.min.css",
-              "node_modules/video.js/dist/video-js.css"
+              "node_modules/video.js/dist/video-js.css",
+              "node_modules/@uppy/core/dist/style.css",
+              "node_modules/@uppy/dashboard/dist/style.css",
+              "node_modules/@uppy/webcam/dist/style.css"
             ],
             "scripts": []
           },
@@ -94,7 +97,12 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "flag-icons/css/flag-icons.min.css",
+              "node_modules/video.js/dist/video-js.css",
+              "node_modules/@uppy/core/dist/style.css",
+              "node_modules/@uppy/dashboard/dist/style.css",
+              "node_modules/@uppy/webcam/dist/style.css"
             ],
             "scripts": []
           }
