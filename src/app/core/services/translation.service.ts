@@ -1,3 +1,4 @@
+// Updated TranslationService with Uppy integration
 import { Injectable, signal } from '@angular/core';
 
 @Injectable({
@@ -140,5 +141,102 @@ export class TranslationService {
 
         const result = key.split('.').reduce((obj, k) => obj?.[k], translation);
         return result !== undefined && result !== null;
+    }
+
+    // NEW METHODS FOR UPPY INTEGRATION
+
+    // Get available languages for language switchers
+    getAvailableLanguages(): string[] {
+        return Object.keys(this.translations);
+    }
+
+    // Get language display names
+    getLanguageDisplayName(lang: string): string {
+        const displayNames: { [key: string]: string } = {
+            en: 'English',
+            fr: 'Français',
+            es: 'Español',
+        };
+        return displayNames[lang] || lang;
+    }
+
+    // Get all translations for a specific language (useful for debugging)
+    getTranslations(lang?: string): any {
+        const targetLang = lang || this.getCurrentLanguage();
+        return this.translations[targetLang] || this.translations['en'] || {};
+    }
+
+    // Get Uppy-specific locale strings for the current language
+    getUppyLocale(): any {
+        if (!this.isLoaded()) {
+            return { strings: {} };
+        }
+
+        const lang = this.getCurrentLanguage();
+        const translations = this.translations[lang];
+
+        if (!translations || !translations.uploader || !translations.uploader.dashboard || !translations.uploader.dashboard.strings) {
+            // Fallback to English
+            const enTranslations = this.translations['en'];
+            if (enTranslations && enTranslations.uploader && enTranslations.uploader.dashboard && enTranslations.uploader.dashboard.strings) {
+                return {
+                    strings: enTranslations.uploader.dashboard.strings,
+                };
+            }
+            return { strings: {} };
+        }
+
+        return {
+            strings: translations.uploader.dashboard.strings,
+        };
+    }
+
+    // Method to get Uppy locale for a specific language (useful for dynamic switching)
+    getUppyLocaleForLanguage(lang: string): any {
+        const translations = this.translations[lang];
+
+        if (!translations || !translations.uploader || !translations.uploader.dashboard || !translations.uploader.dashboard.strings) {
+            // Fallback to English
+            const enTranslations = this.translations['en'];
+            if (enTranslations && enTranslations.uploader && enTranslations.uploader.dashboard && enTranslations.uploader.dashboard.strings) {
+                return {
+                    strings: enTranslations.uploader.dashboard.strings,
+                };
+            }
+            return { strings: {} };
+        }
+
+        return {
+            strings: translations.uploader.dashboard.strings,
+        };
+    }
+
+    // Check if uploader translations are available
+    hasUploaderTranslations(): boolean {
+        const lang = this.getCurrentLanguage();
+        const translations = this.translations[lang];
+        return !!(translations && translations.uploader);
+    }
+
+    // Get uploader translation with fallback
+    translateUploader(key: string, params?: Record<string, any>): string {
+        const fullKey = `uploader.${key}`;
+        return this.translate(fullKey, params);
+    }
+}
+
+// Custom pipe for template usage (optional - if you prefer pipe syntax)
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+    name: 'translate',
+    standalone: true,
+    pure: false, // Make it impure to update when language changes
+})
+export class TranslatePipe implements PipeTransform {
+    constructor(private translationService: TranslationService) {}
+
+    transform(key: string, params?: Record<string, any>): string {
+        return this.translationService.translate(key, params);
     }
 }

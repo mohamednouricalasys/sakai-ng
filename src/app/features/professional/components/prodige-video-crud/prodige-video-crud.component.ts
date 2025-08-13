@@ -17,6 +17,8 @@ import { VideoService } from '../../../../core/services/video.service';
 import { Video } from '../../../../core/interfaces/video.interface';
 import { VideoStatus } from '../../../../core/enums/video-status.enum';
 import { TranslationService } from '../../../../core/services/translation.service';
+import { TextareaModule } from 'primeng/textarea';
+
 import videojs from 'video.js';
 
 // Import Prodige-related services and interfaces
@@ -47,6 +49,7 @@ import { Mp4UploaderComponent } from '../../../../core/shared/components/mp4-upl
         TranslatePipe,
         TranslateParamsPipe,
         FluidModule,
+        TextareaModule,
     ],
     templateUrl: './prodige-video-crud.component.html',
     providers: [MessageService, ConfirmationService],

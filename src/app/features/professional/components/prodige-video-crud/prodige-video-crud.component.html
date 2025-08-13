@@ -73,8 +73,6 @@
     </div>
 </div>
 
-<app-mp4-uploader [backendUrl]="'http://localhost:3000/api'" (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)"> </app-mp4-uploader>
-
 <p-dialog [(visible)]="videoDialog" [style]="{ width: '500px' }" [header]="'video.labels.videoDetails' | translate" [modal]="true" [closable]="true">
     <ng-template #content>
         <p-fluid>
@@ -91,51 +89,17 @@
                     </small>
                 </div>
 
-                <!-- URL -->
-                <div class="flex flex-col gap-2">
-                    <label for="url" class="font-bold">
-                        {{ 'shared.common.url' | translate }}
-                        <span class="text-red-500">*</span>
-                    </label>
-                    <input pInputText id="url" type="text" [(ngModel)]="video.url" required />
-                    <small class="text-red-500" *ngIf="submitted && !video.url">
-                        {{ 'shared.validation.urlRequired' | translate }}
-                    </small>
-                </div>
-
-                <!-- OR Divider -->
-                <div class="flex items-center gap-4">
-                    <div class="flex-grow h-px bg-gray-300"></div>
-                    <span class="text-gray-500 font-medium">{{ 'shared.common.or' | translate }}</span>
-                    <div class="flex-grow h-px bg-gray-300"></div>
-                </div>
-
-                <!-- File Upload -->
-                <div class="flex flex-col gap-2">
-                    <label class="font-bold">{{ 'video.labels.uploadFile' | translate }}</label>
-                    <p-fileupload name="videofile[]" [url]="baseUploadCallBack" (onUpload)="onUpload($event)" accept="video/*" mode="advanced">
-                        <ng-template #empty>
-                            <div class="text-gray-500 text-sm">
-                                {{ 'video.labels.dragDropHint' | translate }}
-                            </div>
-                        </ng-template>
-                    </p-fileupload>
-                </div>
-
                 <!-- Description -->
                 <div class="flex flex-col gap-2">
                     <label for="description" class="font-bold">
                         {{ 'shared.common.description' | translate }}
                     </label>
-                    <textarea id="description" pTextarea [(ngModel)]="video.description" rows="3"></textarea>
+                    <textarea id="description" pTextarea [(ngModel)]="video.description" rows="3" cols="20" fluid> </textarea>
                 </div>
 
-                <!-- Status -->
+                <!-- File Upload -->
                 <div class="flex flex-col gap-2">
-                    <label for="status" class="font-bold">
-                        {{ 'video.status.label' | translate }}
-                    </label>
-                    <p-select id="status" [options]="videoService.getVideoStatusOptions()" [(ngModel)]="video.etat" optionLabel="label" optionValue="value" placeholder="{{ 'shared.common.select' | translate }}" class="w-full" />
+                    <app-mp4-uploader [backendUrl]="'http://localhost:3000/api'" (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)"> </app-mp4-uploader>
                 </div>
             </div>
         </p-fluid>

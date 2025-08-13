@@ -1,5 +1,5 @@
 // mp4-uploader.component.ts
-import { Component, OnInit, OnDestroy, AfterViewInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, Input, Output, EventEmitter, ViewChild, ElementRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CardModule } from 'primeng/card';
@@ -18,6 +18,9 @@ import Dashboard from '@uppy/dashboard';
 import Webcam from '@uppy/webcam';
 import XHRUpload from '@uppy/xhr-upload';
 
+// Import your translation service
+import { TranslationService } from '../../../../core/services/translation.service';
+
 interface FileItem {
     id: string;
     name: string;
@@ -34,53 +37,7 @@ interface FileItem {
     imports: [CommonModule, HttpClientModule, CardModule, ButtonModule, ProgressBarModule, ChipModule, DialogModule, ToastModule, TagModule, DividerModule, PanelModule, SkeletonModule],
     providers: [MessageService],
     templateUrl: './mp4-uploader.component.html',
-    styles: [
-        `
-            :host {
-                display: block;
-                width: 100%;
-            }
-
-            .uploader-card {
-                width: 100%;
-                max-width: none;
-            }
-
-            .preview-dialog .p-dialog-content {
-                padding: 0 !important;
-            }
-
-            .preview-dialog video {
-                border-radius: 6px;
-            }
-
-            /* Responsive adjustments */
-            @media (max-width: 768px) {
-                .flex-wrap {
-                    flex-direction: column;
-                }
-
-                .flex-wrap .p-button {
-                    width: 100%;
-                    justify-content: center;
-                }
-            }
-
-            /* PrimeNG Uppy integration styles */
-            :global(.uppy-Dashboard-inner) {
-                border-radius: 6px !important;
-                border: 1px solid var(--surface-border) !important;
-            }
-
-            :global(.uppy-Dashboard-AddFiles-title) {
-                color: var(--text-color) !important;
-            }
-
-            :global(.uppy-Dashboard-note) {
-                color: var(--text-color-secondary) !important;
-            }
-        `,
-    ],
+    styleUrls: ['./mp4-uploader.component.scss'],
 })
 export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() backendUrl = '/api'; // Your backend URL
@@ -92,6 +49,9 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     files: FileItem[] = [];
     previewUrl: string | null = null;
     showPreviewDialog = false;
+
+    // Inject translation service
+    public translationService = inject(TranslationService);
 
     constructor(
         private http: HttpClient,
@@ -114,6 +74,11 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
+    // Translation helper method
+    protected t(key: string, params?: Record<string, any>): string {
+        return this.translationService.translate(key, params);
+    }
+
     private initializeUppy() {
         this.uppy = new Uppy({
             restrictions: {
@@ -122,6 +87,8 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
                 allowedFileTypes: ['video/mp4', '.mp4'],
             },
             autoProceed: false,
+            // Set Uppy locale
+            locale: this.getUppyLocale(),
         });
 
         // Add Webcam for recording
@@ -133,6 +100,7 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
                 width: { min: 640, ideal: 1280, max: 1920 },
                 height: { min: 480, ideal: 720, max: 1080 },
             },
+            locale: this.getUppyLocale(),
         });
 
         // Configure XHR Upload
@@ -141,6 +109,7 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
             method: 'PUT',
             headers: {},
             fieldName: 'file',
+            locale: this.getUppyLocale(),
         });
 
         this.setupEventHandlers();
@@ -157,11 +126,22 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
                 showProgressDetails: true,
                 hideUploadButton: false,
                 showRemoveButtonAfterComplete: true,
-                note: 'MP4 videos only, up to 500MB each',
+                note: this.t('uploader.note'),
                 theme: 'light',
                 proudlyDisplayPoweredByUppy: false,
+                locale: this.getUppyLocale(),
             });
         }
+    }
+
+    private getUppyLocale(): any {
+        const currentLang = this.translationService.getCurrentLanguage();
+        const translations = this.translationService.getTranslations();
+
+        // Return Uppy-specific locale strings
+        return {
+            strings: translations?.uploader?.dashboard?.strings || {},
+        };
     }
 
     private setupEventHandlers() {
@@ -178,8 +158,8 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
             this.markFileAsCompleted(file.id, response.uploadURL || this.getFileUrl(file));
             this.messageService.add({
                 severity: 'success',
-                summary: 'Upload Complete',
-                detail: `${file.name} uploaded successfully!`,
+                summary: this.t('uploader.messages.uploadComplete'),
+                detail: this.t('uploader.messages.uploadSuccess', { fileName: file.name }),
                 life: 3000,
             });
         });
@@ -188,8 +168,8 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
             this.markFileAsError(file.id);
             this.messageService.add({
                 severity: 'error',
-                summary: 'Upload Failed',
-                detail: `Failed to upload ${file.name}`,
+                summary: this.t('uploader.messages.uploadFailed'),
+                detail: this.t('uploader.messages.uploadFailedDetail', { fileName: file.name }),
                 life: 5000,
             });
             console.error('Upload error:', error);
@@ -198,7 +178,7 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         this.uppy?.on('restriction-failed', (file: any, error) => {
             this.messageService.add({
                 severity: 'warn',
-                summary: 'File Restriction',
+                summary: this.t('uploader.messages.fileRestriction'),
                 detail: error.message,
                 life: 5000,
             });
@@ -224,8 +204,8 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
             this.uppy?.removeFile(file.id);
             this.messageService.add({
                 severity: 'error',
-                summary: 'Upload Preparation Failed',
-                detail: 'Failed to prepare upload. Please try again.',
+                summary: this.t('uploader.messages.uploadPreparationFailed'),
+                detail: this.t('uploader.messages.uploadPreparationFailedDetail'),
                 life: 5000,
             });
         }
@@ -290,8 +270,8 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         if (!file || file.locked) {
             this.messageService.add({
                 severity: 'warn',
-                summary: 'Cannot Remove',
-                detail: 'Cannot remove locked file',
+                summary: this.t('uploader.messages.cannotRemove'),
+                detail: this.t('uploader.messages.cannotRemoveLocked'),
                 life: 3000,
             });
             return;
@@ -312,16 +292,16 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
             this.fileRemoved.emit(fileId);
             this.messageService.add({
                 severity: 'success',
-                summary: 'File Removed',
-                detail: 'File removed successfully',
+                summary: this.t('uploader.messages.fileRemoved'),
+                detail: this.t('uploader.messages.fileRemovedSuccess'),
                 life: 3000,
             });
         } catch (error) {
             console.error('Failed to remove file:', error);
             this.messageService.add({
                 severity: 'error',
-                summary: 'Removal Failed',
-                detail: 'Failed to remove file. Please try again.',
+                summary: this.t('uploader.messages.removalFailed'),
+                detail: this.t('uploader.messages.removalFailedDetail'),
                 life: 5000,
             });
         }
@@ -352,35 +332,29 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     getCompletedCount(): number {
         return this.files.filter((f) => !f.uploading && f.url).length;
     }
+
+    // Method to update Uppy locale when language changes
+    public updateLocale() {
+        if (this.uppy) {
+            const newLocale = this.getUppyLocale();
+
+            // Update Dashboard locale
+            const dashboardPlugin = this.uppy.getPlugin('Dashboard');
+            if (dashboardPlugin) {
+                dashboardPlugin.setOptions({ locale: newLocale });
+            }
+
+            // Update Webcam locale
+            const webcamPlugin = this.uppy.getPlugin('Webcam');
+            if (webcamPlugin) {
+                webcamPlugin.setOptions({ locale: newLocale });
+            }
+
+            // Update XHR Upload locale
+            const xhrPlugin = this.uppy.getPlugin('XHRUpload');
+            if (xhrPlugin) {
+                xhrPlugin.setOptions({ locale: newLocale });
+            }
+        }
+    }
 }
-
-// Usage Example in your app component:
-/*
-// app.component.ts
-import { Component } from '@angular/core';
-import { Mp4UploaderComponent } from './mp4-uploader.component';
-
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [Mp4UploaderComponent],
-  template: `
-    <div class="p-4" style="max-width: 1200px; margin: 0 auto;">
-      <app-mp4-uploader 
-        [backendUrl]="'http://localhost:3000/api'"
-        (fileUploaded)="onFileUploaded($event)"
-        (fileRemoved)="onFileRemoved($event)">
-      </app-mp4-uploader>
-    </div>
-  `
-})
-export class AppComponent {
-  onFileUploaded(file: any) {
-    console.log('File uploaded:', file);
-  }
-
-  onFileRemoved(fileId: string) {
-    console.log('File removed:', fileId);
-  }
-}
-*/
