@@ -1,7 +1,7 @@
 // mp4-uploader.component.ts
 import { Component, OnInit, OnDestroy, AfterViewInit, Input, Output, EventEmitter, ViewChild, ElementRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
@@ -18,18 +18,10 @@ import Dashboard from '@uppy/dashboard';
 import Webcam from '@uppy/webcam';
 import XHRUpload from '@uppy/xhr-upload';
 
-// Import your translation service
+// Import services
 import { TranslationService } from '../../../../core/services/translation.service';
-
-interface FileItem {
-    id: string;
-    name: string;
-    url?: string;
-    locked: boolean;
-    uploading: boolean;
-    progress: number;
-    size: number;
-}
+import { FileItem } from '../../../interfaces/file-Item.interface';
+import { FileUploadService, PresignedUrlRequest } from '../../../services/file-upload.service';
 
 @Component({
     selector: 'app-mp4-uploader',
@@ -40,7 +32,6 @@ interface FileItem {
     styleUrls: ['./mp4-uploader.component.scss'],
 })
 export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
-    @Input() backendUrl = 'https://localhost:5001/api/FileItems'; // Your backend URL
     @Output() fileUploaded = new EventEmitter<FileItem>();
     @Output() fileRemoved = new EventEmitter<string>();
     @ViewChild('uppyDashboard', { static: false }) uppyDashboard!: ElementRef;
@@ -50,13 +41,11 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     previewUrl: string | null = null;
     showPreviewDialog = false;
 
-    // Inject translation service
+    // Inject services
     public translationService = inject(TranslationService);
+    private fileUploadService = inject(FileUploadService);
 
-    constructor(
-        private http: HttpClient,
-        private messageService: MessageService,
-    ) {}
+    constructor(private messageService: MessageService) {}
 
     ngOnInit() {
         // Initialize Uppy but don't mount dashboard yet
@@ -77,6 +66,48 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     // Translation helper method
     protected t(key: string, params?: Record<string, any>): string {
         return this.translationService.translate(key, params);
+    }
+
+    /**
+     * Check if a file is a duplicate based on name, size, and last modified date
+     */
+    private isDuplicateFile(file: any): boolean {
+        return this.files.some((existingFile) => {
+            // Compare by name and size
+            const sameNameAndSize = existingFile.name === file.name && existingFile.size === file.size;
+
+            // Fallback to name and size comparison
+            return sameNameAndSize;
+        });
+    }
+
+    /**
+     * Generate a unique filename by adding GUID before file extension
+     */
+    private generateUniqueFilename(originalFilename: string): string {
+        const guid = this.generateGuid();
+        const lastDotIndex = originalFilename.lastIndexOf('.');
+
+        if (lastDotIndex === -1) {
+            // No extension found, just append GUID
+            return `${originalFilename}_${guid}`;
+        }
+
+        // Insert GUID before extension
+        const nameWithoutExt = originalFilename.substring(0, lastDotIndex);
+        const extension = originalFilename.substring(lastDotIndex);
+        return `${nameWithoutExt}_${guid}${extension}`;
+    }
+
+    /**
+     * Generate a GUID (UUID v4)
+     */
+    private generateGuid(): string {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            const r = (Math.random() * 16) | 0;
+            const v = c == 'x' ? r : (r & 0x3) | 0x8;
+            return v.toString(16);
+        });
     }
 
     private initializeUppy() {
@@ -146,8 +177,28 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private setupEventHandlers() {
         this.uppy?.on('file-added', (file) => {
-            this.addFileToList(file);
-            this.generatePutPresignedUrl(file);
+            // Check for duplicate files before processing
+            if (this.isDuplicateFile(file)) {
+                this.messageService.add({
+                    severity: 'warn',
+                    summary: this.t('uploader.messages.duplicateFile'),
+                    detail: this.t('uploader.messages.duplicateFileDetail', { fileName: file.name }),
+                    life: 5000,
+                });
+
+                // Remove the duplicate file from Uppy
+                this.uppy?.removeFile(file.id);
+                return;
+            }
+
+            // Generate unique filename before adding to list
+            const uniqueFilename = this.generateUniqueFilename(file?.name!);
+
+            // Update the file object with unique filename
+            file.meta = { ...file.meta, uniqueFilename };
+
+            this.addFileToList(file, uniqueFilename);
+            this.generatePutPresignedUrl(file, uniqueFilename);
         });
 
         this.uppy?.on('upload-progress', (file: any, progress: any) => {
@@ -185,15 +236,15 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
-    private async generatePutPresignedUrl(file: any) {
+    private async generatePutPresignedUrl(file: any, uniqueFilename: string) {
         try {
-            const response = (await this.http
-                .post(`${this.backendUrl}/presigned-url`, {
-                    filename: file.name,
-                    contentType: file.type,
-                    action: 'put',
-                })
-                .toPromise()) as any;
+            const request: PresignedUrlRequest = {
+                filename: uniqueFilename, // Use unique filename instead of original
+                contentType: file.type,
+                action: 'put',
+            };
+
+            const response = await this.fileUploadService.generatePresignedUrl(request);
 
             // Update XHR upload settings
             this.uppy?.getPlugin('XHRUpload')?.setOptions({
@@ -205,7 +256,7 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
                 },
                 formData: false, // send raw file, not multipart
                 getResponseData: () => {
-                    // S3 renvoie souvent une réponse vide ou XML, donc on renvoie l'URL directement
+                    // S3 returns often empty or XML response, so return URL directly
                     return { url: response.uploadUrl };
                 },
             });
@@ -223,13 +274,17 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private async generateGetPresignedUrl(file: any): Promise<string> {
         try {
-            const response = (await this.http
-                .post(`${this.backendUrl}/presigned-url`, {
-                    filename: file.name,
-                    contentType: file.type || 'video/mp4',
-                    action: 'get',
-                })
-                .toPromise()) as any;
+            // Use the unique filename stored in the file item
+            const fileItem = this.files.find((f) => f.id === file.id);
+            const filename = fileItem?.uniqueFilename || file.meta?.uniqueFilename || file.name;
+
+            const request: PresignedUrlRequest = {
+                filename: filename,
+                contentType: file.type || 'video/mp4',
+                action: 'get',
+            };
+
+            const response = await this.fileUploadService.generatePresignedUrl(request);
 
             if (!response.url) {
                 throw new Error('No URL returned');
@@ -249,12 +304,12 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    private addFileToList(file: any) {
+    private addFileToList(file: any, uniqueFilename: string) {
         const fileItem: FileItem = {
             id: file.id,
-            name: file.name,
+            name: file.name, // Keep original name for display
+            uniqueFilename: uniqueFilename, // Store unique filename
             size: file.size,
-            locked: false,
             uploading: true,
             progress: 0,
         };
@@ -274,8 +329,17 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
             file.uploading = false;
             file.url = url;
             file.progress = 100;
+
+            this.fileUploadService.createFileItem(file).subscribe({
+                next: (result) => {
+                    console.log('Fichier créé:', result);
+                },
+                error: (err) => {
+                    console.error('Erreur lors de la création:', err);
+                },
+            });
+
             this.fileUploaded.emit(file);
-            //this.checkFileLockStatus(fileId);
         }
     }
 
@@ -291,21 +355,9 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         return URL.createObjectURL(file.data);
     }
 
-    /*private async checkFileLockStatus(fileId: string) {
-        try {
-            const response = (await this.http.get(`${this.backendUrl}/file-status/${fileId}`).toPromise()) as any;
-            const file = this.files.find((f) => f.id === fileId);
-            if (file) {
-                file.locked = response.locked;
-            }
-        } catch (error) {
-            console.error('Failed to check file lock status:', error);
-        }
-    }*/
-
     async removeFile(fileId: string) {
         const file = this.files.find((f) => f.id === fileId);
-        if (!file || file.locked) {
+        if (!file) {
             this.messageService.add({
                 severity: 'warn',
                 summary: this.t('uploader.messages.cannotRemove'),
@@ -316,7 +368,7 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         try {
-            await this.http.delete(`${this.backendUrl}/files/${fileId}`).toPromise();
+            await this.fileUploadService.removeFile(file?.uniqueFilename!);
 
             const index = this.files.findIndex((f) => f.id === fileId);
             if (index > -1) {
@@ -346,8 +398,13 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     async previewFile(file: FileItem) {
-        this.previewUrl = await this.generateGetPresignedUrl(file);
-        this.showPreviewDialog = true;
+        try {
+            this.previewUrl = await this.generateGetPresignedUrl(file);
+            this.showPreviewDialog = true;
+        } catch (error) {
+            // Error handling is already done in generateGetPresignedUrl
+            console.error('Preview failed:', error);
+        }
     }
 
     closePreview() {

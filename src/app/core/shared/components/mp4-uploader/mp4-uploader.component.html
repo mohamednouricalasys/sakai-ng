@@ -42,14 +42,13 @@
                     <!-- Status Tags -->
                     <div *ngIf="!file.uploading" class="flex gap-2">
                         <p-tag *ngIf="file.url" [value]="t('uploader.status.completed')" severity="success" icon="pi pi-check"></p-tag>
-                        <p-tag *ngIf="file.locked" [value]="t('uploader.status.locked')" severity="warning" icon="pi pi-lock"></p-tag>
                     </div>
 
                     <!-- Action Buttons -->
                     <div class="flex gap-2 flex-wrap">
                         <p-button *ngIf="file.url && !file.uploading" [label]="t('uploader.actions.preview')" icon="pi pi-play" size="small" (onClick)="previewFile(file)"> </p-button>
 
-                        <p-button *ngIf="!file.locked && !file.uploading" [label]="t('uploader.actions.remove')" icon="pi pi-trash" severity="danger" size="small" (onClick)="removeFile(file.id)"> </p-button>
+                        <p-button *ngIf="!file.uploading" [label]="t('uploader.actions.remove')" icon="pi pi-trash" severity="danger" size="small" (onClick)="removeFile(file.id)"> </p-button>
                     </div>
                 </div>
             </p-panel>

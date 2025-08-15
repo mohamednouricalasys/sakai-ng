@@ -99,7 +99,7 @@
 
                 <!-- File Upload -->
                 <div class="flex flex-col gap-2">
-                    <app-mp4-uploader [backendUrl]="'https://localhost:5001/api/FileItems'" (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)"> </app-mp4-uploader>
+                    <app-mp4-uploader (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)"> </app-mp4-uploader>
                 </div>
             </div>
         </p-fluid>
