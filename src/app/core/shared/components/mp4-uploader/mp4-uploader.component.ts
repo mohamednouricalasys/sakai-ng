@@ -40,7 +40,7 @@ interface FileItem {
     styleUrls: ['./mp4-uploader.component.scss'],
 })
 export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
-    @Input() backendUrl = '/api'; // Your backend URL
+    @Input() backendUrl = 'https://localhost:5001/api/FileItems'; // Your backend URL
     @Output() fileUploaded = new EventEmitter<FileItem>();
     @Output() fileRemoved = new EventEmitter<string>();
     @ViewChild('uppyDashboard', { static: false }) uppyDashboard!: ElementRef;
@@ -147,7 +147,7 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     private setupEventHandlers() {
         this.uppy?.on('file-added', (file) => {
             this.addFileToList(file);
-            this.generatePresignedUrl(file);
+            this.generatePutPresignedUrl(file);
         });
 
         this.uppy?.on('upload-progress', (file: any, progress: any) => {
@@ -185,19 +185,29 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
-    private async generatePresignedUrl(file: any) {
+    private async generatePutPresignedUrl(file: any) {
         try {
             const response = (await this.http
                 .post(`${this.backendUrl}/presigned-url`, {
                     filename: file.name,
                     contentType: file.type,
+                    action: 'put',
                 })
                 .toPromise()) as any;
 
             // Update XHR upload settings
             this.uppy?.getPlugin('XHRUpload')?.setOptions({
                 endpoint: response.uploadUrl,
-                headers: response.headers || {},
+                method: 'PUT',
+                headers: {
+                    'Content-Type': file.type, // must match presigned URL
+                    ...(response.headers || {}), // any extra headers from backend
+                },
+                formData: false, // send raw file, not multipart
+                getResponseData: () => {
+                    // S3 renvoie souvent une réponse vide ou XML, donc on renvoie l'URL directement
+                    return { url: response.uploadUrl };
+                },
             });
         } catch (error) {
             console.error('Failed to get presigned URL:', error);
@@ -208,6 +218,34 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
                 detail: this.t('uploader.messages.uploadPreparationFailedDetail'),
                 life: 5000,
             });
+        }
+    }
+
+    private async generateGetPresignedUrl(file: any): Promise<string> {
+        try {
+            const response = (await this.http
+                .post(`${this.backendUrl}/presigned-url`, {
+                    filename: file.name,
+                    contentType: file.type || 'video/mp4',
+                    action: 'get',
+                })
+                .toPromise()) as any;
+
+            if (!response.url) {
+                throw new Error('No URL returned');
+            }
+
+            return response.url;
+        } catch (error) {
+            console.error('Failed to get presigned URL:', error);
+            this.uppy?.removeFile(file.id);
+            this.messageService.add({
+                severity: 'error',
+                summary: this.t('uploader.messages.uploadPreparationFailed'),
+                detail: this.t('uploader.messages.uploadPreparationFailedDetail'),
+                life: 5000,
+            });
+            throw error; // Let the caller handle the failure
         }
     }
 
@@ -237,7 +275,7 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
             file.url = url;
             file.progress = 100;
             this.fileUploaded.emit(file);
-            this.checkFileLockStatus(fileId);
+            //this.checkFileLockStatus(fileId);
         }
     }
 
@@ -253,7 +291,7 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         return URL.createObjectURL(file.data);
     }
 
-    private async checkFileLockStatus(fileId: string) {
+    /*private async checkFileLockStatus(fileId: string) {
         try {
             const response = (await this.http.get(`${this.backendUrl}/file-status/${fileId}`).toPromise()) as any;
             const file = this.files.find((f) => f.id === fileId);
@@ -263,7 +301,7 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         } catch (error) {
             console.error('Failed to check file lock status:', error);
         }
-    }
+    }*/
 
     async removeFile(fileId: string) {
         const file = this.files.find((f) => f.id === fileId);
@@ -307,8 +345,8 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    previewFile(file: FileItem) {
-        this.previewUrl = file.url || null;
+    async previewFile(file: FileItem) {
+        this.previewUrl = await this.generateGetPresignedUrl(file);
         this.showPreviewDialog = true;
     }
 
