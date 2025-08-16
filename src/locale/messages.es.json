@@ -108,56 +108,54 @@
     }
   },
   "video": {
-    "status": {
-       "label": "Estado",
-      "Approuve": "Approuvée",
-      "EnInspection": "En inspection",
-      "Rejete": "Rejetée",
-      "EnTraitement": "En traitement"
-    },
-    "mock": {
-      "title": {
-        "footballSkills": "Compétences en football",
-        "dribblingDrills": "Exercices de dribble",
-        "tennisMatchPoint": "Point décisif de tennis",
-        "basketballTraining": "Entraînement de basketball"
+      "labels": {
+        "newVideo": "Nuevo Video",
+        "selectProdige": "Seleccionar Prodigio",
+        "videoDetails": "Detalles del Video",
+        "videoFile": "Archivo de Video",
+        "manualUrl": "URL del Video (Manual)",
+        "optional": "Opcional"
       },
-      "description": {
-        "footballSkills": "Une compilation mettant en valeur un jeune joueur de football démontrant diverses compétences.",
-        "dribblingDrills": "Séance d'entraînement avec des exercices de dribble.",
-        "tennisMatchPoint": "Un point décisif d'un tournoi junior de tennis.",
-        "basketballTraining": "Un jeune prodige effectuant différents exercices de basketball."
+      "placeholders": {
+        "videoUrl": "https://ejemplo.com/video.mp4"
+      },
+      "sort": {
+        "title": {
+          "placeholder": "Ordenar por título",
+          "down": "Título Z-A",
+          "up": "Título A-Z"
+        }
+      },
+      "limits": {
+        "title": "Información del Límite de Videos",
+        "current": "Prodigio {prodigyName}: {current}/{max} videos utilizados ({remaining} restantes)",
+        "reached": "Límite máximo de videos alcanzado para este prodigio."
+      },
+      "guidelines": {
+        "title": "Directrices Importantes - Por Favor Lea Cuidadosamente",
+        "expertReview": "Todos los videos serán revisados por expertos antes de su aprobación",
+        "hideIdentity": "La identidad profesional debe estar oculta (sin nombres, logos o información identificativa)",
+        "athleteConsent": "El consentimiento del atleta debe ser obtenido y documentado",
+        "prodigyOnly": "Solo se permiten videos que demuestren técnicas de prodigios",
+        "noPersonalInfo": "No debe ser visible información personal o confidencial"
+      },
+      "info": {
+        "uploadedFileUsed": "Se usará el archivo subido en lugar de la URL manual"
+      },
+      "validation": {
+        "videoRequired": "Por favor suba un archivo de video o proporcione una URL de video"
+      },
+      "messages": {
+        "noProdigeSelected": "Por favor seleccione primero un prodigio",
+        "titleAndVideoRequired": "El título y el video son requeridos",
+        "videoCreated": "Video creado exitosamente",
+        "videoUpdated": "Video actualizado exitosamente",
+        "videoDeleted": "Video eliminado exitosamente",
+        "confirmDeleteVideo": "¿Está seguro de que desea eliminar el video '{title}'?",
+        "limitReached": "Límite de Videos Alcanzado",
+        "limitReachedDetail": "Ha alcanzado el límite máximo de {maxVideos} videos para el prodigio {prodigyName}. Por favor elimine un video existente antes de agregar uno nuevo."
       }
     },
-    "labels": {
-      "newVideo": "Nuevo video",
-      "selectProdige": "Seleccionar prodigio",
-      "videoDetails": "Detalles del video",
-      "uploadFile": "Subir archivo",
-      "dragDropHint": "Arrastra y suelta el video aquí",
-      "prodige": "Prodigio"
-    },
-    "sort": {
-      "title": {
-        "placeholder": "Ordenar por título",
-        "down": "Título descendente",
-        "up": "Título ascendente"
-      }
-    },
-    "validation": {
-      "titleRequired": "El título es obligatorio.",
-      "urlRequired": "La URL es obligatoria."
-    },
-    "messages": {
-      "videoCreated": "Vídeo creado con éxito",
-      "videoDeleted": "Vídeo eliminado con éxito",
-      "confirmDeleteVideo": "¿Está seguro de que desea eliminar el vídeo \"{title}\"?",
-      "noProdigeSelected": "Ningún prodigio seleccionado",
-      "dataLoadError": "Error al cargar los datos",
-      "saveError": "Error al guardar",
-      "deleteError": "Error al eliminar"
-    }
-  },
   "tags": {
     "physical": {
       "vitesse": "Velocidad",
@@ -388,171 +386,173 @@
       "value": "Valor"
     },
     "uploader": {
-    "title": "Cargador de videos MP4",
-    "note": "Solo videos MP4, hasta 500MB cada uno",
-    "statistics": {
-      "files": "archivo(s)",
-      "uploading": "subiendo",
-      "completed": "completado(s)"
-    },
-    "status": {
-      "uploading": "Subiendo...",
-      "completed": "Completado",
-      "locked": "Bloqueado"
-    },
-    "actions": {
-      "preview": "Vista previa",
-      "remove": "Eliminar",
-      "close": "Cerrar",
-      "upload": "Subir",
-      "cancel": "Cancelar"
-    },
-    "empty": {
-      "title": "Aún no se han subido archivos",
-      "subtitle": "Usa el cargador de arriba para grabar o subir videos MP4"
-    },
-    "preview": {
-      "title": "Vista previa del video"
-    },
-    "messages": {
-      "uploadComplete": "Subida completada",
-      "uploadSuccess": "¡{fileName} subido exitosamente!",
-      "uploadFailed": "Fallo en la subida",
-      "uploadFailedDetail": "Error al subir {fileName}",
-      "fileRestriction": "Restricción de archivo",
-      "cannotRemove": "No se puede eliminar",
-      "cannotRemoveLocked": "No se puede eliminar un archivo bloqueado",
-      "fileRemoved": "Archivo eliminado",
-      "fileRemovedSuccess": "Archivo eliminado exitosamente",
-      "removalFailed": "Fallo en la eliminación",
-      "removalFailedDetail": "Error al eliminar el archivo. Por favor, inténtalo de nuevo.",
-      "uploadPreparationFailed": "Fallo en la preparación de subida",
-      "uploadPreparationFailedDetail": "Error al preparar la subida. Por favor, inténtalo de nuevo."
-    },
-    "dashboard": {
-      "strings": {
-        "addMoreFiles": "Agregar más archivos",
-        "addingMoreFiles": "Agregando más archivos",
-        "allowAccessDescription": "Para tomar fotos o grabar video con tu cámara, por favor permite el acceso a la cámara para este sitio.",
-        "allowAccessTitle": "Por favor permite el acceso a tu cámara",
-        "authenticateWith": "Conectar con {pluginName}",
-        "authenticateWithTitle": "Por favor autentícate con {pluginName} para seleccionar archivos",
-        "back": "Atrás",
-        "browse": "explorar",
-        "browseFiles": "explorar archivos",
-        "cancel": "Cancelar",
-        "cancelUpload": "Cancelar subida",
-        "chooseFiles": "Elegir archivos",
-        "closeModal": "Cerrar modal",
-        "companionError": "Conexión con Companion falló",
-        "complete": "Completo",
-        "connectedToInternet": "Conectado a Internet",
-        "copyLink": "Copiar enlace",
-        "copyLinkToClipboardFallback": "Copia la URL de abajo",
-        "copyLinkToClipboardSuccess": "Enlace copiado al portapapeles",
-        "creatingAssembly": "Preparando subida...",
-        "creatingAssemblyFailed": "Transloadit: No se pudo crear Assembly",
-        "dashboardTitle": "Cargador de archivos",
-        "dashboardWindowTitle": "Ventana del cargador de archivos (Presiona escape para cerrar)",
-        "dataUploadedOfTotal": "{complete} de {total}",
-        "done": "Hecho",
-        "dropHereOr": "Suelta archivos aquí o %{browse}",
-        "dropHint": "Suelta tus archivos aquí",
-        "dropPasteBoth": "Suelta archivos aquí, pega o %{browse}",
-        "dropPasteFiles": "Suelta archivos aquí, pega o %{browse}",
-        "dropPasteImportBoth": "Suelta archivos aquí, pega, %{browse} o importa desde",
-        "dropPasteImportFiles": "Suelta archivos aquí, pega, %{browse} o importa desde",
-        "edit": "Editar",
-        "editFile": "Editar archivo",
-        "editing": "Editando %{file}",
-        "emptyFolderAdded": "No se agregaron archivos desde la carpeta vacía",
-        "encoding": "Codificando...",
-        "enterCorrectUrl": "URL incorrecta: Por favor asegúrate de ingresar un enlace directo a un archivo",
-        "enterUrlToImport": "Ingresa URL para importar un archivo",
-        "exceedsSize": "Este archivo excede el tamaño máximo permitido de",
-        "failedToFetch": "Companion falló al obtener esta URL, por favor asegúrate de que sea correcta",
-        "failedToUpload": "Error al subir %{file}",
-        "fileSource": "Fuente del archivo: %{name}",
-        "filesUploadedOfTotal": {
-          "0": "%{complete} de %{smart_count} archivo subido",
-          "1": "%{complete} de %{smart_count} archivos subidos"
-        },
-        "filter": "Filtrar",
-        "finishEditingFile": "Terminar edición del archivo",
-        "folderAdded": {
-          "0": "Se agregó %{smart_count} archivo desde %{folder}",
-          "1": "Se agregaron %{smart_count} archivos desde %{folder}"
-        },
-        "import": "Importar",
-        "importFrom": "Importar desde %{name}",
-        "loading": "Cargando...",
-        "logOut": "Cerrar sesión",
-        "myDevice": "Mi dispositivo",
-        "noFilesFound": "No tienes archivos o carpetas aquí",
-        "noInternetConnection": "Sin conexión a Internet",
-        "pause": "Pausar",
-        "pauseUpload": "Pausar subida",
-        "paused": "Pausado",
-        "poweredBy": "Desarrollado por %{uppy}",
-        "processingXFiles": {
-          "0": "Procesando %{smart_count} archivo",
-          "1": "Procesando %{smart_count} archivos"
-        },
-        "removeFile": "Eliminar archivo",
-        "resetFilter": "Restablecer filtro",
-        "resume": "Reanudar",
-        "resumeUpload": "Reanudar subida",
-        "retry": "Reintentar",
-        "retryUpload": "Reintentar subida",
-        "save": "Guardar",
-        "selectFileNamed": "Seleccionar archivo %{name}",
-        "selectX": {
-          "0": "Seleccionar %{smart_count}",
-          "1": "Seleccionar %{smart_count}"
-        },
-        "smile": "¡Sonríe!",
-        "startRecording": "Comenzar grabación de video",
-        "stopRecording": "Detener grabación de video",
-        "takePicture": "Tomar una foto",
-        "timedOut": "Subida detenida por %{seconds} segundos, cancelando.",
-        "upload": "Subir",
-        "uploadComplete": "Subida completada",
-        "uploadFailed": "Subida falló",
-        "uploadPaused": "Subida pausada",
-        "uploadXFiles": {
-          "0": "Subir %{smart_count} archivo",
-          "1": "Subir %{smart_count} archivos"
-        },
-        "uploadXNewFiles": {
-          "0": "Subir +%{smart_count} archivo",
-          "1": "Subir +%{smart_count} archivos"
-        },
-        "uploading": "Subiendo",
-        "uploadingXFiles": {
-          "0": "Subiendo %{smart_count} archivo",
-          "1": "Subiendo %{smart_count} archivos"
-        },
-        "xFilesSelected": {
-          "0": "%{smart_count} archivo seleccionado",
-          "1": "%{smart_count} archivos seleccionados"
-        },
-        "xMoreFilesAdded": {
-          "0": "%{smart_count} archivo más agregado",
-          "1": "%{smart_count} archivos más agregados"
-        },
-        "xTimeLeft": "%{time} restante",
-        "youCanOnlyUploadFileTypes": "Solo puedes subir: %{types}",
-        "youCanOnlyUploadX": {
-          "0": "Solo puedes subir %{smart_count} archivo",
-          "1": "Solo puedes subir %{smart_count} archivos"
-        },
-        "youHaveToAtLeastSelectX": {
-          "0": "Tienes que seleccionar al menos %{smart_count} archivo",
-          "1": "Tienes que seleccionar al menos %{smart_count} archivos"
+      "title": "Cargador de videos MP4",
+      "note": "Solo videos MP4, hasta 500MB cada uno",
+      "statistics": {
+        "files": "archivo(s)",
+        "uploading": "cargando",
+        "completed": "completado(s)"
+      },
+      "status": {
+        "uploading": "Cargando...",
+        "completed": "Completado",
+        "locked": "Bloqueado"
+      },
+      "actions": {
+        "preview": "Vista previa",
+        "remove": "Eliminar",
+        "close": "Cerrar",
+        "upload": "Cargar",
+        "cancel": "Cancelar"
+      },
+      "empty": {
+        "title": "Aún no se han cargado archivos",
+        "subtitle": "Usa el cargador de arriba para grabar o cargar videos MP4"
+      },
+      "preview": {
+        "title": "Vista previa del video"
+      },
+      "messages": {
+        "uploadComplete": "Carga completada",
+        "uploadSuccess": "¡{fileName} cargado exitosamente!",
+        "uploadFailed": "Error en la carga",
+        "uploadFailedDetail": "Error al cargar {fileName}",
+        "fileRestriction": "Restricción de archivo",
+        "cannotRemove": "No se puede eliminar",
+        "cannotRemoveLocked": "No se puede eliminar archivo bloqueado",
+        "fileRemoved": "Archivo eliminado",
+        "fileRemovedSuccess": "Archivo eliminado exitosamente",
+        "removalFailed": "Error al eliminar",
+        "removalFailedDetail": "Error al eliminar el archivo. Por favor, inténtelo de nuevo.",
+        "uploadPreparationFailed": "Error en la preparación de carga",
+        "uploadPreparationFailedDetail": "Error al preparar la carga. Por favor, inténtelo de nuevo.",
+        "duplicateFile": "Archivo duplicado",
+        "duplicateFileDetail": "El archivo {fileName} ya ha sido agregado"
+      },
+      "dashboard": {
+        "strings": {
+          "addMoreFiles": "Agregar más archivos",
+          "addingMoreFiles": "Agregando más archivos",
+          "allowAccessDescription": "Para tomar fotos o grabar video con tu cámara, por favor permite el acceso a la cámara para este sitio.",
+          "allowAccessTitle": "Por favor permite el acceso a tu cámara",
+          "authenticateWith": "Conectar con {pluginName}",
+          "authenticateWithTitle": "Por favor autentícate con {pluginName} para seleccionar archivos",
+          "back": "Atrás",
+          "browse": "explorar",
+          "browseFiles": "explorar archivos",
+          "cancel": "Cancelar",
+          "cancelUpload": "Cancelar carga",
+          "chooseFiles": "Elegir archivos",
+          "closeModal": "Cerrar ventana",
+          "companionError": "La conexión con Companion falló",
+          "complete": "Completado",
+          "connectedToInternet": "Conectado a Internet",
+          "copyLink": "Copiar enlace",
+          "copyLinkToClipboardFallback": "Copia la URL de abajo",
+          "copyLinkToClipboardSuccess": "Enlace copiado al portapapeles",
+          "creatingAssembly": "Preparando carga...",
+          "creatingAssemblyFailed": "Transloadit: No se pudo crear el Assembly",
+          "dashboardTitle": "Cargador de archivos",
+          "dashboardWindowTitle": "Ventana del cargador de archivos (Presiona escape para cerrar)",
+          "dataUploadedOfTotal": "{complete} de {total}",
+          "done": "Hecho",
+          "dropHereOr": "Arrastra archivos aquí o %{browse}",
+          "dropHint": "Arrastra tus archivos aquí",
+          "dropPasteBoth": "Arrastra archivos aquí, pega o %{browse}",
+          "dropPasteFiles": "Arrastra archivos aquí, pega o %{browse}",
+          "dropPasteImportBoth": "Arrastra archivos aquí, pega, %{browse} o importa desde",
+          "dropPasteImportFiles": "Arrastra archivos aquí, pega, %{browse} o importa desde",
+          "edit": "Editar",
+          "editFile": "Editar archivo",
+          "editing": "Editando %{file}",
+          "emptyFolderAdded": "No se agregaron archivos desde la carpeta vacía",
+          "encoding": "Codificando...",
+          "enterCorrectUrl": "URL incorrecta: Asegúrate de ingresar un enlace directo a un archivo",
+          "enterUrlToImport": "Ingresa la URL para importar un archivo",
+          "exceedsSize": "Este archivo excede el tamaño máximo permitido de",
+          "failedToFetch": "Companion no pudo obtener esta URL, asegúrate de que sea correcta",
+          "failedToUpload": "Error al cargar %{file}",
+          "fileSource": "Fuente del archivo: %{name}",
+          "filesUploadedOfTotal": {
+            "0": "%{complete} de %{smart_count} archivo cargado",
+            "1": "%{complete} de %{smart_count} archivos cargados"
+          },
+          "filter": "Filtrar",
+          "finishEditingFile": "Terminar de editar archivo",
+          "folderAdded": {
+            "0": "%{smart_count} archivo agregado desde %{folder}",
+            "1": "%{smart_count} archivos agregados desde %{folder}"
+          },
+          "import": "Importar",
+          "importFrom": "Importar desde %{name}",
+          "loading": "Cargando...",
+          "logOut": "Cerrar sesión",
+          "myDevice": "Mi dispositivo",
+          "noFilesFound": "No tienes archivos o carpetas aquí",
+          "noInternetConnection": "Sin conexión a Internet",
+          "pause": "Pausar",
+          "pauseUpload": "Pausar carga",
+          "paused": "Pausado",
+          "poweredBy": "Desarrollado por %{uppy}",
+          "processingXFiles": {
+            "0": "Procesando %{smart_count} archivo",
+            "1": "Procesando %{smart_count} archivos"
+          },
+          "removeFile": "Eliminar archivo",
+          "resetFilter": "Restablecer filtro",
+          "resume": "Reanudar",
+          "resumeUpload": "Reanudar carga",
+          "retry": "Reintentar",
+          "retryUpload": "Reintentar carga",
+          "save": "Guardar",
+          "selectFileNamed": "Seleccionar archivo %{name}",
+          "selectX": {
+            "0": "Seleccionar %{smart_count}",
+            "1": "Seleccionar %{smart_count}"
+          },
+          "smile": "¡Sonríe!",
+          "startRecording": "Comenzar grabación de video",
+          "stopRecording": "Detener grabación de video",
+          "takePicture": "Tomar una foto",
+          "timedOut": "Carga bloqueada por %{seconds} segundos, cancelando.",
+          "upload": "Cargar",
+          "uploadComplete": "Carga completada",
+          "uploadFailed": "Carga fallida",
+          "uploadPaused": "Carga pausada",
+          "uploadXFiles": {
+            "0": "Cargar %{smart_count} archivo",
+            "1": "Cargar %{smart_count} archivos"
+          },
+          "uploadXNewFiles": {
+            "0": "Cargar +%{smart_count} archivo",
+            "1": "Cargar +%{smart_count} archivos"
+          },
+          "uploading": "Cargando",
+          "uploadingXFiles": {
+            "0": "Cargando %{smart_count} archivo",
+            "1": "Cargando %{smart_count} archivos"
+          },
+          "xFilesSelected": {
+            "0": "%{smart_count} archivo seleccionado",
+            "1": "%{smart_count} archivos seleccionados"
+          },
+          "xMoreFilesAdded": {
+            "0": "%{smart_count} archivo más agregado",
+            "1": "%{smart_count} archivos más agregados"
+          },
+          "xTimeLeft": "%{time} restante",
+          "youCanOnlyUploadFileTypes": "Solo puedes cargar: %{types}",
+          "youCanOnlyUploadX": {
+            "0": "Solo puedes cargar %{smart_count} archivo",
+            "1": "Solo puedes cargar %{smart_count} archivos"
+          },
+          "youHaveToAtLeastSelectX": {
+            "0": "Debes seleccionar al menos %{smart_count} archivo",
+            "1": "Debes seleccionar al menos %{smart_count} archivos"
+          }
         }
       }
-    }
-  },
+    },
   "countries": {
     "ad": "Andorra",
     "ae": "Emiratos Árabes Unidos",

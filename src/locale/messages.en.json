@@ -108,56 +108,54 @@
     }
   },
   "video": {
-    "status": {
-      "label": "Status",
-      "Approuve": "Approved",
-      "EnInspection": "Under review",
-      "Rejete": "Rejected",
-      "EnTraitement": "Processing"
-    },
-    "mock": {
-      "title": {
-        "footballSkills": "Football Skills",
-        "dribblingDrills": "Dribbling Drills",
-        "tennisMatchPoint": "Tennis Match Point",
-        "basketballTraining": "Basketball Training"
+      "labels": {
+        "newVideo": "New Video",
+        "selectProdige": "Select Prodigy",
+        "videoDetails": "Video Details",
+        "videoFile": "Video File",
+        "manualUrl": "Video URL (Manual)",
+        "optional": "Optional"
       },
-      "description": {
-        "footballSkills": "A highlight reel of a young football player demonstrating various skills.",
-        "dribblingDrills": "Training footage of dribbling exercises.",
-        "tennisMatchPoint": "A decisive point from a junior tennis tournament.",
-        "basketballTraining": "A young prodigy performing different basketball drills."
+      "placeholders": {
+        "videoUrl": "https://example.com/video.mp4"
+      },
+      "sort": {
+        "title": {
+          "placeholder": "Sort by title",
+          "down": "Title Z-A",
+          "up": "Title A-Z"
+        }
+      },
+      "limits": {
+        "title": "Video Limit Information",
+        "current": "Prodigy {prodigyName}: {current}/{max} videos used ({remaining} remaining)",
+        "reached": "Maximum video limit reached for this prodigy."
+      },
+      "guidelines": {
+        "title": "Important Guidelines - Please Read Carefully",
+        "expertReview": "All videos will be reviewed by experts before approval",
+        "hideIdentity": "Professional identity must be hidden (no names, logos, or identifying information)",
+        "athleteConsent": "Athlete consent must be obtained and documented",
+        "prodigyOnly": "Only videos demonstrating prodigy techniques are allowed",
+        "noPersonalInfo": "No personal or confidential information should be visible"
+      },
+      "info": {
+        "uploadedFileUsed": "An uploaded file will be used instead of the manual URL"
+      },
+      "validation": {
+        "videoRequired": "Please upload a video file or provide a video URL"
+      },
+      "messages": {
+        "noProdigeSelected": "Please select a prodigy first",
+        "titleAndVideoRequired": "Title and video are required",
+        "videoCreated": "Video created successfully",
+        "videoUpdated": "Video updated successfully",
+        "videoDeleted": "Video deleted successfully",
+        "confirmDeleteVideo": "Are you sure you want to delete the video '{title}'?",
+        "limitReached": "Video Limit Reached",
+        "limitReachedDetail": "You have reached the maximum limit of {maxVideos} videos for prodigy {prodigyName}. Please delete an existing video before adding a new one."
       }
     },
-    "labels": {
-      "newVideo": "New video",
-      "selectProdige": "Select prodigy",
-      "videoDetails": "Video details",
-      "uploadFile": "Upload file",
-      "dragDropHint": "Drag and drop the video here",
-      "prodige": "Prodigy"
-    },
-    "sort": {
-      "title": {
-        "placeholder": "Sort by title",
-        "down": "Title descending",
-        "up": "Title ascending"
-      }
-    },
-    "validation": {
-      "titleRequired": "Title is required.",
-      "urlRequired": "URL is required."
-    },
-    "messages": {
-      "videoCreated": "Video successfully created",
-      "videoDeleted": "Video successfully deleted",
-      "confirmDeleteVideo": "Are you sure you want to delete the video \"{title}\"?",
-      "noProdigeSelected": "No prodigy selected",
-      "dataLoadError": "Error loading data",
-      "saveError": "Error while saving",
-      "deleteError": "Error while deleting"
-    }
-  },
   "tags": {
     "physical": {
       "vitesse": "Speed",
@@ -388,171 +386,173 @@
       "value": "Value"
   },
   "uploader": {
-    "title": "MP4 Video Uploader",
-    "note": "MP4 videos only, up to 500MB each",
-    "statistics": {
-      "files": "file(s)",
-      "uploading": "uploading",
-      "completed": "completed"
-    },
-    "status": {
-      "uploading": "Uploading...",
-      "completed": "Completed",
-      "locked": "Locked"
-    },
-    "actions": {
-      "preview": "Preview",
-      "remove": "Remove",
-      "close": "Close",
-      "upload": "Upload",
-      "cancel": "Cancel"
-    },
-    "empty": {
-      "title": "No files uploaded yet",
-      "subtitle": "Use the uploader above to record or upload MP4 videos"
-    },
-    "preview": {
-      "title": "Video Preview"
-    },
-    "messages": {
-      "uploadComplete": "Upload Complete",
-      "uploadSuccess": "{fileName} uploaded successfully!",
-      "uploadFailed": "Upload Failed",
-      "uploadFailedDetail": "Failed to upload {fileName}",
-      "fileRestriction": "File Restriction",
-      "cannotRemove": "Cannot Remove",
-      "cannotRemoveLocked": "Cannot remove locked file",
-      "fileRemoved": "File Removed",
-      "fileRemovedSuccess": "File removed successfully",
-      "removalFailed": "Removal Failed",
-      "removalFailedDetail": "Failed to remove file. Please try again.",
-      "uploadPreparationFailed": "Upload Preparation Failed",
-      "uploadPreparationFailedDetail": "Failed to prepare upload. Please try again."
-    },
-    "dashboard": {
-      "strings": {
-        "addMoreFiles": "Add more files",
-        "addingMoreFiles": "Adding more files",
-        "allowAccessDescription": "In order to take pictures or record video with your camera, please allow camera access for this site.",
-        "allowAccessTitle": "Please allow access to your camera",
-        "authenticateWith": "Connect to {pluginName}",
-        "authenticateWithTitle": "Please authenticate with {pluginName} to select files",
-        "back": "Back",
-        "browse": "browse",
-        "browseFiles": "browse files",
-        "cancel": "Cancel",
-        "cancelUpload": "Cancel upload",
-        "chooseFiles": "Choose files",
-        "closeModal": "Close Modal",
-        "companionError": "Connection with Companion failed",
-        "complete": "Complete",
-        "connectedToInternet": "Connected to the Internet",
-        "copyLink": "Copy link",
-        "copyLinkToClipboardFallback": "Copy the URL below",
-        "copyLinkToClipboardSuccess": "Link copied to clipboard",
-        "creatingAssembly": "Preparing upload...",
-        "creatingAssemblyFailed": "Transloadit: Could not create Assembly",
-        "dashboardTitle": "File Uploader",
-        "dashboardWindowTitle": "File Uploader Window (Press escape to close)",
-        "dataUploadedOfTotal": "{complete} of {total}",
-        "done": "Done",
-        "dropHereOr": "Drop files here or %{browse}",
-        "dropHint": "Drop your files here",
-        "dropPasteBoth": "Drop files here, paste or %{browse}",
-        "dropPasteFiles": "Drop files here, paste or %{browse}",
-        "dropPasteImportBoth": "Drop files here, paste, %{browse} or import from",
-        "dropPasteImportFiles": "Drop files here, paste, %{browse} or import from",
-        "edit": "Edit",
-        "editFile": "Edit file",
-        "editing": "Editing %{file}",
-        "emptyFolderAdded": "No files were added from empty folder",
-        "encoding": "Encoding...",
-        "enterCorrectUrl": "Incorrect URL: Please make sure you are entering a direct link to a file",
-        "enterUrlToImport": "Enter URL to import a file",
-        "exceedsSize": "This file exceeds maximum allowed size of",
-        "failedToFetch": "Companion failed to fetch this URL, please make sure it's correct",
-        "failedToUpload": "Failed to upload %{file}",
-        "fileSource": "File source: %{name}",
-        "filesUploadedOfTotal": {
-          "0": "%{complete} of %{smart_count} file uploaded",
-          "1": "%{complete} of %{smart_count} files uploaded"
-        },
-        "filter": "Filter",
-        "finishEditingFile": "Finish editing file",
-        "folderAdded": {
-          "0": "Added %{smart_count} file from %{folder}",
-          "1": "Added %{smart_count} files from %{folder}"
-        },
-        "import": "Import",
-        "importFrom": "Import from %{name}",
-        "loading": "Loading...",
-        "logOut": "Log out",
-        "myDevice": "My Device",
-        "noFilesFound": "You have no files or folders here",
-        "noInternetConnection": "No Internet connection",
-        "pause": "Pause",
-        "pauseUpload": "Pause upload",
-        "paused": "Paused",
-        "poweredBy": "Powered by %{uppy}",
-        "processingXFiles": {
-          "0": "Processing %{smart_count} file",
-          "1": "Processing %{smart_count} files"
-        },
-        "removeFile": "Remove file",
-        "resetFilter": "Reset filter",
-        "resume": "Resume",
-        "resumeUpload": "Resume upload",
-        "retry": "Retry",
-        "retryUpload": "Retry upload",
-        "save": "Save",
-        "selectFileNamed": "Select file %{name}",
-        "selectX": {
-          "0": "Select %{smart_count}",
-          "1": "Select %{smart_count}"
-        },
-        "smile": "Smile!",
-        "startRecording": "Begin video recording",
-        "stopRecording": "Stop video recording",
-        "takePicture": "Take a picture",
-        "timedOut": "Upload stalled for %{seconds} seconds, aborting.",
+      "title": "MP4 Video Uploader",
+      "note": "MP4 videos only, up to 500MB each",
+      "statistics": {
+        "files": "file(s)",
+        "uploading": "uploading",
+        "completed": "completed"
+      },
+      "status": {
+        "uploading": "Uploading...",
+        "completed": "Completed",
+        "locked": "Locked"
+      },
+      "actions": {
+        "preview": "Preview",
+        "remove": "Remove",
+        "close": "Close",
         "upload": "Upload",
-        "uploadComplete": "Upload complete",
-        "uploadFailed": "Upload failed",
-        "uploadPaused": "Upload paused",
-        "uploadXFiles": {
-          "0": "Upload %{smart_count} file",
-          "1": "Upload %{smart_count} files"
-        },
-        "uploadXNewFiles": {
-          "0": "Upload +%{smart_count} file",
-          "1": "Upload +%{smart_count} files"
-        },
-        "uploading": "Uploading",
-        "uploadingXFiles": {
-          "0": "Uploading %{smart_count} file",
-          "1": "Uploading %{smart_count} files"
-        },
-        "xFilesSelected": {
-          "0": "%{smart_count} file selected",
-          "1": "%{smart_count} files selected"
-        },
-        "xMoreFilesAdded": {
-          "0": "%{smart_count} more file added",
-          "1": "%{smart_count} more files added"
-        },
-        "xTimeLeft": "%{time} left",
-        "youCanOnlyUploadFileTypes": "You can only upload: %{types}",
-        "youCanOnlyUploadX": {
-          "0": "You can only upload %{smart_count} file",
-          "1": "You can only upload %{smart_count} files"
-        },
-        "youHaveToAtLeastSelectX": {
-          "0": "You have to select at least %{smart_count} file",
-          "1": "You have to select at least %{smart_count} files"
+        "cancel": "Cancel"
+      },
+      "empty": {
+        "title": "No files uploaded yet",
+        "subtitle": "Use the uploader above to record or upload MP4 videos"
+      },
+      "preview": {
+        "title": "Video Preview"
+      },
+      "messages": {
+        "uploadComplete": "Upload Complete",
+        "uploadSuccess": "{fileName} uploaded successfully!",
+        "uploadFailed": "Upload Failed",
+        "uploadFailedDetail": "Failed to upload {fileName}",
+        "fileRestriction": "File Restriction",
+        "cannotRemove": "Cannot Remove",
+        "cannotRemoveLocked": "Cannot remove locked file",
+        "fileRemoved": "File Removed",
+        "fileRemovedSuccess": "File removed successfully",
+        "removalFailed": "Removal Failed",
+        "removalFailedDetail": "Failed to remove file. Please try again.",
+        "uploadPreparationFailed": "Upload Preparation Failed",
+        "uploadPreparationFailedDetail": "Failed to prepare upload. Please try again.",
+        "duplicateFile": "Duplicate File",
+        "duplicateFileDetail": "The file {fileName} has already been added"
+      },
+      "dashboard": {
+        "strings": {
+          "addMoreFiles": "Add more files",
+          "addingMoreFiles": "Adding more files",
+          "allowAccessDescription": "In order to take pictures or record video with your camera, please allow camera access for this site.",
+          "allowAccessTitle": "Please allow access to your camera",
+          "authenticateWith": "Connect to {pluginName}",
+          "authenticateWithTitle": "Please authenticate with {pluginName} to select files",
+          "back": "Back",
+          "browse": "browse",
+          "browseFiles": "browse files",
+          "cancel": "Cancel",
+          "cancelUpload": "Cancel upload",
+          "chooseFiles": "Choose files",
+          "closeModal": "Close Modal",
+          "companionError": "Connection with Companion failed",
+          "complete": "Complete",
+          "connectedToInternet": "Connected to the Internet",
+          "copyLink": "Copy link",
+          "copyLinkToClipboardFallback": "Copy the URL below",
+          "copyLinkToClipboardSuccess": "Link copied to clipboard",
+          "creatingAssembly": "Preparing upload...",
+          "creatingAssemblyFailed": "Transloadit: Could not create Assembly",
+          "dashboardTitle": "File Uploader",
+          "dashboardWindowTitle": "File Uploader Window (Press escape to close)",
+          "dataUploadedOfTotal": "{complete} of {total}",
+          "done": "Done",
+          "dropHereOr": "Drop files here or %{browse}",
+          "dropHint": "Drop your files here",
+          "dropPasteBoth": "Drop files here, paste or %{browse}",
+          "dropPasteFiles": "Drop files here, paste or %{browse}",
+          "dropPasteImportBoth": "Drop files here, paste, %{browse} or import from",
+          "dropPasteImportFiles": "Drop files here, paste, %{browse} or import from",
+          "edit": "Edit",
+          "editFile": "Edit file",
+          "editing": "Editing %{file}",
+          "emptyFolderAdded": "No files were added from empty folder",
+          "encoding": "Encoding...",
+          "enterCorrectUrl": "Incorrect URL: Please make sure you are entering a direct link to a file",
+          "enterUrlToImport": "Enter URL to import a file",
+          "exceedsSize": "This file exceeds maximum allowed size of",
+          "failedToFetch": "Companion failed to fetch this URL, please make sure it's correct",
+          "failedToUpload": "Failed to upload %{file}",
+          "fileSource": "File source: %{name}",
+          "filesUploadedOfTotal": {
+            "0": "%{complete} of %{smart_count} file uploaded",
+            "1": "%{complete} of %{smart_count} files uploaded"
+          },
+          "filter": "Filter",
+          "finishEditingFile": "Finish editing file",
+          "folderAdded": {
+            "0": "Added %{smart_count} file from %{folder}",
+            "1": "Added %{smart_count} files from %{folder}"
+          },
+          "import": "Import",
+          "importFrom": "Import from %{name}",
+          "loading": "Loading...",
+          "logOut": "Log out",
+          "myDevice": "My Device",
+          "noFilesFound": "You have no files or folders here",
+          "noInternetConnection": "No Internet connection",
+          "pause": "Pause",
+          "pauseUpload": "Pause upload",
+          "paused": "Paused",
+          "poweredBy": "Powered by %{uppy}",
+          "processingXFiles": {
+            "0": "Processing %{smart_count} file",
+            "1": "Processing %{smart_count} files"
+          },
+          "removeFile": "Remove file",
+          "resetFilter": "Reset filter",
+          "resume": "Resume",
+          "resumeUpload": "Resume upload",
+          "retry": "Retry",
+          "retryUpload": "Retry upload",
+          "save": "Save",
+          "selectFileNamed": "Select file %{name}",
+          "selectX": {
+            "0": "Select %{smart_count}",
+            "1": "Select %{smart_count}"
+          },
+          "smile": "Smile!",
+          "startRecording": "Begin video recording",
+          "stopRecording": "Stop video recording",
+          "takePicture": "Take a picture",
+          "timedOut": "Upload stalled for %{seconds} seconds, aborting.",
+          "upload": "Upload",
+          "uploadComplete": "Upload complete",
+          "uploadFailed": "Upload failed",
+          "uploadPaused": "Upload paused",
+          "uploadXFiles": {
+            "0": "Upload %{smart_count} file",
+            "1": "Upload %{smart_count} files"
+          },
+          "uploadXNewFiles": {
+            "0": "Upload +%{smart_count} file",
+            "1": "Upload +%{smart_count} files"
+          },
+          "uploading": "Uploading",
+          "uploadingXFiles": {
+            "0": "Uploading %{smart_count} file",
+            "1": "Uploading %{smart_count} files"
+          },
+          "xFilesSelected": {
+            "0": "%{smart_count} file selected",
+            "1": "%{smart_count} files selected"
+          },
+          "xMoreFilesAdded": {
+            "0": "%{smart_count} more file added",
+            "1": "%{smart_count} more files added"
+          },
+          "xTimeLeft": "%{time} left",
+          "youCanOnlyUploadFileTypes": "You can only upload: %{types}",
+          "youCanOnlyUploadX": {
+            "0": "You can only upload %{smart_count} file",
+            "1": "You can only upload %{smart_count} files"
+          },
+          "youHaveToAtLeastSelectX": {
+            "0": "You have to select at least %{smart_count} file",
+            "1": "You have to select at least %{smart_count} files"
+          }
         }
       }
-    }
-  },
+    },
   "countries": {
     "ad": "Andorra",
     "ae": "United Arab Emirates",

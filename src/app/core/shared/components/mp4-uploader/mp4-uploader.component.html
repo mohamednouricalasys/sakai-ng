@@ -2,15 +2,26 @@
 
 <p-card styleClass="uploader-card">
     <ng-template pTemplate="content">
+        <!-- File Limit Information -->
+        <div *ngIf="maxFiles > 1" class="mb-3">
+            <p-message severity="info" [text]="'uploader.info.fileLimit' | translate: { current: files.length, max: maxFiles, remaining: maxFiles - files.length }" [closable]="false"> </p-message>
+        </div>
+
+        <!-- Uploader is disabled when file limit is reached -->
+        <div *ngIf="hasReachedFileLimit()" class="mb-3">
+            <p-message severity="warn" [text]="'uploader.messages.fileLimitReached' | translate" [closable]="false"> </p-message>
+        </div>
+
         <!-- Uppy Dashboard Container -->
-        <div #uppyDashboard class="mb-4"></div>
+        <div #uppyDashboard class="mb-4" [class.opacity-50]="hasReachedFileLimit()"></div>
 
         <!-- Upload Statistics -->
         <div *ngIf="files.length > 0" class="mb-4">
             <div class="flex flex-wrap gap-2">
-                <p-chip [label]="files.length + ' ' + t('uploader.statistics.files')" icon="pi pi-cloud-upload"></p-chip>
+                <p-chip [label]="files.length + ' ' + t('uploader.statistics.files')" icon="pi pi-cloud-upload"> </p-chip>
                 <p-chip *ngIf="getUploadingCount() > 0" [label]="getUploadingCount() + ' ' + t('uploader.statistics.uploading')" icon="pi pi-clock" styleClass="p-chip-outlined"> </p-chip>
                 <p-chip *ngIf="getCompletedCount() > 0" [label]="getCompletedCount() + ' ' + t('uploader.statistics.completed')" icon="pi pi-check-circle" styleClass="p-chip-outlined"> </p-chip>
+                <p-chip *ngIf="maxFiles > 1" [label]="maxFiles - files.length + ' ' + t('uploader.statistics.remaining')" icon="pi pi-info-circle" severity="secondary" styleClass="p-chip-outlined"> </p-chip>
             </div>
         </div>
 
@@ -41,7 +52,7 @@
 
                     <!-- Status Tags -->
                     <div *ngIf="!file.uploading" class="flex gap-2">
-                        <p-tag *ngIf="file.url" [value]="t('uploader.status.completed')" severity="success" icon="pi pi-check"></p-tag>
+                        <p-tag *ngIf="file.url" [value]="t('uploader.status.completed')" severity="success" icon="pi pi-check"> </p-tag>
                     </div>
 
                     <!-- Action Buttons -->
@@ -60,7 +71,9 @@
                 <div class="py-6">
                     <i class="pi pi-video text-6xl text-color-secondary mb-3"></i>
                     <h3 class="text-lg font-medium text-color-secondary mb-2">{{ t('uploader.empty.title') }}</h3>
-                    <p class="text-sm text-color-secondary m-0">{{ t('uploader.empty.subtitle') }}</p>
+                    <p class="text-sm text-color-secondary m-0">
+                        {{ maxFiles === 1 ? t('uploader.empty.subtitle.single') : t('uploader.empty.subtitle.multiple', { maxFiles: maxFiles }) }}
+                    </p>
                 </div>
             </ng-template>
         </p-card>
@@ -74,6 +87,6 @@
     </ng-template>
 
     <ng-template pTemplate="footer">
-        <p-button [label]="t('uploader.actions.close')" icon="pi pi-times" (onClick)="closePreview()"></p-button>
+        <p-button [label]="t('uploader.actions.close')" icon="pi pi-times" (onClick)="closePreview()"> </p-button>
     </ng-template>
 </p-dialog>

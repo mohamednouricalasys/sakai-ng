@@ -2,17 +2,47 @@
     <div class="card">
         <p-dataview #dv [value]="videos()" [layout]="layout" [rows]="6" [paginator]="true" [sortField]="sortField" [sortOrder]="sortOrder">
             <ng-template #header>
-                <div class="flex justify-between flex-wrap gap-4">
-                    <p-button [label]="'video.labels.newVideo' | translate" icon="pi pi-plus" severity="secondary" (onClick)="openNew()" />
+                <div class="flex justify-between flex-wrap gap-4 mb-4">
+                    <p-button
+                        [label]="'video.labels.newVideo' | translate"
+                        icon="pi pi-plus"
+                        severity="secondary"
+                        (onClick)="openNew()"
+                        [disabled]="hasReachedVideoLimit()"
+                        [title]="hasReachedVideoLimit() ? ('video.messages.limitReached' | translate) : ''"
+                    />
                     <p-select [options]="prodiges()" [(ngModel)]="selectedProdige" optionLabel="nom" (onChange)="onProdigeChange($event)" [placeholder]="'video.labels.selectProdige' | translate" class="w-full sm:w-16rem" />
-
                     <p-select [options]="sortOptions" [placeholder]="'video.sort.title.placeholder' | translate" (onChange)="onSortChange($event)" />
-
                     <p-select-button [(ngModel)]="layout" [options]="layoutOptions" [allowEmpty]="false">
                         <ng-template #item let-option>
                             <i class="pi" [ngClass]="{ 'pi-bars': option === 'list', 'pi-table': option === 'grid' }"></i>
                         </ng-template>
                     </p-select-button>
+                </div>
+
+                <!-- Video Limit Information -->
+                <div *ngIf="selectedProdige()" class="video-limit-warning">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="pi pi-info-circle text-orange-600"></i>
+                        <strong class="text-orange-700">{{ 'video.limits.title' | translate }}</strong>
+                    </div>
+                    <div class="text-sm text-gray-700">
+                        <p class="mb-1">
+                            {{
+                                'video.limits.current'
+                                    | translate
+                                        : {
+                                              current: videos().length,
+                                              max: MAX_VIDEOS_PER_PRODIGY,
+                                              remaining: getRemainingVideoSlots(),
+                                              prodigyName: selectedProdige()?.nom,
+                                          }
+                            }}
+                        </p>
+                        <p *ngIf="hasReachedVideoLimit()" class="text-orange-600 font-medium">
+                            {{ 'video.limits.reached' | translate }}
+                        </p>
+                    </div>
                 </div>
             </ng-template>
 
@@ -73,8 +103,41 @@
     </div>
 </div>
 
-<p-dialog [(visible)]="videoDialog" [style]="{ width: '500px' }" [header]="'video.labels.videoDetails' | translate" [modal]="true" [closable]="true">
+<p-dialog [(visible)]="videoDialog" [style]="{ width: '700px' }" [header]="'video.labels.videoDetails' | translate" [modal]="true" [closable]="true">
     <ng-template #content>
+        <!-- Upload Guidelines -->
+        <div class="upload-guidelines mb-4">
+            <div class="flex items-center gap-2 mb-3">
+                <i class="pi pi-exclamation-triangle text-red-500"></i>
+                <strong class="text-red-700">{{ 'video.guidelines.title' | translate }}</strong>
+            </div>
+
+            <div class="guideline-item">
+                <i class="pi pi-shield guideline-icon"></i>
+                <span class="text-sm">{{ 'video.guidelines.expertReview' | translate }}</span>
+            </div>
+
+            <div class="guideline-item">
+                <i class="pi pi-eye-slash guideline-icon"></i>
+                <span class="text-sm">{{ 'video.guidelines.hideIdentity' | translate }}</span>
+            </div>
+
+            <div class="guideline-item">
+                <i class="pi pi-check-circle guideline-icon"></i>
+                <span class="text-sm">{{ 'video.guidelines.athleteConsent' | translate }}</span>
+            </div>
+
+            <div class="guideline-item">
+                <i class="pi pi-video guideline-icon"></i>
+                <span class="text-sm">{{ 'video.guidelines.prodigyOnly' | translate }}</span>
+            </div>
+
+            <div class="guideline-item">
+                <i class="pi pi-ban guideline-icon"></i>
+                <span class="text-sm">{{ 'video.guidelines.noPersonalInfo' | translate }}</span>
+            </div>
+        </div>
+
         <p-fluid>
             <div class="flex flex-col gap-6">
                 <!-- Title -->
@@ -94,13 +157,32 @@
                     <label for="description" class="font-bold">
                         {{ 'shared.common.description' | translate }}
                     </label>
-                    <textarea id="description" pTextarea [(ngModel)]="video.description" rows="3" cols="20" fluid> </textarea>
+                    <textarea id="description" pTextarea [(ngModel)]="video.description" rows="3" cols="20" fluid></textarea>
                 </div>
 
                 <!-- File Upload -->
                 <div class="flex flex-col gap-2">
-                    <app-mp4-uploader (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)"> </app-mp4-uploader>
+                    <label class="font-bold">
+                        {{ 'video.labels.videoFile' | translate }}
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <app-mp4-uploader [maxFiles]="3" [maxFileSize]="500 * 1024 * 1024" [allowedFileTypes]="['video/mp4', '.mp4']" (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)"> </app-mp4-uploader>
+                    <small class="text-red-500" *ngIf="submitted && !uploadedFiles.length && !video.url">
+                        {{ 'video.validation.videoRequired' | translate }}
+                    </small>
                 </div>
+
+                <!-- Manual URL Input (fallback) -->
+                <!--div class="flex flex-col gap-2">
+                    <label for="url" class="font-bold">
+                        {{ 'video.labels.manualUrl' | translate }}
+                        <small class="text-gray-500 font-normal">({{ 'video.labels.optional' | translate }})</small>
+                    </label>
+                    <input pInputText id="url" type="url" [(ngModel)]="video.url" [placeholder]="'video.placeholders.videoUrl' | translate" [disabled]="uploadedFiles.length > 0" />
+                    <small class="text-gray-500" *ngIf="uploadedFiles.length > 0">
+                        {{ 'video.info.uploadedFileUsed' | translate }}
+                    </small>
+                </div-->
             </div>
         </p-fluid>
     </ng-template>

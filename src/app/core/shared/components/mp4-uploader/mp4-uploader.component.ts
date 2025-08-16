@@ -13,6 +13,8 @@ import { TagModule } from 'primeng/tag';
 import { DividerModule } from 'primeng/divider';
 import { PanelModule } from 'primeng/panel';
 import { SkeletonModule } from 'primeng/skeleton';
+import { MessageModule } from 'primeng/message';
+import { TranslatePipe, TranslateParamsPipe } from '../../../../core/shared';
 import Uppy from '@uppy/core';
 import Dashboard from '@uppy/dashboard';
 import Webcam from '@uppy/webcam';
@@ -26,12 +28,16 @@ import { FileUploadService, PresignedUrlRequest } from '../../../services/file-u
 @Component({
     selector: 'app-mp4-uploader',
     standalone: true,
-    imports: [CommonModule, HttpClientModule, CardModule, ButtonModule, ProgressBarModule, ChipModule, DialogModule, ToastModule, TagModule, DividerModule, PanelModule, SkeletonModule],
+    imports: [CommonModule, TranslatePipe, TranslateParamsPipe, HttpClientModule, CardModule, ButtonModule, ProgressBarModule, ChipModule, DialogModule, ToastModule, TagModule, DividerModule, PanelModule, SkeletonModule, MessageModule],
     providers: [MessageService],
     templateUrl: './mp4-uploader.component.html',
     styleUrls: ['./mp4-uploader.component.scss'],
 })
 export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
+    @Input() maxFiles: number = 1; // Maximum number of files allowed
+    @Input() maxFileSize: number = 500 * 1024 * 1024; // Default 500MB
+    @Input() allowedFileTypes: string[] = ['video/mp4', '.mp4']; // Allowed file types
+
     @Output() fileUploaded = new EventEmitter<FileItem>();
     @Output() fileRemoved = new EventEmitter<string>();
     @ViewChild('uppyDashboard', { static: false }) uppyDashboard!: ElementRef;
@@ -66,6 +72,20 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     // Translation helper method
     protected t(key: string, params?: Record<string, any>): string {
         return this.translationService.translate(key, params);
+    }
+
+    /**
+     * Check if the maximum number of files has been reached
+     */
+    hasReachedFileLimit(): boolean {
+        return this.files.length >= this.maxFiles;
+    }
+
+    /**
+     * Get the remaining file slots
+     */
+    private getRemainingFileSlots(): number {
+        return Math.max(0, this.maxFiles - this.files.length);
     }
 
     /**
@@ -113,9 +133,9 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     private initializeUppy() {
         this.uppy = new Uppy({
             restrictions: {
-                maxFileSize: 500 * 1024 * 1024, // 500MB
-                maxNumberOfFiles: 10,
-                allowedFileTypes: ['video/mp4', '.mp4'],
+                maxFileSize: this.maxFileSize,
+                maxNumberOfFiles: this.maxFiles,
+                allowedFileTypes: this.allowedFileTypes,
             },
             autoProceed: false,
             // Set Uppy locale
@@ -157,10 +177,26 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
                 showProgressDetails: true,
                 hideUploadButton: false,
                 showRemoveButtonAfterComplete: true,
-                note: this.t('uploader.note'),
+                note: this.getUploaderNote(),
                 theme: 'light',
                 proudlyDisplayPoweredByUppy: false,
                 locale: this.getUppyLocale(),
+            });
+        }
+    }
+
+    /**
+     * Get the uploader note based on maxFiles configuration
+     */
+    private getUploaderNote(): string {
+        if (this.maxFiles === 1) {
+            return this.t('uploader.note.single', {
+                maxSize: this.formatFileSize(this.maxFileSize),
+            });
+        } else {
+            return this.t('uploader.note.multiple', {
+                maxFiles: this.maxFiles,
+                maxSize: this.formatFileSize(this.maxFileSize),
             });
         }
     }
@@ -177,6 +213,22 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private setupEventHandlers() {
         this.uppy?.on('file-added', (file) => {
+            // Check file limit before processing
+            if (this.hasReachedFileLimit()) {
+                this.messageService.add({
+                    severity: 'warn',
+                    summary: this.t('uploader.messages.fileLimitReached'),
+                    detail: this.t('uploader.messages.fileLimitReachedDetail', {
+                        maxFiles: this.maxFiles,
+                    }),
+                    life: 5000,
+                });
+
+                // Remove the file from Uppy
+                this.uppy?.removeFile(file.id);
+                return;
+            }
+
             // Check for duplicate files before processing
             if (this.isDuplicateFile(file)) {
                 this.messageService.add({
@@ -433,10 +485,13 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.uppy) {
             const newLocale = this.getUppyLocale();
 
-            // Update Dashboard locale
+            // Update Dashboard locale and note
             const dashboardPlugin = this.uppy.getPlugin('Dashboard');
             if (dashboardPlugin) {
-                dashboardPlugin.setOptions({ locale: newLocale });
+                dashboardPlugin.setOptions({
+                    locale: newLocale,
+                    note: this.getUploaderNote(),
+                });
             }
 
             // Update Webcam locale
@@ -449,6 +504,27 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
             const xhrPlugin = this.uppy.getPlugin('XHRUpload');
             if (xhrPlugin) {
                 xhrPlugin.setOptions({ locale: newLocale });
+            }
+        }
+    }
+
+    // Method to update restrictions when input changes
+    public updateRestrictions() {
+        if (this.uppy) {
+            this.uppy.setOptions({
+                restrictions: {
+                    maxFileSize: this.maxFileSize,
+                    maxNumberOfFiles: this.maxFiles,
+                    allowedFileTypes: this.allowedFileTypes,
+                },
+            });
+
+            // Update dashboard note
+            const dashboardPlugin = this.uppy.getPlugin('Dashboard');
+            if (dashboardPlugin) {
+                dashboardPlugin.setOptions({
+                    note: this.getUploaderNote(),
+                });
             }
         }
     }
