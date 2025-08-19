@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal, ViewChild, Input, OnChanges, SimpleChanges, AfterViewInit, QueryList, ElementRef, ViewChildren, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, inject, OnInit, signal, AfterViewInit, QueryList, ElementRef, ViewChildren, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
@@ -14,8 +14,8 @@ import { SelectModule } from 'primeng/select';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TranslatePipe, TranslateParamsPipe } from '../../../../core/shared';
 import { VideoService } from '../../../../core/services/video.service';
-import { Video } from '../../../../core/interfaces/video.interface';
-import { VideoStatus } from '../../../../core/enums/video-status.enum';
+import { Video, CreateVideoRequest, UpdateVideoRequest } from '../../../../core/interfaces/video.interface';
+import { StatutModeration } from '../../../../core/enums/statut-moderation.enum';
 import { TranslationService } from '../../../../core/services/translation.service';
 import { TextareaModule } from 'primeng/textarea';
 import { MessageModule } from 'primeng/message';
@@ -108,6 +108,13 @@ import { FileItem } from '../../../../core/interfaces/file-Item.interface';
             padding: 0.75rem;
             margin-bottom: 1rem;
         }
+
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
     `,
 })
 export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -116,6 +123,8 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     baseUploadCallBack: string;
     showVideo = true;
     showProdigeSidebar = true;
+    loading = signal<boolean>(false);
+    saving = signal<boolean>(false);
 
     // Maximum videos per prodigy
     readonly MAX_VIDEOS_PER_PRODIGY = 3;
@@ -123,7 +132,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     uploadedFiles: FileItem[] = [];
     videoDialog: boolean = false;
     videos = signal<Video[]>([]);
-    video: Video = {};
+    video: Partial<Video> = {};
     submitted: boolean = false;
     sortOptions!: SelectItem[];
     sortOrder!: number;
@@ -144,7 +153,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     public prodigeService = inject(ProdigeService);
 
     constructor(private cdr: ChangeDetectorRef) {
-        this.baseUploadCallBack = this.videoService.getBaseUploadCallBack();
+        this.baseUploadCallBack = this.getBaseUploadCallBack();
     }
 
     ngOnInit() {
@@ -153,36 +162,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             { label: this.t('video.sort.title.up'), value: 'titre' },
         ];
 
-        // Load the list of prodiges from the service
-        this.prodigeService.getProdigies().subscribe({
-            next: (data) => {
-                this.prodiges.set(data);
-                if (data && data.length > 0) {
-                    this.selectedProdige.set(data[0]);
-                    this.loadVideos();
-                }
-            },
-            error: () =>
-                this.messageService.add({
-                    severity: 'error',
-                    summary: 'Error',
-                    detail: this.t('shared.messages.dataLoadError'),
-                }),
-        });
-    }
-
-    onSortChange(event: any) {
-        let value = event.value;
-
-        if (value.indexOf('!') === 0) {
-            this.sortOrder = -1;
-            this.sortField = value.substring(1, value.length);
-        } else {
-            this.sortOrder = 1;
-            this.sortField = value;
-        }
-
-        this.refreshVideo();
+        this.loadProdiges();
     }
 
     ngAfterViewInit(): void {
@@ -234,13 +214,55 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         });
     }
 
+    private loadProdiges() {
+        this.loading.set(true);
+        this.prodigeService.getProdigies().subscribe({
+            next: (data) => {
+                this.prodiges.set(data);
+                if (data && data.length > 0) {
+                    this.selectedProdige.set(data[0]);
+                    this.loadVideos();
+                }
+                this.loading.set(false);
+            },
+            error: (error) => {
+                console.error('Error loading prodiges:', error);
+                this.messageService.add({
+                    severity: 'error',
+                    summary: this.t('shared.common.error'),
+                    detail: this.t('shared.messages.dataLoadError'),
+                });
+                this.loading.set(false);
+            },
+        });
+    }
+
     onProdigeChange(event: any) {
         this.selectedProdige.set(event.value);
         this.loadVideos();
     }
 
+    onSortChange(event: any) {
+        let value = event.value;
+
+        if (value.indexOf('!') === 0) {
+            this.sortOrder = -1;
+            this.sortField = value.substring(1, value.length);
+        } else {
+            this.sortOrder = 1;
+            this.sortField = value;
+        }
+
+        this.refreshVideo();
+    }
+
     protected t(key: string, params?: Record<string, any>): string {
         return this.translationService.translate(key, params);
+    }
+
+    private getBaseUploadCallBack(): string {
+        // Return the base callback URL for file uploads
+        return '/api/videos/upload';
     }
 
     /**
@@ -271,9 +293,21 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             return;
         }
 
+        const prodige = this.selectedProdige();
+        if (!prodige) {
+            this.messageService.add({
+                severity: 'error',
+                summary: this.t('shared.common.error'),
+                detail: this.t('video.messages.noProdigeSelected'),
+            });
+            return;
+        }
+
         this.video = {
-            prodigeId: this.selectedProdige()?.id,
-            etat: VideoStatus.EnTraitement,
+            prodigeId: prodige.id,
+            statutModeration: StatutModeration.EnAttente,
+            titre: '',
+            description: '',
         };
         this.uploadedFiles = [];
         this.submitted = false;
@@ -282,7 +316,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
 
     editVideo(video: Video) {
         this.video = { ...video };
-        this.uploadedFiles = [];
+        this.uploadedFiles = video.fileItem ? [video.fileItem] : [];
         this.videoDialog = true;
     }
 
@@ -293,14 +327,26 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             return;
         }
 
+        this.loading.set(true);
         this.videoService.getVideosByProdigeId(prodige.id).subscribe({
-            next: (data) => this.videos.set(data),
-            error: () =>
+            next: (data) => {
+                // Process video URLs for display
+                const processedVideos = data.map((video) => ({
+                    ...video,
+                    url: this.videoService.getVideoPreviewUrl(video.fileItemId),
+                }));
+                this.videos.set(processedVideos);
+                this.loading.set(false);
+            },
+            error: (error) => {
+                console.error('Error loading videos:', error);
                 this.messageService.add({
                     severity: 'error',
-                    summary: 'Error',
+                    summary: this.t('shared.common.error'),
                     detail: this.t('shared.messages.dataLoadError'),
-                }),
+                });
+                this.loading.set(false);
+            },
         });
     }
 
@@ -315,7 +361,8 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
 
         // Set the video URL for preview (use the first uploaded file)
         if (this.uploadedFiles.length === 1) {
-            this.video.url = fileItem.url;
+            this.video.fileItem = fileItem;
+            this.video.fileItemId = fileItem.id;
         }
 
         this.messageService.add({
@@ -325,7 +372,6 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             life: 3000,
         });
     }
-
     /**
      * Handle file removal from Mp4UploaderComponent
      */
@@ -337,9 +383,10 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
 
         // Update video URL if needed
         if (this.uploadedFiles.length > 0) {
-            this.video.url = this.uploadedFiles[0].url;
+            this.video.fileItem = this.uploadedFiles[0];
+            this.video.fileItemId = this.uploadedFiles[0]?.id;
         } else {
-            this.video.url = undefined;
+            this.video.fileItem = undefined;
         }
 
         this.messageService.add({
@@ -357,17 +404,17 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         if (!prodige) {
             this.messageService.add({
                 severity: 'error',
-                summary: 'Error',
+                summary: this.t('shared.common.error'),
                 detail: this.t('video.messages.noProdigeSelected'),
             });
             return;
         }
 
-        // Check if we have a title and either an uploaded file or manual URL
-        if (!this.video.titre || (!this.uploadedFiles.length && !this.video.url)) {
+        // Validation
+        if (!this.video.titre || (!this.video.fileItemId && !this.uploadedFiles.length)) {
             this.messageService.add({
                 severity: 'error',
-                summary: 'Error',
+                summary: this.t('shared.common.error'),
                 detail: this.t('video.messages.titleAndVideoRequired'),
             });
             return;
@@ -386,54 +433,89 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             return;
         }
 
-        // Use uploaded file URL if available, otherwise use manual URL
-        if (this.uploadedFiles.length > 0) {
-            this.video.url = this.uploadedFiles[0].url;
+        // Set fileItemId from uploaded files if available
+        if (this.uploadedFiles.length > 0 && !this.video.fileItemId) {
+            this.video.fileItemId = this.uploadedFiles[0].id;
         }
 
-        this.video.prodigeId = prodige.id;
+        this.saving.set(true);
 
         if (this.video.id) {
             // Update existing video
-            this.videoService.updateVideo('', this.video).subscribe({
+            const updateRequest: UpdateVideoRequest = {
+                id: this.video.id,
+                titre: this.video.titre!,
+                description: this.video.description || '',
+                fileItemId: this.video.fileItemId!,
+                prodigeId: prodige.id!,
+                statutModeration: this.video.statutModeration || StatutModeration.EnAttente,
+                commentaireModeration: this.video.commentaireModeration,
+            };
+
+            this.videoService.updateVideo(this.video.id, updateRequest).subscribe({
                 next: (updatedVideo) => {
-                    this.videos.update((vids) => vids.map((v) => (v.id === updatedVideo.id ? updatedVideo : v)));
+                    // Add URL for display
+                    const videoWithUrl = {
+                        ...updatedVideo,
+                        url: this.videoService.getVideoPreviewUrl(updatedVideo.fileItemId),
+                    };
+
+                    this.videos.update((vids) => vids.map((v) => (v.id === updatedVideo.id ? videoWithUrl : v)));
                     this.messageService.add({
                         severity: 'success',
-                        summary: 'Success',
+                        summary: this.t('shared.common.success'),
                         detail: this.t('video.messages.videoUpdated'),
                     });
-                    this.videoDialog = false;
-                    this.video = {};
-                    this.uploadedFiles = [];
+                    this.hideDialog();
+                    this.saving.set(false);
                 },
-                error: () =>
+                error: (error) => {
+                    console.error('Update video error:', error);
                     this.messageService.add({
                         severity: 'error',
-                        summary: 'Error',
+                        summary: this.t('shared.common.error'),
                         detail: this.t('shared.messages.saveError'),
-                    }),
+                    });
+                    this.saving.set(false);
+                },
             });
         } else {
             // Create new video
-            this.videoService.createVideo({ ...this.video, prodigeId: prodige.id! }).subscribe({
+            const createRequest: CreateVideoRequest = {
+                titre: this.video.titre!,
+                description: this.video.description || '',
+                fileItemId: this.video.fileItemId!,
+                prodigeId: prodige.id!,
+                statutModeration: this.video.statutModeration || StatutModeration.EnAttente,
+                commentaireModeration: this.video.commentaireModeration,
+            };
+
+            this.videoService.createVideo(createRequest).subscribe({
                 next: (newVideo) => {
-                    this.videos.update((vids) => [...vids, newVideo]);
+                    // Add URL for display
+                    const videoWithUrl = {
+                        ...newVideo,
+                        url: this.videoService.getVideoPreviewUrl(newVideo.fileItemId),
+                    };
+
+                    this.videos.update((vids) => [...vids, videoWithUrl]);
                     this.messageService.add({
                         severity: 'success',
-                        summary: 'Success',
+                        summary: this.t('shared.common.success'),
                         detail: this.t('video.messages.videoCreated'),
                     });
-                    this.videoDialog = false;
-                    this.video = {};
-                    this.uploadedFiles = [];
+                    this.hideDialog();
+                    this.saving.set(false);
                 },
-                error: () =>
+                error: (error) => {
+                    console.error('Create video error:', error);
                     this.messageService.add({
                         severity: 'error',
-                        summary: 'Error',
+                        summary: this.t('shared.common.error'),
                         detail: this.t('shared.messages.saveError'),
-                    }),
+                    });
+                    this.saving.set(false);
+                },
             });
         }
     }
@@ -443,6 +525,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         this.submitted = false;
         this.uploadedFiles = [];
         this.video = {};
+        this.saving.set(false);
     }
 
     deleteVideo(video: Video) {
@@ -458,17 +541,19 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
                         this.videos.update((vids) => vids.filter((v) => v.id !== video.id));
                         this.messageService.add({
                             severity: 'success',
-                            summary: 'Success',
+                            summary: this.t('shared.common.success'),
                             detail: this.t('video.messages.videoDeleted'),
                         });
                         this.refreshVideo();
                     },
-                    error: () =>
+                    error: (error) => {
+                        console.error('Delete video error:', error);
                         this.messageService.add({
                             severity: 'error',
-                            summary: 'Error',
+                            summary: this.t('shared.common.error'),
                             detail: this.t('shared.messages.deleteError'),
-                        }),
+                        });
+                    },
                 });
             },
         });
@@ -480,5 +565,82 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         setTimeout(() => {
             this.showVideo = true;
         }, 0);
+    }
+
+    downloadVideo(video: Video) {
+        if (video.fileItemId) {
+            const downloadUrl = this.videoService.getVideoDownloadUrl(video.fileItemId);
+
+            // Create a temporary link element and trigger download
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = `${video.titre || 'video'}.mp4`;
+            link.target = '_blank';
+
+            // Append to body, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            this.messageService.add({
+                severity: 'info',
+                summary: this.t('video.messages.downloadStarted'),
+                detail: this.t('video.messages.downloadStartedDetail', { title: video.titre }),
+                life: 3000,
+            });
+        } else {
+            this.messageService.add({
+                severity: 'warn',
+                summary: this.t('shared.common.warning'),
+                detail: this.t('video.messages.downloadNotAvailable'),
+            });
+        }
+    }
+
+    // Helper methods for UI display
+    getVideoStatusLabel(statut: StatutModeration): string {
+        return this.videoService.getStatutModerationLabel(statut);
+    }
+
+    getVideoStatusSeverity(statut: StatutModeration): string {
+        const colorMap = {
+            warning: 'warning',
+            success: 'success',
+            danger: 'danger',
+            secondary: 'secondary',
+        };
+        const colorKey = this.videoService.getStatutModerationColor(statut) as keyof typeof colorMap;
+        return colorMap[colorKey] || 'secondary';
+    }
+
+    // Additional helper methods for better UX
+    canModerateVideo(video: Video): boolean {
+        return this.videoService.canEditVideo(video);
+    }
+
+    moderateVideo(video: Video, newStatus: StatutModeration, comment?: string) {
+        this.videoService.moderateVideo(video.id!, newStatus, comment).subscribe({
+            next: (updatedVideo) => {
+                const videoWithUrl = {
+                    ...updatedVideo,
+                    url: this.videoService.getVideoPreviewUrl(updatedVideo.fileItemId),
+                };
+
+                this.videos.update((vids) => vids.map((v) => (v.id === updatedVideo.id ? videoWithUrl : v)));
+                this.messageService.add({
+                    severity: 'success',
+                    summary: this.t('shared.common.success'),
+                    detail: this.t('video.messages.moderationUpdated'),
+                });
+            },
+            error: (error) => {
+                console.error('Moderation error:', error);
+                this.messageService.add({
+                    severity: 'error',
+                    summary: this.t('shared.common.error'),
+                    detail: this.t('video.messages.moderationError'),
+                });
+            },
+        });
     }
 }
