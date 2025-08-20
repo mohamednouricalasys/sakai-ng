@@ -1,11 +1,12 @@
 export interface FileItem {
     id: string;
-    name: string; // Original filename for display
+    uniqeIdnetifier?: string; // Unique filename with GUID for storage
     uniqueFilename?: string; // Unique filename with GUID for storage
-    size: number;
+    name: string; // Original filename for display
+    url?: string;
     uploading: boolean;
     progress: number;
-    url?: string;
+    size: number;
     contentType?: string;
     uploadDate?: Date;
     metadata?: Record<string, any>;

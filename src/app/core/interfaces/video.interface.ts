@@ -9,8 +9,6 @@ export interface Video {
     description: string;
     fileItemId: string;
     fileItem: FileItem;
-    prodigeId: string;
-    prodige: Prodige;
     statutModeration: StatutModeration;
     commentaireModeration?: string;
 }
@@ -20,7 +18,6 @@ export interface CreateVideoRequest {
     description: string;
     fileItemId: string;
     prodigeId: string;
-    statutModeration: StatutModeration;
     commentaireModeration?: string;
 }
 

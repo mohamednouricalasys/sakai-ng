@@ -11,14 +11,15 @@ import { StatutModeration } from '../enums/statut-moderation.enum';
     providedIn: 'root',
 })
 export class VideoService {
-    private apiUrl: string;
+    private apiUrl;
+
     private translationService = inject(TranslationService);
 
     constructor(
         private http: HttpClient,
         private keycloakService: KeycloakService,
     ) {
-        this.apiUrl = environment.apiUrl + '/Videos';
+        this.apiUrl = environment.apiUrl + '/videos';
     }
 
     /**

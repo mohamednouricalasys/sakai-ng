@@ -58,16 +58,16 @@
                         <div class="flex items-center flex-wrap gap-4">
                             <div class="w-48 h-28 flex-shrink-0">
                                 <video
-                                    *ngIf="showVideo && item.fileItem.url"
+                                    *ngIf="showVideo && item?.fileItem?.url"
                                     #videoElement
                                     [attr.id]="'video-' + item.id"
                                     class="video-js vjs-default-skin"
                                     controls
                                     preload="metadata"
-                                    [src]="item.fileItem.url"
+                                    [src]="item?.fileItem?.url"
                                     style="width: 100%; height: 100%"
                                 ></video>
-                                <div *ngIf="!item.fileItem.url" class="w-full h-full bg-gray-200 flex items-center justify-center">
+                                <div *ngIf="!item?.fileItem?.url" class="w-full h-full bg-gray-200 flex items-center justify-center">
                                     <i class="pi pi-video text-gray-400 text-2xl"></i>
                                 </div>
                             </div>
@@ -102,8 +102,8 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div *ngFor="let item of items; let i = index" class="p-4 border rounded shadow-sm flex flex-col gap-4">
                         <div class="video-container">
-                            <video *ngIf="showVideo && item.fileItem.url" #videoElement [attr.id]="'video-' + item.id" class="video-js vjs-default-skin" controls preload="metadata" [src]="item.fileItem.url"></video>
-                            <div *ngIf="!item.fileItem.url" class="w-full h-32 bg-gray-200 flex items-center justify-center rounded">
+                            <video *ngIf="showVideo && item?.fileItem?.url" #videoElement [attr.id]="'video-' + item.id" class="video-js vjs-default-skin" controls preload="metadata" [src]="item?.fileItem?.url"></video>
+                            <div *ngIf="!item?.fileItem?.url" class="w-full h-32 bg-gray-200 flex items-center justify-center rounded">
                                 <i class="pi pi-video text-gray-400 text-3xl"></i>
                             </div>
                         </div>

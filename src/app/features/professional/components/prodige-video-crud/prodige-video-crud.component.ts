@@ -149,8 +149,8 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     public videoService = inject(VideoService);
     private messageService = inject(MessageService);
     private confirmationService = inject(ConfirmationService);
-    public translationService = inject(TranslationService);
-    public prodigeService = inject(ProdigeService);
+    private translationService = inject(TranslationService);
+    private prodigeService = inject(ProdigeService);
 
     constructor(private cdr: ChangeDetectorRef) {
         this.baseUploadCallBack = this.getBaseUploadCallBack();
@@ -303,12 +303,6 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             return;
         }
 
-        this.video = {
-            prodigeId: prodige.id,
-            statutModeration: StatutModeration.EnAttente,
-            titre: '',
-            description: '',
-        };
         this.uploadedFiles = [];
         this.submitted = false;
         this.videoDialog = true;
@@ -486,7 +480,6 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
                 description: this.video.description || '',
                 fileItemId: this.video.fileItemId!,
                 prodigeId: prodige.id!,
-                statutModeration: this.video.statutModeration || StatutModeration.EnAttente,
                 commentaireModeration: this.video.commentaireModeration,
             };
 
@@ -509,6 +502,18 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
                 },
                 error: (error) => {
                     console.error('Create video error:', error);
+                    console.error('Error details:', {
+                        status: error.status,
+                        statusText: error.statusText,
+                        url: error.url,
+                        message: error.message,
+                    });
+
+                    // Check if it's a network error
+                    if (error.status === 0) {
+                        console.error('Network error - check API URL and server connectivity');
+                    }
+
                     this.messageService.add({
                         severity: 'error',
                         summary: this.t('shared.common.error'),

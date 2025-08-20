@@ -9,6 +9,6 @@ export const environment = {
     keycloakUrl: 'http://localhost:8080',
     baseFrontUrl: 'https://localhost:4200',
     apiUrl: 'https://localhost:5001/api',
-    allowedUrls: ['/portal/api/', 'localhost'],
+    allowedUrls: ['localhost'],
     production: false,
 };
