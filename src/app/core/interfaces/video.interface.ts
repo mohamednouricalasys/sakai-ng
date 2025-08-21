@@ -7,6 +7,7 @@ export interface Video {
     id: string;
     titre: string;
     description: string;
+    uniqueFilename: string;
     fileItemId: string;
     fileItem: FileItem;
     statutModeration: StatutModeration;
@@ -16,7 +17,7 @@ export interface Video {
 export interface CreateVideoRequest {
     titre: string;
     description: string;
-    fileItemId: string;
+    uniqueFilename: string;
     prodigeId: string;
     commentaireModeration?: string;
 }

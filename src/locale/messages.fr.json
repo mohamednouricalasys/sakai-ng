@@ -114,9 +114,12 @@
         "videoDetails": "Détails de la Vidéo",
         "videoFile": "Fichier Vidéo",
         "manualUrl": "URL Vidéo (Manuel)",
-        "optional": "Optionnel"
+        "optional": "Optionnel",
+        "currentFile": "Fichier Actuel"
       },
       "placeholders": {
+        "title": "Titre de la Vidéo",
+        "description": "Description de la Vidéo",
         "videoUrl": "https://exemple.com/video.mp4"
       },
       "sort": {
@@ -146,6 +149,11 @@
         "videoRequired": "Veuillez télécharger un fichier vidéo ou fournir une URL vidéo"
       },
       "messages": {
+        "downloadStarted": "Téléchargement lancé",
+        "downloadStartedDetail": "Le téléchargement de « {{title}} » a commencé",
+        "downloadNotAvailable": "Le téléchargement n'est pas disponible",
+        "moderationUpdated": "La modération a été mise à jour",
+        "moderationError": "Erreur lors de la mise à jour de la modération",
         "noProdigeSelected": "Veuillez d'abord sélectionner un prodige",
         "titleAndVideoRequired": "Le titre et la vidéo sont requis",
         "videoCreated": "Vidéo créée avec succès",
@@ -154,6 +162,41 @@
         "confirmDeleteVideo": "Êtes-vous sûr de vouloir supprimer la vidéo '{title}' ?",
         "limitReached": "Limite de Vidéos Atteinte",
         "limitReachedDetail": "Vous avez atteint la limite maximale de {maxVideos} vidéos pour le prodige {prodigyName}. Veuillez supprimer une vidéo existante avant d'en ajouter une nouvelle."
+      },
+      "actions": {
+        "create": {
+          "success": "Vidéo créée avec succès",
+          "error": "Échec de la création de la vidéo"
+        },
+        "update": {
+          "success": "Vidéo mise à jour avec succès",
+          "error": "Échec de la mise à jour de la vidéo"
+        },
+        "delete": {
+          "success": "Vidéo supprimée avec succès",
+          "error": "Échec de la suppression de la vidéo"
+        },
+        "moderate": {
+          "success": "Vidéo modérée avec succès",
+          "error": "Échec de la modération de la vidéo"
+        },
+        "report": {
+          "success": "Vidéo signalée avec succès",
+          "error": "Échec du signalement de la vidéo"
+        },
+        "upload": {
+          "success": "Vidéo téléversée avec succès",
+          "error": "Échec du téléversement de la vidéo"
+        }
+      },
+      "search": {
+        "noResults": "Aucune vidéo trouvée",
+        "placeholder": "Rechercher une vidéo..."
+      },
+      "moderation":{
+        "enAttente": "En attente",
+        "approuvee": "Approuvée",
+        "rejetee": "Rejetée"
       }
     },
   "tags": {
@@ -388,7 +431,12 @@
   "uploader": {
       "title": "Téléchargeur de vidéos MP4",
       "note": "Vidéos MP4 uniquement, jusqu'à 500 Mo chacune",
+      "info": {
+        "single": "Téléchargez une vidéo MP4 pour commencer",
+        "fileLimit": "{{current}}/{{max}} fichiers ({{remaining}} restants)"
+      },
       "statistics": {
+        "remaining": "restant(s)",
         "files": "fichier(s)",
         "uploading": "en cours",
         "completed": "terminé(s)"
@@ -407,12 +455,16 @@
       },
       "empty": {
         "title": "Aucun fichier téléchargé pour le moment",
-        "subtitle": "Utilisez le téléchargeur ci-dessus pour enregistrer ou télécharger des vidéos MP4"
+        "subtitle": {
+          "single": "Utilisez le téléchargeur ci-dessus pour enregistrer ou télécharger une vidéo MP4",
+          "multiple": "Utilisez le téléchargeur ci-dessus pour enregistrer ou télécharger jusqu'à {{maxFiles}} vidéos MP4"
+        }
       },
       "preview": {
         "title": "Aperçu vidéo"
       },
       "messages": {
+        "fileLimitReached": "Limite de fichiers atteinte",
         "uploadComplete": "Téléchargement terminé",
         "uploadSuccess": "{fileName} téléchargé avec succès !",
         "uploadFailed": "Échec du téléchargement",
@@ -550,6 +602,15 @@
             "0": "Vous devez sélectionner au moins %{smart_count} fichier",
             "1": "Vous devez sélectionner au moins %{smart_count} fichiers"
           }
+        }
+      },
+      "service": {
+        "errors": {
+          "presignedUrl": "Échec de la génération de l'URL signée",
+          "removeFile": "Échec de la suppression du fichier",
+          "uploadFile": "Échec de l'envoi du fichier via l'URL signée",
+          "getFileList": "Échec de la récupération de la liste des fichiers",
+          "updateMetadata": "Échec de la mise à jour des métadonnées du fichier"
         }
       }
     },

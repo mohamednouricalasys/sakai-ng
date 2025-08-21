@@ -357,6 +357,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         if (this.uploadedFiles.length === 1) {
             this.video.fileItem = fileItem;
             this.video.fileItemId = fileItem.id;
+            this.video.uniqueFilename = fileItem.uniqueFilename;
         }
 
         this.messageService.add({
@@ -379,6 +380,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         if (this.uploadedFiles.length > 0) {
             this.video.fileItem = this.uploadedFiles[0];
             this.video.fileItemId = this.uploadedFiles[0]?.id;
+            this.video.uniqueFilename = this.uploadedFiles[0]?.uniqueFilename;
         } else {
             this.video.fileItem = undefined;
         }
@@ -414,6 +416,15 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             return;
         }
 
+        if (this.uploadedFiles.length === 0) {
+            this.messageService.add({
+                severity: 'error',
+                summary: this.t('shared.common.error'),
+                detail: this.t('video.messages.titleAndVideoRequired'),
+            });
+            return;
+        }
+
         // For new videos, check the limit
         if (!this.video.id && this.hasReachedVideoLimit()) {
             this.messageService.add({
@@ -430,6 +441,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         // Set fileItemId from uploaded files if available
         if (this.uploadedFiles.length > 0 && !this.video.fileItemId) {
             this.video.fileItemId = this.uploadedFiles[0].id;
+            this.video.uniqueFilename = this.uploadedFiles[0].uniqueFilename;
         }
 
         this.saving.set(true);
@@ -478,7 +490,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             const createRequest: CreateVideoRequest = {
                 titre: this.video.titre!,
                 description: this.video.description || '',
-                fileItemId: this.video.fileItemId!,
+                uniqueFilename: this.video.uniqueFilename!,
                 prodigeId: prodige.id!,
                 commentaireModeration: this.video.commentaireModeration,
             };
@@ -531,6 +543,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         this.uploadedFiles = [];
         this.video = {};
         this.saving.set(false);
+        this.loadVideos();
     }
 
     deleteVideo(video: Video) {
