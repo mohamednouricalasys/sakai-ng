@@ -34,9 +34,9 @@ import { FileUploadService, PresignedUrlRequest } from '../../../services/file-u
     styleUrls: ['./mp4-uploader.component.scss'],
 })
 export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
-    @Input() maxFiles: number = 1; // Maximum number of files allowed
-    @Input() maxFileSize: number = 500 * 1024 * 1024; // Default 500MB
-    @Input() allowedFileTypes: string[] = ['video/mp4', '.mp4']; // Allowed file types
+    @Input() maxFiles: number = 1;
+    @Input() maxFileSize: number = 500 * 1024 * 1024;
+    @Input() allowedFileTypes: string[] = ['video/mp4', '.mp4'];
 
     @Output() fileUploaded = new EventEmitter<FileItem>();
     @Output() fileRemoved = new EventEmitter<string>();
@@ -54,12 +54,10 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(private messageService: MessageService) {}
 
     ngOnInit() {
-        // Initialize Uppy but don't mount dashboard yet
         this.initializeUppy();
     }
 
     ngAfterViewInit() {
-        // Mount dashboard after view is initialized
         this.mountDashboard();
     }
 
@@ -69,59 +67,36 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    // Translation helper method
+    // Translation helper method - used in HTML
     protected t(key: string, params?: Record<string, any>): string {
         return this.translationService.translate(key, params);
     }
 
-    /**
-     * Check if the maximum number of files has been reached
-     */
+    // Check if the maximum number of files has been reached - used in HTML
     hasReachedFileLimit(): boolean {
         return this.files.length >= this.maxFiles;
     }
 
-    /**
-     * Get the remaining file slots
-     */
-    private getRemainingFileSlots(): number {
-        return Math.max(0, this.maxFiles - this.files.length);
-    }
-
-    /**
-     * Check if a file is a duplicate based on name, size, and last modified date
-     */
     private isDuplicateFile(file: any): boolean {
         return this.files.some((existingFile) => {
-            // Compare by name and size
             const sameNameAndSize = existingFile.name === file.name && existingFile.size === file.size;
-
-            // Fallback to name and size comparison
             return sameNameAndSize;
         });
     }
 
-    /**
-     * Generate a unique filename by adding GUID before file extension
-     */
     private generateUniqueFilename(originalFilename: string): string {
         const guid = this.generateGuid();
         const lastDotIndex = originalFilename.lastIndexOf('.');
 
         if (lastDotIndex === -1) {
-            // No extension found, just append GUID
             return `${originalFilename}_${guid}`;
         }
 
-        // Insert GUID before extension
         const nameWithoutExt = originalFilename.substring(0, lastDotIndex);
         const extension = originalFilename.substring(lastDotIndex);
         return `${nameWithoutExt}_${guid}${extension}`;
     }
 
-    /**
-     * Generate a GUID (UUID v4)
-     */
     private generateGuid(): string {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             const r = (Math.random() * 16) | 0;
@@ -138,11 +113,9 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
                 allowedFileTypes: this.allowedFileTypes,
             },
             autoProceed: false,
-            // Set Uppy locale
             locale: this.getUppyLocale(),
         });
 
-        // Add Webcam for recording
         this.uppy.use(Webcam, {
             countdown: false,
             mirror: true,
@@ -154,7 +127,6 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
             locale: this.getUppyLocale(),
         });
 
-        // Configure XHR Upload
         this.uppy.use(XHRUpload, {
             endpoint: '',
             method: 'PUT',
@@ -168,7 +140,6 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private mountDashboard() {
         if (this.uppyDashboard && this.uppyDashboard.nativeElement) {
-            // Add Dashboard with PrimeNG theme integration
             this.uppy?.use(Dashboard, {
                 target: this.uppyDashboard.nativeElement,
                 inline: true,
@@ -185,9 +156,6 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    /**
-     * Get the uploader note based on maxFiles configuration
-     */
     private getUploaderNote(): string {
         if (this.maxFiles === 1) {
             return this.t('uploader.note.single', {
@@ -205,7 +173,6 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         const currentLang = this.translationService.getCurrentLanguage();
         const translations = this.translationService.getTranslations();
 
-        // Return Uppy-specific locale strings
         return {
             strings: translations?.uploader?.dashboard?.strings || {},
         };
@@ -213,7 +180,6 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private setupEventHandlers() {
         this.uppy?.on('file-added', (file) => {
-            // Check file limit before processing
             if (this.hasReachedFileLimit()) {
                 this.messageService.add({
                     severity: 'warn',
@@ -224,12 +190,10 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
                     life: 5000,
                 });
 
-                // Remove the file from Uppy
                 this.uppy?.removeFile(file.id);
                 return;
             }
 
-            // Check for duplicate files before processing
             if (this.isDuplicateFile(file)) {
                 this.messageService.add({
                     severity: 'warn',
@@ -238,15 +202,11 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
                     life: 5000,
                 });
 
-                // Remove the duplicate file from Uppy
                 this.uppy?.removeFile(file.id);
                 return;
             }
 
-            // Generate unique filename before adding to list
             const uniqueFilename = this.generateUniqueFilename(file?.name!);
-
-            // Update the file object with unique filename
             file.meta = { ...file.meta, uniqueFilename };
 
             this.addFileToList(file, uniqueFilename);
@@ -291,24 +251,22 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     private async generatePutPresignedUrl(file: any, uniqueFilename: string) {
         try {
             const request: PresignedUrlRequest = {
-                filename: uniqueFilename, // Use unique filename instead of original
+                filename: uniqueFilename,
                 contentType: file.type,
                 action: 'put',
             };
 
             const response = await this.fileUploadService.generatePresignedUrl(request);
 
-            // Update XHR upload settings
             this.uppy?.getPlugin('XHRUpload')?.setOptions({
                 endpoint: response.uploadUrl,
                 method: 'PUT',
                 headers: {
-                    'Content-Type': file.type, // must match presigned URL
-                    ...(response.headers || {}), // any extra headers from backend
+                    'Content-Type': file.type,
+                    ...(response.headers || {}),
                 },
-                formData: false, // send raw file, not multipart
+                formData: false,
                 getResponseData: () => {
-                    // S3 returns often empty or XML response, so return URL directly
                     return { url: response.uploadUrl };
                 },
             });
@@ -326,7 +284,6 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private async generateGetPresignedUrl(file: any): Promise<string> {
         try {
-            // Use the unique filename stored in the file item
             const fileItem = this.files.find((f) => f.id === file.id);
             const filename = fileItem?.uniqueFilename || file.meta?.uniqueFilename || file.name;
 
@@ -352,15 +309,15 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
                 detail: this.t('uploader.messages.uploadPreparationFailedDetail'),
                 life: 5000,
             });
-            throw error; // Let the caller handle the failure
+            throw error;
         }
     }
 
     private addFileToList(file: any, uniqueFilename: string) {
         const fileItem: FileItem = {
             id: file.id,
-            name: file.name, // Keep original name for display
-            uniqueFilename: uniqueFilename, // Store unique filename
+            name: file.name,
+            uniqueFilename: uniqueFilename,
             size: file.size,
             uploading: true,
             progress: 0,
@@ -403,10 +360,10 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private getFileUrl(file: any): string {
-        // Fallback URL generation if not provided in response
         return URL.createObjectURL(file.data);
     }
 
+    // Used in HTML - removeFile button click
     async removeFile(fileId: string) {
         const file = this.files.find((f) => f.id === fileId);
         if (!file) {
@@ -449,21 +406,23 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
+    // Used in HTML - preview button click
     async previewFile(file: FileItem) {
         try {
             this.previewUrl = await this.generateGetPresignedUrl(file);
             this.showPreviewDialog = true;
         } catch (error) {
-            // Error handling is already done in generateGetPresignedUrl
             console.error('Preview failed:', error);
         }
     }
 
+    // Used in HTML - close preview button
     closePreview() {
         this.showPreviewDialog = false;
         this.previewUrl = null;
     }
 
+    // Used in HTML - formatFileSize in template
     formatFileSize(bytes: number): string {
         if (bytes === 0) return '0 Bytes';
         const k = 1024;
@@ -472,60 +431,13 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     }
 
+    // Used in HTML - getUploadingCount in template
     getUploadingCount(): number {
         return this.files.filter((f) => f.uploading).length;
     }
 
+    // Used in HTML - getCompletedCount in template
     getCompletedCount(): number {
         return this.files.filter((f) => !f.uploading && f.url).length;
-    }
-
-    // Method to update Uppy locale when language changes
-    public updateLocale() {
-        if (this.uppy) {
-            const newLocale = this.getUppyLocale();
-
-            // Update Dashboard locale and note
-            const dashboardPlugin = this.uppy.getPlugin('Dashboard');
-            if (dashboardPlugin) {
-                dashboardPlugin.setOptions({
-                    locale: newLocale,
-                    note: this.getUploaderNote(),
-                });
-            }
-
-            // Update Webcam locale
-            const webcamPlugin = this.uppy.getPlugin('Webcam');
-            if (webcamPlugin) {
-                webcamPlugin.setOptions({ locale: newLocale });
-            }
-
-            // Update XHR Upload locale
-            const xhrPlugin = this.uppy.getPlugin('XHRUpload');
-            if (xhrPlugin) {
-                xhrPlugin.setOptions({ locale: newLocale });
-            }
-        }
-    }
-
-    // Method to update restrictions when input changes
-    public updateRestrictions() {
-        if (this.uppy) {
-            this.uppy.setOptions({
-                restrictions: {
-                    maxFileSize: this.maxFileSize,
-                    maxNumberOfFiles: this.maxFiles,
-                    allowedFileTypes: this.allowedFileTypes,
-                },
-            });
-
-            // Update dashboard note
-            const dashboardPlugin = this.uppy.getPlugin('Dashboard');
-            if (dashboardPlugin) {
-                dashboardPlugin.setOptions({
-                    note: this.getUploaderNote(),
-                });
-            }
-        }
     }
 }

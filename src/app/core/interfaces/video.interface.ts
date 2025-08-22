@@ -26,10 +26,7 @@ export interface UpdateVideoRequest {
     id: string;
     titre: string;
     description: string;
-    fileItemId: string;
-    prodigeId: string;
-    statutModeration: StatutModeration;
-    commentaireModeration?: string;
+    uniqueFilename: string;
 }
 
 export interface PaginatedList<T> {

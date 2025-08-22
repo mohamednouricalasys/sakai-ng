@@ -29,6 +29,7 @@ export class FileUploadService {
         this.apiUrl = environment.apiUrl + '/FileItems';
     }
 
+    // Used in markFileAsCompleted() method
     createFileItem(fileItem: FileItem): Observable<FileItem> {
         return this.http.post<FileItem>(this.apiUrl, fileItem);
     }
@@ -41,9 +42,7 @@ export class FileUploadService {
         });
     }
 
-    /**
-     * Generate presigned URL for file upload or download
-     */
+    // Used in generatePutPresignedUrl() and generateGetPresignedUrl() methods
     async generatePresignedUrl(request: PresignedUrlRequest): Promise<PresignedUrlResponse> {
         try {
             const headers = await this.getAuthHeaders();
@@ -57,9 +56,7 @@ export class FileUploadService {
         }
     }
 
-    /**
-     * Remove file from backend
-     */
+    // Used in removeFile() method
     async removeFile(fileId: string): Promise<void> {
         try {
             const headers = await this.getAuthHeaders();
@@ -67,55 +64,6 @@ export class FileUploadService {
             await firstValueFrom(this.http.delete(`${this.apiUrl}/${fileId}`, { headers }));
         } catch (error) {
             console.error('Failed to remove file:', error);
-            throw error;
-        }
-    }
-
-    /**
-     * Upload file using presigned URL (direct to S3/storage)
-     */
-    async uploadFileToPresignedUrl(presignedUrl: string, file: File, contentType: string, additionalHeaders?: Record<string, string>): Promise<void> {
-        try {
-            const headers = new HttpHeaders({
-                'Content-Type': contentType,
-                ...(additionalHeaders || {}),
-            });
-
-            await firstValueFrom(this.http.put(presignedUrl, file, { headers }));
-        } catch (error) {
-            console.error('Failed to upload file to presigned URL:', error);
-            throw error;
-        }
-    }
-
-    /**
-     * Get file list from backend (optional method for future use)
-     */
-    async getFileList(): Promise<any[]> {
-        try {
-            const headers = await this.getAuthHeaders();
-
-            const response = await firstValueFrom(this.http.get<any[]>(`${this.apiUrl}/files`, { headers }));
-
-            return response;
-        } catch (error) {
-            console.error('Failed to get file list:', error);
-            throw error;
-        }
-    }
-
-    /**
-     * Update file metadata (optional method for future use)
-     */
-    async updateFileMetadata(backendUrl: string, fileId: string, metadata: any): Promise<any> {
-        try {
-            const headers = await this.getAuthHeaders();
-
-            const response = await firstValueFrom(this.http.put<any>(`${backendUrl}/files/${fileId}`, metadata, { headers }));
-
-            return response;
-        } catch (error) {
-            console.error('Failed to update file metadata:', error);
             throw error;
         }
     }

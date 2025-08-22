@@ -87,9 +87,11 @@
                                         {{ item.dateCreation || item.createdAt | date: 'dd/MM/yyyy' }}
                                     </span>
                                     <div class="flex gap-2">
-                                        <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editVideo(item)" [title]="'shared.actions.edit' | translate" />
+                                        @if (item.statutModeration === statutModeration.EnAttente) {
+                                            <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editVideo(item)" [title]="'shared.actions.edit' | translate" />
+                                        }
+
                                         <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteVideo(item)" [title]="'shared.actions.delete' | translate" />
-                                        <p-button icon="pi pi-download" [rounded]="true" [outlined]="true" (click)="downloadVideo(item)" [title]="'video.actions.download' | translate" />
                                     </div>
                                 </div>
                             </div>
@@ -124,9 +126,11 @@
                                 {{ item.dateCreation || item.createdAt | date: 'dd/MM/yyyy' }}
                             </span>
                             <div class="flex gap-2">
-                                <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editVideo(item)" [title]="'shared.actions.edit' | translate" />
+                                @if (item.statutModeration === statutModeration.EnAttente) {
+                                    <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editVideo(item)" [title]="'shared.actions.edit' | translate" />
+                                }
+
                                 <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteVideo(item)" [title]="'shared.actions.delete' | translate" />
-                                <p-button icon="pi pi-download" [rounded]="true" [outlined]="true" (click)="downloadVideo(item)" [title]="'video.actions.download' | translate" />
                             </div>
                         </div>
                     </div>
@@ -256,11 +260,11 @@
                         <app-mp4-uploader [maxFiles]="1" [maxFileSize]="500 * 1024 * 1024" [allowedFileTypes]="['video/mp4', '.mp4']" (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)" />
                     }
 
-                    <small class="text-red-500" *ngIf="submitted && !video.fileItemId && !uploadedFiles.length && !video.id">
+                    <small class="text-red-500" *ngIf="submitted && !video.fileItemId && !uploadedFile && !video.id">
                         {{ 'video.validation.videoRequired' | translate }}
                     </small>
 
-                    <small class="text-gray-600" *ngIf="uploadedFiles.length > 0">
+                    <small class="text-gray-600" *ngIf="uploadedFile">
                         {{ 'video.info.newFileWillReplace' | translate }}
                     </small>
                 </div>

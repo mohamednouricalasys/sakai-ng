@@ -2,7 +2,6 @@ import { Component, inject, OnInit, signal, AfterViewInit, QueryList, ElementRef
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-import { FileUploadModule } from 'primeng/fileupload';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessageService, SelectItem, ConfirmationService } from 'primeng/api';
@@ -18,8 +17,6 @@ import { Video, CreateVideoRequest, UpdateVideoRequest } from '../../../../core/
 import { StatutModeration } from '../../../../core/enums/statut-moderation.enum';
 import { TranslationService } from '../../../../core/services/translation.service';
 import { TextareaModule } from 'primeng/textarea';
-import { MessageModule } from 'primeng/message';
-import { MessagesModule } from 'primeng/messages';
 
 import videojs from 'video.js';
 
@@ -39,7 +36,6 @@ import { FileItem } from '../../../../core/interfaces/file-Item.interface';
         CommonModule,
         DividerModule,
         FormsModule,
-        FileUploadModule,
         ButtonModule,
         DialogModule,
         InputTextModule,
@@ -53,8 +49,6 @@ import { FileItem } from '../../../../core/interfaces/file-Item.interface';
         TranslateParamsPipe,
         FluidModule,
         TextareaModule,
-        MessageModule,
-        MessagesModule,
     ],
     templateUrl: './prodige-video-crud.component.html',
     providers: [MessageService, ConfirmationService],
@@ -120,16 +114,15 @@ import { FileItem } from '../../../../core/interfaces/file-Item.interface';
 export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChildren('videoElement') videoElements!: QueryList<ElementRef>;
 
-    baseUploadCallBack: string;
+    statutModeration = StatutModeration; // Expose enum to template
     showVideo = true;
-    showProdigeSidebar = true;
     loading = signal<boolean>(false);
     saving = signal<boolean>(false);
 
     // Maximum videos per prodigy
     readonly MAX_VIDEOS_PER_PRODIGY = 3;
 
-    uploadedFiles: FileItem[] = [];
+    uploadedFile: FileItem | null = null;
     videoDialog: boolean = false;
     videos = signal<Video[]>([]);
     video: Partial<Video> = {};
@@ -152,9 +145,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     private translationService = inject(TranslationService);
     private prodigeService = inject(ProdigeService);
 
-    constructor(private cdr: ChangeDetectorRef) {
-        this.baseUploadCallBack = this.getBaseUploadCallBack();
-    }
+    constructor(private cdr: ChangeDetectorRef) {}
 
     ngOnInit() {
         this.sortOptions = [
@@ -260,11 +251,6 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         return this.translationService.translate(key, params);
     }
 
-    private getBaseUploadCallBack(): string {
-        // Return the base callback URL for file uploads
-        return '/api/videos/upload';
-    }
-
     /**
      * Check if the current prodigy has reached the maximum video limit
      */
@@ -303,14 +289,14 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             return;
         }
 
-        this.uploadedFiles = [];
+        this.uploadedFile = null;
         this.submitted = false;
         this.videoDialog = true;
     }
 
     editVideo(video: Video) {
         this.video = { ...video };
-        this.uploadedFiles = video.fileItem ? [video.fileItem] : [];
+        this.uploadedFile = video.fileItem;
         this.videoDialog = true;
     }
 
@@ -351,14 +337,12 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         console.log('File uploaded:', fileItem);
 
         // Add to uploaded files array
-        this.uploadedFiles.push(fileItem);
+        this.uploadedFile = fileItem;
 
         // Set the video URL for preview (use the first uploaded file)
-        if (this.uploadedFiles.length === 1) {
-            this.video.fileItem = fileItem;
-            this.video.fileItemId = fileItem.id;
-            this.video.uniqueFilename = fileItem.uniqueFilename;
-        }
+        this.video.fileItem = fileItem;
+        this.video.fileItemId = fileItem.id;
+        this.video.uniqueFilename = fileItem.uniqueFilename;
 
         this.messageService.add({
             severity: 'success',
@@ -374,16 +358,9 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         console.log('File removed:', fileId);
 
         // Remove from uploaded files array
-        this.uploadedFiles = this.uploadedFiles.filter((file) => file.id !== fileId);
+        this.uploadedFile = null;
 
-        // Update video URL if needed
-        if (this.uploadedFiles.length > 0) {
-            this.video.fileItem = this.uploadedFiles[0];
-            this.video.fileItemId = this.uploadedFiles[0]?.id;
-            this.video.uniqueFilename = this.uploadedFiles[0]?.uniqueFilename;
-        } else {
-            this.video.fileItem = undefined;
-        }
+        this.video.fileItem = undefined;
 
         this.messageService.add({
             severity: 'info',
@@ -407,7 +384,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         }
 
         // Validation
-        if (!this.video.titre || (!this.video.fileItemId && !this.uploadedFiles.length)) {
+        if (!this.video.titre || (!this.video.fileItemId && !this.uploadedFile)) {
             this.messageService.add({
                 severity: 'error',
                 summary: this.t('shared.common.error'),
@@ -416,7 +393,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             return;
         }
 
-        if (this.uploadedFiles.length === 0) {
+        if (!this.uploadedFile) {
             this.messageService.add({
                 severity: 'error',
                 summary: this.t('shared.common.error'),
@@ -439,9 +416,9 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         }
 
         // Set fileItemId from uploaded files if available
-        if (this.uploadedFiles.length > 0 && !this.video.fileItemId) {
-            this.video.fileItemId = this.uploadedFiles[0].id;
-            this.video.uniqueFilename = this.uploadedFiles[0].uniqueFilename;
+        if (this.uploadedFile) {
+            this.video.fileItemId = this.uploadedFile.id;
+            this.video.uniqueFilename = this.uploadedFile.uniqueFilename;
         }
 
         this.saving.set(true);
@@ -452,10 +429,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
                 id: this.video.id,
                 titre: this.video.titre!,
                 description: this.video.description || '',
-                fileItemId: this.video.fileItemId!,
-                prodigeId: prodige.id!,
-                statutModeration: this.video.statutModeration || StatutModeration.EnAttente,
-                commentaireModeration: this.video.commentaireModeration,
+                uniqueFilename: this.video.uniqueFilename!,
             };
 
             this.videoService.updateVideo(this.video.id, updateRequest).subscribe({
@@ -540,7 +514,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     hideDialog() {
         this.videoDialog = false;
         this.submitted = false;
-        this.uploadedFiles = [];
+        this.uploadedFile = null;
         this.video = {};
         this.saving.set(false);
         this.loadVideos();
@@ -585,36 +559,6 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         }, 0);
     }
 
-    downloadVideo(video: Video) {
-        if (video.fileItemId) {
-            const downloadUrl = this.videoService.getVideoDownloadUrl(video.fileItemId);
-
-            // Create a temporary link element and trigger download
-            const link = document.createElement('a');
-            link.href = downloadUrl;
-            link.download = `${video.titre || 'video'}.mp4`;
-            link.target = '_blank';
-
-            // Append to body, click, and remove
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            this.messageService.add({
-                severity: 'info',
-                summary: this.t('video.messages.downloadStarted'),
-                detail: this.t('video.messages.downloadStartedDetail', { title: video.titre }),
-                life: 3000,
-            });
-        } else {
-            this.messageService.add({
-                severity: 'warn',
-                summary: this.t('shared.common.warning'),
-                detail: this.t('video.messages.downloadNotAvailable'),
-            });
-        }
-    }
-
     // Helper methods for UI display
     getVideoStatusLabel(statut: StatutModeration): string {
         return this.videoService.getStatutModerationLabel(statut);
@@ -634,31 +578,5 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     // Additional helper methods for better UX
     canModerateVideo(video: Video): boolean {
         return this.videoService.canEditVideo(video);
-    }
-
-    moderateVideo(video: Video, newStatus: StatutModeration, comment?: string) {
-        this.videoService.moderateVideo(video.id!, newStatus, comment).subscribe({
-            next: (updatedVideo) => {
-                const videoWithUrl = {
-                    ...updatedVideo,
-                    url: this.videoService.getVideoPreviewUrl(updatedVideo.fileItemId),
-                };
-
-                this.videos.update((vids) => vids.map((v) => (v.id === updatedVideo.id ? videoWithUrl : v)));
-                this.messageService.add({
-                    severity: 'success',
-                    summary: this.t('shared.common.success'),
-                    detail: this.t('video.messages.moderationUpdated'),
-                });
-            },
-            error: (error) => {
-                console.error('Moderation error:', error);
-                this.messageService.add({
-                    severity: 'error',
-                    summary: this.t('shared.common.error'),
-                    detail: this.t('video.messages.moderationError'),
-                });
-            },
-        });
     }
 }
