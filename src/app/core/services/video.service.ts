@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Video, CreateVideoRequest, UpdateVideoRequest, PaginatedList, GetVideosPaginatedRequest } from '../interfaces/video.interface';
+import { Video, CreateVideoRequest, UpdateVideoRequest, PaginatedList, GetVideosPaginatedRequest, ModerateVideoRequest } from '../interfaces/video.interface';
 import { environment } from '../../../environments/environment';
 import { KeycloakService } from 'keycloak-angular';
 import { TranslationService } from './translation.service';
@@ -30,6 +30,55 @@ export class VideoService {
     }
 
     /**
+     * Récupère les vidéos en attente de modération avec pagination
+     */
+    getPendingVideos(params?: GetVideosPaginatedRequest): Observable<PaginatedList<Video>> {
+        let httpParams = new HttpParams();
+
+        if (params) {
+            if (params.page) httpParams = httpParams.set('page', params.page.toString());
+            if (params.size) httpParams = httpParams.set('size', params.size.toString());
+            if (params.sortField) httpParams = httpParams.set('sortField', params.sortField);
+            if (params.sortOrder) httpParams = httpParams.set('sortOrder', params.sortOrder.toString());
+            if (params.search) httpParams = httpParams.set('search', params.search);
+        }
+
+        return this.http.get<PaginatedList<Video>>(`${this.apiUrl}/pending`, { params: httpParams });
+    }
+
+    /**
+     * Récupère toutes les vidéos avec pagination (admin)
+     */
+    getAllVideosPaginated(params?: GetVideosPaginatedRequest): Observable<PaginatedList<Video>> {
+        let httpParams = new HttpParams();
+
+        if (params) {
+            if (params.page) httpParams = httpParams.set('page', params.page.toString());
+            if (params.size) httpParams = httpParams.set('size', params.size.toString());
+            if (params.sortField) httpParams = httpParams.set('sortField', params.sortField);
+            if (params.sortOrder) httpParams = httpParams.set('sortOrder', params.sortOrder.toString());
+            if (params.search) httpParams = httpParams.set('search', params.search);
+            if (params.status) httpParams = httpParams.set('status', params.status.toString());
+        }
+
+        return this.http.get<PaginatedList<Video>>(`${this.apiUrl}`, { params: httpParams });
+    }
+
+    /**
+     * Récupère une vidéo par son ID
+     */
+    getVideoById(id: string): Observable<Video> {
+        return this.http.get<Video>(`${this.apiUrl}/${id}`);
+    }
+
+    /**
+     * Modère une vidéo (approuver/rejeter)
+     */
+    moderateVideo(id: string, request: ModerateVideoRequest): Observable<Video> {
+        return this.http.put<Video>(`${this.apiUrl}/${id}/moderate`, request);
+    }
+
+    /**
      * Crée une nouvelle vidéo
      */
     createVideo(video: CreateVideoRequest): Observable<Video> {
@@ -49,6 +98,7 @@ export class VideoService {
     deleteVideo(id: string): Observable<void> {
         return this.http.delete<void>(`${this.apiUrl}/${id}`);
     }
+
     /**
      * Obtient les options de statut de modération pour les sélecteurs
      */
@@ -60,6 +110,7 @@ export class VideoService {
                 value: StatutModeration[key as keyof typeof StatutModeration],
             }));
     }
+
     /**
      * Obtient le libellé localisé pour un statut de modération
      */
@@ -68,9 +119,9 @@ export class VideoService {
             case StatutModeration.EnAttente:
                 return this.translationService.translate('video.moderation.enAttente');
             case StatutModeration.Approuvee:
-                return this.translationService.translate('video.moderation.Approuvee');
+                return this.translationService.translate('video.moderation.approuvee');
             case StatutModeration.Rejetee:
-                return this.translationService.translate('video.moderation.rejete');
+                return this.translationService.translate('video.moderation.rejetee');
             default:
                 return this.translationService.translate('video.moderation.unknown');
         }
@@ -104,5 +155,12 @@ export class VideoService {
      */
     getVideoPreviewUrl(fileItemId: string): string {
         return `${environment.apiUrl}/files/${fileItemId}/preview`;
+    }
+
+    /**
+     * Obtient l'URL complète d'une vidéo
+     */
+    getVideoUrl(fileItemId: string): string {
+        return `${environment.apiUrl}/files/${fileItemId}`;
     }
 }

@@ -1,26 +1,18 @@
 // src/app/features/professional/professional.routes.ts
 import { Routes } from '@angular/router';
 import { ProfessionalComponent } from './professional.component';
-import { MyAthletesComponent } from './components/my-athletes/my-athletes.component';
-import { UploadVideoComponent } from './components/upload-video/upload-video.component';
-import { MessagesComponent } from './components/messages/messages.component';
-import { ProfessionalDashboardComponent } from './components/professional-dashboard/professional-dashboard.component';
 import { ProdigeCrudComponent } from './components/prodige-crud/prodige-crud.component';
 import { ProdigeVideoCrudComponent } from './components/prodige-video-crud/prodige-video-crud.component';
+import { AdminVideoModerationComponent } from './components/admin-video-moderation/admin-video-moderation.component';
 
 export const PROFESSIONAL_ROUTES: Routes = [
     {
         path: '',
         component: ProfessionalComponent, // This component provides the layout with the sidebar
         children: [
-            { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Default route for professional
             { path: 'prodiges', component: ProdigeCrudComponent },
             { path: 'videos', component: ProdigeVideoCrudComponent },
-            { path: 'dashboard', component: ProfessionalDashboardComponent },
-            { path: 'my-athletes', component: MyAthletesComponent },
-            { path: 'upload-video', component: UploadVideoComponent },
-            { path: 'messages', component: MessagesComponent },
-            { path: 'profile', component: ProfessionalDashboardComponent }, // Placeholder, create a real profile component
+            { path: 'moderation', component: AdminVideoModerationComponent },
         ],
     },
 ];

@@ -11,7 +11,12 @@ export interface Video {
     fileItemId: string;
     fileItem: FileItem;
     statutModeration: StatutModeration;
+    prodigeId: string;
+    prodige: Prodige;
     commentaireModeration?: string;
+    moderatedBy?: string;
+    dateModeration?: Date;
+    dateCreation?: Date;
 }
 
 export interface CreateVideoRequest {
@@ -29,16 +34,24 @@ export interface UpdateVideoRequest {
     uniqueFilename: string;
 }
 
-export interface PaginatedList<T> {
-    items: T[];
-    pageNumber: number;
-    totalPages: number;
-    totalCount: number;
-    hasPreviousPage: boolean;
-    hasNextPage: boolean;
+export interface ModerateVideoRequest {
+    statutModeration: StatutModeration;
+    commentaireModeration?: string;
 }
 
 export interface GetVideosPaginatedRequest {
-    pageNumber?: number;
-    pageSize?: number;
+    page?: number;
+    size?: number;
+    sortField?: string;
+    sortOrder?: number;
+    search?: string;
+    status?: StatutModeration;
+}
+
+export interface PaginatedList<T> {
+    items: T[];
+    totalCount: number;
+    page: number;
+    size: number;
+    totalPages: number;
 }

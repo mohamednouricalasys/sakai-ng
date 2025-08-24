@@ -12,7 +12,10 @@
       "cancel": "Annuler",
       "search": "Rechercher...",
       "add": "Ajouter",
-      "confirm": "Confirmer"
+      "confirm": "Confirmer",
+      "approve": "Approuver",
+      "reject": "Rejeter",
+      "close": "Fermer"
     },
     "common": {
       "title": "Titre",
@@ -32,7 +35,8 @@
       "warning": "Avertissement",
       "confirmation": "Confirmation",
       "male": "Homme",
-      "female": "Femme"
+      "female": "Femme",
+      "processing": "Traitement en cours..."
     },
     "validation": {
       "required": "obligatoire",
@@ -48,6 +52,85 @@
       "itemUpdated": "{item} mis à jour",
       "validationError": "Erreur de validation",
       "limitReached": "Limite atteinte"
+    }
+  },
+  "admin": {
+    "video": {
+      "moderation": {
+        "title": "Modération des Vidéos",
+        "enAttente": "En attente",
+        "approuvee": "Approuvée",
+        "rejete": "Rejetée",
+        "unknown": "Inconnu"
+      },
+      "title": "Gestion des Vidéos",
+      "totalVideos": "{{count}} vidéo(s) au total",
+      "prodige": "Prodige",
+      "dateCreation": "Date de création",
+      "dateModeration": "Date de modération",
+      "moderatedBy": "Modéré par",
+      "moderationComment": "Commentaire de modération",
+      "status": "Statut",
+      "search": {
+        "placeholder": "Rechercher par titre, prodige..."
+      },
+      "filter": {
+        "status": "Filtrer par statut",
+        "all": "Tous les statuts"
+      },
+      "sort": {
+        "placeholder": "Trier par...",
+        "dateCreation": {
+          "desc": "Plus récent d'abord",
+          "asc": "Plus ancien d'abord"
+        },
+        "title": {
+          "asc": "Titre A-Z",
+          "desc": "Titre Z-A"
+        },
+        "status": {
+          "asc": "Statut A-Z",
+          "desc": "Statut Z-A"
+        }
+      },
+      "actions": {
+        "view": "Voir",
+        "approve": "Approuver",
+        "reject": "Rejeter"
+      },
+      "empty": {
+        "title": "Aucune vidéo trouvée",
+        "description": "Il n'y a actuellement aucune vidéo correspondant à vos critères de recherche."
+      },
+      "detail": {
+        "title": "Détails de la Vidéo",
+        "information": "Informations",
+        "moderation": "Modération"
+      },
+      "confirm": {
+        "approve": "Êtes-vous sûr de vouloir approuver la vidéo \"{{title}}\" ?",
+        "reject": "Êtes-vous sûr de vouloir rejeter la vidéo \"{{title}}\" ?",
+        "delete": "Êtes-vous sûr de vouloir supprimer définitivement la vidéo \"{{title}}\" ? Cette action est irréversible."
+      },
+      "moderationComment": {
+        "approve": {
+          "placeholder": "Commentaire optionnel pour l'approbation..."
+        },
+        "reject": {
+          "placeholder": "Expliquez les raisons du rejet (obligatoire)..."
+        }
+      },
+      "validation": {
+        "commentRequired": "Un commentaire expliquant les raisons du rejet est obligatoire."
+      },
+      "messages": {
+        "loadError": "Erreur lors du chargement des vidéos.",
+        "approved": "Vidéo approuvée avec succès.",
+        "rejected": "Vidéo rejetée avec succès.",
+        "deleted": "Vidéo supprimée avec succès.",
+        "moderationError": "Erreur lors de la modération de la vidéo.",
+        "deleteError": "Erreur lors de la suppression de la vidéo."
+      }
     }
   },
   "procrud": {
