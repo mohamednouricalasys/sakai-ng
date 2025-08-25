@@ -35,6 +35,7 @@ export interface UpdateVideoRequest {
 }
 
 export interface ModerateVideoRequest {
+    id: string;
     statutModeration: StatutModeration;
     commentaireModeration?: string;
 }

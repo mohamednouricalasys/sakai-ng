@@ -69,7 +69,7 @@
       "dateCreation": "Date de création",
       "dateModeration": "Date de modération",
       "moderatedBy": "Modéré par",
-      "moderationComment": "Commentaire de modération",
+      "moderationCommentLabel": "Commentaire de modération",
       "status": "Statut",
       "search": {
         "placeholder": "Rechercher par titre, prodige..."

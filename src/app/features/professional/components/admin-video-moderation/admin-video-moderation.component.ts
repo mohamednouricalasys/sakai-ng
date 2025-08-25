@@ -155,7 +155,7 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
             { label: this.t('admin.video.sort.dateCreation.desc'), value: 'Created_desc' },
             { label: this.t('admin.video.sort.dateCreation.asc'), value: 'Created_asc' },
             { label: this.t('admin.video.sort.title.asc'), value: 'Titre_asc' },
-            { label: this.t('admin.video.sort.title.desc'), value: 'Ritre_desc' },
+            { label: this.t('admin.video.sort.title.desc'), value: 'Titre_desc' },
             { label: this.t('admin.video.sort.status.asc'), value: 'StatutModeration_asc' },
             { label: this.t('admin.video.sort.status.desc'), value: 'StatutModeration_desc' },
         ];
@@ -281,6 +281,7 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
         this.moderating.set(true);
 
         const request: ModerateVideoRequest = {
+            id: this.selectedVideoForModeration.id,
             statutModeration: this.moderationAction === 'approve' ? StatutModeration.Approuvee : StatutModeration.Rejetee,
             commentaireModeration: this.moderationComment.trim() || undefined,
         };

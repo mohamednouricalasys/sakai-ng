@@ -2,15 +2,15 @@ export enum StatutModeration {
     /// <summary>
     /// En attente de modération.
     /// </summary>
-    EnAttente = 0,
+    EnAttente = 1,
 
     /// <summary>
     /// Approuvée par la modération.
     /// </summary>
-    Approuvee = 1,
+    Approuvee = 2,
 
     /// <summary>
     /// Rejetée pour contenu NSFW.
     /// </summary>
-    Rejetee = 2,
+    Rejetee = 3,
 }
