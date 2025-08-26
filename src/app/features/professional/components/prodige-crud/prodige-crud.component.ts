@@ -34,6 +34,7 @@ import { validateProdige } from './prodige-crud.validation';
 import { ProdigeApiHelper, ApiCallbacks } from './prodige-api.helper';
 import { ProdigeStore } from './prodige-store';
 import { UserService } from '../../../../core/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-prodige-crud',
@@ -107,6 +108,7 @@ export class ProdigeCrudComponent implements OnInit {
     private messageService = inject(MessageService);
     private confirmationService = inject(ConfirmationService);
     private cdr = inject(ChangeDetectorRef);
+    private router = inject(Router);
 
     // Properties for DataView layout selection
     layout: 'list' | 'grid' = 'list';
@@ -132,6 +134,10 @@ export class ProdigeCrudComponent implements OnInit {
             ...country,
             name: this.t(`countries.${country.code.toLowerCase()}`),
         }));
+    }
+
+    navigateToVideos(prodigeId: string) {
+        this.router.navigate(['/professional/videos', prodigeId]);
     }
 
     onSortChange(event: any) {

@@ -61,7 +61,11 @@
         "enAttente": "En espera",
         "approuvee": "Aprobado",
         "rejete": "Rechazado",
-        "unknown": "Desconocido"
+        "unknown": "Desconocido",
+        "rejectedVideo": "Video rechazado",
+        "approvedVideo": "Video aprobado",
+        "warning": "⚠️ ADVERTENCIA",
+        "autoDeleteWarning": "Los videos rechazados se eliminarán automáticamente después de 15 días a menos que se actualice."
       },
       "title": "Gestión de video",
       "totalVideos": "{{count}} Video (s) en total",
@@ -278,7 +282,11 @@
     "moderation": {
       "enAttente": "En espera",
       "approuvee": "Aprobado",
-      "rejetee": "Rechazado"
+      "rejetee": "Rechazado",
+      "rejectedVideo": "Video rechazado",
+      "approvedVideo": "Video aprobado",
+      "warning": "⚠️ ADVERTENCIA",
+      "autoDeleteWarning": "Los videos rechazados se eliminarán automáticamente después de 15 días a menos que se actualice."
     }
   },
   "tags": {

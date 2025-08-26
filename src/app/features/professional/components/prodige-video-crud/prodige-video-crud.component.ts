@@ -17,6 +17,7 @@ import { Video, CreateVideoRequest, UpdateVideoRequest } from '../../../../core/
 import { StatutModeration } from '../../../../core/enums/statut-moderation.enum';
 import { TranslationService } from '../../../../core/services/translation.service';
 import { TextareaModule } from 'primeng/textarea';
+import { PopoverModule } from 'primeng/popover';
 
 import videojs from 'video.js';
 
@@ -27,6 +28,7 @@ import { FluidModule } from 'primeng/fluid';
 import { DividerModule } from 'primeng/divider';
 import { Mp4UploaderComponent } from '../../../../core/shared/components/mp4-uploader/mp4-uploader.component';
 import { FileItem } from '../../../../core/interfaces/file-Item.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-prodige-video-crud',
@@ -49,67 +51,11 @@ import { FileItem } from '../../../../core/interfaces/file-Item.interface';
         TranslateParamsPipe,
         FluidModule,
         TextareaModule,
+        PopoverModule,
     ],
     templateUrl: './prodige-video-crud.component.html',
     providers: [MessageService, ConfirmationService],
-    styles: `
-        .video-container {
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .vjs-tech {
-            object-fit: cover;
-        }
-
-        .upload-guidelines {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .guideline-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .guideline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .guideline-icon {
-            color: #dc3545;
-            margin-top: 0.125rem;
-            flex-shrink: 0;
-        }
-
-        .video-limit-warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 6px;
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .loading-spinner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 200px;
-        }
-    `,
+    styleUrl: `./prodige-video-crud.component.scss`,
 })
 export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChildren('videoElement') videoElements!: QueryList<ElementRef>;
@@ -133,6 +79,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
 
     layout: 'list' | 'grid' = 'grid';
     layoutOptions = ['list', 'grid'];
+    prodigeId?: string;
 
     // New properties for prodige selection
     prodiges = signal<Prodige[]>([]);
@@ -144,6 +91,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     private confirmationService = inject(ConfirmationService);
     private translationService = inject(TranslationService);
     private prodigeService = inject(ProdigeService);
+    private route = inject(ActivatedRoute);
 
     constructor(private cdr: ChangeDetectorRef) {}
 
@@ -154,6 +102,17 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         ];
 
         this.loadProdiges();
+        this.handleRouteParams();
+    }
+
+    private handleRouteParams() {
+        this.route.params.subscribe((params) => {
+            this.prodigeId = params['id'];
+        });
+    }
+
+    private selectProdigeById(id?: string): Prodige | null | undefined {
+        return !id ? null : this.prodiges().find((p) => p.id === id);
     }
 
     ngAfterViewInit(): void {
@@ -179,6 +138,38 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             }
         });
         this.videoPlayers.clear();
+    }
+
+    /**
+     * Génère le contenu texte pour le popover de commentaire de modération
+     * @param item La vidéo concernée
+     * @returns Le contenu HTML du popover
+     */
+    getModerationTooltipContent(item: any): string {
+        const isRejected = item.statutModeration === this.statutModeration.Rejetee;
+
+        let content = `<div><strong>`;
+
+        if (isRejected) {
+            content += this.t('video.moderation.rejectedVideo');
+        } else {
+            content += `${this.t('video.moderation.approvedVideo')}`;
+        }
+
+        content += `</strong></div>`;
+
+        if (item.commentaireModeration) {
+            content += `<div><em>"${item.commentaireModeration}"</em></div>`;
+        }
+
+        if (isRejected) {
+            content += `<div>`;
+            content += `<div><strong>${this.t('video.moderation.warning')}</strong></div>`;
+            content += `<div>${this.t('video.moderation.autoDeleteWarning')}</div>`;
+            content += `</div>`;
+        }
+
+        return content;
     }
 
     private initializeVideoPlayers(): void {
@@ -211,7 +202,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             next: (data) => {
                 this.prodiges.set(data);
                 if (data && data.length > 0) {
-                    this.selectedProdige.set(data[0]);
+                    this.selectedProdige.set(this.prodigeId ? this.selectProdigeById(this.prodigeId)! : data[0]);
                     this.loadVideos();
                 }
                 this.loading.set(false);

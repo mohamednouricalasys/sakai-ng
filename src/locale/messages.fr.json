@@ -61,7 +61,11 @@
         "enAttente": "En attente",
         "approuvee": "Approuvée",
         "rejete": "Rejetée",
-        "unknown": "Inconnu"
+        "unknown": "Inconnu",
+        "rejectedVideo": "Vidéo rejetée",
+        "approvedVideo": "Vidéo approuvée",
+        "warning": "⚠️ Attention",
+        "autoDeleteWarning": "Les vidéos rejetées seront automatiquement supprimées au bout de 15 jours, sauf si elles sont mises à jour."
       },
       "title": "Gestion des Vidéos",
       "totalVideos": "{{count}} vidéo(s) au total",
@@ -279,7 +283,11 @@
       "moderation":{
         "enAttente": "En attente",
         "approuvee": "Approuvée",
-        "rejetee": "Rejetée"
+        "rejetee": "Rejetée",
+        "rejectedVideo": "Vidéo rejetée",
+        "approvedVideo": "Vidéo approuvée",
+        "warning": "⚠️ Attention",
+        "autoDeleteWarning": "Les vidéos rejetées seront automatiquement supprimées au bout de 15 jours, sauf si elles sont mises à jour."
       }
     },
   "tags": {

@@ -12,6 +12,7 @@ export const PROFESSIONAL_ROUTES: Routes = [
         children: [
             { path: 'prodiges', component: ProdigeCrudComponent },
             { path: 'videos', component: ProdigeVideoCrudComponent },
+            { path: 'videos/:id', component: ProdigeVideoCrudComponent },
             { path: 'moderation', component: AdminVideoModerationComponent },
         ],
     },

@@ -61,7 +61,11 @@
         "enAttente": "On hold",
         "approuvee": "Approved",
         "rejete": "Rejected",
-        "unknown": "Unknown"
+        "unknown": "Unknown",
+        "rejectedVideo": "Rejected Video",
+        "approvedVideo": "Approved Video", 
+        "warning": "⚠️ Warning",
+        "autoDeleteWarning": "Rejected videos will be automatically deleted after 15 days unless updated."
       },
       "title": "Video management",
       "totalVideos": "{{count}} Video (s) in total",
@@ -278,7 +282,11 @@
     "moderation": {
       "enAttente": "On hold",
       "approuvee": "Approved",
-      "rejetee": "Rejected"
+      "rejetee": "Rejected",
+      "rejectedVideo": "Rejected Video",
+      "approvedVideo": "Approved Video", 
+      "warning": "⚠️ Warning",
+      "autoDeleteWarning": "Rejected videos will be automatically deleted after 15 days unless updated."
     }
   },
   "tags": {
