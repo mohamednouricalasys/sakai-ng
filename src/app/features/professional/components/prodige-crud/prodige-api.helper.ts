@@ -40,7 +40,7 @@ export class ProdigeApiHelper {
             sport: prodige.sport,
             description: prodige.description || '',
             pays: prodige.pays || 'FR',
-            genre: prodige.gender,
+            genre: prodige.genre,
             tags: prodige.tags,
         };
     }

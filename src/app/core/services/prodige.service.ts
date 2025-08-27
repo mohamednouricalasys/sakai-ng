@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Prodige } from '../interfaces/prodige.interface';
 import { Sport } from '../enums/sport.enum';
 import { Tag } from '../enums/tag.enum';
-import { Gender } from '../enums/gender.enum';
+import { Genre } from '../enums/gender.enum';
 import { environment } from '../../../environments/environment';
 import { KeycloakService } from 'keycloak-angular';
 import { TranslationService } from './translation.service';

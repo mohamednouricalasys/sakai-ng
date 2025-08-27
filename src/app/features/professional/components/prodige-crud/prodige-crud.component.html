@@ -22,8 +22,8 @@
                             <div class="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <div class="flex flex-col">
                                     <div class="flex items-center gap-2 mb-2">
-                                        <div class="text-xl font-medium cursor-pointer hover:text-blue-600 underline" (click)="navigateToVideos(item.id)">{{ item.nom }}</div>
-                                        <i [class]="getGenderIcon(item.gender)" class="text-sm"></i>
+                                        <div class="text-xl font-medium cursor-pointer text-blue-600 underline" (click)="navigateToVideos(item.id)">{{ item.nom }}</div>
+                                        <i [class]="getGenderIcon(item.genre)" class="text-sm"></i>
                                         <img [src]="'https://flagcdn.com/w20/' + (item.pays || 'fr').toLowerCase() + '.png'" [alt]="getCountryName(item.pays)" class="country-flag" *ngIf="item.pays" />
                                     </div>
                                     <div class="text-sm text-gray-500">{{ getSportLabel(item.sport) }}</div>
@@ -54,8 +54,8 @@
                     <div *ngFor="let item of items; let i = index" class="p-4 border rounded shadow-sm flex flex-col gap-4">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-2">
-                                <span class="font-medium text-lg cursor-pointer hover:text-blue-600 underline" (click)="navigateToVideos(item.id)">{{ item.nom }}</span>
-                                <i [class]="getGenderIcon(item.gender)" class="text-sm"></i>
+                                <span class="font-medium text-lg cursor-pointer text-blue-600 underline" (click)="navigateToVideos(item.id)">{{ item.nom }}</span>
+                                <i [class]="getGenderIcon(item.genre)" class="text-sm"></i>
                             </div>
                             <div class="flex items-center gap-2">
                                 <p-tag [value]="item.age + ' ' + ('shared.common.years' | translate)" [severity]="getAgeSeverity(item.age)" />
@@ -112,26 +112,26 @@
 
             <div>
                 <label class="block font-bold mb-3">
-                    {{ 'procrud.columns.gender' | translate }}
+                    {{ 'procrud.columns.genre' | translate }}
                     <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
                 </label>
                 <div class="flex gap-4">
                     <div class="flex items-center">
-                        <p-radiobutton [(ngModel)]="prodige.gender" [value]="0" inputId="male" name="gender" />
+                        <p-radiobutton [(ngModel)]="prodige.genre" [value]="1" inputId="male" name="genre" />
                         <label for="male" class="ml-2">
                             <i class="pi pi-mars mr-1"></i>
                             {{ 'shared.common.male' | translate }}
                         </label>
                     </div>
                     <div class="flex items-center">
-                        <p-radiobutton [(ngModel)]="prodige.gender" [value]="1" inputId="female" name="gender" />
+                        <p-radiobutton [(ngModel)]="prodige.genre" [value]="2" inputId="female" name="genre" />
                         <label for="female" class="ml-2">
                             <i class="pi pi-venus mr-1"></i>
                             {{ 'shared.common.female' | translate }}
                         </label>
                     </div>
                 </div>
-                <small class="text-red-500" *ngIf="submitted && prodige.gender === undefined">
+                <small class="text-red-500" *ngIf="submitted && prodige.genre === undefined">
                     {{ 'shared.validation.genderRequired' | translate }}
                 </small>
             </div>

@@ -23,7 +23,7 @@ import { ProdigeService } from '../../../../core/services/prodige.service';
 import { Prodige } from '../../../../core/interfaces/prodige.interface';
 import { Sport } from '../../../../core/enums/sport.enum';
 import { Tag } from '../../../../core/enums/tag.enum';
-import { Gender } from '../../../../core/enums/gender.enum';
+import { Genre } from '../../../../core/enums/gender.enum';
 import { TranslationService } from '../../../../core/services/translation.service';
 import { TranslateCountPipe, TranslateParamsPipe, TranslatePipe } from '../../../../core/shared';
 import { DataView, DataViewModule } from 'primeng/dataview';
@@ -166,7 +166,7 @@ export class ProdigeCrudComponent implements OnInit {
     }
 
     openNew() {
-        this.prodige = { videos: [], tags: [], gender: Gender.Homme, pays: 'FR' };
+        this.prodige = { videos: [], tags: [], genre: Genre.Homme, pays: 'FR' };
         this.submitted = false;
         this.selectedTagToAdd = null;
         this.prodigeDialog = true;
@@ -176,7 +176,7 @@ export class ProdigeCrudComponent implements OnInit {
         this.prodige = {
             ...prodige,
             tags: [...(prodige.tags || [])],
-            gender: prodige.gender ?? Gender.Homme,
+            genre: prodige.genre ?? Genre.Homme,
             pays: prodige.pays || 'FR',
         };
         this.selectedTagToAdd = null;
@@ -227,8 +227,8 @@ export class ProdigeCrudComponent implements OnInit {
         return this.prodigeService.getTagLabel(tag);
     }
 
-    getGenderIcon(gender: Gender): string {
-        return gender === Gender.Homme ? 'pi pi-mars' : 'pi pi-venus';
+    getGenderIcon(gender: Genre): string {
+        return gender === Genre.Homme ? 'pi pi-mars' : 'pi pi-venus';
     }
 
     getCountryName(countryCode: string): string {

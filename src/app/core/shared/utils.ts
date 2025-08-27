@@ -1,7 +1,7 @@
 import { SelectItem } from 'primeng/api';
 import { Sport } from '../enums/sport.enum';
 import { Tag } from '../enums/tag.enum';
-import { Gender } from '../enums/gender.enum';
+import { Genre } from '../enums/gender.enum';
 import { Country } from '../interfaces/country.interface';
 import { TranslationService } from '../services/translation.service';
 
@@ -370,7 +370,7 @@ export class CsvExportUtils {
             boolean: (value: boolean) => (value ? 'Yes' : 'No'),
             array: (value: any[]) => value?.join('; ') || '',
             sport: (value: Sport) => (translationService ? translationService.translate(`sports.${value}`) : String(value)),
-            gender: (value: Gender) => (translationService ? translationService.translate(`shared.common.${value === Gender.Homme ? 'male' : 'female'}`) : String(value)),
+            gender: (value: Genre) => (translationService ? translationService.translate(`shared.common.${value === Genre.Homme ? 'male' : 'female'}`) : String(value)),
             tags: (value: Tag[]) => value?.map((tag) => (translationService ? translationService.translate(`tags.${tag}`) : String(tag))).join('; ') || '',
         };
     }
@@ -419,11 +419,11 @@ export class FormUtils {
         return [
             {
                 label: translationService.translate('shared.common.male'),
-                value: Gender.Homme,
+                value: Genre.Homme,
             },
             {
                 label: translationService.translate('shared.common.female'),
-                value: Gender.Femme,
+                value: Genre.Femme,
             },
         ];
     }

@@ -1,7 +1,7 @@
 import { Prodige } from '../../../../core/interfaces/prodige.interface';
 import { Sport } from '../../../../core/enums/sport.enum';
 import { Tag } from '../../../../core/enums/tag.enum';
-import { Gender } from '../../../../core/enums/gender.enum';
+import { Genre } from '../../../../core/enums/gender.enum';
 import { Country } from '../../../../core/interfaces/country.interface';
 import { ExportColumn } from './prodige-crud.types';
 
@@ -16,8 +16,8 @@ export function normalizeProdige(prodige: Prodige): Prodige {
     };
 }
 
-export function getGenderIcon(gender: Gender) {
-    return gender === Gender.Homme ? 'pi pi-mars' : 'pi pi-venus';
+export function getGenderIcon(gender: Genre) {
+    return gender === Genre.Homme ? 'pi pi-mars' : 'pi pi-venus';
 }
 
 export function formatCSV(
@@ -25,7 +25,7 @@ export function formatCSV(
     exportColumns: ExportColumn[],
     getLabelFns: {
         sportLabel: (sport: Sport) => string;
-        genderLabel: (gender: Gender) => string;
+        genderLabel: (gender: Genre) => string;
         countryName: (code: string) => string;
         tagLabel: (tag: Tag) => string;
     },
@@ -36,7 +36,7 @@ export function formatCSV(
             .map((col) => {
                 let value = prodige[col.dataKey as keyof Prodige];
                 if (col.dataKey === 'sport') value = getLabelFns.sportLabel(value as Sport);
-                if (col.dataKey === 'gender') value = getLabelFns.genderLabel(value as Gender);
+                if (col.dataKey === 'gender') value = getLabelFns.genderLabel(value as Genre);
                 if (col.dataKey === 'pays') value = getLabelFns.countryName(value as string);
                 if (col.dataKey === 'tags') value = (value as Tag[])?.map(getLabelFns.tagLabel).join(';');
                 return `"${value ?? ''}"`;

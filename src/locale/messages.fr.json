@@ -704,8 +704,8 @@
           "updateMetadata": "Échec de la mise à jour des métadonnées du fichier"
         }
       }
-    },
-    "countries": {
+  },
+  "countries": {
     "ad": "Andorre",
     "ae": "Émirats arabes unis",
     "af": "Afghanistan",
@@ -756,12 +756,14 @@
     "cn": "Chine",
     "co": "Colombie",
     "cr": "Costa Rica",
+    "cs": "Tchécoslovaquie",
     "cu": "Cuba",
     "cv": "Cap-Vert",
     "cw": "Curaçao",
     "cx": "Île Christmas",
     "cy": "Chypre",
     "cz": "République tchèque",
+    "dd": "République démocratique allemande",
     "de": "Allemagne",
     "dj": "Djibouti",
     "dk": "Danemark",
@@ -781,6 +783,7 @@
     "fm": "Micronésie",
     "fo": "Îles Féroé",
     "fr": "France",
+    "fx": "France métropolitaine",
     "ga": "Gabon",
     "gb": "Royaume-Uni",
     "gd": "Grenade",
@@ -875,6 +878,7 @@
     "no": "Norvège",
     "np": "Népal",
     "nr": "Nauru",
+    "nt": "Zone neutre",
     "nu": "Niue",
     "nz": "Nouvelle-Zélande",
     "om": "Oman",
@@ -915,6 +919,7 @@
     "sr": "Suriname",
     "ss": "Soudan du Sud",
     "st": "Sao Tomé-et-Principe",
+    "su": "Union soviétique",
     "sv": "El Salvador",
     "sx": "Saint-Martin",
     "sy": "Syrie",
@@ -950,10 +955,13 @@
     "vu": "Vanuatu",
     "wf": "Wallis-et-Futuna",
     "ws": "Samoa",
+    "xk": "Kosovo",
     "ye": "Yémen",
     "yt": "Mayotte",
+    "yu": "Yougoslavie",
     "za": "Afrique du Sud",
     "zm": "Zambie",
+    "zr": "Zaïre",
     "zw": "Zimbabwe"
   }
   }
