@@ -11,13 +11,14 @@ import { TagModule } from 'primeng/tag';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SelectModule } from 'primeng/select';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { TranslatePipe, TranslateParamsPipe } from '../../../../core/shared';
+import { TranslatePipe } from '../../../../core/shared';
 import { VideoService } from '../../../../core/services/video.service';
 import { Video, CreateVideoRequest, UpdateVideoRequest } from '../../../../core/interfaces/video.interface';
 import { StatutModeration } from '../../../../core/enums/statut-moderation.enum';
 import { TranslationService } from '../../../../core/services/translation.service';
 import { TextareaModule } from 'primeng/textarea';
 import { PopoverModule } from 'primeng/popover';
+import { PanelModule } from 'primeng/panel';
 
 import videojs from 'video.js';
 
@@ -48,10 +49,10 @@ import { ActivatedRoute } from '@angular/router';
         SelectButtonModule,
         ConfirmDialogModule,
         TranslatePipe,
-        TranslateParamsPipe,
         FluidModule,
         TextareaModule,
         PopoverModule,
+        PanelModule,
     ],
     templateUrl: './prodige-video-crud.component.html',
     providers: [MessageService, ConfirmationService],

@@ -64,6 +64,21 @@ export class VideoService {
         return this.http.get<PaginatedList<Video>>(`${this.apiUrl}`, { params: httpParams });
     }
 
+    getApprouvedVideosPaginated(request: GetVideosPaginatedRequest): Observable<PaginatedList<Video>> {
+        let params = new HttpParams();
+
+        if (request.page) params = params.set('page', request.page.toString());
+        if (request.size) params = params.set('size', request.size.toString());
+        if (request.sortField) params = params.set('sortField', request.sortField);
+        if (request.sortOrder) params = params.set('sortOrder', request.sortOrder.toString());
+        if (request.search) params = params.set('search', request.search);
+        if (request.tag !== undefined) params = params.set('tag', request.tag.toString());
+        if (request.sport !== undefined) params = params.set('sport', request.sport.toString());
+        if (request.genre !== undefined) params = params.set('genre', request.genre.toString());
+
+        return this.http.get<PaginatedList<Video>>(`${this.apiUrl}/approuved`, { params });
+    }
+
     /**
      * Récupère une vidéo par son ID
      */

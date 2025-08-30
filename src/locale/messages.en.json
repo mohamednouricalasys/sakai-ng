@@ -54,6 +54,27 @@
       "limitReached": "Limit reached"
     }
   },
+  "videos": {
+    "gallery": {
+      "title": "Video Gallery"
+    },
+    "search": {
+      "placeholder": "Search videos..."
+    },
+    "filter": {
+      "sport": "Filter by Sport",
+      "tag": "Filter by Tag",
+      "clear": "Clear Filters",
+      "allSports": "All Sports",
+      "allTags": "All Tags",
+      "allGenders": "All Genders",
+      "homme": "Male",
+      "femme": "Female"
+    },
+    "messages": {
+      "loadError": "Failed to load videos. Please try again."
+    }
+  },
   "admin": {
     "video": {
       "moderation": {

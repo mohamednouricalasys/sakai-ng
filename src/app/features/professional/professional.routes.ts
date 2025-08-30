@@ -4,6 +4,7 @@ import { ProfessionalComponent } from './professional.component';
 import { ProdigeCrudComponent } from './components/prodige-crud/prodige-crud.component';
 import { ProdigeVideoCrudComponent } from './components/prodige-video-crud/prodige-video-crud.component';
 import { AdminVideoModerationComponent } from './components/admin-video-moderation/admin-video-moderation.component';
+import { VideoGalleryComponent } from './components/video-gallery/video-gallery.component';
 
 export const PROFESSIONAL_ROUTES: Routes = [
     {
@@ -14,6 +15,7 @@ export const PROFESSIONAL_ROUTES: Routes = [
             { path: 'videos', component: ProdigeVideoCrudComponent },
             { path: 'videos/:id', component: ProdigeVideoCrudComponent },
             { path: 'moderation', component: AdminVideoModerationComponent },
+            { path: 'gellery', component: VideoGalleryComponent },
         ],
     },
 ];

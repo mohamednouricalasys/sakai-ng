@@ -1,7 +1,9 @@
 import { StatutModeration } from '../enums/statut-moderation.enum';
-import { VideoStatus } from '../enums/video-status.enum';
 import { FileItem } from './file-Item.interface';
 import { Prodige } from './prodige.interface';
+import { Sport } from '../enums/sport.enum';
+import { Tag } from '../enums/tag.enum';
+import { Genre } from '../enums/gender.enum';
 
 export interface Video {
     id: string;
@@ -47,6 +49,9 @@ export interface GetVideosPaginatedRequest {
     sortOrder?: number;
     search?: string;
     status?: StatutModeration;
+    tag?: Tag;
+    sport?: Sport;
+    genre?: Genre;
 }
 
 export interface PaginatedList<T> {

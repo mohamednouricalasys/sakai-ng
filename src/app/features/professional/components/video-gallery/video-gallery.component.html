@@ -1,0 +1,77 @@
+<p-card>
+    <!-- Fixed Header within Component -->
+    <h1>{{ 'videos.gallery.title' | translate }}</h1>
+    <!-- Search and Filters -->
+    <div class="flex flex-row flex-wrap gap-2">
+        <p-inputgroup>
+            <p-inputgroup-addon>
+                <i class="pi pi-search"></i>
+            </p-inputgroup-addon>
+            <input pInputText type="text" [(ngModel)]="searchTerm" [placeholder]="'videos.search.placeholder' | translate" (input)="onSearchChange()" />
+        </p-inputgroup>
+
+        <p-select [options]="sportOptions" [(ngModel)]="selectedSport" optionLabel="label" optionValue="value" [placeholder]="'videos.filter.sport' | translate" (onChange)="onSportFilterChange()" [showClear]="true" />
+
+        <div class="flex flex-row flex-wrap gap-2 items-center justify-center genre-filter">
+            <div class="" *ngFor="let option of genreOptions">
+                <p-radioButton [inputId]="'genre-' + (option.value || 'all')" name="genre" [value]="option.value" [(ngModel)]="selectedGenre" (onChange)="onGenreFilterChange()" />
+                <label [for]="'genre-' + (option.value || 'all')">
+                    {{ option.label }}
+                </label>
+            </div>
+        </div>
+
+        <p-select [options]="tagOptions" [(ngModel)]="selectedTag" optionLabel="label" optionValue="value" [placeholder]="'videos.filter.tag' | translate" (onChange)="onTagFilterChange()" [showClear]="true" />
+
+        <p-button *ngIf="searchTerm || selectedSport || selectedTag" icon="pi pi-filter-slash" [label]="'videos.filter.clear' | translate" (onClick)="clearFilters()" [text]="true" />
+    </div>
+</p-card>
+
+<p-divider />
+
+<div *ngIf="!loading()" infiniteScroll [infiniteScrollDistance]="5" (scrolled)="onScroll($event)">
+    <!-- Videos Grid -->
+    <div *ngIf="videos().length > 0" class="videos-grid" (scroll)="onScroll($event)">
+        <div *ngFor="let video of videos(); trackBy: trackByVideoId">
+            <p-card>
+                <video #videoElement [attr.id]="'video-' + video.id" class="video-js vjs-default-skin" controls preload="metadata" [src]="getVideoThumbnail(video)"></video>
+
+                <!-- Video Info -->
+                <div class="video-info">
+                    <!-- Video Header -->
+                    <div class="video-header">
+                        <div class="video-details">
+                            <h3 class="video-title" [title]="video?.titre">
+                                {{ formatVideoTitle(video?.titre) }}
+                            </h3>
+
+                            <div class="video-meta">
+                                <span class="prodige-name">{{ video?.prodige?.nom || 'Unknown' }}</span>
+                                <span class="video-date">{{ video?.dateCreation | date: 'MMM d, y' }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Description -->
+                    <p *ngIf="video?.description" class="video-description">
+                        {{ formatVideoDescription(video?.description) }}
+                    </p>
+
+                    <!-- Tags -->
+                    <div *ngIf="(video?.prodige?.tags?.length ?? 0) > 0" class="video-tags">
+                        <p-tag *ngFor="let tag of video?.prodige?.tags?.slice(0, 3)" [value]="getTagLabel(tag)" severity="info" />
+
+                        <span *ngIf="(video?.prodige?.tags?.length ?? 0) > 3" class="more-tags"> +{{ getExtraTagsCount(video) }} more </span>
+                    </div>
+
+                    <!-- Sport Badge -->
+                    <div *ngIf="video?.prodige?.sport" class="sport-badge">
+                        <p-tag [value]="getSportLabel(video.prodige.sport!)" severity="success"></p-tag>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+    </div>
+</div>
+
+<p-toast />

@@ -59,7 +59,6 @@ import { Router } from '@angular/router';
         RadioButtonModule,
         TranslatePipe,
         TranslateParamsPipe,
-        TranslateCountPipe,
         DataViewModule,
         SelectButtonModule,
     ],

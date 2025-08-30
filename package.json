@@ -30,6 +30,7 @@
     "flag-icons": "^7.3.2",
     "keycloak-angular": "^19.0.2",
     "keycloak-js": "^26.2.0",
+    "ngx-infinite-scroll": "^20.0.0",
     "primeclt": "^0.1.5",
     "primeicons": "^7.0.0",
     "primeng": "^19.0.8",
