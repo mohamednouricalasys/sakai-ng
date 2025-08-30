@@ -26,10 +26,10 @@ export class AppMenu {
             {
                 label: this.translationService.translate('nav.profesional'),
                 items: [
+                    { label: 'Gellery', icon: 'pi pi-fw pi-star', routerLink: ['/professional/gellery'] },
                     { label: 'Mes prodiges', icon: 'pi pi-fw pi-id-card', routerLink: ['/professional/prodiges'] },
                     { label: 'Mes videos', icon: 'pi pi-fw pi-video', routerLink: ['/professional/videos'] },
                     { label: 'Moderation', icon: 'pi pi-fw pi-verified', routerLink: ['/professional/moderation'] },
-                    { label: 'Gellery', icon: 'pi pi-fw pi-star', routerLink: ['/professional/gellery'] },
                 ],
             },
         ];

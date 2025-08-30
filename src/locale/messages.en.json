@@ -55,6 +55,15 @@
     }
   },
   "videos": {
+    "contact": {
+      "button": "Contact the manager",
+      "dialog": {
+        "title": "Contact Information"
+      },
+      "email": "Send Email",
+      "phone": "Call Now",
+      "message": "Send Message"
+    },
     "gallery": {
       "title": "Video Gallery"
     },

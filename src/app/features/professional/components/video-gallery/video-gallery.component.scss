@@ -91,7 +91,7 @@
     align-items: center;
     gap: 1rem;
     padding: 0.5rem 0.75rem;
-    border-radius: var(--border-radius);
+    border-radius: 8px;
     border: 1px solid var(--surface-border);
 }
 
@@ -120,4 +120,33 @@
         grid-template-columns: 1fr;
         gap: 0.75rem;
     }
+}
+
+/* Scroll Container - Main scrollable area */
+.scroll-container {
+    max-height: calc(100vh - 200px); /* Adjust based on your header height */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* Custom scrollbar styling for webkit browsers */
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f0f0f0;
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 3px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
 }

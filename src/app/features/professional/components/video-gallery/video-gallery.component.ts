@@ -11,6 +11,7 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ToastModule } from 'primeng/toast';
 import { DividerModule } from 'primeng/divider';
+import { DialogModule } from 'primeng/dialog';
 import { TranslatePipe } from '../../../../core/shared';
 import { VideoService } from '../../../../core/services/video.service';
 import { Video, GetVideosPaginatedRequest } from '../../../../core/interfaces/video.interface';
@@ -27,7 +28,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 @Component({
     selector: 'app-video-gallery',
     standalone: true,
-    imports: [CommonModule, FormsModule, InfiniteScrollModule, ButtonModule, CardModule, RadioButtonModule, InputGroupModule, InputGroupAddonModule, InputTextModule, SelectModule, TagModule, ToastModule, TranslatePipe, DividerModule],
+    imports: [CommonModule, DialogModule, FormsModule, InfiniteScrollModule, ButtonModule, CardModule, RadioButtonModule, InputGroupModule, InputGroupAddonModule, InputTextModule, SelectModule, TagModule, ToastModule, TranslatePipe, DividerModule],
     templateUrl: './video-gallery.component.html',
     providers: [MessageService],
     styleUrl: './video-gallery.component.scss',
@@ -43,7 +44,7 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     hasMore = signal<boolean>(true);
 
     // Component state
-    pageSize = 5;
+    pageSize = 10;
     currentPage = 1;
     totalLoaded = 0;
 
@@ -57,6 +58,10 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     sportOptions: SelectItem[] = [];
     tagOptions: SelectItem[] = [];
     genreOptions: SelectItem[] = [];
+
+    // Add these properties to your component class
+    contactDialogVisible = false;
+    selectedVideo: any = null;
 
     // Search subject for debouncing
     private searchSubject = new Subject<string>();
@@ -244,5 +249,64 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
 
     getExtraTagsCount(video: any): number {
         return (video?.prodige?.tags?.length ?? 0) > 3 ? video.prodige.tags.length - 3 : 0;
+    }
+
+    /**
+     * Opens the contact dialog for a specific video/athlete
+     */
+    openContactDialog(video: any): void {
+        this.selectedVideo = video;
+        this.contactDialogVisible = true;
+    }
+
+    /**
+     * Closes the contact dialog
+     */
+    closeContactDialog(): void {
+        this.contactDialogVisible = false;
+        this.selectedVideo = null;
+    }
+
+    /**
+     * Generates a mock email address for the athlete
+     */
+    getContactEmail(video: any): string {
+        if (!video?.prodige?.nom) {
+            return 'contact@prodigeathletes.com';
+        }
+
+        const name = video.prodige.nom
+            .toLowerCase()
+            .replace(/\s+/g, '.')
+            .replace(/[^a-z0-9.]/g, '');
+
+        return `${name}@prodigeathletes.com`;
+    }
+
+    /**
+     * Generates a mock phone number for the athlete
+     */
+    getContactPhone(video: any): string {
+        if (!video?.id) {
+            return '+33 1 23 45 67 89';
+        }
+
+        // Generate a mock French phone number based on video ID
+        const baseNumber = 123456789;
+        const videoIdNum = parseInt(video.id.toString()) || 1;
+        const phoneNumber = (baseNumber + videoIdNum).toString().padStart(9, '0');
+
+        return `+33 1 ${phoneNumber.substr(0, 2)} ${phoneNumber.substr(2, 2)} ${phoneNumber.substr(4, 2)} ${phoneNumber.substr(6, 2)}`;
+    }
+
+    copyToClipboard(value: string): void {
+        if (!value) return;
+        navigator.clipboard.writeText(value).then(() => {
+            this.messageService.add({
+                severity: 'info',
+                summary: this.t('primeng.information'),
+                detail: this.t('uploader.dashboard.strings.copyLinkToClipboardSuccess'),
+            });
+        });
     }
 }

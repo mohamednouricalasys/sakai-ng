@@ -55,6 +55,15 @@
     }
   },
   "videos": {
+    "contact": {
+      "button": "Contacter le responsable",
+      "dialog": {
+        "title": "Coordonnées"
+      },
+      "email": "Envoyer un e-mail",
+      "phone": "Appelez maintenant",
+      "message": "Envoyer un message"
+    },
     "gallery": {
       "title": "Galerie vidéo"
     },

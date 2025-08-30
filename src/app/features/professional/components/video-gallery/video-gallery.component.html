@@ -12,9 +12,9 @@
 
         <p-select [options]="sportOptions" [(ngModel)]="selectedSport" optionLabel="label" optionValue="value" [placeholder]="'videos.filter.sport' | translate" (onChange)="onSportFilterChange()" [showClear]="true" />
 
-        <div class="flex flex-row flex-wrap gap-2 items-center justify-center genre-filter">
-            <div class="" *ngFor="let option of genreOptions">
-                <p-radioButton [inputId]="'genre-' + (option.value || 'all')" name="genre" [value]="option.value" [(ngModel)]="selectedGenre" (onChange)="onGenreFilterChange()" />
+        <div class="flex flex-row flex-wrap gap-2 items-center genre-filter">
+            <div *ngFor="let option of genreOptions">
+                <p-radioButton [inputId]="'genre-' + (option.value || 'all')" name="genre" [value]="option.value" [(ngModel)]="selectedGenre" (onClick)="onGenreFilterChange()" />
                 <label [for]="'genre-' + (option.value || 'all')">
                     {{ option.label }}
                 </label>
@@ -29,10 +29,11 @@
 
 <p-divider />
 
-<div *ngIf="!loading()" infiniteScroll [infiniteScrollDistance]="5" (scrolled)="onScroll($event)">
+<!-- Fixed: Removed duplicate scroll handling and improved container structure -->
+<div *ngIf="!loading()" class="scroll-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" [scrollWindow]="false" (scrolled)="onScroll($event)">
     <!-- Videos Grid -->
-    <div *ngIf="videos().length > 0" class="videos-grid" (scroll)="onScroll($event)">
-        <div *ngFor="let video of videos(); trackBy: trackByVideoId">
+    <div *ngIf="videos().length > 0" class="videos-grid">
+        <div *ngFor="let video of videos(); trackBy: trackByVideoId" class="video-item">
             <p-card>
                 <video #videoElement [attr.id]="'video-' + video.id" class="video-js vjs-default-skin" controls preload="metadata" [src]="getVideoThumbnail(video)"></video>
 
@@ -68,10 +69,67 @@
                     <div *ngIf="video?.prodige?.sport" class="sport-badge">
                         <p-tag [value]="getSportLabel(video.prodige.sport!)" severity="success"></p-tag>
                     </div>
+
+                    <!-- Contact Button -->
+                    <p-divider />
+                    <p-button icon="pi pi-phone" [label]="'videos.contact.button' | translate" (onClick)="openContactDialog(video)"> </p-button>
                 </div>
             </p-card>
         </div>
     </div>
 </div>
+
+<!-- Contact Dialog -->
+<p-dialog [(visible)]="contactDialogVisible" [modal]="true" [header]="'videos.contact.dialog.title' | translate" [style]="{ width: '320px' }" [closable]="true" [draggable]="false" [resizable]="false" styleClass="contact-dialog">
+    <ng-template pTemplate="content">
+        <div class="p-4">
+            <!-- Contact Header -->
+            <div class="text-center mb-4">
+                <h3 class="text-lg font-semibold text-900">
+                    {{ selectedVideo?.prodige?.nom || 'Unknown Athlete' }}
+                </h3>
+                <p class="text-500 text-sm">
+                    {{ getSportLabel(selectedVideo?.prodige?.sport!) }}
+                </p>
+            </div>
+
+            <p-divider />
+
+            <!-- Contact Options -->
+            <div class="flex flex-wrap gap-2 w-full">
+                <a pButton [href]="'mailto:' + getContactEmail(selectedVideo)" icon="pi pi-envelope" [label]="'videos.contact.email' | translate" severity="info" outlined iconPos="left" class="w-full justify-content-between"></a>
+                <a pButton [href]="'tel:' + getContactPhone(selectedVideo)" icon="pi pi-phone" [label]="'videos.contact.phone' | translate" severity="success" outlined iconPos="left" class="w-full justify-content-between"></a>
+                <a pButton [href]="'sms:' + getContactPhone(selectedVideo)" icon="pi pi-comment" [label]="'videos.contact.message' | translate" severity="warn" outlined iconPos="left" class="w-full justify-content-between"></a>
+            </div>
+
+            <p-divider />
+
+            <!-- Contact Info -->
+            <div class="mt-4 p-3 border-round surface-100">
+                <!-- Email -->
+                <div class="flex align-items-center mb-2 cursor-pointer" (click)="copyToClipboard(getContactEmail(selectedVideo))" title="Cliquer pour copier l'email">
+                    <i class="pi pi-envelope text-blue-500 mr-2"></i>
+                    <span class="text-sm text-600 underline">
+                        {{ getContactEmail(selectedVideo) }}
+                    </span>
+                </div>
+
+                <!-- Téléphone -->
+                <div class="flex align-items-center cursor-pointer" (click)="copyToClipboard(getContactPhone(selectedVideo))" title="Cliquer pour copier le téléphone">
+                    <i class="pi pi-phone text-green-500 mr-2"></i>
+                    <span class="text-sm text-600 underline">
+                        {{ getContactPhone(selectedVideo) }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div class="flex justify-content-end">
+            <p-button [label]="'shared.actions.close' | translate" severity="secondary" text (onClick)="closeContactDialog()"></p-button>
+        </div>
+    </ng-template>
+</p-dialog>
 
 <p-toast />

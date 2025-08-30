@@ -55,6 +55,15 @@
     }
   },
   "videos": {
+    "contact": {
+      "button": "Contacta con el gerente",
+      "dialog": {
+        "title": "Información del contacto"
+      },
+      "email": "Enviar correo electrónico",
+      "phone": "Llamar ahora",
+      "message": "Enviar un mensaje"
+    },
     "gallery": {
       "title": "Galería de videos"
     },
