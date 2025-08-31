@@ -2,13 +2,27 @@
 import { Injectable } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
+import { environment } from '../../../environments/environment';
+import { User } from '../interfaces/user.interface';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
     private profile?: KeycloakProfile;
     private roles: string[] = [];
+    private apiUrl;
 
-    constructor(private keycloakService: KeycloakService) {}
+    constructor(
+        private keycloakService: KeycloakService,
+        private http: HttpClient,
+    ) {
+        this.apiUrl = environment.apiUrl + '/users'; // Adjust URL as needed
+    }
+
+    getUserById(id: string): Observable<User> {
+        return this.http.get<User>(`${this.apiUrl}/${id}`);
+    }
 
     async loadUserProfile(): Promise<void> {
         this.profile = await this.keycloakService.loadUserProfile();

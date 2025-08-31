@@ -5,6 +5,7 @@
 
 export const environment = {
     keycloakclientId: 'angular-dev-client',
+    keycloakclientsecret: 'GruYchA9Trkuzm8UjNfnjagEoUV84XYx',
     keycloakRealm: 'prodigy',
     keycloakUrl: 'http://localhost:8080',
     baseFrontUrl: 'https://localhost:4200',

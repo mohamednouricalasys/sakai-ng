@@ -11,6 +11,11 @@ import { UserService } from './app/core/services/user.service';
 import { TranslationService } from './app/core/services/translation.service';
 import { environment } from './environments/environment';
 import { authInterceptor } from './app/core/interceptors/auth.interceptor';
+import { KeycloakConfig } from 'keycloak-js';
+
+export interface ExtendedKeycloakConfig extends KeycloakConfig {
+    clientSecret?: string;
+}
 
 function initializeKeycloak(keycloak: KeycloakService, userService: UserService) {
     return async () => {

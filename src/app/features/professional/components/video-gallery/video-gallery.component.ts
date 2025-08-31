@@ -24,6 +24,8 @@ import { Tag } from '../../../../core/enums/tag.enum';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { Genre } from '../../../../core/enums/gender.enum';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { UserService } from '../../../../core/services/user.service';
+import { User } from '../../../../core/interfaces/user.interface';
 
 @Component({
     selector: 'app-video-gallery',
@@ -37,6 +39,8 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     @ViewChildren('videoElement') videoElements!: QueryList<ElementRef>;
 
     private videoPlayers = new Map<string, any>();
+
+    user: User | undefined;
 
     // Signals
     loading = signal<boolean>(false);
@@ -72,6 +76,7 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     private videoService = inject(VideoService);
     private messageService = inject(MessageService);
     private translationService = inject(TranslationService);
+    private userService = inject(UserService);
 
     ngOnInit() {
         this.initializeOptions();
@@ -255,8 +260,22 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
      * Opens the contact dialog for a specific video/athlete
      */
     openContactDialog(video: any): void {
-        this.selectedVideo = video;
-        this.contactDialogVisible = true;
+        this.userService.getUserById(video.prodige.userId).subscribe({
+            next: (data) => {
+                this.user = data;
+                this.selectedVideo = video;
+                this.contactDialogVisible = true;
+            },
+            error: (error) => {
+                console.error('Error loading prodiges:', error);
+                this.messageService.add({
+                    severity: 'error',
+                    summary: this.t('shared.common.error'),
+                    detail: this.t('shared.messages.dataLoadError'),
+                });
+                this.loading.set(false);
+            },
+        });
     }
 
     /**
@@ -271,32 +290,25 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
      * Generates a mock email address for the athlete
      */
     getContactEmail(video: any): string {
-        if (!video?.prodige?.nom) {
-            return 'contact@prodigeathletes.com';
-        }
-
-        const name = video.prodige.nom
-            .toLowerCase()
-            .replace(/\s+/g, '.')
-            .replace(/[^a-z0-9.]/g, '');
-
-        return `${name}@prodigeathletes.com`;
+        return this.user?.email ?? '';
     }
 
     /**
      * Generates a mock phone number for the athlete
      */
     getContactPhone(video: any): string {
-        if (!video?.id) {
-            return '+33 1 23 45 67 89';
+        return this.user?.phone ?? '';
+    }
+
+    getFullName(): string {
+        if (!this.user) {
+            return '';
         }
 
-        // Generate a mock French phone number based on video ID
-        const baseNumber = 123456789;
-        const videoIdNum = parseInt(video.id.toString()) || 1;
-        const phoneNumber = (baseNumber + videoIdNum).toString().padStart(9, '0');
+        const firstName = this.user.firstName || '';
+        const lastName = this.user.lastName || '';
 
-        return `+33 1 ${phoneNumber.substr(0, 2)} ${phoneNumber.substr(2, 2)} ${phoneNumber.substr(4, 2)} ${phoneNumber.substr(6, 2)}`;
+        return `${firstName} ${lastName}`.trim();
     }
 
     copyToClipboard(value: string): void {
