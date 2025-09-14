@@ -1,0 +1,29 @@
+.cancel-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.cancel-header {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+}
+
+.cancel-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.cancel-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.cancel-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}

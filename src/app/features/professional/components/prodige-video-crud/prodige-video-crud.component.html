@@ -97,7 +97,7 @@
                                         {{ item.dateCreation || item.createdAt | date: 'dd/MM/yyyy' }}
                                     </span>
                                     <div class="flex gap-2">
-                                        @if (item.statutModeration === statutModeration.EnAttente) {
+                                        @if (item.statutModeration !== statutModeration.Approuvee) {
                                             <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editVideo(item)" [title]="'shared.actions.edit' | translate" />
                                         }
 
@@ -150,7 +150,7 @@
                                 {{ item.dateCreation || item.createdAt | date: 'dd/MM/yyyy' }}
                             </span>
                             <div class="flex gap-2">
-                                @if (item.statutModeration === statutModeration.EnAttente) {
+                                @if (item.statutModeration !== statutModeration.Approuvee) {
                                     <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editVideo(item)" [title]="'shared.actions.edit' | translate" />
                                 }
 

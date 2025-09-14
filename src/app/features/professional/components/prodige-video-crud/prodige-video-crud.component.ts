@@ -30,6 +30,7 @@ import { DividerModule } from 'primeng/divider';
 import { Mp4UploaderComponent } from '../../../../core/shared/components/mp4-uploader/mp4-uploader.component';
 import { FileItem } from '../../../../core/interfaces/file-Item.interface';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../../../../core/services/user.service';
 
 @Component({
     selector: 'app-prodige-video-crud',
@@ -92,6 +93,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     private confirmationService = inject(ConfirmationService);
     private translationService = inject(TranslationService);
     private prodigeService = inject(ProdigeService);
+    private userService = inject(UserService);
     private route = inject(ActivatedRoute);
 
     constructor(private cdr: ChangeDetectorRef) {}
@@ -199,7 +201,8 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
 
     private loadProdiges() {
         this.loading.set(true);
-        this.prodigeService.getProdigies().subscribe({
+        const profile = this.userService.getProfile();
+        this.prodigeService.getProdigiesByUserId(profile?.id!).subscribe({
             next: (data) => {
                 this.prodiges.set(data);
                 if (data && data.length > 0) {

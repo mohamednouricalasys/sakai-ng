@@ -1,0 +1,30 @@
+.subscription-success-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.premium-features {
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.premium-features h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.premium-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.premium-features li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.premium-features li i {
+    margin-right: 0.5rem;
+}

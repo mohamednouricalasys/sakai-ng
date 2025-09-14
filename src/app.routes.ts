@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { AppLayout } from './app/layout/component/app.layout';
 import { authGuard } from './guards/auth.guard';
-import { ProdigeCrudComponent } from './app/features/professional/components/prodige-crud/prodige-crud.component';
 import { Notfound } from './app/pages/notfound/notfound';
 
 export const appRoutes: Routes = [
@@ -15,6 +14,11 @@ export const appRoutes: Routes = [
                 path: 'professional',
                 // Lazy load the professional routes
                 loadChildren: () => import('./app/features/professional/professional.routes').then((m) => m.PROFESSIONAL_ROUTES),
+            },
+            {
+                path: 'billing',
+                // Lazy load the professional routes
+                loadChildren: () => import('./app/features/billing/billing.routes').then((m) => m.BILLING_ROUTES),
             },
         ],
     },

@@ -1,0 +1,75 @@
+.sakai-layout-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.sakai-sidebar {
+    width: 250px;
+    background-color: var(--surface-800);
+    color: var(--surface-0);
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    .logo {
+        text-align: center;
+        margin-bottom: 2rem;
+        img {
+            max-width: 150px;
+        }
+    }
+
+    .menu-container {
+        .p-menu {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            .p-menuitem-link {
+                color: var(--surface-0);
+                &:hover {
+                    background-color: var(--surface-700);
+                }
+            }
+            .p-menuitem-active {
+                background-color: var(--primary-color);
+                .p-menuitem-link {
+                    color: var(--primary-color-text);
+                }
+            }
+        }
+    }
+}
+
+.sakai-main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    background-color: var(--surface-100);
+}
+
+/* Styles globaux - styles.css */
+.w-full {
+    width: 100% !important;
+}
+
+.text-green-500 {
+    color: #10b981 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .success-actions,
+    .cancel-actions {
+        flex-direction: column;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .subscription-container,
+    .products-container,
+    .success-container,
+    .cancel-container {
+        padding: 1rem;
+    }
+}

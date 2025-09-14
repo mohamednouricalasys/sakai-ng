@@ -1,0 +1,30 @@
+<div class="subscription-success-container">
+    <p-card>
+        <ng-template pTemplate="header">
+            <div class="success-header">
+                <i class="pi pi-crown success-icon"></i>
+                <h2>Bienvenue dans le Premium !</h2>
+            </div>
+        </ng-template>
+
+        <div class="success-content">
+            <p>Félicitations ! Votre abonnement premium est maintenant actif. Vous avez désormais accès à tous les contenus exclusifs.</p>
+
+            <div class="premium-features">
+                <h4>Vos nouveaux avantages :</h4>
+                <ul>
+                    <li><i class="pi pi-check text-green-500"></i> Accès illimité à tous les contenus</li>
+                    <li><i class="pi pi-check text-green-500"></i> Support prioritaire</li>
+                    <li><i class="pi pi-check text-green-500"></i> Fonctionnalités avancées</li>
+                    <li><i class="pi pi-check text-green-500"></i> Contenu exclusif premium</li>
+                </ul>
+            </div>
+
+            <div class="success-actions">
+                <p-button label="Gérer mon compte" icon="pi pi-user" (onClick)="goToAccount()" styleClass="p-button-primary"> </p-button>
+
+                <p-button label="Explorer les contenus" icon="pi pi-search" (onClick)="goToProducts()" styleClass="p-button-outlined"> </p-button>
+            </div>
+        </div>
+    </p-card>
+</div>

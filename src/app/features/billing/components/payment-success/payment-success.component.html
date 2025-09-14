@@ -1,0 +1,26 @@
+<div class="success-container">
+    <p-card>
+        <ng-template pTemplate="header">
+            <div class="success-header">
+                <i class="pi pi-check-circle success-icon"></i>
+                <h2>Paiement Réussi !</h2>
+            </div>
+        </ng-template>
+
+        <div class="success-content">
+            <p *ngIf="productName; else subscriptionSuccess">
+                Merci pour votre achat de <strong>{{ productName }}</strong> ! Votre produit est maintenant disponible dans votre espace client.
+            </p>
+
+            <ng-template #subscriptionSuccess>
+                <p>Félicitations ! Votre abonnement est maintenant actif. Vous avez accès à tous les contenus premium.</p>
+            </ng-template>
+
+            <div class="success-actions">
+                <p-button label="Voir mes produits" icon="pi pi-shopping-bag" (onClick)="goToProducts()" styleClass="p-button-outlined"> </p-button>
+
+                <p-button label="Gérer mon abonnement" icon="pi pi-cog" (onClick)="goToSubscriptions()" styleClass="p-button-primary"> </p-button>
+            </div>
+        </div>
+    </p-card>
+</div>
