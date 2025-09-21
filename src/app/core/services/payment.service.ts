@@ -35,6 +35,10 @@ export class PaymentService {
         return this.http.post<SessionResponse>(`${this.apiUrl}/create-subscription-session`, request);
     }
 
+    createsCustomerSession(): Observable<string> {
+        return this.http.post<string>(`${this.apiUrl}/creates-customer-Session`, {});
+    }
+
     createPaymentSession(request: CreatePaymentSessionRequest): Observable<SessionResponse> {
         return this.http.post<SessionResponse>(`${this.apiUrl}/create-payment-session`, request);
     }

@@ -1,5 +1,7 @@
 export interface UserSubscription {
-    id: number;
+    string: string;
     status: string;
     createdAt: string;
+    credits: number;
+    canceledAt: Date;
 }
