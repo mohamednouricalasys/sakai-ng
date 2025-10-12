@@ -1,53 +1,47 @@
-<!-- components/subscription/subscription.component.html -->
-<div class="subscription-container">
-    <p-card header="Gestion de l'abonnement">
-        <ng-container *ngIf="!isLoading; else loadingTemplate">
-            <!-- Aucun abonnement actif -->
-            <div *ngIf="!hasActiveSubscription" class="no-subscription">
-                <div class="pricing-info">
-                    <h3>Abonnement Premium</h3>
-                    <div class="price">
-                        <span class="amount">19.99€</span>
-                        <span class="period">/mois</span>
-                    </div>
-                    <ul class="features">
-                        <li><i class="pi pi-check"></i> Accès illimité aux contenus</li>
-                        <li><i class="pi pi-check"></i> Support prioritaire</li>
-                        <li><i class="pi pi-check"></i> Fonctionnalités avancées</li>
-                        <li><i class="pi pi-check"></i> Sans engagement</li>
-                    </ul>
-                </div>
+<div class="subscription-wrapper">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-container">
+        <p-progressSpinner styleClass="w-4rem h-4rem"></p-progressSpinner>
+        <p class="mt-3 text-600">{{ 'subscription.loading' | translate }}</p>
+    </div>
 
-                <p-button label="S'abonner maintenant" icon="pi pi-credit-card" (onClick)="startSubscription()" [loading]="isLoading" styleClass="p-button-lg p-button-success"> </p-button>
+    <!-- Active Subscription Management -->
+    <p-card *ngIf="!loading && subscriptionStatus?.isActive" [header]="'subscription.activeSubscription.title' | translate" styleClass="subscription-card">
+        <div class="subscription-header">
+            <div class="subscription-info">
+                <h2 class="plan-name">{{ getPlanDisplayName(subscriptionStatus?.plan || '') }}</h2>
+                <p class="credits-info">
+                    <i class="pi pi-star-fill mr-2"></i>
+                    {{ subscriptionStatus?.credits }} {{ 'subscription.activeSubscription.credits' | translate }}
+                </p>
             </div>
+            <p-tag [value]="'subscription.activeSubscription.status.active' | translate" severity="success" styleClass="status-tag">
+                <i class="pi pi-check-circle mr-1"></i>
+            </p-tag>
+        </div>
 
-            <!-- Abonnement actif -->
-            <div *ngIf="hasActiveSubscription" class="active-subscription">
-                <div class="subscription-status">
-                    <i class="pi pi-check-circle success-icon"></i>
-                    <h3>Abonnement Actif</h3>
-                    <p>Votre abonnement est actif depuis le {{ subscription?.createdAt | date: 'dd/MM/yyyy' }}</p>
-                    <p-tag severity="success" value="Premium" icon="pi pi-crown"></p-tag>
-                </div>
+        <p-divider></p-divider>
 
-                <div class="subscription-actions">
-                    <p-button label="Annuler l'abonnement" icon="pi pi-times" (onClick)="cancelSubscription()" [loading]="isLoading" styleClass="p-button-outlined p-button-danger"> </p-button>
-                </div>
+        <div class="action-buttons">
+            <p-button [label]="'subscription.activeSubscription.buttons.manage' | translate" icon="pi pi-cog" styleClass="p-button-outlined mr-2" (click)="openCustomerPortal()" [loading]="actionLoading"> </p-button>
 
-                <div class="subscription-info">
-                    <p><small> Votre abonnement sera automatiquement renouvelé. Vous pouvez l'annuler à tout moment. </small></p>
-                </div>
-            </div>
-        </ng-container>
-
-        <ng-template #loadingTemplate>
-            <div class="loading-container">
-                <p-progressSpinner></p-progressSpinner>
-                <p>Chargement...</p>
-            </div>
-        </ng-template>
+            <p-button [label]="'subscription.activeSubscription.buttons.cancel' | translate" icon="pi pi-times" severity="danger" styleClass="p-button-outlined" (click)="cancelSubscription()" [loading]="actionLoading"> </p-button>
+        </div>
     </p-card>
 
-    <stripe-pricing-table pricing-table-id="prctbl_1S8q13F2oKbUh7puDk4ZAZn7" publishable-key="pk_test_51S52ecF2oKbUh7puM2WQUFwJqdBuxyZ19JKoguoPUhRMTF1B7EJU4S9AWQXuaAXmx9VEaMu4pd197fVNkXzLKRNc00e4c3bQ2t" [custumer-sesssion-client-secret]="sessionId">
-    </stripe-pricing-table>
+    <!-- Pricing Table for New Subscriptions -->
+    <p-card *ngIf="!loading && !subscriptionStatus?.isActive" [header]="'subscription.pricing.title' | translate" styleClass="pricing-card">
+        <div class="pricing-intro">
+            <h3>{{ 'subscription.pricing.subtitle' | translate }}</h3>
+            <p class="text-600 mb-4">{{ 'subscription.pricing.description' | translate }}</p>
+        </div>
+
+        <div id="pricing-table-container" class="pricing-container">
+            <p-progressSpinner *ngIf="loadingPricing" styleClass="w-3rem h-3rem"> </p-progressSpinner>
+            <!-- Stripe Pricing Table will be dynamically loaded here -->
+        </div>
+    </p-card>
+
+    <!-- Status Messages -->
+    <p-message *ngIf="message" [severity]="message.type" [text]="message.text" styleClass="mt-3"> </p-message>
 </div>

@@ -54,6 +54,44 @@
       "limitReached": "Limit reached"
     }
   },
+  "subscription": {
+    "loading": "Loading subscription details...",
+    "activeSubscription": {
+      "title": "Active Subscription",
+      "credits": "Credits",
+      "status": {
+        "active": "Active"
+      },
+      "buttons": {
+        "manage": "Manage Subscription",
+        "cancel": "Cancel Plan"
+      }
+    },
+    "pricing": {
+      "title": "Choose Your Plan",
+      "subtitle": "Unlock Premium Features",
+      "description": "Select the perfect plan for your needs",
+      "loading": "Loading pricing options..."
+    },
+    "plans": {
+      "basic": "Basic Plan",
+      "premium": "Premium Plan",
+      "pro": "Professional Plan",
+      "enterprise": "Enterprise Plan",
+      "default": "Subscription Plan"
+    },
+    "messages": {
+      "loadError": "Failed to load subscription information",
+      "pricingError": "Failed to load pricing options",
+      "portalError": "Unable to open customer portal",
+      "cancelSuccess": "Your subscription has been cancelled successfully",
+      "cancelError": "Failed to cancel subscription",
+      "cancelErrorGeneric": "An error occurred while cancelling your subscription"
+    },
+    "confirmations": {
+      "cancel": "Are you sure you want to cancel your subscription? This action cannot be undone."
+    }
+  },
   "videos": {
     "contact": {
       "button": "Contact the manager",

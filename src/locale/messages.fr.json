@@ -54,6 +54,44 @@
       "limitReached": "Limite atteinte"
     }
   },
+  "subscription": {
+  "loading": "Chargement des détails de l’abonnement...",
+  "activeSubscription": {
+    "title": "Abonnement actif",
+    "credits": "Crédits",
+    "status": {
+      "active": "Actif"
+    },
+    "buttons": {
+      "manage": "Gérer l’abonnement",
+      "cancel": "Annuler le forfait"
+    }
+  },
+  "pricing": {
+    "title": "Choisissez votre forfait",
+    "subtitle": "Débloquez les fonctionnalités premium",
+    "description": "Sélectionnez le forfait idéal selon vos besoins",
+    "loading": "Chargement des options de tarification..."
+  },
+  "plans": {
+    "basic": "Forfait Basique",
+    "premium": "Forfait Premium",
+    "pro": "Forfait Professionnel",
+    "enterprise": "Forfait Entreprise",
+    "default": "Forfait d’abonnement"
+  },
+  "messages": {
+    "loadError": "Échec du chargement des informations d’abonnement",
+    "pricingError": "Échec du chargement des options de tarification",
+    "portalError": "Impossible d’ouvrir le portail client",
+    "cancelSuccess": "Votre abonnement a été annulé avec succès",
+    "cancelError": "Échec de l’annulation de l’abonnement",
+    "cancelErrorGeneric": "Une erreur s’est produite lors de l’annulation de votre abonnement"
+  },
+  "confirmations": {
+    "cancel": "Êtes-vous sûr de vouloir annuler votre abonnement ? Cette action est irréversible."
+  }
+},
   "videos": {
     "contact": {
       "button": "Contacter le responsable",

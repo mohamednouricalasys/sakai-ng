@@ -54,6 +54,44 @@
       "limitReached": "Límite alcanzado"
     }
   },
+  "subscription": {
+  "loading": "Cargando los detalles de la suscripción...",
+  "activeSubscription": {
+    "title": "Suscripción activa",
+    "credits": "Créditos",
+    "status": {
+      "active": "Activa"
+    },
+    "buttons": {
+      "manage": "Gestionar suscripción",
+      "cancel": "Cancelar plan"
+    }
+  },
+  "pricing": {
+    "title": "Elige tu plan",
+    "subtitle": "Desbloquea funciones premium",
+    "description": "Selecciona el plan perfecto para tus necesidades",
+    "loading": "Cargando las opciones de precios..."
+  },
+  "plans": {
+    "basic": "Plan Básico",
+    "premium": "Plan Premium",
+    "pro": "Plan Profesional",
+    "enterprise": "Plan Empresarial",
+    "default": "Plan de suscripción"
+  },
+  "messages": {
+    "loadError": "No se pudo cargar la información de la suscripción",
+    "pricingError": "No se pudieron cargar las opciones de precios",
+    "portalError": "No se puede abrir el portal del cliente",
+    "cancelSuccess": "Tu suscripción se ha cancelado correctamente",
+    "cancelError": "No se pudo cancelar la suscripción",
+    "cancelErrorGeneric": "Ocurrió un error al cancelar tu suscripción"
+  },
+  "confirmations": {
+    "cancel": "¿Estás seguro de que deseas cancelar tu suscripción? Esta acción no se puede deshacer."
+  }
+},
   "videos": {
     "contact": {
       "button": "Contacta con el gerente",

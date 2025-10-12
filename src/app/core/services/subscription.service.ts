@@ -1,6 +1,6 @@
 // subscription.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { KeycloakService } from 'keycloak-angular';
 import { environment } from '../../../environments/environment';
@@ -28,12 +28,14 @@ export class SubscriptionService {
         return this.http.post<{ customerId: string }>(`${this.apiUrl}/create-customer`, { email, name });
     }
 
-    getCustomerSession(): Observable<{ clientSecret: string }> {
-        return this.http.get<{ clientSecret: string }>(`${this.apiUrl}/customer-session`);
+    getCustomerSession(priceId: string, targetUrl: string): Observable<{ clientSecret: string }> {
+        const params = new HttpParams().set('targetUrl', targetUrl);
+        return this.http.get<{ clientSecret: string }>(`${this.apiUrl}/customer-session`, { params });
     }
 
-    getCustomerPortalSession(): Observable<{ url: string }> {
-        return this.http.get<{ url: string }>(`${this.apiUrl}/customer-portal-session`);
+    getCustomerPortalSession(targetUrl: string): Observable<{ url: string }> {
+        const params = new HttpParams().set('targetUrl', targetUrl);
+        return this.http.get<{ url: string }>(`${this.apiUrl}/customer-portal-session`, { params });
     }
 
     getSubscription(): Observable<UserSubscription | null> {

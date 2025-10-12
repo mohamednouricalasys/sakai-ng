@@ -9,7 +9,7 @@ export const appRoutes: Routes = [
         component: AppLayout,
         canActivate: [authGuard], // Apply guard to the layout
         children: [
-            { path: '', redirectTo: 'professional/prodiges', pathMatch: 'full' }, // Default route
+            { path: '', redirectTo: 'professional/gellery', pathMatch: 'full' }, // Default route
             {
                 path: 'professional',
                 // Lazy load the professional routes

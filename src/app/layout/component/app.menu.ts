@@ -32,11 +32,6 @@ export class AppMenu {
                     { label: 'Moderation', icon: 'pi pi-fw pi-verified', routerLink: ['/professional/moderation'] },
 
                     { label: 'subscription', icon: 'pi pi-fw pi-verified', routerLink: ['/billing/subscription'] },
-                    { label: 'products', icon: 'pi pi-fw pi-verified', routerLink: ['/billing/products'] },
-                    { label: 'subscription-success', icon: 'pi pi-fw pi-verified', routerLink: ['/billing/subscription/success'] },
-                    { label: 'subscription-cancel', icon: 'pi pi-fw pi-verified', routerLink: ['/billing/subscription/cancel'] },
-                    { label: 'payment-success', icon: 'pi pi-fw pi-verified', routerLink: ['/billing/payment/success'] },
-                    { label: 'payment-cancel', icon: 'pi pi-fw pi-verified', routerLink: ['/billing/payment/cancel'] },
                 ],
             },
         ];
