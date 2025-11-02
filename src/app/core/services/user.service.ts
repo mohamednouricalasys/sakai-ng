@@ -20,8 +20,8 @@ export class UserService {
         this.apiUrl = environment.apiUrl + '/users'; // Adjust URL as needed
     }
 
-    getUserById(id: string): Observable<User> {
-        return this.http.get<User>(`${this.apiUrl}/${id}`);
+    getUserById(id: string, videoId: string): Observable<User> {
+        return this.http.get<User>(`${this.apiUrl}/${id}/video/${videoId}`);
     }
 
     async loadUserProfile(): Promise<void> {

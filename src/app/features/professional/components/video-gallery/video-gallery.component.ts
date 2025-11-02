@@ -260,7 +260,7 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
      * Opens the contact dialog for a specific video/athlete
      */
     openContactDialog(video: any): void {
-        this.userService.getUserById(video.prodige.userId).subscribe({
+        this.userService.getUserById(video.prodige.userId, video.id).subscribe({
             next: (data) => {
                 this.user = data;
                 this.selectedVideo = video;
