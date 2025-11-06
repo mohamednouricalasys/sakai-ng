@@ -12,7 +12,7 @@
                 <h2 class="plan-name">{{ getPlanDisplayName(subscriptionStatus?.plan || '') }}</h2>
                 <p class="credits-info">
                     <i class="pi pi-star-fill mr-2"></i>
-                    {{ subscriptionStatus?.credits }} {{ 'subscription.activeSubscription.credits' | translate }}
+                    {{ 'subscription.activeSubscription.credits' | translate: { count: subscriptionStatus?.credits, max: subscriptionStatus?.maxCredits } }}
                 </p>
             </div>
             <p-tag [value]="'subscription.activeSubscription.status.active' | translate" severity="success" styleClass="status-tag">
@@ -25,7 +25,7 @@
         <div class="action-buttons">
             <p-button [label]="'subscription.activeSubscription.buttons.manage' | translate" icon="pi pi-cog" styleClass="p-button-outlined mr-2" (click)="openCustomerPortal()" [loading]="actionLoading"> </p-button>
 
-            <p-button [label]="'subscription.activeSubscription.buttons.cancel' | translate" icon="pi pi-times" severity="danger" styleClass="p-button-outlined" (click)="cancelSubscription()" [loading]="actionLoading"> </p-button>
+            <!--p-button [label]="'subscription.activeSubscription.buttons.cancel' | translate" icon="pi pi-times" severity="danger" styleClass="p-button-outlined" (click)="cancelSubscription()" [loading]="actionLoading"> </p-button -->
         </div>
     </p-card>
 

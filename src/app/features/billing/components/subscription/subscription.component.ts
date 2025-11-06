@@ -16,6 +16,7 @@ interface SubscriptionStatus {
     isActive: boolean;
     plan: string;
     credits: number;
+    maxCredits: number;
     status: string;
 }
 
@@ -54,19 +55,27 @@ export class SubscriptionComponent implements OnInit {
         try {
             this.loading = true;
 
-            const [config, subscription] = await Promise.all([this.subscriptionService.getConfig().toPromise(), this.subscriptionService.getSubscription().toPromise()]);
+            const [config, subscription, userProfile] = await Promise.all([
+                this.subscriptionService.getConfig().toPromise(),
+                this.subscriptionService.getSubscription().toPromise(),
+                this.userService.loadUserProfile().then(() => this.userService.getProfile()),
+            ]);
 
             this.config = config;
 
             if (subscription && subscription.status === 'active') {
+                const credits = await this.subscriptionService.getCredits(userProfile?.id!).toPromise();
+
                 this.subscriptionStatus = {
                     isActive: true,
                     plan: subscription.plan,
-                    credits: subscription.credits,
+                    credits: credits?.totalCredits ?? 0,
+                    maxCredits: subscription.credits,
                     status: subscription.status,
                 };
+                console.log('this.subscriptionStatus : ', this.subscriptionStatus);
             } else {
-                this.subscriptionStatus = { isActive: false, plan: '', credits: 0, status: '' };
+                this.subscriptionStatus = { isActive: false, plan: '', credits: 0, maxCredits: 0, status: '' };
                 await this.setupPricingTable();
             }
         } catch (error) {

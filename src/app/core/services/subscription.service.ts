@@ -6,6 +6,7 @@ import { KeycloakService } from 'keycloak-angular';
 import { environment } from '../../../environments/environment';
 import { StripeConfig } from '../interfaces/stripe-config.interface';
 import { UserSubscription } from '../interfaces/UserSubscription';
+import { UserCreditDetailsDto } from '../interfaces/user-credit-details-dto.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -44,5 +45,9 @@ export class SubscriptionService {
 
     cancelSubscription(): Observable<{ success: boolean }> {
         return this.http.post<{ success: boolean }>(`${this.apiUrl}/cancel-subscription`, {});
+    }
+
+    getCredits(userId: string): Observable<UserCreditDetailsDto> {
+        return this.http.get<UserCreditDetailsDto>(`${environment.apiUrl}/users/credis/${userId}`);
     }
 }

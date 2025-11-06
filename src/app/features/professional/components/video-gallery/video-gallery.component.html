@@ -1,6 +1,18 @@
 <p-card>
     <!-- Fixed Header within Component -->
-    <h1>{{ 'videos.gallery.title' | translate }}</h1>
+    <div class="flex flex-row flex-wrap justify-between">
+        <h1>{{ 'videos.gallery.title' | translate }}</h1>
+
+        @if (credits(); as creditInfo) {
+            <div class="flex items-center">
+                <i class="pi pi-star-fill text-yellow-500 mr-2"></i>
+                <span class="font-semibold text-700">
+                    {{ 'subscription.activeSubscription.credits' | translate: { count: creditInfo.totalCredits, max: creditInfo.monthlyAllocation } }}
+                </span>
+            </div>
+        }
+    </div>
+    <p-divider />
     <!-- Search and Filters -->
     <div class="flex flex-row flex-wrap gap-2">
         <p-inputgroup>

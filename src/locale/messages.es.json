@@ -1,6 +1,11 @@
 {
   "nav": {
-    "profesional": "Profesión deportiva"
+    "profesional": "Profesión deportiva",
+    "gallery": "Galería",
+    "myProdigies": "Mis prodigios",
+    "myVideos": "Mis videos",
+    "moderation": "Moderación",
+    "subscription": "Suscripción"
   },
   "shared": {
     "actions": {
@@ -58,7 +63,7 @@
   "loading": "Cargando los detalles de la suscripción...",
   "activeSubscription": {
     "title": "Suscripción activa",
-    "credits": "Créditos",
+    "credits": "Créditos {count} / {max}",
     "status": {
       "active": "Activa"
     },

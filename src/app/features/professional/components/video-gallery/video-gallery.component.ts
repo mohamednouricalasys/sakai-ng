@@ -26,6 +26,7 @@ import { Genre } from '../../../../core/enums/gender.enum';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { UserService } from '../../../../core/services/user.service';
 import { User } from '../../../../core/interfaces/user.interface';
+import { UserCreditDetailsDto } from '../../../../core/interfaces/user-credit-details-dto.interface';
 
 @Component({
     selector: 'app-video-gallery',
@@ -46,6 +47,7 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     loading = signal<boolean>(false);
     videos = signal<Video[]>([]);
     hasMore = signal<boolean>(true);
+    credits = signal<UserCreditDetailsDto | null>(null);
 
     // Component state
     pageSize = 10;
@@ -82,6 +84,7 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         this.initializeOptions();
         this.setupSearch();
         this.loadInitialVideos();
+        this.loadUserCredits();
     }
 
     ngOnDestroy() {
@@ -134,6 +137,19 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         this.searchSubject.pipe(debounceTime(500), distinctUntilChanged(), takeUntil(this.destroy$)).subscribe(() => {
             this.resetAndSearch();
         });
+    }
+
+    private async loadUserCredits() {
+        try {
+            await this.userService.loadUserProfile();
+            const profile = this.userService.getProfile();
+            if (profile?.id) {
+                const creditDetails = await this.userService.getCredisUserById(profile.id).toPromise();
+                this.credits.set(creditDetails || null);
+            }
+        } catch (error) {
+            console.error('Failed to load user credits:', error);
+        }
     }
 
     protected t(key: string, params?: Record<string, any>): string {
@@ -261,8 +277,9 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
      */
     openContactDialog(video: any): void {
         this.userService.getUserById(video.prodige.userId, video.id).subscribe({
-            next: (data) => {
+            next: async (data) => {
                 this.user = data;
+                await this.loadUserCredits(); // Refresh credits after fetching contact info
                 this.selectedVideo = video;
                 this.contactDialogVisible = true;
             },
