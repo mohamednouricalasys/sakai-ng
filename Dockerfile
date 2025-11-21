@@ -20,13 +20,12 @@ FROM nginx:alpine
 # Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy built app from build stage to temporary location
-COPY --from=build /app/dist /tmp/app-build
+# Copy built files directly from the browser folder
+COPY --from=build /app/dist/sakai-ng/browser /usr/share/nginx/html
 
-# Move content from nested folder structure to nginx html directory
-# This handles Angular's browser subfolder automatically
-RUN find /tmp/app-build -mindepth 1 -maxdepth 1 -exec mv {} /usr/share/nginx/html/ \; && \
-    rm -rf /tmp/app-build
+# Verify files are in place
+RUN ls -la /usr/share/nginx/html/ && \
+    if [ ! -f /usr/share/nginx/html/index.html ]; then echo "ERROR: index.html not found!"; exit 1; fi
 
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
