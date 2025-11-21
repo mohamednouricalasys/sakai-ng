@@ -22,6 +22,11 @@ export const appRoutes: Routes = [
             },
         ],
     },
+    {
+        path: 'landing',
+        // Lazy load the professional routes
+        loadChildren: () => import('./app/features/landing/landing.routes').then((m) => m.LANDING_ROUTES),
+    },
     { path: 'notfound', component: Notfound },
     { path: '**', redirectTo: '/notfound' },
 ];

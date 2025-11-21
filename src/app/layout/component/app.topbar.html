@@ -48,11 +48,13 @@
                         </button>
 
                         <p-overlayPanel #profileOverlay [dismissable]="true" [showCloseIcon]="false">
-                            <div style="padding: 0.5rem 1rem; max-width: 260px">
+                            <div style="padding: 0.5rem 1rem; max-width: 260px flex flex-column">
                                 <div style="font-weight: 600">{{ profileDisplayName || '—' }}</div>
                                 <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem">{{ profile?.email || '—' }}</div>
                                 <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem; justify-content: flex-end">
-                                    <button pButton type="button" label="Logout" icon="pi pi-sign-out" (click)="logout()" class="p-button-text"></button>
+                                    <button pButton type="button" label="Modifier" icon="pi pi-user-edit" (click)="editProfile()" class="p-button-text p-button-secondary"></button>
+                                    <button pButton type="button" label="Déconnexion" icon="pi pi-sign-out" (click)="logout()" class="p-button-text"></button>
+                                    <button pButton type="button" label="Supprimer" icon="pi pi-trash" (click)="removeAccount()" class="p-button-text p-button-danger"></button>
                                 </div>
                             </div>
                         </p-overlayPanel>
@@ -70,7 +72,9 @@
                                 <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem">{{ profile?.email || '—' }}</div>
 
                                 <div style="margin-top: 1rem">
-                                    <button pButton label="Logout" icon="pi pi-sign-out" (click)="logout()" style="width: 100%"></button>
+                                    <button pButton label="Modifier le profil" icon="pi pi-user-edit" (click)="editProfile()" style="width: 100%" class="p-button-secondary p-button-outlined mb-2"></button>
+                                    <button pButton label="Déconnexion" icon="pi pi-sign-out" (click)="logout()" style="width: 100%" class="p-button-outlined mb-2"></button>
+                                    <button pButton label="Supprimer le compte" icon="pi pi-trash" (click)="removeAccount()" style="width: 100%" class="p-button-danger"></button>
                                 </div>
                             </div>
                         </p-sidebar>

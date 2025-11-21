@@ -29,6 +29,10 @@ export class UserService {
         return this.http.get<UserCreditDetailsDto>(`${this.apiUrl}/credis/${id}`);
     }
 
+    removeCurrentUser(): Observable<void> {
+        return this.http.delete<void>(`${this.apiUrl}/me`);
+    }
+
     async loadUserProfile(): Promise<void> {
         this.profile = await this.keycloakService.loadUserProfile();
         this.roles = this.keycloakService.getUserRoles(); // realm roles

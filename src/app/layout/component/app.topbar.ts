@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { StyleClassModule } from 'primeng/styleclass';
 import { AppConfigurator } from './app.configurator';
@@ -10,9 +11,9 @@ import { KeycloakProfile } from 'keycloak-js';
 import { UserService } from '../../core/services/user.service';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
-import { OverlayPanelModule } from 'primeng/overlaypanel';
-import { OverlayPanel } from 'primeng/overlaypanel';
+import { OverlayPanel, OverlayPanelModule } from 'primeng/overlaypanel';
 import { MenuItem } from 'primeng/api';
+import { SubscriptionService } from '../../core/services/subscription.service';
 
 @Component({
     selector: 'app-topbar',
@@ -37,6 +38,7 @@ export class AppTopbar implements OnInit {
         public layoutService: LayoutService,
         private keycloakService: KeycloakService,
         private userService: UserService,
+        private subscriptionService: SubscriptionService,
     ) {}
 
     async ngOnInit(): Promise<void> {
@@ -82,5 +84,28 @@ export class AppTopbar implements OnInit {
     // toggle desktop overlay panel
     toggleDesktopProfile(event: Event): void {
         this.profileOverlay?.toggle(event);
+    }
+
+    editProfile(): void {
+        this.keycloakService.getKeycloakInstance().accountManagement();
+    }
+
+    async removeAccount(): Promise<void> {
+        if (confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')) {
+            try {
+                const result = await this.subscriptionService.cancelSubscription().toPromise();
+
+                if (result?.success) {
+                    await lastValueFrom(this.userService.removeCurrentUser());
+                } else {
+                    console.error('Failed to remove account Stripe');
+                }
+            } catch (err) {
+                console.error('Failed to remove account', err);
+                // Even if deletion fails, we might want to log out or show an error.
+                // For now, we'll just log the error and proceed to logout.
+            }
+            await this.logout();
+        }
     }
 }
