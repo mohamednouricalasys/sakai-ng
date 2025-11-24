@@ -1,15 +1,13 @@
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
-
+const env = window.env || {};
 export const environment = {
-    keycloakclientId: 'angular-dev-client',
-    keycloakclientsecret: 'GruYchA9Trkuzm8UjNfnjagEoUV84XYx',
-    keycloakRealm: 'prodigy',
-    keycloakUrl: 'http://localhost:8080',
-    baseFrontUrl: 'https://localhost:4200',
-    apiUrl: 'https://localhost:5001/api',
-    allowedUrls: ['localhost'],
-    production: false,
+    allowedUrls: env.allowedUrls || ['localhost'],
+    keycloakclientId: env.keycloakclientId || 'angular-dev-client',
+    keycloakclientsecret: env.keycloakclientsecret || 'GruYchA9Trkuzm8UjNfnjagEoUV84XYx',
+    keycloakRealm: env.keycloakRealm || 'prodigy',
+    keycloakUrl: env.keycloakUrl || 'http://localhost:8080',
+    baseFrontUrl: env.baseFrontUrl || 'https://localhost:4200',
+    apiUrl: env.apiUrl || 'https://localhost:5001/api',
+    production: env.production || false,
 };

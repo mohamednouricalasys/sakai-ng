@@ -17,6 +17,9 @@ RUN npm run build
 # Production stage
 FROM nginx:alpine
 
+# Install openssl for self-signed certificates (if needed)
+RUN apk add --no-cache openssl
+
 # Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 
@@ -27,11 +30,22 @@ COPY --from=build /app/dist/sakai-ng/browser /usr/share/nginx/html
 RUN ls -la /usr/share/nginx/html/ && \
     if [ ! -f /usr/share/nginx/html/index.html ]; then echo "ERROR: index.html not found!"; exit 1; fi
 
+# Create SSL directory and generate self-signed certificate (for development)
+RUN mkdir -p /etc/nginx/ssl && \
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+    -keyout /etc/nginx/ssl/cert.key \
+    -out /etc/nginx/ssl/cert.crt \
+    -subj "/C=US/ST=State/L=City/O=Organization/CN=localhost"
+
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80
-EXPOSE 80
+# Copy the environment script
+COPY env.sh /
+RUN chmod +x /env.sh
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Expose ports 80 and 443
+EXPOSE 80 443
+
+# Run the script and then start nginx
+CMD ["/env.sh", "nginx", "-g", "daemon off;"]
