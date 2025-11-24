@@ -17,9 +17,6 @@ RUN npm run build
 # Production stage
 FROM nginx:alpine
 
-# Install openssl for self-signed certificates (if needed)
-RUN apk add --no-cache openssl
-
 # Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 
