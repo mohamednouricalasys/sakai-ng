@@ -30,13 +30,6 @@ COPY --from=build /app/dist/sakai-ng/browser /usr/share/nginx/html
 RUN ls -la /usr/share/nginx/html/ && \
     if [ ! -f /usr/share/nginx/html/index.html ]; then echo "ERROR: index.html not found!"; exit 1; fi
 
-# Create SSL directory and generate self-signed certificate (for development)
-RUN mkdir -p /etc/nginx/ssl && \
-    openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-    -keyout /etc/nginx/ssl/cert.key \
-    -out /etc/nginx/ssl/cert.crt \
-    -subj "/C=US/ST=State/L=City/O=Organization/CN=localhost"
-
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
