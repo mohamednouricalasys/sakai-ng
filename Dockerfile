@@ -37,8 +37,9 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY env.sh /
 RUN chmod +x /env.sh
 
-# Expose ports 80 and 443
-EXPOSE 80 443
+# Expose port 80
+EXPOSE 80
 
-# Run the script and then start nginx
-CMD ["/env.sh", "nginx", "-g", "daemon off;"]
+# First, run the environment script, then start nginx in the foreground.
+# Using `&&` ensures that nginx only starts if the script succeeds.
+CMD /env.sh && nginx -g 'daemon off;'
