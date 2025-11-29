@@ -30,13 +30,13 @@ RUN ls -la /usr/share/nginx/html/ && \
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy the environment script
-COPY env.sh /
+# Copy entrypoint script
+COPY env.sh /env.sh
 RUN chmod +x /env.sh
 
 # Expose port 80
 EXPOSE 80
 
-# First, run the environment script, then start nginx in the foreground.
-# Using `&&` ensures that nginx only starts if the script succeeds.
-CMD /env.sh && nginx -g 'daemon off;'
+# Use entrypoint to generate env.js at runtime, then start nginx
+ENTRYPOINT ["/env.sh"]
+CMD ["nginx", "-g", "daemon off;"]
