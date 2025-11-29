@@ -19,21 +19,25 @@ export interface ExtendedKeycloakConfig extends KeycloakConfig {
 
 function initializeKeycloak(keycloak: KeycloakService, userService: UserService) {
     return async () => {
-        await keycloak.init({
-            config: {
-                url: environment.keycloakUrl,
-                realm: environment.keycloakRealm,
-                clientId: environment.keycloakclientId,
-            },
-            initOptions: {
-                checkLoginIframe: false,
-                flow: 'standard',
-            },
-            shouldAddToken: () => false,
-        });
+        try {
+            const authenticated = await keycloak.init({
+                config: {
+                    url: environment.keycloakUrl,
+                    realm: environment.keycloakRealm,
+                    clientId: environment.keycloakclientId,
+                },
+                initOptions: {
+                    onLoad: 'login-required',
+                    checkLoginIframe: false,
+                },
+                shouldAddToken: () => false,
+            });
 
-        if (keycloak.isLoggedIn()) {
-            await userService.loadUserProfile();
+            if (authenticated) {
+                await userService.loadUserProfile();
+            }
+        } catch (error) {
+            console.error('Failed to initialize Keycloak', error);
         }
     };
 }
