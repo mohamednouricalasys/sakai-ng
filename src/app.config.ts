@@ -31,7 +31,7 @@ function initializeKeycloak(keycloak: KeycloakService, userService: UserService)
                     checkLoginIframe: false,
                     flow: 'standard',
                     redirectUri: window.location.origin + window.location.pathname,
-                    silentCheckSsoFallback: false,
+                    responseMode: 'query', // Use query params instead of hash
                 },
                 enableBearerInterceptor: true,
                 bearerExcludedUrls: ['/assets'],
