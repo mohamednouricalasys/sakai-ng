@@ -1,7 +1,7 @@
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { APP_INITIALIZER, ApplicationConfig } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideRouter, withEnabledBlockingInitialNavigation, withInMemoryScrolling } from '@angular/router';
+import { provideRouter, Router, withEnabledBlockingInitialNavigation, withInMemoryScrolling } from '@angular/router';
 import Aura from '@primeng/themes/aura';
 import { providePrimeNG } from 'primeng/config';
 import { appRoutes } from './app.routes';
@@ -29,15 +29,22 @@ function initializeKeycloak(keycloak: KeycloakService, userService: UserService)
                 initOptions: {
                     onLoad: 'login-required',
                     checkLoginIframe: false,
+                    flow: 'standard',
+                    redirectUri: window.location.origin + window.location.pathname,
+                    silentCheckSsoFallback: false,
                 },
-                shouldAddToken: () => false,
+                enableBearerInterceptor: true,
+                bearerExcludedUrls: ['/assets'],
             });
 
             if (authenticated) {
                 await userService.loadUserProfile();
             }
+
+            return Promise.resolve();
         } catch (error) {
             console.error('Failed to initialize Keycloak', error);
+            return Promise.resolve();
         }
     };
 }
@@ -54,7 +61,7 @@ export const appConfig: ApplicationConfig = {
             provide: APP_INITIALIZER,
             useFactory: initializeKeycloak,
             multi: true,
-            deps: [KeycloakService, UserService],
+            deps: [KeycloakService, UserService, Router],
         },
         {
             provide: APP_INITIALIZER,

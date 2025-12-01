@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 import { AppLayout } from './app/layout/component/app.layout';
-import { authGuard } from './guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { Notfound } from './app/pages/notfound/notfound';
 
 export const appRoutes: Routes = [
     {
         path: '',
         component: AppLayout,
-        canActivate: [authGuard], // Apply guard to the layout
+        canActivate: [AuthGuard], // Apply guard to the layout
         children: [
             { path: '', redirectTo: 'professional/gellery', pathMatch: 'full' }, // Default route
             {
