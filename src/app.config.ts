@@ -20,6 +20,8 @@ export interface ExtendedKeycloakConfig extends KeycloakConfig {
 function initializeKeycloak(keycloak: KeycloakService, userService: UserService) {
     return async () => {
         try {
+            const hasOAuthParams = window.location.hash && (window.location.hash.includes('code=') || window.location.hash.includes('state='));
+
             const authenticated = await keycloak.init({
                 config: {
                     url: environment.keycloakUrl,
@@ -31,19 +33,48 @@ function initializeKeycloak(keycloak: KeycloakService, userService: UserService)
                     checkLoginIframe: false,
                     flow: 'standard',
                     redirectUri: window.location.origin + window.location.pathname,
-                    responseMode: 'query', // Use query params instead of hash
+                    pkceMethod: 'S256', // Add PKCE for better security
                 },
-                enableBearerInterceptor: true,
-                bearerExcludedUrls: ['/assets'],
+                shouldAddToken: (request) => {
+                    // Don't add token to Keycloak endpoints
+                    const url = request.url;
+                    return !url.includes(environment.keycloakUrl);
+                },
             });
 
             if (authenticated) {
                 await userService.loadUserProfile();
+
+                // Clean URL after successful OAuth callback
+                if (hasOAuthParams) {
+                    const cleanUrl = window.location.pathname + window.location.search;
+                    window.history.replaceState({}, document.title, cleanUrl);
+                }
+
+                // Setup token refresh
+                keycloak.keycloakEvents$.subscribe({
+                    next: (event) => {
+                        if (event.type === 1) {
+                            // KeycloakEventType.OnTokenExpired
+                            keycloak.updateToken(30).catch(() => {
+                                console.error('Failed to refresh token, logging out');
+                                keycloak.logout(window.location.origin);
+                            });
+                        }
+                    },
+                });
             }
 
             return Promise.resolve();
         } catch (error) {
             console.error('Failed to initialize Keycloak', error);
+
+            // Clean OAuth params on error to prevent loop
+            if (window.location.hash.includes('code=')) {
+                const cleanUrl = window.location.pathname + window.location.search;
+                window.history.replaceState({}, document.title, cleanUrl);
+            }
+
             return Promise.resolve();
         }
     };
