@@ -29,7 +29,7 @@
     "@uppy/xhr-upload": "^4.4.2",
     "chart.js": "4.4.2",
     "flag-icons": "^7.3.2",
-    "keycloak-angular": "^19.0.2",
+    "keycloak-angular": "^20.0.0",
     "keycloak-js": "^26.2.0",
     "ngx-infinite-scroll": "^20.0.0",
     "primeclt": "^0.1.5",
