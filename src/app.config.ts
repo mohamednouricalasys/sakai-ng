@@ -20,7 +20,7 @@ export interface ExtendedKeycloakConfig extends KeycloakConfig {
 function initializeKeycloak(keycloak: KeycloakService, userService: UserService) {
     return async () => {
         try {
-            const hasOAuthParams = window.location.hash && (window.location.hash.includes('code=') || window.location.hash.includes('state='));
+            const hasAuthParams = window.location.search.includes('state=') && window.location.search.includes('code=');
 
             const authenticated = await keycloak.init({
                 config: {
@@ -31,10 +31,8 @@ function initializeKeycloak(keycloak: KeycloakService, userService: UserService)
                 initOptions: {
                     onLoad: 'login-required',
                     checkLoginIframe: false,
-                    flow: 'standard',
-                    redirectUri: window.location.origin + window.location.pathname,
+                    // flow: 'standard', // 'standard' is the default, so this is optional
                     pkceMethod: 'S256', // Add PKCE for better security
-                    responseMode: 'query', // Use query params instead of hash
                 },
                 shouldAddToken: (request) => {
                     // Don't add token to Keycloak endpoints
@@ -46,10 +44,9 @@ function initializeKeycloak(keycloak: KeycloakService, userService: UserService)
             if (authenticated) {
                 await userService.loadUserProfile();
 
-                // Clean URL after successful OAuth callback
-                if (hasOAuthParams) {
-                    const cleanUrl = window.location.pathname + window.location.search;
-                    window.history.replaceState({}, document.title, cleanUrl);
+                // Clean URL after successful OAuth callback to remove state and code params
+                if (hasAuthParams) {
+                    window.history.replaceState({}, document.title, window.location.pathname);
                 }
 
                 // Setup token refresh
@@ -66,17 +63,10 @@ function initializeKeycloak(keycloak: KeycloakService, userService: UserService)
                 });
             }
 
-            return Promise.resolve();
+            return true;
         } catch (error) {
             console.error('Failed to initialize Keycloak', error);
-
-            // Clean OAuth params on error to prevent loop
-            if (window.location.hash.includes('code=')) {
-                const cleanUrl = window.location.pathname + window.location.search;
-                window.history.replaceState({}, document.title, cleanUrl);
-            }
-
-            return Promise.resolve();
+            return false;
         }
     };
 }

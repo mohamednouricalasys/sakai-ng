@@ -15,13 +15,9 @@ export class AuthGuard extends KeycloakAuthGuard {
 
     public async isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
         if (!this.authenticated) {
-            // Remove hash fragment and query params from redirect URI
-            const cleanUrl = state.url.split('#')[0].split('?')[0];
-
             await this.keycloak.login({
-                redirectUri: window.location.origin + cleanUrl,
+                redirectUri: window.location.origin + state.url,
             });
-            return false;
         }
 
         return this.authenticated;
