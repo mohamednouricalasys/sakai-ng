@@ -233,8 +233,12 @@
                 <div class="flex flex-col gap-2">
                     <label for="description" class="font-bold">
                         {{ 'shared.common.description' | translate }}
+                        <span class="text-red-500">*</span>
                     </label>
-                    <textarea id="description" pTextarea [(ngModel)]="video.description" rows="3" cols="20" fluid [disabled]="saving()" [placeholder]="'video.placeholders.description' | translate"></textarea>
+                    <textarea id="description" pTextarea [(ngModel)]="video.description" rows="3" cols="20" fluid [disabled]="saving()" [placeholder]="'video.placeholders.description' | translate" required></textarea>
+                    <small class="text-red-500" *ngIf="submitted && !video.description">
+                        {{ 'video.validation.descriptionRequired' | translate }}
+                    </small>
                 </div>
 
                 <!-- Moderation Status (if editing) -->
@@ -307,7 +311,7 @@
     <ng-template #footer>
         <div class="flex justify-end gap-2">
             <p-button [label]="'shared.actions.cancel' | translate" icon="pi pi-times" text (click)="hideDialog()" [disabled]="saving()" />
-            <p-button [label]="'shared.actions.save' | translate" icon="pi pi-check" (click)="saveVideo()" [disabled]="saving()" [loading]="saving()" />
+            <p-button [label]="'shared.actions.save' | translate" icon="pi pi-check" (click)="saveVideo()" [disabled]="saving() || !video.titre?.trim() || !video.description?.trim() || (!video.id && !uploadedFile)" [loading]="saving()" />
         </div>
     </ng-template>
 </p-dialog>

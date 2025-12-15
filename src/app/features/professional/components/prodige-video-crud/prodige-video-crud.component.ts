@@ -379,16 +379,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         }
 
         // Validation
-        if (!this.video.titre || (!this.video.fileItemId && !this.uploadedFile)) {
-            this.messageService.add({
-                severity: 'error',
-                summary: this.t('shared.common.error'),
-                detail: this.t('video.messages.titleAndVideoRequired'),
-            });
-            return;
-        }
-
-        if (!this.uploadedFile) {
+        if (!this.video.titre?.trim() || !this.video.description?.trim() || (!this.video.id && !this.uploadedFile)) {
             this.messageService.add({
                 severity: 'error',
                 summary: this.t('shared.common.error'),

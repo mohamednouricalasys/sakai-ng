@@ -3,7 +3,7 @@
 import { Component, inject, OnInit, signal, ViewChild, computed, ChangeDetectorRef } from '@angular/core';
 import { ConfirmationService, MessageService, SelectItem } from 'primeng/api';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
@@ -30,7 +30,6 @@ import { DataView, DataViewModule } from 'primeng/dataview';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { Country } from '../../../../core/interfaces/country.interface';
 import { COUNTRIES_DATA } from '../../../../core/shared/countries-data';
-import { validateProdige } from './prodige-crud.validation';
 import { ProdigeApiHelper, ApiCallbacks } from './prodige-api.helper';
 import { ProdigeStore } from './prodige-store';
 import { UserService } from '../../../../core/services/user.service';
@@ -100,6 +99,7 @@ export class ProdigeCrudComponent implements OnInit {
     countries: Country[] = COUNTRIES_DATA;
 
     @ViewChild('dv') dv!: DataView;
+    @ViewChild('prodigeForm') prodigeForm!: NgForm;
 
     private userService = inject(UserService);
     private translationService = inject(TranslationService);
@@ -269,25 +269,15 @@ export class ProdigeCrudComponent implements OnInit {
         return 'danger';
     }
 
-    // Helper method to check if description is required
-    isDescriptionRequired(): boolean {
-        return this.prodige.sport === Sport.Autre;
+    get isFormInvalid(): boolean {
+        if (!this.prodigeForm) {
+            return true;
+        }
+        return this.prodigeForm.invalid || !this.prodige.tags || this.prodige.tags.length < 3;
     }
 
     saveProdige() {
         this.submitted = true;
-
-        // Centralized validation
-        const validationError = validateProdige(this.prodige);
-        if (validationError) {
-            this.messageService.add({
-                severity: 'error',
-                summary: this.t('shared.messages.validationError'),
-                detail: this.t(`procrud.validation.${validationError}`) || validationError,
-                life: 3000,
-            });
-            return;
-        }
 
         const callbacks = this.getApiCallbacks();
 
@@ -315,9 +305,7 @@ export class ProdigeCrudComponent implements OnInit {
         });
     }
 
-    getDescriptionPlaceholder(): string {
-        return this.isDescriptionRequired() ? this.t('procrud.validation.descriptionRequiredForOther') : this.t('procrud.placeholders.describeQualities');
-    }
+
 
     getSelectedCountry(): Country | undefined {
         return this.countries.find((c) => c.code === this.prodige.pays);
