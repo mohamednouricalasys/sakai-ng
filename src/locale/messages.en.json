@@ -59,6 +59,20 @@
       "limitReached": "Limit reached"
     }
   },
+  "landing": {
+        "home": "Home",
+        "features": "Features",
+        "pricing": "Pricing",
+        "hero": {
+            "title": "Unrivaled insight into athlete potential",
+            "subtitle": "Discover and evaluate future prodigies with detailed video analysis, performance data, and advanced recruitment tools.",
+            "button": "Get Started"
+        }
+  },
+  "auth": {
+        "login": "Login",
+        "register": "Register"
+  },
   "subscription": {
     "loading": "Loading subscription details...",
     "activeSubscription": {
@@ -95,6 +109,46 @@
     },
     "confirmations": {
       "cancel": "Are you sure you want to cancel your subscription? This action cannot be undone."
+    }
+  },
+  "pricing": {
+    "title": "Choose Your Plan",
+    "subtitle": "Flexible pricing for every recruitment need.",
+    "starter": {
+        "title": "Starter",
+        "price": "€50.00",
+        "period": "per month",
+        "button": "Select",
+        "credits": "{credits} credits",
+        "feature1": "Database access",
+        "feature2": "Simple filter search",
+        "feature3": "Priority support"
+    },
+    "pro": {
+        "current_plan": "Current subscription",
+        "title": "Pro",
+        "price": "€150.00",
+        "period": "per month",
+        "button": "Selected",
+        "credits": "{credits} credits",
+        "feature1": "Database access",
+        "feature2": "Advanced search filters",
+        "feature3": "Priority support"
+    },
+    "elite": {
+        "title": "Elite",
+        "price": "€250.00",
+        "period": "per month",
+        "button": "Select",
+        "credits": "{credits} credits",
+        "feature1": "Database access",
+        "feature2": "Advanced search filters",
+        "feature3": "24/7 Priority support"
+    },
+    "point_system": {
+        "new_video_new_contact": "5 points: new video, new contact",
+        "new_video_old_contact": "3 points: new video, old contact",
+        "already_viewed": "0 points: already viewed"
     }
   },
   "videos": {
@@ -136,7 +190,7 @@
         "rejete": "Rejected",
         "unknown": "Unknown",
         "rejectedVideo": "Rejected Video",
-        "approvedVideo": "Approved Video", 
+        "approvedVideo": "Approved Video",
         "warning": "⚠️ Warning",
         "autoDeleteWarning": "Rejected videos will be automatically deleted after 15 days unless updated."
       },
@@ -357,7 +411,7 @@
       "approuvee": "Approved",
       "rejetee": "Rejected",
       "rejectedVideo": "Rejected Video",
-      "approvedVideo": "Approved Video", 
+      "approvedVideo": "Approved Video",
       "warning": "⚠️ Warning",
       "autoDeleteWarning": "Rejected videos will be automatically deleted after 15 days unless updated."
     }
@@ -488,7 +542,7 @@
     "description": "Description",
     "leave": "To leave",
     "not_allowed_page": "You do not have the rights necessary to access this page",
-    "validate_action": "Please write “Validate” to validate this action",
+    "validate_action": "Please write \"Validate\" to validate this action",
     "back": "Back",
     "valider": "To validate",
     "success": "Success",
@@ -710,10 +764,10 @@
         "done": "Finished",
         "dropHereOr": "Place the files here or %{BROWSE}",
         "dropHint": "Submit your files here",
-        "dropPasteBoth": "Place the files here, glue or %{Browse}",
-        "dropPasteFiles": "Place the files here, glue or %{Browse}",
-        "dropPasteImportBoth": "Place the files here, glue, %{Browse} or import since",
-        "dropPasteImportFiles": "Place the files here, glue, %{Browse} or import since",
+        "dropPasteBoth": "Place the files here, glue or %{BROWSE}",
+        "dropPasteFiles": "Place the files here, glue or %{BROWSE}",
+        "dropPasteImportBoth": "Place the files here, glue, %{BROWSE} or import since",
+        "dropPasteImportFiles": "Place the files here, glue, %{BROWSE} or import since",
         "edit": "To modify",
         "editFile": "Modify the file",
         "editing": "Modification of %{file}",
@@ -947,7 +1001,6 @@
     "lb": "Lebanon",
     "lc": "Sainte-Lucie",
     "li": "Liechtenstein",
-    "lk": "Sri Lanka",
     "lr": "Liberia",
     "ls": "Lesotho",
     "lt": "Lithuania",

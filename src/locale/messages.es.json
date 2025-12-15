@@ -59,44 +59,98 @@
       "limitReached": "Límite alcanzado"
     }
   },
+  "landing": {
+        "home": "Hogar",
+        "features": "Características",
+        "pricing": "Precios",
+        "hero": {
+            "title": "Visión inigualable del potencial de los atletas",
+            "subtitle": "Descubra y evalúe a los futuros prodigios con análisis de vídeo detallados, datos de rendimiento y herramientas de contratación avanzadas.",
+            "button": "Empezar"
+        }
+  },
+  "auth": {
+        "login": "Acceso",
+        "register": "Registrarse"
+  },
   "subscription": {
-  "loading": "Cargando los detalles de la suscripción...",
-  "activeSubscription": {
-    "title": "Suscripción activa",
-    "credits": "Créditos {count} / {max}",
-    "status": {
-      "active": "Activa"
+    "loading": "Cargando los detalles de la suscripción...",
+    "activeSubscription": {
+      "title": "Suscripción activa",
+      "credits": "Créditos {count} / {max}",
+      "status": {
+        "active": "Activa"
+      },
+      "buttons": {
+        "manage": "Gestionar suscripción",
+        "cancel": "Cancelar plan"
+      }
     },
-    "buttons": {
-      "manage": "Gestionar suscripción",
-      "cancel": "Cancelar plan"
+    "pricing": {
+      "title": "Elige tu plan",
+      "subtitle": "Desbloquea funciones premium",
+      "description": "Selecciona el plan perfecto para tus necesidades",
+      "loading": "Cargando las opciones de precios..."
+    },
+    "plans": {
+      "basic": "Plan Básico",
+      "premium": "Plan Premium",
+      "pro": "Plan Profesional",
+      "enterprise": "Plan Empresarial",
+      "default": "Plan de suscripción"
+    },
+    "messages": {
+      "loadError": "No se pudo cargar la información de la suscripción",
+      "pricingError": "No se pudieron cargar las opciones de precios",
+      "portalError": "No se puede abrir el portal del cliente",
+      "cancelSuccess": "Tu suscripción se ha cancelado correctamente",
+      "cancelError": "No se pudo cancelar la suscripción",
+      "cancelErrorGeneric": "Ocurrió un error al cancelar tu suscripción"
+    },
+    "confirmations": {
+      "cancel": "¿Estás seguro de que deseas cancelar tu suscripción? Esta acción no se puede deshacer."
     }
   },
   "pricing": {
-    "title": "Elige tu plan",
-    "subtitle": "Desbloquea funciones premium",
-    "description": "Selecciona el plan perfecto para tus necesidades",
-    "loading": "Cargando las opciones de precios..."
+    "title": "Elija su plan",
+    "subtitle": "Precios flexibles para cada necesidad de reclutamiento.",
+    "starter": {
+        "title": "Principiante",
+        "price": "50,00 €",
+        "period": "por mes",
+        "button": "Seleccionar",
+        "credits": "{credits} créditos",
+        "feature1": "Acceso a la base de datos",
+        "feature2": "Búsqueda de filtro simple",
+        "feature3": "Soporte prioritario"
+    },
+    "pro": {
+        "current_plan": "Suscripción actual",
+        "title": "Pro",
+        "price": "150,00 €",
+        "period": "por mes",
+        "button": "Seleccionado",
+        "credits": "{credits} créditos",
+        "feature1": "Acceso a la base de datos",
+        "feature2": "Filtros de búsqueda avanzados",
+        "feature3": "Soporte prioritario"
+    },
+    "elite": {
+        "title": "Élite",
+        "price": "250,00 €",
+        "period": "por mes",
+        "button": "Seleccionar",
+        "credits": "{credits} créditos",
+        "feature1": "Acceso a la base de datos",
+        "feature2": "Filtros de búsqueda avanzados",
+        "feature3": "Soporte prioritario 24/7"
+    },
+    "point_system": {
+        "new_video_new_contact": "5 puntos: nuevo video, nuevo contacto",
+        "new_video_old_contact": "3 puntos: nuevo video, contacto antiguo",
+        "already_viewed": "0 puntos: ya visto"
+    }
   },
-  "plans": {
-    "basic": "Plan Básico",
-    "premium": "Plan Premium",
-    "pro": "Plan Profesional",
-    "enterprise": "Plan Empresarial",
-    "default": "Plan de suscripción"
-  },
-  "messages": {
-    "loadError": "No se pudo cargar la información de la suscripción",
-    "pricingError": "No se pudieron cargar las opciones de precios",
-    "portalError": "No se puede abrir el portal del cliente",
-    "cancelSuccess": "Tu suscripción se ha cancelado correctamente",
-    "cancelError": "No se pudo cancelar la suscripción",
-    "cancelErrorGeneric": "Ocurrió un error al cancelar tu suscripción"
-  },
-  "confirmations": {
-    "cancel": "¿Estás seguro de que deseas cancelar tu suscripción? Esta acción no se puede deshacer."
-  }
-},
   "videos": {
     "contact": {
       "button": "Contacta con el gerente",
@@ -192,8 +246,8 @@
         "moderation": "Moderación"
       },
       "confirm": {
-        "approve": "¿Estás seguro de que quieres aprobar el video? \"{{title}}\"?",
-        "reject": "¿Estás seguro de que quieres rechazar el video? \"{{title}}\"?",
+        "approve": "¿Estás seguro de que quieres aprobar el video? \"{{title}}\" ?",
+        "reject": "¿Estás seguro de que quieres rechazar el video? \"{{title}}\" ?",
         "delete": "¿Estás seguro de que quieres eliminar permanentemente el video? \"{{title}}\"? Esta acción es irreversible."
       },
       "validation": {
@@ -243,7 +297,7 @@
       "descriptionRequiredForOther": "Descripción obligatoria para el deporte 'otro'"
     },
     "placeholders": {
-      "describeQualities": "Describe las cualidades y el potencial del prodigio ..."
+      "describeQualidades": "Describe las cualidades y el potencial del prodigio ..."
     },
     "tags": {
       "minMaxInfo": "(min: 3, máx: 10)",
@@ -747,8 +801,8 @@
         "paused": "Romper",
         "poweredBy": "Propulsado por %{uppy}",
         "processingXFiles": {
-          "0": "%{Smart_count}",
-          "1": "%{Smart_count} archivos"
+          "0": "% {Smart_count}",
+          "1": "% {Smart_count} archivos"
         },
         "removeFile": "Eliminar el archivo",
         "resetFilter": "Restablecer el filtro",
@@ -781,8 +835,8 @@
         },
         "uploading": "Descargar en progreso",
         "uploadingXFiles": {
-          "0": "%{Smart_count}",
-          "1": "%{Smart_count} archivos"
+          "0": "% {Smart_count}",
+          "1": "% {Smart_count} archivos"
         },
         "xFilesSelected": {
           "0": "%{smart_count} archivo seleccionado",
@@ -947,7 +1001,6 @@
     "lb": "Líbano",
     "lc": "Sainte-Lucie",
     "li": "Liechtenstein",
-    "lk": "Sri Lanka",
     "lr": "Liberia",
     "ls": "Lesoto",
     "lt": "Lituania",

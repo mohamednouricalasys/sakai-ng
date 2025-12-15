@@ -1,15 +1,20 @@
-import { Routes } from '@angular/router';
+import { Routes, Router } from '@angular/router';
 import { AppLayout } from './app/layout/component/app.layout';
 import { AuthGuard } from './guards/auth.guard';
 import { Notfound } from './app/pages/notfound/notfound';
+import { redirectGuard } from './guards/auth-redirect.guard';
 
 export const appRoutes: Routes = [
+    {
+        path: '',
+        canActivate: [redirectGuard],
+        children: [], // Empty children to prevent further navigation
+    },
     {
         path: '',
         component: AppLayout,
         canActivate: [AuthGuard], // Apply guard to the layout
         children: [
-            { path: '', redirectTo: 'professional/gellery', pathMatch: 'full' }, // Default route
             {
                 path: 'professional',
                 // Lazy load the professional routes
