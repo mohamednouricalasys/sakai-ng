@@ -155,11 +155,15 @@
     "contact": {
       "button": "Contacta con el gerente",
       "dialog": {
-        "title": "Información del contacto"
-      },
-      "email": "Enviar correo electrónico",
-      "phone": "Llamar ahora",
-      "message": "Enviar un mensaje"
+        "header": "Información de contacto",
+        "unknownContact": "Contacto desconocido",
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "message": "Mensaje",
+        "copyEmailTitle": "Haga clic para copiar el correo electrónico",
+        "copyPhoneTitle": "Haga clic para copiar el teléfono",
+        "close": "Cerrar"
+      }
     },
     "gallery": {
       "title": "Galería de videos"

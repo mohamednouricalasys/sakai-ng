@@ -155,11 +155,15 @@
     "contact": {
       "button": "Contact the manager",
       "dialog": {
-        "title": "Contact Information"
-      },
-      "email": "Send Email",
-      "phone": "Call Now",
-      "message": "Send Message"
+        "header": "Contact Information",
+        "unknownContact": "Unknown Contact",
+        "email": "Email",
+        "phone": "Phone",
+        "message": "Message",
+        "copyEmailTitle": "Click to copy email",
+        "copyPhoneTitle": "Click to copy phone",
+        "close": "Close"
+      }
     },
     "gallery": {
       "title": "Video Gallery"

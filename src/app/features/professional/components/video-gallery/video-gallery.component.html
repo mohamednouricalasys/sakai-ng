@@ -89,17 +89,24 @@
             </p-card>
         </div>
     </div>
+
+    <!-- No Results Message -->
+    <div *ngIf="!loading() && videos().length === 0" class="not-found-container">
+        <div class="not-found-content">
+            <div class="four-oh-four">404</div>
+        </div>
+    </div>
 </div>
 
 <!-- Contact Dialog -->
 <!-- Contact Dialog -->
-<p-dialog [(visible)]="contactDialogVisible" [modal]="true" header="Contact Information" [style]="{ width: '320px' }" [closable]="true" [draggable]="false" [resizable]="false" styleClass="contact-dialog">
+<p-dialog [(visible)]="contactDialogVisible" [modal]="true" [header]="'videos.contact.dialog.header' | translate" [style]="{ width: '320px' }" [closable]="true" [draggable]="false" [resizable]="false" styleClass="contact-dialog">
     <ng-template pTemplate="content">
         <div class="p-4">
             <!-- Contact Header -->
             <div class="text-center mb-4">
                 <h3 class="text-lg font-semibold text-900">
-                    {{ getFullName() || 'Unknown Contact' }}
+                    {{ getFullName() || ('videos.contact.dialog.unknownContact' | translate) }}
                 </h3>
                 <p class="text-500 text-sm">
                     {{ getSportLabel(selectedVideo?.prodige?.sport!) }}
@@ -110,9 +117,9 @@
 
             <!-- Contact Options -->
             <div class="flex flex-wrap gap-2 w-full">
-                <a pButton [href]="'mailto:' + getContactEmail(selectedVideo)" icon="pi pi-envelope" label="Email" severity="info" outlined iconPos="left" class="w-full justify-content-between"></a>
-                <a pButton [href]="'tel:' + getContactPhone(selectedVideo)" icon="pi pi-phone" label="Phone" severity="success" outlined iconPos="left" class="w-full justify-content-between"></a>
-                <a pButton [href]="'sms:' + getContactPhone(selectedVideo)" icon="pi pi-comment" label="Message" severity="warn" outlined iconPos="left" class="w-full justify-content-between"></a>
+                <a pButton [href]="'mailto:' + getContactEmail(selectedVideo)" icon="pi pi-envelope" [label]="'videos.contact.dialog.email' | translate" severity="info" outlined iconPos="left" class="w-full justify-content-between"></a>
+                <a pButton [href]="'tel:' + getContactPhone(selectedVideo)" icon="pi pi-phone" [label]="'videos.contact.dialog.phone' | translate" severity="success" outlined iconPos="left" class="w-full justify-content-between"></a>
+                <a pButton [href]="'sms:' + getContactPhone(selectedVideo)" icon="pi pi-comment" [label]="'videos.contact.dialog.message' | translate" severity="warn" outlined iconPos="left" class="w-full justify-content-between"></a>
             </div>
 
             <p-divider />
@@ -120,7 +127,7 @@
             <!-- Contact Info -->
             <div class="mt-4 p-3 border-round surface-100">
                 <!-- Email -->
-                <div class="flex align-items-center mb-2 cursor-pointer" (click)="copyToClipboard(getContactEmail(selectedVideo))" title="Click to copy email">
+                <div class="flex align-items-center mb-2 cursor-pointer" (click)="copyToClipboard(getContactEmail(selectedVideo))" [title]="'videos.contact.dialog.copyEmailTitle' | translate">
                     <i class="pi pi-envelope text-blue-500 mr-2"></i>
                     <span class="text-sm text-600 underline">
                         {{ getContactEmail(selectedVideo) }}
@@ -128,7 +135,7 @@
                 </div>
 
                 <!-- Phone -->
-                <div class="flex align-items-center cursor-pointer" (click)="copyToClipboard(getContactPhone(selectedVideo))" title="Click to copy phone">
+                <div class="flex align-items-center cursor-pointer" (click)="copyToClipboard(getContactPhone(selectedVideo))" [title]="'videos.contact.dialog.copyPhoneTitle' | translate">
                     <i class="pi pi-phone text-green-500 mr-2"></i>
                     <span class="text-sm text-600 underline">
                         {{ getContactPhone(selectedVideo) }}
@@ -140,7 +147,7 @@
 
     <ng-template pTemplate="footer">
         <div class="flex justify-content-end">
-            <p-button label="Close" severity="secondary" text (onClick)="closeContactDialog()"></p-button>
+            <p-button [label]="'videos.contact.dialog.close' | translate" severity="secondary" text (onClick)="closeContactDialog()"></p-button>
         </div>
     </ng-template>
 </p-dialog>

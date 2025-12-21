@@ -155,11 +155,15 @@
         "contact": {
             "button": "Contacter le responsable",
             "dialog": {
-                "title": "Coordonnées"
-            },
-            "email": "Envoyer un e-mail",
-            "phone": "Appelez maintenant",
-            "message": "Envoyer un message"
+                "header": "Informations de contact",
+                "unknownContact": "Contact inconnu",
+                "email": "Email",
+                "phone": "Téléphone",
+                "message": "Message",
+                "copyEmailTitle": "Cliquez pour copier l'email",
+                "copyPhoneTitle": "Cliquez pour copier le téléphone",
+                "close": "Fermer"
+            }
         },
         "gallery": {
             "title": "Galerie vidéo"
