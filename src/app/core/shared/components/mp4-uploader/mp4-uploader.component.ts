@@ -36,7 +36,7 @@ import { FileUploadService, PresignedUrlRequest } from '../../../services/file-u
 export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() maxFiles: number = 1;
     @Input() maxFileSize: number = 500 * 1024 * 1024;
-    @Input() allowedFileTypes: string[] = ['video/mp4', '.mp4'];
+    @Input() allowedFileTypes: string[] = ['video/*'];
 
     @Output() fileUploaded = new EventEmitter<FileItem>();
     @Output() fileRemoved = new EventEmitter<string>();
@@ -117,10 +117,11 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         });
 
         this.uppy.use(Webcam, {
+            modes: ['video-audio'],
             countdown: false,
             mirror: true,
             videoConstraints: {
-                facingMode: 'user',
+                facingMode: 'environment', // Use rear camera on mobile
                 width: { min: 640, ideal: 1280, max: 1920 },
                 height: { min: 480, ideal: 720, max: 1080 },
             },

@@ -178,7 +178,7 @@
     </div>
 </div>
 
-<p-dialog [(visible)]="videoDialog" [style]="{ width: '700px' }" [header]="video.id ? ('video.labels.editVideo' | translate) : ('video.labels.newVideo' | translate)" [modal]="true" [closable]="!saving()" [closeOnEscape]="!saving()">
+<p-dialog [(visible)]="videoDialog" [style]="{ width: '90vw', 'max-width': '700px' }" [header]="video.id ? ('video.labels.editVideo' | translate) : ('video.labels.newVideo' | translate)" [modal]="true" [closable]="!saving()" [closeOnEscape]="!saving()">
     <ng-template #content>
         <!-- Upload Guidelines -->
         <p-panel [toggleable]="true" [collapsed]="true" styleClass="upload-guidelines mb-4">
@@ -287,7 +287,7 @@
                     </div>
 
                     @if (!saving()) {
-                        <app-mp4-uploader [maxFiles]="1" [maxFileSize]="500 * 1024 * 1024" [allowedFileTypes]="['video/mp4', '.mp4']" (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)" />
+                        <app-mp4-uploader [maxFiles]="1" [maxFileSize]="500 * 1024 * 1024" [allowedFileTypes]="['video/*']" (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)" />
                     }
 
                     <small class="text-red-500" *ngIf="submitted && !video.fileItemId && !uploadedFile && !video.id">

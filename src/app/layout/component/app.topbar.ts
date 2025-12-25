@@ -14,11 +14,13 @@ import { SidebarModule } from 'primeng/sidebar';
 import { OverlayPanel, OverlayPanelModule } from 'primeng/overlaypanel';
 import { MenuItem } from 'primeng/api';
 import { SubscriptionService } from '../../core/services/subscription.service';
+import { TranslatePipe } from '../../core/shared';
+import { TranslationService } from '../../core/services/translation.service';
 
 @Component({
     selector: 'app-topbar',
     standalone: true,
-    imports: [RouterModule, CommonModule, StyleClassModule, AppConfigurator, LanguageSwitcherComponent, OverlayPanelModule, ButtonModule, SidebarModule],
+    imports: [RouterModule, CommonModule, StyleClassModule, AppConfigurator, LanguageSwitcherComponent, OverlayPanelModule, ButtonModule, SidebarModule, TranslatePipe],
     templateUrl: './app.topbar.html',
 })
 export class AppTopbar implements OnInit {
@@ -39,7 +41,13 @@ export class AppTopbar implements OnInit {
         private keycloakService: KeycloakService,
         private userService: UserService,
         private subscriptionService: SubscriptionService,
+        private translationService: TranslationService,
     ) {}
+
+    protected t(key: string, params?: Record<string, any>): string {
+        return this.translationService.translate(key, params);
+    }
+
 
     async ngOnInit(): Promise<void> {
         this.updateIsMobile();
@@ -91,7 +99,7 @@ export class AppTopbar implements OnInit {
     }
 
     async removeAccount(): Promise<void> {
-        if (confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')) {
+        if (confirm(this.t('topbar.profile.confirmDelete'))) {
             try {
                 const result = await this.subscriptionService.cancelSubscription().toPromise();
 

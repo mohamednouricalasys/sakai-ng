@@ -1,65 +1,65 @@
 {
-  "nav": {
-    "profesional": "Sports profession",
-    "gallery": "Gallery",
-    "myProdigies": "My prodigies",
-    "myVideos": "My videos",
-    "moderation": "Moderation",
-    "subscription": "Subscription"
-  },
-  "shared": {
-    "actions": {
-      "new": "New",
-      "delete": "DELETE",
-      "export": "Export",
-      "edit": "To modify",
-      "save": "To safeguard",
-      "cancel": "Cancel",
-      "search": "To research...",
-      "add": "Add",
-      "confirm": "Confirm",
-      "approve": "Approve",
-      "reject": "Dismiss",
-      "close": "Close"
+    "nav": {
+        "profesional": "Sports profession",
+        "gallery": "Gallery",
+        "myProdigies": "My prodigies",
+        "myVideos": "My videos",
+        "moderation": "Moderation",
+        "subscription": "Subscription"
     },
-    "common": {
-      "title": "Title",
-      "url": "URL",
-      "or": "OR",
-      "select": "Select",
-      "name": "Name",
-      "age": "Age",
-      "description": "Description",
-      "actions": "Actions",
-      "creationDate": "Date of creation",
-      "tags": "Tags",
-      "required": "*",
-      "years": "years",
-      "success": "Success",
-      "error": "Error",
-      "warning": "Warning",
-      "confirmation": "Confirmation",
-      "male": "Man",
-      "female": "Women",
-      "processing": "Treatment in progress ..."
+    "shared": {
+        "actions": {
+            "new": "New",
+            "delete": "DELETE",
+            "export": "Export",
+            "edit": "To modify",
+            "save": "To safeguard",
+            "cancel": "Cancel",
+            "search": "To research...",
+            "add": "Add",
+            "confirm": "Confirm",
+            "approve": "Approve",
+            "reject": "Dismiss",
+            "close": "Close"
+        },
+        "common": {
+            "title": "Title",
+            "url": "URL",
+            "or": "OR",
+            "select": "Select",
+            "name": "Name",
+            "age": "Age",
+            "description": "Description",
+            "actions": "Actions",
+            "creationDate": "Date of creation",
+            "tags": "Tags",
+            "required": "*",
+            "years": "years",
+            "success": "Success",
+            "error": "Error",
+            "warning": "Warning",
+            "confirmation": "Confirmation",
+            "male": "Man",
+            "female": "Women",
+            "processing": "Treatment in progress ..."
+        },
+        "validation": {
+            "required": "OBLIGATORY",
+            "nameRequired": "The name is compulsory.",
+            "ageRequired": "Age is compulsory."
+        },
+        "messages": {
+            "confirmDelete": "Are you sure you want to delete {item}?",
+            "confirmDeleteMultiple": "Are you sure you want to delete the selected elements?",
+            "itemDeleted": "{item} deleted",
+            "itemsDeleted": "Elements deleted",
+            "itemCreated": "{item} created",
+            "itemUpdated": "{item} update",
+            "validationError": "Validation error",
+            "limitReached": "Limit reached"
+        }
     },
-    "validation": {
-      "required": "OBLIGATORY",
-      "nameRequired": "The name is compulsory.",
-      "ageRequired": "Age is compulsory."
-    },
-    "messages": {
-      "confirmDelete": "Are you sure you want to delete {item}?",
-      "confirmDeleteMultiple": "Are you sure you want to delete the selected elements?",
-      "itemDeleted": "{item} deleted",
-      "itemsDeleted": "Elements deleted",
-      "itemCreated": "{item} created",
-      "itemUpdated": "{item} update",
-      "validationError": "Validation error",
-      "limitReached": "Limit reached"
-    }
-  },
-  "landing": {
+    "landing": {
         "home": "Home",
         "features": "Features",
         "pricing": "Pricing",
@@ -68,1066 +68,1050 @@
             "subtitle": "Discover and evaluate future prodigies with detailed video analysis, performance data, and advanced recruitment tools.",
             "button": "Get Started"
         }
-  },
-  "auth": {
+    },
+    "auth": {
         "login": "Login",
         "register": "Register"
-  },
-  "subscription": {
-    "loading": "Loading subscription details...",
-    "activeSubscription": {
-      "title": "Active Subscription",
-      "credits": "Credits {count} / {max}",
-      "status": {
-        "active": "Active"
-      },
-      "buttons": {
-        "manage": "Manage Subscription",
-        "cancel": "Cancel Plan"
-      }
+    },
+    "subscription": {
+        "loading": "Loading subscription details...",
+        "activeSubscription": {
+            "title": "Active Subscription",
+            "credits": "Credits {count} / {max}",
+            "status": {
+                "active": "Active"
+            },
+            "buttons": {
+                "manage": "Manage Subscription",
+                "cancel": "Cancel Plan"
+            }
+        },
+        "pricing": {
+            "title": "Choose Your Plan",
+            "subtitle": "Unlock Premium Features",
+            "description": "Select the perfect plan for your needs",
+            "loading": "Loading pricing options..."
+        },
+        "plans": {
+            "basic": "Basic Plan",
+            "premium": "Premium Plan",
+            "pro": "Professional Plan",
+            "enterprise": "Enterprise Plan",
+            "default": "Subscription Plan"
+        },
+        "messages": {
+            "loadError": "Failed to load subscription information",
+            "pricingError": "Failed to load pricing options",
+            "portalError": "Unable to open customer portal",
+            "cancelSuccess": "Your subscription has been cancelled successfully",
+            "cancelError": "Failed to cancel subscription",
+            "cancelErrorGeneric": "An error occurred while cancelling your subscription"
+        },
+        "confirmations": {
+            "cancel": "Are you sure you want to cancel your subscription? This action cannot be undone."
+        }
     },
     "pricing": {
-      "title": "Choose Your Plan",
-      "subtitle": "Unlock Premium Features",
-      "description": "Select the perfect plan for your needs",
-      "loading": "Loading pricing options..."
+        "title": "Choose Your Plan",
+        "subtitle": "Flexible pricing for every recruitment need.",
+        "starter": {
+            "title": "Starter",
+            "price": "€50.00",
+            "period": "per month",
+            "button": "Select",
+            "credits": "{credits} credits",
+            "feature1": "Database access",
+            "feature2": "Simple filter search",
+            "feature3": "Priority support"
+        },
+        "pro": {
+            "current_plan": "Current subscription",
+            "title": "Pro",
+            "price": "€150.00",
+            "period": "per month",
+            "button": "Selected",
+            "credits": "{credits} credits",
+            "feature1": "Database access",
+            "feature2": "Advanced search filters",
+            "feature3": "Priority support"
+        },
+        "elite": {
+            "title": "Elite",
+            "price": "€250.00",
+            "period": "per month",
+            "button": "Select",
+            "credits": "{credits} credits",
+            "feature1": "Database access",
+            "feature2": "Advanced search filters",
+            "feature3": "24/7 Priority support"
+        },
+        "point_system": {
+            "new_video_new_contact": "5 points: new video, new contact",
+            "new_video_old_contact": "3 points: new video, old contact",
+            "already_viewed": "0 points: already viewed"
+        }
     },
-    "plans": {
-      "basic": "Basic Plan",
-      "premium": "Premium Plan",
-      "pro": "Professional Plan",
-      "enterprise": "Enterprise Plan",
-      "default": "Subscription Plan"
+    "videos": {
+        "contact": {
+            "button": "Contact the manager",
+            "dialog": {
+                "header": "Contact Information",
+                "unknownContact": "Unknown Contact",
+                "email": "Email",
+                "phone": "Phone",
+                "message": "Message",
+                "copyEmailTitle": "Click to copy email",
+                "copyPhoneTitle": "Click to copy phone",
+                "close": "Close"
+            }
+        },
+        "gallery": {
+            "title": "Video Gallery"
+        },
+        "search": {
+            "placeholder": "Search videos..."
+        },
+        "filter": {
+            "sport": "Filter by Sport",
+            "tag": "Filter by Tag",
+            "clear": "Clear Filters",
+            "allSports": "All Sports",
+            "allTags": "All Tags",
+            "allGenders": "All Genders",
+            "homme": "Male",
+            "femme": "Female"
+        },
+        "messages": {
+            "loadError": "Failed to load videos. Please try again."
+        }
     },
-    "messages": {
-      "loadError": "Failed to load subscription information",
-      "pricingError": "Failed to load pricing options",
-      "portalError": "Unable to open customer portal",
-      "cancelSuccess": "Your subscription has been cancelled successfully",
-      "cancelError": "Failed to cancel subscription",
-      "cancelErrorGeneric": "An error occurred while cancelling your subscription"
+    "admin": {
+        "video": {
+            "moderation": {
+                "title": "Video moderation",
+                "enAttente": "On hold",
+                "approuvee": "Approved",
+                "rejete": "Rejected",
+                "unknown": "Unknown",
+                "rejectedVideo": "Rejected Video",
+                "approvedVideo": "Approved Video",
+                "warning": "⚠️ Warning",
+                "autoDeleteWarning": "Rejected videos will be automatically deleted after 15 days unless updated."
+            },
+            "title": "Video management",
+            "totalVideos": "{{count}} Video (s) in total",
+            "prodige": "Prodigy",
+            "dateCreation": "Date of creation",
+            "dateModeration": "Moderation date",
+            "moderatedBy": "Moderate by",
+            "moderationComment": {
+                "approve": {
+                    "placeholder": "Optional comment for approval ..."
+                },
+                "reject": {
+                    "placeholder": "Explain the reasons for the rejection (compulsory) ..."
+                }
+            },
+            "status": "Status",
+            "search": {
+                "placeholder": "Search by title, prodigy ..."
+            },
+            "filter": {
+                "status": "Statter by status",
+                "all": "All statutes"
+            },
+            "sort": {
+                "placeholder": "Sort by...",
+                "dateCreation": {
+                    "desc": "More recent first",
+                    "asc": "Older first"
+                },
+                "title": {
+                    "asc": "Title A-Z",
+                    "desc": "Z-A-A title"
+                },
+                "status": {
+                    "asc": "A-Z status",
+                    "desc": "Z-A status"
+                }
+            },
+            "actions": {
+                "view": "See",
+                "approve": "Approve",
+                "reject": "Dismiss"
+            },
+            "empty": {
+                "title": "No video found",
+                "description": "There is currently no video corresponding to your research criteria."
+            },
+            "detail": {
+                "title": "Video details",
+                "information": "Information",
+                "moderation": "Moderation"
+            },
+            "confirm": {
+                "approve": "Are you sure you want to approve the video \"{{title}}\"",
+                "reject": "Are you sure you want to reject the video \"{{title}}\"",
+                "delete": "Are you sure you want to permanently delete the video \"{{title}}\"? This action is irreversible."
+            },
+            "validation": {
+                "commentRequired": "A comment explaining the reasons for the rejection is compulsory."
+            },
+            "messages": {
+                "loadError": "Error when loading videos.",
+                "approved": "Video successfully approved.",
+                "rejected": "Successful video.",
+                "deleted": "Video deleted successfully.",
+                "moderationError": "Error when moderation of the video.",
+                "deleteError": "Error when deleting the video."
+            }
+        }
     },
-    "confirmations": {
-      "cancel": "Are you sure you want to cancel your subscription? This action cannot be undone."
-    }
-  },
-  "pricing": {
-    "title": "Choose Your Plan",
-    "subtitle": "Flexible pricing for every recruitment need.",
-    "starter": {
-        "title": "Starter",
-        "price": "€50.00",
-        "period": "per month",
-        "button": "Select",
-        "credits": "{credits} credits",
-        "feature1": "Database access",
-        "feature2": "Simple filter search",
-        "feature3": "Priority support"
+    "procrud": {
+        "title": "Prodigy management",
+        "labels": {
+            "newProdige": "New prodigy",
+            "prodigeDetails": "Prodigy details",
+            "sport": "Sport",
+            "selectSport": "Select a sport",
+            "addTag": "Add a tag ...",
+            "associatedVideos": "Associated videos",
+            "videoWithoutTitle": "Unit video",
+            "videosCount": "Number of videos"
+        },
+        "columns": {
+            "nom": "Name",
+            "nomExport": "Prodigy name",
+            "age": "Age",
+            "sport": "Sport",
+            "videosCount": "Number of videos",
+            "dateCreation": "Date of creation",
+            "gender": "Gender",
+            "country": "Country"
+        },
+        "pagination": {
+            "itemName": "wonders",
+            "showing": "Display of {first} to {last} on {TotalRecords} Prodigies"
+        },
+        "validation": {
+            "sportRequired": "Sport is compulsory.",
+            "descriptionRequired": "The description is compulsory for \"other\" sport.",
+            "minTagsRequired": "Minimum 3 tags required.",
+            "maxTagsReached": "Maximum 10 authorized tags",
+            "descriptionRequiredForOther": "Mandatory description for sport 'other'"
+        },
+        "placeholders": {
+            "describeQualities": "Describe the qualities and potential of the prodigy ..."
+        },
+        "tags": {
+            "minMaxInfo": "(min: 3, max: 10)",
+            "selectedCount": "{Count}/10 selected tags",
+            "associatedVideosCount": "{Count} Video (s) associated"
+        },
+        "messages": {
+            "prodigeCreated": "Prodigy created",
+            "prodigeUpdated": "Update",
+            "prodigeDeleted": "Prodigy deleted",
+            "prodigiesDeleted": "Prodigies deleted",
+            "confirmDeleteProdige": "Are you sure you want to delete {name}?",
+            "confirmDeleteProdigies": "Are you sure you want to delete the selected wonders?"
+        },
+        "sort": {
+            "name": {
+                "placeholder": "Sort by name",
+                "down": "Name ▼",
+                "up": "Name ▲"
+            }
+        }
     },
-    "pro": {
-        "current_plan": "Current subscription",
-        "title": "Pro",
-        "price": "€150.00",
-        "period": "per month",
-        "button": "Selected",
-        "credits": "{credits} credits",
-        "feature1": "Database access",
-        "feature2": "Advanced search filters",
-        "feature3": "Priority support"
-    },
-    "elite": {
-        "title": "Elite",
-        "price": "€250.00",
-        "period": "per month",
-        "button": "Select",
-        "credits": "{credits} credits",
-        "feature1": "Database access",
-        "feature2": "Advanced search filters",
-        "feature3": "24/7 Priority support"
-    },
-    "point_system": {
-        "new_video_new_contact": "5 points: new video, new contact",
-        "new_video_old_contact": "3 points: new video, old contact",
-        "already_viewed": "0 points: already viewed"
-    }
-  },
-  "videos": {
-    "contact": {
-      "button": "Contact the manager",
-      "dialog": {
-        "header": "Contact Information",
-        "unknownContact": "Unknown Contact",
-        "email": "Email",
-        "phone": "Phone",
-        "message": "Message",
-        "copyEmailTitle": "Click to copy email",
-        "copyPhoneTitle": "Click to copy phone",
-        "close": "Close"
-      }
-    },
-    "gallery": {
-      "title": "Video Gallery"
-    },
-    "search": {
-      "placeholder": "Search videos..."
-    },
-    "filter": {
-      "sport": "Filter by Sport",
-      "tag": "Filter by Tag",
-      "clear": "Clear Filters",
-      "allSports": "All Sports",
-      "allTags": "All Tags",
-      "allGenders": "All Genders",
-      "homme": "Male",
-      "femme": "Female"
-    },
-    "messages": {
-      "loadError": "Failed to load videos. Please try again."
-    }
-  },
-  "admin": {
     "video": {
-      "moderation": {
-        "title": "Video moderation",
-        "enAttente": "On hold",
-        "approuvee": "Approved",
-        "rejete": "Rejected",
-        "unknown": "Unknown",
-        "rejectedVideo": "Rejected Video",
-        "approvedVideo": "Approved Video",
-        "warning": "⚠️ Warning",
-        "autoDeleteWarning": "Rejected videos will be automatically deleted after 15 days unless updated."
-      },
-      "title": "Video management",
-      "totalVideos": "{{count}} Video (s) in total",
-      "prodige": "Prodigy",
-      "dateCreation": "Date of creation",
-      "dateModeration": "Moderation date",
-      "moderatedBy": "Moderate by",
-      "moderationComment": {
-        "approve": {
-          "placeholder": "Optional comment for approval ..."
+        "labels": {
+            "newVideo": "New video",
+            "selectProdige": "Prodigy",
+            "videoDetails": "Video details",
+            "videoFile": "Video file",
+            "manualUrl": "Video URL (manual)",
+            "optional": "Optional",
+            "currentFile": "Current file"
         },
-        "reject": {
-          "placeholder": "Explain the reasons for the rejection (compulsory) ..."
+        "placeholders": {
+            "title": "Video title",
+            "description": "Video description",
+            "videoUrl": "https://exemple.com/video.mp4"
+        },
+        "sort": {
+            "title": {
+                "placeholder": "Sort by title",
+                "down": "Z-A-A title",
+                "up": "Title A-Z"
+            }
+        },
+        "limits": {
+            "title": "Video limit information",
+            "current": "Prodigy {prodigyName}: {current}/{max} videos used ({remaining} remaining)",
+            "reached": "Maximum limit of videos reached for this prodigy."
+        },
+        "guidelines": {
+            "title": "Important guidelines - please read carefully",
+            "expertReview": "All videos will be examined by experts before approval",
+            "hideIdentity": "Professional identity must be masked (no names, logos or identification information)",
+            "athleteConsent": "The consent of the athlete must be obtained and documented",
+            "prodigyOnly": "Only videos demonstrating prodigy techniques are allowed",
+            "noPersonalInfo": "No personal or confidential information should be visible"
+        },
+        "info": {
+            "uploadedFileUsed": "The downloaded file will be used instead of manual URL"
+        },
+        "validation": {
+            "videoRequired": "Please download a video file or provide a video URL"
+        },
+        "messages": {
+            "downloadStarted": "Download launched",
+            "downloadStartedDetail": "Downloading \" {{title}} \" began",
+            "downloadNotAvailable": "Download is not available",
+            "moderationUpdated": "Moderation has been updated",
+            "moderationError": "Error when updating moderation",
+            "noProdigeSelected": "Please first select a prodigy",
+            "titleAndVideoRequired": "The title and the video are required",
+            "videoCreated": "Successful video",
+            "videoUpdated": "Successful update video",
+            "videoDeleted": "Successful video",
+            "confirmDeleteVideo": "Are you sure you want to delete the video '{title}'?",
+            "limitReached": "Video limit affected",
+            "limitReachedDetail": "You have reached the maximum limit of {maxvideos} videos for the prodigy {prodigyname}. "
+        },
+        "actions": {
+            "create": {
+                "success": "Successful video",
+                "error": "Video creation failure"
+            },
+            "update": {
+                "success": "Successful update video",
+                "error": "Video update failure"
+            },
+            "delete": {
+                "success": "Successful video",
+                "error": "Failure to delete video"
+            },
+            "moderate": {
+                "success": "Successful video",
+                "error": "Video moderation failure"
+            },
+            "report": {
+                "success": "Successful video",
+                "error": "Video reporting failure"
+            },
+            "upload": {
+                "success": "Successful televersed video",
+                "error": "Video gauge failure"
+            }
+        },
+        "search": {
+            "noResults": "No video found",
+            "placeholder": "Search for a video ..."
+        },
+        "moderation": {
+            "enAttente": "On hold",
+            "approuvee": "Approved",
+            "rejetee": "Rejected",
+            "rejectedVideo": "Rejected Video",
+            "approvedVideo": "Approved Video",
+            "warning": "⚠️ Warning",
+            "autoDeleteWarning": "Rejected videos will be automatically deleted after 15 days unless updated."
         }
-      },
-      "status": "Status",
-      "search": {
-        "placeholder": "Search by title, prodigy ..."
-      },
-      "filter": {
-        "status": "Statter by status",
-        "all": "All statutes"
-      },
-      "sort": {
-        "placeholder": "Sort by...",
-        "dateCreation": {
-          "desc": "More recent first",
-          "asc": "Older first"
-        },
-        "title": {
-          "asc": "Title A-Z",
-          "desc": "Z-A-A title"
-        },
-        "status": {
-          "asc": "A-Z status",
-          "desc": "Z-A status"
-        }
-      },
-      "actions": {
-        "view": "See",
-        "approve": "Approve",
-        "reject": "Dismiss"
-      },
-      "empty": {
-        "title": "No video found",
-        "description": "There is currently no video corresponding to your research criteria."
-      },
-      "detail": {
-        "title": "Video details",
-        "information": "Information",
-        "moderation": "Moderation"
-      },
-      "confirm": {
-        "approve": "Are you sure you want to approve the video \"{{title}}\"?",
-        "reject": "Are you sure you want to reject the video \"{{title}}\"?",
-        "delete": "Are you sure you want to permanently delete the video \"{{title}}\"? This action is irreversible."
-      },
-      "validation": {
-        "commentRequired": "A comment explaining the reasons for the rejection is compulsory."
-      },
-      "messages": {
-        "loadError": "Error when loading videos.",
-        "approved": "Video successfully approved.",
-        "rejected": "Successful video.",
-        "deleted": "Video deleted successfully.",
-        "moderationError": "Error when moderation of the video.",
-        "deleteError": "Error when deleting the video."
-      }
-    }
-  },
-  "procrud": {
-    "title": "Prodigy management",
-    "labels": {
-      "newProdige": "New prodigy",
-      "prodigeDetails": "Prodigy details",
-      "sport": "Sport",
-      "selectSport": "Select a sport",
-      "addTag": "Add a tag ...",
-      "associatedVideos": "Associated videos",
-      "videoWithoutTitle": "Unit video",
-      "videosCount": "Number of videos"
-    },
-    "columns": {
-      "nom": "Name",
-      "nomExport": "Prodigy name",
-      "age": "Age",
-      "sport": "Sport",
-      "videosCount": "Number of videos",
-      "dateCreation": "Date of creation",
-      "gender": "Gender",
-      "country": "Country"
-    },
-    "pagination": {
-      "itemName": "wonders",
-      "showing": "Display of {first} to {last} on {TotalRecords} Prodigies"
-    },
-    "validation": {
-      "sportRequired": "Sport is compulsory.",
-      "descriptionRequired": "The description is compulsory for \"other\" sport.",
-      "minTagsRequired": "Minimum 3 tags required.",
-      "maxTagsReached": "Maximum 10 authorized tags",
-      "descriptionRequiredForOther": "Mandatory description for sport 'other'"
-    },
-    "placeholders": {
-      "describeQualities": "Describe the qualities and potential of the prodigy ..."
     },
     "tags": {
-      "minMaxInfo": "(min: 3, max: 10)",
-      "selectedCount": "{Count}/10 selected tags",
-      "associatedVideosCount": "{Count} Video (s) associated"
-    },
-    "messages": {
-      "prodigeCreated": "Prodigy created",
-      "prodigeUpdated": "Update",
-      "prodigeDeleted": "Prodigy deleted",
-      "prodigiesDeleted": "Prodigies deleted",
-      "confirmDeleteProdige": "Are you sure you want to delete {name}?",
-      "confirmDeleteProdigies": "Are you sure you want to delete the selected wonders?"
-    },
-    "sort": {
-      "name": {
-        "placeholder": "Sort by name",
-        "down": "Name ▼",
-        "up": "Name ▲"
-      }
-    }
-  },
-  "video": {
-    "labels": {
-      "newVideo": "New video",
-      "selectProdige": "Prodigy",
-      "videoDetails": "Video details",
-      "videoFile": "Video file",
-      "manualUrl": "Video URL (manual)",
-      "optional": "Optional",
-      "currentFile": "Current file"
-    },
-    "placeholders": {
-      "title": "Video title",
-      "description": "Video description",
-      "videoUrl": "https://exemple.com/video.mp4"
-    },
-    "sort": {
-      "title": {
-        "placeholder": "Sort by title",
-        "down": "Z-A-A title",
-        "up": "Title A-Z"
-      }
-    },
-    "limits": {
-      "title": "Video limit information",
-      "current": "Prodigy {prodigynama}: {Current}/{max} videos used ({remaining} remaining)",
-      "reached": "Maximum limit of videos reached for this prodigy."
-    },
-    "guidelines": {
-      "title": "Important guidelines - please read carefully",
-      "expertReview": "All videos will be examined by experts before approval",
-      "hideIdentity": "Professional identity must be masked (no names, logos or identification information)",
-      "athleteConsent": "The consent of the athlete must be obtained and documented",
-      "prodigyOnly": "Only videos demonstrating prodigy techniques are allowed",
-      "noPersonalInfo": "No personal or confidential information should be visible"
-    },
-    "info": {
-      "uploadedFileUsed": "The downloaded file will be used instead of manual URL"
-    },
-    "validation": {
-      "videoRequired": "Please download a video file or provide a video URL"
-    },
-    "messages": {
-      "downloadStarted": "Download launched",
-      "downloadStartedDetail": "Downloading \" {{title}} \" began",
-      "downloadNotAvailable": "Download is not available",
-      "moderationUpdated": "Moderation has been updated",
-      "moderationError": "Error when updating moderation",
-      "noProdigeSelected": "Please first select a prodigy",
-      "titleAndVideoRequired": "The title and the video are required",
-      "videoCreated": "Successful video",
-      "videoUpdated": "Successful update video",
-      "videoDeleted": "Successful video",
-      "confirmDeleteVideo": "Are you sure you want to delete the video '{title}'?",
-      "limitReached": "Video limit affected",
-      "limitReachedDetail": "You have reached the maximum limit of {maxvideos} videos for the prodigy {prodigynama}. "
-    },
-    "actions": {
-      "create": {
-        "success": "Successful video",
-        "error": "Video creation failure"
-      },
-      "update": {
-        "success": "Successful update video",
-        "error": "Video update failure"
-      },
-      "delete": {
-        "success": "Successful video",
-        "error": "Failure to delete video"
-      },
-      "moderate": {
-        "success": "Successful video",
-        "error": "Video moderation failure"
-      },
-      "report": {
-        "success": "Successful video",
-        "error": "Video reporting failure"
-      },
-      "upload": {
-        "success": "Successful televersed video",
-        "error": "Video gauge failure"
-      }
-    },
-    "search": {
-      "noResults": "No video found",
-      "placeholder": "Search for a video ..."
-    },
-    "moderation": {
-      "enAttente": "On hold",
-      "approuvee": "Approved",
-      "rejetee": "Rejected",
-      "rejectedVideo": "Rejected Video",
-      "approvedVideo": "Approved Video",
-      "warning": "⚠️ Warning",
-      "autoDeleteWarning": "Rejected videos will be automatically deleted after 15 days unless updated."
-    }
-  },
-  "tags": {
-    "physical": {
-      "vitesse": "Speed",
-      "endurance": "Endurance",
-      "puissance": "Power",
-      "reflexes": "Reflexes",
-      "agilite": "Agility",
-      "explosivite": "Explosiveness",
-      "souplesse": "Flexibility",
-      "coordination": "Coordination",
-      "equilibre": "Balance"
-    },
-    "technical": {
-      "technique": "Technical",
-      "maitriseDuBallon": "Balloon mastery",
-      "precision": "Precision",
-      "finition": "Finishing",
-      "passeDecisive": "Assistant",
-      "tirCadre": "Creder shot",
-      "dribble": "Dribble",
-      "jeuDeTete": "Head game",
-      "tacle": "Tackle",
-      "interception": "Interception",
-      "gesteTechnique": "Technical gesture",
-      "polyvalence": "Versatility"
-    },
-    "mental": {
-      "intelligenceTactique": "Tactical intelligence",
-      "lectureDuJeu": "Reading the game",
-      "anticipation": "Anticipation",
-      "concentration": "Concentration",
-      "mental": "Mental",
-      "sangFroid": "Bloody",
-      "maturite": "Maturity",
-      "gestionDuTemps": "Time management",
-      "resilience": "Resilience",
-      "visionDeJeu": "Game vision",
-      "decisif": "Decisive",
-      "priseDeDecision": "Decision -making",
-      "adaptabilite": "Adaptability",
-      "competiteur": "Competitor",
-      "leadership": "Leadership",
-      "espritDEquipe": "Team spirit",
-      "determination": "Determination",
-      "confianceEnSoi": "Self -confidence",
-      "motivation": "Motivation",
-      "apprentissageRapide": "Fast learning",
-      "discipline": "Discipline",
-      "regularite": "Regularity",
-      "enduranceMentale": "Mental endurance"
-    },
-    "behavior": {
-      "travailleur": "Worker",
-      "perseverant": "Persevering",
-      "passionne": "Keen",
-      "humilite": "Humility",
-      "exemplaire": "Copy",
-      "respectueux": "Respectful",
-      "charismatique": "Charismatic",
-      "dynamique": "Dynamic",
-      "engage": "Engaged",
-      "fairPlay": "Fair play",
-      "influenceurDeVestiaire": "Cloakroom influencer",
-      "attitudeProfessionnelle": "Professional attitude"
-    },
-    "creativity": {
-      "creativite": "Creativity",
-      "styleDeJeuUnique": "Unique play style",
-      "spectaculaire": "Spectacular",
-      "showman": "Showman",
-      "imagination": "Imagination"
-    },
-    "potential": {
-      "grosPotentiel": "Big potential",
-      "enProgres": "Progress",
-      "jeunePrometteur": "Promising young",
-      "talentNaturel": "Natural talent"
-    },
-    "unknown": "Unknown tag"
-  },
-  "sports": {
-    "football": "Soccer",
-    "basketball": "Basketball",
-    "rugby": "Rugby",
-    "tennis": "Tennis",
-    "boxe": "Boxing",
-    "footballAmericain": "Football",
-    "hockeySurGlace": "Ice hockey",
-    "baseball": "Baseball",
-    "mma": "Mma",
-    "autre": "Other",
-    "unknown": "Unknown sport"
-  },
-  "primeng": {
-    "version": "Version 1.3.1",
-    "delete_all": "Delete everything",
-    "delete_all_filter": "Delete all filters",
-    "results": "results",
-    "save": "Save",
-    "cancel": "Cancel",
-    "search": "To research",
-    "startdate": "Start date",
-    "enddate": "End date",
-    "status": "Status",
-    "transactionnumber": "Transaction number",
-    "transactiondate": "Transaction date",
-    "download": "Download",
-    "amount": "Amount",
-    "date": "Date",
-    "or": "Or",
-    "agency": "Agency",
-    "customer": "Customer",
-    "lineselected": "selected lines",
-    "areyousure": "Are you sure?",
-    "confirmed": "Confirm",
-    "generationinprogress": "Current generation",
-    "purchaselines": "Purchasing lines",
-    "dashboard": "Dashboard",
-    "name": "Name",
-    "prenom": "First name",
-    "email": "E-mail address",
-    "saved": "Saved",
-    "error": "Error",
-    "description": "Description",
-    "leave": "To leave",
-    "not_allowed_page": "You do not have the rights necessary to access this page",
-    "validate_action": "Please write \"Validate\" to validate this action",
-    "back": "Back",
-    "valider": "To validate",
-    "success": "Success",
-    "suivant": "Following",
-    "precedent": "Previous",
-    "export": "Export",
-    "import": "Import",
-    "import_csv": "Import .csv",
-    "no": "No",
-    "yes": "Yes",
-    "enabled": "enable",
-    "disabled": "disable",
-    "activate": "enable",
-    "deactivate": "disable",
-    "activated": "activated",
-    "deactivated": "disabled",
-    "information": "Information",
-    "creation_date": "Creation date:",
-    "export_csv": "Export .csv",
-    "voir": "See",
-    "actif": "Active",
-    "active": "Active",
-    "inactif": "Inactive",
-    "inactive": "Inactive",
-    "selectionner": "Select",
-    "refresh": "Refresh",
-    "filter_by": "Filter by",
-    "update": "To modify",
-    "delete": "DELETE",
-    "edit": "To modify",
-    "comment": "Comment : ",
-    "comment_without_double_point": "Comment ",
-    "double_point": "::",
-    "toast_summary_update_error": "Impossible modification",
-    "toast_summary_create_error": "Impossible add",
-    "toast_summary_delete_error": "Impossible deletion",
-    "toast_summary_delete_error2": "Summary of the deletion error",
-    "toast_label_warning": "Attention",
-    "ok": "OK",
-    "select_date": "Select a date",
-    "select_hour": "Select an hour",
-    "require": "The field is compulsory ",
-    "tiret": "-",
-    "startsWith": "Starts with",
-    "contains": "Contains",
-    "notContains": "Does not contain",
-    "endsWith": "Ends with",
-    "equals": "Equal to",
-    "notEquals": "Different from",
-    "noFilter": "No filter",
-    "filter": "Filter",
-    "lt": "Less than",
-    "lte": "Less than or equal to",
-    "gt": "Superior to",
-    "gte": "Greater than or equal to",
-    "dateIs": "Date equal to",
-    "dateIsNot": "Different date from",
-    "dateBefore": "Date prior to",
-    "dateAfter": "Date after",
-    "clear": "To erase",
-    "apply": "Apply",
-    "matchAll": "Everything corresponds",
-    "matchAny": "Any",
-    "addRule": "Add rule",
-    "removeRule": "Delete rule",
-    "accept": "Yes",
-    "reject": "No",
-    "choose": "Choose",
-    "upload": "Download",
-    "dayNames": [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "THURSDAY",
-      "Friday",
-      "SATURDAY"
-    ],
-    "dayNamesShort": [
-      "sun",
-      "mon",
-      "mar",
-      "sea",
-      "game",
-      "fri",
-      "sat"
-    ],
-    "dayNamesMin": [
-      "D",
-      "L",
-      "M",
-      "M",
-      "J",
-      "V",
-      "S"
-    ],
-    "monthNames": [
-      "January",
-      "FEBRUARY",
-      "March",
-      "april",
-      "may",
-      "June",
-      "July",
-      "august",
-      "september",
-      "october",
-      "november",
-      "December"
-    ],
-    "monthNamesShort": [
-      "Jan",
-      "Feb",
-      "March",
-      "apr",
-      "may",
-      "June",
-      "jul",
-      "august",
-      "seven",
-      "oct",
-      "nov",
-      "dec"
-    ],
-    "today": "Today",
-    "weekHeader": "Sem",
-    "firstDayOfWeek": 1,
-    "dateFormat": "DD/mm/yy",
-    "weak": "Weak",
-    "medium": "AVERAGE",
-    "strong": "Strong",
-    "passwordPrompt": "Enter a password",
-    "emptyMessage": "No results found",
-    "emptyFilterMessage": "No results found",
-    "selectedItemsLabel": "{0} selected elements",
-    "double_quote": "\"\"",
-    "asterisk": "*",
-    "value": "Value"
-  },
-  "uploader": {
-    "title": "MP4 videos downloader",
-    "note": "MP4 videos only, up to 500 MB each",
-    "info": {
-      "single": "Download an MP4 video to start",
-      "fileLimit": "{{current}}/{{max}} Files ({{remaining}} remaining)"
-    },
-    "statistics": {
-      "remaining": "remaining",
-      "files": "File (s)",
-      "uploading": "in progress",
-      "completed": "finished (s)"
-    },
-    "status": {
-      "uploading": "Download in progress ...",
-      "completed": "Finished",
-      "locked": "Locked"
-    },
-    "actions": {
-      "preview": "Preview",
-      "remove": "DELETE",
-      "close": "Close",
-      "upload": "Download",
-      "cancel": "Cancel"
-    },
-    "empty": {
-      "title": "No file downloaded for the moment",
-      "subtitle": {
-        "single": "Use the above downloader to save or download an MP4 video",
-        "multiple": "Use the above downloader to save or download up to {{maxFiles}} MP4 videos"
-      }
-    },
-    "preview": {
-      "title": "Video preview"
-    },
-    "messages": {
-      "fileLimitReached": "Limit of affected files",
-      "uploadComplete": "Download completed",
-      "uploadSuccess": "{Filename} successfully downloaded!",
-      "uploadFailed": "Download failure",
-      "uploadFailedDetail": "Unable to download {Filename}",
-      "fileRestriction": "File restriction",
-      "cannotRemove": "Unable to delete",
-      "cannotRemoveLocked": "Unable to delete the locked file",
-      "fileRemoved": "Deleted file",
-      "fileRemovedSuccess": "Successfully deleted file",
-      "removalFailed": "Deletion failure",
-      "removalFailedDetail": "Unable to delete the file. ",
-      "uploadPreparationFailed": "Download preparation failure",
-      "uploadPreparationFailedDetail": "Unable to prepare the download. ",
-      "duplicateFile": "Double file",
-      "duplicateFileDetail": "The {Filename} file has already been added"
-    },
-    "dashboard": {
-      "strings": {
-        "addMoreFiles": "Add more files",
-        "addingMoreFiles": "Adding more files",
-        "allowAccessDescription": "To take photos or save videos with your camera, please allow access to the camera for this site.",
-        "allowAccessTitle": "Please allow access to your camera",
-        "authenticateWith": "Connect to {pluginname}",
-        "authenticateWithTitle": "Please authenticate with {pluginname} to select files",
-        "back": "Back",
-        "browse": "go through",
-        "browseFiles": "Browse the files",
-        "cancel": "Cancel",
-        "cancelUpload": "Cancel the download",
-        "chooseFiles": "Choose files",
-        "closeModal": "Climb the window",
-        "companionError": "Connection with Companion failed",
-        "complete": "Finished",
-        "connectedToInternet": "Internet connected",
-        "copyLink": "Copy the link",
-        "copyLinkToClipboardFallback": "Copy the URL below",
-        "copyLinkToClipboardSuccess": "Link copied in the clipboard",
-        "creatingAssembly": "Download preparation ...",
-        "creatingAssemblyFailed": "TransLODIT: Unable to create the Assembly",
-        "dashboardTitle": "File downloader",
-        "dashboardWindowTitle": "File download window (press escape to close)",
-        "dataUploadedOfTotal": "{Complete} on {Total}",
-        "done": "Finished",
-        "dropHereOr": "Place the files here or %{BROWSE}",
-        "dropHint": "Submit your files here",
-        "dropPasteBoth": "Place the files here, glue or %{BROWSE}",
-        "dropPasteFiles": "Place the files here, glue or %{BROWSE}",
-        "dropPasteImportBoth": "Place the files here, glue, %{BROWSE} or import since",
-        "dropPasteImportFiles": "Place the files here, glue, %{BROWSE} or import since",
-        "edit": "To modify",
-        "editFile": "Modify the file",
-        "editing": "Modification of %{file}",
-        "emptyFolderAdded": "No file has been added from the empty folder",
-        "encoding": "Encoding ...",
-        "enterCorrectUrl": "Incorrect URL: Make sure you enter a direct link to a file",
-        "enterUrlToImport": "Enter the URL to import a file",
-        "exceedsSize": "This file exceeds the maximum authorized size of",
-        "failedToFetch": "Companion could not recover this URL, make sure it is correct",
-        "failedToUpload": "Failed to download %{File}",
-        "fileSource": "File source: %{name}",
-        "filesUploadedOfTotal": {
-          "0": "%{Complete} on %{smart_count} downloaded file",
-          "1": "%{Complete} on %{smart_count} downloaded files"
+        "physical": {
+            "vitesse": "Speed",
+            "endurance": "Endurance",
+            "puissance": "Power",
+            "reflexes": "Reflexes",
+            "agilite": "Agility",
+            "explosivite": "Explosiveness",
+            "souplesse": "Flexibility",
+            "coordination": "Coordination",
+            "equilibre": "Balance"
         },
-        "filter": "Filter",
-        "finishEditingFile": "Finish the modification of the file",
-        "folderAdded": {
-          "0": "%{smart_count} file added from %{folder}",
-          "1": "%{smart_count} files added from %{folder}"
+        "technical": {
+            "technique": "Technical",
+            "maitriseDuBallon": "Balloon mastery",
+            "precision": "Precision",
+            "finition": "Finishing",
+            "passeDecisive": "Assistant",
+            "tirCadre": "Creder shot",
+            "dribble": "Dribble",
+            "jeuDeTete": "Head game",
+            "tacle": "Tackle",
+            "interception": "Interception",
+            "gesteTechnique": "Technical gesture",
+            "polyvalence": "Versatility"
         },
-        "import": "Import",
-        "importFrom": "Import since %{name}",
-        "loading": "Loading...",
-        "logOut": "Disconnect",
-        "myDevice": "My device",
-        "noFilesFound": "You have no file or folder here",
-        "noInternetConnection": "No internet connection",
-        "pause": "Break",
-        "pauseUpload": "Break down the download",
-        "paused": "Break",
-        "poweredBy": "Propelled by %{uppy}",
-        "processingXFiles": {
-          "0": "%{Smart_count} file",
-          "1": "%{Smart_count} files"
+        "mental": {
+            "intelligenceTactique": "Tactical intelligence",
+            "lectureDuJeu": "Reading the game",
+            "anticipation": "Anticipation",
+            "concentration": "Concentration",
+            "mental": "Mental",
+            "sangFroid": "Bloody",
+            "maturite": "Maturity",
+            "gestionDuTemps": "Time management",
+            "resilience": "Resilience",
+            "visionDeJeu": "Game vision",
+            "decisif": "Decisive",
+            "priseDeDecision": "Decision -making",
+            "adaptabilite": "Adaptability",
+            "competiteur": "Competitor",
+            "leadership": "Leadership",
+            "espritDEquipe": "Team spirit",
+            "determination": "Determination",
+            "confianceEnSoi": "Self -confidence",
+            "motivation": "Motivation",
+            "apprentissageRapide": "Fast learning",
+            "discipline": "Discipline",
+            "regularite": "Regularity",
+            "enduranceMentale": "Mental endurance"
         },
-        "removeFile": "Delete the file",
-        "resetFilter": "Reset the filter",
-        "resume": "To resume",
-        "resumeUpload": "Download",
-        "retry": "Try again",
-        "retryUpload": "Try the download trying",
+        "behavior": {
+            "travailleur": "Worker",
+            "perseverant": "Persevering",
+            "passionne": "Keen",
+            "humilite": "Humility",
+            "exemplaire": "Copy",
+            "respectueux": "Respectful",
+            "charismatique": "Charismatic",
+            "dynamique": "Dynamic",
+            "engage": "Engaged",
+            "fairPlay": "Fair play",
+            "influenceurDeVestiaire": "Cloakroom influencer",
+            "attitudeProfessionnelle": "Professional attitude"
+        },
+        "creativity": {
+            "creativite": "Creativity",
+            "styleDeJeuUnique": "Unique play style",
+            "spectaculaire": "Spectacular",
+            "showman": "Showman",
+            "imagination": "Imagination"
+        },
+        "potential": {
+            "grosPotentiel": "Big potential",
+            "enProgres": "Progress",
+            "jeunePrometteur": "Promising young",
+            "talentNaturel": "Natural talent"
+        },
+        "unknown": "Unknown tag"
+    },
+    "sports": {
+        "football": "Soccer",
+        "basketball": "Basketball",
+        "rugby": "Rugby",
+        "tennis": "Tennis",
+        "boxe": "Boxing",
+        "footballAmericain": "Football",
+        "hockeySurGlace": "Ice hockey",
+        "baseball": "Baseball",
+        "mma": "Mma",
+        "autre": "Other",
+        "unknown": "Unknown sport"
+    },
+    "primeng": {
+        "version": "Version 1.3.1",
+        "delete_all": "Delete everything",
+        "delete_all_filter": "Delete all filters",
+        "results": "results",
         "save": "Save",
-        "selectFileNamed": "Select the file %{name}",
-        "selectX": {
-          "0": "Select %{smart_count}",
-          "1": "Select %{smart_count}"
-        },
-        "smile": "Smile!",
-        "startRecording": "Start video recording",
-        "stopRecording": "Stop video recording",
-        "takePicture": "Take a photo",
-        "timedOut": "Download blocked for %{seconds} seconds, abandonment.",
+        "cancel": "Cancel",
+        "search": "To research",
+        "startdate": "Start date",
+        "enddate": "End date",
+        "status": "Status",
+        "transactionnumber": "Transaction number",
+        "transactiondate": "Transaction date",
+        "download": "Download",
+        "amount": "Amount",
+        "date": "Date",
+        "or": "Or",
+        "agency": "Agency",
+        "customer": "Customer",
+        "lineselected": "selected lines",
+        "areyousure": "Are you sure?",
+        "confirmed": "Confirm",
+        "generationinprogress": "Current generation",
+        "purchaselines": "Purchasing lines",
+        "dashboard": "Dashboard",
+        "name": "Name",
+        "prenom": "First name",
+        "email": "E-mail address",
+        "saved": "Saved",
+        "error": "Error",
+        "description": "Description",
+        "leave": "To leave",
+        "not_allowed_page": "You do not have the rights necessary to access this page",
+        "validate_action": "Please write \"Validate\" to validate this action",
+        "back": "Back",
+        "valider": "To validate",
+        "success": "Success",
+        "suivant": "Following",
+        "precedent": "Previous",
+        "export": "Export",
+        "import": "Import",
+        "import_csv": "Import .csv",
+        "no": "No",
+        "yes": "Yes",
+        "enabled": "enable",
+        "disabled": "disable",
+        "activate": "enable",
+        "deactivate": "disable",
+        "activated": "activated",
+        "deactivated": "disabled",
+        "information": "Information",
+        "creation_date": "Creation date:",
+        "export_csv": "Export .csv",
+        "voir": "See",
+        "actif": "Active",
+        "active": "Active",
+        "inactif": "Inactive",
+        "inactive": "Inactive",
+        "selectionner": "Select",
+        "refresh": "Refresh",
+        "filter_by": "Filter by",
+        "update": "To modify",
+        "delete": "DELETE",
+        "edit": "To modify",
+        "comment": "Comment : ",
+        "comment_without_double_point": "Comment ",
+        "double_point": "::",
+        "toast_summary_update_error": "Impossible modification",
+        "toast_summary_create_error": "Impossible add",
+        "toast_summary_delete_error": "Impossible deletion",
+        "toast_summary_delete_error2": "Summary of the deletion error",
+        "toast_label_warning": "Attention",
+        "ok": "OK",
+        "select_date": "Select a date",
+        "select_hour": "Select an hour",
+        "require": "The field is compulsory ",
+        "tiret": "-",
+        "startsWith": "Starts with",
+        "contains": "Contains",
+        "notContains": "Does not contain",
+        "endsWith": "Ends with",
+        "equals": "Equal to",
+        "notEquals": "Different from",
+        "noFilter": "No filter",
+        "filter": "Filter",
+        "lt": "Less than",
+        "lte": "Less than or equal to",
+        "gt": "Superior to",
+        "gte": "Greater than or equal to",
+        "dateIs": "Date equal to",
+        "dateIsNot": "Different date from",
+        "dateBefore": "Date prior to",
+        "dateAfter": "Date after",
+        "clear": "To erase",
+        "apply": "Apply",
+        "matchAll": "Everything corresponds",
+        "matchAny": "Any",
+        "addRule": "Add rule",
+        "removeRule": "Delete rule",
+        "accept": "Yes",
+        "reject": "No",
+        "choose": "Choose",
         "upload": "Download",
-        "uploadComplete": "Download completed",
-        "uploadFailed": "Download failure",
-        "uploadPaused": "Pause download",
-        "uploadXFiles": {
-          "0": "Download %{smart_count} file",
-          "1": "Download %{smart_count} files"
-        },
-        "uploadXNewFiles": {
-          "0": "Download +%{smart_count} file",
-          "1": "Download +%{smart_count} files"
-        },
-        "uploading": "Download in progress",
-        "uploadingXFiles": {
-          "0": "%{Smart_count} file",
-          "1": "%{Smart_count} files"
-        },
-        "xFilesSelected": {
-          "0": "%{smart_count} selected file",
-          "1": "%{smart_count} selected files"
-        },
-        "xMoreFilesAdded": {
-          "0": "%{smart_count} added additional file",
-          "1": "%{smart_count} Additional files added"
-        },
-        "xTimeLeft": "%{time} remaining",
-        "youCanOnlyUploadFileTypes": "You can only download: %{types}",
-        "youCanOnlyUploadX": {
-          "0": "You can only download %{smart_count} file",
-          "1": "You can only download %{smart_count} files"
-        },
-        "youHaveToAtLeastSelectX": {
-          "0": "You must select at least %{smart_count} file",
-          "1": "You must select at least %{smart_count} files"
-        }
-      }
+        "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "THURSDAY", "Friday", "SATURDAY"],
+        "dayNamesShort": ["sun", "mon", "mar", "sea", "game", "fri", "sat"],
+        "dayNamesMin": ["D", "L", "M", "M", "J", "V", "S"],
+        "monthNames": ["January", "FEBRUARY", "March", "april", "may", "June", "July", "august", "september", "october", "november", "December"],
+        "monthNamesShort": ["Jan", "Feb", "March", "apr", "may", "June", "jul", "august", "seven", "oct", "nov", "dec"],
+        "today": "Today",
+        "weekHeader": "Sem",
+        "firstDayOfWeek": 1,
+        "dateFormat": "DD/mm/yy",
+        "weak": "Weak",
+        "medium": "AVERAGE",
+        "strong": "Strong",
+        "passwordPrompt": "Enter a password",
+        "emptyMessage": "No results found",
+        "emptyFilterMessage": "No results found",
+        "selectedItemsLabel": "{0} selected elements",
+        "double_quote": "\"\"",
+        "asterisk": "*",
+        "value": "Value"
     },
-    "service": {
-      "errors": {
-        "presignedUrl": "Failure of the signed URL generation",
-        "removeFile": "File deletion failure",
-        "uploadFile": "Failure to send the file via the signed URL",
-        "getFileList": "Failure to recover the list of files",
-        "updateMetadata": "Failure to update the metadata of the file"
-      }
+    "uploader": {
+        "title": "MP4 videos downloader",
+        "note": {
+            "single": "Videos only, up to {maxSize} each",
+            "multiple": "Videos only, up to {maxSize} each, max {maxFiles} files"
+        },
+        "info": {
+            "single": "Download an MP4 video to start",
+            "fileLimit": "{{current}}/{{max}} Files ({{remaining}} remaining)"
+        },
+        "statistics": {
+            "remaining": "remaining",
+            "files": "File (s)",
+            "uploading": "in progress",
+            "completed": "finished (s)"
+        },
+        "status": {
+            "uploading": "Download in progress ...",
+            "completed": "Finished",
+            "locked": "Locked"
+        },
+        "actions": {
+            "preview": "Preview",
+            "remove": "DELETE",
+            "close": "Close",
+            "upload": "Download",
+            "cancel": "Cancel"
+        },
+        "empty": {
+            "title": "No file downloaded for the moment",
+            "subtitle": {
+                "single": "Use the above downloader to save or download an MP4 video",
+                "multiple": "Use the above downloader to save or download up to {{maxFiles}} MP4 videos"
+            }
+        },
+        "preview": {
+            "title": "Video preview"
+        },
+        "messages": {
+            "fileLimitReached": "Limit of affected files",
+            "uploadComplete": "Download completed",
+            "uploadSuccess": "{Filename} successfully downloaded!",
+            "uploadFailed": "Download failure",
+            "uploadFailedDetail": "Unable to download {Filename}",
+            "fileRestriction": "File restriction",
+            "cannotRemove": "Unable to delete",
+            "cannotRemoveLocked": "Unable to delete the locked file",
+            "fileRemoved": "Deleted file",
+            "fileRemovedSuccess": "Successfully deleted file",
+            "removalFailed": "Deletion failure",
+            "removalFailedDetail": "Unable to delete the file. ",
+            "uploadPreparationFailed": "Download preparation failure",
+            "uploadPreparationFailedDetail": "Unable to prepare the download. ",
+            "duplicateFile": "Double file",
+            "duplicateFileDetail": "The {Filename} file has already been added"
+        },
+        "dashboard": {
+            "strings": {
+                "addMoreFiles": "Add more files",
+                "addingMoreFiles": "Adding more files",
+                "allowAccessDescription": "To take photos or save videos with your camera, please allow access to the camera for this site.",
+                "allowAccessTitle": "Please allow access to your camera",
+                "authenticateWith": "Connect to {pluginname}",
+                "authenticateWithTitle": "Please authenticate with {pluginname} to select files",
+                "back": "Back",
+                "browse": "go through",
+                "browseFiles": "browse the files",
+                "cancel": "Cancel",
+                "cancelUpload": "Cancel the download",
+                "chooseFiles": "Choose files",
+                "closeModal": "Climb the window",
+                "companionError": "Connection with Companion failed",
+                "complete": "Finished",
+                "connectedToInternet": "Internet connected",
+                "copyLink": "Copy the link",
+                "copyLinkToClipboardFallback": "Copy the URL below",
+                "copyLinkToClipboardSuccess": "Link copied in the clipboard",
+                "creatingAssembly": "Download preparation ...",
+                "creatingAssemblyFailed": "TransLODIT: Unable to create the Assembly",
+                "dashboardTitle": "File downloader",
+                "dashboardWindowTitle": "File download window (press escape to close)",
+                "dataUploadedOfTotal": "{Complete} on {Total}",
+                "done": "Finished",
+                "dropHereOr": "Place the files here or %{browse}",
+                "dropHint": "Submit your files here",
+                "dropPasteBoth": "Place the files here, glue or %{browse}",
+                "dropPasteFiles": "Place the files here, glue or %{browse}",
+                "dropPasteImportBoth": "Place the files here, glue, %{browse} or import since",
+                "dropPasteImportFiles": "Place the files here, glue, %{browse} or import since",
+                "edit": "To modify",
+                "editFile": "Modify the file",
+                "editing": "Modification of %{file}",
+                "emptyFolderAdded": "No file has been added from the empty folder",
+                "encoding": "Encoding ...",
+                "enterCorrectUrl": "Incorrect URL: Make sure you enter a direct link to a file",
+                "enterUrlToImport": "Enter the URL to import a file",
+                "exceedsSize": "This file exceeds the maximum authorized size of",
+                "failedToFetch": "Companion could not recover this URL, make sure it is correct",
+                "failedToUpload": "Failed to download %{File}",
+                "fileSource": "File source: %{name}",
+                "filesUploadedOfTotal": {
+                    "0": "%{Complete} on %{smart_count} downloaded file",
+                    "1": "%{Complete} on %{smart_count} downloaded files"
+                },
+                "filter": "Filter",
+                "finishEditingFile": "Finish the modification of the file",
+                "folderAdded": {
+                    "0": "%{smart_count} file added from %{folder}",
+                    "1": "%{smart_count} files added from %{folder}"
+                },
+                "import": "Import",
+                "importFrom": "Import since %{name}",
+                "loading": "Loading...",
+                "logOut": "Disconnect",
+                "myDevice": "My device",
+                "noFilesFound": "You have no file or folder here",
+                "noInternetConnection": "No internet connection",
+                "pause": "Break",
+                "pauseUpload": "Break down the download",
+                "paused": "Break",
+                "poweredBy": "Propelled by %{uppy}",
+                "processingXFiles": {
+                    "0": "%{Smart_count} file",
+                    "1": "%{Smart_count} files"
+                },
+                "removeFile": "Delete the file",
+                "resetFilter": "Reset the filter",
+                "resume": "To resume",
+                "resumeUpload": "Download",
+                "retry": "Try again",
+                "retryUpload": "Try the download trying",
+                "save": "Save",
+                "selectFileNamed": "Select the file %{name}",
+                "selectX": {
+                    "0": "Select %{smart_count}",
+                    "1": "Select %{smart_count}"
+                },
+                "smile": "Smile!",
+                "startRecording": "Start video recording",
+                "stopRecording": "Stop video recording",
+                "takePicture": "Take a photo",
+                "timedOut": "Download blocked for %{seconds} seconds, abandonment.",
+                "upload": "Download",
+                "uploadComplete": "Download completed",
+                "uploadFailed": "Download failure",
+                "uploadPaused": "Pause download",
+                "uploadXFiles": {
+                    "0": "Download %{smart_count} file",
+                    "1": "Download %{smart_count} files"
+                },
+                "uploadXNewFiles": {
+                    "0": "Download +%{smart_count} file",
+                    "1": "Download +%{smart_count} files"
+                },
+                "uploading": "Download in progress",
+                "uploadingXFiles": {
+                    "0": "%{Smart_count} file",
+                    "1": "%{Smart_count} files"
+                },
+                "xFilesSelected": {
+                    "0": "%{smart_count} selected file",
+                    "1": "%{smart_count} selected files"
+                },
+                "xMoreFilesAdded": {
+                    "0": "%{smart_count} added additional file",
+                    "1": "%{smart_count} Additional files added"
+                },
+                "xTimeLeft": "%{time} remaining",
+                "youCanOnlyUploadFileTypes": "You can only download: %{types}",
+                "youCanOnlyUploadX": {
+                    "0": "You can only download %{smart_count} file",
+                    "1": "You can only download %{smart_count} files"
+                },
+                "youHaveToAtLeastSelectX": {
+                    "0": "You must select at least %{smart_count} file",
+                    "1": "You must select at least %{smart_count} files"
+                }
+            }
+        },
+        "service": {
+            "errors": {
+                "presignedUrl": "Failure of the signed URL generation",
+                "removeFile": "File deletion failure",
+                "uploadFile": "Failure to send the file via the signed URL",
+                "getFileList": "Failure to recover the list of files",
+                "updateMetadata": "Failure to update the metadata of the file"
+            }
+        }
+    },
+    "countries": {
+        "ad": "Andorrian",
+        "ae": "United Arab Emirates",
+        "af": "Afghanistan",
+        "ag": "Antigua-et-Barbuda",
+        "ai": "Eel",
+        "al": "Albania",
+        "am": "Armenia",
+        "ao": "Angola",
+        "aq": "Antarctic",
+        "ar": "Argentina",
+        "as": "American Samoa",
+        "at": "Austria",
+        "au": "Australia",
+        "aw": "Aruba",
+        "ax": "Åland Islands",
+        "az": "Azerbaijan",
+        "ba": "Bosnia and Herzegovina",
+        "bb": "Barbade",
+        "bd": "Bangladesh",
+        "be": "Belgium",
+        "bf": "Burkina Faso",
+        "bg": "Bulgaria",
+        "bh": "Bahrain",
+        "bi": "Burundi",
+        "bj": "Benign",
+        "bl": "Saint-Barthélemy",
+        "bm": "Bermuda",
+        "bn": "Brunei",
+        "bo": "Bolivia",
+        "bq": "Netherlands Caribbeans",
+        "br": "Brazil",
+        "bs": "Bahamas",
+        "bt": "Bhoutan",
+        "bv": "Bouvet Island",
+        "bw": "Botswana",
+        "by": "Bélarus",
+        "bz": "Belize",
+        "ca": "Canada",
+        "cc": "Cocos Islands (Keeling)",
+        "cd": "Democratic Republic of Congo",
+        "cf": "Central African Republic",
+        "cg": "Republic of Congo",
+        "ch": "Swiss",
+        "ci": "Ivory Coast",
+        "ck": "Cook Islands",
+        "cl": "Chile",
+        "cm": "Cameroon",
+        "cn": "China",
+        "co": "Colombia",
+        "cr": "Costa Rica",
+        "cs": "Czechoslovakia",
+        "cu": "Cuba",
+        "cv": "Cap-green",
+        "cw": "Curaçao",
+        "cx": "Christmas island",
+        "cy": "Cyprus",
+        "cz": "Czech Republic",
+        "dd": "German Democratic Republic",
+        "de": "Germany",
+        "dj": "Djibouti",
+        "dk": "Denmark",
+        "dm": "Dominique",
+        "do": "Dominican Republic",
+        "dz": "Algeria",
+        "ec": "Equator",
+        "ee": "Estonia",
+        "eg": "Egypt",
+        "eh": "Western Sahara",
+        "er": "Eritrea",
+        "es": "Spain",
+        "et": "Ethiopia",
+        "fi": "Finland",
+        "fj": "Fiji",
+        "fk": "Falkland Islands",
+        "fm": "Micronesia",
+        "fo": "Faroe Islands",
+        "fr": "France",
+        "fx": "Metropolitan France",
+        "ga": "Gabon",
+        "gb": "United Kingdom",
+        "gd": "Grenade",
+        "ge": "Georgia",
+        "gf": "Guyana",
+        "gg": "Guernsey",
+        "gh": "Ghana",
+        "gi": "Gibraltar",
+        "gl": "Greenland",
+        "gm": "Gambia",
+        "gn": "Guinea",
+        "gp": "Guadeloupe",
+        "gq": "Equatorial Guinea",
+        "gr": "Greece",
+        "gs": "South-and-the South Sandwich Georgia",
+        "gt": "Guatemala",
+        "gu": "Guam",
+        "gw": "Guinea-Bissau",
+        "gy": "Guyana",
+        "hk": "Hong Kong",
+        "hm": "Heard-et-Macdonald Islands",
+        "hn": "Honduras",
+        "hr": "Croatia",
+        "ht": "Haiti",
+        "hu": "Hungary",
+        "id": "Indonesia",
+        "ie": "Ireland",
+        "il": "Israel",
+        "im": "Man Island",
+        "in": "India",
+        "io": "British Indian Ocean territory",
+        "iq": "Iraq",
+        "ir": "Iran",
+        "is": "Iceland",
+        "it": "Italy",
+        "je": "Jersey",
+        "jm": "Jamaica",
+        "jo": "Jordan",
+        "jp": "Japan",
+        "ke": "Kenya",
+        "kg": "Kyrgyzistan",
+        "kh": "Cambodia",
+        "ki": "Kiribati",
+        "km": "Comoros",
+        "kn": "Saint-Christophe-et-Niévès",
+        "kp": "North Korea",
+        "kr": "South Korea",
+        "kw": "Kuwait",
+        "ky": "Cayman islands",
+        "kz": "Kazakhstan",
+        "la": "Laos",
+        "lb": "Lebanon",
+        "lc": "Sainte-Lucie",
+        "li": "Liechtenstein",
+        "lr": "Liberia",
+        "ls": "Lesotho",
+        "lt": "Lithuania",
+        "lu": "Luxembourg",
+        "lv": "Latvia",
+        "ly": "Libya",
+        "ma": "Morocco",
+        "mc": "Monaco",
+        "md": "Moldova",
+        "me": "Montenegro",
+        "mf": "Saint-Martin",
+        "mg": "Madagascar",
+        "mh": "Marshall Islands",
+        "mk": "North Macedonia",
+        "ml": "Mali",
+        "mm": "Myanmar",
+        "mn": "Mongolia",
+        "mo": "Macao",
+        "mp": "Northern Mariana Islands",
+        "mq": "Martinique",
+        "mr": "Mauritania",
+        "ms": "Montserrat",
+        "mt": "Malta",
+        "mu": "Mauritius",
+        "mv": "Maldives",
+        "mw": "Malawi",
+        "mx": "Mexico",
+        "my": "Malaysia",
+        "mz": "Mozambique",
+        "na": "Namibia",
+        "nc": "New Caledonia",
+        "ne": "Niger",
+        "nf": "Norfolk Island",
+        "ng": "Nigeria",
+        "ni": "Nicaragua",
+        "nl": "The Netherlands",
+        "no": "Norway",
+        "np": "Nepal",
+        "nr": "Nauru",
+        "nt": "Neutral zone",
+        "nu": "Niue",
+        "nz": "New Zealand",
+        "om": "Oman",
+        "pa": "Panama",
+        "pe": "Peru",
+        "pf": "French Polynesia",
+        "pg": "Papua New Guinea",
+        "ph": "Philippines",
+        "pk": "Pakistan",
+        "pl": "Poland",
+        "pm": "Saint-Pierre-et-Miquelon",
+        "pn": "Pitcairn",
+        "pr": "Puerto Rico",
+        "ps": "Palestine",
+        "pt": "Portugal",
+        "pw": "Palaos",
+        "py": "Paraguay",
+        "qa": "Qatar",
+        "re": "Reunion",
+        "ro": "Romania",
+        "rs": "Serbia",
+        "ru": "Russia",
+        "rw": "Rwanda",
+        "sa": "Saudi Arabia",
+        "sb": "Solomon Islands",
+        "sc": "Seychelles",
+        "sd": "Sudan",
+        "se": "Suede",
+        "sg": "Singapore",
+        "sh": "Sainte-Hélène",
+        "si": "Slovenia",
+        "sj": "Svalbard and Jan Mayen",
+        "sk": "Slovakia",
+        "sl": "Sierra Leone",
+        "sm": "Saint-Marin",
+        "sn": "Senegal",
+        "so": "Somalia",
+        "sr": "Overriname",
+        "ss": "South Sudan",
+        "st": "Sao Tomé-et-Principe",
+        "su": "Soviet Union",
+        "sv": "El Salvador",
+        "sx": "Saint-Martin",
+        "sy": "Syria",
+        "sz": "Eswatini",
+        "tc": "Turkish-and-Caican Islands",
+        "td": "Chad",
+        "tf": "French Southern Lands",
+        "tg": "Togo",
+        "th": "Thailand",
+        "tj": "Tadjikistan",
+        "tk": "Tokelau",
+        "tl": "Timor-Oriental",
+        "tm": "Turkmenistan",
+        "tn": "Tunisia",
+        "to": "Tonga",
+        "tr": "Türkiye",
+        "tt": "Trinity and Tobago",
+        "tv": "Tuvalu",
+        "tw": "Taiwan",
+        "tz": "Tanzania",
+        "ua": "Ukraine",
+        "ug": "Uganda",
+        "um": "Minor Islands from the United States",
+        "us": "UNITED STATES",
+        "uy": "Uruguay",
+        "uz": "Uzbekistan",
+        "va": "Vatican City",
+        "vc": "Saint-Vincent-et-les Grenadines",
+        "ve": "Venezuela",
+        "vg": "British virgin islands",
+        "vi": "Virgin islands of the United States",
+        "vn": "Vietnam Vietnam",
+        "vu": "Vanuatu",
+        "wf": "Wallis-et-Futuna",
+        "ws": "Samoa",
+        "xk": "Kosovo",
+        "ye": "Yemen",
+        "yt": "Mayotte",
+        "yu": "Yugoslavia",
+        "za": "South Africa",
+        "zm": "Zambia",
+        "zr": "Zaire",
+        "zw": "Zimbabwe"
+    },
+    "topbar": {
+        "title": "Caviar Scout",
+        "profile": {
+            "title": "Profile",
+            "edit": "Edit Profile",
+            "logout": "Logout",
+            "delete": "Delete",
+            "deleteMobile": "Delete Account",
+            "confirmDelete": "Are you sure you want to delete your account? This action is irreversible."
+        }
+    },
+    "features": {
+        "title": "Powerful Features",
+        "subtitle": "Everything you need for effective recruitment.",
+        "database": {
+            "title": "Complete Database",
+            "description": "Access thousands of verified talent profiles."
+        },
+        "filters": {
+            "title": "Advanced Search Filters",
+            "description": "Precisely target profiles by sport, age, and skills."
+        },
+        "contact": {
+            "title": "Direct and Secure Contact",
+            "description": "Communicate directly with athletes or their agents."
+        },
+        "analysis": {
+            "title": "Video Analysis",
+            "description": "Watch and analyze the performances of talents."
+        }
     }
-  },
-  "countries": {
-    "ad": "Andorrian",
-    "ae": "United Arab Emirates",
-    "af": "Afghanistan",
-    "ag": "Antigua-et-Barbuda",
-    "ai": "Eel",
-    "al": "Albania",
-    "am": "Armenia",
-    "ao": "Angola",
-    "aq": "Antarctic",
-    "ar": "Argentina",
-    "as": "American Samoa",
-    "at": "Austria",
-    "au": "Australia",
-    "aw": "Aruba",
-    "ax": "Åland Islands",
-    "az": "Azerbaijan",
-    "ba": "Bosnia and Herzegovina",
-    "bb": "Barbade",
-    "bd": "Bangladesh",
-    "be": "Belgium",
-    "bf": "Burkina Faso",
-    "bg": "Bulgaria",
-    "bh": "Bahrain",
-    "bi": "Burundi",
-    "bj": "Benign",
-    "bl": "Saint-Barthélemy",
-    "bm": "Bermuda",
-    "bn": "Brunei",
-    "bo": "Bolivia",
-    "bq": "Netherlands Caribbeans",
-    "br": "Brazil",
-    "bs": "Bahamas",
-    "bt": "Bhoutan",
-    "bv": "Bouvet Island",
-    "bw": "Botswana",
-    "by": "Bélarus",
-    "bz": "Belize",
-    "ca": "Canada",
-    "cc": "Cocos Islands (Keeling)",
-    "cd": "Democratic Republic of Congo",
-    "cf": "Central African Republic",
-    "cg": "Republic of Congo",
-    "ch": "Swiss",
-    "ci": "Ivory Coast",
-    "ck": "Cook Islands",
-    "cl": "Chile",
-    "cm": "Cameroon",
-    "cn": "China",
-    "co": "Colombia",
-    "cr": "Costa Rica",
-    "cs": "Czechoslovakia",
-    "cu": "Cuba",
-    "cv": "Cap-green",
-    "cw": "Curaçao",
-    "cx": "Christmas island",
-    "cy": "Cyprus",
-    "cz": "Czech Republic",
-    "dd": "German Democratic Republic",
-    "de": "Germany",
-    "dj": "Djibouti",
-    "dk": "Denmark",
-    "dm": "Dominique",
-    "do": "Dominican Republic",
-    "dz": "Algeria",
-    "ec": "Equator",
-    "ee": "Estonia",
-    "eg": "Egypt",
-    "eh": "Western Sahara",
-    "er": "Eritrea",
-    "es": "Spain",
-    "et": "Ethiopia",
-    "fi": "Finland",
-    "fj": "Fiji",
-    "fk": "Falkland Islands",
-    "fm": "Micronesia",
-    "fo": "Faroe Islands",
-    "fr": "France",
-    "fx": "Metropolitan France",
-    "ga": "Gabon",
-    "gb": "United Kingdom",
-    "gd": "Grenade",
-    "ge": "Georgia",
-    "gf": "Guyana",
-    "gg": "Guernsey",
-    "gh": "Ghana",
-    "gi": "Gibraltar",
-    "gl": "Greenland",
-    "gm": "Gambia",
-    "gn": "Guinea",
-    "gp": "Guadeloupe",
-    "gq": "Equatorial Guinea",
-    "gr": "Greece",
-    "gs": "South-and-the South Sandwich Georgia",
-    "gt": "Guatemala",
-    "gu": "Guam",
-    "gw": "Guinea-Bissau",
-    "gy": "Guyana",
-    "hk": "Hong Kong",
-    "hm": "Heard-et-Macdonald Islands",
-    "hn": "Honduras",
-    "hr": "Croatia",
-    "ht": "Haiti",
-    "hu": "Hungary",
-    "id": "Indonesia",
-    "ie": "Ireland",
-    "il": "Israel",
-    "im": "Man Island",
-    "in": "India",
-    "io": "British Indian Ocean territory",
-    "iq": "Iraq",
-    "ir": "Iran",
-    "is": "Iceland",
-    "it": "Italy",
-    "je": "Jersey",
-    "jm": "Jamaica",
-    "jo": "Jordan",
-    "jp": "Japan",
-    "ke": "Kenya",
-    "kg": "Kyrgyzistan",
-    "kh": "Cambodia",
-    "ki": "Kiribati",
-    "km": "Comoros",
-    "kn": "Saint-Christophe-et-Niévès",
-    "kp": "North Korea",
-    "kr": "South Korea",
-    "kw": "Kuwait",
-    "ky": "Cayman islands",
-    "kz": "Kazakhstan",
-    "la": "Laos",
-    "lb": "Lebanon",
-    "lc": "Sainte-Lucie",
-    "li": "Liechtenstein",
-    "lr": "Liberia",
-    "ls": "Lesotho",
-    "lt": "Lithuania",
-    "lu": "Luxembourg",
-    "lv": "Latvia",
-    "ly": "Libya",
-    "ma": "Morocco",
-    "mc": "Monaco",
-    "md": "Moldova",
-    "me": "Montenegro",
-    "mf": "Saint-Martin",
-    "mg": "Madagascar",
-    "mh": "Marshall Islands",
-    "mk": "North Macedonia",
-    "ml": "Mali",
-    "mm": "Myanmar",
-    "mn": "Mongolia",
-    "mo": "Macao",
-    "mp": "Northern Mariana Islands",
-    "mq": "Martinique",
-    "mr": "Mauritania",
-    "ms": "Montserrat",
-    "mt": "Malta",
-    "mu": "Mauritius",
-    "mv": "Maldives",
-    "mw": "Malawi",
-    "mx": "Mexico",
-    "my": "Malaysia",
-    "mz": "Mozambique",
-    "na": "Namibia",
-    "nc": "New Caledonia",
-    "ne": "Niger",
-    "nf": "Norfolk Island",
-    "ng": "Nigeria",
-    "ni": "Nicaragua",
-    "nl": "The Netherlands",
-    "no": "Norway",
-    "np": "Nepal",
-    "nr": "Nauru",
-    "nt": "Neutral zone",
-    "nu": "Niue",
-    "nz": "New Zealand",
-    "om": "Oman",
-    "pa": "Panama",
-    "pe": "Peru",
-    "pf": "French Polynesia",
-    "pg": "Papua New Guinea",
-    "ph": "Philippines",
-    "pk": "Pakistan",
-    "pl": "Poland",
-    "pm": "Saint-Pierre-et-Miquelon",
-    "pn": "Pitcairn",
-    "pr": "Puerto Rico",
-    "ps": "Palestine",
-    "pt": "Portugal",
-    "pw": "Palaos",
-    "py": "Paraguay",
-    "qa": "Qatar",
-    "re": "Reunion",
-    "ro": "Romania",
-    "rs": "Serbia",
-    "ru": "Russia",
-    "rw": "Rwanda",
-    "sa": "Saudi Arabia",
-    "sb": "Solomon Islands",
-    "sc": "Seychelles",
-    "sd": "Sudan",
-    "se": "Suede",
-    "sg": "Singapore",
-    "sh": "Sainte-Hélène",
-    "si": "Slovenia",
-    "sj": "Svalbard and Jan Mayen",
-    "sk": "Slovakia",
-    "sl": "Sierra Leone",
-    "sm": "Saint-Marin",
-    "sn": "Senegal",
-    "so": "Somalia",
-    "sr": "Overriname",
-    "ss": "South Sudan",
-    "st": "Sao Tomé-et-Principe",
-    "su": "Soviet Union",
-    "sv": "El Salvador",
-    "sx": "Saint-Martin",
-    "sy": "Syria",
-    "sz": "Eswatini",
-    "tc": "Turkish-and-Caican Islands",
-    "td": "Chad",
-    "tf": "French Southern Lands",
-    "tg": "Togo",
-    "th": "Thailand",
-    "tj": "Tadjikistan",
-    "tk": "Tokelau",
-    "tl": "Timor-Oriental",
-    "tm": "Turkmenistan",
-    "tn": "Tunisia",
-    "to": "Tonga",
-    "tr": "Türkiye",
-    "tt": "Trinity and Tobago",
-    "tv": "Tuvalu",
-    "tw": "Taiwan",
-    "tz": "Tanzania",
-    "ua": "Ukraine",
-    "ug": "Uganda",
-    "um": "Minor Islands from the United States",
-    "us": "UNITED STATES",
-    "uy": "Uruguay",
-    "uz": "Uzbekistan",
-    "va": "Vatican City",
-    "vc": "Saint-Vincent-et-les Grenadines",
-    "ve": "Venezuela",
-    "vg": "British virgin islands",
-    "vi": "Virgin islands of the United States",
-    "vn": "Vietnam Vietnam",
-    "vu": "Vanuatu",
-    "wf": "Wallis-et-Futuna",
-    "ws": "Samoa",
-    "xk": "Kosovo",
-    "ye": "Yemen",
-    "yt": "Mayotte",
-    "yu": "Yugoslavia",
-    "za": "South Africa",
-    "zm": "Zambia",
-    "zr": "Zaire",
-    "zw": "Zimbabwe"
-  }
 }
