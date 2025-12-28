@@ -16,7 +16,7 @@ import { TranslatePipe } from '../../../../core/shared';
 import { VideoService } from '../../../../core/services/video.service';
 import { Video, GetVideosPaginatedRequest } from '../../../../core/interfaces/video.interface';
 import { TranslationService } from '../../../../core/services/translation.service';
-import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
+import { debounceTime, distinctUntilChanged, firstValueFrom, Subject, takeUntil } from 'rxjs';
 import videojs from 'video.js';
 import { Sport } from '../../../../core/enums/sport.enum';
 import { ProdigeService } from '../../../../core/services/prodige.service';
@@ -27,6 +27,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { UserService } from '../../../../core/services/user.service';
 import { User } from '../../../../core/interfaces/user.interface';
 import { UserCreditDetailsDto } from '../../../../core/interfaces/user-credit-details-dto.interface';
+import { SubscriptionService } from '../../../../core/services/subscription.service';
 
 @Component({
     selector: 'app-video-gallery',
@@ -79,12 +80,16 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     private messageService = inject(MessageService);
     private translationService = inject(TranslationService);
     private userService = inject(UserService);
+    private subscriptionService = inject(SubscriptionService);
 
-    ngOnInit() {
+    constructor() {}
+
+    async ngOnInit() {
         this.initializeOptions();
         this.setupSearch();
         this.loadInitialVideos();
-        this.loadUserCredits();
+        await this.loadSubscriptionData();
+        await this.loadUserCredits();
     }
 
     ngOnDestroy() {
@@ -141,10 +146,10 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
 
     private async loadUserCredits() {
         try {
-            await this.userService.loadUserProfile();
+            await this.userService.loadUserProfile(); // Ensure this completes first
             const profile = this.userService.getProfile();
             if (profile?.id) {
-                const creditDetails = await this.userService.getCredisUserById(profile.id).toPromise();
+                const creditDetails = await firstValueFrom(this.userService.getCredisUserById(profile.id));
                 this.credits.set(creditDetails || null);
             }
         } catch (error) {
@@ -337,5 +342,15 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
                 detail: this.t('uploader.dashboard.strings.copyLinkToClipboardSuccess'),
             });
         });
+    }
+
+    private async loadSubscriptionData() {
+        try {
+            const profile = this.userService.getProfile();
+            await this.subscriptionService.createCustomer(profile?.email!, profile?.username!).toPromise();
+        } catch (error) {
+            console.error('Subscription loading error:', error);
+        } finally {
+        }
     }
 }

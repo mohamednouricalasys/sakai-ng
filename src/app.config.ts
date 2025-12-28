@@ -1,12 +1,11 @@
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { APP_INITIALIZER, ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideRouter, withEnabledBlockingInitialNavigation, withInMemoryScrolling } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import Aura from '@primeng/themes/aura';
 import { providePrimeNG } from 'primeng/config';
 import { appRoutes } from './app.routes';
 import { KeycloakService } from 'keycloak-angular';
-
 import { UserService } from './app/core/services/user.service';
 import { TranslationService } from './app/core/services/translation.service';
 import { environment } from './environments/environment';
@@ -25,15 +24,36 @@ function initializeKeycloak(keycloak: KeycloakService, userService: UserService)
                     onLoad: 'check-sso',
                     checkLoginIframe: false,
                 },
-                shouldAddToken: () => false,
+                // This determines when to add the token to requests
+                shouldAddToken: (request) => {
+                    const { url } = request;
+                    // Add token to all requests except these
+                    const excludedUrls = ['/assets', '/public'];
+                    return !excludedUrls.some((excluded) => url.includes(excluded));
+                },
+                // Update token minimum validity
+                shouldUpdateToken: (request) => {
+                    // Refresh token if it expires in less than 70 seconds
+                    return true;
+                },
             });
 
             if (authenticated) {
                 await userService.loadUserProfile();
+
+                // Set up automatic token refresh
+                setInterval(async () => {
+                    try {
+                        const refreshed = await keycloak.updateToken(70);
+                        if (refreshed) {
+                        }
+                    } catch (error) {
+                        // Token refresh failed, redirect to login
+                        keycloak.login();
+                    }
+                }, 60000); // Check every 60 seconds
             }
-        } catch (error) {
-            console.error('Failed to initialize Keycloak', error);
-        }
+        } catch (error) {}
     };
 }
 
@@ -59,11 +79,13 @@ export const appConfig: ApplicationConfig = {
         },
         provideZoneChangeDetection({ eventCoalescing: true }),
         provideRouter(appRoutes),
-        provideHttpClient(
-            withFetch(),
-            withInterceptors([authInterceptor]), // Add your interceptor here
-        ),
+        provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
         provideAnimationsAsync(),
-        providePrimeNG({ theme: { preset: Aura, options: { darkModeSelector: '.app-dark' } } }),
+        providePrimeNG({
+            theme: {
+                preset: Aura,
+                options: { darkModeSelector: '.app-dark' },
+            },
+        }),
     ],
 };

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { AppMenuitem } from './app.menuitem';
 import { TranslationService } from '../../core/services/translation.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
     selector: 'app-menu',
@@ -18,20 +19,47 @@ import { TranslationService } from '../../core/services/translation.service';
 })
 export class AppMenu {
     private translationService = inject(TranslationService);
+    private authService = inject(AuthService);
 
     model: MenuItem[] = [];
 
     ngOnInit() {
+        const items = [
+            {
+                label: this.translationService.translate('nav.gallery'),
+                icon: 'pi pi-fw pi-star',
+                routerLink: ['/professional/gellery'],
+            },
+            {
+                label: this.translationService.translate('nav.myProdigies'),
+                icon: 'pi pi-fw pi-id-card',
+                routerLink: ['/professional/prodiges'],
+            },
+            {
+                label: this.translationService.translate('nav.myVideos'),
+                icon: 'pi pi-fw pi-video',
+                routerLink: ['/professional/videos'],
+            },
+            {
+                label: this.translationService.translate('nav.subscription'),
+                icon: 'pi pi-fw pi-receipt',
+                routerLink: ['/billing/subscription'],
+            },
+        ];
+
+        // Add moderation only for moderators
+        if (this.authService.isModerator()) {
+            items.splice(3, 0, {
+                label: this.translationService.translate('nav.moderation'),
+                icon: 'pi pi-fw pi-check-circle',
+                routerLink: ['/professional/moderation'],
+            });
+        }
+
         this.model = [
             {
                 label: this.translationService.translate('nav.profesional'),
-                items: [
-                    { label: this.translationService.translate('nav.gallery'), icon: 'pi pi-fw pi-star', routerLink: ['/professional/gellery'] },
-                    { label: this.translationService.translate('nav.myProdigies'), icon: 'pi pi-fw pi-id-card', routerLink: ['/professional/prodiges'] },
-                    { label: this.translationService.translate('nav.myVideos'), icon: 'pi pi-fw pi-video', routerLink: ['/professional/videos'] },
-                    { label: this.translationService.translate('nav.moderation'), icon: 'pi pi-fw pi-verified', routerLink: ['/professional/moderation'] },
-                    { label: this.translationService.translate('nav.subscription'), icon: 'pi pi-fw pi-verified', routerLink: ['/billing/subscription'] },
-                ],
+                items: items,
             },
         ];
     }

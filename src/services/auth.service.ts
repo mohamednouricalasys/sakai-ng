@@ -30,4 +30,16 @@ export class AuthService {
     goToDashboard() {
         this.router.navigate(['/professional']);
     }
+
+    isModerator(): boolean {
+        return this.keycloak.isUserInRole('moderator');
+    }
+
+    hasRole(role: string): boolean {
+        return this.keycloak.isUserInRole(role);
+    }
+
+    getUserRoles(): string[] {
+        return this.keycloak.getUserRoles();
+    }
 }
