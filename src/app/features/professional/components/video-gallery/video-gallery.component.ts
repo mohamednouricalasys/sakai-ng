@@ -12,7 +12,9 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ToastModule } from 'primeng/toast';
 import { DividerModule } from 'primeng/divider';
 import { DialogModule } from 'primeng/dialog';
+import { ChipsModule } from 'primeng/chips';
 import { TranslatePipe } from '../../../../core/shared';
+import { COUNTRIES_DATA } from '../../../../core/shared/countries-data';
 import { VideoService } from '../../../../core/services/video.service';
 import { Video, GetVideosPaginatedRequest } from '../../../../core/interfaces/video.interface';
 import { TranslationService } from '../../../../core/services/translation.service';
@@ -28,11 +30,29 @@ import { UserService } from '../../../../core/services/user.service';
 import { User } from '../../../../core/interfaces/user.interface';
 import { UserCreditDetailsDto } from '../../../../core/interfaces/user-credit-details-dto.interface';
 import { SubscriptionService } from '../../../../core/services/subscription.service';
+import { VideoFilterType } from '../../../../core/enums/video-filter-type.enum';
 
 @Component({
     selector: 'app-video-gallery',
     standalone: true,
-    imports: [CommonModule, DialogModule, FormsModule, InfiniteScrollModule, ButtonModule, CardModule, RadioButtonModule, InputGroupModule, InputGroupAddonModule, InputTextModule, SelectModule, TagModule, ToastModule, TranslatePipe, DividerModule],
+    imports: [
+        CommonModule,
+        DialogModule,
+        FormsModule,
+        InfiniteScrollModule,
+        ButtonModule,
+        CardModule,
+        RadioButtonModule,
+        ChipsModule,
+        InputGroupModule,
+        InputGroupAddonModule,
+        InputTextModule,
+        SelectModule,
+        TagModule,
+        ToastModule,
+        TranslatePipe,
+        DividerModule,
+    ],
     templateUrl: './video-gallery.component.html',
     providers: [MessageService],
     styleUrl: './video-gallery.component.scss',
@@ -60,11 +80,15 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     selectedSport: Sport | null = null;
     selectedTag: Tag | null = null;
     selectedGenre: Genre | null = null;
+    selectedCountry: string | null = null;
+    selectedVideoFilterType: VideoFilterType | null = null;
 
     // Filter options
     sportOptions: SelectItem[] = [];
     tagOptions: SelectItem[] = [];
     genreOptions: SelectItem[] = [];
+    countryOptions: SelectItem[] = [];
+    videoFilterOptions: SelectItem[] = [];
 
     // Add these properties to your component class
     contactDialogVisible = false;
@@ -136,6 +160,23 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
             { label: '♂ ' + this.t('videos.filter.homme'), value: Genre.Homme },
             { label: '♀ ' + this.t('videos.filter.femme'), value: Genre.Femme },
         ];
+
+        this.countryOptions = [
+            { label: this.t('videos.filter.allCountries'), value: null },
+            ...COUNTRIES_DATA.map((country) => ({
+                label: `${country.flag} ${country.code}`,
+                value: country.code,
+            })),
+        ];
+
+        // Initialize video filter options
+        this.videoFilterOptions = [
+            { label: this.t('videos.filter.all'), value: VideoFilterType.All },
+            { label: this.t('videos.filter.newVideoNewContact'), value: VideoFilterType.NewVideoNewContact },
+            { label: this.t('videos.filter.newVideoOldContact'), value: VideoFilterType.NewVideoOldContact },
+            { label: this.t('videos.filter.alreadyReadVideo'), value: VideoFilterType.AlreadyReadVideo },
+            { label: this.t('videos.filter.myVideos'), value: VideoFilterType.MyVideos },
+        ];
     }
 
     private setupSearch() {
@@ -177,6 +218,9 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
             sport: this.selectedSport || undefined,
             tag: this.selectedTag || undefined,
             genre: this.selectedGenre || undefined,
+            country: this.selectedCountry || undefined,
+            connectedUserId: this.userService.getProfile()?.id || '',
+            videoFilterType: this.selectedVideoFilterType || VideoFilterType.All,
         };
 
         this.videoService.getApprouvedVideosPaginated(params).subscribe({
@@ -224,6 +268,14 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         this.resetAndSearch();
     }
 
+    onCountryFilterChange() {
+        this.resetAndSearch();
+    }
+
+    onVideoFilterChange() {
+        this.resetAndSearch();
+    }
+
     private resetAndSearch() {
         this.currentPage = 1;
         this.totalLoaded = 0;
@@ -237,7 +289,14 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         this.selectedSport = null;
         this.selectedTag = null;
         this.selectedGenre = null;
+        this.selectedCountry = null;
+        this.selectedVideoFilterType = null;
         this.resetAndSearch();
+    }
+
+    getVideoFilterLabel(filterType: VideoFilterType): string {
+        const option = this.videoFilterOptions.find((opt) => opt.value === filterType);
+        return option?.label || '';
     }
 
     onScroll(event: any) {
@@ -275,6 +334,24 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
 
     getExtraTagsCount(video: any): number {
         return (video?.prodige?.tags?.length ?? 0) > 3 ? video.prodige.tags.length - 3 : 0;
+    }
+
+    /**
+     * Gets the country flag emoji for a given country code
+     */
+    getCountryFlag(countryCode?: string): string {
+        if (!countryCode) return '';
+        const country = COUNTRIES_DATA.find((c) => c.code === countryCode.toUpperCase());
+        return country?.flag || '';
+    }
+
+    /**
+     * Gets the country display info (flag + code) for a given country code
+     */
+    getCountryDisplay(countryCode?: string): string {
+        if (!countryCode) return '';
+        const flag = this.getCountryFlag(countryCode);
+        return flag ? `${flag} ${countryCode.toUpperCase()}` : countryCode.toUpperCase();
     }
 
     /**

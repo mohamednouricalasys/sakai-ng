@@ -136,6 +136,16 @@
                                 size="small"
                             />
 
+                            <p-button
+                                *ngIf="video.statutModeration === statutModeration.Approuvee"
+                                [label]="'admin.video.actions.desapprove' | translate"
+                                icon="pi pi-check"
+                                severity="success"
+                                [outlined]="true"
+                                (onClick)="desapproveVideo(video)"
+                                size="small"
+                            />
+
                             <!--p-button [label]="'shared.actions.delete' | translate" icon="pi pi-trash" severity="danger" [outlined]="true" (onClick)="deleteVideo(video)" size="small" /-->
                         </div>
                     </div>

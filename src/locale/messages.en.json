@@ -19,6 +19,7 @@
             "add": "Add",
             "confirm": "Confirm",
             "approve": "Approve",
+            "desapprove": "Desapprove",
             "reject": "Dismiss",
             "close": "Close"
         },
@@ -172,14 +173,24 @@
             "placeholder": "Search videos..."
         },
         "filter": {
-            "sport": "Filter by Sport",
-            "tag": "Filter by Tag",
-            "clear": "Clear Filters",
-            "allSports": "All Sports",
-            "allTags": "All Tags",
-            "allGenders": "All Genders",
+            "sport": "Filter by sport",
+            "tag": "Filter by tag",
+            "country": "Filter by country",
+            "allCountries": "All countries",
+            "clear": "Clear filters",
+            "allSports": "All sports",
+            "allTags": "All tags",
+            "allGenders": "All genders",
             "homme": "Male",
-            "femme": "Female"
+            "femme": "Female",
+            "all": "All",
+            "newVideoNewContact": "Videos from new contacts",
+            "newVideoOldContact": "Videos from existing contacts",
+            "alreadyReadVideo": "Already viewed",
+            "myVideos": "My videos",
+            "contactStatus": "Contact Status",
+            "selectContactStatus": "Select a contact status",
+            "clearContactStatus": "Clear statuses"
         },
         "messages": {
             "loadError": "Failed to load videos. Please try again."
@@ -238,6 +249,7 @@
             "actions": {
                 "view": "See",
                 "approve": "Approve",
+                "desapprove": "Desapprove",
                 "reject": "Dismiss"
             },
             "empty": {

@@ -25,7 +25,7 @@ import { Sport } from '../../../../core/enums/sport.enum';
 import { Tag } from '../../../../core/enums/tag.enum';
 import { Genre } from '../../../../core/enums/gender.enum';
 import { TranslationService } from '../../../../core/services/translation.service';
-import { TranslateCountPipe, TranslateParamsPipe, TranslatePipe } from '../../../../core/shared';
+import { TranslateParamsPipe, TranslatePipe } from '../../../../core/shared';
 import { DataView, DataViewModule } from 'primeng/dataview';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { Country } from '../../../../core/interfaces/country.interface';
@@ -304,8 +304,6 @@ export class ProdigeCrudComponent implements OnInit {
             },
         });
     }
-
-
 
     getSelectedCountry(): Country | undefined {
         return this.countries.find((c) => c.code === this.prodige.pays);

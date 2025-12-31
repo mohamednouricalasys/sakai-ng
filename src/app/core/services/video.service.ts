@@ -75,6 +75,9 @@ export class VideoService {
         if (request.tag !== undefined) params = params.set('tag', request.tag.toString());
         if (request.sport !== undefined) params = params.set('sport', request.sport.toString());
         if (request.genre !== undefined) params = params.set('genre', request.genre.toString());
+        if (request.country !== undefined) params = params.set('country', request.country.toString());
+        if (request.connectedUserId) params = params.set('connectedUserId', request.connectedUserId);
+        if (request.videoFilterType !== undefined) params = params.set('videoFilterType', request.videoFilterType.toString());
 
         return this.http.get<PaginatedList<Video>>(`${this.apiUrl}/approuved`, { params });
     }

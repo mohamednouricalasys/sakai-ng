@@ -19,6 +19,7 @@
             "add": "Ajouter",
             "confirm": "Confirmer",
             "approve": "Approuver",
+            "desapprove": "Desapprouver",
             "reject": "Rejeter",
             "close": "Fermer"
         },
@@ -174,12 +175,22 @@
         "filter": {
             "sport": "Filtre par sport",
             "tag": "Filtre par tag",
+            "country": "Filtre par pays",
+            "allCountries": "Tous les pays",
             "clear": "Filtres à claire",
             "allSports": "Tous les sports",
             "allTags": "Tous les tags",
             "allGenders": "Tous les genres",
             "homme": "Mâle",
-            "femme": "Femelle"
+            "femme": "Femelle",
+            "all": "Tous",
+            "newVideoNewContact": "Vidéos de nouveaux contacts",
+            "newVideoOldContact": "Vidéos d’anciens contacts",
+            "alreadyReadVideo": "Déjà consulté",
+            "myVideos": "Mes vidéos",
+            "contactStatus": "Statut de contact",
+            "selectContactStatus": "Sélectionner un statut de contact",
+            "clearContactStatus": "Effacer les statuts"
         },
         "messages": {
             "loadError": "Impossible de charger des vidéos. "
@@ -231,6 +242,7 @@
             "actions": {
                 "view": "Voir",
                 "approve": "Approuver",
+                "desapprove": "Desapprouver",
                 "reject": "Rejeter"
             },
             "empty": {

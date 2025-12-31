@@ -35,7 +35,40 @@
 
         <p-select [options]="tagOptions" [(ngModel)]="selectedTag" optionLabel="label" optionValue="value" [placeholder]="'videos.filter.tag' | translate" (onChange)="onTagFilterChange()" [showClear]="true" />
 
-        <p-button *ngIf="searchTerm || selectedSport || selectedTag" icon="pi pi-filter-slash" [label]="'videos.filter.clear' | translate" (onClick)="clearFilters()" [text]="true" />
+        <p-select
+            [options]="countryOptions"
+            [(ngModel)]="selectedCountry"
+            optionLabel="label"
+            optionValue="value"
+            [placeholder]="'videos.filter.country' | translate"
+            (onChange)="onCountryFilterChange()"
+            [showClear]="true"
+            [filter]="true"
+            filterBy="label"
+        />
+
+        <p-button *ngIf="searchTerm || selectedSport || selectedTag || selectedCountry" icon="pi pi-filter-slash" [label]="'videos.filter.clear' | translate" (onClick)="clearFilters()" [text]="true" />
+    </div>
+
+    <!-- Video Filter Select -->
+    <div class="flex flex-row flex-wrap gap-2 mt-3">
+        <div class="flex items-center gap-2">
+            <i class="pi pi-filter text-primary"></i>
+            <span class="font-medium text-700">{{ 'videos.filter.contactStatus' | translate }}:</span>
+        </div>
+
+        <p-select
+            [(ngModel)]="selectedVideoFilterType"
+            [options]="videoFilterOptions"
+            optionLabel="label"
+            optionValue="value"
+            [placeholder]="'videos.filter.selectContactStatus' | translate"
+            (onChange)="onVideoFilterChange()"
+            [showClear]="true"
+            class="min-w-48"
+        />
+
+        <p-button *ngIf="selectedVideoFilterType" icon="pi pi-times" [label]="'videos.filter.clearContactStatus' | translate" (onClick)="selectedVideoFilterType = null; onVideoFilterChange()" [text]="true" severity="secondary" size="small" />
     </div>
 </p-card>
 
@@ -60,6 +93,7 @@
 
                             <div class="video-meta">
                                 <span class="prodige-name">{{ video?.prodige?.nom || 'Unknown' }}</span>
+                                <span *ngIf="video?.prodige?.pays" class="country-info">{{ getCountryDisplay(video.prodige.pays) }}</span>
                                 <span class="video-date">{{ video?.dateCreation | date: 'MMM d, y' }}</span>
                             </div>
                         </div>
@@ -108,7 +142,7 @@
                 <h3 class="text-lg font-semibold text-900">
                     {{ getFullName() || ('videos.contact.dialog.unknownContact' | translate) }}
                 </h3>
-                <p class="text-500 text-sm">
+                <p class="text-vertical text-sm">
                     {{ getSportLabel(selectedVideo?.prodige?.sport!) }}
                 </p>
             </div>

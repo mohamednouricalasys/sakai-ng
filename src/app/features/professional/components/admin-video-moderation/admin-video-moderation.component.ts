@@ -59,7 +59,7 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
     moderationDialog = false;
     selectedVideo: Video | null = null;
     selectedVideoForModeration: Video | null = null;
-    moderationAction: 'approve' | 'reject' = 'approve';
+    moderationAction: 'approve' | 'desapprove' | 'reject' = 'approve';
     moderationComment = '';
     submitted = false;
 
@@ -252,6 +252,14 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
         this.moderationDialog = true;
     }
 
+    desapproveVideo(video: Video) {
+        this.selectedVideoForModeration = video;
+        this.moderationAction = 'desapprove';
+        this.moderationComment = '';
+        this.submitted = false;
+        this.moderationDialog = true;
+    }
+
     rejectVideo(video: Video) {
         this.selectedVideoForModeration = video;
         this.moderationAction = 'reject';
@@ -282,7 +290,7 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
 
         const request: ModerateVideoRequest = {
             id: this.selectedVideoForModeration.id,
-            statutModeration: this.moderationAction === 'approve' ? StatutModeration.Approuvee : StatutModeration.Rejetee,
+            statutModeration: this.moderationAction === 'approve' ? StatutModeration.Approuvee : this.moderationAction === 'desapprove' ? StatutModeration.EnAttente : StatutModeration.Rejetee,
             commentaireModeration: this.moderationComment.trim() || undefined,
         };
 

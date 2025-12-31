@@ -4,6 +4,7 @@ import { Prodige } from './prodige.interface';
 import { Sport } from '../enums/sport.enum';
 import { Tag } from '../enums/tag.enum';
 import { Genre } from '../enums/gender.enum';
+import { VideoFilterType } from '../enums/video-filter-type.enum';
 
 export interface Video {
     id: string;
@@ -52,6 +53,9 @@ export interface GetVideosPaginatedRequest {
     tag?: Tag;
     sport?: Sport;
     genre?: Genre;
+    country?: string;
+    connectedUserId?: string;
+    videoFilterType?: VideoFilterType;
 }
 
 export interface PaginatedList<T> {

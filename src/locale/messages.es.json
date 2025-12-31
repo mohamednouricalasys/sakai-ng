@@ -19,6 +19,7 @@
             "add": "Agregar",
             "confirm": "Confirmar",
             "approve": "Aprobar",
+            "desapprove": "Desaprobar",
             "reject": "Despedir",
             "close": "Cerca"
         },
@@ -172,14 +173,24 @@
             "placeholder": "Buscar videos ..."
         },
         "filter": {
-            "sport": "Filtrar por el deporte",
+            "sport": "Filtrar por deporte",
             "tag": "Filtrar por etiqueta",
-            "clear": "Filtros claros",
+            "country": "Filtrar por país",
+            "allCountries": "Todos los paises",
+            "clear": "Limpiar filtros",
             "allSports": "Todos los deportes",
             "allTags": "Todas las etiquetas",
             "allGenders": "Todos los géneros",
             "homme": "Masculino",
-            "femme": "Femenino"
+            "femme": "Femenino",
+            "all": "Todo",
+            "newVideoNewContact": "Videos de nuevos contactos",
+            "newVideoOldContact": "Videos de contactos antiguos",
+            "alreadyReadVideo": "Ya visto",
+            "myVideos": "mis vídeos",
+            "contactStatus": "Estado de contacto",
+            "selectContactStatus": "Seleccione un estado de contacto",
+            "clearContactStatus": "Borrar estados"
         },
         "messages": {
             "loadError": "No se pudo cargar videos. "
@@ -238,6 +249,7 @@
             "actions": {
                 "view": "Ver",
                 "approve": "Aprobar",
+                "desapprove": "Desaprobar",
                 "reject": "Despedir"
             },
             "empty": {
