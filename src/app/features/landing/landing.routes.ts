@@ -8,4 +8,14 @@ export const LANDING_ROUTES: Routes = [
         canActivate: [landingGuard],
         component: LandingComponent,
     },
+    {
+        path: 'privacy',
+        loadComponent: () => import('./components/privacy-policy/privacy-policy.component').then((m) => m.PrivacyPolicyComponent),
+        title: 'Privacy Policy - Caviar Scout',
+    },
+    {
+        path: 'terms',
+        loadComponent: () => import('./components/terms-of-service/terms-of-service.component').then((m) => m.TermsOfServiceComponent),
+        title: 'Terms of Service - Caviar Scout',
+    },
 ];

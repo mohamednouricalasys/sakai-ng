@@ -16,11 +16,14 @@ import { MenuItem } from 'primeng/api';
 import { SubscriptionService } from '../../core/services/subscription.service';
 import { TranslatePipe } from '../../core/shared';
 import { TranslationService } from '../../core/services/translation.service';
+import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
     selector: 'app-topbar',
     standalone: true,
-    imports: [RouterModule, CommonModule, StyleClassModule, AppConfigurator, LanguageSwitcherComponent, OverlayPanelModule, ButtonModule, SidebarModule, TranslatePipe],
+    imports: [RouterModule, CommonModule, StyleClassModule, AppConfigurator, LanguageSwitcherComponent, OverlayPanelModule, ButtonModule, SidebarModule, TranslatePipe, DialogModule, ToastModule, ProgressSpinnerModule],
     templateUrl: './app.topbar.html',
 })
 export class AppTopbar implements OnInit {
@@ -36,6 +39,10 @@ export class AppTopbar implements OnInit {
     isMobile = false;
     showMobileProfile = false;
 
+    // Delete account dialog state
+    showDeleteConfirmDialog = false;
+    isDeletingAccount = false;
+
     constructor(
         public layoutService: LayoutService,
         private keycloakService: KeycloakService,
@@ -47,7 +54,6 @@ export class AppTopbar implements OnInit {
     protected t(key: string, params?: Record<string, any>): string {
         return this.translationService.translate(key, params);
     }
-
 
     async ngOnInit(): Promise<void> {
         this.updateIsMobile();
@@ -98,22 +104,37 @@ export class AppTopbar implements OnInit {
         this.keycloakService.getKeycloakInstance().accountManagement();
     }
 
-    async removeAccount(): Promise<void> {
-        if (confirm(this.t('topbar.profile.confirmDelete'))) {
-            try {
-                const result = await this.subscriptionService.cancelSubscription().toPromise();
+    // Show delete confirmation dialog
+    showDeleteAccountDialog(): void {
+        this.showDeleteConfirmDialog = true;
+    }
 
-                if (result?.success) {
-                    await lastValueFrom(this.userService.removeCurrentUser());
-                } else {
-                    console.error('Failed to remove account Stripe');
-                }
-            } catch (err) {
-                console.error('Failed to remove account', err);
-                // Even if deletion fails, we might want to log out or show an error.
-                // For now, we'll just log the error and proceed to logout.
-            }
-            await this.logout();
+    // Cancel delete account
+    cancelDeleteAccount(): void {
+        this.showDeleteConfirmDialog = false;
+    }
+
+    // Confirm and execute delete account
+    async confirmDeleteAccount(): Promise<void> {
+        this.showDeleteConfirmDialog = false;
+        this.isDeletingAccount = true;
+
+        try {
+            await lastValueFrom(this.userService.removeCurrentUser());
+
+            // Show success alert
+            alert(this.t('topbar.profile.deleteSuccessMessage'));
+
+            // Only logout if deletion was successful
+            setTimeout(async () => {
+                await this.logout();
+            }, 1500);
+        } catch (err) {
+            console.error('Failed to remove account', err);
+            this.isDeletingAccount = false;
+
+            // Show error alert
+            alert(this.t('topbar.profile.deleteErrorMessage'));
         }
     }
 }

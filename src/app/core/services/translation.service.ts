@@ -1,4 +1,4 @@
-// Updated TranslationService with Uppy integration
+// Updated TranslationService with Uppy integration and Browser Language Detection
 import { Injectable, signal } from '@angular/core';
 
 @Injectable({
@@ -21,10 +21,47 @@ export class TranslationService {
     }
 
     private async initializeTranslations() {
-        const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+        const detectedLang = this.detectBrowserLanguage();
+        const savedLang = localStorage.getItem('selectedLanguage') || detectedLang;
         await this.loadTranslations();
         this.currentLang.set(savedLang);
         this.isLoaded.set(true);
+    }
+
+    /**
+     * Detect browser language with fallback to English
+     * Checks browser navigator languages and maps them to supported languages
+     * Falls back to 'en' if no supported language is found
+     */
+    private detectBrowserLanguage(): string {
+        // Get browser languages from navigator
+        const browserLanguages = [
+            // Primary language (most specific)
+            navigator.language,
+            // Fallback languages (older browsers)
+            ...(navigator.languages || []),
+        ].filter((lang) => lang); // Remove undefined/null values
+
+        // Map of supported languages with their variations
+        const supportedLanguages = {
+            en: ['en', 'en-US', 'en-GB', 'en-US', 'en-UK', 'en_AU', 'en_CA'],
+            fr: ['fr', 'fr-FR', 'fr-CA', 'fr-BE', 'fr-CH', 'fr_LU'],
+            es: ['es', 'es-ES', 'es-MX', 'es-AR', 'es-CO', 'es-PE', 'es-VE', 'es-CL', 'es-UY', 'es-PY', 'es-BO', 'es-EC', 'es-CR', 'es-PA', 'es-DO', 'es-GT', 'es-HN', 'es-NI', 'es-SV'],
+        };
+
+        // Check each browser language against supported languages
+        for (const browserLang of browserLanguages) {
+            for (const [supportedLang, variations] of Object.entries(supportedLanguages)) {
+                if (variations.some((variation) => browserLang.toLowerCase().startsWith(variation.toLowerCase()))) {
+                    console.log(`Browser language detected: ${browserLang} -> ${supportedLang}`);
+                    return supportedLang;
+                }
+            }
+        }
+
+        // If no supported language found, fallback to English
+        console.log('No supported browser language detected, falling back to English');
+        return 'en';
     }
 
     private async loadTranslations() {

@@ -114,6 +114,49 @@
             "already_viewed": "0 points : déjà vue"
         }
     },
+    "footer": {
+        "company": {
+            "description": "Votre solution innovative pour [service/product]",
+            "rights": "Tous droits réservés"
+        },
+        "links": {
+            "company": "Entreprise",
+            "about": "À propos",
+            "careers": "Carrières",
+            "press": "Presse",
+            "legal": "Légal",
+            "privacy": "Politique de confidentialité",
+            "terms": "Conditions d'utilisation",
+            "cookies": "Politique des cookies",
+            "support": "Support",
+            "contact": "Contact",
+            "faq": "FAQ",
+            "documentation": "Documentation"
+        },
+        "newsletter": {
+            "title": "Restez informé",
+            "description": "Recevez nos dernières actualités et offres spéciales",
+            "placeholder": "Votre adresse email",
+            "subscribe": "S'abonner",
+            "success": "Merci ! Vous êtes maintenant inscrit.",
+            "error": "Une erreur est survenue. Veuillez réessayer."
+        },
+        "social": {
+            "follow": "Suivez-nous",
+            "facebook": "Facebook",
+            "twitter": "Twitter",
+            "linkedin": "LinkedIn",
+            "instagram": "Instagram",
+            "youtube": "YouTube"
+        },
+        "contact": {
+            "title": "Contactez-nous",
+            "address": "Adresse",
+            "phone": "Téléphone",
+            "email": "Email"
+        },
+        "backToTop": "Retour en haut"
+    },
     "subscription": {
         "loading": "Chargement des détails de l’abonnement...",
         "activeSubscription": {
@@ -1102,10 +1145,175 @@
         "profile": {
             "title": "Profil",
             "edit": "Modifier le profil",
-            "logout": "Déconnexion",
+            "logout": "se déconnecter",
             "delete": "Supprimer",
             "deleteMobile": "Supprimer le compte",
-            "confirmDelete": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible."
+            "editMobile": "Modifier le profil",
+            "confirmDelete": "Êtes-vous sûr de vouloir supprimer votre compte ? ",
+            "confirmDeleteTitle": "Supprimer le compte",
+            "confirmDeleteMessage": "Êtes-vous sûr de vouloir supprimer définitivement votre compte ?",
+            "confirmDeleteWarning": "Cette action ne peut pas être annulée. ",
+            "deleteConfirm": "Supprimer le compte",
+            "deleteSuccessTitle": "Compte supprimé",
+            "deleteSuccessMessage": "Votre compte a été supprimé avec succès. ",
+            "deleteErrorTitle": "Échec de la suppression",
+            "deleteErrorMessage": "Votre compte n'a pas pu être supprimé. "
+        }
+    },
+    "legal": {
+        "backToHome": "Retour à l'accueil",
+        "lastUpdated": "Dernière mise à jour",
+        "privacy": {
+            "title": "Politique de Confidentialité",
+            "introduction": {
+                "title": "Introduction"
+            },
+            "controller": {
+                "title": "Responsable du Traitement"
+            },
+            "dpo": {
+                "title": "Délégué à la Protection des Données"
+            },
+            "dataCollected": {
+                "title": "Données Collectées",
+                "identity": {
+                    "title": "Données d'Identification et de Contact"
+                },
+                "athletes": {
+                    "title": "Informations sur les Athlètes"
+                },
+                "technical": {
+                    "title": "Données Techniques"
+                },
+                "transaction": {
+                    "title": "Données de Transaction"
+                }
+            },
+            "legalBasis": {
+                "title": "Bases Légales du Traitement"
+            },
+            "userCategories": {
+                "title": "Catégories d'Utilisateurs",
+                "professionals": {
+                    "title": "Utilisateurs Professionnels"
+                },
+                "nonProfessionals": {
+                    "title": "Utilisateurs Non-Professionnels"
+                },
+                "minors": {
+                    "title": "Protection des Mineurs"
+                }
+            },
+            "retention": {
+                "title": "Conservation des Données"
+            },
+            "recipients": {
+                "title": "Destinataires des Données"
+            },
+            "rights": {
+                "title": "Vos Droits"
+            },
+            "cookies": {
+                "title": "Cookies"
+            },
+            "security": {
+                "title": "Sécurité des Données"
+            },
+            "updates": {
+                "title": "Mises à Jour de la Politique"
+            },
+            "contact": {
+                "title": "Nous Contacter"
+            }
+        },
+        "terms": {
+            "title": "Conditions Générales d'Utilisation",
+            "preamble": {
+                "title": "Préambule"
+            },
+            "definitions": {
+                "title": "Définitions"
+            },
+            "service": {
+                "title": "Description du Service",
+                "important": "Avis Important"
+            },
+            "userCategories": {
+                "title": "Catégories d'Utilisateurs",
+                "professionals": {
+                    "title": "Utilisateurs Professionnels"
+                },
+                "nonProfessionals": {
+                    "title": "Utilisateurs Non-Professionnels (Consommateurs)"
+                }
+            },
+            "account": {
+                "title": "Compte et Inscription"
+            },
+            "subscription": {
+                "title": "Abonnements et Paiements",
+                "payment": {
+                    "title": "Conditions de Paiement"
+                },
+                "withdrawal": {
+                    "title": "Droit de Rétractation"
+                },
+                "credits": {
+                    "title": "Système de Crédits"
+                }
+            },
+            "obligations": {
+                "title": "Obligations de l'Utilisateur"
+            },
+            "content": {
+                "title": "Contenu et Modération",
+                "license": {
+                    "title": "Licence de Contenu"
+                }
+            },
+            "liability": {
+                "title": "Limitation de Responsabilité",
+                "disclaimer": "AVERTISSEMENT IMPORTANT",
+                "financial": {
+                    "title": "Exclusion de Responsabilité Financière"
+                },
+                "thirdParty": {
+                    "title": "Services Tiers"
+                },
+                "information": {
+                    "title": "Clause d'Information"
+                },
+                "limitation": {
+                    "title": "Limitation de Responsabilité"
+                }
+            },
+            "indemnification": {
+                "title": "Indemnisation"
+            },
+            "ip": {
+                "title": "Propriété Intellectuelle"
+            },
+            "modifications": {
+                "title": "Modifications du Service"
+            },
+            "termination": {
+                "title": "Résiliation"
+            },
+            "disputes": {
+                "title": "Résolution des Litiges",
+                "mediation": {
+                    "title": "Médiation de la Consommation"
+                },
+                "jurisdiction": {
+                    "title": "Droit Applicable et Juridiction"
+                }
+            },
+            "severability": {
+                "title": "Divisibilité"
+            },
+            "contact": {
+                "title": "Contact"
+            }
         }
     },
     "features": {

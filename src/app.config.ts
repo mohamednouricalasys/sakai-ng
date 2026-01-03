@@ -4,6 +4,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideRouter } from '@angular/router';
 import Aura from '@primeng/themes/aura';
 import { providePrimeNG } from 'primeng/config';
+import { MessageService, ConfirmationService } from 'primeng/api';
 import { appRoutes } from './app.routes';
 import { KeycloakService } from 'keycloak-angular';
 import { UserService } from './app/core/services/user.service';
@@ -65,6 +66,8 @@ export const appConfig: ApplicationConfig = {
     providers: [
         KeycloakService,
         TranslationService,
+        MessageService,
+        ConfirmationService,
         {
             provide: APP_INITIALIZER,
             useFactory: initializeKeycloak,

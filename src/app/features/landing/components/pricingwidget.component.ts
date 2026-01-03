@@ -24,4 +24,8 @@ export class PricingWidgetComponent {
     login() {
         this.keycloakService.login();
     }
+
+    register() {
+        this.keycloakService.register();
+    }
 }

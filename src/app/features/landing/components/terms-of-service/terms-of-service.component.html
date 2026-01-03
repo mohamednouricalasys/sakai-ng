@@ -1,0 +1,310 @@
+<div class="bg-surface-0 dark:bg-surface-900 min-h-screen">
+    <div class="py-8 px-6 md:px-12 lg:px-20 max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="mb-8">
+            <a routerLink="/" class="text-primary hover:underline flex items-center gap-2 mb-6">
+                <i class="pi pi-arrow-left"></i>
+                {{ t('legal.backToHome') }}
+            </a>
+            <h1 class="text-4xl font-bold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.title') }}</h1>
+            <p class="text-surface-600 dark:text-surface-300" *ngIf="config">{{ t('legal.lastUpdated') }}: {{ lastUpdated }}</p>
+        </div>
+
+        <div class="legal-content text-surface-700 dark:text-surface-200" *ngIf="config">
+            <!-- Preamble -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.preamble.title') }}</h2>
+                <p class="mb-4">
+                    Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») régissent l'accès et l'utilisation de la plateforme {{ config.companyName }} (ci-après « la Plateforme » ou « le Service ») éditée par {{ config.legalName }}.
+                </p>
+                <p class="mb-4">En accédant à la Plateforme ou en créant un compte, vous acceptez sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser nos services.</p>
+                <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg mb-4">
+                    <p><strong>Éditeur de la Plateforme :</strong></p>
+                    <p>{{ config.legalName }}</p>
+                    <p>{{ fullAddress }}</p>
+                    <p>SIRET : {{ config.siret }}</p>
+                    <p>RCS : {{ config.rcs }}</p>
+                    <p>N° TVA : {{ config.tvaNumber }}</p>
+                    <p>Capital social : {{ config.capitalSocial }}</p>
+                    <p>Directeur de la publication : {{ config.legalRepresentative }}</p>
+                    <p>
+                        Email : <a href="mailto:{{ config.email }}" class="text-primary hover:underline">{{ config.email }}</a>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Definitions -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.definitions.title') }}</h2>
+                <ul class="list-disc pl-6 mb-4">
+                    <li><strong>« Utilisateur » :</strong> Toute personne physique ou morale accédant à la Plateforme</li>
+                    <li><strong>« Utilisateur Professionnel » :</strong> Recruteur, agent sportif, club ou organisation utilisant le Service dans le cadre de son activité professionnelle</li>
+                    <li><strong>« Utilisateur Non-Professionnel » :</strong> Consommateur au sens du Code de la consommation, notamment les représentants légaux d'athlètes</li>
+                    <li><strong>« Prodige » :</strong> Athlète dont le profil et les vidéos sont publiés sur la Plateforme</li>
+                    <li><strong>« Contenu » :</strong> Tout élément (texte, image, vidéo, données) publié sur la Plateforme</li>
+                    <li><strong>« Abonnement » :</strong> Formule payante donnant accès aux fonctionnalités premium de la Plateforme</li>
+                </ul>
+            </section>
+
+            <!-- Service Description -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.service.title') }}</h2>
+                <p class="mb-4">{{ config.companyName }} est une plateforme de mise en relation entre professionnels du sport (recruteurs, agents, clubs) et athlètes prometteurs (« Prodiges ») via le partage de vidéos de performances sportives.</p>
+                <p class="mb-4">Le Service comprend notamment :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>La création et gestion de profils d'athlètes</li>
+                    <li>Le téléversement et la consultation de vidéos sportives</li>
+                    <li>Des outils de recherche et de filtrage avancés</li>
+                    <li>Un système de mise en contact entre utilisateurs</li>
+                    <li>Des fonctionnalités de modération et de validation du contenu</li>
+                </ul>
+
+                <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-4 mb-4">
+                    <p class="font-semibold text-red-800 dark:text-red-200">{{ t('legal.terms.service.important') }}</p>
+                    <p class="text-red-700 dark:text-red-300">
+                        {{ config.companyName }} agit exclusivement en tant qu'intermédiaire technique. La Plateforme ne fournit pas de conseils en recrutement, d'évaluation professionnelle des athlètes, ni de services d'agent sportif. Toute décision
+                        de recrutement ou d'engagement reste de la responsabilité exclusive des Utilisateurs.
+                    </p>
+                </div>
+            </section>
+
+            <!-- User Categories -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.userCategories.title') }}</h2>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.terms.userCategories.professionals.title') }}</h3>
+                <p class="mb-4">
+                    En vous inscrivant en tant qu'Utilisateur Professionnel, vous déclarez agir dans le cadre de votre activité professionnelle et acceptez que les dispositions protectrices du droit de la consommation ne vous soient pas applicables.
+                </p>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.terms.userCategories.nonProfessionals.title') }}</h3>
+                <p class="mb-4">Les Utilisateurs Non-Professionnels (consommateurs) bénéficient des protections prévues par le Code de la consommation et le droit européen, notamment :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Droit de rétractation de 14 jours pour les achats en ligne (article L.221-18 du Code de la consommation)</li>
+                    <li>Protection contre les clauses abusives</li>
+                    <li>Médiation de la consommation en cas de litige</li>
+                </ul>
+            </section>
+
+            <!-- Account and Registration -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.account.title') }}</h2>
+                <p class="mb-4">Pour accéder aux fonctionnalités de la Plateforme, vous devez créer un compte en fournissant des informations exactes et complètes.</p>
+                <p class="mb-4">Vous êtes responsable de :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>La confidentialité de vos identifiants de connexion</li>
+                    <li>Toutes les activités effectuées depuis votre compte</li>
+                    <li>La mise à jour de vos informations personnelles</li>
+                </ul>
+                <p class="mb-4">{{ config.companyName }} se réserve le droit de suspendre ou supprimer tout compte en cas de violation des présentes CGU ou d'activité suspecte.</p>
+            </section>
+
+            <!-- Subscriptions and Payments -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.subscription.title') }}</h2>
+                <p class="mb-4">L'accès aux fonctionnalités premium nécessite la souscription d'un Abonnement payant. Les tarifs applicables sont indiqués sur la page de tarification et incluent les taxes applicables (TVA).</p>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.terms.subscription.payment.title') }}</h3>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Les paiements sont traités par un prestataire de paiement sécurisé</li>
+                    <li>Les Abonnements sont reconduits automatiquement sauf résiliation</li>
+                    <li>La résiliation prend effet à la fin de la période en cours</li>
+                </ul>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.terms.subscription.withdrawal.title') }}</h3>
+                <p class="mb-4">
+                    Conformément à l'article L.221-18 du Code de la consommation, les Utilisateurs Non-Professionnels disposent d'un délai de 14 jours à compter de la souscription pour exercer leur droit de rétractation, sans motif et sans pénalité.
+                </p>
+                <p class="mb-4">
+                    <strong>Exception :</strong> En accédant immédiatement au Service après la souscription, vous reconnaissez renoncer expressément à votre droit de rétractation conformément à l'article L.221-28 du Code de la consommation pour les
+                    services pleinement exécutés avant la fin du délai de rétractation.
+                </p>
+
+                <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 p-4 mb-4">
+                    <p class="font-semibold text-yellow-800 dark:text-yellow-200">{{ t('legal.terms.subscription.credits.title') }}</p>
+                    <p class="text-yellow-700 dark:text-yellow-300">
+                        Le système de crédits permet d'accéder au contenu de la Plateforme. Les crédits sont liés à l'Abonnement et ne sont pas remboursables, transférables ou échangeables contre de l'argent.
+                    </p>
+                </div>
+            </section>
+
+            <!-- User Obligations -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.obligations.title') }}</h2>
+                <p class="mb-4">En utilisant la Plateforme, vous vous engagez à :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Respecter les lois et réglementations applicables</li>
+                    <li>Ne pas publier de contenu illicite, diffamatoire, discriminatoire ou portant atteinte aux droits de tiers</li>
+                    <li>Obtenir les autorisations nécessaires avant de publier des vidéos d'athlètes (notamment pour les mineurs)</li>
+                    <li>Ne pas utiliser la Plateforme à des fins frauduleuses ou malveillantes</li>
+                    <li>Ne pas tenter de contourner les mesures de sécurité ou d'accéder à des fonctionnalités non autorisées</li>
+                    <li>Ne pas collecter les données des autres utilisateurs sans autorisation</li>
+                </ul>
+            </section>
+
+            <!-- Content and Moderation -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.content.title') }}</h2>
+                <p class="mb-4">
+                    Tous les contenus publiés sur la Plateforme sont soumis à modération. {{ config.companyName }} se réserve le droit de supprimer ou rejeter tout contenu ne respectant pas les présentes CGU ou les lignes directrices de la
+                    communauté.
+                </p>
+                <p class="mb-4">Les vidéos rejetées par la modération sont automatiquement supprimées 15 jours après le rejet, sauf mise à jour par l'utilisateur.</p>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.terms.content.license.title') }}</h3>
+                <p class="mb-4">
+                    En publiant du contenu sur la Plateforme, vous accordez à {{ config.companyName }} une licence non exclusive, mondiale, transférable et sous-licenciable pour utiliser, reproduire, modifier, adapter et afficher ce contenu dans le
+                    cadre de l'exploitation du Service.
+                </p>
+                <p class="mb-4">Vous conservez tous vos droits de propriété intellectuelle sur vos contenus et pouvez les supprimer à tout moment.</p>
+            </section>
+
+            <!-- Liability Disclaimer -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.liability.title') }}</h2>
+
+                <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-4 mb-4">
+                    <p class="font-semibold text-red-800 dark:text-red-200 text-lg mb-2">{{ t('legal.terms.liability.disclaimer') }}</p>
+                </div>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.terms.liability.financial.title') }}</h3>
+                <p class="mb-4">{{ config.companyName }} <strong>DÉCLINE TOUTE RESPONSABILITÉ</strong> concernant :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Les résultats financiers ou sportifs découlant de l'utilisation de la Plateforme</li>
+                    <li>Les décisions de recrutement, d'investissement ou d'engagement prises par les Utilisateurs</li>
+                    <li>Les pertes financières, le manque à gagner ou les dommages économiques de quelque nature que ce soit</li>
+                    <li>Les transactions financières conclues entre Utilisateurs en dehors de la Plateforme</li>
+                </ul>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.terms.liability.thirdParty.title') }}</h3>
+                <p class="mb-4">{{ config.companyName }} n'est pas responsable :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Des services fournis par des tiers (prestataires de paiement, hébergeurs, etc.)</li>
+                    <li>Du contenu des sites internet vers lesquels des liens pourraient rediriger</li>
+                    <li>Des actions, omissions ou comportements des autres Utilisateurs</li>
+                    <li>Des informations fournies par les Utilisateurs concernant les athlètes</li>
+                </ul>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.terms.liability.information.title') }}</h3>
+                <p class="mb-4">Les informations disponibles sur la Plateforme sont fournies <strong>À TITRE INFORMATIF UNIQUEMENT</strong> et ne constituent pas :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Un conseil professionnel en recrutement sportif</li>
+                    <li>Une évaluation officielle des capacités d'un athlète</li>
+                    <li>Une garantie de performance ou de potentiel sportif</li>
+                    <li>Une recommandation d'investissement ou d'engagement</li>
+                </ul>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.terms.liability.limitation.title') }}</h3>
+                <p class="mb-4">
+                    Dans les limites autorisées par la loi applicable, la responsabilité totale de {{ config.companyName }} envers un Utilisateur Professionnel, pour quelque cause que ce soit, est limitée au montant des sommes effectivement versées
+                    par cet Utilisateur au cours des 12 mois précédant l'événement donnant lieu à responsabilité.
+                </p>
+                <p class="mb-4">Cette limitation ne s'applique pas aux Utilisateurs Non-Professionnels dans la mesure où elle serait contraire aux dispositions impératives du droit de la consommation.</p>
+            </section>
+
+            <!-- Indemnification -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.indemnification.title') }}</h2>
+                <p class="mb-4">
+                    Vous acceptez d'indemniser et de dégager de toute responsabilité {{ config.companyName }}, ses dirigeants, employés et partenaires contre toute réclamation, perte, dommage, coût ou dépense (y compris les frais d'avocat
+                    raisonnables) résultant de :
+                </p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Votre violation des présentes CGU</li>
+                    <li>Votre violation des droits de tiers</li>
+                    <li>Le contenu que vous publiez sur la Plateforme</li>
+                    <li>Votre utilisation du Service</li>
+                </ul>
+            </section>
+
+            <!-- Intellectual Property -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.ip.title') }}</h2>
+                <p class="mb-4">La Plateforme et son contenu (hors contenu utilisateur) sont protégés par les droits de propriété intellectuelle et appartiennent à {{ config.companyName }} ou à ses concédants de licence.</p>
+                <p class="mb-4">
+                    Toute reproduction, représentation, modification, distribution ou exploitation non autorisée de tout ou partie de la Plateforme est interdite et constitue une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de
+                    la propriété intellectuelle.
+                </p>
+            </section>
+
+            <!-- Service Modifications -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.modifications.title') }}</h2>
+                <p class="mb-4">
+                    {{ config.companyName }} se réserve le droit de modifier, suspendre ou interrompre tout ou partie du Service à tout moment, avec ou sans préavis. En cas de modification substantielle affectant les droits des Utilisateurs, un
+                    préavis raisonnable sera fourni.
+                </p>
+                <p class="mb-4">
+                    Les présentes CGU peuvent être modifiées à tout moment. Les modifications seront notifiées aux Utilisateurs et entreront en vigueur dans un délai de 30 jours. La poursuite de l'utilisation du Service après ce délai vaut
+                    acceptation des nouvelles CGU.
+                </p>
+            </section>
+
+            <!-- Termination -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.termination.title') }}</h2>
+                <p class="mb-4">Vous pouvez résilier votre compte à tout moment depuis les paramètres de votre profil.</p>
+                <p class="mb-4">{{ config.companyName }} peut résilier ou suspendre votre accès au Service en cas de :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Violation des présentes CGU</li>
+                    <li>Comportement frauduleux ou illicite</li>
+                    <li>Non-paiement des sommes dues</li>
+                    <li>Inactivité prolongée du compte</li>
+                </ul>
+            </section>
+
+            <!-- Dispute Resolution -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.disputes.title') }}</h2>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.terms.disputes.mediation.title') }}</h3>
+                <p class="mb-4">
+                    Conformément à l'article L.612-1 du Code de la consommation, les Utilisateurs Non-Professionnels peuvent recourir gratuitement à un médiateur de la consommation en cas de litige non résolu directement avec
+                    {{ config.companyName }}.
+                </p>
+                <p class="mb-4">
+                    Vous pouvez également accéder à la plateforme de Règlement en Ligne des Litiges de la Commission européenne :
+                    <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" class="text-primary hover:underline">https://ec.europa.eu/consumers/odr</a>
+                </p>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.terms.disputes.jurisdiction.title') }}</h3>
+                <p class="mb-4"><strong>Loi applicable :</strong> Les présentes CGU sont régies par le droit français et le droit de l'Union européenne.</p>
+                <p class="mb-4"><strong>Juridiction compétente :</strong> En cas de litige, et à défaut de résolution amiable, les tribunaux compétents seront :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Pour les Utilisateurs Professionnels : Les tribunaux de Paris (France)</li>
+                    <li>Pour les Utilisateurs Non-Professionnels : Le tribunal du lieu de domicile du consommateur ou de Paris, au choix du consommateur</li>
+                </ul>
+            </section>
+
+            <!-- Severability -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.severability.title') }}</h2>
+                <p class="mb-4">
+                    Si une disposition des présentes CGU est jugée invalide ou inapplicable par un tribunal compétent, les autres dispositions resteront en vigueur. La disposition invalide sera remplacée par une disposition valide se rapprochant le
+                    plus possible de l'intention des parties.
+                </p>
+            </section>
+
+            <!-- Contact -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.terms.contact.title') }}</h2>
+                <p class="mb-4">Pour toute question concernant ces Conditions Générales d'Utilisation :</p>
+                <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg">
+                    <p>
+                        <strong>{{ config.legalName }}</strong>
+                    </p>
+                    <p>{{ fullAddress }}</p>
+                    <p>
+                        Email : <a href="mailto:{{ config.email }}" class="text-primary hover:underline">{{ config.email }}</a>
+                    </p>
+                    <p>Téléphone : {{ config.phone }}</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Loading state -->
+        <div *ngIf="!config" class="flex justify-center items-center py-20">
+            <i class="pi pi-spin pi-spinner text-4xl text-primary"></i>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+    "companyName": "Caviar Scout",
+    "legalName": "Caviar Scout SAS",
+    "address": {
+        "street": "123 Avenue des Champions",
+        "postalCode": "75008",
+        "city": "Paris",
+        "country": "France"
+    },
+    "email": "contact@caviarscout.com",
+    "phone": "+33 1 23 45 67 89",
+    "siret": "123 456 789 00012",
+    "rcs": "Paris B 123 456 789",
+    "tvaNumber": "FR12345678901",
+    "legalRepresentative": "Jean Dupont",
+    "legalRepresentativeTitle": "Président",
+    "capitalSocial": "10 000 €",
+    "hostingProvider": {
+        "name": "Microsoft Azure",
+        "address": "39 Quai du Président Roosevelt, 92130 Issy-les-Moulineaux, France"
+    },
+    "dpoEmail": "dpo@caviarscout.com",
+    "website": "https://www.caviarscout.com",
+    "lastUpdated": "2026-01-02"
+}

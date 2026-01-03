@@ -1,0 +1,20 @@
+.legal-content {
+    line-height: 1.7;
+
+    section {
+        scroll-margin-top: 2rem;
+    }
+
+    h2 {
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+    }
+
+    ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    table {
+        font-size: 0.95rem;
+    }
+}

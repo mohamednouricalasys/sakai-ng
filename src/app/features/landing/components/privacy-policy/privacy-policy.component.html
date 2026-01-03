@@ -1,0 +1,304 @@
+<div class="bg-surface-0 dark:bg-surface-900 min-h-screen">
+    <div class="py-8 px-6 md:px-12 lg:px-20 max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="mb-8">
+            <a routerLink="/" class="text-primary hover:underline flex items-center gap-2 mb-6">
+                <i class="pi pi-arrow-left"></i>
+                {{ t('legal.backToHome') }}
+            </a>
+            <h1 class="text-4xl font-bold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.title') }}</h1>
+            <p class="text-surface-600 dark:text-surface-300" *ngIf="config">{{ t('legal.lastUpdated') }}: {{ lastUpdated }}</p>
+        </div>
+
+        <div class="legal-content text-surface-700 dark:text-surface-200" *ngIf="config">
+            <!-- Introduction -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.introduction.title') }}</h2>
+                <p class="mb-4">
+                    {{ config.legalName }} (« {{ config.companyName }} », « nous », « notre » ou « nos ») s'engage à protéger la vie privée et les données personnelles de ses utilisateurs conformément au Règlement Général sur la Protection des
+                    Données (RGPD - Règlement UE 2016/679), à la Loi Informatique et Libertés du 6 janvier 1978 modifiée, et à toute autre législation européenne applicable en matière de protection des données.
+                </p>
+                <p class="mb-4">
+                    Cette politique de confidentialité décrit comment nous collectons, utilisons, stockons et protégeons vos données personnelles lorsque vous utilisez notre plateforme de recrutement sportif accessible à l'adresse
+                    {{ config.website }}.
+                </p>
+            </section>
+
+            <!-- Data Controller -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.controller.title') }}</h2>
+                <p class="mb-4">Le responsable du traitement de vos données personnelles est :</p>
+                <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg mb-4">
+                    <p>
+                        <strong>{{ config.legalName }}</strong>
+                    </p>
+                    <p>{{ fullAddress }}</p>
+                    <p>SIRET : {{ config.siret }}</p>
+                    <p>RCS : {{ config.rcs }}</p>
+                    <p>Représentant légal : {{ config.legalRepresentative }}, {{ config.legalRepresentativeTitle }}</p>
+                    <p>
+                        Email : <a href="mailto:{{ config.email }}" class="text-primary hover:underline">{{ config.email }}</a>
+                    </p>
+                    <p>Téléphone : {{ config.phone }}</p>
+                </div>
+            </section>
+
+            <!-- DPO -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.dpo.title') }}</h2>
+                <p class="mb-4">Pour toute question relative à la protection de vos données personnelles ou pour exercer vos droits, vous pouvez contacter notre Délégué à la Protection des Données (DPO) à l'adresse suivante :</p>
+                <p class="mb-4">
+                    <a href="mailto:{{ config.dpoEmail }}" class="text-primary hover:underline">{{ config.dpoEmail }}</a>
+                </p>
+            </section>
+
+            <!-- Data Collected -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.dataCollected.title') }}</h2>
+                <p class="mb-4">Nous collectons et traitons les catégories de données personnelles suivantes :</p>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.privacy.dataCollected.identity.title') }}</h3>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Nom et prénom</li>
+                    <li>Adresse email</li>
+                    <li>Numéro de téléphone</li>
+                    <li>Fonction professionnelle (recruteur, agent, professionnel du sport)</li>
+                    <li>Organisation/Club représenté</li>
+                </ul>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.privacy.dataCollected.athletes.title') }}</h3>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Informations sur les athlètes (« prodiges ») : nom, âge, sport pratiqué, pays</li>
+                    <li>Vidéos de performances sportives</li>
+                    <li>Tags et descriptions des compétences</li>
+                </ul>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.privacy.dataCollected.technical.title') }}</h3>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Adresse IP</li>
+                    <li>Données de connexion et de navigation</li>
+                    <li>Type de navigateur et système d'exploitation</li>
+                    <li>Cookies et technologies similaires</li>
+                </ul>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.privacy.dataCollected.transaction.title') }}</h3>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Informations de facturation</li>
+                    <li>Historique des abonnements</li>
+                    <li>Données de paiement (traitées par notre prestataire de paiement sécurisé)</li>
+                </ul>
+            </section>
+
+            <!-- Legal Basis -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.legalBasis.title') }}</h2>
+                <p class="mb-4">Conformément au RGPD, nous traitons vos données personnelles sur les bases légales suivantes :</p>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse border border-surface-300 dark:border-surface-600 mb-4">
+                        <thead>
+                            <tr class="bg-surface-100 dark:bg-surface-800">
+                                <th class="border border-surface-300 dark:border-surface-600 p-3 text-left">Finalité</th>
+                                <th class="border border-surface-300 dark:border-surface-600 p-3 text-left">Base légale (Article 6 RGPD)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Création et gestion de compte</td>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Exécution du contrat (Art. 6.1.b)</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Fourniture des services de la plateforme</td>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Exécution du contrat (Art. 6.1.b)</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Gestion des abonnements et paiements</td>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Exécution du contrat (Art. 6.1.b)</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Communications marketing</td>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Consentement (Art. 6.1.a)</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Amélioration des services</td>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Intérêt légitime (Art. 6.1.f)</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Sécurité et prévention de la fraude</td>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Intérêt légitime (Art. 6.1.f)</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Obligations légales et fiscales</td>
+                                <td class="border border-surface-300 dark:border-surface-600 p-3">Obligation légale (Art. 6.1.c)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- User Categories -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.userCategories.title') }}</h2>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.privacy.userCategories.professionals.title') }}</h3>
+                <p class="mb-4">
+                    Les utilisateurs professionnels (recruteurs, agents sportifs, clubs) utilisent la plateforme dans le cadre de leur activité professionnelle. Le traitement de leurs données est effectué sur la base de l'exécution du contrat de
+                    service et de notre intérêt légitime à fournir nos services B2B.
+                </p>
+
+                <h3 class="text-xl font-medium text-surface-900 dark:text-surface-0 mb-3">{{ t('legal.privacy.userCategories.nonProfessionals.title') }}</h3>
+                <p class="mb-4">
+                    Pour les utilisateurs non-professionnels, notamment les représentants légaux d'athlètes mineurs, nous appliquons les protections renforcées prévues par le droit européen de la consommation et le RGPD, incluant le droit de
+                    rétractation de 14 jours pour les achats en ligne.
+                </p>
+
+                <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 p-4 mb-4">
+                    <p class="font-semibold text-yellow-800 dark:text-yellow-200">{{ t('legal.privacy.userCategories.minors.title') }}</p>
+                    <p class="text-yellow-700 dark:text-yellow-300">
+                        La publication de vidéos d'athlètes mineurs nécessite le consentement explicite et documenté du représentant légal. Ce consentement doit être obtenu préalablement à tout téléversement de contenu sur la plateforme.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Data Retention -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.retention.title') }}</h2>
+                <p class="mb-4">Nous conservons vos données personnelles pour les durées suivantes :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li><strong>Données de compte :</strong> Durée de la relation contractuelle + 3 ans</li>
+                    <li><strong>Données de facturation :</strong> 10 ans (obligation légale comptable)</li>
+                    <li><strong>Vidéos et contenus :</strong> Durée de la relation contractuelle ou jusqu'à suppression par l'utilisateur</li>
+                    <li><strong>Vidéos rejetées par la modération :</strong> 15 jours après rejet</li>
+                    <li><strong>Cookies de session :</strong> Durée de la session</li>
+                    <li><strong>Cookies analytiques :</strong> 13 mois maximum</li>
+                    <li><strong>Logs de connexion :</strong> 1 an</li>
+                </ul>
+            </section>
+
+            <!-- Data Recipients -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.recipients.title') }}</h2>
+                <p class="mb-4">Vos données peuvent être communiquées aux destinataires suivants :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>
+                        <strong>Personnel habilité de {{ config.companyName }} :</strong> Pour la gestion et le support de la plateforme
+                    </li>
+                    <li><strong>Prestataires techniques :</strong> Hébergement, maintenance, paiement (sous contrat de sous-traitance conforme au RGPD)</li>
+                    <li><strong>Autorités compétentes :</strong> En cas d'obligation légale</li>
+                </ul>
+
+                <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg mb-4">
+                    <p class="font-semibold mb-2">Hébergeur des données :</p>
+                    <p>{{ config.hostingProvider.name }}</p>
+                    <p>{{ config.hostingProvider.address }}</p>
+                </div>
+
+                <p class="mb-4">
+                    <strong>Transferts hors UE :</strong> En cas de transfert de données vers des pays situés hors de l'Espace Économique Européen, nous veillons à ce que des garanties appropriées soient mises en place conformément aux articles 44 à
+                    49 du RGPD (clauses contractuelles types, décisions d'adéquation, etc.).
+                </p>
+            </section>
+
+            <!-- User Rights -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.rights.title') }}</h2>
+                <p class="mb-4">Conformément au RGPD, vous disposez des droits suivants concernant vos données personnelles :</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Droit d'accès (Art. 15)</h4>
+                        <p class="text-sm">Obtenir confirmation du traitement de vos données et en recevoir une copie.</p>
+                    </div>
+                    <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Droit de rectification (Art. 16)</h4>
+                        <p class="text-sm">Faire corriger vos données inexactes ou incomplètes.</p>
+                    </div>
+                    <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Droit à l'effacement (Art. 17)</h4>
+                        <p class="text-sm">Demander la suppression de vos données dans certaines conditions.</p>
+                    </div>
+                    <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Droit à la limitation (Art. 18)</h4>
+                        <p class="text-sm">Restreindre le traitement de vos données dans certains cas.</p>
+                    </div>
+                    <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Droit à la portabilité (Art. 20)</h4>
+                        <p class="text-sm">Recevoir vos données dans un format structuré et lisible par machine.</p>
+                    </div>
+                    <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Droit d'opposition (Art. 21)</h4>
+                        <p class="text-sm">Vous opposer au traitement basé sur l'intérêt légitime ou la prospection.</p>
+                    </div>
+                </div>
+
+                <p class="mb-4">
+                    Pour exercer ces droits, contactez-nous à <a href="mailto:{{ config.dpoEmail }}" class="text-primary hover:underline">{{ config.dpoEmail }}</a> en joignant une copie de votre pièce d'identité.
+                </p>
+
+                <p class="mb-4"><strong>Droit de réclamation :</strong> Vous avez le droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) :</p>
+                <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg">
+                    <p>CNIL - 3 Place de Fontenoy - TSA 80715</p>
+                    <p>75334 Paris Cedex 07</p>
+                    <p>Site web : <a href="https://www.cnil.fr" target="_blank" rel="noopener" class="text-primary hover:underline">www.cnil.fr</a></p>
+                </div>
+            </section>
+
+            <!-- Cookies -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.cookies.title') }}</h2>
+                <p class="mb-4">
+                    Notre site utilise des cookies et technologies similaires. Pour plus d'informations sur les cookies utilisés et vos choix, veuillez consulter notre
+                    <a routerLink="/cookies" class="text-primary hover:underline">Politique de Cookies</a>.
+                </p>
+                <p class="mb-4">Conformément à la directive ePrivacy et aux recommandations de la CNIL, nous recueillons votre consentement préalable avant le dépôt de cookies non essentiels via notre bannière de cookies.</p>
+            </section>
+
+            <!-- Security -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.security.title') }}</h2>
+                <p class="mb-4">Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, modification, divulgation ou destruction, notamment :</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Chiffrement des données en transit (HTTPS/TLS)</li>
+                    <li>Chiffrement des données sensibles au repos</li>
+                    <li>Authentification sécurisée</li>
+                    <li>Contrôle d'accès basé sur les rôles</li>
+                    <li>Surveillance et audit des systèmes</li>
+                    <li>Procédures de sauvegarde régulières</li>
+                </ul>
+            </section>
+
+            <!-- Updates -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.updates.title') }}</h2>
+                <p class="mb-4">
+                    Nous pouvons modifier cette politique de confidentialité à tout moment. En cas de modification substantielle, nous vous en informerons par email ou par notification sur la plateforme. La date de dernière mise à jour est indiquée
+                    en haut de ce document.
+                </p>
+            </section>
+
+            <!-- Contact -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-surface-900 dark:text-surface-0 mb-4">{{ t('legal.privacy.contact.title') }}</h2>
+                <p class="mb-4">Pour toute question concernant cette politique de confidentialité ou vos données personnelles :</p>
+                <div class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg">
+                    <p>
+                        <strong>{{ config.legalName }}</strong>
+                    </p>
+                    <p>{{ fullAddress }}</p>
+                    <p>
+                        Email : <a href="mailto:{{ config.email }}" class="text-primary hover:underline">{{ config.email }}</a>
+                    </p>
+                    <p>
+                        DPO : <a href="mailto:{{ config.dpoEmail }}" class="text-primary hover:underline">{{ config.dpoEmail }}</a>
+                    </p>
+                    <p>Téléphone : {{ config.phone }}</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Loading state -->
+        <div *ngIf="!config" class="flex justify-center items-center py-20">
+            <i class="pi pi-spin pi-spinner text-4xl text-primary"></i>
+        </div>
+    </div>
+</div>

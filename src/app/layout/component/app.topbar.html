@@ -54,7 +54,7 @@
                                 <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem; justify-content: flex-end">
                                     <button pButton type="button" [label]="'topbar.profile.edit' | translate" icon="pi pi-user-edit" (click)="editProfile()" class="p-button-text p-button-secondary"></button>
                                     <button pButton type="button" [label]="'topbar.profile.logout' | translate" icon="pi pi-sign-out" (click)="logout()" class="p-button-text"></button>
-                                    <button pButton type="button" [label]="'topbar.profile.delete' | translate" icon="pi pi-trash" (click)="removeAccount()" class="p-button-text p-button-danger"></button>
+                                    <button pButton type="button" [label]="'topbar.profile.delete' | translate" icon="pi pi-trash" (click)="showDeleteAccountDialog()" class="p-button-text p-button-danger"></button>
                                 </div>
                             </div>
                         </p-overlayPanel>
@@ -74,7 +74,7 @@
                                 <div style="margin-top: 1rem">
                                     <button pButton [label]="'topbar.profile.editMobile' | translate" icon="pi pi-user-edit" (click)="editProfile()" style="width: 100%" class="p-button-secondary p-button-outlined mb-2"></button>
                                     <button pButton [label]="'topbar.profile.logout' | translate" icon="pi pi-sign-out" (click)="logout()" style="width: 100%" class="p-button-outlined mb-2"></button>
-                                    <button pButton [label]="'topbar.profile.deleteMobile' | translate" icon="pi pi-trash" (click)="removeAccount()" style="width: 100%" class="p-button-danger"></button>
+                                    <button pButton [label]="'topbar.profile.deleteMobile' | translate" icon="pi pi-trash" (click)="showDeleteAccountDialog()" style="width: 100%" class="p-button-danger"></button>
                                 </div>
                             </div>
                         </p-sidebar>
@@ -85,5 +85,31 @@
             </div>
         </div>
     </div>
-</div>
 
+    <!-- Delete Account Confirmation Dialog -->
+    <p-dialog [(visible)]="showDeleteConfirmDialog" [modal]="true" [closable]="!isDeletingAccount" [draggable]="false" [resizable]="false" [style]="{ width: '450px' }" [breakpoints]="{ '960px': '95vw', '640px': '90vw' }">
+        <ng-template pTemplate="header">
+            <div class="flex align-items-center gap-2">
+                <i class="pi pi-exclamation-triangle text-red-500 text-2xl"></i>
+                <span class="text-xl font-semibold">{{ 'topbar.profile.confirmDeleteTitle' | translate }}</span>
+            </div>
+        </ng-template>
+
+        <div class="flex flex-column gap-4 py-3">
+            <div class="text-center">
+                <p class="text-lg mb-2">{{ 'topbar.profile.confirmDeleteMessage' | translate }}</p>
+                <p class="text-sm text-500 m-0">{{ 'topbar.profile.confirmDeleteWarning' | translate }}</p>
+            </div>
+        </div>
+
+        <ng-template pTemplate="footer">
+            <div class="flex justify-content-end gap-2">
+                <button pButton type="button" [label]="'common.cancel' | translate" icon="pi pi-times" (click)="cancelDeleteAccount()" class="p-button-text" [disabled]="isDeletingAccount"></button>
+                <button pButton type="button" [label]="'topbar.profile.deleteConfirm' | translate" icon="pi pi-trash" (click)="confirmDeleteAccount()" class="p-button-danger" [disabled]="isDeletingAccount" [loading]="isDeletingAccount"></button>
+            </div>
+        </ng-template>
+    </p-dialog>
+
+    <!-- Toast notifications -->
+    <p-toast position="top-center" [baseZIndex]="99999"></p-toast>
+</div>

@@ -23,4 +23,8 @@ export class HeroWidgetComponent {
     login() {
         this.keycloakService.login();
     }
+
+    register() {
+        this.keycloakService.register();
+    }
 }

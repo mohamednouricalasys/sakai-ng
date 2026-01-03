@@ -152,6 +152,49 @@
             "already_viewed": "0 points: already viewed"
         }
     },
+    "footer": {
+        "company": {
+            "description": "Your innovative solution for [service/product]",
+            "rights": "All rights reserved"
+        },
+        "links": {
+            "company": "Company",
+            "about": "About",
+            "careers": "Careers",
+            "press": "Press",
+            "legal": "Legal",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service",
+            "cookies": "Cookie Policy",
+            "support": "Support",
+            "contact": "Contact",
+            "faq": "FAQ",
+            "documentation": "Documentation"
+        },
+        "newsletter": {
+            "title": "Stay Updated",
+            "description": "Get the latest news and special offers",
+            "placeholder": "Your email address",
+            "subscribe": "Subscribe",
+            "success": "Thank you! You are now subscribed.",
+            "error": "An error occurred. Please try again."
+        },
+        "social": {
+            "follow": "Follow Us",
+            "facebook": "Facebook",
+            "twitter": "Twitter",
+            "linkedin": "LinkedIn",
+            "instagram": "Instagram",
+            "youtube": "YouTube"
+        },
+        "contact": {
+            "title": "Contact Us",
+            "address": "Address",
+            "phone": "Phone",
+            "email": "Email"
+        },
+        "backToTop": "Back to top"
+    },
     "videos": {
         "contact": {
             "button": "Contact the manager",
@@ -1103,7 +1146,175 @@
             "logout": "Logout",
             "delete": "Delete",
             "deleteMobile": "Delete Account",
-            "confirmDelete": "Are you sure you want to delete your account? This action is irreversible."
+            "editMobile": "Edit Profile",
+            "confirmDelete": "Are you sure you want to delete your account? This action is irreversible.",
+            "confirmDeleteTitle": "Delete Account",
+            "confirmDeleteMessage": "Are you sure you want to permanently delete your account?",
+            "confirmDeleteWarning": "This action cannot be undone. All your data will be lost.",
+            "deleteConfirm": "Delete Account",
+            "deleteSuccessTitle": "Account Deleted",
+            "deleteSuccessMessage": "Your account has been successfully deleted. You will be logged out shortly.",
+            "deleteErrorTitle": "Deletion Failed",
+            "deleteErrorMessage": "Failed to delete your account. Please try again or contact support."
+        }
+    },
+    "common": {
+        "cancel": "Cancel"
+    },
+    "legal": {
+        "backToHome": "Back to Home",
+        "lastUpdated": "Last updated",
+        "privacy": {
+            "title": "Privacy Policy",
+            "introduction": {
+                "title": "Introduction"
+            },
+            "controller": {
+                "title": "Data Controller"
+            },
+            "dpo": {
+                "title": "Data Protection Officer"
+            },
+            "dataCollected": {
+                "title": "Data Collected",
+                "identity": {
+                    "title": "Identity and Contact Data"
+                },
+                "athletes": {
+                    "title": "Athlete Information"
+                },
+                "technical": {
+                    "title": "Technical Data"
+                },
+                "transaction": {
+                    "title": "Transaction Data"
+                }
+            },
+            "legalBasis": {
+                "title": "Legal Basis for Processing"
+            },
+            "userCategories": {
+                "title": "User Categories",
+                "professionals": {
+                    "title": "Professional Users"
+                },
+                "nonProfessionals": {
+                    "title": "Non-Professional Users"
+                },
+                "minors": {
+                    "title": "Protection of Minors"
+                }
+            },
+            "retention": {
+                "title": "Data Retention"
+            },
+            "recipients": {
+                "title": "Data Recipients"
+            },
+            "rights": {
+                "title": "Your Rights"
+            },
+            "cookies": {
+                "title": "Cookies"
+            },
+            "security": {
+                "title": "Data Security"
+            },
+            "updates": {
+                "title": "Policy Updates"
+            },
+            "contact": {
+                "title": "Contact Us"
+            }
+        },
+        "terms": {
+            "title": "Terms of Service",
+            "preamble": {
+                "title": "Preamble"
+            },
+            "definitions": {
+                "title": "Definitions"
+            },
+            "service": {
+                "title": "Service Description",
+                "important": "Important Notice"
+            },
+            "userCategories": {
+                "title": "User Categories",
+                "professionals": {
+                    "title": "Professional Users"
+                },
+                "nonProfessionals": {
+                    "title": "Non-Professional Users (Consumers)"
+                }
+            },
+            "account": {
+                "title": "Account and Registration"
+            },
+            "subscription": {
+                "title": "Subscriptions and Payments",
+                "payment": {
+                    "title": "Payment Terms"
+                },
+                "withdrawal": {
+                    "title": "Right of Withdrawal"
+                },
+                "credits": {
+                    "title": "Credit System"
+                }
+            },
+            "obligations": {
+                "title": "User Obligations"
+            },
+            "content": {
+                "title": "Content and Moderation",
+                "license": {
+                    "title": "Content License"
+                }
+            },
+            "liability": {
+                "title": "Limitation of Liability",
+                "disclaimer": "IMPORTANT DISCLAIMER",
+                "financial": {
+                    "title": "Financial Disclaimer"
+                },
+                "thirdParty": {
+                    "title": "Third-Party Services"
+                },
+                "information": {
+                    "title": "Information Disclaimer"
+                },
+                "limitation": {
+                    "title": "Limitation of Liability"
+                }
+            },
+            "indemnification": {
+                "title": "Indemnification"
+            },
+            "ip": {
+                "title": "Intellectual Property"
+            },
+            "modifications": {
+                "title": "Service Modifications"
+            },
+            "termination": {
+                "title": "Termination"
+            },
+            "disputes": {
+                "title": "Dispute Resolution",
+                "mediation": {
+                    "title": "Consumer Mediation"
+                },
+                "jurisdiction": {
+                    "title": "Governing Law and Jurisdiction"
+                }
+            },
+            "severability": {
+                "title": "Severability"
+            },
+            "contact": {
+                "title": "Contact"
+            }
         }
     },
     "features": {

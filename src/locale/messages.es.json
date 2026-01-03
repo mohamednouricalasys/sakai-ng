@@ -152,6 +152,49 @@
             "already_viewed": "0 puntos: ya visto"
         }
     },
+    "footer": {
+        "company": {
+            "description": "Tu solución innovadora para [servicio/producto]",
+            "rights": "Todos los derechos reservados"
+        },
+        "links": {
+            "company": "Empresa",
+            "about": "Acerca de",
+            "careers": "Carreras",
+            "press": "Prensa",
+            "legal": "Legal",
+            "privacy": "Política de Privacidad",
+            "terms": "Términos de Servicio",
+            "cookies": "Política de Cookies",
+            "support": "Soporte",
+            "contact": "Contacto",
+            "faq": "Preguntas Frecuentes",
+            "documentation": "Documentación"
+        },
+        "newsletter": {
+            "title": "Mantente Actualizado",
+            "description": "Recibe las últimas noticias y ofertas especiales",
+            "placeholder": "Tu dirección de email",
+            "subscribe": "Suscribirse",
+            "success": "¡Gracias! Ya estás suscrito.",
+            "error": "Ocurrió un error. Por favor, inténtalo de nuevo."
+        },
+        "social": {
+            "follow": "Síguenos",
+            "facebook": "Facebook",
+            "twitter": "Twitter",
+            "linkedin": "LinkedIn",
+            "instagram": "Instagram",
+            "youtube": "YouTube"
+        },
+        "contact": {
+            "title": "Contáctanos",
+            "address": "Dirección",
+            "phone": "Teléfono",
+            "email": "Email"
+        },
+        "backToTop": "Volver arriba"
+    },
     "videos": {
         "contact": {
             "button": "Contacta con el gerente",
@@ -1099,11 +1142,176 @@
         "title": "Caviar Scout",
         "profile": {
             "title": "Perfil",
-            "edit": "Editar Perfil",
-            "logout": "Cerrar Sesión",
-            "delete": "Eliminar",
-            "deleteMobile": "Eliminar Cuenta",
-            "confirmDelete": "¿Estás seguro de que quieres eliminar tu cuenta? Esta acción es irreversible."
+            "edit": "Editar perfil",
+            "logout": "Cerrar sesión",
+            "delete": "Borrar",
+            "deleteMobile": "Eliminar cuenta",
+            "editMobile": "Editar perfil",
+            "confirmDelete": "¿Estás seguro de que quieres eliminar tu cuenta? ",
+            "confirmDeleteTitle": "Eliminar cuenta",
+            "confirmDeleteMessage": "¿Estás seguro de que deseas eliminar permanentemente tu cuenta?",
+            "confirmDeleteWarning": "Esta acción no se puede deshacer. ",
+            "deleteConfirm": "Eliminar cuenta",
+            "deleteSuccessTitle": "Cuenta eliminada",
+            "deleteSuccessMessage": "Su cuenta ha sido eliminada exitosamente. ",
+            "deleteErrorTitle": "Eliminación fallida",
+            "deleteErrorMessage": "No se pudo eliminar tu cuenta. "
+        }
+    },
+    "legal": {
+        "backToHome": "Volver al Inicio",
+        "lastUpdated": "Última actualización",
+        "privacy": {
+            "title": "Política de Privacidad",
+            "introduction": {
+                "title": "Introducción"
+            },
+            "controller": {
+                "title": "Responsable del Tratamiento"
+            },
+            "dpo": {
+                "title": "Delegado de Protección de Datos"
+            },
+            "dataCollected": {
+                "title": "Datos Recopilados",
+                "identity": {
+                    "title": "Datos de Identificación y Contacto"
+                },
+                "athletes": {
+                    "title": "Información de los Atletas"
+                },
+                "technical": {
+                    "title": "Datos Técnicos"
+                },
+                "transaction": {
+                    "title": "Datos de Transacción"
+                }
+            },
+            "legalBasis": {
+                "title": "Base Legal del Tratamiento"
+            },
+            "userCategories": {
+                "title": "Categorías de Usuarios",
+                "professionals": {
+                    "title": "Usuarios Profesionales"
+                },
+                "nonProfessionals": {
+                    "title": "Usuarios No Profesionales"
+                },
+                "minors": {
+                    "title": "Protección de Menores"
+                }
+            },
+            "retention": {
+                "title": "Conservación de Datos"
+            },
+            "recipients": {
+                "title": "Destinatarios de los Datos"
+            },
+            "rights": {
+                "title": "Sus Derechos"
+            },
+            "cookies": {
+                "title": "Cookies"
+            },
+            "security": {
+                "title": "Seguridad de los Datos"
+            },
+            "updates": {
+                "title": "Actualizaciones de la Política"
+            },
+            "contact": {
+                "title": "Contacto"
+            }
+        },
+        "terms": {
+            "title": "Términos de Servicio",
+            "preamble": {
+                "title": "Preámbulo"
+            },
+            "definitions": {
+                "title": "Definiciones"
+            },
+            "service": {
+                "title": "Descripción del Servicio",
+                "important": "Aviso Importante"
+            },
+            "userCategories": {
+                "title": "Categorías de Usuarios",
+                "professionals": {
+                    "title": "Usuarios Profesionales"
+                },
+                "nonProfessionals": {
+                    "title": "Usuarios No Profesionales (Consumidores)"
+                }
+            },
+            "account": {
+                "title": "Cuenta y Registro"
+            },
+            "subscription": {
+                "title": "Suscripciones y Pagos",
+                "payment": {
+                    "title": "Condiciones de Pago"
+                },
+                "withdrawal": {
+                    "title": "Derecho de Desistimiento"
+                },
+                "credits": {
+                    "title": "Sistema de Créditos"
+                }
+            },
+            "obligations": {
+                "title": "Obligaciones del Usuario"
+            },
+            "content": {
+                "title": "Contenido y Moderación",
+                "license": {
+                    "title": "Licencia de Contenido"
+                }
+            },
+            "liability": {
+                "title": "Limitación de Responsabilidad",
+                "disclaimer": "AVISO IMPORTANTE",
+                "financial": {
+                    "title": "Exclusión de Responsabilidad Financiera"
+                },
+                "thirdParty": {
+                    "title": "Servicios de Terceros"
+                },
+                "information": {
+                    "title": "Cláusula de Información"
+                },
+                "limitation": {
+                    "title": "Limitación de Responsabilidad"
+                }
+            },
+            "indemnification": {
+                "title": "Indemnización"
+            },
+            "ip": {
+                "title": "Propiedad Intelectual"
+            },
+            "modifications": {
+                "title": "Modificaciones del Servicio"
+            },
+            "termination": {
+                "title": "Terminación"
+            },
+            "disputes": {
+                "title": "Resolución de Disputas",
+                "mediation": {
+                    "title": "Mediación de Consumo"
+                },
+                "jurisdiction": {
+                    "title": "Ley Aplicable y Jurisdicción"
+                }
+            },
+            "severability": {
+                "title": "Divisibilidad"
+            },
+            "contact": {
+                "title": "Contacto"
+            }
         }
     },
     "features": {
