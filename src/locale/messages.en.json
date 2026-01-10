@@ -112,6 +112,7 @@
             "cancel": "Are you sure you want to cancel your subscription? This action cannot be undone."
         },
         "maintenance": {
+            "title": "Subscription Service Maintenance",
             "subtitle": "Maintenance in progress",
             "description": "Our subscription service is currently under maintenance. ",
             "backButton": "Back",

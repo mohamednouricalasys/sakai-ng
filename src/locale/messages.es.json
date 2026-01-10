@@ -112,6 +112,7 @@
             "cancel": "¿Estás seguro de que deseas cancelar tu suscripción? Esta acción no se puede deshacer."
         },
         "maintenance": {
+            "title": "Mantenimiento del servicio de suscripción",
             "subtitle": "Mantenimiento en curso",
             "description": "Nuestro servicio de suscripción se encuentra actualmente en mantenimiento. Inténtelo de nuevo más tarde.",
             "backButton": "Atrás",

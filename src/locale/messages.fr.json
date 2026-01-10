@@ -195,6 +195,7 @@
             "cancel": "Êtes-vous sûr de vouloir annuler votre abonnement ? Cette action est irréversible."
         },
         "maintenance": {
+            "title": "Maintenance du service d'abonnement",
             "subtitle": "Maintenance en cours",
             "description": "Notre service d’abonnement est actuellement en maintenance. Veuillez réessayer plus tard.",
             "backButton": "Retour",
