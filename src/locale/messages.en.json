@@ -752,7 +752,9 @@
             "uploadPreparationFailed": "Download preparation failure",
             "uploadPreparationFailedDetail": "Unable to prepare the download. ",
             "duplicateFile": "Double file",
-            "duplicateFileDetail": "The {Filename} file has already been added"
+            "duplicateFileDetail": "The {Filename} file has already been added",
+            "filenameTooLong": "Filename Too Long",
+            "filenameTooLongDetail": "The filename is too long ({{currentLength}} characters). Please rename it to {{maxLength}} characters or less before uploading."
         },
         "dashboard": {
             "strings": {

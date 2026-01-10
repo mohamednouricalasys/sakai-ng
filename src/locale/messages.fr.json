@@ -753,7 +753,9 @@
             "uploadPreparationFailed": "Échec de la préparation du téléchargement",
             "uploadPreparationFailedDetail": "Impossible de préparer le téléchargement. Veuillez réessayer.",
             "duplicateFile": "Fichier en double",
-            "duplicateFileDetail": "Le fichier {fileName} a déjà été ajouté"
+            "duplicateFileDetail": "Le fichier {fileName} a déjà été ajouté",
+            "filenameTooLong": "Nom de fichier trop long",
+            "filenameTooLongDetail": "Le nom du fichier est trop long ({{currentLength}} caractères). Veuillez le renommer à {{maxLength}} caractères ou moins avant de le télécharger."
         },
         "dashboard": {
             "strings": {

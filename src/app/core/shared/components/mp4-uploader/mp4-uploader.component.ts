@@ -47,6 +47,8 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
     previewUrl: string | null = null;
     showPreviewDialog = false;
 
+    private readonly MAX_FILENAME_LENGTH = 50; // Adjust as needed
+
     // Inject services
     public translationService = inject(TranslationService);
     private fileUploadService = inject(FileUploadService);
@@ -181,6 +183,21 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private setupEventHandlers() {
         this.uppy?.on('file-added', (file) => {
+            if (file !== undefined && file?.name !== undefined && file?.name?.length > this.MAX_FILENAME_LENGTH) {
+                this.messageService.add({
+                    severity: 'error',
+                    summary: this.t('uploader.messages.filenameTooLong') || 'Filename Too Long',
+                    detail:
+                        this.t('uploader.messages.filenameTooLongDetail', {
+                            maxLength: this.MAX_FILENAME_LENGTH,
+                            currentLength: file?.name?.length,
+                        }) || `Filename is too long (${file?.name?.length} characters). Maximum allowed is ${this.MAX_FILENAME_LENGTH} characters. Please rename your file.`,
+                    life: 7000,
+                });
+                this.uppy?.removeFile(file.id);
+                return;
+            }
+
             if (this.hasReachedFileLimit()) {
                 this.messageService.add({
                     severity: 'warn',

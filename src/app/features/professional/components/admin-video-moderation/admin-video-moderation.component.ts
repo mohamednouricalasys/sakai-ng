@@ -131,7 +131,7 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
         });
         this.videoPlayers.clear();
 
-        // Initialize new players with better error handling
+        // Initialize new players with better error handling and responsive configuration
         this.videoElements.forEach((el) => {
             const videoId = el.nativeElement.id;
             if (!this.videoPlayers.has(videoId)) {
@@ -142,27 +142,44 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
                         preload: 'metadata',
                         responsive: true,
                         fluid: true,
+                        aspectRatio: '16:9',
                         controlBar: {
                             volumePanel: {
                                 inline: false,
                                 vertical: true,
                             },
                             pictureInPictureToggle: false, // Disable PiP for better compatibility
+                            fullscreenToggle: true,
+                            playbackRateMenuButton: true,
+                            remainingTimeDisplay: true,
+                            progressControl: {
+                                seekBar: true,
+                                liveTracker: true,
+                            },
                         },
                         html5: {
                             hls: {
                                 enableLowInitialPlaylist: true,
                                 smoothQualityChange: true,
+                                overrideNative: true,
                             },
+                            nativeAudioTracks: false,
+                            nativeVideoTracks: false,
+                            nativeTextTracks: false,
                         },
+                        playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
+                        poster: '', // Could add poster image if available
                     };
 
                     const player = videojs(el.nativeElement, options, () => {
                         // Player is ready
                         console.log(`Video player initialized for ${videoId}`);
+
+                        // Add custom styling for better appearance
+                        player.addClass('vjs-custom-skin');
                     });
 
-                    // Add error handling
+                    // Add comprehensive error handling
                     player.on('error', (error: any) => {
                         console.error(`Video player error for ${videoId}:`, error);
                         this.messageService.add({
@@ -172,9 +189,49 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
                         });
                     });
 
+                    // Handle loadstart event
+                    player.on('loadstart', () => {
+                        console.log(`Video loading started for ${videoId}`);
+                    });
+
+                    // Handle loadeddata event
+                    player.on('loadeddata', () => {
+                        console.log(`Video data loaded for ${videoId}`);
+                    });
+
+                    // Handle play event
+                    player.on('play', () => {
+                        console.log(`Video started playing for ${videoId}`);
+                    });
+
+                    // Handle pause event
+                    player.on('pause', () => {
+                        console.log(`Video paused for ${videoId}`);
+                    });
+
+                    // Handle ended event
+                    player.on('ended', () => {
+                        console.log(`Video ended for ${videoId}`);
+                    });
+
+                    // Handle waiting event (buffering)
+                    player.on('waiting', () => {
+                        console.log(`Video buffering for ${videoId}`);
+                    });
+
+                    // Handle timeupdate for progress tracking
+                    player.on('timeupdate', () => {
+                        // Could add progress tracking if needed
+                    });
+
                     this.videoPlayers.set(videoId, player);
                 } catch (error) {
                     console.error(`Failed to initialize video player for ${videoId}:`, error);
+                    this.messageService.add({
+                        severity: 'error',
+                        summary: this.t('shared.common.error'),
+                        detail: this.t('admin.video.messages.videoPlayerInitError', { videoId }),
+                    });
                 }
             }
         });
