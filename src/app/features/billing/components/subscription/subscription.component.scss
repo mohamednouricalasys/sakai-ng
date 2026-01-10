@@ -4,93 +4,278 @@
     padding: 0 1rem;
 }
 
-.loading-container {
-    text-align: center;
-    padding: 4rem 2rem;
-}
-
-.subscription-card,
-.pricing-card {
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e9ecef;
-}
-
-.subscription-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-}
-
-.subscription-info {
-    flex: 1;
-}
-
-.plan-name {
-    margin: 0 0 0.5rem 0;
-    color: #2c3e50;
-    font-weight: 600;
-    font-size: 1.5rem;
-}
-
-.credits-info {
-    margin: 0;
-    color: #6c757d;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-}
-
-.status-tag {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-}
-
-.action-buttons {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-}
-
-.pricing-intro {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.pricing-intro h3 {
-    margin: 0 0 0.5rem 0;
-    color: #2c3e50;
-    font-size: 1.75rem;
-}
-
-.pricing-container {
-    min-height: 500px;
+/* Maintenance Mode Styles - 404 Glitch Effect */
+.maintenance-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
-    background: #fafafa;
-    border: 2px dashed #e9ecef;
+    width: 100%;
+    min-height: 60vh;
+    text-align: center;
 }
 
+.maintenance-card {
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--surface-border);
+    background: linear-gradient(135deg, var(--surface-50), var(--surface-100));
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.maintenance-content {
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 404 Glitch Animation */
+.four-oh-four {
+    font-size: 12rem;
+    font-weight: 900;
+    color: var(--surface-200);
+    position: relative;
+    letter-spacing: 0.1em;
+    text-shadow:
+        2px 2px 0px var(--surface-400),
+        4px 4px 0px var(--surface-300);
+    animation: glitch 1.5s linear infinite;
+    margin: 0 auto 2rem auto;
+    max-width: 80%;
+    line-height: 1;
+}
+
+@keyframes glitch {
+    2%,
+    64% {
+        transform: translate(2px, 0) skew(0deg);
+    }
+    4%,
+    60% {
+        transform: translate(-2px, 0) skew(0deg);
+    }
+    62% {
+        transform: translate(0, 0) skew(5deg);
+    }
+}
+
+.four-oh-four:before,
+.four-oh-four:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.four-oh-four:before {
+    left: 2px;
+    text-shadow: -2px 0 var(--primary-color);
+    animation: glitch-anim-2 2s linear infinite;
+}
+
+.four-oh-four:after {
+    left: -2px;
+    text-shadow:
+        -2px 0 var(--blue-500),
+        2px 2px var(--pink-500);
+    animation: glitch-anim 1.2s linear infinite;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    }
+    10% {
+        clip-path: polygon(0 78%, 100% 78%, 100% 82%, 0 82%);
+    }
+    20% {
+        clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+    }
+    30% {
+        clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%);
+    }
+    40% {
+        clip-path: polygon(0 60%, 100% 60%, 100% 40%, 0 40%);
+    }
+    50% {
+        clip-path: polygon(0 15%, 100% 15%, 100% 20%, 0 20%);
+    }
+    60% {
+        clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
+    }
+    70% {
+        clip-path: polygon(0 80%, 100% 80%, 100% 70%, 0 70%);
+    }
+    80% {
+        clip-path: polygon(0 35%, 100% 35%, 100% 40%, 0 40%);
+    }
+    90% {
+        clip-path: polygon(0 90%, 100% 90%, 100% 95%, 0 95%);
+    }
+    100% {
+        clip-path: polygon(0 55%, 100% 55%, 100% 60%, 0 60%);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip-path: polygon(0 80%, 100% 80%, 100% 85%, 0 85%);
+    }
+    10% {
+        clip-path: polygon(0 3%, 100% 3%, 100% 8%, 0 8%);
+    }
+    20% {
+        clip-path: polygon(0 40%, 100% 40%, 100% 25%, 0 25%);
+    }
+    30% {
+        clip-path: polygon(0 62%, 100% 62%, 100% 68%, 0 68%);
+    }
+    40% {
+        clip-path: polygon(0 22%, 100% 22%, 100% 18%, 0 18%);
+    }
+    50% {
+        clip-path: polygon(0 92%, 100% 92%, 100% 98%, 0 98%);
+    }
+    60% {
+        clip-path: polygon(0 52%, 100% 52%, 100% 58%, 0 58%);
+    }
+    70% {
+        clip-path: polygon(0 12%, 100% 12%, 100% 8%, 0 8%);
+    }
+    80% {
+        clip-path: polygon(0 72%, 100% 72%, 100% 78%, 0 78%);
+    }
+    90% {
+        clip-path: polygon(0 42%, 100% 42%, 100% 48%, 0 48%);
+    }
+    100% {
+        clip-path: polygon(0 65%, 100% 65%, 100% 70%, 0 70%);
+    }
+}
+
+/* Maintenance Text Styles */
+.maintenance-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.maintenance-subtitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color-secondary);
+    margin: 0 0 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.maintenance-description {
+    font-size: 1rem;
+    color: var(--text-color-secondary);
+    margin: 0 0 3rem 0;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Action Buttons */
+.maintenance-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.maintenance-actions p-button {
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.maintenance-actions p-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .subscription-wrapper {
-        margin: 1rem auto;
-        padding: 0 0.5rem;
+    .maintenance-content {
+        padding: 2rem 1.5rem;
     }
 
-    .subscription-header {
+    .four-oh-four {
+        font-size: 8rem;
+        max-width: 90%;
+    }
+
+    .maintenance-title {
+        font-size: 2rem;
+    }
+
+    .maintenance-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .maintenance-actions {
         flex-direction: column;
-        gap: 1rem;
+        align-items: center;
     }
 
-    .action-buttons {
-        justify-content: center;
+    .maintenance-actions p-button {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .maintenance-content {
+        padding: 1.5rem 1rem;
     }
 
-    .action-buttons p-button {
-        flex: 1;
-        min-width: 140px;
+    .four-oh-four {
+        font-size: 6rem;
+    }
+
+    .maintenance-title {
+        font-size: 1.75rem;
+    }
+
+    .maintenance-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Subtle background animation */
+.maintenance-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
     }
 }

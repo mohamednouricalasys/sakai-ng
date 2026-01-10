@@ -51,17 +51,7 @@
                         <!-- Video Preview -->
                         <div class="flex-shrink-0">
                             <div class="video-preview-container">
-                                <video
-                                    class="video-js"
-                                    *ngIf="video?.fileItem?.url"
-                                    #videoElement
-                                    [attr.id]="'video-' + video.id"
-                                    class="video-js vjs-default-skin"
-                                    controls
-                                    preload="metadata"
-                                    [src]="video?.fileItem?.url"
-                                    style="width: 100%; height: 100%"
-                                ></video>
+                                <video #videoElement [attr.id]="'video-' + video.id" class="video-js vjs-default-skin" controls preload="metadata" [src]="video?.fileItem?.url" style="width: 100%; height: 100%"></video>
                                 <div *ngIf="!video?.fileItem?.url" class="video-placeholder">
                                     <i class="pi pi-video text-gray-400 text-3xl"></i>
                                 </div>
@@ -158,17 +148,7 @@
                 <div *ngFor="let video of items" class="video-card p-4 border rounded-lg shadow-sm">
                     <!-- Video Preview -->
                     <div class="video-preview-container mb-3">
-                        <video
-                            class="video-js"
-                            *ngIf="video?.fileItem?.url"
-                            #videoElement
-                            [attr.id]="'video-' + video.id"
-                            class="video-js vjs-default-skin"
-                            controls
-                            preload="metadata"
-                            [src]="video?.fileItem?.url"
-                            style="width: 100%; height: 100%"
-                        ></video>
+                        <video #videoElement [attr.id]="'video-' + video.id" class="video-js vjs-default-skin" controls preload="metadata" [src]="video?.fileItem?.url" style="width: 100%; height: 100%"></video>
                         <div *ngIf="!video?.fileItem?.url" class="video-placeholder">
                             <i class="pi pi-video text-gray-400 text-2xl"></i>
                         </div>
@@ -220,17 +200,7 @@
         <div *ngIf="selectedVideo" class="flex flex-col gap-6">
             <!-- Video Player -->
             <div class="video-detail-container">
-                <video
-                    class="video-js"
-                    *ngIf="selectedVideo?.fileItem?.url"
-                    #videoElement
-                    [attr.id]="'video-' + selectedVideo.id"
-                    class="video-js vjs-default-skin"
-                    controls
-                    preload="metadata"
-                    [src]="selectedVideo?.fileItem?.url"
-                    style="width: 100%; height: 100%"
-                ></video>
+                <video #videoElement [attr.id]="'video-' + selectedVideo.id" class="video-js vjs-default-skin" controls preload="metadata" [src]="selectedVideo?.fileItem?.url" style="width: 100%; height: 100%"></video>
             </div>
 
             <!-- Video Information -->

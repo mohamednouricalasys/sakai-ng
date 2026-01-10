@@ -28,14 +28,7 @@ interface SubscriptionStatus {
     styleUrl: './subscription.component.scss',
 })
 export class SubscriptionComponent implements OnInit {
-    subscriptionStatus: SubscriptionStatus | null = null;
-    loading = true;
-    loadingPricing = false;
-    actionLoading = false;
-    message: { type: 'success' | 'error' | 'info'; text: string } | null = null;
-
-    private config: any = null;
-    private customerSessionSecret: string | null = null;
+    // Feature under maintenance - hiding all functional code
     private translationService = inject(TranslationService);
 
     constructor(
@@ -44,13 +37,27 @@ export class SubscriptionComponent implements OnInit {
     ) {}
 
     async ngOnInit() {
-        await this.loadSubscriptionData();
+        // Feature under maintenance - no functional code execution
     }
 
     protected t(key: string, params?: Record<string, any>): string {
         return this.translationService.translate(key, params);
     }
 
+    // Maintenance mode button handlers
+    goBack(): void {
+        window.history.back();
+    }
+
+    contactSupport(): void {
+        const email = 'support@caviarscout.com';
+        const subject = encodeURIComponent('Subscription Feature Inquiry');
+        const body = encodeURIComponent('Hello,\n\nI would like to inquire about the subscription feature that is currently under maintenance.\n\nBest regards,\n[Your Name]');
+        window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    }
+
+    // All functional methods are commented out for maintenance mode
+    /*
     private async loadSubscriptionData() {
         try {
             this.loading = true;
@@ -179,4 +186,5 @@ export class SubscriptionComponent implements OnInit {
         this.message = { type, text };
         setTimeout(() => (this.message = null), 5000);
     }
+    */
 }

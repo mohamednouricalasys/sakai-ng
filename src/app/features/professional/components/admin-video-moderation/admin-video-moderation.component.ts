@@ -123,6 +123,7 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
     }
 
     private initializeVideoPlayers(): void {
+        // Dispose existing players first
         this.videoPlayers.forEach((player) => {
             if (!player.isDisposed()) {
                 player.dispose();
@@ -130,19 +131,52 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
         });
         this.videoPlayers.clear();
 
+        // Initialize new players with better error handling
         this.videoElements.forEach((el) => {
             const videoId = el.nativeElement.id;
-            const options = {
-                controls: true,
-                autoplay: false,
-                preload: 'metadata',
-                responsive: true,
-                fluid: true,
-            };
-            const player = videojs(el.nativeElement, options, () => {
-                // Player is ready
-            });
-            this.videoPlayers.set(videoId, player);
+            if (!this.videoPlayers.has(videoId)) {
+                try {
+                    const options = {
+                        controls: true,
+                        autoplay: false,
+                        preload: 'metadata',
+                        responsive: true,
+                        fluid: true,
+                        controlBar: {
+                            volumePanel: {
+                                inline: false,
+                                vertical: true,
+                            },
+                            pictureInPictureToggle: false, // Disable PiP for better compatibility
+                        },
+                        html5: {
+                            hls: {
+                                enableLowInitialPlaylist: true,
+                                smoothQualityChange: true,
+                            },
+                        },
+                    };
+
+                    const player = videojs(el.nativeElement, options, () => {
+                        // Player is ready
+                        console.log(`Video player initialized for ${videoId}`);
+                    });
+
+                    // Add error handling
+                    player.on('error', (error: any) => {
+                        console.error(`Video player error for ${videoId}:`, error);
+                        this.messageService.add({
+                            severity: 'error',
+                            summary: this.t('shared.common.error'),
+                            detail: this.t('admin.video.messages.videoPlayerError', { videoId }),
+                        });
+                    });
+
+                    this.videoPlayers.set(videoId, player);
+                } catch (error) {
+                    console.error(`Failed to initialize video player for ${videoId}:`, error);
+                }
+            }
         });
     }
 

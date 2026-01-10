@@ -110,6 +110,12 @@
         },
         "confirmations": {
             "cancel": "Are you sure you want to cancel your subscription? This action cannot be undone."
+        },
+        "maintenance": {
+            "subtitle": "Maintenance in progress",
+            "description": "Our subscription service is currently under maintenance. ",
+            "backButton": "Back",
+            "contactButton": "Contact support"
         }
     },
     "pricing": {
