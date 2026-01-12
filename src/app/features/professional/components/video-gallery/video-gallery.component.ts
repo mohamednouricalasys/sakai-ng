@@ -1,4 +1,5 @@
 import { Component, inject, OnInit, signal, OnDestroy, AfterViewInit, QueryList, ElementRef, ViewChildren } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
@@ -92,6 +93,8 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
 
     // Add these properties to your component class
     contactDialogVisible = false;
+    insufficientCreditsDialogVisible = false;
+    insufficientCreditsErrorMessage: string | null = null;
     selectedVideo: any = null;
 
     // Search subject for debouncing
@@ -99,6 +102,7 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     private destroy$ = new Subject<void>();
 
     // Services
+    private router = inject(Router);
     private prodigeService = inject(ProdigeService);
     private videoService = inject(VideoService);
     private messageService = inject(MessageService);
@@ -358,8 +362,17 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
      * Opens the contact dialog for a specific video/athlete
      */
     openContactDialog(video: any): void {
+        // Always call the backend - it handles already viewed videos and own videos without consuming credits
         this.userService.getUserById(video.prodige.userId, video.id).subscribe({
             next: async (data) => {
+                // Check if the API returned an error (insufficient credits)
+                if (!data.isSuccess) {
+                    await this.loadUserCredits(); // Refresh credits to show current balance
+                    this.insufficientCreditsErrorMessage = data.errorMessage || null;
+                    this.insufficientCreditsDialogVisible = true;
+                    return;
+                }
+
                 this.user = data;
                 await this.loadUserCredits(); // Refresh credits after fetching contact info
                 this.selectedVideo = video;
@@ -419,6 +432,29 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
                 detail: this.t('uploader.dashboard.strings.copyLinkToClipboardSuccess'),
             });
         });
+    }
+
+    /**
+     * Checks if user has sufficient credits to contact an athlete
+     */
+    hasSufficientCredits(): boolean {
+        const creditInfo = this.credits();
+        return creditInfo !== null && creditInfo.totalCredits > 0;
+    }
+
+    /**
+     * Navigates to the subscription page
+     */
+    navigateToSubscription(): void {
+        this.insufficientCreditsDialogVisible = false;
+        this.router.navigate(['/billing/subscription']);
+    }
+
+    /**
+     * Closes the insufficient credits dialog
+     */
+    closeInsufficientCreditsDialog(): void {
+        this.insufficientCreditsDialogVisible = false;
     }
 
     private async loadSubscriptionData() {

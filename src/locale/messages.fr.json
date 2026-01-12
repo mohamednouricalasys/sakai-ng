@@ -65,9 +65,28 @@
         "features": "Fonctionnalités",
         "pricing": "Tarification",
         "hero": {
-            "title": "Un aperçu inégalé sur le potentiel des athlètes",
-            "subtitle": "Découvrez et évaluez les futurs prodiges avec des analyses vidéo détaillées, des données de performance et des outils de recrutement avancés.",
-            "button": "Commencer"
+            "title": "Découvrez les Stars Sportives de Demain",
+            "subtitle": "La plateforme professionnelle pour découvrir et évaluer les futurs prodiges sportifs grâce à l'analyse vidéo et des outils de recrutement avancés.",
+            "button": "Rejoindre Gratuitement",
+            "freeBadge": "100% GRATUIT",
+            "freeForProfessionals": "Accès complet gratuit pour les professionnels",
+            "freeHighlight": "Payez uniquement pour obtenir les coordonnées"
+        },
+        "valueProposition": {
+            "title": "Pourquoi les Professionnels Nous Choisissent",
+            "free": {
+                "title": "Entièrement Gratuit pour les Professionnels",
+                "description": "Aucun frais caché, aucun abonnement. Les professionnels du sport bénéficient d'un accès complet sans aucun coût.",
+                "badge": "GRATUIT"
+            },
+            "access": {
+                "title": "Accès Exclusif",
+                "description": "Connectez-vous directement avec des athlètes talentueux et leurs représentants."
+            },
+            "verified": {
+                "title": "Vivier de Talents Vérifiés",
+                "description": "Tous les profils sont examinés par des experts avant approbation."
+            }
         }
     },
     "auth": {
@@ -244,6 +263,16 @@
         },
         "messages": {
             "loadError": "Impossible de charger des vidéos. "
+        },
+        "insufficientCredits": {
+            "dialog": {
+                "header": "Crédits insuffisants",
+                "title": "Vous n'avez pas assez de crédits",
+                "message": "Pour contacter les athlètes, vous avez besoin de crédits. Abonnez-vous à un forfait pour obtenir plus de crédits et débloquer les fonctionnalités de contact.",
+                "currentCredits": "Crédits actuels : {count}",
+                "subscribeButton": "Obtenir plus de crédits",
+                "closeButton": "Fermer"
+            }
         }
     },
     "admin": {
@@ -1328,6 +1357,10 @@
     "features": {
         "title": "Des Fonctionnalités Puissantes",
         "subtitle": "Tout ce dont vous avez besoin pour un recrutement efficace.",
+        "free": {
+            "title": "Accès Complet Gratuit",
+            "description": "Parcourez tous les profils, visionnez les vidéos, utilisez les filtres avancés - totalement gratuit. Vous ne payez que pour obtenir les coordonnées."
+        },
         "database": {
             "title": "Base de Données Complète",
             "description": "Accédez à des milliers de profils de talents vérifiés."

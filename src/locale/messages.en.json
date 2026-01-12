@@ -65,9 +65,28 @@
         "features": "Features",
         "pricing": "Pricing",
         "hero": {
-            "title": "Unrivaled insight into athlete potential",
-            "subtitle": "Discover and evaluate future prodigies with detailed video analysis, performance data, and advanced recruitment tools.",
-            "button": "Get Started"
+            "title": "Scout Tomorrow's Sports Stars Today",
+            "subtitle": "The professional platform for discovering and evaluating future athletic prodigies through video analysis and advanced recruitment tools.",
+            "button": "Join Free Now",
+            "freeBadge": "100% FREE",
+            "freeForProfessionals": "Full access at zero cost for professionals",
+            "freeHighlight": "Only pay when you request contact details"
+        },
+        "valueProposition": {
+            "title": "Why Professionals Choose Us",
+            "free": {
+                "title": "Completely Free for Professionals",
+                "description": "No hidden fees, no subscription costs. Sports professionals get full access at zero cost.",
+                "badge": "FREE"
+            },
+            "access": {
+                "title": "Exclusive Access",
+                "description": "Connect directly with talented athletes and their representatives."
+            },
+            "verified": {
+                "title": "Verified Talent Pool",
+                "description": "All profiles are reviewed by experts before approval."
+            }
         }
     },
     "auth": {
@@ -244,6 +263,16 @@
         },
         "messages": {
             "loadError": "Failed to load videos. Please try again."
+        },
+        "insufficientCredits": {
+            "dialog": {
+                "header": "Insufficient Credits",
+                "title": "You don't have enough credits",
+                "message": "To contact athletes, you need credits. Subscribe to a plan to get more credits and unlock contact features.",
+                "currentCredits": "Current credits: {count}",
+                "subscribeButton": "Get More Credits",
+                "closeButton": "Close"
+            }
         }
     },
     "admin": {
@@ -1329,6 +1358,10 @@
     "features": {
         "title": "Powerful Features",
         "subtitle": "Everything you need for effective recruitment.",
+        "free": {
+            "title": "Free Full Access",
+            "description": "Browse all profiles, watch videos, use advanced filters - completely free. You only pay when you request contact details."
+        },
         "database": {
             "title": "Complete Database",
             "description": "Access thousands of verified talent profiles."
