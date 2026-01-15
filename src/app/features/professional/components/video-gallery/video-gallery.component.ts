@@ -76,6 +76,9 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     currentPage = 1;
     totalLoaded = 0;
 
+    // Mobile detection for infinite scroll
+    isMobile = false;
+
     // Search and filters
     searchTerm = '';
     selectedSport: Sport | null = null;
@@ -100,6 +103,7 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     // Search subject for debouncing
     private searchSubject = new Subject<string>();
     private destroy$ = new Subject<void>();
+    private resizeHandler = this.onResize.bind(this);
 
     // Services
     private router = inject(Router);
@@ -113,8 +117,14 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     constructor() {}
 
     async ngOnInit() {
-        // Hide main layout scroll for this page only
-        document.querySelector('.layout-main-container')?.classList.add('no-scroll');
+        // Detect mobile for infinite scroll behavior
+        this.checkMobile();
+        window.addEventListener('resize', this.resizeHandler);
+
+        // Hide main layout scroll for this page only (desktop)
+        if (!this.isMobile) {
+            document.querySelector('.layout-main-container')?.classList.add('no-scroll');
+        }
 
         this.initializeOptions();
         this.setupSearch();
@@ -123,7 +133,29 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         await this.loadUserCredits();
     }
 
+    private checkMobile(): void {
+        this.isMobile = window.innerWidth <= 768;
+    }
+
+    private onResize(): void {
+        const wasMobile = this.isMobile;
+        this.checkMobile();
+
+        // Toggle no-scroll class based on screen size
+        if (wasMobile !== this.isMobile) {
+            const container = document.querySelector('.layout-main-container');
+            if (this.isMobile) {
+                container?.classList.remove('no-scroll');
+            } else {
+                container?.classList.add('no-scroll');
+            }
+        }
+    }
+
     ngOnDestroy() {
+        // Remove resize listener
+        window.removeEventListener('resize', this.resizeHandler);
+
         // Restore main layout scroll when leaving this page
         document.querySelector('.layout-main-container')?.classList.remove('no-scroll');
 

@@ -178,7 +178,7 @@
 </div>
 
 <!-- Videos Grid -->
-<div *ngIf="!loading()" class="app-gallery-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" [scrollWindow]="false" (scrolled)="onScroll($event)">
+<div *ngIf="!loading()" class="app-gallery-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" [scrollWindow]="isMobile" (scrolled)="onScroll($event)">
     <div *ngIf="videos().length > 0" class="app-videos-grid">
         <div *ngFor="let video of videos(); trackBy: trackByVideoId" class="app-video-card-wrapper">
             <div class="app-video-card">
