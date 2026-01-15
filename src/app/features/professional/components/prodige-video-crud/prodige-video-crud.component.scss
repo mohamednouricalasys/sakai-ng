@@ -1,86 +1,26 @@
-::ng-deep .moderation-tooltip {
-    max-width: 300px !important;
-    white-space: pre-wrap !important;
-    word-wrap: break-word !important;
-    font-size: 13px !important;
-    line-height: 1.4 !important;
-    padding: 12px !important;
-    border-radius: 6px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-}
+// prodige-video-crud.component.scss
+// Minimal component-specific styles - uses global .app-* classes
 
-::ng-deep .moderation-tooltip.rejected-video {
-    background-color: #fef2f2 !important;
-    color: #dc2626 !important;
-    border: 1px solid #fecaca !important;
-}
+:host { display: block; }
 
-::ng-deep .moderation-tooltip .warning-icon {
-    color: #f59e0b !important;
-    margin-right: 6px !important;
-}
-
-.video-container {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.vjs-tech {
-    object-fit: cover;
-}
-
-.upload-guidelines {
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-}
-
-.guideline-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-}
-
-.guideline-item:last-child {
-    margin-bottom: 0;
-}
-
-.guideline-icon {
-    color: #dc3545;
-    margin-top: 0.125rem;
-    flex-shrink: 0;
-}
-
-.video-limit-warning {
-    background: #fff3cd;
-    border: 1px solid #ffeaa7;
-    border-radius: 6px;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-}
-
-.loading-spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-}
-
-@media (max-width: 768px) {
-    ::ng-deep .moderation-tooltip {
-        max-width: 250px !important;
-        font-size: 12px !important;
-        padding: 10px !important;
+// Input with icon - ensure consistent spacing
+.app-input-wrapper {
+    .app-form-input {
+        padding-left: 2.75rem;
+        &::placeholder {
+            padding-left: 0;
+        }
     }
 }
+
+// Moderation indicator button
+.info-btn { width: 28px; height: 28px; border: none; background: var(--app-gradient-subtle); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all var(--app-transition-fast); i { font-size: 0.875rem; color: var(--app-primary); } &:hover { transform: scale(1.1); box-shadow: var(--app-shadow-sm); } }
+
+// Uploader container
+.uploader-container { margin-top: 0.5rem; }
+
+// Video.js fluid fix
+:host ::ng-deep .vjs-fluid:not(.vjs-audio-only-mode) { padding-top: 56.25% !important; }
+
+// Moderation popover
+::ng-deep .moderation-popover { max-width: 320px !important; padding: 1rem !important; border-radius: var(--app-radius-md) !important; box-shadow: var(--app-shadow-lg) !important; &.approved { background: var(--app-status-approved-bg) !important; border: 1px solid rgba(110, 231, 183, 0.5) !important; color: var(--app-status-approved-text) !important; } &.rejected { background: var(--app-status-rejected-bg) !important; border: 1px solid rgba(252, 165, 165, 0.5) !important; color: var(--app-status-rejected-text) !important; } }

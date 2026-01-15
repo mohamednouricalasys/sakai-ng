@@ -42,12 +42,17 @@
             "confirmation": "Confirmation",
             "male": "Man",
             "female": "Women",
-            "processing": "Treatment in progress ..."
+            "processing": "Treatment in progress ...",
+            "loading": "Loading...",
+            "saving": "Saving..."
         },
         "validation": {
             "required": "OBLIGATORY",
             "nameRequired": "The name is compulsory.",
-            "ageRequired": "Age is compulsory."
+            "ageRequired": "Age is compulsory.",
+            "titleRequired": "Title is required.",
+            "genderRequired": "Gender is required.",
+            "countryRequired": "Country is required."
         },
         "messages": {
             "confirmDelete": "Are you sure you want to delete {item}?",
@@ -57,7 +62,10 @@
             "itemCreated": "{item} created",
             "itemUpdated": "{item} update",
             "validationError": "Validation error",
-            "limitReached": "Limit reached"
+            "limitReached": "Limit reached",
+            "dataLoadError": "Error loading data",
+            "saveError": "Error saving",
+            "deleteError": "Error deleting"
         }
     },
     "landing": {
@@ -98,6 +106,7 @@
         "activeSubscription": {
             "title": "Active Subscription",
             "credits": "Credits {count} / {max}",
+            "creditsLabel": "Credits",
             "status": {
                 "active": "Active"
             },
@@ -236,7 +245,15 @@
             }
         },
         "gallery": {
-            "title": "Video Gallery"
+            "title": "Video Gallery",
+            "subtitle": "Discover talented athletes from around the world"
+        },
+        "empty": {
+            "title": "No Videos Found",
+            "description": "Try adjusting your filters or search terms to find what you're looking for."
+        },
+        "loading": {
+            "more": "Loading more videos..."
         },
         "search": {
             "placeholder": "Search videos..."
@@ -259,7 +276,8 @@
             "myVideos": "My videos",
             "contactStatus": "Contact Status",
             "selectContactStatus": "Select a contact status",
-            "clearContactStatus": "Clear statuses"
+            "clearContactStatus": "Clear statuses",
+            "active": "Active filters"
         },
         "messages": {
             "loadError": "Failed to load videos. Please try again."
@@ -362,6 +380,10 @@
         "title": "Prodigy management",
         "labels": {
             "newProdige": "New prodigy",
+            "editProdige": "Edit prodigy",
+            "myProdigies": "My prodigies",
+            "manageProdigies": "Manage your prodigies",
+            "totalProdigies": "Total prodigies",
             "prodigeDetails": "Prodigy details",
             "sport": "Sport",
             "selectSport": "Select a sport",
@@ -378,6 +400,7 @@
             "videosCount": "Number of videos",
             "dateCreation": "Date of creation",
             "gender": "Gender",
+            "genre": "Gender",
             "country": "Country"
         },
         "pagination": {
@@ -392,11 +415,14 @@
             "descriptionRequiredForOther": "Mandatory description for sport 'other'"
         },
         "placeholders": {
+            "name": "Enter prodigy name",
+            "selectCountry": "Select a country",
             "describeQualities": "Describe the qualities and potential of the prodigy ..."
         },
         "tags": {
             "minMaxInfo": "(min: 3, max: 10)",
             "selectedCount": "{Count}/10 selected tags",
+            "selected": "tags selected",
             "associatedVideosCount": "{Count} Video (s) associated"
         },
         "messages": {
@@ -408,39 +434,64 @@
             "confirmDeleteProdigies": "Are you sure you want to delete the selected wonders?"
         },
         "sort": {
+            "label": "Sort by",
             "name": {
                 "placeholder": "Sort by name",
                 "down": "Name ▼",
                 "up": "Name ▲"
             }
+        },
+        "empty": {
+            "title": "No prodigies yet",
+            "description": "Create your first prodigy to get started"
         }
     },
     "video": {
         "labels": {
-            "newVideo": "New video",
-            "selectProdige": "Prodigy",
+            "newVideo": "New Video",
+            "editVideo": "Edit Video",
+            "myVideos": "My Videos",
+            "manageYourVideos": "Manage and upload your athlete videos",
+            "prodige": "Prodigy",
+            "selectProdige": "Select a Prodigy",
             "videoDetails": "Video details",
             "videoFile": "Video file",
             "manualUrl": "Video URL (manual)",
             "optional": "Optional",
-            "currentFile": "Current file"
+            "optionalForEdit": "optional for editing",
+            "currentFile": "Current file",
+            "noPreview": "No preview",
+            "noDescription": "No description",
+            "moderationStatus": "Moderation status",
+            "moderationComment": "Moderation comment",
+            "addFirstVideo": "Add your first video"
         },
         "placeholders": {
             "title": "Video title",
             "description": "Video description",
-            "videoUrl": "https://exemple.com/video.mp4"
+            "videoUrl": "https://example.com/video.mp4",
+            "selectStatus": "Select a status",
+            "moderationComment": "Moderation comment..."
         },
         "sort": {
             "title": {
+                "label": "Sort",
                 "placeholder": "Sort by title",
-                "down": "Z-A-A title",
+                "down": "Title Z-A",
                 "up": "Title A-Z"
             }
+        },
+        "empty": {
+            "title": "No videos",
+            "description": "This prodigy doesn't have any videos yet. Add your first video!",
+            "selectProdige": "Select a prodigy to see their videos"
         },
         "limits": {
             "title": "Video limit information",
             "current": "Prodigy {prodigyName}: {current}/{max} videos used ({remaining} remaining)",
-            "reached": "Maximum limit of videos reached for this prodigy."
+            "reached": "Maximum limit of videos reached for this prodigy.",
+            "slotsRemaining": "slot(s) remaining",
+            "usage": "Video Usage"
         },
         "guidelines": {
             "title": "Important guidelines - please read carefully",
@@ -451,10 +502,12 @@
             "noPersonalInfo": "No personal or confidential information should be visible"
         },
         "info": {
-            "uploadedFileUsed": "The downloaded file will be used instead of manual URL"
+            "uploadedFileUsed": "The uploaded file will be used instead of manual URL",
+            "newFileWillReplace": "The new file will replace the existing one"
         },
         "validation": {
-            "videoRequired": "Please download a video file or provide a video URL"
+            "videoRequired": "Please upload a video file or provide a video URL",
+            "descriptionRequired": "Description is required"
         },
         "messages": {
             "downloadStarted": "Download launched",
@@ -468,8 +521,9 @@
             "videoUpdated": "Successful update video",
             "videoDeleted": "Successful video",
             "confirmDeleteVideo": "Are you sure you want to delete the video '{title}'?",
-            "limitReached": "Video limit affected",
-            "limitReachedDetail": "You have reached the maximum limit of {maxvideos} videos for the prodigy {prodigyname}. "
+            "limitReached": "Video limit reached",
+            "limitReachedDetail": "You have reached the maximum limit of {maxVideos} videos for the prodigy {prodigyName}. Please delete an existing video before adding a new one.",
+            "selectProdigeFirst": "Please select a prodigy first"
         },
         "actions": {
             "create": {

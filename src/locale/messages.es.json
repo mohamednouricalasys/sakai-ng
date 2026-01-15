@@ -42,22 +42,30 @@
             "confirmation": "Confirmación",
             "male": "Hombre",
             "female": "Mujer",
-            "processing": "Tratamiento en progreso ..."
+            "processing": "Tratamiento en progreso ...",
+            "loading": "Cargando...",
+            "saving": "Guardando..."
         },
         "validation": {
             "required": "OBLIGATORIO",
             "nameRequired": "El nombre es obligatorio.",
-            "ageRequired": "La edad es obligatoria."
+            "ageRequired": "La edad es obligatoria.",
+            "titleRequired": "El título es obligatorio.",
+            "genderRequired": "El género es obligatorio.",
+            "countryRequired": "El país es obligatorio."
         },
         "messages": {
-            "confirmDelete": "¿Estás seguro de que quieres eliminar {elemento}?",
-            "confirmDeleteMultiple": "¿Estás seguro de que quieres eliminar los elementos seleccionados?",
-            "itemDeleted": "{item} eliminado",
+            "confirmDelete": "¿Está seguro de que desea eliminar {elemento}?",
+            "confirmDeleteMultiple": "¿Está seguro de que desea eliminar los elementos seleccionados?",
+            "itemDeleted": "{elemento} eliminado",
             "itemsDeleted": "Elementos eliminados",
-            "itemCreated": "{item} creado",
-            "itemUpdated": "{item} actualización",
+            "itemCreated": "{elemento} creado",
+            "itemUpdated": "{elemento} actualización",
             "validationError": "Error de validación",
-            "limitReached": "Límite alcanzado"
+            "limitReached": "Límite alcanzado",
+            "dataLoadError": "Error al cargar datos",
+            "saveError": "Error al guardar",
+            "deleteError": "Error al eliminar"
         }
     },
     "landing": {
@@ -98,6 +106,7 @@
         "activeSubscription": {
             "title": "Suscripción activa",
             "credits": "Créditos {count} / {max}",
+            "creditsLabel": "Créditos",
             "status": {
                 "active": "Activa"
             },
@@ -236,7 +245,15 @@
             }
         },
         "gallery": {
-            "title": "Galería de videos"
+            "title": "Galería de videos",
+            "subtitle": "Descubre atletas talentosos de todo el mundo"
+        },
+        "empty": {
+            "title": "No se encontraron videos",
+            "description": "Intenta ajustar tus filtros o términos de búsqueda para encontrar lo que buscas."
+        },
+        "loading": {
+            "more": "Cargando más videos..."
         },
         "search": {
             "placeholder": "Buscar videos ..."
@@ -259,7 +276,8 @@
             "myVideos": "mis vídeos",
             "contactStatus": "Estado de contacto",
             "selectContactStatus": "Seleccione un estado de contacto",
-            "clearContactStatus": "Borrar estados"
+            "clearContactStatus": "Borrar estados",
+            "active": "Filtros activos"
         },
         "messages": {
             "loadError": "No se pudo cargar videos. "
@@ -277,84 +295,122 @@
     },
     "admin": {
         "video": {
-            "moderation": {
-                "title": "Moderación de video",
-                "enAttente": "En espera",
-                "approuvee": "Aprobado",
-                "rejete": "Rechazado",
-                "unknown": "Desconocido",
-                "rejectedVideo": "Video rechazado",
-                "approvedVideo": "Video aprobado",
-                "warning": "⚠️ ADVERTENCIA",
-                "autoDeleteWarning": "Los videos rechazados se eliminarán automáticamente después de 15 días a menos que se actualice."
+            "labels": {
+                "newVideo": "Nuevo vídeo",
+                "editVideo": "Editar vídeo",
+                "myVideos": "Mis vídeos",
+                "manageYourVideos": "Gestiona y sube tus videos de atletas",
+                "prodige": "Prodigio",
+                "selectProdige": "Selecciona un prodigio",
+                "videoDetails": "Detalles del vídeo",
+                "videoFile": "archivo de vídeo",
+                "manualUrl": "URL del vídeo (manual)",
+                "optional": "Opcional",
+                "optionalForEdit": "opcional para editar",
+                "currentFile": "archivo actual",
+                "noPreview": "Sin vista previa",
+                "noDescription": "Sin descripción",
+                "moderationStatus": "Estado de moderación",
+                "moderationComment": "Comentario de moderación",
+                "addFirstVideo": "Añade tu primer vídeo"
             },
-            "title": "Gestión de video",
-            "totalVideos": "{{count}} Video (s) en total",
-            "prodige": "Prodigio",
-            "dateCreation": "Fecha de creación",
-            "dateModeration": "Fecha de moderación",
-            "moderatedBy": "Moderado por",
-            "moderationComment": {
-                "approve": {
-                    "placeholder": "Comentario opcional para su aprobación ..."
-                },
-                "reject": {
-                    "placeholder": "Explique las razones del rechazo (obligatorio) ..."
-                }
-            },
-            "status": "Estado",
-            "search": {
-                "placeholder": "Buscar por título, Prodigy ..."
-            },
-            "filter": {
-                "status": "Statter por estado",
-                "all": "Todos los estatutos"
+            "placeholders": {
+                "title": "Título del vídeo",
+                "description": "Descripción del vídeo",
+                "videoUrl": "https://ejemplo.com/video.mp4",
+                "selectStatus": "Seleccione un estado",
+                "moderationComment": "Comentario de moderación..."
             },
             "sort": {
-                "placeholder": "Ordenar por...",
-                "dateCreation": {
-                    "desc": "Primero más reciente",
-                    "asc": "Primero"
-                },
                 "title": {
-                    "asc": "Título A-Z",
-                    "desc": "Título de Z-A-A"
-                },
-                "status": {
-                    "asc": "Estado de A-Z",
-                    "desc": "Estado Z-A"
+                    "label": "Clasificar",
+                    "placeholder": "Ordenar por título",
+                    "down": "Título Z-A",
+                    "up": "Título A-Z"
                 }
             },
-            "actions": {
-                "view": "Ver",
-                "approve": "Aprobar",
-                "desapprove": "Desaprobar",
-                "reject": "Despedir"
-            },
             "empty": {
-                "title": "No se encontró un video",
-                "description": "Actualmente no hay un video correspondiente a sus criterios de investigación."
+                "title": "Sin vídeos",
+                "description": "Este prodigio aún no tiene ningún vídeo. ",
+                "selectProdige": "Selecciona un prodigio para ver sus vídeos"
             },
-            "detail": {
-                "title": "Detalles del video",
-                "information": "Información",
-                "moderation": "Moderación"
+            "limits": {
+                "title": "Información sobre el límite de vídeo",
+                "current": "Prodigy {prodigyName}: {current}/{max} vídeos usados ​​({remaining} restantes)",
+                "reached": "Límite máximo de vídeos alcanzado para este prodigio.",
+                "slotsRemaining": "ranura(s) restante(s)",
+                "usage": "Uso de videos"
             },
-            "confirm": {
-                "approve": "¿Estás seguro de que quieres aprobar el video? \"{{title}}\" ?",
-                "reject": "¿Estás seguro de que quieres rechazar el video? \"{{title}}\" ?",
-                "delete": "¿Estás seguro de que quieres eliminar permanentemente el video? \"{{title}}\"? Esta acción es irreversible."
+            "guidelines": {
+                "title": "Directrices importantes: lea atentamente",
+                "expertReview": "Todos los videos serán examinados por expertos antes de su aprobación.",
+                "hideIdentity": "La identidad profesional debe estar enmascarada (sin nombres, logotipos o información de identificación)",
+                "athleteConsent": "Se debe obtener y documentar el consentimiento del deportista.",
+                "prodigyOnly": "Solo se permiten videos que demuestren técnicas prodigiosas.",
+                "noPersonalInfo": "Ninguna información personal o confidencial debe ser visible"
+            },
+            "info": {
+                "uploadedFileUsed": "Se utilizará el archivo subido en lugar de la URL manual.",
+                "newFileWillReplace": "El nuevo archivo reemplazará al existente."
             },
             "validation": {
-                "commentRequired": "Un comentario que explica las razones del rechazo es obligatorio."
+                "videoRequired": "Cargue un archivo de video o proporcione una URL de video",
+                "descriptionRequired": "Se requiere descripción"
             },
             "messages": {
-                "loadError": "Error al cargar videos.",
-                "approved": "Video aprobado con éxito.",
-                "rejected": "Video exitoso.",
-                "deleted": "Video eliminado con éxito.",
-                "moderationError": "Error cuando la moderación del video.",
-                "deleteError": "Error al eliminar el video."
+                "downloadStarted": "Descarga iniciada",
+                "downloadStartedDetail": "Descargando \" {{title}} \" comenzó",
+                "downloadNotAvailable": "La descarga no está disponible",
+                "moderationUpdated": "La moderación ha sido actualizada.",
+                "moderationError": "Error al actualizar moderación",
+                "noProdigeSelected": "Por favor primero selecciona un prodigio",
+                "titleAndVideoRequired": "El título y el vídeo son obligatorios.",
+                "videoCreated": "Vídeo exitoso",
+                "videoUpdated": "Vídeo de actualización exitosa",
+                "videoDeleted": "Vídeo exitoso",
+                "confirmDeleteVideo": "¿Estás seguro de que deseas eliminar el vídeo '{title}'?",
+                "limitReached": "Límite de vídeo alcanzado",
+                "limitReachedDetail": "Has alcanzado el límite máximo de {maxVideos} vídeos para el prodigio {prodigyName}. ",
+                "selectProdigeFirst": "Por favor seleccione un prodigio primero"
+            },
+            "actions": {
+                "create": {
+                    "success": "Vídeo exitoso",
+                    "error": "Fallo en la creación del vídeo"
+                },
+                "update": {
+                    "success": "Vídeo de actualización exitosa",
+                    "error": "Fallo en la actualización del vídeo"
+                },
+                "delete": {
+                    "success": "Vídeo exitoso",
+                    "error": "Error al eliminar el vídeo"
+                },
+                "moderate": {
+                    "success": "Vídeo exitoso",
+                    "error": "Error de moderación de vídeo"
+                },
+                "report": {
+                    "success": "Vídeo exitoso",
+                    "error": "Fallo en los informes de vídeo"
+                },
+                "upload": {
+                    "success": "Video televertido exitoso",
+                    "error": "Fallo del indicador de vídeo"
+                }
+            },
+            "search": {
+                "noResults": "No se encontró ningún vídeo",
+                "placeholder": "Busca un vídeo..."
+            },
+            "moderation": {
+                "enAttente": "En espera",
+                "approuvee": "Aprobado",
+                "rejetee": "Rechazado",
+                "rejectedVideo": "Vídeo rechazado",
+                "approvedVideo": "Vídeo aprobado",
+                "warning": "⚠️ Advertencia",
+                "autoDeleteWarning": "Los videos rechazados se eliminarán automáticamente después de 15 días a menos que se actualicen."
             }
         }
     },
@@ -362,6 +418,10 @@
         "title": "Gestión de prodigio",
         "labels": {
             "newProdige": "Nuevo prodigio",
+            "editProdige": "Editar prodigio",
+            "myProdigies": "Mis prodigios",
+            "manageProdigies": "Gestiona tus prodigios",
+            "totalProdigies": "Total de prodigios",
             "prodigeDetails": "Detalles del prodigio",
             "sport": "Deporte",
             "selectSport": "Seleccione un deporte",
@@ -378,6 +438,7 @@
             "videosCount": "Número de videos",
             "dateCreation": "Fecha de creación",
             "gender": "Género",
+            "genre": "Género",
             "country": "País"
         },
         "pagination": {
@@ -392,11 +453,15 @@
             "descriptionRequiredForOther": "Descripción obligatoria para el deporte 'otro'"
         },
         "placeholders": {
+            "name": "Ingrese el nombre del prodigio",
+            "selectCountry": "Seleccione un país",
+            "describeQualities": "Describe las cualidades y el potencial del prodigio ...",
             "describeQualidades": "Describe las cualidades y el potencial del prodigio ..."
         },
         "tags": {
             "minMaxInfo": "(min: 3, máx: 10)",
             "selectedCount": "{Count}/10 etiquetas seleccionadas",
+            "selected": "etiquetas seleccionadas",
             "associatedVideosCount": "{Count} Video (s) asociados"
         },
         "messages": {
@@ -408,17 +473,26 @@
             "confirmDeleteProdigies": "¿Estás seguro de que quieres eliminar las maravillas seleccionadas?"
         },
         "sort": {
+            "label": "Ordenar por",
             "name": {
                 "placeholder": "Ordenar por nombre",
                 "down": "Nombre ▼",
                 "up": "Nombre ▲"
             }
+        },
+        "empty": {
+            "title": "Aún no hay prodigios",
+            "description": "Crea tu primer prodigio para comenzar"
         }
     },
     "video": {
         "labels": {
             "newVideo": "Nuevo video",
-            "selectProdige": "Prodigio",
+            "editVideo": "Editar video",
+            "myVideos": "Mis videos",
+            "manageYourVideos": "Gestiona y sube tus videos de atletas",
+            "prodige": "Prodigio",
+            "selectProdige": "Selecciona un prodigio",
             "videoDetails": "Detalles del video",
             "videoFile": "Archivo de video",
             "manualUrl": "URL de video (manual)",
@@ -440,7 +514,9 @@
         "limits": {
             "title": "Información de límite de video",
             "current": "Prodigy {prodigyName}: {current}/{max} videos utilizados ({restantes} restantes)",
-            "reached": "El límite máximo de los videos alcanzó este prodigio."
+            "reached": "El límite máximo de los videos alcanzó este prodigio.",
+            "slotsRemaining": "ranura(s) restante(s)",
+            "usage": "Uso de videos"
         },
         "guidelines": {
             "title": "Pautas importantes: lea cuidadosamente",

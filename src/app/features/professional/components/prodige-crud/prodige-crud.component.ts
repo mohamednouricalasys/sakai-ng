@@ -62,17 +62,8 @@ import { Router } from '@angular/router';
         SelectButtonModule,
     ],
     templateUrl: './prodige-crud.component.html',
+    styleUrl: './prodige-crud.component.scss',
     providers: [MessageService, ProdigeService, ConfirmationService, ProdigeStore],
-    styles: `
-        ::ng-deep {
-            .country-flag {
-                width: 20px;
-                height: 15px;
-                margin-right: 8px;
-                border-radius: 2px;
-            }
-        }
-    `,
 })
 export class ProdigeCrudComponent implements OnInit {
     prodigeDialog: boolean = false;

@@ -75,6 +75,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     videos = signal<Video[]>([]);
     video: Partial<Video> = {};
     submitted: boolean = false;
+    guidelinesCollapsed: boolean = true;
     sortOptions!: SelectItem[];
     sortOrder!: number;
     sortField!: string;
@@ -559,6 +560,18 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         };
         const colorKey = this.videoService.getStatutModerationColor(statut) as keyof typeof colorMap;
         return colorMap[colorKey] || 'secondary';
+    }
+
+    getStatusClass(statut: StatutModeration): string {
+        switch (statut) {
+            case StatutModeration.Approuvee:
+                return 'approved';
+            case StatutModeration.Rejetee:
+                return 'rejected';
+            case StatutModeration.EnAttente:
+            default:
+                return 'pending';
+        }
     }
 
     // Additional helper methods for better UX

@@ -113,6 +113,9 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     constructor() {}
 
     async ngOnInit() {
+        // Hide main layout scroll for this page only
+        document.querySelector('.layout-main-container')?.classList.add('no-scroll');
+
         this.initializeOptions();
         this.setupSearch();
         this.loadInitialVideos();
@@ -121,6 +124,9 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     ngOnDestroy() {
+        // Restore main layout scroll when leaving this page
+        document.querySelector('.layout-main-container')?.classList.remove('no-scroll');
+
         this.videoPlayers.forEach((player) => {
             if (!player.isDisposed()) {
                 player.dispose();

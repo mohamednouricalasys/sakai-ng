@@ -1,0 +1,206 @@
+// App-wide SCSS Variables
+// These extend the PrimeNG/layout variables with app-specific values
+
+// Colors
+$app-primary-color: #6366f1 !default;
+$app-primary-light: #818cf8 !default;
+$app-primary-dark: #4f46e5 !default;
+$app-danger-color: #ef4444 !default;
+$app-danger-hover: #dc2626 !default;
+$app-success-color: #22c55e !default;
+$app-warning-color: #f59e0b !default;
+$app-info-color: #3b82f6 !default;
+$app-text-primary: #1f2937 !default;
+$app-text-secondary: #6b7280 !default;
+$app-text-muted: #9ca3af !default;
+$app-border-color: #e5e7eb !default;
+$app-bg-light: #f9fafb !default;
+$app-bg-card: #ffffff !default;
+
+// Female variant (for prodige)
+$app-female-primary: #ec4899 !default;
+$app-female-light: #f472b6 !default;
+
+// Shadows
+$app-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05) !default;
+$app-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !default;
+$app-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !default;
+$app-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1) !default;
+
+// Border Radius
+$app-radius-xs: 4px !default;
+$app-radius-sm: 6px !default;
+$app-radius-md: 10px !default;
+$app-radius-lg: 16px !default;
+$app-radius-xl: 24px !default;
+$app-radius-full: 9999px !default;
+
+// Transitions
+$app-transition-fast: 150ms ease !default;
+$app-transition-normal: 250ms ease !default;
+$app-transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1) !default;
+
+// ============================================
+// CSS Custom Properties - Light Mode (Default)
+// ============================================
+:root {
+    // Primary colors
+    --app-primary: #{$app-primary-color};
+    --app-primary-light: #{$app-primary-light};
+    --app-primary-dark: #{$app-primary-dark};
+    --app-primary-rgb: 99, 102, 241;
+    --app-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    --app-gradient-subtle: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #faf5ff 100%);
+
+    // Semantic colors
+    --app-success: #{$app-success-color};
+    --app-success-light: #4ade80;
+    --app-warning: #{$app-warning-color};
+    --app-warning-light: #fbbf24;
+    --app-danger: #{$app-danger-color};
+    --app-danger-light: #f87171;
+    --app-info: #{$app-info-color};
+    --app-info-light: #60a5fa;
+
+    // Female variant
+    --app-female: #{$app-female-primary};
+    --app-female-light: #{$app-female-light};
+    --app-female-gradient: linear-gradient(135deg, #ec4899 0%, #f472b6 50%, #fb7185 100%);
+
+    // Text colors
+    --app-text-primary: #{$app-text-primary};
+    --app-text-secondary: #{$app-text-secondary};
+    --app-text-muted: #{$app-text-muted};
+
+    // Backgrounds
+    --app-bg-primary: #ffffff;
+    --app-bg-secondary: #f8fafc;
+    --app-bg-tertiary: #f1f5f9;
+    --app-bg-card: #ffffff;
+    --app-bg-hover: #f9fafb;
+
+    // Borders
+    --app-border: #{$app-border-color};
+    --app-border-light: #f1f5f9;
+
+    // Shadows
+    --app-shadow-sm: #{$app-shadow-sm};
+    --app-shadow-md: #{$app-shadow-md};
+    --app-shadow-lg: #{$app-shadow-lg};
+    --app-shadow-xl: #{$app-shadow-xl};
+    --app-shadow-primary: 0 10px 40px -10px rgba(99, 102, 241, 0.35);
+
+    // Radius
+    --app-radius-xs: #{$app-radius-xs};
+    --app-radius-sm: #{$app-radius-sm};
+    --app-radius-md: #{$app-radius-md};
+    --app-radius-lg: #{$app-radius-lg};
+    --app-radius-xl: #{$app-radius-xl};
+    --app-radius-full: #{$app-radius-full};
+
+    // Transitions
+    --app-transition-fast: #{$app-transition-fast};
+    --app-transition-normal: #{$app-transition-normal};
+    --app-transition-slow: #{$app-transition-slow};
+
+    // Status backgrounds (light mode)
+    --app-status-pending-bg: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    --app-status-pending-text: #92400e;
+    --app-status-approved-bg: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    --app-status-approved-text: #065f46;
+    --app-status-rejected-bg: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    --app-status-rejected-text: #991b1b;
+
+    // Panel backgrounds
+    --app-warning-panel-bg: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    --app-warning-panel-border: #fbbf24;
+    --app-warning-panel-text: #92400e;
+    --app-warning-panel-icon: #b45309;
+    --app-info-panel-bg: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    --app-info-panel-border: #93c5fd;
+    --app-info-panel-text: #1e40af;
+
+    // Action button hover backgrounds
+    --app-action-edit-bg: #eef2ff;
+    --app-action-delete-bg: #fef2f2;
+    --app-action-view-bg: #f0fdf4;
+
+    // Input focus
+    --app-focus-ring: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+// ============================================
+// CSS Custom Properties - Dark Mode
+// ============================================
+:root[class*='app-dark'] {
+    // Primary colors (slightly adjusted for dark mode visibility)
+    --app-primary: #818cf8;
+    --app-primary-light: #a5b4fc;
+    --app-primary-dark: #6366f1;
+    --app-primary-rgb: 129, 140, 248;
+    --app-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    --app-gradient-subtle: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(168, 85, 247, 0.1) 100%);
+
+    // Semantic colors (brighter for dark mode)
+    --app-success: #34d399;
+    --app-success-light: #6ee7b7;
+    --app-warning: #fbbf24;
+    --app-warning-light: #fcd34d;
+    --app-danger: #f87171;
+    --app-danger-light: #fca5a5;
+    --app-info: #60a5fa;
+    --app-info-light: #93c5fd;
+
+    // Female variant
+    --app-female: #f472b6;
+    --app-female-light: #f9a8d4;
+    --app-female-gradient: linear-gradient(135deg, #ec4899 0%, #f472b6 50%, #fb7185 100%);
+
+    // Text colors (inverted for dark mode)
+    --app-text-primary: #f1f5f9;
+    --app-text-secondary: #cbd5e1;
+    --app-text-muted: #94a3b8;
+
+    // Backgrounds (dark mode)
+    --app-bg-primary: #1e293b;
+    --app-bg-secondary: #0f172a;
+    --app-bg-tertiary: #334155;
+    --app-bg-card: #1e293b;
+    --app-bg-hover: #334155;
+
+    // Borders
+    --app-border: #334155;
+    --app-border-light: #475569;
+
+    // Shadows (adjusted for dark mode)
+    --app-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --app-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --app-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --app-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+    --app-shadow-primary: 0 10px 40px -10px rgba(129, 140, 248, 0.3);
+
+    // Status backgrounds (dark mode)
+    --app-status-pending-bg: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.15) 100%);
+    --app-status-pending-text: #fcd34d;
+    --app-status-approved-bg: linear-gradient(135deg, rgba(52, 211, 153, 0.2) 0%, rgba(16, 185, 129, 0.15) 100%);
+    --app-status-approved-text: #6ee7b7;
+    --app-status-rejected-bg: linear-gradient(135deg, rgba(248, 113, 113, 0.2) 0%, rgba(239, 68, 68, 0.15) 100%);
+    --app-status-rejected-text: #fca5a5;
+
+    // Panel backgrounds (dark mode)
+    --app-warning-panel-bg: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(245, 158, 11, 0.1) 100%);
+    --app-warning-panel-border: rgba(251, 191, 36, 0.4);
+    --app-warning-panel-text: #fcd34d;
+    --app-warning-panel-icon: #fbbf24;
+    --app-info-panel-bg: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(59, 130, 246, 0.1) 100%);
+    --app-info-panel-border: rgba(96, 165, 250, 0.4);
+    --app-info-panel-text: #93c5fd;
+
+    // Action button hover backgrounds (dark mode)
+    --app-action-edit-bg: rgba(99, 102, 241, 0.2);
+    --app-action-delete-bg: rgba(239, 68, 68, 0.2);
+    --app-action-view-bg: rgba(16, 185, 129, 0.2);
+
+    // Input focus
+    --app-focus-ring: 0 0 0 3px rgba(129, 140, 248, 0.25);
+}

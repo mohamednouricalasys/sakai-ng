@@ -1,0 +1,466 @@
+@use './app-variables' as vars;
+
+// ============================================
+// Loading States
+// ============================================
+@mixin loading-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    background: linear-gradient(135deg, vars.$app-bg-light 0%, #eef2ff 100%);
+    border-radius: vars.$app-radius-lg;
+}
+
+@mixin loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+@mixin loading-spinner($size: 48px, $border-width: 3px) {
+    width: $size;
+    height: $size;
+    border: $border-width solid vars.$app-border-color;
+    border-top-color: vars.$app-primary-color;
+    border-radius: 50%;
+    animation: app-spin 1s linear infinite;
+}
+
+@mixin loading-spinner-sm {
+    @include loading-spinner(20px, 2px);
+    border-color: #93c5fd;
+    border-top-color: vars.$app-primary-color;
+    animation-duration: 0.8s;
+}
+
+@mixin loading-text {
+    color: vars.$app-text-secondary;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+// ============================================
+// Buttons
+// ============================================
+@mixin btn-base {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: vars.$app-radius-sm;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all vars.$app-transition-fast;
+    border: 1px solid transparent;
+
+    i {
+        font-size: 14px;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+@mixin btn-secondary {
+    @include btn-base;
+    background: vars.$app-bg-light;
+    color: vars.$app-text-secondary;
+    border-color: vars.$app-border-color;
+
+    &:hover:not(:disabled) {
+        background: #e5e7eb;
+        color: vars.$app-text-primary;
+    }
+}
+
+@mixin btn-primary {
+    @include btn-base;
+    background: vars.$app-primary-color;
+    color: white;
+
+    &:hover:not(:disabled) {
+        background: vars.$app-primary-hover;
+        transform: translateY(-1px);
+        box-shadow: vars.$app-shadow-md;
+    }
+}
+
+@mixin btn-danger {
+    @include btn-base;
+    background: vars.$app-danger-color;
+    color: white;
+
+    &:hover:not(:disabled) {
+        background: vars.$app-danger-hover;
+        transform: translateY(-1px);
+        box-shadow: vars.$app-shadow-md;
+    }
+}
+
+// Action Buttons (circular icon buttons)
+@mixin action-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid vars.$app-border-color;
+    background: vars.$app-bg-card;
+    color: vars.$app-text-secondary;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all vars.$app-transition-fast;
+
+    i {
+        font-size: 14px;
+    }
+
+    &:hover {
+        border-color: transparent;
+        transform: scale(1.1);
+    }
+}
+
+@mixin action-btn-edit {
+    &:hover {
+        background: #eef2ff;
+        color: vars.$app-primary-color;
+    }
+}
+
+@mixin action-btn-delete {
+    &:hover {
+        background: #fef2f2;
+        color: vars.$app-danger-color;
+    }
+}
+
+@mixin action-btn-view {
+    &:hover {
+        background: #f0fdf4;
+        color: vars.$app-success-color;
+    }
+}
+
+// ============================================
+// Forms
+// ============================================
+@mixin form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@mixin form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+@mixin form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: vars.$app-text-primary;
+
+    .required {
+        color: vars.$app-danger-color;
+        margin-left: 2px;
+    }
+
+    .optional-hint {
+        font-weight: 400;
+        color: vars.$app-text-muted;
+        font-size: 13px;
+        margin-left: 4px;
+    }
+}
+
+@mixin form-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid vars.$app-border-color;
+    border-radius: vars.$app-radius-sm;
+    font-size: 14px;
+    transition: all vars.$app-transition-fast;
+
+    &:focus {
+        outline: none;
+        border-color: vars.$app-primary-color;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
+    &::placeholder {
+        color: vars.$app-text-muted;
+    }
+}
+
+@mixin form-textarea {
+    @include form-input;
+    resize: vertical;
+    min-height: 100px;
+}
+
+@mixin form-error {
+    color: vars.$app-danger-color;
+    font-size: 12px;
+}
+
+@mixin form-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: vars.$app-text-secondary;
+    font-size: 12px;
+
+    i {
+        color: vars.$app-primary-color;
+    }
+}
+
+// ============================================
+// Empty States
+// ============================================
+@mixin empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    text-align: center;
+}
+
+@mixin empty-state-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+
+    i {
+        font-size: 48px;
+        color: vars.$app-text-muted;
+    }
+}
+
+@mixin empty-state-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: vars.$app-text-primary;
+    margin: 0 0 8px;
+}
+
+@mixin empty-state-description {
+    font-size: 15px;
+    color: vars.$app-text-secondary;
+    margin: 0 0 24px;
+    max-width: 360px;
+}
+
+// ============================================
+// Cards
+// ============================================
+@mixin card {
+    background: vars.$app-bg-card;
+    border-radius: vars.$app-radius-lg;
+    box-shadow: vars.$app-shadow-md;
+    overflow: hidden;
+}
+
+@mixin card-hover {
+    transition: all vars.$app-transition-normal;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: vars.$app-shadow-lg;
+    }
+}
+
+// ============================================
+// Progress Bars
+// ============================================
+@mixin progress-bar {
+    height: 8px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+@mixin progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, vars.$app-success-color 0%, #4ade80 100%);
+    border-radius: 4px;
+    transition: width vars.$app-transition-normal;
+}
+
+@mixin progress-fill-warning {
+    background: linear-gradient(90deg, vars.$app-warning-color 0%, #fbbf24 100%);
+}
+
+@mixin progress-fill-danger {
+    background: linear-gradient(90deg, vars.$app-danger-color 0%, #f87171 100%);
+}
+
+// ============================================
+// Saving/Processing Indicator
+// ============================================
+@mixin saving-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: vars.$app-radius-md;
+    color: vars.$app-primary-color;
+    font-weight: 500;
+}
+
+// ============================================
+// File Info Box
+// ============================================
+@mixin file-info {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px solid #93c5fd;
+    border-radius: vars.$app-radius-sm;
+    padding: 12px 14px;
+}
+
+@mixin file-info-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    > i {
+        font-size: 24px;
+        color: vars.$app-primary-color;
+    }
+}
+
+@mixin file-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+@mixin file-label {
+    font-size: 12px;
+    color: vars.$app-text-secondary;
+}
+
+@mixin file-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: vars.$app-text-primary;
+}
+
+// ============================================
+// Info/Warning Panels
+// ============================================
+@mixin info-panel {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px solid #93c5fd;
+    border-radius: vars.$app-radius-md;
+    overflow: hidden;
+}
+
+@mixin warning-panel {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid vars.$app-warning-color;
+    border-radius: vars.$app-radius-md;
+    overflow: hidden;
+}
+
+@mixin panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: background vars.$app-transition-fast;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.03);
+    }
+}
+
+@mixin panel-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+@mixin warning-panel-title {
+    color: #92400e;
+}
+
+@mixin panel-content {
+    padding: 0 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@mixin panel-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+
+    i {
+        margin-top: 2px;
+    }
+}
+
+@mixin warning-panel-item {
+    color: #78350f;
+
+    i {
+        color: #b45309;
+    }
+}
+
+// ============================================
+// Dialog Styling
+// ============================================
+@mixin dialog-content {
+    padding: 24px;
+}
+
+@mixin dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+// ============================================
+// Status Tags
+// ============================================
+@mixin status-tag {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+// ============================================
+// Count Badge
+// ============================================
+@mixin count-badge {
+    background: vars.$app-primary-color;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}

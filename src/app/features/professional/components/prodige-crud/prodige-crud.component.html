@@ -1,45 +1,213 @@
-<div class="card">
-    <p-dataview #dv [value]="prodigies()" [layout]="layout" [rows]="5" [paginator]="true" [sortField]="sortField" [sortOrder]="sortOrder">
-        <ng-template #header>
-            <div class="flex justify-between flex-wrap gap-4">
-                <p-button [label]="'procrud.labels.newProdige' | translate" icon="pi pi-plus" severity="secondary" (onClick)="openNew()" />
-
-                <p-select [options]="sortOptions" [placeholder]="'procrud.sort.name.placeholder' | translate" (onChange)="onSortChange($event)" />
-
-                <p-select-button [(ngModel)]="layout" [options]="layoutOptions" [allowEmpty]="false">
-                    <ng-template #item let-option>
-                        <i class="pi" [ngClass]="{ 'pi-bars': option === 'list', 'pi-table': option === 'grid' }"></i>
-                    </ng-template>
-                </p-select-button>
+<!-- Hero Header Section -->
+<div class="app-hero">
+    <div class="app-hero-content">
+        <div class="app-hero-title-section">
+            <div class="app-hero-icon">
+                <i class="pi pi-users"></i>
             </div>
-        </ng-template>
+            <div class="app-hero-text">
+                <h1 class="app-hero-title">{{ 'procrud.labels.myProdigies' | translate }}</h1>
+                <p class="app-hero-subtitle">{{ 'procrud.labels.manageProdigies' | translate }}</p>
+            </div>
+        </div>
 
+        <div class="app-hero-stats" *ngIf="prodigies().length > 0">
+            <div class="app-hero-stat">
+                <span class="stat-value">{{ prodigies().length }}</span>
+                <span class="stat-label">{{ 'procrud.labels.totalProdigies' | translate }}</span>
+            </div>
+        </div>
+
+        <button class="app-hero-btn" (click)="openNew()">
+            <i class="pi pi-plus"></i>
+            <span>{{ 'procrud.labels.newProdige' | translate }}</span>
+        </button>
+    </div>
+</div>
+
+<!-- Controls Section -->
+<div class="app-controls-section">
+    <div class="app-controls-card">
+        <div class="app-control-row">
+            <div class="app-control-group app-control-group-grow">
+                <label class="app-control-label">
+                    <i class="pi pi-sort-alt"></i>
+                    {{ 'procrud.sort.label' | translate }}
+                </label>
+                <p-select
+                    [options]="sortOptions"
+                    [placeholder]="'procrud.sort.name.placeholder' | translate"
+                    (onChange)="onSortChange($event)"
+                    styleClass="app-select-modern"
+                />
+            </div>
+
+            <div class="app-layout-toggle">
+                <button
+                    class="app-layout-btn"
+                    [class.active]="layout === 'list'"
+                    (click)="layout = 'list'"
+                >
+                    <i class="pi pi-bars"></i>
+                </button>
+                <button
+                    class="app-layout-btn"
+                    [class.active]="layout === 'grid'"
+                    (click)="layout = 'grid'"
+                >
+                    <i class="pi pi-th-large"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading State -->
+<div *ngIf="loading()" class="app-loading-section">
+    <div class="app-loading-content">
+        <div class="app-spinner"></div>
+        <span class="app-loading-text">{{ 'shared.common.loading' | translate }}</span>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div *ngIf="!loading()" class="app-content-section">
+    <p-dataview #dv [value]="prodigies()" [layout]="layout" [rows]="6" [paginator]="true" [sortField]="sortField" [sortOrder]="sortOrder" styleClass="app-dataview">
+        <!-- List View -->
         <ng-template #list let-items>
-            <div class="flex flex-col">
-                <div *ngFor="let item of items; let i = index" class="p-6 border-b border-surface-200">
-                    <div class="flex items-center gap-4">
-                        <div class="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                            <div class="flex flex-col">
-                                <div class="flex items-center gap-2 mb-2">
-                                    <div class="text-xl font-medium cursor-pointer text-blue-600 underline" (click)="navigateToVideos(item.id)">{{ item.nom }}</div>
-                                    <i [class]="getGenderIcon(item.genre)" class="text-sm"></i>
-                                    <img [src]="'https://flagcdn.com/w20/' + (item.pays || 'fr').toLowerCase() + '.png'" [alt]="getCountryName(item.pays)" class="country-flag" *ngIf="item.pays" />
+            <div class="app-list-container">
+                <div *ngFor="let item of items; let i = index" class="app-list-item" [style.animation-delay]="i * 0.05 + 's'">
+                    <div class="app-list-item-content">
+                        <!-- Avatar -->
+                        <div class="app-avatar" [class.female]="item.genre === 2">
+                            {{ (item.nom || 'P').charAt(0).toUpperCase() }}
+                        </div>
+
+                        <!-- Main Info -->
+                        <div class="app-list-info">
+                            <div class="app-badges-row">
+                                <h3 class="app-title" (click)="navigateToVideos(item.id)">
+                                    {{ item.nom }}
+                                </h3>
+                                <span class="app-gender-badge" [class.female]="item.genre === 2">
+                                    <i [class]="getGenderIcon(item.genre)"></i>
+                                </span>
+                                <img
+                                    *ngIf="item.pays"
+                                    [src]="'https://flagcdn.com/w20/' + (item.pays || 'fr').toLowerCase() + '.png'"
+                                    [alt]="getCountryName(item.pays)"
+                                    class="country-flag"
+                                />
+                            </div>
+
+                            <div class="app-meta">
+                                <span class="app-meta-item">
+                                    <i class="pi pi-trophy"></i>
+                                    {{ getSportLabel(item.sport) }}
+                                </span>
+                                <span class="app-meta-item">
+                                    <i class="pi pi-map-marker"></i>
+                                    {{ getCountryName(item.pays) }}
+                                </span>
+                            </div>
+
+                            <div class="app-tags-row" *ngIf="item.tags?.length">
+                                <span *ngFor="let tag of item.tags?.slice(0, 4)" class="app-tag">
+                                    {{ getTagLabel(tag) }}
+                                </span>
+                                <span *ngIf="(item.tags?.length || 0) > 4" class="app-tag-count">
+                                    +{{ (item.tags?.length || 0) - 4 }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Right Section -->
+                        <div class="app-list-right">
+                            <div class="app-age-badge" [class]="getAgeSeverity(item.age)">
+                                <span class="value">{{ item.age }}</span>
+                                <span class="label">{{ 'shared.common.years' | translate }}</span>
+                            </div>
+
+                            <span class="app-date-label">
+                                <i class="pi pi-calendar"></i>
+                                {{ item.dateCreation | date: 'dd MMM yyyy' }}
+                            </span>
+
+                            <div class="app-list-actions">
+                                <button class="app-action-btn edit" (click)="editProdige(item)" [title]="'shared.actions.edit' | translate">
+                                    <i class="pi pi-pencil"></i>
+                                </button>
+                                <button class="app-action-btn delete" (click)="deleteProdige(item)" [title]="'shared.actions.delete' | translate">
+                                    <i class="pi pi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <!-- Grid View -->
+        <ng-template #grid let-items>
+            <div class="app-grid-container">
+                <div *ngFor="let item of items; let i = index" class="app-grid-item" [style.animation-delay]="i * 0.05 + 's'">
+                    <div class="app-card">
+                        <!-- Card Header -->
+                        <div class="app-card-header" [class.female]="item.genre === 2">
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div class="app-avatar-glass">
+                                    {{ (item.nom || 'P').charAt(0).toUpperCase() }}
                                 </div>
-                                <div class="text-sm text-gray-500">{{ getSportLabel(item.sport) }}</div>
-                                <div class="flex items-center gap-2 mt-2">
-                                    <p-tag [value]="item.age + ' ' + ('shared.common.years' | translate)" [severity]="getAgeSeverity(item.age)" />
-                                    <span class="text-xs text-gray-500">{{ getCountryName(item.pays) }}</span>
+                                <div class="app-age-badge-glass">
+                                    {{ item.age }} {{ 'shared.common.years' | translate }}
                                 </div>
                             </div>
-                            <div class="flex flex-col items-end gap-2">
-                                <div class="flex flex-wrap gap-1">
-                                    <p-tag *ngFor="let tag of item.tags?.slice(0, 3)" [value]="getTagLabel(tag)" severity="info" class="text-xs" />
-                                    <p-tag *ngIf="(item.tags?.length || 0) > 3" [value]="'+' + ((item.tags?.length || 0) - 3)" severity="secondary" class="text-xs" />
-                                </div>
-                                <span class="text-sm text-gray-500 mt-2">{{ item.dateCreation | date: 'dd/MM/yyyy' }}</span>
-                                <div class="flex gap-2">
-                                    <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editProdige(item)" />
-                                    <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteProdige(item)" />
+                            <img
+                                *ngIf="item.pays"
+                                [src]="'https://flagcdn.com/w40/' + (item.pays || 'fr').toLowerCase() + '.png'"
+                                [alt]="getCountryName(item.pays)"
+                                class="country-flag-lg"
+                            />
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="app-card-content">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                                <h3 class="app-title" (click)="navigateToVideos(item.id)">
+                                    {{ item.nom }}
+                                </h3>
+                                <span class="app-gender-badge" [class.female]="item.genre === 2">
+                                    <i [class]="getGenderIcon(item.genre)"></i>
+                                </span>
+                            </div>
+
+                            <div style="margin-bottom: 0.75rem;">
+                                <span class="app-badge primary">
+                                    <i class="pi pi-trophy"></i>
+                                    {{ getSportLabel(item.sport) }}
+                                </span>
+                            </div>
+
+                            <div class="app-tags-row" *ngIf="item.tags?.length">
+                                <span *ngFor="let tag of item.tags?.slice(0, 3)" class="app-tag app-tag-sm">
+                                    {{ getTagLabel(tag) }}
+                                </span>
+                                <span *ngIf="(item.tags?.length || 0) > 3" class="app-tag-count">
+                                    +{{ (item.tags?.length || 0) - 3 }}
+                                </span>
+                            </div>
+
+                            <div class="app-card-footer">
+                                <span class="app-date-label">
+                                    {{ item.dateCreation | date: 'dd/MM/yy' }}
+                                </span>
+                                <div class="app-list-actions">
+                                    <button class="app-action-btn-sm edit" (click)="editProdige(item)">
+                                        <i class="pi pi-pencil"></i>
+                                    </button>
+                                    <button class="app-action-btn-sm delete" (click)="deleteProdige(item)">
+                                        <i class="pi pi-trash"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -48,204 +216,279 @@
             </div>
         </ng-template>
 
-        <ng-template #grid let-items>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div *ngFor="let item of items; let i = index" class="p-4 border rounded shadow-sm flex flex-col gap-4">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="font-medium text-lg cursor-pointer text-blue-600 underline" (click)="navigateToVideos(item.id)">{{ item.nom }}</span>
-                            <i [class]="getGenderIcon(item.genre)" class="text-sm"></i>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <p-tag [value]="item.age + ' ' + ('shared.common.years' | translate)" [severity]="getAgeSeverity(item.age)" />
-                            <img [src]="'https://flagcdn.com/w20/' + (item.pays || 'fr').toLowerCase() + '.png'" [alt]="getCountryName(item.pays)" class="country-flag" *ngIf="item.pays" />
-                        </div>
+        <!-- Empty State -->
+        <ng-template #empty>
+            <div class="app-empty-state">
+                <div class="app-empty-illustration">
+                    <div class="app-empty-circle">
+                        <i class="pi pi-users"></i>
                     </div>
-
-                    <div class="flex-grow flex flex-col gap-2">
-                        <div class="text-sm text-gray-500">{{ getSportLabel(item.sport) }}</div>
-                        <div class="flex flex-wrap gap-1">
-                            <p-tag *ngFor="let tag of item.tags?.slice(0, 3)" [value]="getTagLabel(tag)" severity="info" class="text-xs" />
-                            <p-tag *ngIf="(item.tags?.length || 0) > 3" [value]="'+' + ((item.tags?.length || 0) - 3)" severity="secondary" class="text-xs" />
-                        </div>
-                    </div>
-
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-sm text-gray-500">{{ item.dateCreation | date: 'dd/MM/yyyy' }}</span>
-                        <div class="flex gap-2">
-                            <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editProdige(item)" />
-                            <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteProdige(item)" />
-                        </div>
+                    <div class="app-empty-decorations">
+                        <span class="app-empty-decoration d1"></span>
+                        <span class="app-empty-decoration d2"></span>
+                        <span class="app-empty-decoration d3"></span>
                     </div>
                 </div>
+                <h2 class="app-empty-title">{{ 'procrud.empty.title' | translate }}</h2>
+                <p class="app-empty-description">{{ 'procrud.empty.description' | translate }}</p>
+                <button class="app-empty-action" (click)="openNew()">
+                    <i class="pi pi-plus"></i>
+                    {{ 'procrud.labels.newProdige' | translate }}
+                </button>
             </div>
         </ng-template>
     </p-dataview>
 </div>
 
-<p-dialog [(visible)]="prodigeDialog" [style]="{ width: '450px' }" [header]="'procrud.labels.prodigeDetails' | translate" [modal]="true">
+<!-- Prodige Dialog -->
+<p-dialog
+    [(visible)]="prodigeDialog"
+    [style]="{ width: '90vw', 'max-width': '560px' }"
+    [header]="prodige.id ? ('procrud.labels.editProdige' | translate) : ('procrud.labels.newProdige' | translate)"
+    [modal]="true"
+    styleClass="app-dialog-modern"
+>
     <ng-template #content>
         <form #prodigeForm="ngForm">
-            <div class="flex flex-col gap-6">
-                <div>
-                    <label for="nom" class="block font-bold mb-3">
-                        {{ 'shared.common.name' | translate }}
-                        <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
-                    </label>
-                    <input type="text" pInputText id="nom" name="nom" [(ngModel)]="prodige.nom" required autofocus fluid />
-                    <small class="text-red-500" *ngIf="submitted && !prodige.nom">
-                        {{ 'shared.validation.nameRequired' | translate }}
-                    </small>
-                </div>
-
-                <div>
-                    <label for="age" class="block font-bold mb-3">
-                        {{ 'shared.common.age' | translate }}
-                        <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
-                    </label>
-                    <p-inputnumber id="age" name="age" [(ngModel)]="prodige.age" [min]="5" [max]="25" fluid required />
-                    <small class="text-red-500" *ngIf="submitted && !prodige.age">
-                        {{ 'shared.validation.ageRequired' | translate }}
-                    </small>
-                </div>
-
-                <div>
-                    <label class="block font-bold mb-3">
-                        {{ 'procrud.columns.genre' | translate }}
-                        <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
-                    </label>
-                    <div class="flex gap-4">
-                        <div class="flex items-center">
-                            <p-radiobutton [(ngModel)]="prodige.genre" [value]="1" inputId="male" name="genre" required />
-                            <label for="male" class="ml-2">
-                                <i class="pi pi-mars mr-1"></i>
-                                {{ 'shared.common.male' | translate }}
-                            </label>
+            <div class="app-dialog-body">
+                <!-- Name Field -->
+                <div class="app-form-section">
+                    <div class="app-form-field">
+                        <label for="nom" class="app-form-label">
+                            {{ 'shared.common.name' | translate }}
+                            <span class="required">*</span>
+                        </label>
+                        <div class="app-input-wrapper">
+                            <i class="pi pi-user app-input-icon"></i>
+                            <input
+                                type="text"
+                                pInputText
+                                id="nom"
+                                name="nom"
+                                [(ngModel)]="prodige.nom"
+                                required
+                                autofocus
+                                class="app-form-input"
+                                [placeholder]="'procrud.placeholders.name' | translate"
+                            />
                         </div>
-                        <div class="flex items-center">
-                            <p-radiobutton [(ngModel)]="prodige.genre" [value]="2" inputId="female" name="genre" required />
-                            <label for="female" class="ml-2">
-                                <i class="pi pi-venus mr-1"></i>
-                                {{ 'shared.common.female' | translate }}
-                            </label>
-                        </div>
+                        <small class="app-form-error" *ngIf="submitted && !prodige.nom">
+                            <i class="pi pi-exclamation-circle"></i>
+                            {{ 'shared.validation.nameRequired' | translate }}
+                        </small>
                     </div>
-                    <small class="text-red-500" *ngIf="submitted && prodige.genre === undefined">
-                        {{ 'shared.validation.genderRequired' | translate }}
-                    </small>
-                </div>
 
-                <div>
-                    <label for="country" class="block font-bold mb-3">
-                        {{ 'procrud.columns.country' | translate }}
-                        <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
-                    </label>
-                    <p-select
-                        [options]="countries"
-                        class="w-full"
-                        [(ngModel)]="prodige.pays"
-                        name="pays"
-                        optionLabel="name"
-                        optionValue="code"
-                        placeholder="Select a country"
-                        [filter]="true"
-                        [virtualScroll]="true"
-                        [itemSize]="40"
-                        [showClear]="true"
-                        required
-                    >
-                        <!-- Template for each item in the dropdown -->
-                        <ng-template let-country pTemplate="item">
-                            <div class="flex align-items-center gap-2">
-                                <span>{{ country.flag }}</span>
-                                <span>{{ country.name }}</span>
+                    <!-- Age & Gender Row -->
+                    <div class="app-form-row">
+                        <div class="app-form-field">
+                            <label for="age" class="app-form-label">
+                                {{ 'shared.common.age' | translate }}
+                                <span class="required">*</span>
+                            </label>
+                            <p-inputnumber
+                                id="age"
+                                name="age"
+                                [(ngModel)]="prodige.age"
+                                [min]="5"
+                                [max]="25"
+                                required
+                                styleClass="age-input"
+                            />
+                            <small class="app-form-error" *ngIf="submitted && !prodige.age">
+                                <i class="pi pi-exclamation-circle"></i>
+                                {{ 'shared.validation.ageRequired' | translate }}
+                            </small>
+                        </div>
+
+                        <div class="app-form-field">
+                            <label class="app-form-label">
+                                {{ 'procrud.columns.genre' | translate }}
+                                <span class="required">*</span>
+                            </label>
+                            <div class="app-gender-toggle">
+                                <label class="app-gender-option" [class.active]="prodige.genre === 1">
+                                    <input
+                                        type="radio"
+                                        [(ngModel)]="prodige.genre"
+                                        [value]="1"
+                                        name="genre"
+                                        required
+                                    />
+                                    <i class="pi pi-mars"></i>
+                                    <span>{{ 'shared.common.male' | translate }}</span>
+                                </label>
+                                <label class="app-gender-option" [class.active]="prodige.genre === 2" [class.female]="prodige.genre === 2">
+                                    <input
+                                        type="radio"
+                                        [(ngModel)]="prodige.genre"
+                                        [value]="2"
+                                        name="genre"
+                                        required
+                                    />
+                                    <i class="pi pi-venus"></i>
+                                    <span>{{ 'shared.common.female' | translate }}</span>
+                                </label>
                             </div>
-                        </ng-template>
-
-                        <!-- Template for selected item -->
-                        <ng-template pTemplate="selectedItem">
-                            <ng-container *ngIf="getSelectedCountry(); else noSelection">
-                                <div class="flex align-items-center gap-2">
-                                    <span>{{ getSelectedCountry()?.flag }}</span>
-                                    <span>{{ getSelectedCountry()?.name }}</span>
-                                </div>
-                            </ng-container>
-                            <ng-template #noSelection>
-                                <span>Select a country</span>
-                            </ng-template>
-                        </ng-template>
-                    </p-select>
-
-                    <small class="text-red-500" *ngIf="submitted && !prodige.pays">
-                        {{ 'shared.validation.countryRequired' | translate }}
-                    </small>
-                </div>
-
-                <div>
-                    <label for="description" class="block font-bold mb-3">
-                        {{ 'shared.common.description' | translate }}
-                        <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
-                    </label>
-                    <textarea id="description" pTextarea [(ngModel)]="prodige.description" name="description" rows="3" cols="20" [placeholder]="'procrud.placeholders.describeQualities' | translate" fluid required></textarea>
-                    <small class="text-red-500" *ngIf="submitted && (!prodige.description || !prodige.description.trim())">
-                        {{ 'procrud.validation.descriptionRequired' | translate }}
-                    </small>
-                </div>
-
-                <div>
-                    <label for="sport" class="block font-bold mb-3">
-                        {{ 'procrud.labels.sport' | translate }}
-                        <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
-                    </label>
-                    <p-select [(ngModel)]="prodige.sport" inputId="sport" name="sport" [options]="sportOptions" optionLabel="label" optionValue="value" [placeholder]="'procrud.labels.selectSport' | translate" appendTo="body" fluid required />
-                    <small class="text-red-500" *ngIf="submitted && prodige.sport === undefined">
-                        {{ 'procrud.validation.sportRequired' | translate }}
-                    </small>
-                </div>
-
-                <div>
-                    <label class="block font-bold mb-3">
-                        {{ 'shared.common.tags' | translate }} {{ 'procrud.tags.minMaxInfo' | translate }}
-                        <span class="text-red-500">{{ 'shared.common.required' | translate }}</span>
-                    </label>
-
-                    <div class="flex flex-wrap gap-2 mb-3" *ngIf="prodige.tags && prodige.tags.length > 0">
-                        <p-chip *ngFor="let tag of prodige.tags" [label]="getTagLabel(tag)" [removable]="true" (onRemove)="removeTag(tag)" />
+                            <small class="app-form-error" *ngIf="submitted && prodige.genre === undefined">
+                                <i class="pi pi-exclamation-circle"></i>
+                                {{ 'shared.validation.genderRequired' | translate }}
+                            </small>
+                        </div>
                     </div>
 
-                    <div class="flex gap-2 mb-3">
+                    <!-- Country Field -->
+                    <div class="app-form-field">
+                        <label for="country" class="app-form-label">
+                            {{ 'procrud.columns.country' | translate }}
+                            <span class="required">*</span>
+                        </label>
                         <p-select
-                            [(ngModel)]="selectedTagToAdd"
-                            name="tag"
-                            [options]="getAvailableTags()"
+                            [options]="countries"
+                            [(ngModel)]="prodige.pays"
+                            name="pays"
+                            optionLabel="name"
+                            optionValue="code"
+                            [placeholder]="'procrud.placeholders.selectCountry' | translate"
+                            [filter]="true"
+                            [virtualScroll]="true"
+                            [itemSize]="40"
+                            [showClear]="true"
+                            required
+                            styleClass="app-select-modern"
+                        >
+                            <ng-template let-country pTemplate="item">
+                                <div class="country-item">
+                                    <span class="country-flag-emoji">{{ country.flag }}</span>
+                                    <span>{{ country.name }}</span>
+                                </div>
+                            </ng-template>
+                            <ng-template pTemplate="selectedItem">
+                                <ng-container *ngIf="getSelectedCountry(); else noSelection">
+                                    <div class="country-item">
+                                        <span class="country-flag-emoji">{{ getSelectedCountry()?.flag }}</span>
+                                        <span>{{ getSelectedCountry()?.name }}</span>
+                                    </div>
+                                </ng-container>
+                                <ng-template #noSelection>
+                                    <span class="placeholder-text">{{ 'procrud.placeholders.selectCountry' | translate }}</span>
+                                </ng-template>
+                            </ng-template>
+                        </p-select>
+                        <small class="app-form-error" *ngIf="submitted && !prodige.pays">
+                            <i class="pi pi-exclamation-circle"></i>
+                            {{ 'shared.validation.countryRequired' | translate }}
+                        </small>
+                    </div>
+
+                    <!-- Sport Field -->
+                    <div class="app-form-field">
+                        <label for="sport" class="app-form-label">
+                            {{ 'procrud.labels.sport' | translate }}
+                            <span class="required">*</span>
+                        </label>
+                        <p-select
+                            [(ngModel)]="prodige.sport"
+                            inputId="sport"
+                            name="sport"
+                            [options]="sportOptions"
                             optionLabel="label"
                             optionValue="value"
-                            [placeholder]="'procrud.labels.addTag' | translate"
+                            [placeholder]="'procrud.labels.selectSport' | translate"
                             appendTo="body"
-                            [style]="{ 'min-width': '200px' }"
-                            [disabled]="(prodige.tags?.length || 0) >= 10"
+                            required
+                            styleClass="app-select-modern"
                         />
-                        <p-button icon="pi pi-plus" (click)="addTag()" [disabled]="!selectedTagToAdd || (prodige.tags?.length || 0) >= 10" severity="secondary" size="small" />
+                        <small class="app-form-error" *ngIf="submitted && prodige.sport === undefined">
+                            <i class="pi pi-exclamation-circle"></i>
+                            {{ 'procrud.validation.sportRequired' | translate }}
+                        </small>
                     </div>
 
-                    <small class="text-gray-600">
-                        {{ 'procrud.tags.selectedCount:count:' + (prodige.tags?.length || 0) | translateParams }}
-                    </small>
-                    <small class="text-red-500 block" *ngIf="submitted && (!prodige.tags || prodige.tags.length < 3)">
-                        {{ 'procrud.validation.minTagsRequired' | translate }}
-                    </small>
-                </div>
-
-                <div *ngIf="prodige.videos && prodige.videos.length > 0">
-                    <label class="block font-bold mb-3">{{ 'procrud.labels.associatedVideos' | translate }}</label>
-                    <div class="border border-gray-200 rounded p-3">
-                        <div *ngFor="let video of prodige.videos" class="flex items-center gap-2 mb-2">
-                            <i class="pi pi-video text-blue-500"></i>
-                            <span>{{ video.titre || ('procrud.labels.videoWithoutTitle' | translate) }}</span>
-                        </div>
-                        <small class="text-gray-500">
-                            {{ 'procrud.tags.associatedVideosCount:count:' + prodige.videos.length | translateParams }}
+                    <!-- Description Field -->
+                    <div class="app-form-field">
+                        <label for="description" class="app-form-label">
+                            {{ 'shared.common.description' | translate }}
+                            <span class="required">*</span>
+                        </label>
+                        <textarea
+                            id="description"
+                            pTextarea
+                            [(ngModel)]="prodige.description"
+                            name="description"
+                            rows="3"
+                            [placeholder]="'procrud.placeholders.describeQualities' | translate"
+                            required
+                            class="app-form-textarea"
+                        ></textarea>
+                        <small class="app-form-error" *ngIf="submitted && (!prodige.description || !prodige.description.trim())">
+                            <i class="pi pi-exclamation-circle"></i>
+                            {{ 'procrud.validation.descriptionRequired' | translate }}
                         </small>
+                    </div>
+
+                    <!-- Tags Field -->
+                    <div class="app-form-field">
+                        <label class="app-form-label">
+                            {{ 'shared.common.tags' | translate }}
+                            <span class="required">*</span>
+                            <span class="optional">{{ 'procrud.tags.minMaxInfo' | translate }}</span>
+                        </label>
+
+                        <div class="app-selected-tags" *ngIf="prodige.tags && prodige.tags.length > 0">
+                            <div *ngFor="let tag of prodige.tags" class="app-tag-item">
+                                <span>{{ getTagLabel(tag) }}</span>
+                                <button type="button" class="app-tag-remove" (click)="removeTag(tag)">
+                                    <i class="pi pi-times"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="app-tag-add-row">
+                            <p-select
+                                [(ngModel)]="selectedTagToAdd"
+                                name="tag"
+                                [options]="getAvailableTags()"
+                                optionLabel="label"
+                                optionValue="value"
+                                [placeholder]="'procrud.labels.addTag' | translate"
+                                appendTo="body"
+                                [disabled]="(prodige.tags?.length || 0) >= 10"
+                                styleClass="app-select-modern"
+                            />
+                            <button
+                                type="button"
+                                class="app-tag-add-btn"
+                                (click)="addTag()"
+                                [disabled]="!selectedTagToAdd || (prodige.tags?.length || 0) >= 10"
+                            >
+                                <i class="pi pi-plus"></i>
+                            </button>
+                        </div>
+
+                        <div class="app-tag-counter">
+                            <span [class.warning]="(prodige.tags?.length || 0) < 3">
+                                {{ prodige.tags?.length || 0 }} / 10 {{ 'procrud.tags.selected' | translate }}
+                            </span>
+                        </div>
+
+                        <small class="app-form-error" *ngIf="submitted && (!prodige.tags || prodige.tags.length < 3)">
+                            <i class="pi pi-exclamation-circle"></i>
+                            {{ 'procrud.validation.minTagsRequired' | translate }}
+                        </small>
+                    </div>
+
+                    <!-- Associated Videos (Read-only) -->
+                    <div class="app-form-field" *ngIf="prodige.videos && prodige.videos.length > 0">
+                        <label class="app-form-label">
+                            <i class="pi pi-video"></i>
+                            {{ 'procrud.labels.associatedVideos' | translate }}
+                        </label>
+                        <div class="videos-list">
+                            <div *ngFor="let video of prodige.videos" class="video-item">
+                                <i class="pi pi-play-circle"></i>
+                                <span>{{ video.titre || ('procrud.labels.videoWithoutTitle' | translate) }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -253,11 +496,18 @@
     </ng-template>
 
     <ng-template #footer>
-        <p-button [label]="'shared.actions.cancel' | translate" icon="pi pi-times" text (click)="hideDialog()" />
-        <p-button [label]="'shared.actions.save' | translate" icon="pi pi-check" (click)="saveProdige()" [disabled]="isFormInvalid" />
+        <div class="app-dialog-actions">
+            <button class="app-dialog-btn secondary" (click)="hideDialog()">
+                <i class="pi pi-times"></i>
+                {{ 'shared.actions.cancel' | translate }}
+            </button>
+            <button class="app-dialog-btn primary" (click)="saveProdige()" [disabled]="isFormInvalid">
+                <i class="pi pi-check"></i>
+                {{ 'shared.actions.save' | translate }}
+            </button>
+        </div>
     </ng-template>
 </p-dialog>
 
 <p-confirmdialog [style]="{ width: '450px' }" />
-
 <p-toast />

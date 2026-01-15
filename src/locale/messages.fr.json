@@ -42,12 +42,17 @@
             "confirmation": "Confirmation",
             "male": "Homme",
             "female": "Femme",
-            "processing": "Traitement en cours..."
+            "processing": "Traitement en cours...",
+            "loading": "Chargement...",
+            "saving": "Enregistrement en cours..."
         },
         "validation": {
             "required": "obligatoire",
             "nameRequired": "Le nom est obligatoire.",
-            "ageRequired": "L'âge est obligatoire."
+            "ageRequired": "L'âge est obligatoire.",
+            "titleRequired": "Le titre est obligatoire.",
+            "genderRequired": "Le genre est obligatoire.",
+            "countryRequired": "Le pays est obligatoire."
         },
         "messages": {
             "confirmDelete": "Êtes-vous sûr de vouloir supprimer {item} ?",
@@ -57,7 +62,10 @@
             "itemCreated": "{item} créé",
             "itemUpdated": "{item} mis à jour",
             "validationError": "Erreur de validation",
-            "limitReached": "Limite atteinte"
+            "limitReached": "Limite atteinte",
+            "dataLoadError": "Erreur lors du chargement des données",
+            "saveError": "Erreur lors de la sauvegarde",
+            "deleteError": "Erreur lors de la suppression"
         }
     },
     "landing": {
@@ -181,6 +189,7 @@
         "activeSubscription": {
             "title": "Abonnement actif",
             "credits": "Crédits {count} / {max}",
+            "creditsLabel": "Crédits",
             "status": {
                 "active": "Actif"
             },
@@ -236,7 +245,15 @@
             }
         },
         "gallery": {
-            "title": "Galerie vidéo"
+            "title": "Galerie vidéo",
+            "subtitle": "Découvrez des athlètes talentueux du monde entier"
+        },
+        "empty": {
+            "title": "Aucune vidéo trouvée",
+            "description": "Essayez d'ajuster vos filtres ou vos termes de recherche pour trouver ce que vous cherchez."
+        },
+        "loading": {
+            "more": "Chargement de plus de vidéos..."
         },
         "search": {
             "placeholder": "Rechercher des vidéos ..."
@@ -259,7 +276,8 @@
             "myVideos": "Mes vidéos",
             "contactStatus": "Statut de contact",
             "selectContactStatus": "Sélectionner un statut de contact",
-            "clearContactStatus": "Effacer les statuts"
+            "clearContactStatus": "Effacer les statuts",
+            "active": "Filtres actifs"
         },
         "messages": {
             "loadError": "Impossible de charger des vidéos. "
@@ -363,6 +381,10 @@
         "title": "Gestion des Prodiges",
         "labels": {
             "newProdige": "Nouveau Prodige",
+            "editProdige": "Modifier le Prodige",
+            "myProdigies": "Mes prodiges",
+            "manageProdigies": "Gérez vos prodiges",
+            "totalProdigies": "Total des prodiges",
             "prodigeDetails": "Détails du Prodige",
             "sport": "Sport",
             "selectSport": "Sélectionner un sport",
@@ -379,6 +401,7 @@
             "videosCount": "Nombre de Vidéos",
             "dateCreation": "Date de Création",
             "gender": "Genre",
+            "genre": "Genre",
             "country": "Pays"
         },
         "pagination": {
@@ -393,11 +416,14 @@
             "descriptionRequiredForOther": "Description obligatoire pour le sport 'Autre'"
         },
         "placeholders": {
+            "name": "Entrez le nom du prodige",
+            "selectCountry": "Sélectionner un pays",
             "describeQualities": "Décrivez les qualités et le potentiel du prodige..."
         },
         "tags": {
             "minMaxInfo": "(min: 3, max: 10)",
             "selectedCount": "{count}/10 tags sélectionnés",
+            "selected": "tags sélectionnés",
             "associatedVideosCount": "{count} vidéo(s) associée(s)"
         },
         "messages": {
@@ -409,39 +435,64 @@
             "confirmDeleteProdigies": "Êtes-vous sûr de vouloir supprimer les prodiges sélectionnés ?"
         },
         "sort": {
+            "label": "Trier par",
             "name": {
                 "placeholder": "Trier Par Nom",
                 "down": "Nom ▼",
                 "up": "Nom ▲"
             }
+        },
+        "empty": {
+            "title": "Aucun prodige pour le moment",
+            "description": "Créez votre premier prodige pour commencer"
         }
     },
     "video": {
         "labels": {
             "newVideo": "Nouvelle Vidéo",
+            "editVideo": "Modifier la Vidéo",
+            "myVideos": "Mes Vidéos",
+            "manageYourVideos": "Gérer et télécharger vos vidéos d'athlètes",
+            "prodige": "Prodige",
             "selectProdige": "Sélectionner un Prodige",
             "videoDetails": "Détails de la Vidéo",
             "videoFile": "Fichier Vidéo",
             "manualUrl": "URL Vidéo (Manuel)",
             "optional": "Optionnel",
-            "currentFile": "Fichier Actuel"
+            "optionalForEdit": "optionnel pour la modification",
+            "currentFile": "Fichier Actuel",
+            "noPreview": "Pas d'aperçu",
+            "noDescription": "Pas de description",
+            "moderationStatus": "Statut de modération",
+            "moderationComment": "Commentaire de modération",
+            "addFirstVideo": "Ajouter votre première vidéo"
         },
         "placeholders": {
             "title": "Titre de la Vidéo",
             "description": "Description de la Vidéo",
-            "videoUrl": "https://exemple.com/video.mp4"
+            "videoUrl": "https://exemple.com/video.mp4",
+            "selectStatus": "Sélectionner un statut",
+            "moderationComment": "Commentaire de modération..."
         },
         "sort": {
             "title": {
+                "label": "Trier",
                 "placeholder": "Trier par titre",
                 "down": "Titre Z-A",
                 "up": "Titre A-Z"
             }
         },
+        "empty": {
+            "title": "Aucune vidéo",
+            "description": "Ce prodige n'a pas encore de vidéos. Ajoutez votre première vidéo !",
+            "selectProdige": "Sélectionnez un prodige pour voir ses vidéos"
+        },
         "limits": {
             "title": "Information sur la Limite de Vidéos",
             "current": "Prodige {prodigyName} : {current}/{max} vidéos utilisées ({remaining} restantes)",
-            "reached": "Limite maximale de vidéos atteinte pour ce prodige."
+            "reached": "Limite maximale de vidéos atteinte pour ce prodige.",
+            "slotsRemaining": "emplacement(s) restant(s)",
+            "usage": "Utilisation des vidéos"
         },
         "guidelines": {
             "title": "Directives Importantes - Veuillez Lire Attentivement",
@@ -452,10 +503,12 @@
             "noPersonalInfo": "Aucune information personnelle ou confidentielle ne doit être visible"
         },
         "info": {
-            "uploadedFileUsed": "Le fichier téléchargé sera utilisé au lieu de l'URL manuelle"
+            "uploadedFileUsed": "Le fichier téléchargé sera utilisé au lieu de l'URL manuelle",
+            "newFileWillReplace": "Le nouveau fichier remplacera l'existant"
         },
         "validation": {
-            "videoRequired": "Veuillez télécharger un fichier vidéo ou fournir une URL vidéo"
+            "videoRequired": "Veuillez télécharger un fichier vidéo ou fournir une URL vidéo",
+            "descriptionRequired": "La description est obligatoire"
         },
         "messages": {
             "downloadStarted": "Téléchargement lancé",
@@ -470,7 +523,8 @@
             "videoDeleted": "Vidéo supprimée avec succès",
             "confirmDeleteVideo": "Êtes-vous sûr de vouloir supprimer la vidéo '{title}' ?",
             "limitReached": "Limite de Vidéos Atteinte",
-            "limitReachedDetail": "Vous avez atteint la limite maximale de {maxVideos} vidéos pour le prodige {prodigyName}. Veuillez supprimer une vidéo existante avant d'en ajouter une nouvelle."
+            "limitReachedDetail": "Vous avez atteint la limite maximale de {maxVideos} vidéos pour le prodige {prodigyName}. Veuillez supprimer une vidéo existante avant d'en ajouter une nouvelle.",
+            "selectProdigeFirst": "Veuillez d'abord sélectionner un prodige"
         },
         "actions": {
             "create": {

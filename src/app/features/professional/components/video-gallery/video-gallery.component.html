@@ -1,237 +1,399 @@
-<p-card>
-    <!-- Fixed Header within Component -->
-    <div class="flex flex-row flex-wrap justify-between">
-        <h1>{{ 'videos.gallery.title' | translate }}</h1>
+<!-- Hero Header Section -->
+<div class="app-hero gallery-hero">
+    <div class="app-hero-content hero-content">
+        <div class="app-hero-title-section hero-title-section">
+            <div class="app-hero-icon hero-icon">
+                <i class="pi pi-video"></i>
+            </div>
+            <div class="app-hero-text hero-text">
+                <h1 class="app-hero-title hero-title">{{ 'videos.gallery.title' | translate }}</h1>
+                <p class="app-hero-subtitle hero-subtitle">{{ 'videos.gallery.subtitle' | translate }}</p>
+            </div>
+        </div>
 
         @if (credits(); as creditInfo) {
-            <div class="flex items-center">
-                <i class="pi pi-star-fill text-yellow-500 mr-2"></i>
-                <span class="font-semibold text-700">
-                    {{ 'subscription.activeSubscription.credits' | translate: { count: creditInfo.totalCredits, max: creditInfo.monthlyAllocation } }}
-                </span>
+            <div class="app-credits-badge">
+                <div class="app-credits-icon">
+                    <i class="pi pi-star-fill"></i>
+                </div>
+                <div class="app-credits-info">
+                    <span class="app-credits-label">{{ 'subscription.activeSubscription.creditsLabel' | translate }}</span>
+                    <span class="app-credits-value">{{ creditInfo.totalCredits }} / {{ creditInfo.monthlyAllocation }}</span>
+                </div>
+                <div class="app-credits-bar">
+                    <div class="app-credits-fill" [style.width.%]="(creditInfo.totalCredits / creditInfo.monthlyAllocation) * 100"></div>
+                </div>
             </div>
         }
     </div>
-    <p-divider />
-    <!-- Search and Filters -->
-    <div class="flex flex-row flex-wrap gap-2">
-        <p-inputgroup>
-            <p-inputgroup-addon>
-                <i class="pi pi-search"></i>
-            </p-inputgroup-addon>
-            <input pInputText type="text" [(ngModel)]="searchTerm" [placeholder]="'videos.search.placeholder' | translate" (input)="onSearchChange()" />
-        </p-inputgroup>
+</div>
 
-        <p-select [options]="sportOptions" [(ngModel)]="selectedSport" optionLabel="label" optionValue="value" [placeholder]="'videos.filter.sport' | translate" (onChange)="onSportFilterChange()" [showClear]="true" />
-
-        <div class="flex flex-row flex-wrap gap-2 items-center genre-filter">
-            <div *ngFor="let option of genreOptions">
-                <p-radioButton [inputId]="'genre-' + (option.value || 'all')" name="genre" [value]="option.value" [(ngModel)]="selectedGenre" (onClick)="onGenreFilterChange()" />
-                <label [for]="'genre-' + (option.value || 'all')">
-                    {{ option.label }}
-                </label>
+<!-- Search & Filters Section -->
+<div class="app-filters-section">
+    <div class="app-filters-card">
+        <!-- Search Bar -->
+        <div class="app-search-container">
+            <div class="app-search-input-wrapper">
+                <i class="pi pi-search app-search-icon"></i>
+                <input
+                    type="text"
+                    class="app-search-input"
+                    [(ngModel)]="searchTerm"
+                    [placeholder]="'videos.search.placeholder' | translate"
+                    (input)="onSearchChange()"
+                />
+                <button *ngIf="searchTerm" class="app-search-clear" (click)="searchTerm = ''; onSearchChange()">
+                    <i class="pi pi-times"></i>
+                </button>
             </div>
         </div>
 
-        <p-select [options]="tagOptions" [(ngModel)]="selectedTag" optionLabel="label" optionValue="value" [placeholder]="'videos.filter.tag' | translate" (onChange)="onTagFilterChange()" [showClear]="true" />
+        <!-- Filter Pills -->
+        <div class="app-filters-row">
+            <div class="app-filter-group">
+                <p-select
+                    [options]="sportOptions"
+                    [(ngModel)]="selectedSport"
+                    optionLabel="label"
+                    optionValue="value"
+                    [placeholder]="'videos.filter.sport' | translate"
+                    (onChange)="onSportFilterChange()"
+                    [showClear]="true"
+                    styleClass="app-filter-select"
+                />
 
-        <p-select
-            [options]="countryOptions"
-            [(ngModel)]="selectedCountry"
-            optionLabel="label"
-            optionValue="value"
-            [placeholder]="'videos.filter.country' | translate"
-            (onChange)="onCountryFilterChange()"
-            [showClear]="true"
-            [filter]="true"
-            filterBy="label"
-        />
+                <p-select
+                    [options]="tagOptions"
+                    [(ngModel)]="selectedTag"
+                    optionLabel="label"
+                    optionValue="value"
+                    [placeholder]="'videos.filter.tag' | translate"
+                    (onChange)="onTagFilterChange()"
+                    [showClear]="true"
+                    styleClass="app-filter-select"
+                />
 
-        <p-button *ngIf="searchTerm || selectedSport || selectedTag || selectedCountry" icon="pi pi-filter-slash" [label]="'videos.filter.clear' | translate" (onClick)="clearFilters()" [text]="true" />
-    </div>
+                <p-select
+                    [options]="countryOptions"
+                    [(ngModel)]="selectedCountry"
+                    optionLabel="label"
+                    optionValue="value"
+                    [placeholder]="'videos.filter.country' | translate"
+                    (onChange)="onCountryFilterChange()"
+                    [showClear]="true"
+                    [filter]="true"
+                    filterBy="label"
+                    styleClass="app-filter-select"
+                />
 
-    <!-- Video Filter Select -->
-    <div class="flex flex-row flex-wrap gap-2 mt-3">
-        <div class="flex items-center gap-2">
-            <i class="pi pi-filter text-primary"></i>
-            <span class="font-medium text-700">{{ 'videos.filter.contactStatus' | translate }}:</span>
-        </div>
+                <p-select
+                    [(ngModel)]="selectedVideoFilterType"
+                    [options]="videoFilterOptions"
+                    optionLabel="label"
+                    optionValue="value"
+                    [placeholder]="'videos.filter.selectContactStatus' | translate"
+                    (onChange)="onVideoFilterChange()"
+                    [showClear]="true"
+                    styleClass="app-filter-select"
+                />
+            </div>
 
-        <p-select
-            [(ngModel)]="selectedVideoFilterType"
-            [options]="videoFilterOptions"
-            optionLabel="label"
-            optionValue="value"
-            [placeholder]="'videos.filter.selectContactStatus' | translate"
-            (onChange)="onVideoFilterChange()"
-            [showClear]="true"
-            class="min-w-48"
-        />
-
-        <p-button *ngIf="selectedVideoFilterType" icon="pi pi-times" [label]="'videos.filter.clearContactStatus' | translate" (onClick)="selectedVideoFilterType = null; onVideoFilterChange()" [text]="true" severity="secondary" size="small" />
-    </div>
-</p-card>
-
-<p-divider />
-
-<!-- Fixed: Removed duplicate scroll handling and improved container structure -->
-<div *ngIf="!loading()" class="scroll-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" [scrollWindow]="false" (scrolled)="onScroll($event)">
-    <!-- Videos Grid -->
-    <div *ngIf="videos().length > 0" class="videos-grid">
-        <div *ngFor="let video of videos(); trackBy: trackByVideoId" class="video-item">
-            <p-card>
-                <video #videoElement [attr.id]="'video-' + video.id" class="video-js vjs-default-skin" controls preload="metadata" [src]="getVideoThumbnail(video)"></video>
-
-                <!-- Video Info -->
-                <div class="video-info">
-                    <!-- Video Header -->
-                    <div class="video-header">
-                        <div class="video-details">
-                            <h3 class="video-title" [title]="video?.titre">
-                                {{ formatVideoTitle(video?.titre) }}
-                            </h3>
-
-                            <div class="video-meta">
-                                <span class="prodige-name">{{ video?.prodige?.nom || 'Unknown' }}</span>
-                                <span *ngIf="video?.prodige?.pays" class="country-info">{{ getCountryDisplay(video.prodige.pays) }}</span>
-                                <span class="video-date">{{ video?.dateCreation | date: 'MMM d, y' }}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Video Description -->
-                    <p *ngIf="video?.description" class="video-description">
-                        {{ formatVideoDescription(video?.description) }}
-                    </p>
-
-                    <!-- Tags -->
-                    <div *ngIf="(video?.prodige?.tags?.length ?? 0) > 0" class="video-tags">
-                        <p-tag *ngFor="let tag of video?.prodige?.tags?.slice(0, 3)" [value]="getTagLabel(tag)" severity="info" />
-
-                        <span *ngIf="(video?.prodige?.tags?.length ?? 0) > 3" class="more-tags"> +{{ getExtraTagsCount(video) }} more </span>
-                    </div>
-
-                    <!-- Sport Badge -->
-                    <div *ngIf="video?.prodige?.sport" class="sport-badge">
-                        <p-tag [value]="getSportLabel(video.prodige.sport!)" severity="success"></p-tag>
-                    </div>
-
-                    <!-- Contact Button -->
-                    <p-divider />
-                    <p-button icon="pi pi-phone" [label]="'videos.contact.button' | translate" (onClick)="openContactDialog(video)"> </p-button>
+            <!-- Gender Toggle -->
+            <div class="app-gender-toggle-filter">
+                <div *ngFor="let option of genreOptions" class="app-gender-option-filter">
+                    <input
+                        type="radio"
+                        [id]="'genre-' + (option.value || 'all')"
+                        name="genre"
+                        [value]="option.value"
+                        [(ngModel)]="selectedGenre"
+                        (change)="onGenreFilterChange()"
+                        class="app-gender-radio-filter"
+                    />
+                    <label [for]="'genre-' + (option.value || 'all')" class="app-gender-label-filter">
+                        {{ option.label }}
+                    </label>
                 </div>
-            </p-card>
-        </div>
-    </div>
+            </div>
 
-    <!-- No Results Message -->
-    <div *ngIf="!loading() && videos().length === 0" class="not-found-container">
-        <div class="not-found-content">
-            <div class="four-oh-four">404</div>
+            <!-- Clear Filters -->
+            <button
+                *ngIf="searchTerm || selectedSport || selectedTag || selectedCountry || selectedGenre || selectedVideoFilterType"
+                class="app-clear-filters-btn"
+                (click)="clearFilters()"
+            >
+                <i class="pi pi-filter-slash"></i>
+                <span>{{ 'videos.filter.clear' | translate }}</span>
+            </button>
+        </div>
+
+        <!-- Active Filters Display -->
+        <div *ngIf="searchTerm || selectedSport || selectedTag || selectedCountry || selectedGenre || selectedVideoFilterType" class="app-active-filters">
+            <span class="app-active-filters-label">
+                <i class="pi pi-filter"></i>
+                {{ 'videos.filter.active' | translate }}:
+            </span>
+            <div class="app-filter-chips">
+                <span *ngIf="searchTerm" class="app-filter-chip">
+                    <i class="pi pi-search"></i>
+                    "{{ searchTerm }}"
+                    <button (click)="searchTerm = ''; onSearchChange()"><i class="pi pi-times"></i></button>
+                </span>
+                <span *ngIf="selectedSport" class="app-filter-chip">
+                    <i class="pi pi-trophy"></i>
+                    {{ getSportLabel(selectedSport) }}
+                    <button (click)="selectedSport = null; onSportFilterChange()"><i class="pi pi-times"></i></button>
+                </span>
+                <span *ngIf="selectedTag" class="app-filter-chip">
+                    <i class="pi pi-tag"></i>
+                    {{ getTagLabel(selectedTag) }}
+                    <button (click)="selectedTag = null; onTagFilterChange()"><i class="pi pi-times"></i></button>
+                </span>
+                <span *ngIf="selectedCountry" class="app-filter-chip">
+                    <i class="pi pi-globe"></i>
+                    {{ getCountryDisplay(selectedCountry) }}
+                    <button (click)="selectedCountry = null; onCountryFilterChange()"><i class="pi pi-times"></i></button>
+                </span>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- Contact Dialog -->
-<!-- Contact Dialog -->
-<p-dialog [(visible)]="contactDialogVisible" [modal]="true" [header]="'videos.contact.dialog.header' | translate" [style]="{ width: '320px' }" [closable]="true" [draggable]="false" [resizable]="false" styleClass="contact-dialog">
-    <ng-template pTemplate="content">
-        <div class="p-4">
-            <!-- Contact Header -->
-            <div class="text-center mb-4">
-                <h3 class="text-lg font-semibold text-900">
-                    {{ getFullName() || ('videos.contact.dialog.unknownContact' | translate) }}
-                </h3>
-                <p class="text-vertical text-sm">
-                    {{ getSportLabel(selectedVideo?.prodige?.sport!) }}
-                </p>
+<!-- Loading State -->
+<div *ngIf="loading()" class="loading-section">
+    <div class="app-skeleton-grid">
+        <div *ngFor="let i of [1,2,3,4,5,6]" class="app-skeleton-card">
+            <div class="app-skeleton-video"></div>
+            <div class="app-skeleton-content">
+                <div class="app-skeleton-title"></div>
+                <div class="app-skeleton-meta"></div>
+                <div class="app-skeleton-tags">
+                    <div class="app-skeleton-tag"></div>
+                    <div class="app-skeleton-tag"></div>
+                </div>
+                <div class="app-skeleton-button"></div>
             </div>
+        </div>
+    </div>
+</div>
 
-            <p-divider />
+<!-- Videos Grid -->
+<div *ngIf="!loading()" class="app-gallery-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" [scrollWindow]="false" (scrolled)="onScroll($event)">
+    <div *ngIf="videos().length > 0" class="app-videos-grid">
+        <div *ngFor="let video of videos(); trackBy: trackByVideoId" class="app-video-card-wrapper">
+            <div class="app-video-card">
+                <!-- Video Player -->
+                <div class="app-video-player-container">
+                    <video
+                        #videoElement
+                        [attr.id]="'video-' + video.id"
+                        class="video-js vjs-default-skin"
+                        controls
+                        preload="metadata"
+                        [src]="getVideoThumbnail(video)"
+                    ></video>
 
-            <!-- Contact Options -->
-            <div class="flex flex-wrap gap-2 w-full">
-                <a pButton [href]="'mailto:' + getContactEmail(selectedVideo)" icon="pi pi-envelope" [label]="'videos.contact.dialog.email' | translate" severity="info" outlined iconPos="left" class="w-full justify-content-between"></a>
-                <a pButton [href]="'tel:' + getContactPhone(selectedVideo)" icon="pi pi-phone" [label]="'videos.contact.dialog.phone' | translate" severity="success" outlined iconPos="left" class="w-full justify-content-between"></a>
-                <a pButton [href]="'sms:' + getContactPhone(selectedVideo)" icon="pi pi-comment" [label]="'videos.contact.dialog.message' | translate" severity="warn" outlined iconPos="left" class="w-full justify-content-between"></a>
-            </div>
-
-            <p-divider />
-
-            <!-- Contact Info -->
-            <div class="mt-4 p-3 border-round surface-100">
-                <!-- Email -->
-                <div class="flex align-items-center mb-2 cursor-pointer" (click)="copyToClipboard(getContactEmail(selectedVideo))" [title]="'videos.contact.dialog.copyEmailTitle' | translate">
-                    <i class="pi pi-envelope text-blue-500 mr-2"></i>
-                    <span class="text-sm text-600 underline">
-                        {{ getContactEmail(selectedVideo) }}
-                    </span>
+                    <!-- Video Overlay Badge -->
+                    <div *ngIf="video?.prodige?.sport" class="app-video-sport-overlay">
+                        <i class="pi pi-trophy"></i>
+                        {{ getSportLabel(video.prodige.sport!) }}
+                    </div>
                 </div>
 
-                <!-- Phone -->
-                <div class="flex align-items-center cursor-pointer" (click)="copyToClipboard(getContactPhone(selectedVideo))" [title]="'videos.contact.dialog.copyPhoneTitle' | translate">
-                    <i class="pi pi-phone text-green-500 mr-2"></i>
-                    <span class="text-sm text-600 underline">
-                        {{ getContactPhone(selectedVideo) }}
-                    </span>
+                <!-- Card Content -->
+                <div class="app-card-content">
+                    <!-- Athlete Header -->
+                    <div class="app-athlete-header">
+                        <div class="app-athlete-avatar">
+                            {{ (video?.prodige?.nom || 'A').charAt(0).toUpperCase() }}
+                        </div>
+                        <div class="app-athlete-info">
+                            <h3 class="app-athlete-name" [title]="video?.titre">
+                                {{ formatVideoTitle(video?.titre) }}
+                            </h3>
+                            <div class="app-athlete-meta">
+                                <span class="app-athlete-prodige">{{ video?.prodige?.nom || 'Unknown' }}</span>
+                                <span *ngIf="video?.prodige?.pays" class="app-athlete-country">
+                                    {{ getCountryDisplay(video.prodige.pays) }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="app-video-date-badge">
+                            {{ video?.dateCreation | date: 'MMM d' }}
+                        </div>
+                    </div>
+
+                    <!-- Description (always rendered for consistent height) -->
+                    <p class="app-video-description">
+                        {{ video?.description ? formatVideoDescription(video?.description) : '&nbsp;' }}
+                    </p>
+
+                    <!-- Tags (always rendered for consistent height) -->
+                    <div class="app-tags-container">
+                        <ng-container *ngIf="(video?.prodige?.tags?.length ?? 0) > 0">
+                            <span *ngFor="let tag of video?.prodige?.tags?.slice(0, 3)" class="app-video-tag">
+                                {{ getTagLabel(tag) }}
+                            </span>
+                            <span *ngIf="(video?.prodige?.tags?.length ?? 0) > 3" class="app-more-tags-badge">
+                                +{{ getExtraTagsCount(video) }}
+                            </span>
+                        </ng-container>
+                    </div>
+
+                    <!-- Contact Action -->
+                    <div class="app-card-action">
+                        <button class="app-contact-btn" (click)="openContactDialog(video)">
+                            <i class="pi pi-send"></i>
+                            <span>{{ 'videos.contact.button' | translate }}</span>
+                            <i class="pi pi-arrow-right arrow-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!loading() && videos().length === 0" class="app-empty-state">
+        <div class="app-empty-illustration">
+            <div class="app-empty-circle">
+                <i class="pi pi-video"></i>
+            </div>
+            <div class="app-empty-decorations">
+                <span class="app-decoration d1"></span>
+                <span class="app-decoration d2"></span>
+                <span class="app-decoration d3"></span>
+            </div>
+        </div>
+        <h2 class="app-empty-title">{{ 'videos.empty.title' | translate }}</h2>
+        <p class="app-empty-description">{{ 'videos.empty.description' | translate }}</p>
+        <button *ngIf="searchTerm || selectedSport || selectedTag || selectedCountry" class="app-empty-action" (click)="clearFilters()">
+            <i class="pi pi-filter-slash"></i>
+            {{ 'videos.filter.clear' | translate }}
+        </button>
+    </div>
+
+    <!-- Load More Indicator -->
+    <div *ngIf="hasMore() && videos().length > 0" class="app-load-more-indicator">
+        <div class="app-loading-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <span>{{ 'videos.loading.more' | translate }}</span>
+    </div>
+</div>
+
+<!-- Contact Dialog -->
+<p-dialog
+    [(visible)]="contactDialogVisible"
+    [modal]="true"
+    [header]="'videos.contact.dialog.header' | translate"
+    [style]="{ width: '380px' }"
+    [closable]="true"
+    [draggable]="false"
+    [resizable]="false"
+    styleClass="app-contact-dialog-modern"
+>
+    <ng-template pTemplate="content">
+        <div class="app-contact-dialog-content">
+            <!-- Contact Avatar -->
+            <div class="app-contact-avatar-section">
+                <div class="app-contact-avatar">
+                    {{ (getFullName() || 'A').charAt(0).toUpperCase() }}
+                </div>
+                <h3 class="app-contact-name">
+                    {{ getFullName() || ('videos.contact.dialog.unknownContact' | translate) }}
+                </h3>
+                <span class="app-contact-sport">
+                    {{ getSportLabel(selectedVideo?.prodige?.sport!) }}
+                </span>
+            </div>
+
+            <!-- Contact Actions -->
+            <div class="app-contact-actions">
+                <a [href]="'mailto:' + getContactEmail(selectedVideo)" class="app-contact-action-btn email">
+                    <i class="pi pi-envelope"></i>
+                    <span>{{ 'videos.contact.dialog.email' | translate }}</span>
+                </a>
+                <a [href]="'tel:' + getContactPhone(selectedVideo)" class="app-contact-action-btn phone">
+                    <i class="pi pi-phone"></i>
+                    <span>{{ 'videos.contact.dialog.phone' | translate }}</span>
+                </a>
+                <a [href]="'sms:' + getContactPhone(selectedVideo)" class="app-contact-action-btn message">
+                    <i class="pi pi-comment"></i>
+                    <span>{{ 'videos.contact.dialog.message' | translate }}</span>
+                </a>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="app-contact-details">
+                <div class="app-contact-detail-item" (click)="copyToClipboard(getContactEmail(selectedVideo))" [title]="'videos.contact.dialog.copyEmailTitle' | translate">
+                    <i class="pi pi-envelope"></i>
+                    <span>{{ getContactEmail(selectedVideo) }}</span>
+                    <i class="pi pi-copy copy-icon"></i>
+                </div>
+                <div class="app-contact-detail-item" (click)="copyToClipboard(getContactPhone(selectedVideo))" [title]="'videos.contact.dialog.copyPhoneTitle' | translate">
+                    <i class="pi pi-phone"></i>
+                    <span>{{ getContactPhone(selectedVideo) }}</span>
+                    <i class="pi pi-copy copy-icon"></i>
                 </div>
             </div>
         </div>
     </ng-template>
 
     <ng-template pTemplate="footer">
-        <div class="flex justify-content-end">
-            <p-button [label]="'videos.contact.dialog.close' | translate" severity="secondary" text (onClick)="closeContactDialog()"></p-button>
-        </div>
+        <button class="app-dialog-close-btn" (click)="closeContactDialog()">
+            {{ 'videos.contact.dialog.close' | translate }}
+        </button>
     </ng-template>
 </p-dialog>
 
 <!-- Insufficient Credits Dialog -->
-<p-dialog [(visible)]="insufficientCreditsDialogVisible" [modal]="true" [header]="'videos.insufficientCredits.dialog.header' | translate" [style]="{ width: '400px' }" [closable]="true" [draggable]="false" [resizable]="false" styleClass="insufficient-credits-dialog">
+<p-dialog
+    [(visible)]="insufficientCreditsDialogVisible"
+    [modal]="true"
+    [header]="'videos.insufficientCredits.dialog.header' | translate"
+    [style]="{ width: '420px' }"
+    [closable]="true"
+    [draggable]="false"
+    [resizable]="false"
+    styleClass="app-credits-dialog-modern"
+>
     <ng-template pTemplate="content">
-        <div class="p-4 text-center">
-            <!-- Warning Icon -->
-            <div class="mb-4">
-                <i class="pi pi-exclamation-triangle text-yellow-500" style="font-size: 3rem;"></i>
+        <div class="app-credits-dialog-content">
+            <!-- Warning Illustration -->
+            <div class="app-credits-warning-icon">
+                <i class="pi pi-exclamation-triangle"></i>
             </div>
 
-            <!-- Message -->
-            <h3 class="text-lg font-semibold text-900 mb-2">
+            <h3 class="app-credits-dialog-title">
                 {{ 'videos.insufficientCredits.dialog.title' | translate }}
             </h3>
-            <p class="text-600 mb-4">
+            <p class="app-credits-dialog-message">
                 {{ insufficientCreditsErrorMessage || ('videos.insufficientCredits.dialog.message' | translate) }}
             </p>
 
-            <!-- Current Credits Info -->
+            <!-- Current Credits -->
             @if (credits(); as creditInfo) {
-                <div class="p-3 border-round surface-100 mb-4">
-                    <div class="flex align-items-center justify-content-center gap-2">
-                        <i class="pi pi-star-fill text-yellow-500"></i>
-                        <span class="font-medium">
-                            {{ 'videos.insufficientCredits.dialog.currentCredits' | translate: { count: creditInfo.totalCredits } }}
-                        </span>
-                    </div>
+                <div class="app-current-credits-display">
+                    <i class="pi pi-star-fill"></i>
+                    <span>{{ 'videos.insufficientCredits.dialog.currentCredits' | translate: { count: creditInfo.totalCredits } }}</span>
                 </div>
             }
 
-            <!-- Action Buttons -->
-            <div class="flex flex-column gap-2">
-                <p-button
-                    icon="pi pi-shopping-cart"
-                    [label]="'videos.insufficientCredits.dialog.subscribeButton' | translate"
-                    (onClick)="navigateToSubscription()"
-                    class="w-full"
-                    severity="success">
-                </p-button>
-            </div>
+            <!-- Upgrade CTA -->
+            <button class="app-upgrade-btn" (click)="navigateToSubscription()">
+                <i class="pi pi-shopping-cart"></i>
+                <span>{{ 'videos.insufficientCredits.dialog.subscribeButton' | translate }}</span>
+            </button>
         </div>
     </ng-template>
 
     <ng-template pTemplate="footer">
-        <div class="flex justify-content-end">
-            <p-button [label]="'videos.insufficientCredits.dialog.closeButton' | translate" severity="secondary" text (onClick)="closeInsufficientCreditsDialog()"></p-button>
-        </div>
+        <button class="app-dialog-close-btn secondary" (click)="closeInsufficientCreditsDialog()">
+            {{ 'videos.insufficientCredits.dialog.closeButton' | translate }}
+        </button>
     </ng-template>
 </p-dialog>
 

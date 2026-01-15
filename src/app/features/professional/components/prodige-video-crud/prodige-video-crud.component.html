@@ -1,317 +1,379 @@
-<div class="flex flex-col">
-    <!-- Loading state -->
-    <div *ngIf="loading()" class="loading-spinner">
-        <i class="pi pi-spinner pi-spin" style="font-size: 2rem"></i>
-        <span class="ml-2">{{ 'shared.common.loading' | translate }}</span>
-    </div>
+<!-- Hero Header Section -->
+<div class="app-hero">
+    <div class="app-hero-content">
+        <div class="app-hero-title-section">
+            <div class="app-hero-icon">
+                <i class="pi pi-video"></i>
+            </div>
+            <div class="app-hero-text">
+                <h1 class="app-hero-title">{{ 'video.labels.myVideos' | translate }}</h1>
+                <p class="app-hero-subtitle">{{ 'video.labels.manageYourVideos' | translate }}</p>
+            </div>
+        </div>
 
-    <div *ngIf="!loading()" class="card">
-        <p-dataview #dv [value]="videos()" [layout]="layout" [rows]="6" [paginator]="true" [sortField]="sortField" [sortOrder]="sortOrder">
-            <ng-template #header>
-                <div class="flex justify-between flex-wrap gap-4 mb-4">
-                    <p-button
-                        [label]="'video.labels.newVideo' | translate"
-                        icon="pi pi-plus"
-                        severity="secondary"
-                        (onClick)="openNew()"
-                        [disabled]="hasReachedVideoLimit() || !selectedProdige()"
-                        [title]="hasReachedVideoLimit() ? ('video.messages.limitReached' | translate) : !selectedProdige() ? ('video.messages.selectProdigeFirst' | translate) : ''"
-                    />
-                    <p-select [options]="prodiges()" [(ngModel)]="selectedProdige" optionLabel="nom" (onChange)="onProdigeChange($event)" [placeholder]="'video.labels.selectProdige' | translate" class="w-full sm:w-16rem" />
-                    <p-select [options]="sortOptions" [placeholder]="'video.sort.title.placeholder' | translate" (onChange)="onSortChange($event)" />
-                    <p-select-button [(ngModel)]="layout" [options]="layoutOptions" [allowEmpty]="false">
-                        <ng-template #item let-option>
-                            <i class="pi" [ngClass]="{ 'pi-bars': option === 'list', 'pi-table': option === 'grid' }"></i>
-                        </ng-template>
-                    </p-select-button>
-                </div>
-
-                <!-- Video Limit Information -->
-                <div *ngIf="selectedProdige()" class="video-limit-warning">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="pi pi-info-circle text-orange-600"></i>
-                        <strong class="text-orange-700">{{ 'video.limits.title' | translate }}</strong>
-                    </div>
-                    <div class="text-sm text-gray-700">
-                        <p class="mb-1">
-                            {{
-                                'video.limits.current'
-                                    | translate
-                                        : {
-                                              current: videos().length,
-                                              max: MAX_VIDEOS_PER_PRODIGY,
-                                              remaining: getRemainingVideoSlots(),
-                                              prodigyName: selectedProdige()?.nom,
-                                          }
-                            }}
-                        </p>
-                        <p *ngIf="hasReachedVideoLimit()" class="text-orange-600 font-medium">
-                            {{ 'video.limits.reached' | translate }}
-                        </p>
-                    </div>
-                </div>
-            </ng-template>
-
-            <ng-template #list let-items>
-                <div class="flex flex-col">
-                    <div *ngFor="let item of items; let i = index" class="p-6 border-b border-surface-200">
-                        <div class="flex items-center flex-wrap gap-4">
-                            <div class="w-48 h-28 flex-shrink-0">
-                                <video
-                                    *ngIf="showVideo && item?.fileItem?.url"
-                                    #videoElement
-                                    [attr.id]="'video-' + item.id"
-                                    class="video-js vjs-default-skin"
-                                    controls
-                                    preload="metadata"
-                                    [src]="item?.fileItem?.url"
-                                    style="width: 100%; height: 100%"
-                                ></video>
-                                <div *ngIf="!item?.fileItem?.url" class="w-full h-full bg-gray-200 flex items-center justify-center">
-                                    <i class="pi pi-video text-gray-400 text-2xl"></i>
-                                </div>
-                            </div>
-                            <div class="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                                <div class="flex flex-col">
-                                    <div class="text-xl font-medium">{{ item.titre }}</div>
-                                    <div class="text-sm text-gray-500 line-clamp-2">{{ item.description || ('video.labels.noDescription' | translate) }}</div>
-                                    <div class="flex items-center gap-2 mt-2">
-                                        <p-tag [value]="getVideoStatusLabel(item.statutModeration)" [severity]="getVideoStatusSeverity(item.statutModeration)" />
-
-                                        <!-- Info bulle pour commentaire de modération -->
-                                        <div *ngIf="item.commentaireModeration && (item.statutModeration === statutModeration.Approuvee || item.statutModeration === statutModeration.Rejetee)" class="relative inline-block">
-                                            <!-- Trigger -->
-                                            <i #moderationIcon class="pi pi-info-circle text-blue-500 hover:text-blue-700 cursor-pointer" (click)="popover.toggle($event)"> </i>
-
-                                            <!-- Popover -->
-                                            <p-popover #popover [dismissable]="true" [styleClass]="'moderation-tooltip ' + (item.statutModeration === statutModeration.Rejetee ? 'rejected-video' : '')">
-                                                <ng-template pTemplate="content">
-                                                    <div [innerHTML]="getModerationTooltipContent(item)"></div>
-                                                </ng-template>
-                                            </p-popover>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col items-end gap-2">
-                                    <span class="text-sm text-gray-500 mt-2">
-                                        {{ item.dateCreation || item.createdAt | date: 'dd/MM/yyyy' }}
-                                    </span>
-                                    <div class="flex gap-2">
-                                        @if (item.statutModeration !== statutModeration.Approuvee) {
-                                            <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editVideo(item)" [title]="'shared.actions.edit' | translate" />
-                                        }
-
-                                        <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteVideo(item)" [title]="'shared.actions.delete' | translate" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-
-            <ng-template #grid let-items>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div *ngFor="let item of items; let i = index" class="p-4 border rounded shadow-sm flex flex-col gap-4">
-                        <div class="video-container">
-                            <video *ngIf="showVideo && item?.fileItem?.url" #videoElement [attr.id]="'video-' + item.id" class="video-js vjs-default-skin" controls preload="metadata" [src]="item?.fileItem?.url"></video>
-                            <div *ngIf="!item?.fileItem?.url" class="w-full h-32 bg-gray-200 flex items-center justify-center rounded">
-                                <i class="pi pi-video text-gray-400 text-3xl"></i>
-                            </div>
-                        </div>
-
-                        <div class="flex-grow flex flex-col gap-2">
-                            <div class="flex items-center justify-between">
-                                <span class="font-medium text-lg line-clamp-1">{{ item.titre }}</span>
-                                <div class="flex items-center gap-2">
-                                    <p-tag [value]="getVideoStatusLabel(item.statutModeration)" [severity]="getVideoStatusSeverity(item.statutModeration)" />
-
-                                    <!-- Info bulle pour commentaire de modération -->
-                                    <div *ngIf="item.commentaireModeration && (item.statutModeration === statutModeration.Approuvee || item.statutModeration === statutModeration.Rejetee)" class="relative inline-block">
-                                        <!-- Trigger -->
-                                        <i #moderationIcon class="pi pi-info-circle text-blue-500 hover:text-blue-700 cursor-pointer" (click)="popover.toggle($event)"> </i>
-
-                                        <!-- Popover -->
-                                        <p-popover #popover [dismissable]="true" [styleClass]="'moderation-tooltip ' + (item.statutModeration === statutModeration.Rejetee ? 'rejected-video' : '')">
-                                            <ng-template pTemplate="content">
-                                                <div [innerHTML]="getModerationTooltipContent(item)"></div>
-                                            </ng-template>
-                                        </p-popover>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-sm text-gray-500 line-clamp-2">
-                                {{ item.description || ('video.labels.noDescription' | translate) }}
-                            </div>
-                        </div>
-
-                        <div class="flex justify-between items-center mt-4">
-                            <span class="text-sm text-gray-500">
-                                {{ item.dateCreation || item.createdAt | date: 'dd/MM/yyyy' }}
-                            </span>
-                            <div class="flex gap-2">
-                                @if (item.statutModeration !== statutModeration.Approuvee) {
-                                    <p-button icon="pi pi-pencil" [rounded]="true" [outlined]="true" (click)="editVideo(item)" [title]="'shared.actions.edit' | translate" />
-                                }
-
-                                <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteVideo(item)" [title]="'shared.actions.delete' | translate" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-
-            <!-- Empty state -->
-            <ng-template #empty>
-                <div class="text-center py-8">
-                    <i class="pi pi-video text-gray-400 text-6xl mb-4"></i>
-                    <h3 class="text-xl font-semibold text-gray-600 mb-2">
-                        {{ 'video.empty.title' | translate }}
-                    </h3>
-                    <p class="text-gray-500 mb-4">
-                        {{ selectedProdige() ? ('video.empty.description' | translate) : ('video.empty.selectProdige' | translate) }}
-                    </p>
-                    <p-button *ngIf="selectedProdige() && !hasReachedVideoLimit()" [label]="'video.labels.addFirstVideo' | translate" icon="pi pi-plus" severity="secondary" (onClick)="openNew()" />
-                </div>
-            </ng-template>
-        </p-dataview>
+        <button
+            class="app-add-btn"
+            (click)="openNew()"
+            [disabled]="hasReachedVideoLimit() || !selectedProdige()"
+            [title]="hasReachedVideoLimit() ? ('video.messages.limitReached' | translate) : !selectedProdige() ? ('video.messages.selectProdigeFirst' | translate) : ''"
+        >
+            <i class="pi pi-plus"></i>
+            <span>{{ 'video.labels.newVideo' | translate }}</span>
+        </button>
     </div>
 </div>
 
-<p-dialog [(visible)]="videoDialog" [style]="{ width: '90vw', 'max-width': '700px' }" [header]="video.id ? ('video.labels.editVideo' | translate) : ('video.labels.newVideo' | translate)" [modal]="true" [closable]="!saving()" [closeOnEscape]="!saving()">
-    <ng-template #content>
-        <!-- Upload Guidelines -->
-        <p-panel [toggleable]="true" [collapsed]="true" styleClass="upload-guidelines mb-4">
-            <ng-template pTemplate="header">
-                <div class="flex items-center gap-2">
-                    <i class="pi pi-exclamation-triangle text-red-500"></i>
-                    <strong class="text-red-700">{{ 'video.guidelines.title' | translate }}</strong>
+<!-- Loading State -->
+<div *ngIf="loading()" class="app-loading-section">
+    <div class="app-loading-content">
+        <div class="app-loading-spinner"></div>
+        <span class="app-loading-text">{{ 'shared.common.loading' | translate }}</span>
+    </div>
+</div>
+
+<!-- Controls Section -->
+<div *ngIf="!loading()" class="app-controls-section">
+    <div class="app-controls-card">
+        <!-- Prodige Selector -->
+        <div class="app-control-row">
+            <div class="app-control-group app-prodige-control">
+                <label class="app-control-label">
+                    <i class="pi pi-user"></i>
+                    {{ 'video.labels.prodige' | translate }}
+                </label>
+                <p-select [options]="prodiges()" [(ngModel)]="selectedProdige" optionLabel="nom" (onChange)="onProdigeChange($event)" [placeholder]="'video.labels.selectProdige' | translate" styleClass="app-select-modern" />
+            </div>
+
+            <div class="app-control-group app-sort-control">
+                <label class="app-control-label">
+                    <i class="pi pi-sort-alt"></i>
+                    {{ 'video.sort.title.label' | translate }}
+                </label>
+                <p-select [options]="sortOptions" [placeholder]="'video.sort.title.placeholder' | translate" (onChange)="onSortChange($event)" styleClass="app-select-modern" />
+            </div>
+
+            <div class="app-layout-toggle-wrapper">
+                <div class="app-layout-toggle">
+                    <button class="app-layout-btn" [class.active]="layout === 'list'" (click)="layout = 'list'">
+                        <i class="pi pi-bars"></i>
+                    </button>
+                    <button class="app-layout-btn" [class.active]="layout === 'grid'" (click)="layout = 'grid'">
+                        <i class="pi pi-th-large"></i>
+                    </button>
                 </div>
-            </ng-template>
+            </div>
+        </div>
 
-            <div class="guideline-item">
-                <i class="pi pi-shield guideline-icon"></i>
-                <span class="text-sm">{{ 'video.guidelines.expertReview' | translate }}</span>
+        <!-- Video Limit Progress -->
+        <div *ngIf="selectedProdige()" class="app-progress-section">
+            <div class="app-progress-header">
+                <div class="app-progress-info">
+                    <i class="pi pi-chart-bar"></i>
+                    <span>{{ 'video.limits.usage' | translate }}</span>
+                </div>
+                <div class="app-progress-count" [class.app-limit-reached]="hasReachedVideoLimit()">{{ videos().length }} / {{ MAX_VIDEOS_PER_PRODIGY }}</div>
+            </div>
+            <div class="app-progress-bar">
+                <div class="app-progress-fill" [style.width.%]="(videos().length / MAX_VIDEOS_PER_PRODIGY) * 100" [class.warning]="videos().length >= MAX_VIDEOS_PER_PRODIGY * 0.8" [class.danger]="hasReachedVideoLimit()"></div>
+            </div>
+            <span class="app-progress-text" [class.app-limit-warning]="hasReachedVideoLimit()">
+                <i class="pi" [class.pi-check-circle]="!hasReachedVideoLimit()" [class.pi-exclamation-triangle]="hasReachedVideoLimit()"></i>
+                {{ getRemainingVideoSlots() }} {{ 'video.limits.slotsRemaining' | translate }}
+            </span>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div *ngIf="!loading()" class="app-content-section">
+    <p-dataview #dv [value]="videos()" [layout]="layout" [rows]="6" [paginator]="true" [sortField]="sortField" [sortOrder]="sortOrder" styleClass="app-dataview">
+        <!-- List View -->
+        <ng-template #list let-items>
+            <div class="app-list-container">
+                <div *ngFor="let item of items; let i = index" class="app-list-item" [style.animation-delay]="i * 0.05 + 's'">
+                    <div class="app-list-item-content">
+                        <!-- Video Thumbnail -->
+                        <div class="app-list-thumbnail">
+                            <div class="app-video-player-wrapper">
+                                <video *ngIf="showVideo && item?.fileItem?.url" #videoElement [attr.id]="'video-' + item.id" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="metadata" [src]="item?.fileItem?.url"></video>
+                                <div *ngIf="!item?.fileItem?.url" class="app-video-placeholder">
+                                    <i class="pi pi-video"></i>
+                                    <span>{{ 'video.labels.noPreview' | translate }}</span>
+                                </div>
+                            </div>
+                            <!-- Status Badge -->
+                            <div class="app-status-badge-overlay">
+                                <span class="app-status-badge" [class]="getStatusClass(item.statutModeration)">
+                                    {{ getVideoStatusLabel(item.statutModeration) }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Video Info -->
+                        <div class="app-list-info">
+                            <div class="app-info-header">
+                                <h3 class="app-item-title">{{ item.titre }}</h3>
+                                <div class="moderation-indicator" *ngIf="item.commentaireModeration && (item.statutModeration === statutModeration.Approuvee || item.statutModeration === statutModeration.Rejetee)">
+                                    <button class="info-btn" (click)="popover.toggle($event)">
+                                        <i class="pi pi-info-circle"></i>
+                                    </button>
+                                    <p-popover #popover [dismissable]="true" [styleClass]="'moderation-popover ' + (item.statutModeration === statutModeration.Rejetee ? 'rejected' : 'approved')">
+                                        <ng-template pTemplate="content">
+                                            <div [innerHTML]="getModerationTooltipContent(item)"></div>
+                                        </ng-template>
+                                    </p-popover>
+                                </div>
+                            </div>
+                            <p class="app-item-description">{{ item.description || ('video.labels.noDescription' | translate) }}</p>
+                            <div class="app-meta">
+                                <span class="app-meta-item date">
+                                    <i class="pi pi-calendar"></i>
+                                    {{ item.dateCreation || item.createdAt | date: 'dd MMM yyyy' }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="app-list-actions">
+                            @if (item.statutModeration !== statutModeration.Approuvee) {
+                                <button class="app-action-btn edit" (click)="editVideo(item)" [title]="'shared.actions.edit' | translate">
+                                    <i class="pi pi-pencil"></i>
+                                </button>
+                            }
+                            <button class="app-action-btn delete" (click)="deleteVideo(item)" [title]="'shared.actions.delete' | translate">
+                                <i class="pi pi-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <!-- Grid View -->
+        <ng-template #grid let-items>
+            <div class="app-grid-container">
+                <div *ngFor="let item of items; let i = index" class="app-card-wrapper" [style.animation-delay]="i * 0.05 + 's'">
+                    <div class="app-card">
+                        <!-- Video Player Section -->
+                        <div class="app-card-media">
+                            <div class="app-video-player-wrapper">
+                                <video *ngIf="showVideo && item?.fileItem?.url" #videoElement [attr.id]="'video-' + item.id" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="metadata" [src]="item?.fileItem?.url"></video>
+                                <div *ngIf="!item?.fileItem?.url" class="app-video-placeholder">
+                                    <i class="pi pi-video"></i>
+                                    <span>{{ 'video.labels.noPreview' | translate }}</span>
+                                </div>
+                            </div>
+                            <!-- Status Badge Overlay -->
+                            <div class="app-status-badge-overlay">
+                                <span class="app-status-badge" [class]="getStatusClass(item.statutModeration)">
+                                    {{ getVideoStatusLabel(item.statutModeration) }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="app-card-content">
+                            <div class="app-card-header">
+                                <h3 class="app-item-title">{{ item.titre }}</h3>
+                                <div class="moderation-indicator" *ngIf="item.commentaireModeration && (item.statutModeration === statutModeration.Approuvee || item.statutModeration === statutModeration.Rejetee)">
+                                    <button class="info-btn" (click)="popover.toggle($event)">
+                                        <i class="pi pi-info-circle"></i>
+                                    </button>
+                                    <p-popover #popover [dismissable]="true" [styleClass]="'moderation-popover ' + (item.statutModeration === statutModeration.Rejetee ? 'rejected' : 'approved')">
+                                        <ng-template pTemplate="content">
+                                            <div [innerHTML]="getModerationTooltipContent(item)"></div>
+                                        </ng-template>
+                                    </p-popover>
+                                </div>
+                            </div>
+
+                            <p class="app-item-description">{{ item.description || ('video.labels.noDescription' | translate) }}</p>
+
+                            <div class="app-card-footer">
+                                <span class="app-item-date">
+                                    <i class="pi pi-calendar"></i>
+                                    {{ item.dateCreation || item.createdAt | date: 'dd MMM yyyy' }}
+                                </span>
+                                <div class="app-card-actions">
+                                    @if (item.statutModeration !== statutModeration.Approuvee) {
+                                        <button class="app-action-btn edit" (click)="editVideo(item)" [title]="'shared.actions.edit' | translate">
+                                            <i class="pi pi-pencil"></i>
+                                        </button>
+                                    }
+                                    <button class="app-action-btn delete" (click)="deleteVideo(item)" [title]="'shared.actions.delete' | translate">
+                                        <i class="pi pi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <!-- Empty State -->
+        <ng-template #empty>
+            <div class="app-empty-state">
+                <div class="app-empty-illustration">
+                    <div class="app-empty-circle">
+                        <i class="pi pi-video"></i>
+                    </div>
+                    <div class="app-empty-decorations">
+                        <span class="app-decoration d1"></span>
+                        <span class="app-decoration d2"></span>
+                        <span class="app-decoration d3"></span>
+                    </div>
+                </div>
+                <h2 class="app-empty-title">{{ 'video.empty.title' | translate }}</h2>
+                <p class="app-empty-description">
+                    {{ selectedProdige() ? ('video.empty.description' | translate) : ('video.empty.selectProdige' | translate) }}
+                </p>
+                <button *ngIf="selectedProdige() && !hasReachedVideoLimit()" class="app-empty-action-btn" (click)="openNew()">
+                    <i class="pi pi-plus"></i>
+                    {{ 'video.labels.addFirstVideo' | translate }}
+                </button>
+            </div>
+        </ng-template>
+    </p-dataview>
+</div>
+
+<!-- Video Dialog -->
+<p-dialog
+    [(visible)]="videoDialog"
+    [style]="{ width: '90vw', 'max-width': '720px' }"
+    [header]="video.id ? ('video.labels.editVideo' | translate) : ('video.labels.newVideo' | translate)"
+    [modal]="true"
+    [closable]="!saving()"
+    [closeOnEscape]="!saving()"
+    styleClass="app-dialog-modern"
+>
+    <ng-template #content>
+        <div class="app-dialog-body">
+            <!-- Guidelines Panel -->
+            <div class="app-info-panel" [class.collapsed]="guidelinesCollapsed">
+                <div class="app-panel-header" (click)="guidelinesCollapsed = !guidelinesCollapsed">
+                    <div class="app-panel-title">
+                        <i class="pi pi-shield"></i>
+                        <span>{{ 'video.guidelines.title' | translate }}</span>
+                    </div>
+                    <i class="pi chevron-icon" [class.pi-chevron-down]="guidelinesCollapsed" [class.pi-chevron-up]="!guidelinesCollapsed"></i>
+                </div>
+                <div class="app-panel-content" *ngIf="!guidelinesCollapsed">
+                    <div class="app-panel-item">
+                        <div class="app-panel-icon">
+                            <i class="pi pi-eye-slash"></i>
+                        </div>
+                        <span>{{ 'video.guidelines.hideIdentity' | translate }}</span>
+                    </div>
+                    <div class="app-panel-item">
+                        <div class="app-panel-icon success">
+                            <i class="pi pi-check-circle"></i>
+                        </div>
+                        <span>{{ 'video.guidelines.athleteConsent' | translate }}</span>
+                    </div>
+                    <div class="app-panel-item">
+                        <div class="app-panel-icon info">
+                            <i class="pi pi-video"></i>
+                        </div>
+                        <span>{{ 'video.guidelines.prodigyOnly' | translate }}</span>
+                    </div>
+                    <div class="app-panel-item">
+                        <div class="app-panel-icon danger">
+                            <i class="pi pi-ban"></i>
+                        </div>
+                        <span>{{ 'video.guidelines.noPersonalInfo' | translate }}</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="guideline-item">
-                <i class="pi pi-eye-slash guideline-icon"></i>
-                <span class="text-sm">{{ 'video.guidelines.hideIdentity' | translate }}</span>
-            </div>
-
-            <div class="guideline-item">
-                <i class="pi pi-check-circle guideline-icon"></i>
-                <span class="text-sm">{{ 'video.guidelines.athleteConsent' | translate }}</span>
-            </div>
-
-            <div class="guideline-item">
-                <i class="pi pi-video guideline-icon"></i>
-                <span class="text-sm">{{ 'video.guidelines.prodigyOnly' | translate }}</span>
-            </div>
-
-            <div class="guideline-item">
-                <i class="pi pi-ban guideline-icon"></i>
-                <span class="text-sm">{{ 'video.guidelines.noPersonalInfo' | translate }}</span>
-            </div>
-        </p-panel>
-
-        <p-fluid>
-            <div class="flex flex-col gap-6">
+            <!-- Form Fields -->
+            <div class="app-form-section">
                 <!-- Title -->
-                <div class="flex flex-col gap-2">
-                    <label for="titre" class="font-bold">
+                <div class="app-form-field">
+                    <label for="titre" class="app-form-label">
                         {{ 'shared.common.title' | translate }}
-                        <span class="text-red-500">*</span>
+                        <span class="required">*</span>
                     </label>
-                    <input pInputText id="titre" type="text" [(ngModel)]="video.titre" required autofocus [disabled]="saving()" [placeholder]="'video.placeholders.title' | translate" />
-                    <small class="text-red-500" *ngIf="submitted && !video.titre">
+                    <div class="app-input-wrapper">
+                        <i class="pi pi-tag app-input-icon"></i>
+                        <input pInputText id="titre" type="text" [(ngModel)]="video.titre" required autofocus [disabled]="saving()" [placeholder]="'video.placeholders.title' | translate" class="app-form-input" />
+                    </div>
+                    <small class="app-form-error" *ngIf="submitted && !video.titre">
+                        <i class="pi pi-exclamation-circle"></i>
                         {{ 'shared.validation.titleRequired' | translate }}
                     </small>
                 </div>
 
                 <!-- Description -->
-                <div class="flex flex-col gap-2">
-                    <label for="description" class="font-bold">
+                <div class="app-form-field">
+                    <label for="description" class="app-form-label">
                         {{ 'shared.common.description' | translate }}
-                        <span class="text-red-500">*</span>
+                        <span class="required">*</span>
                     </label>
-                    <textarea id="description" pTextarea [(ngModel)]="video.description" rows="3" cols="20" fluid [disabled]="saving()" [placeholder]="'video.placeholders.description' | translate" required></textarea>
-                    <small class="text-red-500" *ngIf="submitted && !video.description">
+                    <textarea id="description" pTextarea [(ngModel)]="video.description" rows="4" [disabled]="saving()" [placeholder]="'video.placeholders.description' | translate" required class="app-form-textarea"></textarea>
+                    <small class="app-form-error" *ngIf="submitted && !video.description">
+                        <i class="pi pi-exclamation-circle"></i>
                         {{ 'video.validation.descriptionRequired' | translate }}
                     </small>
                 </div>
 
-                <!-- Moderation Status (if editing) -->
-                <div *ngIf="video.id" class="flex flex-col gap-2">
-                    <label for="statut" class="font-bold">
-                        {{ 'video.labels.moderationStatus' | translate }}
-                    </label>
-                    <p-select
-                        id="statut"
-                        [options]="videoService.getStatutModerationOptions()"
-                        [(ngModel)]="video.statutModeration"
-                        optionLabel="label"
-                        optionValue="value"
-                        [disabled]="saving()"
-                        [placeholder]="'video.placeholders.selectStatus' | translate"
-                    />
-                </div>
-
-                <!-- Moderation Comment (if editing) -->
-                <div *ngIf="video.id && video.statutModeration !== undefined" class="flex flex-col gap-2">
-                    <label for="commentaire" class="font-bold">
-                        {{ 'video.labels.moderationComment' | translate }}
-                    </label>
-                    <textarea id="commentaire" pTextarea [(ngModel)]="video.commentaireModeration" rows="2" cols="20" fluid [disabled]="saving()" [placeholder]="'video.placeholders.moderationComment' | translate"></textarea>
-                </div>
-
-                <!-- File Upload -->
-                <div class="flex flex-col gap-2">
-                    <label class="font-bold">
+                <!-- File Upload Section -->
+                <div class="app-form-field">
+                    <label class="app-form-label">
                         {{ 'video.labels.videoFile' | translate }}
-                        <span class="text-red-500" *ngIf="!video.id">*</span>
-                        <span class="text-gray-500 text-sm font-normal" *ngIf="video.id"> ({{ 'video.labels.optionalForEdit' | translate }}) </span>
+                        <span class="required" *ngIf="!video.id">*</span>
+                        <span class="app-optional-tag" *ngIf="video.id">{{ 'video.labels.optionalForEdit' | translate }}</span>
                     </label>
 
                     <!-- Current file info for editing -->
-                    <div *ngIf="video.id && video.fileItem" class="bg-blue-50 p-3 rounded border mb-2">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-2">
-                                <i class="pi pi-file-video text-blue-600"></i>
-                                <span class="text-sm font-medium">{{ 'video.labels.currentFile' | translate }}</span>
-                            </div>
-                            <span class="text-xs text-gray-500">
-                                {{ video.fileItem.name }}
-                            </span>
+                    <div *ngIf="video.id && video.fileItem" class="app-file-display">
+                        <div class="app-file-icon">
+                            <i class="pi pi-file-edit"></i>
+                        </div>
+                        <div class="app-file-info">
+                            <span class="app-file-label">{{ 'video.labels.currentFile' | translate }}</span>
+                            <span class="app-file-name">{{ video.fileItem.name }}</span>
                         </div>
                     </div>
 
                     @if (!saving()) {
-                        <app-mp4-uploader [maxFiles]="1" [maxFileSize]="500 * 1024 * 1024" [allowedFileTypes]="['video/*']" (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)" />
+                        <div class="uploader-container">
+                            <app-mp4-uploader [maxFiles]="1" [maxFileSize]="500 * 1024 * 1024" [allowedFileTypes]="['video/*']" (fileUploaded)="onFileUploaded($event)" (fileRemoved)="onFileRemoved($event)" />
+                        </div>
                     }
 
-                    <small class="text-red-500" *ngIf="submitted && !video.fileItemId && !uploadedFile && !video.id">
+                    <small class="app-form-error" *ngIf="submitted && !video.fileItemId && !uploadedFile && !video.id">
+                        <i class="pi pi-exclamation-circle"></i>
                         {{ 'video.validation.videoRequired' | translate }}
                     </small>
 
-                    <small class="text-gray-600" *ngIf="uploadedFile">
+                    <small class="app-form-hint" *ngIf="uploadedFile">
+                        <i class="pi pi-info-circle"></i>
                         {{ 'video.info.newFileWillReplace' | translate }}
                     </small>
                 </div>
             </div>
-        </p-fluid>
 
-        <!-- Saving indicator -->
-        <div *ngIf="saving()" class="flex items-center justify-center gap-2 mt-4 p-3 bg-blue-50 rounded">
-            <i class="pi pi-spinner pi-spin text-blue-600"></i>
-            <span class="text-blue-700">{{ 'shared.common.saving' | translate }}</span>
+            <!-- Saving Indicator -->
+            <div *ngIf="saving()" class="app-saving-overlay">
+                <div class="app-saving-content">
+                    <div class="app-saving-spinner"></div>
+                    <span>{{ 'shared.common.saving' | translate }}</span>
+                </div>
+            </div>
         </div>
     </ng-template>
 
     <ng-template #footer>
-        <div class="flex justify-end gap-2">
-            <p-button [label]="'shared.actions.cancel' | translate" icon="pi pi-times" text (click)="hideDialog()" [disabled]="saving()" />
-            <p-button [label]="'shared.actions.save' | translate" icon="pi pi-check" (click)="saveVideo()" [disabled]="saving() || !video.titre?.trim() || !video.description?.trim() || (!video.id && !uploadedFile)" [loading]="saving()" />
+        <div class="app-dialog-actions">
+            <button class="app-dialog-btn secondary" (click)="hideDialog()" [disabled]="saving()">
+                <i class="pi pi-times"></i>
+                {{ 'shared.actions.cancel' | translate }}
+            </button>
+            <button class="app-dialog-btn primary" (click)="saveVideo()" [disabled]="saving() || !video.titre?.trim() || !video.description?.trim() || (!video.id && !uploadedFile)">
+                <i class="pi" [class.pi-spinner]="saving()" [class.pi-spin]="saving()" [class.pi-check]="!saving()"></i>
+                {{ 'shared.actions.save' | translate }}
+            </button>
         </div>
     </ng-template>
 </p-dialog>
