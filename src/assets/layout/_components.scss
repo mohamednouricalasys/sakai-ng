@@ -460,7 +460,7 @@
 }
 .app-list-info {
     flex: 1;
-    min-width: 0;
+    min-width: 250;
 }
 .app-list-right {
     display: flex;
@@ -685,6 +685,8 @@
     border-radius: var(--app-radius-full);
     font-size: 0.65rem;
     font-weight: 600;
+    align-items: center;
+    display: flex;
 }
 .app-gender-badge {
     width: 26px;
