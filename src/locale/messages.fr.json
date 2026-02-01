@@ -319,7 +319,8 @@
             },
             "filter": {
                 "status": "Filtrer par statut",
-                "all": "Tous les statuts"
+                "all": "Tous les statuts",
+                "clear": "Effacer les filtres"
             },
             "sort": {
                 "placeholder": "Trier par...",
@@ -353,12 +354,16 @@
             },
             "confirm": {
                 "approve": "Êtes-vous sûr de vouloir approuver la vidéo \"{{title}}\" ?",
+                "desapprove": "Êtes-vous sûr de vouloir désapprouver la vidéo \"{{title}}\" ? Elle sera remise en attente de modération.",
                 "reject": "Êtes-vous sûr de vouloir rejeter la vidéo \"{{title}}\" ?",
                 "delete": "Êtes-vous sûr de vouloir supprimer définitivement la vidéo \"{{title}}\" ? Cette action est irréversible."
             },
             "moderationComment": {
                 "approve": {
                     "placeholder": "Commentaire optionnel pour l'approbation..."
+                },
+                "desapprove": {
+                    "placeholder": "Commentaire optionnel pour la désapprobation..."
                 },
                 "reject": {
                     "placeholder": "Expliquez les raisons du rejet (obligatoire)..."
@@ -370,6 +375,7 @@
             "messages": {
                 "loadError": "Erreur lors du chargement des vidéos.",
                 "approved": "Vidéo approuvée avec succès.",
+                "desapproved": "Vidéo désapprouvée avec succès.",
                 "rejected": "Vidéo rejetée avec succès.",
                 "deleted": "Vidéo supprimée avec succès.",
                 "moderationError": "Erreur lors de la modération de la vidéo.",
@@ -656,6 +662,11 @@
         "hockeySurGlace": "Hockey sur glace",
         "baseball": "Baseball",
         "mma": "MMA",
+        "equitation": "Équitation",
+        "hobbyHorse": "Hobby Horse",
+        "coursesCanines": "Courses canines",
+        "coursesDeLapins": "Courses de lapins",
+        "fauconnerie": "Fauconnerie",
         "autre": "Autre",
         "unknown": "Sport inconnu"
     },

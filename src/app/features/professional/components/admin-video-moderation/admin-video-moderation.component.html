@@ -21,9 +21,11 @@
 </div>
 
 <!-- Loading state -->
-<div *ngIf="loading()" class="loading-spinner">
-    <i class="pi pi-spinner pi-spin" style="font-size: 2rem"></i>
-    <span class="ml-2">{{ 'shared.common.loading' | translate }}</span>
+<div *ngIf="loading()" class="app-loading-section">
+    <div class="app-loading-content">
+        <div class="app-spinner"></div>
+        <span class="app-loading-text">{{ 'shared.common.loading' | translate }}</span>
+    </div>
 </div>
 
 <!-- Videos List -->
@@ -129,8 +131,8 @@
                             <p-button
                                 *ngIf="video.statutModeration === statutModeration.Approuvee"
                                 [label]="'admin.video.actions.desapprove' | translate"
-                                icon="pi pi-check"
-                                severity="success"
+                                icon="pi pi-undo"
+                                severity="warn"
                                 [outlined]="true"
                                 (onClick)="desapproveVideo(video)"
                                 size="small"
@@ -166,12 +168,14 @@
 
                         <!-- Actions -->
                         <div class="flex flex-col gap-1">
-                            <!--p-button [label]="'admin.video.actions.view' | translate" icon="pi pi-eye" [outlined]="true" (onClick)="viewVideo(video)" size="small" class="w-full" /-->
-
                             <div *ngIf="video.statutModeration === statutModeration.EnAttente" class="flex gap-1">
                                 <p-button icon="pi pi-check" severity="success" [outlined]="true" (onClick)="approveVideo(video)" size="small" class="flex-1" [title]="'admin.video.actions.approve' | translate" />
 
                                 <p-button icon="pi pi-times" severity="danger" [outlined]="true" (onClick)="rejectVideo(video)" size="small" class="flex-1" [title]="'admin.video.actions.reject' | translate" />
+                            </div>
+
+                            <div *ngIf="video.statutModeration === statutModeration.Approuvee">
+                                <p-button icon="pi pi-undo" severity="warn" [outlined]="true" (onClick)="desapproveVideo(video)" size="small" class="w-full" [title]="'admin.video.actions.desapprove' | translate" />
                             </div>
                         </div>
                     </div>
@@ -181,14 +185,25 @@
 
         <!-- Empty state -->
         <ng-template #empty>
-            <div class="text-center py-12">
-                <i class="pi pi-video text-gray-400 text-6xl mb-4"></i>
-                <h3 class="text-xl font-semibold text-gray-600 mb-2">
-                    {{ 'admin.video.empty.title' | translate }}
-                </h3>
-                <p class="text-gray-500">
-                    {{ 'admin.video.empty.description' | translate }}
-                </p>
+            <div class="empty-state-wrapper">
+                <div class="app-empty-state">
+                    <div class="app-empty-illustration">
+                        <div class="app-empty-circle">
+                            <i class="pi pi-video"></i>
+                        </div>
+                        <div class="app-empty-decorations">
+                            <span class="app-decoration d1"></span>
+                            <span class="app-decoration d2"></span>
+                            <span class="app-decoration d3"></span>
+                        </div>
+                    </div>
+                    <h2 class="app-empty-title">{{ 'admin.video.empty.title' | translate }}</h2>
+                    <p class="app-empty-description">{{ 'admin.video.empty.description' | translate }}</p>
+                    <button *ngIf="searchTerm || selectedStatus" class="app-empty-action" (click)="clearFilters()">
+                        <i class="pi pi-filter-slash"></i>
+                        {{ 'admin.video.filter.clear' | translate }}
+                    </button>
+                </div>
             </div>
         </ng-template>
     </p-dataview>
@@ -276,11 +291,17 @@
 </p-dialog>
 
 <!-- Moderation Dialog -->
-<p-dialog [(visible)]="moderationDialog" [style]="{ width: '500px' }" [header]="moderationAction === 'approve' ? ('admin.video.actions.approve' | translate) : ('admin.video.actions.reject' | translate)" [modal]="true" [closable]="!moderating()">
+<p-dialog [(visible)]="moderationDialog" [style]="{ width: '500px' }" [header]="moderationAction === 'approve' ? ('admin.video.actions.approve' | translate) : moderationAction === 'desapprove' ? ('admin.video.actions.desapprove' | translate) : ('admin.video.actions.reject' | translate)" [modal]="true" [closable]="!moderating()">
     <ng-template #content>
         <div class="flex flex-col gap-4">
             <p>
-                {{ moderationAction === 'approve' ? ('admin.video.confirm.approve' | translate: { title: selectedVideoForModeration?.titre }) : ('admin.video.confirm.reject' | translate: { title: selectedVideoForModeration?.titre }) }}
+                @if (moderationAction === 'approve') {
+                    {{ 'admin.video.confirm.approve' | translate: { title: selectedVideoForModeration?.titre } }}
+                } @else if (moderationAction === 'desapprove') {
+                    {{ 'admin.video.confirm.desapprove' | translate: { title: selectedVideoForModeration?.titre } }}
+                } @else {
+                    {{ 'admin.video.confirm.reject' | translate: { title: selectedVideoForModeration?.titre } }}
+                }
             </p>
 
             <div>
@@ -293,7 +314,7 @@
                     pTextarea
                     [(ngModel)]="moderationComment"
                     rows="4"
-                    [placeholder]="moderationAction === 'approve' ? ('admin.video.moderationComment.approve.placeholder' | translate) : ('admin.video.moderationComment.reject.placeholder' | translate)"
+                    [placeholder]="moderationAction === 'approve' ? ('admin.video.moderationComment.approve.placeholder' | translate) : moderationAction === 'desapprove' ? ('admin.video.moderationComment.desapprove.placeholder' | translate) : ('admin.video.moderationComment.reject.placeholder' | translate)"
                     class="w-full"
                     [disabled]="moderating()"
                 ></textarea>
@@ -313,9 +334,9 @@
         <div class="flex justify-end gap-2">
             <p-button [label]="'shared.actions.cancel' | translate" icon="pi pi-times" text (onClick)="hideModerationDialog()" [disabled]="moderating()" />
             <p-button
-                [label]="moderationAction === 'approve' ? ('shared.actions.approve' | translate) : ('shared.actions.reject' | translate)"
-                [icon]="moderationAction === 'approve' ? 'pi pi-check' : 'pi pi-times'"
-                [severity]="moderationAction === 'approve' ? 'success' : 'danger'"
+                [label]="moderationAction === 'approve' ? ('shared.actions.approve' | translate) : moderationAction === 'desapprove' ? ('shared.actions.desapprove' | translate) : ('shared.actions.reject' | translate)"
+                [icon]="moderationAction === 'approve' ? 'pi pi-check' : moderationAction === 'desapprove' ? 'pi pi-undo' : 'pi pi-times'"
+                [severity]="moderationAction === 'approve' ? 'success' : moderationAction === 'desapprove' ? 'warn' : 'danger'"
                 (onClick)="confirmModeration()"
                 [disabled]="moderating()"
                 [loading]="moderating()"

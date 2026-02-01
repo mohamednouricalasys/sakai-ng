@@ -1,0 +1,1491 @@
+{
+  "nav": {
+    "profesional": "Urheilun ammatti",
+    "gallery": "Galleria",
+    "myProdigies": "Minun ihmelapseni",
+    "myVideos": "Omat videoni",
+    "moderation": "Maltillisuus",
+    "subscription": "Tilaus"
+  },
+  "shared": {
+    "actions": {
+      "new": "Uusi",
+      "delete": "POISTAA",
+      "export": "Viedä",
+      "edit": "Muokkaamaan",
+      "save": "Suojellakseen",
+      "cancel": "Peruuttaa",
+      "search": "Tutkimaan...",
+      "add": "Lisätä",
+      "confirm": "Vahvistaa",
+      "approve": "Hyväksyä",
+      "desapprove": "Hylätä",
+      "reject": "Hylkää",
+      "close": "Lähellä"
+    },
+    "common": {
+      "title": "Otsikko",
+      "url": "URL-osoite",
+      "or": "TAI",
+      "select": "Valitse",
+      "name": "Nimi",
+      "age": "Ikä",
+      "description": "Kuvaus",
+      "actions": "Toiminnot",
+      "creationDate": "Luomispäivämäärä",
+      "tags": "Tunnisteet",
+      "required": "*",
+      "years": "vuotta",
+      "success": "Menestys",
+      "error": "Virhe",
+      "warning": "Varoitus",
+      "confirmation": "Vahvistus",
+      "male": "Mies",
+      "female": "Naiset",
+      "processing": "Hoito käynnissä...",
+      "loading": "Ladataan...",
+      "saving": "Tallennetaan..."
+    },
+    "validation": {
+      "required": "PAKOLLINEN",
+      "nameRequired": "Nimi on pakollinen.",
+      "ageRequired": "Ikä on pakollinen.",
+      "titleRequired": "Otsikko vaaditaan.",
+      "genderRequired": "Sukupuoli on pakollinen.",
+      "countryRequired": "Maa on pakollinen."
+    },
+    "messages": {
+      "confirmDelete": "Haluatko varmasti poistaa kohteen {item}?",
+      "confirmDeleteMultiple": "Haluatko varmasti poistaa valitut elementit?",
+      "itemDeleted": "{item} poistettu",
+      "itemsDeleted": "Elementit poistettu",
+      "itemCreated": "{item} luotu",
+      "itemUpdated": "{item} päivitys",
+      "validationError": "Vahvistusvirhe",
+      "limitReached": "Raja saavutettu",
+      "dataLoadError": "Virhe ladattaessa tietoja",
+      "saveError": "Virhe tallentamisessa",
+      "deleteError": "Virhe poistettaessa"
+    }
+  },
+  "landing": {
+    "home": "Kotiin",
+    "features": "Ominaisuudet",
+    "pricing": "Hinnoittelu",
+    "hero": {
+      "title": "Scout Tomorrow's -urheilutähdet tänään",
+      "subtitle": "Ammattimainen alusta tulevien urheilullisten ihmelapsien löytämiseen ja arvioimiseen videoanalyysin ja edistyneiden rekrytointityökalujen avulla.",
+      "button": "Liity ilmaiseksi nyt",
+      "freeBadge": "100 % ILMAISEKSI",
+      "freeForProfessionals": "Täysi pääsy ilman kustannuksia ammattilaisille",
+      "freeHighlight": "Maksa vain, kun pyydät yhteystietoja"
+    },
+    "valueProposition": {
+      "title": "Miksi ammattilaiset valitsevat meidät",
+      "free": {
+        "title": "Täysin ilmainen ammattilaisille",
+        "description": "Ei piilomaksuja, ei tilauskuluja. ",
+        "badge": "ILMAISEKSI"
+      },
+      "access": {
+        "title": "Ainutlaatuinen pääsy",
+        "description": "Ota yhteyttä suoraan lahjakkaisiin urheilijoihin ja heidän edustajiinsa."
+      },
+      "verified": {
+        "title": "Verified Talent Pool",
+        "description": "Asiantuntijat tarkastavat kaikki profiilit ennen hyväksymistä."
+      }
+    }
+  },
+  "auth": {
+    "login": "Kirjaudu sisään",
+    "register": "Rekisteröidy"
+  },
+  "subscription": {
+    "loading": "Ladataan tilaustietoja...",
+    "activeSubscription": {
+      "title": "Aktiivinen tilaus",
+      "credits": "Hyvitykset {count} / {max}",
+      "creditsLabel": "Krediitit",
+      "status": {
+        "active": "Aktiivinen"
+      },
+      "buttons": {
+        "manage": "Hallinnoi tilausta",
+        "cancel": "Peruuta suunnitelma"
+      }
+    },
+    "pricing": {
+      "title": "Valitse suunnitelmasi",
+      "subtitle": "Avaa Premium-ominaisuudet",
+      "description": "Valitse tarpeisiisi sopiva suunnitelma",
+      "loading": "Ladataan hintavaihtoehtoja..."
+    },
+    "plans": {
+      "basic": "Perussuunnitelma",
+      "premium": "Premium-suunnitelma",
+      "pro": "Ammattimainen suunnitelma",
+      "enterprise": "Yrityssuunnitelma",
+      "default": "Tilaussuunnitelma"
+    },
+    "messages": {
+      "loadError": "Tilaustietojen lataaminen epäonnistui",
+      "pricingError": "Hinnoitteluvaihtoehtojen lataaminen epäonnistui",
+      "portalError": "Asiakasportaalin avaaminen ei onnistu",
+      "cancelSuccess": "Tilauksesi on peruutettu onnistuneesti",
+      "cancelError": "Tilauksen peruuttaminen epäonnistui",
+      "cancelErrorGeneric": "Tilaustasi peruutettaessa tapahtui virhe"
+    },
+    "confirmations": {
+      "cancel": "Haluatko varmasti peruuttaa tilauksesi? "
+    },
+    "maintenance": {
+      "title": "Tilauspalvelun ylläpito",
+      "subtitle": "Huolto käynnissä",
+      "description": "Tilauspalvelumme on tällä hetkellä huollossa. ",
+      "backButton": "Takaisin",
+      "contactButton": "Ota yhteyttä tukeen"
+    }
+  },
+  "pricing": {
+    "title": "Valitse suunnitelmasi",
+    "subtitle": "Joustava hinnoittelu jokaiseen rekrytointitarpeeseen.",
+    "starter": {
+      "title": "Käynnistin",
+      "price": "50,00 €",
+      "period": "kuukaudessa",
+      "button": "Valitse",
+      "credits": "{credits} luottoa",
+      "feature1": "Pääsy tietokantaan",
+      "feature2": "Yksinkertainen suodatinhaku",
+      "feature3": "Ensisijainen tuki"
+    },
+    "pro": {
+      "current_plan": "Nykyinen tilaus",
+      "title": "Pro",
+      "price": "150,00 €",
+      "period": "kuukaudessa",
+      "button": "Valittu",
+      "credits": "{credits} luottoa",
+      "feature1": "Pääsy tietokantaan",
+      "feature2": "Tarkennetut hakusuodattimet",
+      "feature3": "Ensisijainen tuki"
+    },
+    "elite": {
+      "title": "Eliitti",
+      "price": "250,00 €",
+      "period": "kuukaudessa",
+      "button": "Valitse",
+      "credits": "{credits} luottoa",
+      "feature1": "Pääsy tietokantaan",
+      "feature2": "Tarkennetut hakusuodattimet",
+      "feature3": "24/7 ensisijainen tuki"
+    },
+    "point_system": {
+      "new_video_new_contact": "5 pistettä: uusi video, uusi kontakti",
+      "new_video_old_contact": "3 pistettä: uusi video, vanha kontakti",
+      "already_viewed": "0 pistettä: jo katsottu"
+    }
+  },
+  "footer": {
+    "company": {
+      "description": "Innovatiivinen ratkaisusi [palvelulle/tuotteelle]",
+      "rights": "Kaikki oikeudet pidätetään"
+    },
+    "links": {
+      "company": "Yritys",
+      "about": "Noin",
+      "careers": "Ura",
+      "press": "Paina",
+      "legal": "Laillinen",
+      "privacy": "Tietosuojakäytäntö",
+      "terms": "Palveluehdot",
+      "cookies": "Evästekäytäntö",
+      "support": "Tukea",
+      "contact": "Ota yhteyttä",
+      "faq": "FAQ",
+      "documentation": "Dokumentaatio"
+    },
+    "newsletter": {
+      "title": "Pysy ajan tasalla",
+      "description": "Hanki viimeisimmät uutiset ja erikoistarjoukset",
+      "placeholder": "Sähköpostiosoitteesi",
+      "subscribe": "Tilaa",
+      "success": "Kiitos! ",
+      "error": "Tapahtui virhe. "
+    },
+    "social": {
+      "follow": "Seuraa meitä",
+      "facebook": "Facebook",
+      "twitter": "Viserrys",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "youtube": "YouTube"
+    },
+    "contact": {
+      "title": "Ota yhteyttä",
+      "address": "Osoite",
+      "phone": "Puhelin",
+      "email": "Sähköposti"
+    },
+    "backToTop": "Takaisin alkuun"
+  },
+  "videos": {
+    "contact": {
+      "button": "Ota yhteyttä johtajaan",
+      "dialog": {
+        "header": "Yhteystiedot",
+        "unknownContact": "Tuntematon yhteyshenkilö",
+        "email": "Sähköposti",
+        "phone": "Puhelin",
+        "message": "Viesti",
+        "copyEmailTitle": "Kopioi sähköposti napsauttamalla",
+        "copyPhoneTitle": "Napsauta kopioidaksesi puhelin",
+        "close": "Lähellä"
+      }
+    },
+    "gallery": {
+      "title": "Videogalleria",
+      "subtitle": "Löydä lahjakkaita urheilijoita ympäri maailmaa"
+    },
+    "empty": {
+      "title": "Videoita ei löytynyt",
+      "description": "Yritä säätää suodattimia tai hakutermejä löytääksesi etsimäsi."
+    },
+    "loading": {
+      "more": "Ladataan lisää videoita..."
+    },
+    "search": {
+      "placeholder": "Hae videoita..."
+    },
+    "filter": {
+      "sport": "Suodata lajin mukaan",
+      "tag": "Suodata tunnisteen mukaan",
+      "country": "Suodata maan mukaan",
+      "allCountries": "Kaikki maat",
+      "clear": "Selkeät suodattimet",
+      "allSports": "Kaikki urheilu",
+      "allTags": "Kaikki tunnisteet",
+      "allGenders": "Kaikki sukupuolet",
+      "homme": "Uros",
+      "femme": "Naaras",
+      "all": "Kaikki",
+      "newVideoNewContact": "Videoita uusilta kontakteilta",
+      "newVideoOldContact": "Videoita olemassa olevista kontakteista",
+      "alreadyReadVideo": "Jo katsottu",
+      "myVideos": "Omat videoni",
+      "contactStatus": "Yhteydenottotila",
+      "selectContactStatus": "Valitse yhteyden tila",
+      "clearContactStatus": "Tyhjennä tilat",
+      "active": "Aktiiviset suodattimet"
+    },
+    "messages": {
+      "loadError": "Videoiden lataaminen epäonnistui. "
+    },
+    "insufficientCredits": {
+      "dialog": {
+        "header": "Riittämättömät luottotiedot",
+        "title": "Sinulla ei ole tarpeeksi luottoja",
+        "message": "Jotta voit ottaa yhteyttä urheilijoihin, tarvitset krediittejä. ",
+        "currentCredits": "Nykyiset saldot: {count}",
+        "subscribeButton": "Hanki lisää krediittejä",
+        "closeButton": "Lähellä"
+      }
+    }
+  },
+  "admin": {
+    "video": {
+      "moderation": {
+        "title": "Videon valvonta",
+        "enAttente": "Odotustilassa",
+        "approuvee": "Hyväksytty",
+        "rejete": "Hylätty",
+        "unknown": "Tuntematon",
+        "rejectedVideo": "Hylätty video",
+        "approvedVideo": "Hyväksytty video",
+        "warning": "⚠️ Varoitus",
+        "autoDeleteWarning": "Hylätyt videot poistetaan automaattisesti 15 päivän kuluttua, ellei niitä päivitetä."
+      },
+      "title": "Videonhallinta",
+      "totalVideos": "{{count}} Video(t) yhteensä",
+      "prodige": "Ihmelapsi",
+      "dateCreation": "Luomispäivämäärä",
+      "dateModeration": "Moderointipäivämäärä",
+      "moderatedBy": "Valvonut",
+      "moderationComment": {
+        "approve": {
+          "placeholder": "Valinnainen kommentti hyväksyttäväksi..."
+        },
+        "reject": {
+          "placeholder": "Selitä hylkäämisen syyt (pakollinen) ..."
+        }
+      },
+      "status": "Status",
+      "search": {
+        "placeholder": "Hae nimen mukaan, ihmelapsi..."
+      },
+      "filter": {
+        "status": "Statter tilan mukaan",
+        "all": "Kaikki säädökset"
+      },
+      "sort": {
+        "placeholder": "Lajitteluperuste...",
+        "dateCreation": {
+          "desc": "Ensin tuoreempi",
+          "asc": "Vanhempi ensin"
+        },
+        "title": {
+          "asc": "Otsikko A-Z",
+          "desc": "Z-A-A otsikko"
+        },
+        "status": {
+          "asc": "A-Z tila",
+          "desc": "Z-A tila"
+        }
+      },
+      "actions": {
+        "view": "Katso",
+        "approve": "Hyväksyä",
+        "desapprove": "Hylätä",
+        "reject": "Hylkää"
+      },
+      "empty": {
+        "title": "Videota ei löytynyt",
+        "description": "Tällä hetkellä ei ole tutkimuskriteereitäsi vastaavaa videota."
+      },
+      "detail": {
+        "title": "Videon tiedot",
+        "information": "Tiedot",
+        "moderation": "Maltillisuus"
+      },
+      "confirm": {
+        "approve": "Oletko varma, että haluat hyväksyä videon \"{{title}}\"",
+        "reject": "Haluatko varmasti hylätä videon \"{{title}}\"",
+        "delete": "Haluatko varmasti poistaa videon pysyvästi \"{{title}}\"? Tämä toiminto on peruuttamaton."
+      },
+      "validation": {
+        "commentRequired": "Hylkäämisen syyt selittävä kommentti on pakollinen."
+      },
+      "messages": {
+        "loadError": "Virhe ladattaessa videoita.",
+        "approved": "Video hyväksyttiin.",
+        "rejected": "Onnistunut video.",
+        "deleted": "Videon poistaminen onnistui.",
+        "moderationError": "Virhe videon valvomisessa.",
+        "deleteError": "Virhe poistettaessa videota."
+      }
+    }
+  },
+  "procrud": {
+    "title": "Prodigy-hallinta",
+    "labels": {
+      "newProdige": "Uusi ihmelapsi",
+      "editProdige": "Muokkaa ihmelapsia",
+      "myProdigies": "Minun ihmelapseni",
+      "manageProdigies": "Hallitse ihmelapsiasi",
+      "totalProdigies": "Täydellisiä ihmelapsia",
+      "prodigeDetails": "Prodigy yksityiskohdat",
+      "sport": "Urheilu",
+      "selectSport": "Valitse urheilulaji",
+      "addTag": "Lisää tunniste...",
+      "associatedVideos": "Liittyvät videot",
+      "videoWithoutTitle": "Yksikkö video",
+      "videosCount": "Videoiden määrä"
+    },
+    "columns": {
+      "nom": "Nimi",
+      "nomExport": "Ihmelapsen nimi",
+      "age": "Ikä",
+      "sport": "Urheilu",
+      "videosCount": "Videoiden määrä",
+      "dateCreation": "Luomispäivämäärä",
+      "gender": "Sukupuoli",
+      "genre": "Sukupuoli",
+      "country": "Maa"
+    },
+    "pagination": {
+      "itemName": "ihmeitä",
+      "showing": "Näyttö {first} - {last} {TotalRecords} Prodigiesissa"
+    },
+    "validation": {
+      "sportRequired": "Urheilu on pakollista.",
+      "descriptionRequired": "Kuvaus on pakollinen \"muille\" lajeille.",
+      "minTagsRequired": "Vähintään 3 tagia vaaditaan.",
+      "maxTagsReached": "Enintään 10 valtuutettua tunnistetta",
+      "descriptionRequiredForOther": "Pakollinen kuvaus urheilulajille \"muut\""
+    },
+    "placeholders": {
+      "name": "Anna ihmelapsen nimi",
+      "selectCountry": "Valitse maa",
+      "describeQualities": "Kuvaile ihmelapsen ominaisuuksia ja potentiaalia..."
+    },
+    "tags": {
+      "minMaxInfo": "(min: 3, maksimi: 10)",
+      "selectedCount": "{Count}/10 valittua tunnistetta",
+      "selected": "tunnisteet valittuna",
+      "associatedVideosCount": "{Count} video(ta) liitetty"
+    },
+    "messages": {
+      "prodigeCreated": "Prodigy luotu",
+      "prodigeUpdated": "Päivittää",
+      "prodigeDeleted": "Prodigy poistettu",
+      "prodigiesDeleted": "Ihmelapset poistettu",
+      "confirmDeleteProdige": "Haluatko varmasti poistaa käyttäjän {name}?",
+      "confirmDeleteProdigies": "Haluatko varmasti poistaa valitut ihmeet?"
+    },
+    "sort": {
+      "label": "Lajitteluperuste",
+      "name": {
+        "placeholder": "Lajittele nimen mukaan",
+        "down": "Nimi ▼",
+        "up": "Nimi ▲"
+      }
+    },
+    "empty": {
+      "title": "Ei vielä ihmelapsia",
+      "description": "Aloita luomalla ensimmäinen ihmelapsesi"
+    }
+  },
+  "video": {
+    "labels": {
+      "newVideo": "Uusi Video",
+      "editVideo": "Muokkaa videota",
+      "myVideos": "Omat videot",
+      "manageYourVideos": "Hallinnoi ja lataa urheilijavideoitasi",
+      "prodige": "Ihmelapsi",
+      "selectProdige": "Valitse Prodigy",
+      "videoDetails": "Videon tiedot",
+      "videoFile": "Videotiedosto",
+      "manualUrl": "Videon URL-osoite (manuaalinen)",
+      "optional": "Valinnainen",
+      "optionalForEdit": "valinnainen muokkausta varten",
+      "currentFile": "Nykyinen tiedosto",
+      "noPreview": "Ei esikatselua",
+      "noDescription": "Ei kuvausta",
+      "moderationStatus": "Valvonnan tila",
+      "moderationComment": "Moderaation kommentti",
+      "addFirstVideo": "Lisää ensimmäinen videosi"
+    },
+    "placeholders": {
+      "title": "Videon otsikko",
+      "description": "Videon kuvaus",
+      "videoUrl": "https://example.com/video.mp4",
+      "selectStatus": "Valitse tila",
+      "moderationComment": "Valvontakommentti..."
+    },
+    "sort": {
+      "title": {
+        "label": "Järjestellä",
+        "placeholder": "Lajittele otsikon mukaan",
+        "down": "Otsikko Z-A",
+        "up": "Otsikko A-Z"
+      }
+    },
+    "empty": {
+      "title": "Ei videoita",
+      "description": "Tällä ihmelapsella ei ole vielä yhtään videota. ",
+      "selectProdige": "Valitse ihmelapsi nähdäksesi hänen videonsa"
+    },
+    "limits": {
+      "title": "Videon rajatiedot",
+      "current": "Prodigy {prodigyName}: {current}/{max} videota käytetty ({remaining} jäljellä)",
+      "reached": "Tämän ihmelapsen videoiden enimmäisraja saavutettu.",
+      "slotsRemaining": "paikka(t) jäljellä",
+      "usage": "Videon käyttö"
+    },
+    "guidelines": {
+      "title": "Tärkeitä ohjeita - lue huolellisesti",
+      "expertReview": "Asiantuntijat tutkivat kaikki videot ennen hyväksymistä",
+      "hideIdentity": "Ammattihenkilöllisyyden tulee olla peitetty (ei nimiä, logoja tai tunnistetietoja)",
+      "athleteConsent": "Urheilijan suostumus on hankittava ja dokumentoitava",
+      "prodigyOnly": "Vain ihmelapsitekniikoita esittelevät videot ovat sallittuja",
+      "noPersonalInfo": "Henkilökohtaisia ​​tai luottamuksellisia tietoja ei saa olla näkyvissä"
+    },
+    "info": {
+      "uploadedFileUsed": "Ladattua tiedostoa käytetään manuaalisen URL-osoitteen sijaan",
+      "newFileWillReplace": "Uusi tiedosto korvaa nykyisen"
+    },
+    "validation": {
+      "videoRequired": "Lataa videotiedosto tai anna videon URL-osoite",
+      "descriptionRequired": "Kuvaus vaaditaan"
+    },
+    "messages": {
+      "downloadStarted": "Lataus käynnistetty",
+      "downloadStartedDetail": "Ladataan \" {{title}} \" aloitti",
+      "downloadNotAvailable": "Lataus ei ole saatavilla",
+      "moderationUpdated": "Moderointi on päivitetty",
+      "moderationError": "Virhe moderoinnin päivityksessä",
+      "noProdigeSelected": "Valitse ensin ihmelapsi",
+      "titleAndVideoRequired": "Otsikko ja video ovat pakollisia",
+      "videoCreated": "Onnistunut video",
+      "videoUpdated": "Onnistunut päivitysvideo",
+      "videoDeleted": "Onnistunut video",
+      "confirmDeleteVideo": "Haluatko varmasti poistaa videon '{title}'?",
+      "limitReached": "Videoraja saavutettu",
+      "limitReachedDetail": "Olet saavuttanut {maxVideos} videon enimmäisrajan ihmelapselle {prodigyName}. ",
+      "selectProdigeFirst": "Valitse ensin ihmelapsi"
+    },
+    "actions": {
+      "create": {
+        "success": "Onnistunut video",
+        "error": "Videon luonti epäonnistui"
+      },
+      "update": {
+        "success": "Onnistunut päivitysvideo",
+        "error": "Videon päivitys epäonnistui"
+      },
+      "delete": {
+        "success": "Onnistunut video",
+        "error": "Videon poistaminen epäonnistui"
+      },
+      "moderate": {
+        "success": "Onnistunut video",
+        "error": "Videon valvontavirhe"
+      },
+      "report": {
+        "success": "Onnistunut video",
+        "error": "Videoraportointi epäonnistui"
+      },
+      "upload": {
+        "success": "Onnistunut tv-video",
+        "error": "Videomittarin vika"
+      }
+    },
+    "search": {
+      "noResults": "Videota ei löytynyt",
+      "placeholder": "Etsi video..."
+    },
+    "moderation": {
+      "enAttente": "Odotustilassa",
+      "approuvee": "Hyväksytty",
+      "rejetee": "Hylätty",
+      "rejectedVideo": "Hylätty video",
+      "approvedVideo": "Hyväksytty video",
+      "warning": "⚠️ Varoitus",
+      "autoDeleteWarning": "Hylätyt videot poistetaan automaattisesti 15 päivän kuluttua, ellei niitä päivitetä."
+    }
+  },
+  "tags": {
+    "physical": {
+      "vitesse": "Nopeus",
+      "endurance": "Kestävyys",
+      "puissance": "Tehoa",
+      "reflexes": "Refleksit",
+      "agilite": "Ketteryys",
+      "explosivite": "Räjähtävyys",
+      "souplesse": "Joustavuus",
+      "coordination": "Koordinointi",
+      "equilibre": "Saldo"
+    },
+    "technical": {
+      "technique": "Tekninen",
+      "maitriseDuBallon": "Ilmapallon hallinta",
+      "precision": "Tarkkuus",
+      "finition": "Viimeistely",
+      "passeDecisive": "Assistant",
+      "tirCadre": "Creder ampui",
+      "dribble": "Tippaa",
+      "jeuDeTete": "Pääpeli",
+      "tacle": "Taklata",
+      "interception": "Sieppaus",
+      "gesteTechnique": "Tekninen ele",
+      "polyvalence": "Monipuolisuus"
+    },
+    "mental": {
+      "intelligenceTactique": "Taktinen älykkyys",
+      "lectureDuJeu": "Pelin lukeminen",
+      "anticipation": "Ennakointi",
+      "concentration": "Keskittyminen",
+      "mental": "Henkistä",
+      "sangFroid": "Verinen",
+      "maturite": "Kypsyys",
+      "gestionDuTemps": "Ajanhallinta",
+      "resilience": "Joustavuus",
+      "visionDeJeu": "Pelin visio",
+      "decisif": "Ratkaiseva",
+      "priseDeDecision": "Päätöksenteko",
+      "adaptabilite": "Sopeutuvuus",
+      "competiteur": "Kilpailija",
+      "leadership": "Johtajuus",
+      "espritDEquipe": "Joukkuehenki",
+      "determination": "Päättäväisyys",
+      "confianceEnSoi": "Itseluottamus",
+      "motivation": "Motivaatio",
+      "apprentissageRapide": "Nopea oppiminen",
+      "discipline": "Kuri",
+      "regularite": "Säännöllisyys",
+      "enduranceMentale": "Henkinen kestävyys"
+    },
+    "behavior": {
+      "travailleur": "Työntekijä",
+      "perseverant": "Sinnikkyyttä",
+      "passionne": "Innokas",
+      "humilite": "Nöyryyttä",
+      "exemplaire": "Kopioida",
+      "respectueux": "Kunnioittava",
+      "charismatique": "Karismaattinen",
+      "dynamique": "Dynaaminen",
+      "engage": "Kihloissa",
+      "fairPlay": "Reilu peli",
+      "influenceurDeVestiaire": "Vaatehuonevaikuttaja",
+      "attitudeProfessionnelle": "Ammattimainen asenne"
+    },
+    "creativity": {
+      "creativite": "Luovuus",
+      "styleDeJeuUnique": "Ainutlaatuinen pelityyli",
+      "spectaculaire": "Näyttävä",
+      "showman": "Showmies",
+      "imagination": "Mielikuvitus"
+    },
+    "potential": {
+      "grosPotentiel": "Suuri potentiaali",
+      "enProgres": "Edistyminen",
+      "jeunePrometteur": "Lupaava nuori",
+      "talentNaturel": "Luonnollinen lahjakkuus"
+    },
+    "unknown": "Tuntematon tunniste"
+  },
+  "sports": {
+    "football": "Jalkapallo",
+    "basketball": "Koripallo",
+    "rugby": "Rugby",
+    "tennis": "Tennis",
+    "boxe": "Nyrkkeily",
+    "footballAmericain": "Jalkapallo",
+    "hockeySurGlace": "Jääkiekko",
+    "baseball": "Baseball",
+    "mma": "MMA",
+    "equitation": "Ratsastus",
+    "hobbyHorse": "Keppihevonen",
+    "coursesCanines": "Koirakilpailut",
+    "coursesDeLapins": "Kanikisat",
+    "fauconnerie": "Haukkametsästys",
+    "autre": "Muut",
+    "unknown": "Tuntematon urheilulaji"
+  },
+  "primeng": {
+    "version": "Versio 1.3.1",
+    "delete_all": "Poista kaikki",
+    "delete_all_filter": "Poista kaikki suodattimet",
+    "results": "tuloksia",
+    "save": "Tallentaa",
+    "cancel": "Peruuttaa",
+    "search": "Tutkimaan",
+    "startdate": "Aloituspäivämäärä",
+    "enddate": "Päättymispäivämäärä",
+    "status": "Status",
+    "transactionnumber": "Tapahtuman numero",
+    "transactiondate": "Tapahtuman päivämäärä",
+    "download": "Lataa",
+    "amount": "Määrä",
+    "date": "Päivämäärä",
+    "or": "Tai",
+    "agency": "virasto",
+    "customer": "Asiakas",
+    "lineselected": "valitut rivit",
+    "areyousure": "Oletko varma?",
+    "confirmed": "Vahvistaa",
+    "generationinprogress": "Nykyinen sukupolvi",
+    "purchaselines": "Ostolinjat",
+    "dashboard": "Kojelauta",
+    "name": "Nimi",
+    "prenom": "Etunimi",
+    "email": "Sähköpostiosoite",
+    "saved": "Tallennettu",
+    "error": "Virhe",
+    "description": "Kuvaus",
+    "leave": "lähteä",
+    "not_allowed_page": "Sinulla ei ole tämän sivun käyttämiseen tarvittavia oikeuksia",
+    "validate_action": "Kirjoita \"Vahvista\" vahvistaaksesi tämän toiminnon",
+    "back": "Takaisin",
+    "valider": "Vahvistaaksesi",
+    "success": "Menestys",
+    "suivant": "Jälkeen",
+    "precedent": "Edellinen",
+    "export": "Viedä",
+    "import": "Tuoda",
+    "import_csv": "Tuo .csv",
+    "no": "Ei",
+    "yes": "Kyllä",
+    "enabled": "ota käyttöön",
+    "disabled": "poistaa käytöstä",
+    "activate": "ota käyttöön",
+    "deactivate": "poistaa käytöstä",
+    "activated": "aktivoitu",
+    "deactivated": "pois käytöstä",
+    "information": "Tiedot",
+    "creation_date": "Luontipäivämäärä:",
+    "export_csv": "Vie .csv",
+    "voir": "Katso",
+    "actif": "Aktiivinen",
+    "active": "Aktiivinen",
+    "inactif": "Ei-aktiivinen",
+    "inactive": "Ei-aktiivinen",
+    "selectionner": "Valitse",
+    "refresh": "Päivitä",
+    "filter_by": "Suodatusperuste",
+    "update": "Muokkaamaan",
+    "delete": "POISTAA",
+    "edit": "Muokkaamaan",
+    "comment": "Kommentti: ",
+    "comment_without_double_point": "Kommentti ",
+    "double_point": "::",
+    "toast_summary_update_error": "Mahdoton modifiointi",
+    "toast_summary_create_error": "Mahdoton lisäys",
+    "toast_summary_delete_error": "Mahdoton poisto",
+    "toast_summary_delete_error2": "Yhteenveto poistovirheestä",
+    "toast_label_warning": "Huomio",
+    "ok": "OK",
+    "select_date": "Valitse päivämäärä",
+    "select_hour": "Valitse tunti",
+    "require": "Kenttä on pakollinen ",
+    "tiret": "-",
+    "startsWith": "Alkaa kanssa",
+    "contains": "Sisältää",
+    "notContains": "Ei sisällä",
+    "endsWith": "päättyy",
+    "equals": "Yhtä",
+    "notEquals": "Erilainen kuin",
+    "noFilter": "Ei suodatinta",
+    "filter": "Suodattaa",
+    "lt": "Vähemmän kuin",
+    "lte": "Pienempi tai yhtä suuri kuin",
+    "gt": "Ylivoimainen verrattuna",
+    "gte": "Suurempi tai yhtä suuri kuin",
+    "dateIs": "Päivämäärä yhtä suuri kuin",
+    "dateIsNot": "Eri päivämäärä vuodesta",
+    "dateBefore": "Päivämäärä ennen",
+    "dateAfter": "Päivämäärä sen jälkeen",
+    "clear": "pyyhkiä",
+    "apply": "Käytä",
+    "matchAll": "Kaikki vastaa",
+    "matchAny": "Mikä tahansa",
+    "addRule": "Lisää sääntö",
+    "removeRule": "Poista sääntö",
+    "accept": "Kyllä",
+    "reject": "Ei",
+    "choose": "Valita",
+    "upload": "Lataa",
+    "dayNames": [
+      "sunnuntai",
+      "maanantai",
+      "tiistai",
+      "keskiviikko",
+      "TORSTAI",
+      "perjantai",
+      "LAUANTAI"
+    ],
+    "dayNamesShort": [
+      "aurinko",
+      "ma",
+      "maalis",
+      "meri",
+      "peli",
+      "pe",
+      "istui"
+    ],
+    "dayNamesMin": [
+      "D",
+      "L",
+      "M",
+      "M",
+      "J",
+      "V",
+      "S"
+    ],
+    "monthNames": [
+      "tammikuu",
+      "HELMIKUU",
+      "maaliskuuta",
+      "huhtikuu",
+      "voi",
+      "kesäkuuta",
+      "heinäkuu",
+      "elokuu",
+      "syyskuu",
+      "lokakuu",
+      "marraskuu",
+      "joulukuu"
+    ],
+    "monthNamesShort": [
+      "tammikuu",
+      "helmikuuta",
+      "maaliskuuta",
+      "huhtikuu",
+      "voi",
+      "kesäkuuta",
+      "heinäkuuta",
+      "elokuu",
+      "seitsemän",
+      "lokakuu",
+      "marraskuu",
+      "joulukuu"
+    ],
+    "today": "Tänään",
+    "weekHeader": "Sem",
+    "firstDayOfWeek": 1,
+    "dateFormat": "PP/kk/vv",
+    "weak": "Heikko",
+    "medium": "KESKIMÄÄRIN",
+    "strong": "Vahva",
+    "passwordPrompt": "Anna salasana",
+    "emptyMessage": "Tuloksia ei löytynyt",
+    "emptyFilterMessage": "Tuloksia ei löytynyt",
+    "selectedItemsLabel": "{0} valittua elementtiä",
+    "double_quote": "\"\"",
+    "asterisk": "*",
+    "value": "Arvo"
+  },
+  "uploader": {
+    "title": "MP4-videoiden latausohjelma",
+    "note": {
+      "single": "Vain videot, enintään {maxSize} kukin",
+      "multiple": "Vain videot, enintään {maxSize} kukin, enintään {maxFiles} tiedostoa"
+    },
+    "info": {
+      "single": "Lataa MP4-video aloittaaksesi",
+      "fileLimit": "{{current}}/{{max}} Tiedostot ({{remaining}} jäljellä)"
+    },
+    "statistics": {
+      "remaining": "jäljellä",
+      "files": "tiedosto(t)",
+      "uploading": "käynnissä",
+      "completed": "valmis (s)"
+    },
+    "status": {
+      "uploading": "Lataus käynnissä...",
+      "completed": "Valmis",
+      "locked": "Lukittu"
+    },
+    "actions": {
+      "preview": "Esikatselu",
+      "remove": "POISTAA",
+      "close": "Lähellä",
+      "upload": "Lataa",
+      "cancel": "Peruuttaa"
+    },
+    "empty": {
+      "title": "Tiedostoa ei ole ladattu tällä hetkellä",
+      "subtitle": {
+        "single": "Käytä yllä olevaa latausohjelmaa MP4-videon tallentamiseen tai lataamiseen",
+        "multiple": "Käytä yllä olevaa latausohjelmaa tallentaaksesi tai ladataksesi enintään {{maxFiles}} MP4 videoita"
+      }
+    },
+    "preview": {
+      "title": "Videon esikatselu"
+    },
+    "messages": {
+      "fileLimitReached": "Vaikuttavien tiedostojen raja",
+      "uploadComplete": "Lataus valmis",
+      "uploadSuccess": "{Filename} ladattu onnistuneesti!",
+      "uploadFailed": "Lataus epäonnistui",
+      "uploadFailedDetail": "{Filename} ei voi ladata",
+      "fileRestriction": "Tiedoston rajoitus",
+      "cannotRemove": "Ei voida poistaa",
+      "cannotRemoveLocked": "Lukittua tiedostoa ei voi poistaa",
+      "fileRemoved": "Poistettu tiedosto",
+      "fileRemovedSuccess": "Tiedoston poistaminen onnistui",
+      "removalFailed": "Poisto epäonnistui",
+      "removalFailedDetail": "Tiedostoa ei voi poistaa. ",
+      "uploadPreparationFailed": "Latauksen valmistelu epäonnistui",
+      "uploadPreparationFailedDetail": "Latauksen valmistelu epäonnistui. ",
+      "duplicateFile": "Kaksoistiedosto",
+      "duplicateFileDetail": "Tiedosto {Filename} on jo lisätty",
+      "filenameTooLong": "Tiedostonimi liian pitkä",
+      "filenameTooLongDetail": "Tiedostonimi on liian pitkä ({{currentLength}} hahmot).  {{maxLength}} merkkiä tai vähemmän ennen lataamista."
+    },
+    "dashboard": {
+      "strings": {
+        "addMoreFiles": "Lisää tiedostoja",
+        "addingMoreFiles": "Lisää tiedostoja",
+        "allowAccessDescription": "Jos haluat ottaa valokuvia tai tallentaa videoita kamerallasi, salli kameran käyttö tälle sivustolle.",
+        "allowAccessTitle": "Salli pääsy kameraasi",
+        "authenticateWith": "Yhdistä verkkoon {pluginname}",
+        "authenticateWithTitle": "Valitse tiedostot todennuksella {pluginname}:lla",
+        "back": "Takaisin",
+        "browse": "mennä läpi",
+        "browseFiles": "selata tiedostoja",
+        "cancel": "Peruuttaa",
+        "cancelUpload": "Peruuta lataus",
+        "chooseFiles": "Valitse tiedostot",
+        "closeModal": "Kiipeä ikkunaan",
+        "companionError": "Yhteyden muodostaminen kumppaniin epäonnistui",
+        "complete": "Valmis",
+        "connectedToInternet": "Internet yhdistetty",
+        "copyLink": "Kopioi linkki",
+        "copyLinkToClipboardFallback": "Kopioi alla oleva URL-osoite",
+        "copyLinkToClipboardSuccess": "Linkki kopioitu leikepöydälle",
+        "creatingAssembly": "Lataa valmistelu...",
+        "creatingAssemblyFailed": "TransLODIT: Kokoonpanoa ei voi luoda",
+        "dashboardTitle": "Tiedoston latausohjelma",
+        "dashboardWindowTitle": "Tiedoston latausikkuna (sulje painamalla Esc-näppäintä)",
+        "dataUploadedOfTotal": "{Complete} {Total}",
+        "done": "Valmis",
+        "dropHereOr": "Sijoita tiedostot tähän tai %{browse}",
+        "dropHint": "Lähetä tiedostosi tähän",
+        "dropPasteBoth": "Aseta tiedostot tähän, liimaa tai %{browse}",
+        "dropPasteFiles": "Aseta tiedostot tähän, liimaa tai %{browse}",
+        "dropPasteImportBoth": "Sijoita tiedostot tähän, liimaa, %{browse} tai tuo alkaen",
+        "dropPasteImportFiles": "Sijoita tiedostot tähän, liimaa, %{browse} tai tuo alkaen",
+        "edit": "Muokkaamaan",
+        "editFile": "Muokkaa tiedostoa",
+        "editing": "Muokkaus tiedostoon %{file}",
+        "emptyFolderAdded": "Tiedostoa ei ole lisätty tyhjästä kansiosta",
+        "encoding": "Koodaus...",
+        "enterCorrectUrl": "Virheellinen URL-osoite: Varmista, että annat suoran linkin tiedostoon",
+        "enterUrlToImport": "Kirjoita tiedoston URL-osoite",
+        "exceedsSize": "Tämä tiedosto ylittää sallitun enimmäiskoon",
+        "failedToFetch": "Companion ei voinut palauttaa tätä URL-osoitetta. Varmista, että se on oikein",
+        "failedToUpload": "%{File} lataus epäonnistui",
+        "fileSource": "Tiedostolähde: %{name}",
+        "filesUploadedOfTotal": {
+          "0": "%{Complete} %{smart_count} ladatussa tiedostossa",
+          "1": "%{Complete} %{smart_count} ladatusta tiedostosta"
+        },
+        "filter": "Suodattaa",
+        "finishEditingFile": "Viimeistele tiedoston muokkaus",
+        "folderAdded": {
+          "0": "%{smart_count} tiedosto lisätty kansiosta %{folder}",
+          "1": "%{smart_count} tiedostoa lisätty kansiosta %{folder}"
+        },
+        "import": "Tuoda",
+        "importFrom": "Tuo %{name} lähtien",
+        "loading": "Ladataan...",
+        "logOut": "Katkaise yhteys",
+        "myDevice": "Oma laite",
+        "noFilesFound": "Sinulla ei ole tiedostoa tai kansiota täällä",
+        "noInternetConnection": "Ei internetyhteyttä",
+        "pause": "Tauko",
+        "pauseUpload": "Pura lataus",
+        "paused": "Tauko",
+        "poweredBy": "Käyttövoimana %{uppy}",
+        "processingXFiles": {
+          "0": "%{Smart_count} tiedosto",
+          "1": "%{Smart_count} tiedostoa"
+        },
+        "removeFile": "Poista tiedosto",
+        "resetFilter": "Nollaa suodatin",
+        "resume": "Jatkaaksesi",
+        "resumeUpload": "Lataa",
+        "retry": "Yritä uudelleen",
+        "retryUpload": "Kokeile latausta yrittämällä",
+        "save": "Tallentaa",
+        "selectFileNamed": "Valitse tiedosto %{name}",
+        "selectX": {
+          "0": "Valitse %{smart_count}",
+          "1": "Valitse %{smart_count}"
+        },
+        "smile": "Hymy!",
+        "startRecording": "Aloita videon tallennus",
+        "stopRecording": "Lopeta videon tallennus",
+        "takePicture": "Ota valokuva",
+        "timedOut": "Lataus estetty %{seconds} sekunniksi, hylätty.",
+        "upload": "Lataa",
+        "uploadComplete": "Lataus valmis",
+        "uploadFailed": "Lataus epäonnistui",
+        "uploadPaused": "Keskeytä lataus",
+        "uploadXFiles": {
+          "0": "Lataa %{smart_count} tiedosto",
+          "1": "Lataa %{smart_count} tiedostoa"
+        },
+        "uploadXNewFiles": {
+          "0": "Lataa +%{smart_count} tiedosto",
+          "1": "Lataa +%{smart_count} tiedostoa"
+        },
+        "uploading": "Lataus käynnissä",
+        "uploadingXFiles": {
+          "0": "%{Smart_count} tiedosto",
+          "1": "%{Smart_count} tiedostoa"
+        },
+        "xFilesSelected": {
+          "0": "%{smart_count} valittu tiedosto",
+          "1": "%{smart_count} valittua tiedostoa"
+        },
+        "xMoreFilesAdded": {
+          "0": "%{smart_count} lisäsi lisätiedoston",
+          "1": "%{smart_count} Muita tiedostoja lisätty"
+        },
+        "xTimeLeft": "%{time} jäljellä",
+        "youCanOnlyUploadFileTypes": "Voit ladata vain: %{types}",
+        "youCanOnlyUploadX": {
+          "0": "Voit ladata vain %{smart_count} tiedoston",
+          "1": "Voit ladata vain %{smart_count} tiedostoa"
+        },
+        "youHaveToAtLeastSelectX": {
+          "0": "Sinun on valittava vähintään %{smart_count} tiedosto",
+          "1": "Sinun on valittava vähintään %{smart_count} tiedostoa"
+        }
+      }
+    },
+    "service": {
+      "errors": {
+        "presignedUrl": "Allekirjoitetun URL-osoitteen luominen epäonnistui",
+        "removeFile": "Tiedoston poisto epäonnistui",
+        "uploadFile": "Tiedostoa ei lähetetty allekirjoitetun URL-osoitteen kautta",
+        "getFileList": "Tiedostoluettelon palautus epäonnistui",
+        "updateMetadata": "Tiedoston metatietojen päivittäminen epäonnistui"
+      }
+    }
+  },
+  "countries": {
+    "ad": "andorilainen",
+    "ae": "Yhdistyneet arabiemiirikunnat",
+    "af": "Afganistan",
+    "ag": "Antigua-et-Barbuda",
+    "ai": "Ankerias",
+    "al": "Albania",
+    "am": "Armenia",
+    "ao": "Angola",
+    "aq": "Etelämanner",
+    "ar": "Argentiina",
+    "as": "Amerikan Samoa",
+    "at": "Itävalta",
+    "au": "Australia",
+    "aw": "Aruba",
+    "ax": "Ahvenanmaa",
+    "az": "Azerbaidžan",
+    "ba": "Bosnia ja Hertsegovina",
+    "bb": "Barbade",
+    "bd": "Bangladesh",
+    "be": "Belgia",
+    "bf": "Burkina Faso",
+    "bg": "Bulgaria",
+    "bh": "Bahrain",
+    "bi": "Burundi",
+    "bj": "Hyvänlaatuinen",
+    "bl": "Saint-Barthélemy",
+    "bm": "Bermuda",
+    "bn": "Brunei",
+    "bo": "Bolivia",
+    "bq": "Alankomaat Karibia",
+    "br": "Brasilia",
+    "bs": "Bahama",
+    "bt": "Bhoutan",
+    "bv": "Bouvetin saari",
+    "bw": "Botswana",
+    "by": "Bélarus",
+    "bz": "Belize",
+    "ca": "Kanada",
+    "cc": "Kookossaaret (Keeling)",
+    "cd": "Kongon demokraattinen tasavalta",
+    "cf": "Keski-Afrikan tasavalta",
+    "cg": "Kongon tasavalta",
+    "ch": "sveitsiläinen",
+    "ci": "Norsunluurannikko",
+    "ck": "Cookin saaret",
+    "cl": "Chile",
+    "cm": "Kamerun",
+    "cn": "Kiina",
+    "co": "Kolumbia",
+    "cr": "Costa Rica",
+    "cs": "Tsekkoslovakia",
+    "cu": "Kuuba",
+    "cv": "Lippis-vihreä",
+    "cw": "Curaçao",
+    "cx": "Joulusaari",
+    "cy": "Kypros",
+    "cz": "Tšekin tasavalta",
+    "dd": "Saksan demokraattinen tasavalta",
+    "de": "Saksa",
+    "dj": "Djibouti",
+    "dk": "Tanska",
+    "dm": "Dominique",
+    "do": "Dominikaaninen tasavalta",
+    "dz": "Algeria",
+    "ec": "Päiväntasaaja",
+    "ee": "Viro",
+    "eg": "Egypti",
+    "eh": "Länsi-Sahara",
+    "er": "Eritrea",
+    "es": "Espanja",
+    "et": "Etiopia",
+    "fi": "Suomi",
+    "fj": "Fidži",
+    "fk": "Falklandin saaret",
+    "fm": "Mikronesia",
+    "fo": "Färsaaret",
+    "fr": "Ranska",
+    "fx": "Ranskan pääkaupunki",
+    "ga": "Gabon",
+    "gb": "Yhdistynyt kuningaskunta",
+    "gd": "Kranaatti",
+    "ge": "Georgia",
+    "gf": "Guyana",
+    "gg": "Guernseyssä",
+    "gh": "Ghana",
+    "gi": "Gibraltar",
+    "gl": "Grönlanti",
+    "gm": "Gambia",
+    "gn": "Guinea",
+    "gp": "Guadeloupe",
+    "gq": "Päiväntasaajan Guinea",
+    "gr": "Kreikka",
+    "gs": "South-and-the South Sandwich Georgia",
+    "gt": "Guatemala",
+    "gu": "Guam",
+    "gw": "Guinea-Bissau",
+    "gy": "Guyana",
+    "hk": "Hong Kong",
+    "hm": "Heard-et-Macdonald-saaret",
+    "hn": "Honduras",
+    "hr": "Kroatia",
+    "ht": "Haiti",
+    "hu": "Unkari",
+    "id": "Indonesia",
+    "ie": "Irlanti",
+    "il": "Israel",
+    "im": "Miesten saari",
+    "in": "Intia",
+    "io": "Brittiläinen Intian valtameren alue",
+    "iq": "Irak",
+    "ir": "Iran",
+    "is": "Islanti",
+    "it": "Italia",
+    "je": "Jersey",
+    "jm": "Jamaika",
+    "jo": "Jordania",
+    "jp": "Japani",
+    "ke": "Kenia",
+    "kg": "Kirgisia",
+    "kh": "Kambodža",
+    "ki": "Kiribati",
+    "km": "Komorit",
+    "kn": "Saint-Christophe-et-Niévès",
+    "kp": "Pohjois-Korea",
+    "kr": "Etelä-Korea",
+    "kw": "Kuwait",
+    "ky": "Caymansaaret",
+    "kz": "Kazakstan",
+    "la": "Laos",
+    "lb": "Libanon",
+    "lc": "Sainte-Lucie",
+    "li": "Liechtenstein",
+    "lr": "Liberia",
+    "ls": "Lesotho",
+    "lt": "Liettua",
+    "lu": "Luxemburg",
+    "lv": "Latvia",
+    "ly": "Libya",
+    "ma": "Marokko",
+    "mc": "Monaco",
+    "md": "Moldova",
+    "me": "Montenegro",
+    "mf": "Saint-Martin",
+    "mg": "Madagaskar",
+    "mh": "Marshallin saaret",
+    "mk": "Pohjois-Makedonia",
+    "ml": "Mali",
+    "mm": "Myanmar",
+    "mn": "Mongolia",
+    "mo": "Macao",
+    "mp": "Pohjois-Mariaanit",
+    "mq": "Martinique",
+    "mr": "Mauritania",
+    "ms": "Montserrat",
+    "mt": "Malta",
+    "mu": "Mauritius",
+    "mv": "Malediivit",
+    "mw": "Malawi",
+    "mx": "Meksiko",
+    "my": "Malesia",
+    "mz": "Mosambik",
+    "na": "Namibia",
+    "nc": "Uusi-Kaledonia",
+    "ne": "Niger",
+    "nf": "Norfolkin saari",
+    "ng": "Nigeria",
+    "ni": "Nicaragua",
+    "nl": "Alankomaat",
+    "no": "Norja",
+    "np": "Nepal",
+    "nr": "Nauru",
+    "nt": "Neutraali vyöhyke",
+    "nu": "Niue",
+    "nz": "Uusi-Seelanti",
+    "om": "Oman",
+    "pa": "Panama",
+    "pe": "Peru",
+    "pf": "Ranskan Polynesia",
+    "pg": "Papua-Uusi-Guinea",
+    "ph": "Filippiinit",
+    "pk": "Pakistan",
+    "pl": "Puola",
+    "pm": "Saint-Pierre-et-Miquelon",
+    "pn": "Pitcairn",
+    "pr": "Puerto Rico",
+    "ps": "Palestiina",
+    "pt": "Portugali",
+    "pw": "Palaos",
+    "py": "Paraguay",
+    "qa": "Qatar",
+    "re": "jälleennäkeminen",
+    "ro": "Romania",
+    "rs": "Serbia",
+    "ru": "Venäjä",
+    "rw": "Ruanda",
+    "sa": "Saudi-Arabia",
+    "sb": "Salomonsaaret",
+    "sc": "Seychellit",
+    "sd": "Sudan",
+    "se": "Mokka",
+    "sg": "Singapore",
+    "sh": "Sainte-Hélène",
+    "si": "Slovenia",
+    "sj": "Svalbard ja Jan Mayen",
+    "sk": "Slovakia",
+    "sl": "Sierra Leone",
+    "sm": "Saint-Marin",
+    "sn": "Senegal",
+    "so": "Somalia",
+    "sr": "Overriname",
+    "ss": "Etelä-Sudan",
+    "st": "São Tomé-et-Principe",
+    "su": "Neuvostoliitto",
+    "sv": "El Salvador",
+    "sx": "Saint-Martin",
+    "sy": "Syyria",
+    "sz": "Eswatini",
+    "tc": "Turkin ja Kaikaanin saaret",
+    "td": "Tšad",
+    "tf": "Ranskan eteläiset maat",
+    "tg": "Togo",
+    "th": "Thaimaa",
+    "tj": "Tadjikistan",
+    "tk": "Tokelau",
+    "tl": "Timorin itämainen",
+    "tm": "Turkmenistan",
+    "tn": "Tunisia",
+    "to": "Tonga",
+    "tr": "Turkkiye",
+    "tt": "Trinity ja Tobago",
+    "tv": "Tuvalu",
+    "tw": "Taiwan",
+    "tz": "Tansania",
+    "ua": "Ukraina",
+    "ug": "Uganda",
+    "um": "Pienet saaret Yhdysvalloista",
+    "us": "YHDYSVALLAT",
+    "uy": "Uruguay",
+    "uz": "Uzbekistan",
+    "va": "Vatikaanikaupunki",
+    "vc": "Saint-Vincent-et-les Grenadines",
+    "ve": "Venezuela",
+    "vg": "Brittiläiset neitsytsaaret",
+    "vi": "Yhdysvaltain Neitsytsaaret",
+    "vn": "Vietnam Vietnam",
+    "vu": "Vanuatu",
+    "wf": "Wallis-et-Futuna",
+    "ws": "Samoa",
+    "xk": "Kosovo",
+    "ye": "Jemen",
+    "yt": "Mayotte",
+    "yu": "Jugoslavia",
+    "za": "Etelä-Afrikka",
+    "zm": "Sambia",
+    "zr": "Zaire",
+    "zw": "Zimbabwe"
+  },
+  "topbar": {
+    "title": "Caviar Scout",
+    "profile": {
+      "title": "Profiili",
+      "edit": "Muokkaa profiilia",
+      "logout": "Kirjaudu ulos",
+      "delete": "Poistaa",
+      "deleteMobile": "Poista tili",
+      "editMobile": "Muokkaa profiilia",
+      "confirmDelete": "Haluatko varmasti poistaa tilisi? ",
+      "confirmDeleteTitle": "Poista tili",
+      "confirmDeleteMessage": "Haluatko varmasti poistaa tilisi pysyvästi?",
+      "confirmDeleteWarning": "Tätä toimintoa ei voi kumota. ",
+      "deleteConfirm": "Poista tili",
+      "deleteSuccessTitle": "Tili poistettu",
+      "deleteSuccessMessage": "Tilisi on poistettu onnistuneesti. ",
+      "deleteErrorTitle": "Poistaminen epäonnistui",
+      "deleteErrorMessage": "Tilin poistaminen epäonnistui. "
+    }
+  },
+  "common": {
+    "cancel": "Peruuttaa"
+  },
+  "legal": {
+    "backToHome": "Takaisin etusivulle",
+    "lastUpdated": "Viimeksi päivitetty",
+    "privacy": {
+      "title": "Tietosuojakäytäntö",
+      "introduction": {
+        "title": "Johdanto"
+      },
+      "controller": {
+        "title": "Rekisterinpitäjä"
+      },
+      "dpo": {
+        "title": "Tietosuojavastaava"
+      },
+      "dataCollected": {
+        "title": "Tiedot kerätty",
+        "identity": {
+          "title": "Henkilö- ja yhteystiedot"
+        },
+        "athletes": {
+          "title": "Urheilijan tiedot"
+        },
+        "technical": {
+          "title": "Tekniset tiedot"
+        },
+        "transaction": {
+          "title": "Tapahtumatiedot"
+        }
+      },
+      "legalBasis": {
+        "title": "Käsittelyn oikeusperusta"
+      },
+      "userCategories": {
+        "title": "Käyttäjäkategoriat",
+        "professionals": {
+          "title": "Ammattikäyttäjät"
+        },
+        "nonProfessionals": {
+          "title": "Ei-ammattimaiset käyttäjät"
+        },
+        "minors": {
+          "title": "Alaikäisten suojelu"
+        }
+      },
+      "retention": {
+        "title": "Tietojen säilyttäminen"
+      },
+      "recipients": {
+        "title": "Tietojen vastaanottajat"
+      },
+      "rights": {
+        "title": "Sinun oikeutesi"
+      },
+      "cookies": {
+        "title": "Evästeet"
+      },
+      "security": {
+        "title": "Tietoturva"
+      },
+      "updates": {
+        "title": "Käytäntöpäivitykset"
+      },
+      "contact": {
+        "title": "Ota yhteyttä"
+      }
+    },
+    "terms": {
+      "title": "Palveluehdot",
+      "preamble": {
+        "title": "Johdanto"
+      },
+      "definitions": {
+        "title": "Määritelmät"
+      },
+      "service": {
+        "title": "Palvelun kuvaus",
+        "important": "Tärkeä huomautus"
+      },
+      "userCategories": {
+        "title": "Käyttäjäkategoriat",
+        "professionals": {
+          "title": "Ammattikäyttäjät"
+        },
+        "nonProfessionals": {
+          "title": "Ei-ammattimaiset käyttäjät (kuluttajat)"
+        }
+      },
+      "account": {
+        "title": "Tili ja rekisteröinti"
+      },
+      "subscription": {
+        "title": "Tilaukset ja maksut",
+        "payment": {
+          "title": "Maksuehdot"
+        },
+        "withdrawal": {
+          "title": "Peruuttamisoikeus"
+        },
+        "credits": {
+          "title": "Luottojärjestelmä"
+        }
+      },
+      "obligations": {
+        "title": "Käyttäjän velvollisuudet"
+      },
+      "content": {
+        "title": "Sisältö ja moderointi",
+        "license": {
+          "title": "Sisällön lisenssi"
+        }
+      },
+      "liability": {
+        "title": "Vastuun rajoitus",
+        "disclaimer": "TÄRKEÄ VASTUUVAPAUSLAUSEKE",
+        "financial": {
+          "title": "Taloudellinen vastuuvapauslauseke"
+        },
+        "thirdParty": {
+          "title": "Kolmannen osapuolen palvelut"
+        },
+        "information": {
+          "title": "Tietojen vastuuvapauslauseke"
+        },
+        "limitation": {
+          "title": "Vastuun rajoitus"
+        }
+      },
+      "indemnification": {
+        "title": "Korvaus"
+      },
+      "ip": {
+        "title": "Immateriaaliomaisuus"
+      },
+      "modifications": {
+        "title": "Palvelun muutokset"
+      },
+      "termination": {
+        "title": "Irtisanominen"
+      },
+      "disputes": {
+        "title": "Riitojen ratkaisu",
+        "mediation": {
+          "title": "Kuluttajavälitys"
+        },
+        "jurisdiction": {
+          "title": "Sovellettava laki ja toimivalta"
+        }
+      },
+      "severability": {
+        "title": "Erotettavuus"
+      },
+      "contact": {
+        "title": "Ota yhteyttä"
+      }
+    }
+  },
+  "features": {
+    "title": "Tehokkaat ominaisuudet",
+    "subtitle": "Kaikki mitä tarvitset tehokkaaseen rekrytointiin.",
+    "free": {
+      "title": "Ilmainen täysi pääsy",
+      "description": "Selaa kaikkia profiileja, katso videoita, käytä edistyneitä suodattimia – täysin ilmaiseksi. "
+    },
+    "database": {
+      "title": "Täydellinen tietokanta",
+      "description": "Käytä tuhansia vahvistettuja lahjakkuusprofiileja."
+    },
+    "filters": {
+      "title": "Tarkennetut hakusuodattimet",
+      "description": "Kohdista profiilit tarkasti lajin, iän ja taitojen mukaan."
+    },
+    "contact": {
+      "title": "Suora ja turvallinen yhteydenotto",
+      "description": "Kommunikoi suoraan urheilijoiden tai heidän edustajiensa kanssa."
+    },
+    "analysis": {
+      "title": "Videon analyysi",
+      "description": "Katso ja analysoi kykyjen esityksiä."
+    }
+  }
+}

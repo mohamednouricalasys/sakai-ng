@@ -312,12 +312,16 @@
             "dateCreation": "Date of creation",
             "dateModeration": "Moderation date",
             "moderatedBy": "Moderate by",
+            "moderationCommentLabel": "Moderation comment",
             "moderationComment": {
                 "approve": {
-                    "placeholder": "Optional comment for approval ..."
+                    "placeholder": "Optional comment for approval..."
+                },
+                "desapprove": {
+                    "placeholder": "Optional comment for unapproval..."
                 },
                 "reject": {
-                    "placeholder": "Explain the reasons for the rejection (compulsory) ..."
+                    "placeholder": "Explain the reasons for the rejection (required)..."
                 }
             },
             "status": "Status",
@@ -325,8 +329,9 @@
                 "placeholder": "Search by title, prodigy ..."
             },
             "filter": {
-                "status": "Statter by status",
-                "all": "All statutes"
+                "status": "Filter by status",
+                "all": "All statuses",
+                "clear": "Clear filters"
             },
             "sort": {
                 "placeholder": "Sort by...",
@@ -359,8 +364,9 @@
                 "moderation": "Moderation"
             },
             "confirm": {
-                "approve": "Are you sure you want to approve the video \"{{title}}\"",
-                "reject": "Are you sure you want to reject the video \"{{title}}\"",
+                "approve": "Are you sure you want to approve the video \"{{title}}\"?",
+                "desapprove": "Are you sure you want to unapprove the video \"{{title}}\"? It will be moved back to pending moderation.",
+                "reject": "Are you sure you want to reject the video \"{{title}}\"?",
                 "delete": "Are you sure you want to permanently delete the video \"{{title}}\"? This action is irreversible."
             },
             "validation": {
@@ -369,7 +375,8 @@
             "messages": {
                 "loadError": "Error when loading videos.",
                 "approved": "Video successfully approved.",
-                "rejected": "Successful video.",
+                "desapproved": "Video successfully unapproved.",
+                "rejected": "Video successfully rejected.",
                 "deleted": "Video deleted successfully.",
                 "moderationError": "Error when moderation of the video.",
                 "deleteError": "Error when deleting the video."
@@ -654,7 +661,12 @@
         "footballAmericain": "Football",
         "hockeySurGlace": "Ice hockey",
         "baseball": "Baseball",
-        "mma": "Mma",
+        "mma": "MMA",
+        "equitation": "Equestrian",
+        "hobbyHorse": "Hobby Horse",
+        "coursesCanines": "Dog Racing",
+        "coursesDeLapins": "Rabbit Racing",
+        "fauconnerie": "Falconry",
         "autre": "Other",
         "unknown": "Unknown sport"
     },

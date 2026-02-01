@@ -677,6 +677,11 @@
         "hockeySurGlace": "Hockey sobre hielo",
         "baseball": "Béisbol",
         "mma": "MMA",
+        "equitation": "Equitación",
+        "hobbyHorse": "Hobby Horse",
+        "coursesCanines": "Carreras de perros",
+        "coursesDeLapins": "Carreras de conejos",
+        "fauconnerie": "Cetrería",
         "autre": "Otro",
         "unknown": "Deporte desconocido"
     },

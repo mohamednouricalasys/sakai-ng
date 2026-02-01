@@ -16,6 +16,14 @@ export class LanguageSwitcherComponent {
         { label: 'English', value: 'en' },
         { label: 'Français', value: 'fr' },
         { label: 'Español', value: 'es' },
+        { label: 'العربية', value: 'ar' },
+        { label: 'Deutsch', value: 'de' },
+        { label: 'Suomi', value: 'fi' },
+        { label: 'Italiano', value: 'it' },
+        { label: 'Nederlands', value: 'nl' },
+        { label: 'Português', value: 'pt' },
+        { label: 'Türkçe', value: 'tr' },
+        { label: '中文', value: 'zh' },
     ];
 
     selectedLanguage = this.translationService.getCurrentLanguage();

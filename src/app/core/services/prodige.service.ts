@@ -242,6 +242,16 @@ export class ProdigeService {
                 return this.translationService.translate('sports.baseball');
             case Sport.MMA:
                 return this.translationService.translate('sports.mma');
+            case Sport.Equitation:
+                return this.translationService.translate('sports.equitation');
+            case Sport.HobbyHorse:
+                return this.translationService.translate('sports.hobbyHorse');
+            case Sport.CoursesCanines:
+                return this.translationService.translate('sports.coursesCanines');
+            case Sport.CoursesDeLapins:
+                return this.translationService.translate('sports.coursesDeLapins');
+            case Sport.Fauconnerie:
+                return this.translationService.translate('sports.fauconnerie');
             case Sport.Autre:
                 return this.translationService.translate('sports.autre');
             default:

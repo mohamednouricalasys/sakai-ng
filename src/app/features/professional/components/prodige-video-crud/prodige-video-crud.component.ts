@@ -367,6 +367,11 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     }
 
     saveVideo() {
+        // Prevent double submission
+        if (this.saving()) {
+            return;
+        }
+
         this.submitted = true;
         const prodige = this.selectedProdige();
 
@@ -402,13 +407,14 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
             return;
         }
 
+        // Set saving immediately to prevent double-clicks
+        this.saving.set(true);
+
         // Set fileItemId from uploaded files if available
         if (this.uploadedFile) {
             this.video.fileItemId = this.uploadedFile.id;
             this.video.uniqueFilename = this.uploadedFile.uniqueFilename;
         }
-
-        this.saving.set(true);
 
         if (this.video.id) {
             // Update existing video

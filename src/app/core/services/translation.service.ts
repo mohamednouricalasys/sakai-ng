@@ -47,6 +47,14 @@ export class TranslationService {
             en: ['en', 'en-US', 'en-GB', 'en-US', 'en-UK', 'en_AU', 'en_CA'],
             fr: ['fr', 'fr-FR', 'fr-CA', 'fr-BE', 'fr-CH', 'fr_LU'],
             es: ['es', 'es-ES', 'es-MX', 'es-AR', 'es-CO', 'es-PE', 'es-VE', 'es-CL', 'es-UY', 'es-PY', 'es-BO', 'es-EC', 'es-CR', 'es-PA', 'es-DO', 'es-GT', 'es-HN', 'es-NI', 'es-SV'],
+            ar: ['ar', 'ar-SA', 'ar-EG', 'ar-DZ', 'ar-MA', 'ar-TN', 'ar-LB', 'ar-JO', 'ar-SY', 'ar-IQ', 'ar-KW', 'ar-AE', 'ar-BH', 'ar-QA', 'ar-OM', 'ar-YE'],
+            de: ['de', 'de-DE', 'de-AT', 'de-CH', 'de-LI', 'de-LU'],
+            fi: ['fi', 'fi-FI'],
+            it: ['it', 'it-IT', 'it-CH'],
+            nl: ['nl', 'nl-NL', 'nl-BE'],
+            pt: ['pt', 'pt-PT', 'pt-BR'],
+            tr: ['tr', 'tr-TR'],
+            zh: ['zh', 'zh-CN', 'zh-TW', 'zh-HK', 'zh-SG'],
         };
 
         // Check each browser language against supported languages
@@ -67,12 +75,32 @@ export class TranslationService {
     private async loadTranslations() {
         try {
             // Import translations synchronously to ensure they're available
-            const [en, es, fr] = await Promise.all([import('../../../locale/messages.en.json'), import('../../../locale/messages.es.json'), import('../../../locale/messages.fr.json')]);
+            const [en, es, fr, ar, de, fi, it, nl, pt, tr, zh] = await Promise.all([
+                import('../../../locale/messages.en.json'),
+                import('../../../locale/messages.es.json'),
+                import('../../../locale/messages.fr.json'),
+                import('../../../locale/messages.ar.json'),
+                import('../../../locale/messages.de.json'),
+                import('../../../locale/messages.fi.json'),
+                import('../../../locale/messages.it.json'),
+                import('../../../locale/messages.nl.json'),
+                import('../../../locale/messages.pt.json'),
+                import('../../../locale/messages.tr.json'),
+                import('../../../locale/messages.zh.json'),
+            ]);
 
             this.translations = {
                 en: en.default,
                 es: es.default,
                 fr: fr.default,
+                ar: ar.default,
+                de: de.default,
+                fi: fi.default,
+                it: it.default,
+                nl: nl.default,
+                pt: pt.default,
+                tr: tr.default,
+                zh: zh.default,
             };
         } catch (error) {
             console.error('Error loading translations:', error);
@@ -193,6 +221,14 @@ export class TranslationService {
             en: 'English',
             fr: 'Français',
             es: 'Español',
+            ar: 'العربية',
+            de: 'Deutsch',
+            fi: 'Suomi',
+            it: 'Italiano',
+            nl: 'Nederlands',
+            pt: 'Português',
+            tr: 'Türkçe',
+            zh: '中文',
         };
         return displayNames[lang] || lang;
     }

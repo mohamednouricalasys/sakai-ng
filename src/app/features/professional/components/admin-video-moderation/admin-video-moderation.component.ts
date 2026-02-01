@@ -172,14 +172,9 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
                     };
 
                     const player = videojs(el.nativeElement, options, () => {
-                        // Player is ready
-                        console.log(`Video player initialized for ${videoId}`);
-
-                        // Add custom styling for better appearance
                         player.addClass('vjs-custom-skin');
                     });
 
-                    // Add comprehensive error handling
                     player.on('error', (error: any) => {
                         console.error(`Video player error for ${videoId}:`, error);
                         this.messageService.add({
@@ -187,41 +182,6 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
                             summary: this.t('shared.common.error'),
                             detail: this.t('admin.video.messages.videoPlayerError', { videoId }),
                         });
-                    });
-
-                    // Handle loadstart event
-                    player.on('loadstart', () => {
-                        console.log(`Video loading started for ${videoId}`);
-                    });
-
-                    // Handle loadeddata event
-                    player.on('loadeddata', () => {
-                        console.log(`Video data loaded for ${videoId}`);
-                    });
-
-                    // Handle play event
-                    player.on('play', () => {
-                        console.log(`Video started playing for ${videoId}`);
-                    });
-
-                    // Handle pause event
-                    player.on('pause', () => {
-                        console.log(`Video paused for ${videoId}`);
-                    });
-
-                    // Handle ended event
-                    player.on('ended', () => {
-                        console.log(`Video ended for ${videoId}`);
-                    });
-
-                    // Handle waiting event (buffering)
-                    player.on('waiting', () => {
-                        console.log(`Video buffering for ${videoId}`);
-                    });
-
-                    // Handle timeupdate for progress tracking
-                    player.on('timeupdate', () => {
-                        // Could add progress tracking if needed
                     });
 
                     this.videoPlayers.set(videoId, player);
@@ -313,6 +273,13 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
     }
 
     onSortChange() {
+        this.currentPage.set(1);
+        this.loadVideos();
+    }
+
+    clearFilters() {
+        this.searchTerm = '';
+        this.selectedStatus = null;
         this.currentPage.set(1);
         this.loadVideos();
     }
@@ -410,7 +377,7 @@ export class AdminVideoModerationComponent implements OnInit, OnDestroy, AfterVi
                 this.messageService.add({
                     severity: 'success',
                     summary: this.t('shared.common.success'),
-                    detail: this.moderationAction === 'approve' ? this.t('admin.video.messages.approved') : this.t('admin.video.messages.rejected'),
+                    detail: this.moderationAction === 'approve' ? this.t('admin.video.messages.approved') : this.moderationAction === 'desapprove' ? this.t('admin.video.messages.desapproved') : this.t('admin.video.messages.rejected'),
                 });
 
                 this.hideModerationDialog();

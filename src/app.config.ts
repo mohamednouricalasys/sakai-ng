@@ -6,7 +6,7 @@ import Aura from '@primeng/themes/aura';
 import { providePrimeNG } from 'primeng/config';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { appRoutes } from './app.routes';
-import { KeycloakService } from 'keycloak-angular';
+import { KeycloakService, KeycloakEventTypeLegacy } from 'keycloak-angular';
 import { UserService } from './app/core/services/user.service';
 import { TranslationService } from './app/core/services/translation.service';
 import { environment } from './environments/environment';
@@ -23,7 +23,9 @@ function initializeKeycloak(keycloak: KeycloakService, userService: UserService)
                 },
                 initOptions: {
                     onLoad: 'check-sso',
-                    checkLoginIframe: false,
+                    silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html',
+                    checkLoginIframe: true,
+                    checkLoginIframeInterval: 30, // Check session every 30 seconds
                 },
                 // This determines when to add the token to requests
                 shouldAddToken: (request) => {
@@ -42,19 +44,28 @@ function initializeKeycloak(keycloak: KeycloakService, userService: UserService)
             if (authenticated) {
                 await userService.loadUserProfile();
 
-                // Set up automatic token refresh
+                // Set up automatic token refresh every 30 seconds
                 setInterval(async () => {
                     try {
-                        const refreshed = await keycloak.updateToken(70);
-                        if (refreshed) {
-                        }
+                        await keycloak.updateToken(60);
                     } catch (error) {
-                        // Token refresh failed, redirect to login
+                        // Token refresh failed - session expired, redirect to login
                         keycloak.login();
                     }
-                }, 60000); // Check every 60 seconds
+                }, 30000);
             }
-        } catch (error) {}
+
+            // Listen for Keycloak events
+            keycloak.keycloakEvents$.subscribe({
+                next: (event) => {
+                    if (event.type === KeycloakEventTypeLegacy.OnAuthLogout || event.type === KeycloakEventTypeLegacy.OnTokenExpired) {
+                        keycloak.login();
+                    }
+                },
+            });
+        } catch (error) {
+            console.error('Keycloak initialization failed', error);
+        }
     };
 }
 

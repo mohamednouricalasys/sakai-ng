@@ -246,6 +246,8 @@
     [style]="{ width: '90vw', 'max-width': '560px' }"
     [header]="prodige.id ? ('procrud.labels.editProdige' | translate) : ('procrud.labels.newProdige' | translate)"
     [modal]="true"
+    [closable]="!saving()"
+    [closeOnEscape]="!saving()"
     styleClass="app-dialog-modern"
 >
     <ng-template #content>
@@ -497,12 +499,12 @@
 
     <ng-template #footer>
         <div class="app-dialog-actions">
-            <button class="app-dialog-btn secondary" (click)="hideDialog()">
+            <button class="app-dialog-btn secondary" (click)="hideDialog()" [disabled]="saving()">
                 <i class="pi pi-times"></i>
                 {{ 'shared.actions.cancel' | translate }}
             </button>
-            <button class="app-dialog-btn primary" (click)="saveProdige()" [disabled]="isFormInvalid">
-                <i class="pi pi-check"></i>
+            <button class="app-dialog-btn primary" (click)="saveProdige()" [disabled]="saving() || isFormInvalid">
+                <i class="pi" [class.pi-spinner]="saving()" [class.pi-spin]="saving()" [class.pi-check]="!saving()"></i>
                 {{ 'shared.actions.save' | translate }}
             </button>
         </div>

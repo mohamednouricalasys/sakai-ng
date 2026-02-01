@@ -268,7 +268,15 @@ export class ProdigeCrudComponent implements OnInit {
     }
 
     saveProdige() {
+        // Prevent double submission
+        if (this.saving()) {
+            return;
+        }
+
         this.submitted = true;
+
+        // Set saving immediately to prevent double-clicks
+        this.store.setSaving(true);
 
         const callbacks = this.getApiCallbacks();
 

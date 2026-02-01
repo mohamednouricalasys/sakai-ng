@@ -8,5 +8,10 @@ export enum Sport {
     HockeySurGlace = 7,
     Baseball = 8,
     MMA = 9,
-    Autre = 10,
+    Equitation = 11,
+    HobbyHorse = 12,
+    CoursesCanines = 13,
+    CoursesDeLapins = 14,
+    Fauconnerie = 15,
+    Autre = 99,
 }

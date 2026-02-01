@@ -1,4 +1,4 @@
-import { HttpInterceptorFn } from '@angular/common/http';
+import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { from, switchMap, catchError, throwError } from 'rxjs';
@@ -19,13 +19,9 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
         return next(req);
     }
 
-    // Refresh token if it's about to expire (within 70 seconds)
-    return from(keycloakService.updateToken(70)).pipe(
-        switchMap((refreshed) => {
-            if (refreshed) {
-                console.log('Token was refreshed');
-            }
-
+    // Refresh token if it's about to expire (within 60 seconds)
+    return from(keycloakService.updateToken(60)).pipe(
+        switchMap(() => {
             // Get the current token
             return from(keycloakService.getToken()).pipe(
                 switchMap((token) => {
@@ -36,7 +32,15 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
                         },
                     });
 
-                    return next(clonedRequest);
+                    return next(clonedRequest).pipe(
+                        catchError((error: HttpErrorResponse) => {
+                            // Handle 401 Unauthorized - session expired on backend
+                            if (error.status === 401) {
+                                keycloakService.login();
+                            }
+                            return throwError(() => error);
+                        }),
+                    );
                 }),
             );
         }),

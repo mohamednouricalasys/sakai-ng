@@ -999,15 +999,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 50vh;
     padding: 4rem 2rem;
     text-align: center;
-    animation: app-fadeInUp 0.5s ease-out;
+    animation: app-fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    background: radial-gradient(ellipse at center, var(--app-bg-secondary) 0%, transparent 70%);
+    border-radius: var(--app-radius-xl);
 }
 .app-empty-illustration {
     position: relative;
-    width: 140px;
-    height: 140px;
-    margin-bottom: 2rem;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 2.5rem;
 }
 .app-empty-circle {
     width: 100%;
@@ -1019,56 +1022,64 @@
     justify-content: center;
     border: 2px dashed var(--app-border);
     animation: app-float 3s ease-in-out infinite;
+    box-shadow: 0 8px 32px rgba(var(--app-primary-rgb), 0.08);
     i {
-        font-size: 3.5rem;
-        color: var(--app-text-muted);
+        font-size: 4rem;
+        background: linear-gradient(135deg, var(--app-text-muted), var(--app-primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0.7;
     }
 }
 .app-empty-decorations {
     position: absolute;
-    inset: 0;
+    inset: -10px;
     pointer-events: none;
 }
 .app-empty-decoration,
 .app-decoration {
     position: absolute;
     border-radius: var(--app-radius-full);
+    opacity: 0.6;
     &.d1 {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
         background: var(--app-primary-light);
-        top: 10%;
-        right: 5%;
+        top: 8%;
+        right: 2%;
         animation: app-bounce 2s ease-in-out infinite;
     }
     &.d2 {
-        width: 12px;
-        height: 12px;
+        width: 14px;
+        height: 14px;
         background: var(--app-success-light);
-        bottom: 15%;
-        left: 0;
+        bottom: 12%;
+        left: -2%;
         animation: app-bounce 2.5s ease-in-out infinite 0.3s;
     }
     &.d3 {
-        width: 10px;
-        height: 10px;
+        width: 11px;
+        height: 11px;
         background: var(--app-warning-light);
-        top: 40%;
-        left: -5%;
+        top: 42%;
+        left: -8%;
         animation: app-bounce 2s ease-in-out infinite 0.6s;
     }
 }
 .app-empty-title {
-    margin: 0 0 0.5rem;
-    font-size: 1.5rem;
+    margin: 0 0 0.75rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--app-text-primary);
+    letter-spacing: -0.01em;
 }
 .app-empty-description {
-    margin: 0 0 2rem;
-    font-size: 1rem;
+    margin: 0 0 2.25rem;
+    font-size: 1.05rem;
     color: var(--app-text-secondary);
-    max-width: 400px;
+    max-width: 420px;
+    line-height: 1.6;
 }
 .app-empty-action,
 .app-empty-action-btn {
@@ -1608,6 +1619,13 @@
         border: none;
         padding: 0;
     }
+    .p-dataview-emptymessage {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100%;
+        min-height: 50vh;
+    }
     .p-paginator {
         background: var(--app-bg-card);
         border: 1px solid var(--app-border-light);
@@ -1883,15 +1901,23 @@
             box-shadow: 0 4px 12px rgba(var(--app-primary-rgb), 0.35);
         }
     }
+    .app-empty-state {
+        min-height: 40vh;
+        padding: 3rem 1.5rem;
+    }
     .app-empty-illustration {
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
+        margin-bottom: 1.75rem;
     }
     .app-empty-circle i {
-        font-size: 2.5rem;
+        font-size: 2.75rem;
     }
     .app-empty-title {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
+    }
+    .app-empty-description {
+        font-size: 0.95rem;
     }
 }
 
