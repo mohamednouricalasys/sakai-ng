@@ -1,1491 +1,1509 @@
 {
-  "nav": {
-    "profesional": "体育职业",
-    "gallery": "画廊",
-    "myProdigies": "我的神童",
-    "myVideos": "我的视频",
-    "moderation": "适度",
-    "subscription": "订阅"
-  },
-  "shared": {
-    "actions": {
-      "new": "新的",
-      "delete": "删除",
-      "export": "出口",
-      "edit": "修改",
-      "save": "为了保障",
-      "cancel": "取消",
-      "search": "为了研究...",
-      "add": "添加",
-      "confirm": "确认",
-      "approve": "批准",
-      "desapprove": "不赞成",
-      "reject": "解雇",
-      "close": "关闭"
+    "nav": {
+        "profesional": "体育职业",
+        "gallery": "画廊",
+        "myProdigies": "我的神童",
+        "myVideos": "我的视频",
+        "moderation": "适度",
+        "subscription": "订阅"
     },
-    "common": {
-      "title": "标题",
-      "url": "网址",
-      "or": "或者",
-      "select": "选择",
-      "name": "姓名",
-      "age": "年龄",
-      "description": "描述",
-      "actions": "行动",
-      "creationDate": "创建日期",
-      "tags": "标签",
-      "required": "*",
-      "years": "年",
-      "success": "成功",
-      "error": "错误",
-      "warning": "警告",
-      "confirmation": "确认",
-      "male": "男人",
-      "female": "女性",
-      "processing": "治疗进行中...",
-      "loading": "加载中...",
-      "saving": "保存..."
+    "shared": {
+        "actions": {
+            "new": "新的",
+            "delete": "删除",
+            "export": "出口",
+            "edit": "修改",
+            "save": "为了保障",
+            "cancel": "取消",
+            "search": "为了研究...",
+            "add": "添加",
+            "confirm": "确认",
+            "approve": "批准",
+            "desapprove": "不赞成",
+            "reject": "解雇",
+            "close": "关闭"
+        },
+        "common": {
+            "title": "标题",
+            "url": "网址",
+            "or": "或者",
+            "select": "选择",
+            "name": "姓名",
+            "age": "年龄",
+            "description": "描述",
+            "actions": "行动",
+            "creationDate": "创建日期",
+            "tags": "标签",
+            "required": "*",
+            "years": "年",
+            "success": "成功",
+            "error": "错误",
+            "warning": "警告",
+            "confirmation": "确认",
+            "male": "男人",
+            "female": "女性",
+            "processing": "治疗进行中...",
+            "loading": "加载中...",
+            "saving": "保存..."
+        },
+        "validation": {
+            "required": "强制性的",
+            "nameRequired": "该名称是强制性的。",
+            "ageRequired": "年龄是强制性的。",
+            "titleRequired": "标题为必填项。",
+            "genderRequired": "性别为必填项。",
+            "countryRequired": "国家/地区为必填项。"
+        },
+        "messages": {
+            "confirmDelete": "您确定要删除 {item} 吗？",
+            "confirmDeleteMultiple": "您确定要删除所选元素吗？",
+            "itemDeleted": "{项目}已删除",
+            "itemsDeleted": "元素已删除",
+            "itemCreated": "{项目}已创建",
+            "itemUpdated": "{项目}更新",
+            "validationError": "验证错误",
+            "limitReached": "达到限制",
+            "dataLoadError": "加载数据时出错",
+            "saveError": "保存时出错",
+            "deleteError": "删除时出错"
+        }
     },
-    "validation": {
-      "required": "强制性的",
-      "nameRequired": "该名称是强制性的。",
-      "ageRequired": "年龄是强制性的。",
-      "titleRequired": "标题为必填项。",
-      "genderRequired": "性别为必填项。",
-      "countryRequired": "国家/地区为必填项。"
+    "landing": {
+        "home": "家",
+        "features": "特征",
+        "pricing": "定价",
+        "hero": {
+            "title": "抢先发现最优秀的人才。",
+            "subtitle": "CAVIAR SCOUT 帮助球探、经纪人和俱乐部通过结构化视频和可靠数据来识别、分析和比较年轻人才。",
+            "tagline": "更少分析。更好决策。更快招募。",
+            "button": "浏览人才",
+            "freeBadge": "免费访问",
+            "freeForProfessionals": "面向球探、经纪人和俱乐部",
+            "freeHighlight": "免费浏览所有个人资料和视频",
+            "payOnlyContact": "仅在联系球员时付费"
+        },
+        "valueProposition": {
+            "title": "为什么专业人士选择我们",
+            "free": {
+                "title": "对专业人士完全免费",
+                "description": "没有隐藏费用，没有订阅费用。",
+                "badge": "自由的"
+            },
+            "access": {
+                "title": "独家访问",
+                "description": "直接与才华横溢的运动员及其代表联系。"
+            },
+            "verified": {
+                "title": "经过验证的人才库",
+                "description": "所有个人资料在批准前均经过专家审查。"
+            }
+        }
     },
-    "messages": {
-      "confirmDelete": "您确定要删除 {item} 吗？",
-      "confirmDeleteMultiple": "您确定要删除所选元素吗？",
-      "itemDeleted": "{项目}已删除",
-      "itemsDeleted": "元素已删除",
-      "itemCreated": "{项目}已创建",
-      "itemUpdated": "{项目}更新",
-      "validationError": "验证错误",
-      "limitReached": "达到限制",
-      "dataLoadError": "加载数据时出错",
-      "saveError": "保存时出错",
-      "deleteError": "删除时出错"
-    }
-  },
-  "landing": {
-    "home": "家",
-    "features": "特征",
-    "pricing": "定价",
-    "hero": {
-      "title": "今天发掘明天的体育明星",
-      "subtitle": "通过视频分析和先进的招聘工具发现和评估未来运动天才的专业平台。",
-      "button": "立即免费加入",
-      "freeBadge": "100% 免费",
-      "freeForProfessionals": "专业人士零成本完全访问",
-      "freeHighlight": "仅当您索取联系方式时才付款"
+    "auth": {
+        "login": "登录",
+        "register": "登记"
     },
-    "valueProposition": {
-      "title": "为什么专业人士选择我们",
-      "free": {
-        "title": "对专业人士完全免费",
-        "description": "没有隐藏费用，没有订阅费用。",
-        "badge": "自由的"
-      },
-      "access": {
-        "title": "独家访问",
-        "description": "直接与才华横溢的运动员及其代表联系。"
-      },
-      "verified": {
-        "title": "经过验证的人才库",
-        "description": "所有个人资料在批准前均经过专家审查。"
-      }
-    }
-  },
-  "auth": {
-    "login": "登录",
-    "register": "登记"
-  },
-  "subscription": {
-    "loading": "正在加载订阅详细信息...",
-    "activeSubscription": {
-      "title": "活跃订阅",
-      "credits": "积分 {count} / {max}",
-      "creditsLabel": "制作人员",
-      "status": {
-        "active": "积极的"
-      },
-      "buttons": {
-        "manage": "管理订阅",
-        "cancel": "取消计划"
-      }
+    "subscription": {
+        "loading": "正在加载订阅详细信息...",
+        "activeSubscription": {
+            "title": "活跃订阅",
+            "credits": "积分 {count} / {max}",
+            "creditsLabel": "制作人员",
+            "status": {
+                "active": "积极的"
+            },
+            "buttons": {
+                "manage": "管理订阅",
+                "cancel": "取消计划"
+            }
+        },
+        "pricing": {
+            "title": "选择您的计划",
+            "subtitle": "解锁高级功能",
+            "description": "选择适合您需求的完美计划",
+            "loading": "正在加载定价选项..."
+        },
+        "plans": {
+            "basic": "基本计划",
+            "premium": "高级计划",
+            "pro": "专业计划",
+            "enterprise": "企业计划",
+            "default": "订阅计划"
+        },
+        "messages": {
+            "loadError": "加载订阅信息失败",
+            "pricingError": "无法加载定价选项",
+            "portalError": "无法打开客户门户",
+            "cancelSuccess": "您的订阅已成功取消",
+            "cancelError": "取消订阅失败",
+            "cancelErrorGeneric": "取消订阅时发生错误"
+        },
+        "confirmations": {
+            "cancel": "您确定要取消订阅吗？"
+        },
+        "maintenance": {
+            "title": "订阅服务维护",
+            "subtitle": "维护中",
+            "description": "我们的订阅服务目前正在维护中。 ",
+            "backButton": "后退",
+            "contactButton": "联系支持人员"
+        }
     },
     "pricing": {
-      "title": "选择您的计划",
-      "subtitle": "解锁高级功能",
-      "description": "选择适合您需求的完美计划",
-      "loading": "正在加载定价选项..."
+        "title": "选择您的计划",
+        "subtitle": "1个联系人 = 1个积分。简单透明。",
+        "happy_hour": "欢乐时光：在应用启动阶段，所有功能目前免费，包括联系人！",
+        "section_subscriptions": "月度订阅",
+        "section_packs": "积分套餐",
+        "starter": {
+            "title": "起动机",
+            "price": "€25.00",
+            "period": "每月",
+            "button": "选择",
+            "credits": "{credits} contacts",
+            "feature1": "数据库访问",
+            "feature2": "简单的过滤搜索",
+            "feature3": "优先支持"
+        },
+        "pro": {
+            "title": "专业版",
+            "price": "€100.00",
+            "period": "每月",
+            "button": "已选择",
+            "credits": "{credits} contacts",
+            "feature1": "数据库访问",
+            "feature2": "高级搜索过滤器",
+            "feature3": "优先支持"
+        },
+        "elite": {
+            "title": "精英",
+            "price": "€150.00",
+            "period": "每月",
+            "button": "选择",
+            "credits": "{credits} contacts",
+            "feature1": "数据库访问",
+            "feature2": "高级搜索过滤器",
+            "feature3": "24/7 优先支持"
+        },
+        "pack5": {
+            "title": "Pack 5",
+            "price": "€39.00",
+            "period": "一次性",
+            "credits": "{credits} contacts",
+            "button": "购买"
+        },
+        "pack10": {
+            "title": "Pack 10",
+            "price": "€69.00",
+            "period": "一次性",
+            "credits": "{credits} contacts",
+            "button": "购买"
+        },
+        "credit_model": {
+            "title": "如何运作？",
+            "click_equals_credit": "1次点击 = 1个积分 = 1个联系人",
+            "description": "每次您点击查看球员的联系方式时，将从您的账户中扣除1个积分。"
+        }
     },
-    "plans": {
-      "basic": "基本计划",
-      "premium": "高级计划",
-      "pro": "专业计划",
-      "enterprise": "企业计划",
-      "default": "订阅计划"
+    "footer": {
+        "company": {
+            "description": "您的[服务/产品]创新解决方案",
+            "rights": "版权所有"
+        },
+        "links": {
+            "company": "公司",
+            "about": "关于",
+            "careers": "职业机会",
+            "press": "按",
+            "legal": "合法的",
+            "privacy": "隐私政策",
+            "terms": "服务条款",
+            "cookies": "Cookie 政策",
+            "support": "支持",
+            "contact": "接触",
+            "faq": "常问问题",
+            "documentation": "文档"
+        },
+        "newsletter": {
+            "title": "保持更新",
+            "description": "获取最新消息和特别优惠",
+            "placeholder": "您的电子邮件地址",
+            "subscribe": "订阅",
+            "success": "谢谢你！",
+            "error": "发生错误。"
+        },
+        "social": {
+            "follow": "跟着我们",
+            "facebook": "Facebook",
+            "twitter": "叽叽喳喳",
+            "linkedin": "领英",
+            "instagram": "Instagram",
+            "youtube": "YouTube"
+        },
+        "contact": {
+            "title": "联系我们",
+            "address": "地址",
+            "phone": "电话",
+            "email": "电子邮件"
+        },
+        "backToTop": "返回顶部"
     },
-    "messages": {
-      "loadError": "加载订阅信息失败",
-      "pricingError": "无法加载定价选项",
-      "portalError": "无法打开客户门户",
-      "cancelSuccess": "您的订阅已成功取消",
-      "cancelError": "取消订阅失败",
-      "cancelErrorGeneric": "取消订阅时发生错误"
+    "videos": {
+        "contact": {
+            "button": "联系经理",
+            "dialog": {
+                "header": "联系信息",
+                "unknownContact": "未知联系人",
+                "email": "电子邮件",
+                "phone": "电话",
+                "message": "信息",
+                "copyEmailTitle": "点击复制电子邮件",
+                "copyPhoneTitle": "点击复制手机",
+                "close": "关闭"
+            }
+        },
+        "gallery": {
+            "title": "视频库",
+            "subtitle": "发现来自世界各地的才华横溢的运动员"
+        },
+        "empty": {
+            "title": "没有找到视频",
+            "description": "尝试调整您的过滤器或搜索词以找到您要查找的内容。"
+        },
+        "loading": {
+            "more": "正在加载更多视频..."
+        },
+        "search": {
+            "placeholder": "搜索视频..."
+        },
+        "filter": {
+            "sport": "按运动过滤",
+            "tag": "按标签过滤",
+            "country": "按国家过滤",
+            "allCountries": "所有国家",
+            "clear": "清除过滤器",
+            "allSports": "所有运动",
+            "allTags": "所有标签",
+            "allGenders": "所有性别",
+            "homme": "男性",
+            "femme": "女性",
+            "all": "全部",
+            "newVideoNewContact": "来自新联系人的视频",
+            "newVideoOldContact": "来自现有联系人的视频",
+            "alreadyReadVideo": "已浏览",
+            "myVideos": "我的视频",
+            "contactStatus": "联系状态",
+            "selectContactStatus": "选择联系状态",
+            "clearContactStatus": "清除状态",
+            "active": "有源滤波器"
+        },
+        "messages": {
+            "loadError": "无法加载视频。"
+        },
+        "insufficientCredits": {
+            "dialog": {
+                "header": "学分不足",
+                "title": "您没有足够的积分",
+                "message": "要联系运动员，您需要积分。",
+                "currentCredits": "当前学分：{count}",
+                "subscribeButton": "获得更多学分",
+                "closeButton": "关闭"
+            }
+        }
     },
-    "confirmations": {
-      "cancel": "您确定要取消订阅吗？"
+    "admin": {
+        "video": {
+            "moderation": {
+                "title": "视频审核",
+                "enAttente": "等候接听",
+                "approuvee": "得到正式认可的",
+                "rejete": "被拒绝",
+                "unknown": "未知",
+                "rejectedVideo": "被拒绝的视频",
+                "approvedVideo": "批准的视频",
+                "warning": "⚠️警告",
+                "autoDeleteWarning": "除非更新，否则被拒绝的视频将在 15 天后自动删除。"
+            },
+            "title": "视频管理",
+            "totalVideos": "{{count}} 视频总数",
+            "prodige": "神童",
+            "dateCreation": "创建日期",
+            "dateModeration": "审核日期",
+            "moderatedBy": "主持者",
+            "moderationComment": {
+                "approve": {
+                    "placeholder": "供批准的可选评论..."
+                },
+                "reject": {
+                    "placeholder": "解释拒绝的原因（必填）..."
+                }
+            },
+            "status": "地位",
+            "search": {
+                "placeholder": "按标题搜索，神童..."
+            },
+            "filter": {
+                "status": "按状态统计",
+                "all": "所有法规"
+            },
+            "sort": {
+                "placeholder": "排序方式...",
+                "dateCreation": {
+                    "desc": "最近的先",
+                    "asc": "年龄较大的优先"
+                },
+                "title": {
+                    "asc": "标题 A-Z",
+                    "desc": "Z-A-A 标题"
+                },
+                "status": {
+                    "asc": "A-Z 状态",
+                    "desc": "Z-A状态"
+                }
+            },
+            "actions": {
+                "view": "看",
+                "approve": "批准",
+                "desapprove": "不赞成",
+                "reject": "解雇"
+            },
+            "empty": {
+                "title": "没有找到视频",
+                "description": "目前没有符合您的研究标准的视频。"
+            },
+            "detail": {
+                "title": "视频详情",
+                "information": "信息",
+                "moderation": "适度"
+            },
+            "confirm": {
+                "approve": "您确定要批准该视频吗？”{{title}}”",
+                "reject": "您确定要拒绝该视频吗？”{{title}}”",
+                "delete": "您确定要永久删除该视频吗？”{{title}}”？这个动作是不可逆转的。"
+            },
+            "validation": {
+                "commentRequired": "解释拒绝原因的评论是强制性的。"
+            },
+            "messages": {
+                "loadError": "加载视频时出错。",
+                "approved": "视频已成功通过。",
+                "rejected": "视频成功。",
+                "deleted": "视频删除成功。",
+                "moderationError": "审核视频时出错。",
+                "deleteError": "删除视频时出错。"
+            }
+        }
     },
-    "maintenance": {
-      "title": "订阅服务维护",
-      "subtitle": "维护中",
-      "description": "我们的订阅服务目前正在维护中。 ",
-      "backButton": "后退",
-      "contactButton": "联系支持人员"
-    }
-  },
-  "pricing": {
-    "title": "选择您的计划",
-    "subtitle": "灵活的定价可满足各种招聘需求。",
-    "starter": {
-      "title": "起动机",
-      "price": "€50.00",
-      "period": "每月",
-      "button": "选择",
-      "credits": "{学分} 学分",
-      "feature1": "数据库访问",
-      "feature2": "简单的过滤搜索",
-      "feature3": "优先支持"
+    "procrud": {
+        "title": "神童管理",
+        "labels": {
+            "newProdige": "新神童",
+            "editProdige": "编辑神童",
+            "myProdigies": "我的神童",
+            "manageProdigies": "管理你的神童",
+            "totalProdigies": "完全神童",
+            "prodigeDetails": "神童细节",
+            "sport": "运动",
+            "selectSport": "选择一项运动",
+            "addTag": "添加标签...",
+            "associatedVideos": "相关视频",
+            "videoWithoutTitle": "单位视频",
+            "videosCount": "视频数量"
+        },
+        "columns": {
+            "nom": "姓名",
+            "nomExport": "神童之名",
+            "age": "年龄",
+            "sport": "运动",
+            "videosCount": "视频数量",
+            "dateCreation": "创建日期",
+            "gender": "性别",
+            "genre": "性别",
+            "country": "国家"
+        },
+        "pagination": {
+            "itemName": "奇迹",
+            "showing": "在 {TotalRecords} Prodigies 上显示 {first} 到 {last}"
+        },
+        "validation": {
+            "sportRequired": "体育运动是必修课。",
+            "descriptionRequired": "对于“其他”运动，该描述是强制性的。",
+            "minTagsRequired": "至少需要 3 个标签。",
+            "maxTagsReached": "最多10个授权标签",
+            "descriptionRequiredForOther": "运动“其他”的强制性描述"
+        },
+        "placeholders": {
+            "name": "输入神童名字",
+            "selectCountry": "选择一个国家",
+            "describeQualities": "描述神童的品质和潜力......"
+        },
+        "tags": {
+            "minMaxInfo": "（最小值：3，最大值：10）",
+            "selectedCount": "{计数}/10 个选定标签",
+            "selected": "已选择标签",
+            "associatedVideosCount": "关联的 {Count} 个视频"
+        },
+        "messages": {
+            "prodigeCreated": "神童创造",
+            "prodigeUpdated": "更新",
+            "prodigeDeleted": "神童已删除",
+            "prodigiesDeleted": "神童已删除",
+            "confirmDeleteProdige": "您确定要删除{name}吗？",
+            "confirmDeleteProdigies": "您确定要删除选定的奇迹吗？"
+        },
+        "sort": {
+            "label": "排序方式",
+            "name": {
+                "placeholder": "按名称排序",
+                "down": "名称▼",
+                "up": "名称▲"
+            }
+        },
+        "empty": {
+            "title": "还没有神童",
+            "description": "创建你的第一个神童以开始"
+        }
     },
-    "pro": {
-      "current_plan": "当前订阅",
-      "title": "专业版",
-      "price": "€150.00",
-      "period": "每月",
-      "button": "已选择",
-      "credits": "{学分} 学分",
-      "feature1": "数据库访问",
-      "feature2": "高级搜索过滤器",
-      "feature3": "优先支持"
-    },
-    "elite": {
-      "title": "精英",
-      "price": "€250.00",
-      "period": "每月",
-      "button": "选择",
-      "credits": "{学分} 学分",
-      "feature1": "数据库访问",
-      "feature2": "高级搜索过滤器",
-      "feature3": "24/7 优先支持"
-    },
-    "point_system": {
-      "new_video_new_contact": "5分：新视频、新联系人",
-      "new_video_old_contact": "3分：新视频、旧联系人",
-      "already_viewed": "0分：已看过"
-    }
-  },
-  "footer": {
-    "company": {
-      "description": "您的[服务/产品]创新解决方案",
-      "rights": "版权所有"
-    },
-    "links": {
-      "company": "公司",
-      "about": "关于",
-      "careers": "职业机会",
-      "press": "按",
-      "legal": "合法的",
-      "privacy": "隐私政策",
-      "terms": "服务条款",
-      "cookies": "Cookie 政策",
-      "support": "支持",
-      "contact": "接触",
-      "faq": "常问问题",
-      "documentation": "文档"
-    },
-    "newsletter": {
-      "title": "保持更新",
-      "description": "获取最新消息和特别优惠",
-      "placeholder": "您的电子邮件地址",
-      "subscribe": "订阅",
-      "success": "谢谢你！",
-      "error": "发生错误。"
-    },
-    "social": {
-      "follow": "跟着我们",
-      "facebook": "Facebook",
-      "twitter": "叽叽喳喳",
-      "linkedin": "领英",
-      "instagram": "Instagram",
-      "youtube": "YouTube"
-    },
-    "contact": {
-      "title": "联系我们",
-      "address": "地址",
-      "phone": "电话",
-      "email": "电子邮件"
-    },
-    "backToTop": "返回顶部"
-  },
-  "videos": {
-    "contact": {
-      "button": "联系经理",
-      "dialog": {
-        "header": "联系信息",
-        "unknownContact": "未知联系人",
-        "email": "电子邮件",
-        "phone": "电话",
-        "message": "信息",
-        "copyEmailTitle": "点击复制电子邮件",
-        "copyPhoneTitle": "点击复制手机",
-        "close": "关闭"
-      }
-    },
-    "gallery": {
-      "title": "视频库",
-      "subtitle": "发现来自世界各地的才华横溢的运动员"
-    },
-    "empty": {
-      "title": "没有找到视频",
-      "description": "尝试调整您的过滤器或搜索词以找到您要查找的内容。"
-    },
-    "loading": {
-      "more": "正在加载更多视频..."
-    },
-    "search": {
-      "placeholder": "搜索视频..."
-    },
-    "filter": {
-      "sport": "按运动过滤",
-      "tag": "按标签过滤",
-      "country": "按国家过滤",
-      "allCountries": "所有国家",
-      "clear": "清除过滤器",
-      "allSports": "所有运动",
-      "allTags": "所有标签",
-      "allGenders": "所有性别",
-      "homme": "男性",
-      "femme": "女性",
-      "all": "全部",
-      "newVideoNewContact": "来自新联系人的视频",
-      "newVideoOldContact": "来自现有联系人的视频",
-      "alreadyReadVideo": "已浏览",
-      "myVideos": "我的视频",
-      "contactStatus": "联系状态",
-      "selectContactStatus": "选择联系状态",
-      "clearContactStatus": "清除状态",
-      "active": "有源滤波器"
-    },
-    "messages": {
-      "loadError": "无法加载视频。"
-    },
-    "insufficientCredits": {
-      "dialog": {
-        "header": "学分不足",
-        "title": "您没有足够的积分",
-        "message": "要联系运动员，您需要积分。",
-        "currentCredits": "当前学分：{count}",
-        "subscribeButton": "获得更多学分",
-        "closeButton": "关闭"
-      }
-    }
-  },
-  "admin": {
     "video": {
-      "moderation": {
-        "title": "视频审核",
-        "enAttente": "等候接听",
-        "approuvee": "得到正式认可的",
-        "rejete": "被拒绝",
-        "unknown": "未知",
-        "rejectedVideo": "被拒绝的视频",
-        "approvedVideo": "批准的视频",
-        "warning": "⚠️警告",
-        "autoDeleteWarning": "除非更新，否则被拒绝的视频将在 15 天后自动删除。"
-      },
-      "title": "视频管理",
-      "totalVideos": "{{count}} 视频总数",
-      "prodige": "神童",
-      "dateCreation": "创建日期",
-      "dateModeration": "审核日期",
-      "moderatedBy": "主持者",
-      "moderationComment": {
-        "approve": {
-          "placeholder": "供批准的可选评论..."
+        "labels": {
+            "newVideo": "新视频",
+            "editVideo": "编辑视频",
+            "myVideos": "我的视频",
+            "manageYourVideos": "管理和上传您的运动员视频",
+            "prodige": "神童",
+            "selectProdige": "选择神童",
+            "videoDetails": "视频详情",
+            "videoFile": "视频文件",
+            "manualUrl": "视频网址（手动）",
+            "optional": "选修的",
+            "optionalForEdit": "可选编辑",
+            "currentFile": "当前文件",
+            "noPreview": "无预览",
+            "noDescription": "无描述",
+            "moderationStatus": "审核状态",
+            "moderationComment": "审核评论",
+            "addFirstVideo": "添加您的第一个视频"
         },
-        "reject": {
-          "placeholder": "解释拒绝的原因（必填）..."
+        "placeholders": {
+            "title": "视频标题",
+            "description": "视频说明",
+            "videoUrl": "https://example.com/video.mp4",
+            "selectStatus": "选择状态",
+            "moderationComment": "审核评论..."
+        },
+        "sort": {
+            "title": {
+                "label": "种类",
+                "placeholder": "按标题排序",
+                "down": "标题 Z-A",
+                "up": "标题 A-Z"
+            }
+        },
+        "empty": {
+            "title": "没有视频",
+            "description": "这位神童还没有任何视频。",
+            "selectProdige": "选择一个神童来观看他们的视频"
+        },
+        "limits": {
+            "title": "视频限制信息",
+            "current": "Prodigy {prodigyName}：使用了 {current}/{max} 个视频（剩余 {remain} 个）",
+            "reached": "此神童的视频已达到最大限制。",
+            "slotsRemaining": "剩余插槽",
+            "usage": "视频使用"
+        },
+        "guidelines": {
+            "title": "重要指南 - 请仔细阅读",
+            "expertReview": "所有视频在批准前都会经过专家审查",
+            "hideIdentity": "专业身份必须被掩盖（不得显示姓名、徽标或身份信息）",
+            "athleteConsent": "必须获得运动员的同意并记录在案",
+            "prodigyOnly": "只允许展示神童技术的视频",
+            "noPersonalInfo": "不应显示任何个人或机密信息"
+        },
+        "info": {
+            "uploadedFileUsed": "将使用上传的文件代替手动 URL",
+            "newFileWillReplace": "新文件将替换现有文件"
+        },
+        "validation": {
+            "videoRequired": "请上传视频文件或提供视频网址",
+            "descriptionRequired": "描述为必填项"
+        },
+        "messages": {
+            "downloadStarted": "下载已启动",
+            "downloadStartedDetail": "正在下载” {{title}} ”开始",
+            "downloadNotAvailable": "无法下载",
+            "moderationUpdated": "审核已更新",
+            "moderationError": "更新审核时出错",
+            "noProdigeSelected": "请先选择神童",
+            "titleAndVideoRequired": "标题和视频为必填项",
+            "videoCreated": "成功视频",
+            "videoUpdated": "视频更新成功",
+            "videoDeleted": "成功视频",
+            "confirmDeleteVideo": "您确定要删除视频“{title}”吗？",
+            "limitReached": "已达到视频限制",
+            "limitReachedDetail": "您已达到天才 {prodigyName} 的 {maxVideos} 个视频上限。",
+            "selectProdigeFirst": "请先选择神童"
+        },
+        "actions": {
+            "create": {
+                "success": "成功视频",
+                "error": "视频创建失败"
+            },
+            "update": {
+                "success": "视频更新成功",
+                "error": "视频更新失败"
+            },
+            "delete": {
+                "success": "成功视频",
+                "error": "删除视频失败"
+            },
+            "moderate": {
+                "success": "成功视频",
+                "error": "视频审核失败"
+            },
+            "report": {
+                "success": "成功视频",
+                "error": "视频上报失败"
+            },
+            "upload": {
+                "success": "成功播出视频",
+                "error": "视频仪表故障"
+            }
+        },
+        "search": {
+            "noResults": "没有找到视频",
+            "placeholder": "搜索视频..."
+        },
+        "moderation": {
+            "enAttente": "等候接听",
+            "approuvee": "得到正式认可的",
+            "rejetee": "被拒绝",
+            "rejectedVideo": "被拒绝的视频",
+            "approvedVideo": "批准的视频",
+            "warning": "⚠️警告",
+            "autoDeleteWarning": "除非更新，否则被拒绝的视频将在 15 天后自动删除。"
         }
-      },
-      "status": "地位",
-      "search": {
-        "placeholder": "按标题搜索，神童..."
-      },
-      "filter": {
-        "status": "按状态统计",
-        "all": "所有法规"
-      },
-      "sort": {
-        "placeholder": "排序方式...",
-        "dateCreation": {
-          "desc": "最近的先",
-          "asc": "年龄较大的优先"
-        },
-        "title": {
-          "asc": "标题 A-Z",
-          "desc": "Z-A-A 标题"
-        },
-        "status": {
-          "asc": "A-Z 状态",
-          "desc": "Z-A状态"
-        }
-      },
-      "actions": {
-        "view": "看",
-        "approve": "批准",
-        "desapprove": "不赞成",
-        "reject": "解雇"
-      },
-      "empty": {
-        "title": "没有找到视频",
-        "description": "目前没有符合您的研究标准的视频。"
-      },
-      "detail": {
-        "title": "视频详情",
-        "information": "信息",
-        "moderation": "适度"
-      },
-      "confirm": {
-        "approve": "您确定要批准该视频吗？”{{title}}”",
-        "reject": "您确定要拒绝该视频吗？”{{title}}”",
-        "delete": "您确定要永久删除该视频吗？”{{title}}”？这个动作是不可逆转的。"
-      },
-      "validation": {
-        "commentRequired": "解释拒绝原因的评论是强制性的。"
-      },
-      "messages": {
-        "loadError": "加载视频时出错。",
-        "approved": "视频已成功通过。",
-        "rejected": "视频成功。",
-        "deleted": "视频删除成功。",
-        "moderationError": "审核视频时出错。",
-        "deleteError": "删除视频时出错。"
-      }
-    }
-  },
-  "procrud": {
-    "title": "神童管理",
-    "labels": {
-      "newProdige": "新神童",
-      "editProdige": "编辑神童",
-      "myProdigies": "我的神童",
-      "manageProdigies": "管理你的神童",
-      "totalProdigies": "完全神童",
-      "prodigeDetails": "神童细节",
-      "sport": "运动",
-      "selectSport": "选择一项运动",
-      "addTag": "添加标签...",
-      "associatedVideos": "相关视频",
-      "videoWithoutTitle": "单位视频",
-      "videosCount": "视频数量"
-    },
-    "columns": {
-      "nom": "姓名",
-      "nomExport": "神童之名",
-      "age": "年龄",
-      "sport": "运动",
-      "videosCount": "视频数量",
-      "dateCreation": "创建日期",
-      "gender": "性别",
-      "genre": "性别",
-      "country": "国家"
-    },
-    "pagination": {
-      "itemName": "奇迹",
-      "showing": "在 {TotalRecords} Prodigies 上显示 {first} 到 {last}"
-    },
-    "validation": {
-      "sportRequired": "体育运动是必修课。",
-      "descriptionRequired": "对于“其他”运动，该描述是强制性的。",
-      "minTagsRequired": "至少需要 3 个标签。",
-      "maxTagsReached": "最多10个授权标签",
-      "descriptionRequiredForOther": "运动“其他”的强制性描述"
-    },
-    "placeholders": {
-      "name": "输入神童名字",
-      "selectCountry": "选择一个国家",
-      "describeQualities": "描述神童的品质和潜力......"
     },
     "tags": {
-      "minMaxInfo": "（最小值：3，最大值：10）",
-      "selectedCount": "{计数}/10 个选定标签",
-      "selected": "已选择标签",
-      "associatedVideosCount": "关联的 {Count} 个视频"
-    },
-    "messages": {
-      "prodigeCreated": "神童创造",
-      "prodigeUpdated": "更新",
-      "prodigeDeleted": "神童已删除",
-      "prodigiesDeleted": "神童已删除",
-      "confirmDeleteProdige": "您确定要删除{name}吗？",
-      "confirmDeleteProdigies": "您确定要删除选定的奇迹吗？"
-    },
-    "sort": {
-      "label": "排序方式",
-      "name": {
-        "placeholder": "按名称排序",
-        "down": "名称▼",
-        "up": "名称▲"
-      }
-    },
-    "empty": {
-      "title": "还没有神童",
-      "description": "创建你的第一个神童以开始"
-    }
-  },
-  "video": {
-    "labels": {
-      "newVideo": "新视频",
-      "editVideo": "编辑视频",
-      "myVideos": "我的视频",
-      "manageYourVideos": "管理和上传您的运动员视频",
-      "prodige": "神童",
-      "selectProdige": "选择神童",
-      "videoDetails": "视频详情",
-      "videoFile": "视频文件",
-      "manualUrl": "视频网址（手动）",
-      "optional": "选修的",
-      "optionalForEdit": "可选编辑",
-      "currentFile": "当前文件",
-      "noPreview": "无预览",
-      "noDescription": "无描述",
-      "moderationStatus": "审核状态",
-      "moderationComment": "审核评论",
-      "addFirstVideo": "添加您的第一个视频"
-    },
-    "placeholders": {
-      "title": "视频标题",
-      "description": "视频说明",
-      "videoUrl": "https://example.com/video.mp4",
-      "selectStatus": "选择状态",
-      "moderationComment": "审核评论..."
-    },
-    "sort": {
-      "title": {
-        "label": "种类",
-        "placeholder": "按标题排序",
-        "down": "标题 Z-A",
-        "up": "标题 A-Z"
-      }
-    },
-    "empty": {
-      "title": "没有视频",
-      "description": "这位神童还没有任何视频。",
-      "selectProdige": "选择一个神童来观看他们的视频"
-    },
-    "limits": {
-      "title": "视频限制信息",
-      "current": "Prodigy {prodigyName}：使用了 {current}/{max} 个视频（剩余 {remain} 个）",
-      "reached": "此神童的视频已达到最大限制。",
-      "slotsRemaining": "剩余插槽",
-      "usage": "视频使用"
-    },
-    "guidelines": {
-      "title": "重要指南 - 请仔细阅读",
-      "expertReview": "所有视频在批准前都会经过专家审查",
-      "hideIdentity": "专业身份必须被掩盖（不得显示姓名、徽标或身份信息）",
-      "athleteConsent": "必须获得运动员的同意并记录在案",
-      "prodigyOnly": "只允许展示神童技术的视频",
-      "noPersonalInfo": "不应显示任何个人或机密信息"
-    },
-    "info": {
-      "uploadedFileUsed": "将使用上传的文件代替手动 URL",
-      "newFileWillReplace": "新文件将替换现有文件"
-    },
-    "validation": {
-      "videoRequired": "请上传视频文件或提供视频网址",
-      "descriptionRequired": "描述为必填项"
-    },
-    "messages": {
-      "downloadStarted": "下载已启动",
-      "downloadStartedDetail": "正在下载” {{title}} ”开始",
-      "downloadNotAvailable": "无法下载",
-      "moderationUpdated": "审核已更新",
-      "moderationError": "更新审核时出错",
-      "noProdigeSelected": "请先选择神童",
-      "titleAndVideoRequired": "标题和视频为必填项",
-      "videoCreated": "成功视频",
-      "videoUpdated": "视频更新成功",
-      "videoDeleted": "成功视频",
-      "confirmDeleteVideo": "您确定要删除视频“{title}”吗？",
-      "limitReached": "已达到视频限制",
-      "limitReachedDetail": "您已达到天才 {prodigyName} 的 {maxVideos} 个视频上限。",
-      "selectProdigeFirst": "请先选择神童"
-    },
-    "actions": {
-      "create": {
-        "success": "成功视频",
-        "error": "视频创建失败"
-      },
-      "update": {
-        "success": "视频更新成功",
-        "error": "视频更新失败"
-      },
-      "delete": {
-        "success": "成功视频",
-        "error": "删除视频失败"
-      },
-      "moderate": {
-        "success": "成功视频",
-        "error": "视频审核失败"
-      },
-      "report": {
-        "success": "成功视频",
-        "error": "视频上报失败"
-      },
-      "upload": {
-        "success": "成功播出视频",
-        "error": "视频仪表故障"
-      }
-    },
-    "search": {
-      "noResults": "没有找到视频",
-      "placeholder": "搜索视频..."
-    },
-    "moderation": {
-      "enAttente": "等候接听",
-      "approuvee": "得到正式认可的",
-      "rejetee": "被拒绝",
-      "rejectedVideo": "被拒绝的视频",
-      "approvedVideo": "批准的视频",
-      "warning": "⚠️警告",
-      "autoDeleteWarning": "除非更新，否则被拒绝的视频将在 15 天后自动删除。"
-    }
-  },
-  "tags": {
-    "physical": {
-      "vitesse": "速度",
-      "endurance": "耐力",
-      "puissance": "力量",
-      "reflexes": "反射",
-      "agilite": "敏捷",
-      "explosivite": "爆发力",
-      "souplesse": "灵活性",
-      "coordination": "协调",
-      "equilibre": "平衡"
-    },
-    "technical": {
-      "technique": "技术的",
-      "maitriseDuBallon": "气球掌握",
-      "precision": "精确",
-      "finition": "精加工",
-      "passeDecisive": "助手",
-      "tirCadre": "克雷德射击",
-      "dribble": "运球",
-      "jeuDeTete": "头部游戏",
-      "tacle": "处理",
-      "interception": "拦截",
-      "gesteTechnique": "技术手势",
-      "polyvalence": "多功能性"
-    },
-    "mental": {
-      "intelligenceTactique": "战术情报",
-      "lectureDuJeu": "阅读比赛",
-      "anticipation": "预期",
-      "concentration": "专注",
-      "mental": "精神的",
-      "sangFroid": "血腥",
-      "maturite": "到期",
-      "gestionDuTemps": "时间管理",
-      "resilience": "弹力",
-      "visionDeJeu": "游戏视觉",
-      "decisif": "决定性",
-      "priseDeDecision": "决策",
-      "adaptabilite": "适应性",
-      "competiteur": "竞争者",
-      "leadership": "领导",
-      "espritDEquipe": "团队精神",
-      "determination": "决心",
-      "confianceEnSoi": "自信",
-      "motivation": "动机",
-      "apprentissageRapide": "快速学习",
-      "discipline": "纪律",
-      "regularite": "规律性",
-      "enduranceMentale": "心理承受能力"
-    },
-    "behavior": {
-      "travailleur": "工人",
-      "perseverant": "坚持不懈",
-      "passionne": "敏锐的",
-      "humilite": "谦逊",
-      "exemplaire": "复制",
-      "respectueux": "恭敬的",
-      "charismatique": "魅力型",
-      "dynamique": "动态的",
-      "engage": "已订婚的",
-      "fairPlay": "公平竞争",
-      "influenceurDeVestiaire": "衣帽间影响者",
-      "attitudeProfessionnelle": "专业态度"
-    },
-    "creativity": {
-      "creativite": "创造力",
-      "styleDeJeuUnique": "独特的游戏风格",
-      "spectaculaire": "壮观",
-      "showman": "表演者",
-      "imagination": "想像力"
-    },
-    "potential": {
-      "grosPotentiel": "潜力大",
-      "enProgres": "进步",
-      "jeunePrometteur": "年轻有为",
-      "talentNaturel": "天赋"
-    },
-    "unknown": "未知标签"
-  },
-  "sports": {
-    "football": "足球",
-    "basketball": "篮球",
-    "rugby": "橄榄球",
-    "tennis": "网球",
-    "boxe": "拳击",
-    "footballAmericain": "足球",
-    "hockeySurGlace": "冰球",
-    "baseball": "棒球",
-    "mma": "MMA",
-    "equitation": "马术",
-    "hobbyHorse": "木马运动",
-    "coursesCanines": "赛狗",
-    "coursesDeLapins": "赛兔",
-    "fauconnerie": "猎鹰",
-    "autre": "其他",
-    "unknown": "未知运动"
-  },
-  "primeng": {
-    "version": "版本1.3.1",
-    "delete_all": "删除所有内容",
-    "delete_all_filter": "删除所有过滤器",
-    "results": "结果",
-    "save": "节省",
-    "cancel": "取消",
-    "search": "去研究",
-    "startdate": "开始日期",
-    "enddate": "结束日期",
-    "status": "地位",
-    "transactionnumber": "交易数量",
-    "transactiondate": "交易日期",
-    "download": "下载",
-    "amount": "数量",
-    "date": "日期",
-    "or": "或者",
-    "agency": "机构",
-    "customer": "顾客",
-    "lineselected": "选定的行",
-    "areyousure": "你确定吗？",
-    "confirmed": "确认",
-    "generationinprogress": "当前一代",
-    "purchaselines": "采购线",
-    "dashboard": "仪表板",
-    "name": "姓名",
-    "prenom": "名",
-    "email": "电子邮件",
-    "saved": "已保存",
-    "error": "错误",
-    "description": "描述",
-    "leave": "离开",
-    "not_allowed_page": "您没有访问此页面所需的权限",
-    "validate_action": "请写“验证”以验证此操作",
-    "back": "后退",
-    "valider": "验证",
-    "success": "成功",
-    "suivant": "下列的",
-    "precedent": "以前的",
-    "export": "出口",
-    "import": "进口",
-    "import_csv": "导入.csv",
-    "no": "不",
-    "yes": "是的",
-    "enabled": "使能够",
-    "disabled": "禁用",
-    "activate": "使能够",
-    "deactivate": "禁用",
-    "activated": "活性",
-    "deactivated": "残疾人",
-    "information": "信息",
-    "creation_date": "创建日期：",
-    "export_csv": "导出.csv",
-    "voir": "看",
-    "actif": "积极的",
-    "active": "积极的",
-    "inactif": "不活跃",
-    "inactive": "不活跃",
-    "selectionner": "选择",
-    "refresh": "刷新",
-    "filter_by": "过滤依据",
-    "update": "修改",
-    "delete": "删除",
-    "edit": "修改",
-    "comment": "评论 ： ",
-    "comment_without_double_point": "评论 ",
-    "double_point": "::",
-    "toast_summary_update_error": "不可能的修改",
-    "toast_summary_create_error": "不可能添加",
-    "toast_summary_delete_error": "不可能删除",
-    "toast_summary_delete_error2": "删除错误总结",
-    "toast_label_warning": "注意力",
-    "ok": "好的",
-    "select_date": "选择日期",
-    "select_hour": "选择一个小时",
-    "require": "该字段为必填字段 ",
-    "tiret": "-",
-    "startsWith": "开始于",
-    "contains": "包含",
-    "notContains": "不包含",
-    "endsWith": "结束于",
-    "equals": "等于",
-    "notEquals": "不同于",
-    "noFilter": "无过滤器",
-    "filter": "筛选",
-    "lt": "少于",
-    "lte": "小于或等于",
-    "gt": "优于",
-    "gte": "大于或等于",
-    "dateIs": "日期等于",
-    "dateIsNot": "不同日期",
-    "dateBefore": "之前的日期",
-    "dateAfter": "日期晚于",
-    "clear": "擦除",
-    "apply": "申请",
-    "matchAll": "一切都对应",
-    "matchAny": "任何",
-    "addRule": "添加规则",
-    "removeRule": "删除规则",
-    "accept": "是的",
-    "reject": "不",
-    "choose": "选择",
-    "upload": "下载",
-    "dayNames": [
-      "星期日",
-      "周一",
-      "周二",
-      "周三",
-      "周四",
-      "星期五",
-      "周六"
-    ],
-    "dayNamesShort": [
-      "太阳",
-      "周一",
-      "三月",
-      "海",
-      "游戏",
-      "星期五",
-      "坐"
-    ],
-    "dayNamesMin": [
-      "D",
-      "L",
-      "中号",
-      "中号",
-      "J",
-      "V",
-      "S"
-    ],
-    "monthNames": [
-      "一月",
-      "二月",
-      "行进",
-      "四月",
-      "可能",
-      "六月",
-      "七月",
-      "八月",
-      "九月",
-      "十月",
-      "十一月",
-      "十二月"
-    ],
-    "monthNamesShort": [
-      "扬",
-      "二月",
-      "行进",
-      "四月",
-      "可能",
-      "六月",
-      "七月",
-      "八月",
-      "七",
-      "十月",
-      "十一月",
-      "十二月"
-    ],
-    "today": "今天",
-    "weekHeader": "扫描电镜",
-    "firstDayOfWeek": 1,
-    "dateFormat": "日/月/年",
-    "weak": "虚弱的",
-    "medium": "平均的",
-    "strong": "强的",
-    "passwordPrompt": "输入密码",
-    "emptyMessage": "没有找到结果",
-    "emptyFilterMessage": "没有找到结果",
-    "selectedItemsLabel": "{0} 个选定的元素",
-    "double_quote": "””",
-    "asterisk": "*",
-    "value": "价值"
-  },
-  "uploader": {
-    "title": "MP4 视频下载器",
-    "note": {
-      "single": "仅限视频，每个最多 {maxSize}",
-      "multiple": "仅限视频，每个最多 {maxSize} 个，最多 {maxFiles} 个文件"
-    },
-    "info": {
-      "single": "下载 MP4 视频以开始",
-      "fileLimit": "{{current}}/{{max}} 文件（{{remaining}} 其余的）"
-    },
-    "statistics": {
-      "remaining": "其余的",
-      "files": "文件",
-      "uploading": "进行中",
-      "completed": "已完成"
-    },
-    "status": {
-      "uploading": "下载正在进行中...",
-      "completed": "完成的",
-      "locked": "锁定"
-    },
-    "actions": {
-      "preview": "预览",
-      "remove": "删除",
-      "close": "关闭",
-      "upload": "下载",
-      "cancel": "取消"
-    },
-    "empty": {
-      "title": "暂时没有下载文件",
-      "subtitle": {
-        "single": "使用上述下载器保存或下载 MP4 视频",
-        "multiple": "使用上述下载器保存或下载最多 {{maxFiles}} MP4 视频"
-      }
-    },
-    "preview": {
-      "title": "视频预览"
-    },
-    "messages": {
-      "fileLimitReached": "受影响文件的限制",
-      "uploadComplete": "下载完成",
-      "uploadSuccess": "{Filename} 成功下载！",
-      "uploadFailed": "下载失败",
-      "uploadFailedDetail": "无法下载{文件名}",
-      "fileRestriction": "文件限制",
-      "cannotRemove": "无法删除",
-      "cannotRemoveLocked": "无法删除锁定的文件",
-      "fileRemoved": "已删除的文件",
-      "fileRemovedSuccess": "成功删除文件",
-      "removalFailed": "删除失败",
-      "removalFailedDetail": "无法删除该文件。 ",
-      "uploadPreparationFailed": "下载准备失败",
-      "uploadPreparationFailedDetail": "无法准备下载。 ",
-      "duplicateFile": "双档",
-      "duplicateFileDetail": "{Filename} 文件已添加",
-      "filenameTooLong": "文件名太长",
-      "filenameTooLongDetail": "文件名太长（{{currentLength}} 人物）。 {{maxLength}} 上传前的字符数或更少。"
-    },
-    "dashboard": {
-      "strings": {
-        "addMoreFiles": "添加更多文件",
-        "addingMoreFiles": "添加更多文件",
-        "allowAccessDescription": "要使用相机拍照或保存视频，请允许访问此网站的相机。",
-        "allowAccessTitle": "请允许访问您的相机",
-        "authenticateWith": "连接到 {pluginname}",
-        "authenticateWithTitle": "请使用 {pluginname} 进行身份验证以选择文件",
-        "back": "后退",
-        "browse": "经过",
-        "browseFiles": "浏览文件",
-        "cancel": "取消",
-        "cancelUpload": "取消下载",
-        "chooseFiles": "选择文件",
-        "closeModal": "爬上窗户",
-        "companionError": "与同伴连接失败",
-        "complete": "完成的",
-        "connectedToInternet": "已连接互联网",
-        "copyLink": "复制链接",
-        "copyLinkToClipboardFallback": "复制下面的网址",
-        "copyLinkToClipboardSuccess": "链接已复制到剪贴板",
-        "creatingAssembly": "下载准备...",
-        "creatingAssemblyFailed": "TransLODIT：无法创建程序集",
-        "dashboardTitle": "文件下载器",
-        "dashboardWindowTitle": "文件下载窗口（按Esc键关闭）",
-        "dataUploadedOfTotal": "{完成}，共 {总计}",
-        "done": "完成的",
-        "dropHereOr": "将文件放在此处或%{browse}",
-        "dropHint": "在此提交您的文件",
-        "dropPasteBoth": "将文件放在这里，用胶水或%{browse}",
-        "dropPasteFiles": "将文件放在这里，用胶水或%{browse}",
-        "dropPasteImportBoth": "将文件放在这里，粘贴，%{browse} 或导入",
-        "dropPasteImportFiles": "将文件放在这里，粘贴，%{browse} 或导入",
-        "edit": "修改",
-        "editFile": "修改文件",
-        "editing": "%{file} 的修改",
-        "emptyFolderAdded": "空文件夹中未添加任何文件",
-        "encoding": "编码...",
-        "enterCorrectUrl": "URL 不正确：确保输入文件的直接链接",
-        "enterUrlToImport": "输入 URL 以导入文件",
-        "exceedsSize": "该文件超出了最大授权大小",
-        "failedToFetch": "同伴无法恢复此 URL，请确保其正确",
-        "failedToUpload": "下载%{文件}失败",
-        "fileSource": "文件来源：%{名称}",
-        "filesUploadedOfTotal": {
-          "0": "已下载 %{smart_count} 个文件，已完成 %{Complete}",
-          "1": "已下载 %{smart_count} 个文件，已完成 %{Complete}"
-        },
-        "filter": "筛选",
-        "finishEditingFile": "完成文件的修改",
-        "folderAdded": {
-          "0": "从 %{folder} 添加了 %{smart_count} 个文件",
-          "1": "从 %{folder} 添加了 %{smart_count} 个文件"
-        },
-        "import": "进口",
-        "importFrom": "自 %{name} 开始导入",
-        "loading": "加载中...",
-        "logOut": "断开",
-        "myDevice": "我的设备",
-        "noFilesFound": "您这里没有文件或文件夹",
-        "noInternetConnection": "没有互联网连接",
-        "pause": "休息",
-        "pauseUpload": "分解下载",
-        "paused": "休息",
-        "poweredBy": "由 %{uppy} 推动",
-        "processingXFiles": {
-          "0": "%{Smart_count} 个文件",
-          "1": "%{Smart_count} 个文件"
-        },
-        "removeFile": "删除文件",
-        "resetFilter": "重置过滤器",
-        "resume": "恢复",
-        "resumeUpload": "下载",
-        "retry": "再试一次",
-        "retryUpload": "尝试下载试试",
-        "save": "节省",
-        "selectFileNamed": "选择文件%{名称}",
-        "selectX": {
-          "0": "选择%{smart_count}",
-          "1": "选择%{smart_count}"
-        },
-        "smile": "微笑！",
-        "startRecording": "开始视频录制",
-        "stopRecording": "停止视频录制",
-        "takePicture": "拍张照片",
-        "timedOut": "下载被阻止 %{seconds} 秒，放弃。",
-        "upload": "下载",
-        "uploadComplete": "下载完成",
-        "uploadFailed": "下载失败",
-        "uploadPaused": "暂停下载",
-        "uploadXFiles": {
-          "0": "下载 %{smart_count} 个文件",
-          "1": "下载 %{smart_count} 个文件"
-        },
-        "uploadXNewFiles": {
-          "0": "下载 +%{smart_count} 文件",
-          "1": "下载 +%{smart_count} 个文件"
-        },
-        "uploading": "下载正在进行中",
-        "uploadingXFiles": {
-          "0": "%{Smart_count} 个文件",
-          "1": "%{Smart_count} 个文件"
-        },
-        "xFilesSelected": {
-          "0": "%{smart_count} 个选定的文件",
-          "1": "%{smart_count} 个选定文件"
-        },
-        "xMoreFilesAdded": {
-          "0": "%{smart_count} 添加了附加文件",
-          "1": "%{smart_count} 添加了其他文件"
-        },
-        "xTimeLeft": "剩余 %{time}",
-        "youCanOnlyUploadFileTypes": "您只能下载：%{types}",
-        "youCanOnlyUploadX": {
-          "0": "您只能下载 %{smart_count} 个文件",
-          "1": "您只能下载 %{smart_count} 个文件"
-        },
-        "youHaveToAtLeastSelectX": {
-          "0": "您必须至少选择 %{smart_count} 个文件",
-          "1": "您必须至少选择 %{smart_count} 个文件"
-        }
-      }
-    },
-    "service": {
-      "errors": {
-        "presignedUrl": "签名 URL 生成失败",
-        "removeFile": "文件删除失败",
-        "uploadFile": "无法通过签名 URL 发送文件",
-        "getFileList": "无法恢复文件列表",
-        "updateMetadata": "无法更新文件的元数据"
-      }
-    }
-  },
-  "countries": {
-    "ad": "安道尔人",
-    "ae": "阿拉伯联合酋长国",
-    "af": "阿富汗",
-    "ag": "安提瓜和巴布达",
-    "ai": "鳗鱼",
-    "al": "阿尔巴尼亚",
-    "am": "亚美尼亚",
-    "ao": "安哥拉",
-    "aq": "南极",
-    "ar": "阿根廷",
-    "as": "美属萨摩亚",
-    "at": "奥地利",
-    "au": "澳大利亚",
-    "aw": "阿鲁巴岛",
-    "ax": "奥兰群岛",
-    "az": "阿塞拜疆",
-    "ba": "波斯尼亚和黑塞哥维那",
-    "bb": "巴尔巴德",
-    "bd": "孟加拉国",
-    "be": "比利时",
-    "bf": "布基纳法索",
-    "bg": "保加利亚",
-    "bh": "巴林",
-    "bi": "布隆迪",
-    "bj": "良性",
-    "bl": "圣巴泰勒米",
-    "bm": "百慕大",
-    "bn": "文莱",
-    "bo": "玻利维亚",
-    "bq": "荷兰加勒比海",
-    "br": "巴西",
-    "bs": "巴哈马",
-    "bt": "布丹",
-    "bv": "布维岛",
-    "bw": "博茨瓦纳",
-    "by": "白俄罗斯",
-    "bz": "伯利兹",
-    "ca": "加拿大",
-    "cc": "科科斯群岛（基林）",
-    "cd": "刚果民主共和国",
-    "cf": "中非共和国",
-    "cg": "刚果共和国",
-    "ch": "瑞士人",
-    "ci": "科特迪瓦",
-    "ck": "库克群岛",
-    "cl": "智利",
-    "cm": "喀麦隆",
-    "cn": "中国",
-    "co": "哥伦比亚",
-    "cr": "哥斯达黎加",
-    "cs": "捷克斯洛伐克",
-    "cu": "古巴",
-    "cv": "绿帽",
-    "cw": "库拉索岛",
-    "cx": "圣诞岛",
-    "cy": "塞浦路斯",
-    "cz": "捷克共和国",
-    "dd": "德意志民主共和国",
-    "de": "德国",
-    "dj": "吉布提",
-    "dk": "丹麦",
-    "dm": "多米尼克",
-    "do": "多明尼加共和国",
-    "dz": "阿尔及利亚",
-    "ec": "赤道",
-    "ee": "爱沙尼亚",
-    "eg": "埃及",
-    "eh": "西撒哈拉",
-    "er": "厄立特里亚",
-    "es": "西班牙",
-    "et": "埃塞俄比亚",
-    "fi": "芬兰",
-    "fj": "斐济",
-    "fk": "福克兰群岛",
-    "fm": "密克罗尼西亚",
-    "fo": "法罗群岛",
-    "fr": "法国",
-    "fx": "法国本土",
-    "ga": "加蓬",
-    "gb": "英国",
-    "gd": "手榴弹",
-    "ge": "乔治亚州",
-    "gf": "圭亚那",
-    "gg": "根西岛",
-    "gh": "加纳",
-    "gi": "直布罗陀",
-    "gl": "格陵兰",
-    "gm": "冈比亚",
-    "gn": "几内亚",
-    "gp": "瓜德罗普岛",
-    "gq": "赤道几内亚",
-    "gr": "希腊",
-    "gs": "佐治亚州南部和南三明治",
-    "gt": "危地马拉",
-    "gu": "关岛",
-    "gw": "几内亚比绍",
-    "gy": "圭亚那",
-    "hk": "香港",
-    "hm": "赫德麦克唐纳群岛",
-    "hn": "洪都拉斯",
-    "hr": "克罗地亚",
-    "ht": "海地",
-    "hu": "匈牙利",
-    "id": "印度尼西亚",
-    "ie": "爱尔兰",
-    "il": "以色列",
-    "im": "曼岛",
-    "in": "印度",
-    "io": "英属印度洋领土",
-    "iq": "伊拉克",
-    "ir": "伊朗",
-    "is": "冰岛",
-    "it": "意大利",
-    "je": "球衣",
-    "jm": "牙买加",
-    "jo": "约旦",
-    "jp": "日本",
-    "ke": "肯尼亚",
-    "kg": "吉尔吉斯斯坦",
-    "kh": "柬埔寨",
-    "ki": "基里巴斯",
-    "km": "科摩罗",
-    "kn": "圣克里斯多夫和尼埃韦斯",
-    "kp": "北朝鲜",
-    "kr": "韩国",
-    "kw": "科威特",
-    "ky": "开曼群岛",
-    "kz": "哈萨克斯坦",
-    "la": "老挝",
-    "lb": "黎巴嫩",
-    "lc": "圣露西",
-    "li": "列支敦士登",
-    "lr": "利比里亚",
-    "ls": "莱索托",
-    "lt": "立陶宛",
-    "lu": "卢森堡",
-    "lv": "拉脱维亚",
-    "ly": "利比亚",
-    "ma": "摩洛哥",
-    "mc": "摩纳哥",
-    "md": "摩尔多瓦",
-    "me": "黑山",
-    "mf": "圣马丁",
-    "mg": "马达加斯加",
-    "mh": "马绍尔群岛",
-    "mk": "北马其顿",
-    "ml": "马里",
-    "mm": "缅甸",
-    "mn": "蒙古",
-    "mo": "澳门",
-    "mp": "北马里亚纳群岛",
-    "mq": "马提尼克岛",
-    "mr": "毛里塔尼亚",
-    "ms": "蒙特塞拉特",
-    "mt": "马耳他",
-    "mu": "毛里求斯",
-    "mv": "马尔代夫",
-    "mw": "马拉维",
-    "mx": "墨西哥",
-    "my": "马来西亚",
-    "mz": "莫桑比克",
-    "na": "纳米比亚",
-    "nc": "新喀里多尼亚",
-    "ne": "尼日尔",
-    "nf": "诺福克岛",
-    "ng": "尼日利亚",
-    "ni": "尼加拉瓜",
-    "nl": "荷兰",
-    "no": "挪威",
-    "np": "尼泊尔",
-    "nr": "瑙鲁",
-    "nt": "中立区",
-    "nu": "纽埃",
-    "nz": "新西兰",
-    "om": "阿曼",
-    "pa": "巴拿马",
-    "pe": "秘鲁",
-    "pf": "法属波利尼西亚",
-    "pg": "巴布亚新几内亚",
-    "ph": "菲律宾",
-    "pk": "巴基斯坦",
-    "pl": "波兰",
-    "pm": "圣皮埃尔和密克隆群岛",
-    "pn": "皮特凯恩",
-    "pr": "波多黎各",
-    "ps": "巴勒斯坦",
-    "pt": "葡萄牙",
-    "pw": "帕劳斯",
-    "py": "巴拉圭",
-    "qa": "卡塔尔",
-    "re": "团圆",
-    "ro": "罗马尼亚",
-    "rs": "塞尔维亚",
-    "ru": "俄罗斯",
-    "rw": "卢旺达",
-    "sa": "沙特阿拉伯",
-    "sb": "所罗门群岛",
-    "sc": "塞舌尔",
-    "sd": "苏丹",
-    "se": "绒面革",
-    "sg": "新加坡",
-    "sh": "圣海伦",
-    "si": "斯洛文尼亚",
-    "sj": "斯瓦尔巴群岛和扬马延岛",
-    "sk": "斯洛伐克",
-    "sl": "塞拉利昂",
-    "sm": "圣马兰",
-    "sn": "塞内加尔",
-    "so": "索马里",
-    "sr": "覆盖名称",
-    "ss": "南苏丹",
-    "st": "圣多美和普林西比",
-    "su": "苏联",
-    "sv": "萨尔瓦多",
-    "sx": "圣马丁",
-    "sy": "叙利亚",
-    "sz": "史瓦帝尼",
-    "tc": "土耳其和凯坎群岛",
-    "td": "乍得",
-    "tf": "法属南部土地",
-    "tg": "多哥",
-    "th": "泰国",
-    "tj": "塔吉克斯坦",
-    "tk": "托克劳",
-    "tl": "东帝汶",
-    "tm": "土库曼斯坦",
-    "tn": "突尼斯",
-    "to": "汤加",
-    "tr": "土耳其",
-    "tt": "特里尼蒂和多巴哥",
-    "tv": "图瓦卢",
-    "tw": "台湾",
-    "tz": "坦桑尼亚",
-    "ua": "乌克兰",
-    "ug": "乌干达",
-    "um": "来自美国的小岛屿",
-    "us": "美国",
-    "uy": "乌拉圭",
-    "uz": "乌兹别克斯坦",
-    "va": "梵蒂冈城",
-    "vc": "圣文森特和格林纳丁斯",
-    "ve": "委内瑞拉",
-    "vg": "英属维尔京群岛",
-    "vi": "美属维尔京群岛",
-    "vn": "越南 越南",
-    "vu": "瓦努阿图",
-    "wf": "瓦利斯和富图纳群岛",
-    "ws": "萨摩亚",
-    "xk": "科索沃",
-    "ye": "也门",
-    "yt": "马约特岛",
-    "yu": "南斯拉夫",
-    "za": "南非",
-    "zm": "赞比亚",
-    "zr": "扎伊尔",
-    "zw": "津巴布韦"
-  },
-  "topbar": {
-    "title": "鱼子酱侦察兵",
-    "profile": {
-      "title": "轮廓",
-      "edit": "编辑个人资料",
-      "logout": "退出",
-      "delete": "删除",
-      "deleteMobile": "删除帐户",
-      "editMobile": "编辑个人资料",
-      "confirmDelete": "您确定要删除您的帐户吗？",
-      "confirmDeleteTitle": "删除帐户",
-      "confirmDeleteMessage": "您确定要永久删除您的帐户吗？",
-      "confirmDeleteWarning": "此操作无法撤消。",
-      "deleteConfirm": "删除帐户",
-      "deleteSuccessTitle": "帐户已删除",
-      "deleteSuccessMessage": "您的帐户已成功删除。",
-      "deleteErrorTitle": "删除失败",
-      "deleteErrorMessage": "删除您的帐户失败。"
-    }
-  },
-  "common": {
-    "cancel": "取消"
-  },
-  "legal": {
-    "backToHome": "返回首页",
-    "lastUpdated": "最后更新",
-    "privacy": {
-      "title": "隐私政策",
-      "introduction": {
-        "title": "介绍"
-      },
-      "controller": {
-        "title": "数据控制者"
-      },
-      "dpo": {
-        "title": "数据保护官"
-      },
-      "dataCollected": {
-        "title": "收集的数据",
-        "identity": {
-          "title": "身份和联系数据"
-        },
-        "athletes": {
-          "title": "运动员信息"
+        "physical": {
+            "vitesse": "速度",
+            "endurance": "耐力",
+            "puissance": "力量",
+            "reflexes": "反射",
+            "agilite": "敏捷",
+            "explosivite": "爆发力",
+            "souplesse": "灵活性",
+            "coordination": "协调",
+            "equilibre": "平衡"
         },
         "technical": {
-          "title": "技术数据"
+            "technique": "技术的",
+            "maitriseDuBallon": "气球掌握",
+            "precision": "精确",
+            "finition": "精加工",
+            "passeDecisive": "助手",
+            "tirCadre": "克雷德射击",
+            "dribble": "运球",
+            "jeuDeTete": "头部游戏",
+            "tacle": "处理",
+            "interception": "拦截",
+            "gesteTechnique": "技术手势",
+            "polyvalence": "多功能性"
         },
-        "transaction": {
-          "title": "交易数据"
-        }
-      },
-      "legalBasis": {
-        "title": "处理的法律依据"
-      },
-      "userCategories": {
-        "title": "用户类别",
-        "professionals": {
-          "title": "专业用户"
+        "mental": {
+            "intelligenceTactique": "战术情报",
+            "lectureDuJeu": "阅读比赛",
+            "anticipation": "预期",
+            "concentration": "专注",
+            "mental": "精神的",
+            "sangFroid": "血腥",
+            "maturite": "到期",
+            "gestionDuTemps": "时间管理",
+            "resilience": "弹力",
+            "visionDeJeu": "游戏视觉",
+            "decisif": "决定性",
+            "priseDeDecision": "决策",
+            "adaptabilite": "适应性",
+            "competiteur": "竞争者",
+            "leadership": "领导",
+            "espritDEquipe": "团队精神",
+            "determination": "决心",
+            "confianceEnSoi": "自信",
+            "motivation": "动机",
+            "apprentissageRapide": "快速学习",
+            "discipline": "纪律",
+            "regularite": "规律性",
+            "enduranceMentale": "心理承受能力"
         },
-        "nonProfessionals": {
-          "title": "非专业用户"
+        "behavior": {
+            "travailleur": "工人",
+            "perseverant": "坚持不懈",
+            "passionne": "敏锐的",
+            "humilite": "谦逊",
+            "exemplaire": "复制",
+            "respectueux": "恭敬的",
+            "charismatique": "魅力型",
+            "dynamique": "动态的",
+            "engage": "已订婚的",
+            "fairPlay": "公平竞争",
+            "influenceurDeVestiaire": "衣帽间影响者",
+            "attitudeProfessionnelle": "专业态度"
         },
-        "minors": {
-          "title": "未成年人保护"
-        }
-      },
-      "retention": {
-        "title": "数据保留"
-      },
-      "recipients": {
-        "title": "数据接收者"
-      },
-      "rights": {
-        "title": "您的权利"
-      },
-      "cookies": {
-        "title": "曲奇饼"
-      },
-      "security": {
-        "title": "数据安全"
-      },
-      "updates": {
-        "title": "政策更新"
-      },
-      "contact": {
-        "title": "联系我们"
-      }
+        "creativity": {
+            "creativite": "创造力",
+            "styleDeJeuUnique": "独特的游戏风格",
+            "spectaculaire": "壮观",
+            "showman": "表演者",
+            "imagination": "想像力"
+        },
+        "potential": {
+            "grosPotentiel": "潜力大",
+            "enProgres": "进步",
+            "jeunePrometteur": "年轻有为",
+            "talentNaturel": "天赋"
+        },
+        "unknown": "未知标签"
     },
-    "terms": {
-      "title": "服务条款",
-      "preamble": {
-        "title": "前言"
-      },
-      "definitions": {
-        "title": "定义"
-      },
-      "service": {
-        "title": "服务说明",
-        "important": "重要通知"
-      },
-      "userCategories": {
-        "title": "用户类别",
-        "professionals": {
-          "title": "专业用户"
+    "sports": {
+        "football": "足球",
+        "basketball": "篮球",
+        "rugby": "橄榄球",
+        "tennis": "网球",
+        "boxe": "拳击",
+        "footballAmericain": "足球",
+        "hockeySurGlace": "冰球",
+        "baseball": "棒球",
+        "mma": "MMA",
+        "equitation": "马术",
+        "hobbyHorse": "木马运动",
+        "coursesCanines": "赛狗",
+        "coursesDeLapins": "赛兔",
+        "fauconnerie": "猎鹰",
+        "autre": "其他",
+        "unknown": "未知运动"
+    },
+    "primeng": {
+        "version": "版本1.3.1",
+        "delete_all": "删除所有内容",
+        "delete_all_filter": "删除所有过滤器",
+        "results": "结果",
+        "save": "节省",
+        "cancel": "取消",
+        "search": "去研究",
+        "startdate": "开始日期",
+        "enddate": "结束日期",
+        "status": "地位",
+        "transactionnumber": "交易数量",
+        "transactiondate": "交易日期",
+        "download": "下载",
+        "amount": "数量",
+        "date": "日期",
+        "or": "或者",
+        "agency": "机构",
+        "customer": "顾客",
+        "lineselected": "选定的行",
+        "areyousure": "你确定吗？",
+        "confirmed": "确认",
+        "generationinprogress": "当前一代",
+        "purchaselines": "采购线",
+        "dashboard": "仪表板",
+        "name": "姓名",
+        "prenom": "名",
+        "email": "电子邮件",
+        "saved": "已保存",
+        "error": "错误",
+        "description": "描述",
+        "leave": "离开",
+        "not_allowed_page": "您没有访问此页面所需的权限",
+        "validate_action": "请写“验证”以验证此操作",
+        "back": "后退",
+        "valider": "验证",
+        "success": "成功",
+        "suivant": "下列的",
+        "precedent": "以前的",
+        "export": "出口",
+        "import": "进口",
+        "import_csv": "导入.csv",
+        "no": "不",
+        "yes": "是的",
+        "enabled": "使能够",
+        "disabled": "禁用",
+        "activate": "使能够",
+        "deactivate": "禁用",
+        "activated": "活性",
+        "deactivated": "残疾人",
+        "information": "信息",
+        "creation_date": "创建日期：",
+        "export_csv": "导出.csv",
+        "voir": "看",
+        "actif": "积极的",
+        "active": "积极的",
+        "inactif": "不活跃",
+        "inactive": "不活跃",
+        "selectionner": "选择",
+        "refresh": "刷新",
+        "filter_by": "过滤依据",
+        "update": "修改",
+        "delete": "删除",
+        "edit": "修改",
+        "comment": "评论 ： ",
+        "comment_without_double_point": "评论 ",
+        "double_point": "::",
+        "toast_summary_update_error": "不可能的修改",
+        "toast_summary_create_error": "不可能添加",
+        "toast_summary_delete_error": "不可能删除",
+        "toast_summary_delete_error2": "删除错误总结",
+        "toast_label_warning": "注意力",
+        "ok": "好的",
+        "select_date": "选择日期",
+        "select_hour": "选择一个小时",
+        "require": "该字段为必填字段 ",
+        "tiret": "-",
+        "startsWith": "开始于",
+        "contains": "包含",
+        "notContains": "不包含",
+        "endsWith": "结束于",
+        "equals": "等于",
+        "notEquals": "不同于",
+        "noFilter": "无过滤器",
+        "filter": "筛选",
+        "lt": "少于",
+        "lte": "小于或等于",
+        "gt": "优于",
+        "gte": "大于或等于",
+        "dateIs": "日期等于",
+        "dateIsNot": "不同日期",
+        "dateBefore": "之前的日期",
+        "dateAfter": "日期晚于",
+        "clear": "擦除",
+        "apply": "申请",
+        "matchAll": "一切都对应",
+        "matchAny": "任何",
+        "addRule": "添加规则",
+        "removeRule": "删除规则",
+        "accept": "是的",
+        "reject": "不",
+        "choose": "选择",
+        "upload": "下载",
+        "dayNames": [
+            "星期日",
+            "周一",
+            "周二",
+            "周三",
+            "周四",
+            "星期五",
+            "周六"
+        ],
+        "dayNamesShort": [
+            "太阳",
+            "周一",
+            "三月",
+            "海",
+            "游戏",
+            "星期五",
+            "坐"
+        ],
+        "dayNamesMin": [
+            "D",
+            "L",
+            "中号",
+            "中号",
+            "J",
+            "V",
+            "S"
+        ],
+        "monthNames": [
+            "一月",
+            "二月",
+            "行进",
+            "四月",
+            "可能",
+            "六月",
+            "七月",
+            "八月",
+            "九月",
+            "十月",
+            "十一月",
+            "十二月"
+        ],
+        "monthNamesShort": [
+            "扬",
+            "二月",
+            "行进",
+            "四月",
+            "可能",
+            "六月",
+            "七月",
+            "八月",
+            "七",
+            "十月",
+            "十一月",
+            "十二月"
+        ],
+        "today": "今天",
+        "weekHeader": "扫描电镜",
+        "firstDayOfWeek": 1,
+        "dateFormat": "日/月/年",
+        "weak": "虚弱的",
+        "medium": "平均的",
+        "strong": "强的",
+        "passwordPrompt": "输入密码",
+        "emptyMessage": "没有找到结果",
+        "emptyFilterMessage": "没有找到结果",
+        "selectedItemsLabel": "{0} 个选定的元素",
+        "double_quote": "””",
+        "asterisk": "*",
+        "value": "价值"
+    },
+    "uploader": {
+        "title": "MP4 视频下载器",
+        "note": {
+            "single": "仅限视频，每个最多 {maxSize}",
+            "multiple": "仅限视频，每个最多 {maxSize} 个，最多 {maxFiles} 个文件"
         },
-        "nonProfessionals": {
-          "title": "非专业用户（消费者）"
+        "info": {
+            "single": "下载 MP4 视频以开始",
+            "fileLimit": "{{current}}/{{max}} 文件（{{remaining}} 其余的）"
+        },
+        "statistics": {
+            "remaining": "其余的",
+            "files": "文件",
+            "uploading": "进行中",
+            "completed": "已完成"
+        },
+        "status": {
+            "uploading": "下载正在进行中...",
+            "completed": "完成的",
+            "locked": "锁定"
+        },
+        "actions": {
+            "preview": "预览",
+            "remove": "删除",
+            "close": "关闭",
+            "upload": "下载",
+            "cancel": "取消"
+        },
+        "empty": {
+            "title": "暂时没有下载文件",
+            "subtitle": {
+                "single": "使用上述下载器保存或下载 MP4 视频",
+                "multiple": "使用上述下载器保存或下载最多 {{maxFiles}} MP4 视频"
+            }
+        },
+        "preview": {
+            "title": "视频预览"
+        },
+        "messages": {
+            "fileLimitReached": "受影响文件的限制",
+            "uploadComplete": "下载完成",
+            "uploadSuccess": "{Filename} 成功下载！",
+            "uploadFailed": "下载失败",
+            "uploadFailedDetail": "无法下载{文件名}",
+            "fileRestriction": "文件限制",
+            "cannotRemove": "无法删除",
+            "cannotRemoveLocked": "无法删除锁定的文件",
+            "fileRemoved": "已删除的文件",
+            "fileRemovedSuccess": "成功删除文件",
+            "removalFailed": "删除失败",
+            "removalFailedDetail": "无法删除该文件。 ",
+            "uploadPreparationFailed": "下载准备失败",
+            "uploadPreparationFailedDetail": "无法准备下载。 ",
+            "duplicateFile": "双档",
+            "duplicateFileDetail": "{Filename} 文件已添加",
+            "filenameTooLong": "文件名太长",
+            "filenameTooLongDetail": "文件名太长（{{currentLength}} 人物）。 {{maxLength}} 上传前的字符数或更少。"
+        },
+        "dashboard": {
+            "strings": {
+                "addMoreFiles": "添加更多文件",
+                "addingMoreFiles": "添加更多文件",
+                "allowAccessDescription": "要使用相机拍照或保存视频，请允许访问此网站的相机。",
+                "allowAccessTitle": "请允许访问您的相机",
+                "authenticateWith": "连接到 {pluginname}",
+                "authenticateWithTitle": "请使用 {pluginname} 进行身份验证以选择文件",
+                "back": "后退",
+                "browse": "经过",
+                "browseFiles": "浏览文件",
+                "cancel": "取消",
+                "cancelUpload": "取消下载",
+                "chooseFiles": "选择文件",
+                "closeModal": "爬上窗户",
+                "companionError": "与同伴连接失败",
+                "complete": "完成的",
+                "connectedToInternet": "已连接互联网",
+                "copyLink": "复制链接",
+                "copyLinkToClipboardFallback": "复制下面的网址",
+                "copyLinkToClipboardSuccess": "链接已复制到剪贴板",
+                "creatingAssembly": "下载准备...",
+                "creatingAssemblyFailed": "TransLODIT：无法创建程序集",
+                "dashboardTitle": "文件下载器",
+                "dashboardWindowTitle": "文件下载窗口（按Esc键关闭）",
+                "dataUploadedOfTotal": "{完成}，共 {总计}",
+                "done": "完成的",
+                "dropHereOr": "将文件放在此处或%{browse}",
+                "dropHint": "在此提交您的文件",
+                "dropPasteBoth": "将文件放在这里，用胶水或%{browse}",
+                "dropPasteFiles": "将文件放在这里，用胶水或%{browse}",
+                "dropPasteImportBoth": "将文件放在这里，粘贴，%{browse} 或导入",
+                "dropPasteImportFiles": "将文件放在这里，粘贴，%{browse} 或导入",
+                "edit": "修改",
+                "editFile": "修改文件",
+                "editing": "%{file} 的修改",
+                "emptyFolderAdded": "空文件夹中未添加任何文件",
+                "encoding": "编码...",
+                "enterCorrectUrl": "URL 不正确：确保输入文件的直接链接",
+                "enterUrlToImport": "输入 URL 以导入文件",
+                "exceedsSize": "该文件超出了最大授权大小",
+                "failedToFetch": "同伴无法恢复此 URL，请确保其正确",
+                "failedToUpload": "下载%{文件}失败",
+                "fileSource": "文件来源：%{名称}",
+                "filesUploadedOfTotal": {
+                    "0": "已下载 %{smart_count} 个文件，已完成 %{Complete}",
+                    "1": "已下载 %{smart_count} 个文件，已完成 %{Complete}"
+                },
+                "filter": "筛选",
+                "finishEditingFile": "完成文件的修改",
+                "folderAdded": {
+                    "0": "从 %{folder} 添加了 %{smart_count} 个文件",
+                    "1": "从 %{folder} 添加了 %{smart_count} 个文件"
+                },
+                "import": "进口",
+                "importFrom": "自 %{name} 开始导入",
+                "loading": "加载中...",
+                "logOut": "断开",
+                "myDevice": "我的设备",
+                "noFilesFound": "您这里没有文件或文件夹",
+                "noInternetConnection": "没有互联网连接",
+                "pause": "休息",
+                "pauseUpload": "分解下载",
+                "paused": "休息",
+                "poweredBy": "由 %{uppy} 推动",
+                "processingXFiles": {
+                    "0": "%{Smart_count} 个文件",
+                    "1": "%{Smart_count} 个文件"
+                },
+                "removeFile": "删除文件",
+                "resetFilter": "重置过滤器",
+                "resume": "恢复",
+                "resumeUpload": "下载",
+                "retry": "再试一次",
+                "retryUpload": "尝试下载试试",
+                "save": "节省",
+                "selectFileNamed": "选择文件%{名称}",
+                "selectX": {
+                    "0": "选择%{smart_count}",
+                    "1": "选择%{smart_count}"
+                },
+                "smile": "微笑！",
+                "startRecording": "开始视频录制",
+                "stopRecording": "停止视频录制",
+                "takePicture": "拍张照片",
+                "timedOut": "下载被阻止 %{seconds} 秒，放弃。",
+                "upload": "下载",
+                "uploadComplete": "下载完成",
+                "uploadFailed": "下载失败",
+                "uploadPaused": "暂停下载",
+                "uploadXFiles": {
+                    "0": "下载 %{smart_count} 个文件",
+                    "1": "下载 %{smart_count} 个文件"
+                },
+                "uploadXNewFiles": {
+                    "0": "下载 +%{smart_count} 文件",
+                    "1": "下载 +%{smart_count} 个文件"
+                },
+                "uploading": "下载正在进行中",
+                "uploadingXFiles": {
+                    "0": "%{Smart_count} 个文件",
+                    "1": "%{Smart_count} 个文件"
+                },
+                "xFilesSelected": {
+                    "0": "%{smart_count} 个选定的文件",
+                    "1": "%{smart_count} 个选定文件"
+                },
+                "xMoreFilesAdded": {
+                    "0": "%{smart_count} 添加了附加文件",
+                    "1": "%{smart_count} 添加了其他文件"
+                },
+                "xTimeLeft": "剩余 %{time}",
+                "youCanOnlyUploadFileTypes": "您只能下载：%{types}",
+                "youCanOnlyUploadX": {
+                    "0": "您只能下载 %{smart_count} 个文件",
+                    "1": "您只能下载 %{smart_count} 个文件"
+                },
+                "youHaveToAtLeastSelectX": {
+                    "0": "您必须至少选择 %{smart_count} 个文件",
+                    "1": "您必须至少选择 %{smart_count} 个文件"
+                }
+            }
+        },
+        "service": {
+            "errors": {
+                "presignedUrl": "签名 URL 生成失败",
+                "removeFile": "文件删除失败",
+                "uploadFile": "无法通过签名 URL 发送文件",
+                "getFileList": "无法恢复文件列表",
+                "updateMetadata": "无法更新文件的元数据"
+            }
         }
-      },
-      "account": {
-        "title": "账户与注册"
-      },
-      "subscription": {
-        "title": "订阅和付款",
-        "payment": {
-          "title": "付款条件"
-        },
-        "withdrawal": {
-          "title": "撤回权"
-        },
-        "credits": {
-          "title": "信用体系"
+    },
+    "countries": {
+        "ad": "安道尔人",
+        "ae": "阿拉伯联合酋长国",
+        "af": "阿富汗",
+        "ag": "安提瓜和巴布达",
+        "ai": "鳗鱼",
+        "al": "阿尔巴尼亚",
+        "am": "亚美尼亚",
+        "ao": "安哥拉",
+        "aq": "南极",
+        "ar": "阿根廷",
+        "as": "美属萨摩亚",
+        "at": "奥地利",
+        "au": "澳大利亚",
+        "aw": "阿鲁巴岛",
+        "ax": "奥兰群岛",
+        "az": "阿塞拜疆",
+        "ba": "波斯尼亚和黑塞哥维那",
+        "bb": "巴尔巴德",
+        "bd": "孟加拉国",
+        "be": "比利时",
+        "bf": "布基纳法索",
+        "bg": "保加利亚",
+        "bh": "巴林",
+        "bi": "布隆迪",
+        "bj": "良性",
+        "bl": "圣巴泰勒米",
+        "bm": "百慕大",
+        "bn": "文莱",
+        "bo": "玻利维亚",
+        "bq": "荷兰加勒比海",
+        "br": "巴西",
+        "bs": "巴哈马",
+        "bt": "布丹",
+        "bv": "布维岛",
+        "bw": "博茨瓦纳",
+        "by": "白俄罗斯",
+        "bz": "伯利兹",
+        "ca": "加拿大",
+        "cc": "科科斯群岛（基林）",
+        "cd": "刚果民主共和国",
+        "cf": "中非共和国",
+        "cg": "刚果共和国",
+        "ch": "瑞士人",
+        "ci": "科特迪瓦",
+        "ck": "库克群岛",
+        "cl": "智利",
+        "cm": "喀麦隆",
+        "cn": "中国",
+        "co": "哥伦比亚",
+        "cr": "哥斯达黎加",
+        "cs": "捷克斯洛伐克",
+        "cu": "古巴",
+        "cv": "绿帽",
+        "cw": "库拉索岛",
+        "cx": "圣诞岛",
+        "cy": "塞浦路斯",
+        "cz": "捷克共和国",
+        "dd": "德意志民主共和国",
+        "de": "德国",
+        "dj": "吉布提",
+        "dk": "丹麦",
+        "dm": "多米尼克",
+        "do": "多明尼加共和国",
+        "dz": "阿尔及利亚",
+        "ec": "赤道",
+        "ee": "爱沙尼亚",
+        "eg": "埃及",
+        "eh": "西撒哈拉",
+        "er": "厄立特里亚",
+        "es": "西班牙",
+        "et": "埃塞俄比亚",
+        "fi": "芬兰",
+        "fj": "斐济",
+        "fk": "福克兰群岛",
+        "fm": "密克罗尼西亚",
+        "fo": "法罗群岛",
+        "fr": "法国",
+        "fx": "法国本土",
+        "ga": "加蓬",
+        "gb": "英国",
+        "gd": "手榴弹",
+        "ge": "乔治亚州",
+        "gf": "圭亚那",
+        "gg": "根西岛",
+        "gh": "加纳",
+        "gi": "直布罗陀",
+        "gl": "格陵兰",
+        "gm": "冈比亚",
+        "gn": "几内亚",
+        "gp": "瓜德罗普岛",
+        "gq": "赤道几内亚",
+        "gr": "希腊",
+        "gs": "佐治亚州南部和南三明治",
+        "gt": "危地马拉",
+        "gu": "关岛",
+        "gw": "几内亚比绍",
+        "gy": "圭亚那",
+        "hk": "香港",
+        "hm": "赫德麦克唐纳群岛",
+        "hn": "洪都拉斯",
+        "hr": "克罗地亚",
+        "ht": "海地",
+        "hu": "匈牙利",
+        "id": "印度尼西亚",
+        "ie": "爱尔兰",
+        "il": "以色列",
+        "im": "曼岛",
+        "in": "印度",
+        "io": "英属印度洋领土",
+        "iq": "伊拉克",
+        "ir": "伊朗",
+        "is": "冰岛",
+        "it": "意大利",
+        "je": "球衣",
+        "jm": "牙买加",
+        "jo": "约旦",
+        "jp": "日本",
+        "ke": "肯尼亚",
+        "kg": "吉尔吉斯斯坦",
+        "kh": "柬埔寨",
+        "ki": "基里巴斯",
+        "km": "科摩罗",
+        "kn": "圣克里斯多夫和尼埃韦斯",
+        "kp": "北朝鲜",
+        "kr": "韩国",
+        "kw": "科威特",
+        "ky": "开曼群岛",
+        "kz": "哈萨克斯坦",
+        "la": "老挝",
+        "lb": "黎巴嫩",
+        "lc": "圣露西",
+        "li": "列支敦士登",
+        "lr": "利比里亚",
+        "ls": "莱索托",
+        "lt": "立陶宛",
+        "lu": "卢森堡",
+        "lv": "拉脱维亚",
+        "ly": "利比亚",
+        "ma": "摩洛哥",
+        "mc": "摩纳哥",
+        "md": "摩尔多瓦",
+        "me": "黑山",
+        "mf": "圣马丁",
+        "mg": "马达加斯加",
+        "mh": "马绍尔群岛",
+        "mk": "北马其顿",
+        "ml": "马里",
+        "mm": "缅甸",
+        "mn": "蒙古",
+        "mo": "澳门",
+        "mp": "北马里亚纳群岛",
+        "mq": "马提尼克岛",
+        "mr": "毛里塔尼亚",
+        "ms": "蒙特塞拉特",
+        "mt": "马耳他",
+        "mu": "毛里求斯",
+        "mv": "马尔代夫",
+        "mw": "马拉维",
+        "mx": "墨西哥",
+        "my": "马来西亚",
+        "mz": "莫桑比克",
+        "na": "纳米比亚",
+        "nc": "新喀里多尼亚",
+        "ne": "尼日尔",
+        "nf": "诺福克岛",
+        "ng": "尼日利亚",
+        "ni": "尼加拉瓜",
+        "nl": "荷兰",
+        "no": "挪威",
+        "np": "尼泊尔",
+        "nr": "瑙鲁",
+        "nt": "中立区",
+        "nu": "纽埃",
+        "nz": "新西兰",
+        "om": "阿曼",
+        "pa": "巴拿马",
+        "pe": "秘鲁",
+        "pf": "法属波利尼西亚",
+        "pg": "巴布亚新几内亚",
+        "ph": "菲律宾",
+        "pk": "巴基斯坦",
+        "pl": "波兰",
+        "pm": "圣皮埃尔和密克隆群岛",
+        "pn": "皮特凯恩",
+        "pr": "波多黎各",
+        "ps": "巴勒斯坦",
+        "pt": "葡萄牙",
+        "pw": "帕劳斯",
+        "py": "巴拉圭",
+        "qa": "卡塔尔",
+        "re": "团圆",
+        "ro": "罗马尼亚",
+        "rs": "塞尔维亚",
+        "ru": "俄罗斯",
+        "rw": "卢旺达",
+        "sa": "沙特阿拉伯",
+        "sb": "所罗门群岛",
+        "sc": "塞舌尔",
+        "sd": "苏丹",
+        "se": "绒面革",
+        "sg": "新加坡",
+        "sh": "圣海伦",
+        "si": "斯洛文尼亚",
+        "sj": "斯瓦尔巴群岛和扬马延岛",
+        "sk": "斯洛伐克",
+        "sl": "塞拉利昂",
+        "sm": "圣马兰",
+        "sn": "塞内加尔",
+        "so": "索马里",
+        "sr": "覆盖名称",
+        "ss": "南苏丹",
+        "st": "圣多美和普林西比",
+        "su": "苏联",
+        "sv": "萨尔瓦多",
+        "sx": "圣马丁",
+        "sy": "叙利亚",
+        "sz": "史瓦帝尼",
+        "tc": "土耳其和凯坎群岛",
+        "td": "乍得",
+        "tf": "法属南部土地",
+        "tg": "多哥",
+        "th": "泰国",
+        "tj": "塔吉克斯坦",
+        "tk": "托克劳",
+        "tl": "东帝汶",
+        "tm": "土库曼斯坦",
+        "tn": "突尼斯",
+        "to": "汤加",
+        "tr": "土耳其",
+        "tt": "特里尼蒂和多巴哥",
+        "tv": "图瓦卢",
+        "tw": "台湾",
+        "tz": "坦桑尼亚",
+        "ua": "乌克兰",
+        "ug": "乌干达",
+        "um": "来自美国的小岛屿",
+        "us": "美国",
+        "uy": "乌拉圭",
+        "uz": "乌兹别克斯坦",
+        "va": "梵蒂冈城",
+        "vc": "圣文森特和格林纳丁斯",
+        "ve": "委内瑞拉",
+        "vg": "英属维尔京群岛",
+        "vi": "美属维尔京群岛",
+        "vn": "越南 越南",
+        "vu": "瓦努阿图",
+        "wf": "瓦利斯和富图纳群岛",
+        "ws": "萨摩亚",
+        "xk": "科索沃",
+        "ye": "也门",
+        "yt": "马约特岛",
+        "yu": "南斯拉夫",
+        "za": "南非",
+        "zm": "赞比亚",
+        "zr": "扎伊尔",
+        "zw": "津巴布韦"
+    },
+    "topbar": {
+        "title": "鱼子酱侦察兵",
+        "profile": {
+            "title": "轮廓",
+            "edit": "编辑个人资料",
+            "logout": "退出",
+            "delete": "删除",
+            "deleteMobile": "删除帐户",
+            "editMobile": "编辑个人资料",
+            "confirmDelete": "您确定要删除您的帐户吗？",
+            "confirmDeleteTitle": "删除帐户",
+            "confirmDeleteMessage": "您确定要永久删除您的帐户吗？",
+            "confirmDeleteWarning": "此操作无法撤消。",
+            "deleteConfirm": "删除帐户",
+            "deleteSuccessTitle": "帐户已删除",
+            "deleteSuccessMessage": "您的帐户已成功删除。",
+            "deleteErrorTitle": "删除失败",
+            "deleteErrorMessage": "删除您的帐户失败。"
         }
-      },
-      "obligations": {
-        "title": "用户义务"
-      },
-      "content": {
-        "title": "内容和审核",
-        "license": {
-          "title": "内容许可"
+    },
+    "common": {
+        "cancel": "取消"
+    },
+    "legal": {
+        "backToHome": "返回首页",
+        "lastUpdated": "最后更新",
+        "privacy": {
+            "title": "隐私政策",
+            "introduction": {
+                "title": "介绍"
+            },
+            "controller": {
+                "title": "数据控制者"
+            },
+            "dpo": {
+                "title": "数据保护官"
+            },
+            "dataCollected": {
+                "title": "收集的数据",
+                "identity": {
+                    "title": "身份和联系数据"
+                },
+                "athletes": {
+                    "title": "运动员信息"
+                },
+                "technical": {
+                    "title": "技术数据"
+                },
+                "transaction": {
+                    "title": "交易数据"
+                }
+            },
+            "legalBasis": {
+                "title": "处理的法律依据"
+            },
+            "userCategories": {
+                "title": "用户类别",
+                "professionals": {
+                    "title": "专业用户"
+                },
+                "nonProfessionals": {
+                    "title": "非专业用户"
+                },
+                "minors": {
+                    "title": "未成年人保护"
+                }
+            },
+            "retention": {
+                "title": "数据保留"
+            },
+            "recipients": {
+                "title": "数据接收者"
+            },
+            "rights": {
+                "title": "您的权利"
+            },
+            "cookies": {
+                "title": "曲奇饼"
+            },
+            "security": {
+                "title": "数据安全"
+            },
+            "updates": {
+                "title": "政策更新"
+            },
+            "contact": {
+                "title": "联系我们"
+            }
+        },
+        "terms": {
+            "title": "服务条款",
+            "preamble": {
+                "title": "前言"
+            },
+            "definitions": {
+                "title": "定义"
+            },
+            "service": {
+                "title": "服务说明",
+                "important": "重要通知"
+            },
+            "userCategories": {
+                "title": "用户类别",
+                "professionals": {
+                    "title": "专业用户"
+                },
+                "nonProfessionals": {
+                    "title": "非专业用户（消费者）"
+                }
+            },
+            "account": {
+                "title": "账户与注册"
+            },
+            "subscription": {
+                "title": "订阅和付款",
+                "payment": {
+                    "title": "付款条件"
+                },
+                "withdrawal": {
+                    "title": "撤回权"
+                },
+                "credits": {
+                    "title": "信用体系"
+                }
+            },
+            "obligations": {
+                "title": "用户义务"
+            },
+            "content": {
+                "title": "内容和审核",
+                "license": {
+                    "title": "内容许可"
+                }
+            },
+            "liability": {
+                "title": "责任限制",
+                "disclaimer": "重要免责声明",
+                "financial": {
+                    "title": "财务免责声明"
+                },
+                "thirdParty": {
+                    "title": "第三方服务"
+                },
+                "information": {
+                    "title": "信息免责声明"
+                },
+                "limitation": {
+                    "title": "责任限制"
+                }
+            },
+            "indemnification": {
+                "title": "保障"
+            },
+            "ip": {
+                "title": "知识产权"
+            },
+            "modifications": {
+                "title": "服务修改"
+            },
+            "termination": {
+                "title": "终止"
+            },
+            "disputes": {
+                "title": "争议解决",
+                "mediation": {
+                    "title": "消费者调解"
+                },
+                "jurisdiction": {
+                    "title": "适用法律和管辖权"
+                }
+            },
+            "severability": {
+                "title": "可分割性"
+            },
+            "contact": {
+                "title": "接触"
+            }
         }
-      },
-      "liability": {
-        "title": "责任限制",
-        "disclaimer": "重要免责声明",
-        "financial": {
-          "title": "财务免责声明"
+    },
+    "features": {
+        "title": "节省时间，更好招募",
+        "subtitle": "做出更好招募决策所需的一切。",
+        "free": {
+            "title": "完全免费访问",
+            "description": "浏览所有个人资料、观看视频、使用高级过滤器，无需支付任何费用。仅在联系球员时付费。"
         },
-        "thirdParty": {
-          "title": "第三方服务"
+        "database": {
+            "title": "经过验证的人才",
+            "description": "每个个人资料都经过专家审核。不再有无法使用的视频或虚假个人资料。"
         },
-        "information": {
-          "title": "信息免责声明"
+        "filters": {
+            "title": "几次点击即可找到合适的个人资料",
+            "description": "按运动、年龄、国家和技能筛选，精准找到您要寻找的人才。"
         },
-        "limitation": {
-          "title": "责任限制"
+        "contact": {
+            "title": "直接联系球员",
+            "description": "一键访问运动员或其经纪人的已验证联系方式。"
+        },
+        "analysis": {
+            "title": "结构化视频，而非噪音",
+            "description": "观看高质量、有组织且相关的视频。不再需要筛选数小时的内容。"
         }
-      },
-      "indemnification": {
-        "title": "保障"
-      },
-      "ip": {
-        "title": "知识产权"
-      },
-      "modifications": {
-        "title": "服务修改"
-      },
-      "termination": {
-        "title": "终止"
-      },
-      "disputes": {
-        "title": "争议解决",
-        "mediation": {
-          "title": "消费者调解"
-        },
-        "jurisdiction": {
-          "title": "适用法律和管辖权"
-        }
-      },
-      "severability": {
-        "title": "可分割性"
-      },
-      "contact": {
-        "title": "接触"
-      }
     }
-  },
-  "features": {
-    "title": "强大的功能",
-    "subtitle": "有效招聘所需的一切。",
-    "free": {
-      "title": "免费完全访问",
-      "description": "浏览所有个人资料、观看视频、使用高级过滤器 - 完全免费。"
-    },
-    "database": {
-      "title": "完整的数据库",
-      "description": "访问数千个经过验证的人才档案。"
-    },
-    "filters": {
-      "title": "高级搜索过滤器",
-      "description": "按运动、年龄和技能精确定位目标人群。"
-    },
-    "contact": {
-      "title": "直接、安全的联系",
-      "description": "直接与运动员或其经纪人沟通。"
-    },
-    "analysis": {
-      "title": "视频分析",
-      "description": "观看并分析人才的表现。"
-    }
-  }
 }

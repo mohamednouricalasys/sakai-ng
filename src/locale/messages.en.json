@@ -73,12 +73,14 @@
         "features": "Features",
         "pricing": "Pricing",
         "hero": {
-            "title": "Scout Tomorrow's Sports Stars Today",
-            "subtitle": "The professional platform for discovering and evaluating future athletic prodigies through video analysis and advanced recruitment tools.",
-            "button": "Join Free Now",
-            "freeBadge": "100% FREE",
-            "freeForProfessionals": "Full access at zero cost for professionals",
-            "freeHighlight": "Only pay when you request contact details"
+            "title": "Spot the best talent before anyone else.",
+            "subtitle": "CAVIAR SCOUT helps recruiters, agents and clubs identify, analyze and compare young talent through structured videos and reliable data.",
+            "tagline": "Analyze less. Decide better. Recruit faster.",
+            "button": "Browse talent",
+            "freeBadge": "FREE ACCESS",
+            "freeForProfessionals": "For recruiters, agents and clubs",
+            "freeHighlight": "Browse all profiles and videos at no cost",
+            "payOnlyContact": "Pay only to contact a player"
         },
         "valueProposition": {
             "title": "Why Professionals Choose Us",
@@ -149,42 +151,59 @@
     },
     "pricing": {
         "title": "Choose Your Plan",
-        "subtitle": "Flexible pricing for every recruitment need.",
+        "subtitle": "1 contact = 1 credit. Simple, transparent.",
+        "happy_hour": "Happy Hour: All features are currently FREE, including contacts, during the app launch phase!",
+        "section_subscriptions": "Monthly subscriptions",
+        "section_packs": "Credit packs",
         "starter": {
             "title": "Starter",
-            "price": "€50.00",
+            "price": "€25.00",
             "period": "per month",
             "button": "Select",
-            "credits": "{credits} credits",
+            "credits": "{credits} contacts",
             "feature1": "Database access",
-            "feature2": "Simple filter search",
+            "feature2": "Filter search",
             "feature3": "Priority support"
         },
         "pro": {
             "current_plan": "Current subscription",
             "title": "Pro",
-            "price": "€150.00",
+            "price": "€100.00",
             "period": "per month",
-            "button": "Selected",
-            "credits": "{credits} credits",
+            "button": "Select",
+            "credits": "{credits} contacts",
             "feature1": "Database access",
             "feature2": "Advanced search filters",
             "feature3": "Priority support"
         },
         "elite": {
             "title": "Elite",
-            "price": "€250.00",
+            "price": "€150.00",
             "period": "per month",
             "button": "Select",
-            "credits": "{credits} credits",
+            "credits": "{credits} contacts",
             "feature1": "Database access",
             "feature2": "Advanced search filters",
             "feature3": "24/7 Priority support"
         },
-        "point_system": {
-            "new_video_new_contact": "5 points: new video, new contact",
-            "new_video_old_contact": "3 points: new video, old contact",
-            "already_viewed": "0 points: already viewed"
+        "pack5": {
+            "title": "Pack 5",
+            "price": "€39.00",
+            "period": "one-time",
+            "credits": "{credits} contacts",
+            "button": "Buy"
+        },
+        "pack10": {
+            "title": "Pack 10",
+            "price": "€69.00",
+            "period": "one-time",
+            "credits": "{credits} contacts",
+            "button": "Buy"
+        },
+        "credit_model": {
+            "title": "How does it work?",
+            "click_equals_credit": "1 click = 1 credit = 1 contact",
+            "description": "Each time you click to access a player's contact details, 1 credit is deducted from your account."
         }
     },
     "footer": {
@@ -1422,27 +1441,27 @@
         }
     },
     "features": {
-        "title": "Powerful Features",
-        "subtitle": "Everything you need for effective recruitment.",
+        "title": "Save time, recruit better",
+        "subtitle": "Everything you need to make better recruitment decisions.",
         "free": {
-            "title": "Free Full Access",
-            "description": "Browse all profiles, watch videos, use advanced filters - completely free. You only pay when you request contact details."
+            "title": "Full Free Access",
+            "description": "Browse all profiles, watch videos, use advanced filters at no cost. You only pay to contact a player."
         },
         "database": {
-            "title": "Complete Database",
-            "description": "Access thousands of verified talent profiles."
+            "title": "Verified Talent",
+            "description": "Every profile is reviewed by experts. No more unusable videos or fake profiles."
         },
         "filters": {
-            "title": "Advanced Search Filters",
-            "description": "Precisely target profiles by sport, age, and skills."
+            "title": "Find the Right Profile in a Few Clicks",
+            "description": "Filter by sport, age, country and skills to target exactly the talent you're looking for."
         },
         "contact": {
-            "title": "Direct and Secure Contact",
-            "description": "Communicate directly with athletes or their agents."
+            "title": "Contact the Player Directly",
+            "description": "Access verified contact details of athletes or their agents in one click."
         },
         "analysis": {
-            "title": "Video Analysis",
-            "description": "Watch and analyze the performances of talents."
+            "title": "Structured Videos, Not Noise",
+            "description": "Watch quality, organized and relevant videos. No more sorting through hours of content."
         }
     }
 }

@@ -1,7 +1,7 @@
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { APP_INITIALIZER, ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withHashLocation } from '@angular/router';
 import Aura from '@primeng/themes/aura';
 import { providePrimeNG } from 'primeng/config';
 import { MessageService, ConfirmationService } from 'primeng/api';
@@ -11,9 +11,11 @@ import { UserService } from './app/core/services/user.service';
 import { TranslationService } from './app/core/services/translation.service';
 import { environment } from './environments/environment';
 import { authInterceptor } from './app/core/interceptors/auth.interceptor';
+import { Capacitor } from '@capacitor/core';
 
 function initializeKeycloak(keycloak: KeycloakService, userService: UserService) {
     return async () => {
+        const isNative = Capacitor.isNativePlatform();
         try {
             const authenticated = await keycloak.init({
                 config: {
@@ -22,10 +24,10 @@ function initializeKeycloak(keycloak: KeycloakService, userService: UserService)
                     clientId: environment.keycloakclientId,
                 },
                 initOptions: {
-                    onLoad: 'check-sso',
-                    silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html',
-                    checkLoginIframe: true,
-                    checkLoginIframeInterval: 30, // Check session every 30 seconds
+                    onLoad: isNative ? undefined : 'check-sso',
+                    silentCheckSsoRedirectUri: isNative ? undefined : window.location.origin + '/assets/silent-check-sso.html',
+                    checkLoginIframe: !isNative,
+                    checkLoginIframeInterval: 30,
                 },
                 // This determines when to add the token to requests
                 shouldAddToken: (request) => {
@@ -92,7 +94,7 @@ export const appConfig: ApplicationConfig = {
             deps: [TranslationService],
         },
         provideZoneChangeDetection({ eventCoalescing: true }),
-        provideRouter(appRoutes),
+        provideRouter(appRoutes, withHashLocation()),
         provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
         provideAnimationsAsync(),
         providePrimeNG({

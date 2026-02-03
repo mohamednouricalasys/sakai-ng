@@ -4,25 +4,35 @@
     style="background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, rgb(238, 239, 175) 0%, rgb(195, 227, 250) 100%); clip-path: ellipse(150% 87% at 93% 13%)"
 >
     <div class="mx-6 md:mx-20 mt-0 md:mt-6">
-        <!-- FREE Badge -->
+        <!-- Badge with explicit personas -->
         <div class="free-badge-container mb-4">
             <span class="free-badge">{{ 'landing.hero.freeBadge' | translate }}</span>
             <span class="free-text ml-3 text-lg font-semibold text-green-700">{{ 'landing.hero.freeForProfessionals' | translate }}</span>
         </div>
 
-        <h1 class="text-6xl font-bold text-gray-900 leading-tight dark:!text-gray-700">
-            <span class="font-light block">{{ 'landing.hero.title' | translate }}</span>
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight dark:!text-gray-700">
+            {{ 'landing.hero.title' | translate }}
         </h1>
         <p class="font-normal text-2xl leading-normal md:mt-4 text-gray-700 dark:text-gray-700">
             {{ 'landing.hero.subtitle' | translate }}
+        </p>
+        <p class="font-semibold text-xl leading-normal mt-3 text-primary">
+            {{ 'landing.hero.tagline' | translate }}
         </p>
 
         <!-- CTA Section -->
         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8">
             <button pButton pRipple [rounded]="true" type="button" [label]="'landing.hero.button' | translate" class="text-xl! px-6! py-3! cta-button" (click)="register()"></button>
+        </div>
+        <!-- Business model reassurance -->
+        <div class="flex flex-col gap-2 mt-4">
             <span class="text-sm text-gray-600 dark:text-gray-600 flex items-center">
                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
                 {{ 'landing.hero.freeHighlight' | translate }}
+            </span>
+            <span class="text-sm text-gray-600 dark:text-gray-600 flex items-center">
+                <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                {{ 'landing.hero.payOnlyContact' | translate }}
             </span>
         </div>
     </div>

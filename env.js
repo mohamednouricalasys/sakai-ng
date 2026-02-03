@@ -4,10 +4,10 @@
 window.env = {
     // Add your environment variables here
     NODE_ENV: 'development',
-    API_URL: 'http://localhost:5000',
-    KEYCLOAK_URL: 'http://localhost:8080',
-    KEYCLOAK_REALM: 'caviarscout',
-    KEYCLOAK_CLIENT_ID: 'caviarscout-web',
+    API_URL: 'https://api.caviascout.com',
+    KEYCLOAK_URL: 'https://auth.caviascout.com',
+    KEYCLOAK_REALM: 'prodigy',
+    KEYCLOAK_CLIENT_ID: 'app-client',
 };
 
 // Development helper

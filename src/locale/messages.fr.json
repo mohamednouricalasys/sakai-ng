@@ -73,12 +73,14 @@
         "features": "Fonctionnalités",
         "pricing": "Tarification",
         "hero": {
-            "title": "Découvrez les Stars Sportives de Demain",
-            "subtitle": "La plateforme professionnelle pour découvrir et évaluer les futurs prodiges sportifs grâce à l'analyse vidéo et des outils de recrutement avancés.",
-            "button": "Rejoindre Gratuitement",
-            "freeBadge": "100% GRATUIT",
-            "freeForProfessionals": "Accès complet gratuit pour les professionnels",
-            "freeHighlight": "Payez uniquement pour obtenir les coordonnées"
+            "title": "Repérez les meilleurs talents avant les autres.",
+            "subtitle": "CAVIAR SCOUT accompagne recruteurs, agents et clubs dans l’identification, l’analyse et la comparaison de jeunes talents grâce à des vidéos structurées et des données fiables.",
+            "tagline": "Analysez moins. Décidez mieux. Recrutez plus vite.",
+            "button": "Accéder aux talents",
+            "freeBadge": "ACCÈS GRATUIT",
+            "freeForProfessionals": "Pour recruteurs, agents et clubs",
+            "freeHighlight": "Parcourez tous les profils et vidéos sans frais",
+            "payOnlyContact": "Paiement uniquement pour contacter un joueur"
         },
         "valueProposition": {
             "title": "Pourquoi les Professionnels Nous Choisissent",
@@ -102,43 +104,60 @@
         "register": "Inscription"
     },
     "pricing": {
-        "title": "Choisissez Votre Plan",
-        "subtitle": "Des tarifs flexibles pour chaque besoin de recrutement.",
+        "title": "Choisissez Votre Formule",
+        "subtitle": "1 contact = 1 crédit. Simple, transparent.",
+        "happy_hour": "Happy Hour : Toutes les fonctionnalités sont actuellement GRATUITES, y compris les contacts, pendant la phase de lancement de l'application !",
+        "section_subscriptions": "Abonnements mensuels",
+        "section_packs": "Packs de crédits",
         "starter": {
             "title": "Starter",
-            "price": "50,00 €",
+            "price": "25,00 €",
             "period": "par mois",
             "button": "Sélectionner",
-            "credits": "{credits} crédits",
+            "credits": "{credits} contacts",
             "feature1": "Accès à la base de données",
-            "feature2": "Recherche par filtres simples",
+            "feature2": "Recherche par filtres",
             "feature3": "Support prioritaire"
         },
         "pro": {
             "current_plan": "Abonnement actuel",
             "title": "Pro",
-            "price": "150,00 €",
+            "price": "100,00 €",
             "period": "par mois",
-            "button": "Sélectionnée",
-            "credits": "{credits} crédits",
+            "button": "Sélectionner",
+            "credits": "{credits} contacts",
             "feature1": "Accès à la base de données",
             "feature2": "Filtres de recherche avancés",
             "feature3": "Support prioritaire"
         },
         "elite": {
             "title": "Elite",
-            "price": "250,00 €",
+            "price": "150,00 €",
             "period": "par mois",
             "button": "Sélectionner",
-            "credits": "{credits} crédits",
+            "credits": "{credits} contacts",
             "feature1": "Accès à la base de données",
             "feature2": "Filtres de recherche avancés",
             "feature3": "Support prioritaire 24/7"
         },
-        "point_system": {
-            "new_video_new_contact": "5 points : nouveau vidéo, nouveau contact",
-            "new_video_old_contact": "3 points : nouveau vidéo, ancien contact",
-            "already_viewed": "0 points : déjà vue"
+        "pack5": {
+            "title": "Pack 5",
+            "price": "39,00 €",
+            "period": "unique",
+            "credits": "{credits} contacts",
+            "button": "Acheter"
+        },
+        "pack10": {
+            "title": "Pack 10",
+            "price": "69,00 €",
+            "period": "unique",
+            "credits": "{credits} contacts",
+            "button": "Acheter"
+        },
+        "credit_model": {
+            "title": "Comment ça marche ?",
+            "click_equals_credit": "1 clic = 1 crédit = 1 contact",
+            "description": "Chaque fois que vous cliquez pour accéder aux coordonnées d'un joueur, 1 crédit est déduit de votre compte."
         }
     },
     "footer": {
@@ -1420,27 +1439,27 @@
         }
     },
     "features": {
-        "title": "Des Fonctionnalités Puissantes",
-        "subtitle": "Tout ce dont vous avez besoin pour un recrutement efficace.",
+        "title": "Gagnez du temps, recrutez mieux",
+        "subtitle": "Tout ce dont vous avez besoin pour prendre de meilleures décisions de recrutement.",
         "free": {
             "title": "Accès Complet Gratuit",
-            "description": "Parcourez tous les profils, visionnez les vidéos, utilisez les filtres avancés - totalement gratuit. Vous ne payez que pour obtenir les coordonnées."
+            "description": "Parcourez tous les profils, visionnez les vidéos, utilisez les filtres avancés sans rien payer. Vous ne payez que pour contacter un joueur."
         },
         "database": {
-            "title": "Base de Données Complète",
-            "description": "Accédez à des milliers de profils de talents vérifiés."
+            "title": "Des Talents Vérifiés",
+            "description": "Chaque profil est examiné par des experts. Fini les vidéos inutilisables et les faux profils."
         },
         "filters": {
-            "title": "Filtres de Recherche Avancés",
-            "description": "Ciblez précisément les profils par sport, âge, et compétences."
+            "title": "Trouvez le Bon Profil en Quelques Clics",
+            "description": "Filtrez par sport, âge, pays et compétences pour cibler exactement le talent que vous cherchez."
         },
         "contact": {
-            "title": "Contact Direct et Sécurisé",
-            "description": "Échangez directement avec les athlètes ou leurs agents."
+            "title": "Contactez Directement le Joueur",
+            "description": "Accédez aux coordonnées vérifiées des athlètes ou de leurs agents en un clic."
         },
         "analysis": {
-            "title": "Analyse Vidéo",
-            "description": "Visionnez et analysez les performances des talents."
+            "title": "Des Vidéos Structurées, Pas du Bruit",
+            "description": "Visionnez des vidéos de qualité, organisées et pertinentes. Plus besoin de trier des heures de contenu."
         }
     }
 }

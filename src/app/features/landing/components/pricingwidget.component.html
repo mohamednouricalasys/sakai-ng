@@ -1,15 +1,37 @@
 <div id="pricing" class="py-6 px-6 lg:px-20 my-2 md:my-6">
-    <div class="text-center mb-20">
+    <div class="text-center mb-6">
         <div class="text-surface-900 dark:text-surface-0 font-normal mb-2 text-4xl">{{ 'pricing.title' | translate }}</div>
         <span class="text-muted-color text-2xl">{{ 'pricing.subtitle' | translate }}</span>
     </div>
 
-    <div class="grid grid-cols-12 gap-4 justify-between mt-20 md:mt-0">
+    <!-- Happy Hour Banner -->
+    <div class="flex items-center justify-center mb-8">
+        <div class="happy-hour-banner border-2 border-green-500 text-green-800 dark:text-green-200 px-8 py-6 text-center text-2xl font-bold" style="border-radius: 14px; max-width: 800px; width: 100%">
+            <i class="pi pi-gift text-3xl mr-3"></i>
+            {{ 'pricing.happy_hour' | translate }}
+        </div>
+    </div>
+
+    <!-- Credit Model Explanation -->
+    <div class="flex items-center justify-center mb-10">
+        <div class="bg-blue-50 dark:bg-blue-900/30 border border-blue-300 dark:border-blue-700 px-6 py-4 text-center" style="border-radius: 10px; max-width: 600px; width: 100%">
+            <div class="text-surface-900 dark:text-surface-0 text-2xl font-bold mb-2">{{ 'pricing.credit_model.click_equals_credit' | translate }}</div>
+            <div class="text-muted-color text-lg">{{ 'pricing.credit_model.description' | translate }}</div>
+        </div>
+    </div>
+
+    <!-- Subscriptions Section -->
+    <div class="pricing-section-dimmed">
+    <div class="text-center mb-6">
+        <div class="text-surface-900 dark:text-surface-0 font-semibold text-2xl">{{ 'pricing.section_subscriptions' | translate }}</div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-4 justify-between mt-6 md:mt-0">
         <!-- Starter Plan -->
         <div class="col-span-12 lg:col-span-4 p-0 md:p-4">
             <div class="p-4 flex flex-col border-surface-200 dark:border-surface-600 pricing-card cursor-pointer border-2 hover:border-primary duration-300 transition-all" style="border-radius: 10px">
                 <div class="text-surface-900 dark:text-surface-0 text-center my-8 text-3xl font-semibold">{{ 'pricing.starter.title' | translate }}</div>
-                <img src="https://primefaces.org/cdn/templates/sakai/landing/free.svg" class="w-10/12 mx-auto" alt="free" />
+                <img src="https://primefaces.org/cdn/templates/sakai/landing/free.svg" class="w-10/12 mx-auto" alt="starter" />
                 <div class="my-8 flex flex-col items-center gap-4">
                     <div class="flex items-center">
                         <span class="text-5xl font-bold mr-2 text-surface-900 dark:text-surface-0">{{ 'pricing.starter.price' | translate }}</span>
@@ -20,20 +42,16 @@
                 <p-divider class="w-full bg-surface-200"></p-divider>
                 <ul class="my-8 list-none p-0 flex text-surface-900 dark:text-surface-0 flex-col px-8">
                     <li class="py-2">
-                        <i class="pi pi-fw pi-star-fill text-xl text-yellow-500 mr-2"></i>
-                        <span class="text-xl leading-normal font-bold">{{ 'pricing.starter.credits' | translate: { credits: 25 } }}</span>
+                        <i class="pi pi-fw pi-users text-xl text-cyan-500 mr-2"></i>
+                        <span class="text-xl leading-normal font-bold">{{ 'pricing.starter.credits' | translate: { credits: 5 } }}</span>
                     </li>
                     <li class="py-2">
                         <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                        <span class="text-xl leading-normal">{{ 'pricing.point_system.new_video_new_contact' | translate }}</span>
+                        <span class="text-xl leading-normal">{{ 'pricing.starter.feature1' | translate }}</span>
                     </li>
                     <li class="py-2">
                         <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                        <span class="text-xl leading-normal">{{ 'pricing.point_system.new_video_old_contact' | translate }}</span>
-                    </li>
-                    <li class="py-2">
-                        <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                        <span class="text-xl leading-normal">{{ 'pricing.point_system.already_viewed' | translate }}</span>
+                        <span class="text-xl leading-normal">{{ 'pricing.starter.feature2' | translate }}</span>
                     </li>
                     <li class="py-2">
                         <i class="pi pi-fw pi-times text-xl text-red-500 mr-2"></i>
@@ -47,7 +65,7 @@
         <div class="col-span-12 lg:col-span-4 p-0 md:p-4 mt-6 md:mt-0">
             <div class="p-4 flex flex-col border-surface-200 dark:border-surface-600 pricing-card cursor-pointer border-2 hover:border-primary duration-300 transition-all" style="border-radius: 10px">
                 <div class="text-surface-900 dark:text-surface-0 text-center my-8 text-3xl font-semibold">{{ 'pricing.pro.title' | translate }}</div>
-                <img src="https://primefaces.org/cdn/templates/sakai/landing/startup.svg" class="w-10/12 mx-auto" alt="enterprise" />
+                <img src="https://primefaces.org/cdn/templates/sakai/landing/startup.svg" class="w-10/12 mx-auto" alt="pro" />
                 <div class="my-8 flex flex-col items-center gap-4">
                     <div class="flex items-center">
                         <span class="text-5xl font-bold mr-2 text-surface-900 dark:text-surface-0">{{ 'pricing.pro.price' | translate }}</span>
@@ -58,20 +76,16 @@
                 <p-divider class="w-full bg-surface-200"></p-divider>
                 <ul class="my-8 list-none p-0 flex text-surface-900 dark:text-surface-0 flex-col px-8">
                     <li class="py-2">
-                        <i class="pi pi-fw pi-star-fill text-xl text-yellow-500 mr-2"></i>
-                        <span class="text-xl leading-normal font-bold">{{ 'pricing.pro.credits' | translate: { credits: 150 } }}</span>
+                        <i class="pi pi-fw pi-users text-xl text-cyan-500 mr-2"></i>
+                        <span class="text-xl leading-normal font-bold">{{ 'pricing.pro.credits' | translate: { credits: 40 } }}</span>
                     </li>
                     <li class="py-2">
                         <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                        <span class="text-xl leading-normal">{{ 'pricing.point_system.new_video_new_contact' | translate }}</span>
+                        <span class="text-xl leading-normal">{{ 'pricing.pro.feature1' | translate }}</span>
                     </li>
                     <li class="py-2">
                         <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                        <span class="text-xl leading-normal">{{ 'pricing.point_system.new_video_old_contact' | translate }}</span>
-                    </li>
-                    <li class="py-2">
-                        <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                        <span class="text-xl leading-normal">{{ 'pricing.point_system.already_viewed' | translate }}</span>
+                        <span class="text-xl leading-normal">{{ 'pricing.pro.feature2' | translate }}</span>
                     </li>
                     <li class="py-2">
                         <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
@@ -85,7 +99,7 @@
         <div class="col-span-12 lg:col-span-4 p-0 md:p-4 mt-6 md:mt-0">
             <div class="p-4 flex flex-col border-surface-200 dark:border-surface-600 pricing-card cursor-pointer border-2 hover:border-primary duration-300 transition-all" style="border-radius: 10px">
                 <div class="text-surface-900 dark:text-surface-0 text-center my-8 text-3xl font-semibold">{{ 'pricing.elite.title' | translate }}</div>
-                <img src="https://primefaces.org/cdn/templates/sakai/landing/enterprise.svg" class="w-10/12 mx-auto" alt="enterprise" />
+                <img src="https://primefaces.org/cdn/templates/sakai/landing/enterprise.svg" class="w-10/12 mx-auto" alt="elite" />
                 <div class="my-8 flex flex-col items-center gap-4">
                     <div class="flex items-center">
                         <span class="text-5xl font-bold mr-2 text-surface-900 dark:text-surface-0">{{ 'pricing.elite.price' | translate }}</span>
@@ -96,20 +110,16 @@
                 <p-divider class="w-full bg-surface-200"></p-divider>
                 <ul class="my-8 list-none p-0 flex text-surface-900 dark:text-surface-0 flex-col px-8">
                     <li class="py-2">
-                        <i class="pi pi-fw pi-star-fill text-xl text-yellow-500 mr-2"></i>
-                        <span class="text-xl leading-normal font-bold">{{ 'pricing.elite.credits' | translate: { credits: 500 } }}</span>
+                        <i class="pi pi-fw pi-users text-xl text-cyan-500 mr-2"></i>
+                        <span class="text-xl leading-normal font-bold">{{ 'pricing.elite.credits' | translate: { credits: 100 } }}</span>
                     </li>
                     <li class="py-2">
                         <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                        <span class="text-xl leading-normal">{{ 'pricing.point_system.new_video_new_contact' | translate }}</span>
+                        <span class="text-xl leading-normal">{{ 'pricing.elite.feature1' | translate }}</span>
                     </li>
                     <li class="py-2">
                         <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                        <span class="text-xl leading-normal">{{ 'pricing.point_system.new_video_old_contact' | translate }}</span>
-                    </li>
-                    <li class="py-2">
-                        <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                        <span class="text-xl leading-normal">{{ 'pricing.point_system.already_viewed' | translate }}</span>
+                        <span class="text-xl leading-normal">{{ 'pricing.elite.feature2' | translate }}</span>
                     </li>
                     <li class="py-2">
                         <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
@@ -118,5 +128,57 @@
                 </ul>
             </div>
         </div>
+    </div>
+    </div>
+
+    <!-- Credit Packs Section -->
+    <div class="pricing-section-dimmed">
+    <div class="text-center mt-16 mb-6">
+        <div class="text-surface-900 dark:text-surface-0 font-semibold text-2xl">{{ 'pricing.section_packs' | translate }}</div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-4 justify-center mt-6 md:mt-0">
+        <!-- Pack 5 -->
+        <div class="col-span-12 lg:col-span-4 lg:col-start-3 p-0 md:p-4">
+            <div class="p-4 flex flex-col border-surface-200 dark:border-surface-600 pricing-card cursor-pointer border-2 hover:border-primary duration-300 transition-all" style="border-radius: 10px">
+                <div class="text-surface-900 dark:text-surface-0 text-center my-8 text-3xl font-semibold">{{ 'pricing.pack5.title' | translate }}</div>
+                <div class="my-8 flex flex-col items-center gap-4">
+                    <div class="flex items-center">
+                        <span class="text-5xl font-bold mr-2 text-surface-900 dark:text-surface-0">{{ 'pricing.pack5.price' | translate }}</span>
+                        <span class="text-surface-600 dark:text-surface-200">{{ 'pricing.pack5.period' | translate }}</span>
+                    </div>
+                    <button pButton pRipple [label]="'auth.register' | translate" (click)="register()" class="p-button-rounded border-0 ml-4 font-light leading-tight bg-blue-500 text-white"></button>
+                </div>
+                <p-divider class="w-full bg-surface-200"></p-divider>
+                <ul class="my-8 list-none p-0 flex text-surface-900 dark:text-surface-0 flex-col px-8">
+                    <li class="py-2">
+                        <i class="pi pi-fw pi-users text-xl text-cyan-500 mr-2"></i>
+                        <span class="text-xl leading-normal font-bold">{{ 'pricing.pack5.credits' | translate: { credits: 5 } }}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Pack 10 -->
+        <div class="col-span-12 lg:col-span-4 p-0 md:p-4 mt-6 md:mt-0">
+            <div class="p-4 flex flex-col border-surface-200 dark:border-surface-600 pricing-card cursor-pointer border-2 hover:border-primary duration-300 transition-all" style="border-radius: 10px">
+                <div class="text-surface-900 dark:text-surface-0 text-center my-8 text-3xl font-semibold">{{ 'pricing.pack10.title' | translate }}</div>
+                <div class="my-8 flex flex-col items-center gap-4">
+                    <div class="flex items-center">
+                        <span class="text-5xl font-bold mr-2 text-surface-900 dark:text-surface-0">{{ 'pricing.pack10.price' | translate }}</span>
+                        <span class="text-surface-600 dark:text-surface-200">{{ 'pricing.pack10.period' | translate }}</span>
+                    </div>
+                    <button pButton pRipple [label]="'auth.register' | translate" (click)="register()" [outlined]="true" class="p-button-rounded ml-4 font-light leading-tight"></button>
+                </div>
+                <p-divider class="w-full bg-surface-200"></p-divider>
+                <ul class="my-8 list-none p-0 flex text-surface-900 dark:text-surface-0 flex-col px-8">
+                    <li class="py-2">
+                        <i class="pi pi-fw pi-users text-xl text-cyan-500 mr-2"></i>
+                        <span class="text-xl leading-normal font-bold">{{ 'pricing.pack10.credits' | translate: { credits: 10 } }}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     </div>
 </div>

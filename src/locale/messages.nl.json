@@ -1,1491 +1,1509 @@
 {
-  "nav": {
-    "profesional": "Sport beroep",
-    "gallery": "Galerij",
-    "myProdigies": "Mijn wonderkinderen",
-    "myVideos": "Mijn video's",
-    "moderation": "Matiging",
-    "subscription": "Abonnement"
-  },
-  "shared": {
-    "actions": {
-      "new": "Nieuw",
-      "delete": "VERWIJDEREN",
-      "export": "Exporteren",
-      "edit": "Wijzigen",
-      "save": "Om te beschermen",
-      "cancel": "Annuleren",
-      "search": "Om te onderzoeken...",
-      "add": "Toevoegen",
-      "confirm": "Bevestigen",
-      "approve": "Goedkeuren",
-      "desapprove": "Afkeuren",
-      "reject": "Afwijzen",
-      "close": "Dichtbij"
+    "nav": {
+        "profesional": "Sport beroep",
+        "gallery": "Galerij",
+        "myProdigies": "Mijn wonderkinderen",
+        "myVideos": "Mijn video's",
+        "moderation": "Matiging",
+        "subscription": "Abonnement"
     },
-    "common": {
-      "title": "Titel",
-      "url": "URL",
-      "or": "OF",
-      "select": "Selecteer",
-      "name": "Naam",
-      "age": "Leeftijd",
-      "description": "Beschrijving",
-      "actions": "Acties",
-      "creationDate": "Datum van creatie",
-      "tags": "Labels",
-      "required": "*",
-      "years": "jaar",
-      "success": "Succes",
-      "error": "Fout",
-      "warning": "Waarschuwing",
-      "confirmation": "Bevestiging",
-      "male": "Man",
-      "female": "Vrouwen",
-      "processing": "Behandeling aan de gang...",
-      "loading": "Laden...",
-      "saving": "Besparing..."
+    "shared": {
+        "actions": {
+            "new": "Nieuw",
+            "delete": "VERWIJDEREN",
+            "export": "Exporteren",
+            "edit": "Wijzigen",
+            "save": "Om te beschermen",
+            "cancel": "Annuleren",
+            "search": "Om te onderzoeken...",
+            "add": "Toevoegen",
+            "confirm": "Bevestigen",
+            "approve": "Goedkeuren",
+            "desapprove": "Afkeuren",
+            "reject": "Afwijzen",
+            "close": "Dichtbij"
+        },
+        "common": {
+            "title": "Titel",
+            "url": "URL",
+            "or": "OF",
+            "select": "Selecteer",
+            "name": "Naam",
+            "age": "Leeftijd",
+            "description": "Beschrijving",
+            "actions": "Acties",
+            "creationDate": "Datum van creatie",
+            "tags": "Labels",
+            "required": "*",
+            "years": "jaar",
+            "success": "Succes",
+            "error": "Fout",
+            "warning": "Waarschuwing",
+            "confirmation": "Bevestiging",
+            "male": "Man",
+            "female": "Vrouwen",
+            "processing": "Behandeling aan de gang...",
+            "loading": "Laden...",
+            "saving": "Besparing..."
+        },
+        "validation": {
+            "required": "VERPLICHT",
+            "nameRequired": "De naam is verplicht.",
+            "ageRequired": "Leeftijd is verplicht.",
+            "titleRequired": "Titel is vereist.",
+            "genderRequired": "Geslacht is vereist.",
+            "countryRequired": "Land is vereist."
+        },
+        "messages": {
+            "confirmDelete": "Weet je zeker dat je {item} wilt verwijderen?",
+            "confirmDeleteMultiple": "Weet u zeker dat u de geselecteerde elementen wilt verwijderen?",
+            "itemDeleted": "{item} verwijderd",
+            "itemsDeleted": "Elementen verwijderd",
+            "itemCreated": "{item} gemaakt",
+            "itemUpdated": "{item}-update",
+            "validationError": "Validatiefout",
+            "limitReached": "Limiet bereikt",
+            "dataLoadError": "Fout bij het laden van gegevens",
+            "saveError": "Fout bij opslaan",
+            "deleteError": "Fout bij verwijderen"
+        }
     },
-    "validation": {
-      "required": "VERPLICHT",
-      "nameRequired": "De naam is verplicht.",
-      "ageRequired": "Leeftijd is verplicht.",
-      "titleRequired": "Titel is vereist.",
-      "genderRequired": "Geslacht is vereist.",
-      "countryRequired": "Land is vereist."
+    "landing": {
+        "home": "Thuis",
+        "features": "Functies",
+        "pricing": "Prijzen",
+        "hero": {
+            "title": "Ontdek de beste talenten vóór iedereen.",
+            "subtitle": "CAVIAR SCOUT helpt recruiters, agenten en clubs om jong talent te identificeren, analyseren en vergelijken via gestructureerde video's en betrouwbare data.",
+            "tagline": "Minder analyseren. Beter beslissen. Sneller rekruteren.",
+            "button": "Talent ontdekken",
+            "freeBadge": "GRATIS TOEGANG",
+            "freeForProfessionals": "Voor recruiters, agenten en clubs",
+            "freeHighlight": "Bekijk alle profielen en video's zonder kosten",
+            "payOnlyContact": "Betaling alleen om een speler te contacteren"
+        },
+        "valueProposition": {
+            "title": "Waarom professionals voor ons kiezen",
+            "free": {
+                "title": "Volledig gratis voor professionals",
+                "description": "Geen verborgen kosten, geen abonnementskosten. ",
+                "badge": "VRIJ"
+            },
+            "access": {
+                "title": "Exclusieve toegang",
+                "description": "Kom rechtstreeks in contact met getalenteerde atleten en hun vertegenwoordigers."
+            },
+            "verified": {
+                "title": "Geverifieerde talentenpool",
+                "description": "Alle profielen worden vóór goedkeuring beoordeeld door experts."
+            }
+        }
     },
-    "messages": {
-      "confirmDelete": "Weet je zeker dat je {item} wilt verwijderen?",
-      "confirmDeleteMultiple": "Weet u zeker dat u de geselecteerde elementen wilt verwijderen?",
-      "itemDeleted": "{item} verwijderd",
-      "itemsDeleted": "Elementen verwijderd",
-      "itemCreated": "{item} gemaakt",
-      "itemUpdated": "{item}-update",
-      "validationError": "Validatiefout",
-      "limitReached": "Limiet bereikt",
-      "dataLoadError": "Fout bij het laden van gegevens",
-      "saveError": "Fout bij opslaan",
-      "deleteError": "Fout bij verwijderen"
-    }
-  },
-  "landing": {
-    "home": "Thuis",
-    "features": "Functies",
-    "pricing": "Prijzen",
-    "hero": {
-      "title": "Ontdek vandaag de sportsterren van morgen",
-      "subtitle": "Het professionele platform voor het ontdekken en evalueren van toekomstige atletische wonderkinderen door middel van videoanalyse en geavanceerde rekruteringstools.",
-      "button": "Word nu gratis lid",
-      "freeBadge": "100% GRATIS",
-      "freeForProfessionals": "Volledige toegang zonder kosten voor professionals",
-      "freeHighlight": "Betaal alleen als u contactgegevens opvraagt"
+    "auth": {
+        "login": "Login",
+        "register": "Register"
     },
-    "valueProposition": {
-      "title": "Waarom professionals voor ons kiezen",
-      "free": {
-        "title": "Volledig gratis voor professionals",
-        "description": "Geen verborgen kosten, geen abonnementskosten. ",
-        "badge": "VRIJ"
-      },
-      "access": {
-        "title": "Exclusieve toegang",
-        "description": "Kom rechtstreeks in contact met getalenteerde atleten en hun vertegenwoordigers."
-      },
-      "verified": {
-        "title": "Geverifieerde talentenpool",
-        "description": "Alle profielen worden vóór goedkeuring beoordeeld door experts."
-      }
-    }
-  },
-  "auth": {
-    "login": "Login",
-    "register": "Register"
-  },
-  "subscription": {
-    "loading": "Abonnementsgegevens laden...",
-    "activeSubscription": {
-      "title": "Actief abonnement",
-      "credits": "Tegoeden {count} / {max}",
-      "creditsLabel": "Kredieten",
-      "status": {
-        "active": "Actief"
-      },
-      "buttons": {
-        "manage": "Beheer abonnement",
-        "cancel": "Annuleer abonnement"
-      }
+    "subscription": {
+        "loading": "Abonnementsgegevens laden...",
+        "activeSubscription": {
+            "title": "Actief abonnement",
+            "credits": "Tegoeden {count} / {max}",
+            "creditsLabel": "Kredieten",
+            "status": {
+                "active": "Actief"
+            },
+            "buttons": {
+                "manage": "Beheer abonnement",
+                "cancel": "Annuleer abonnement"
+            }
+        },
+        "pricing": {
+            "title": "Kies uw abonnement",
+            "subtitle": "Ontgrendel premiumfuncties",
+            "description": "Selecteer het perfecte plan voor uw behoeften",
+            "loading": "Prijsopties laden..."
+        },
+        "plans": {
+            "basic": "Basisplan",
+            "premium": "Premium-abonnement",
+            "pro": "Professioneel abonnement",
+            "enterprise": "Enterprise-plan",
+            "default": "Abonnementsplan"
+        },
+        "messages": {
+            "loadError": "Kan abonnementsgegevens niet laden",
+            "pricingError": "Kan prijsopties niet laden",
+            "portalError": "Kan het klantenportaal niet openen",
+            "cancelSuccess": "Uw abonnement is succesvol opgezegd",
+            "cancelError": "Kan het abonnement niet opzeggen",
+            "cancelErrorGeneric": "Er is een fout opgetreden bij het opzeggen van uw abonnement"
+        },
+        "confirmations": {
+            "cancel": "Weet u zeker dat u uw abonnement wilt opzeggen? "
+        },
+        "maintenance": {
+            "title": "Abonnement Service Onderhoud",
+            "subtitle": "Onderhoud in uitvoering",
+            "description": "Onze abonnementsservice is momenteel in onderhoud. ",
+            "backButton": "Rug",
+            "contactButton": "Neem contact op met ondersteuning"
+        }
     },
     "pricing": {
-      "title": "Kies uw abonnement",
-      "subtitle": "Ontgrendel premiumfuncties",
-      "description": "Selecteer het perfecte plan voor uw behoeften",
-      "loading": "Prijsopties laden..."
+        "title": "Kies uw abonnement",
+        "subtitle": "1 contact = 1 credit. Eenvoudig, transparant.",
+        "happy_hour": "Happy Hour: Alle functies zijn momenteel GRATIS, inclusief contacten, tijdens de lancering van de app!",
+        "section_subscriptions": "Maandabonnementen",
+        "section_packs": "Credit pakketten",
+        "starter": {
+            "title": "Starter",
+            "price": "€ 25,00",
+            "period": "per maand",
+            "button": "Selecteer",
+            "credits": "{credits} contacts",
+            "feature1": "Databasetoegang",
+            "feature2": "Eenvoudig filterzoeken",
+            "feature3": "Prioritaire ondersteuning"
+        },
+        "pro": {
+            "title": "Pro",
+            "price": "€ 100,00",
+            "period": "per maand",
+            "button": "Gekozen",
+            "credits": "{credits} contacts",
+            "feature1": "Databasetoegang",
+            "feature2": "Geavanceerde zoekfilters",
+            "feature3": "Prioritaire ondersteuning"
+        },
+        "elite": {
+            "title": "Elite",
+            "price": "€ 150,00",
+            "period": "per maand",
+            "button": "Selecteer",
+            "credits": "{credits} contacts",
+            "feature1": "Databasetoegang",
+            "feature2": "Geavanceerde zoekfilters",
+            "feature3": "24/7 Prioritaire ondersteuning"
+        },
+        "pack5": {
+            "title": "Pack 5",
+            "price": "€ 39,00",
+            "period": "eenmalig",
+            "credits": "{credits} contacts",
+            "button": "Kopen"
+        },
+        "pack10": {
+            "title": "Pack 10",
+            "price": "€ 69,00",
+            "period": "eenmalig",
+            "credits": "{credits} contacts",
+            "button": "Kopen"
+        },
+        "credit_model": {
+            "title": "Hoe werkt het?",
+            "click_equals_credit": "1 klik = 1 credit = 1 contact",
+            "description": "Elke keer dat u klikt om de contactgegevens van een speler te bekijken, wordt 1 credit van uw account afgetrokken."
+        }
     },
-    "plans": {
-      "basic": "Basisplan",
-      "premium": "Premium-abonnement",
-      "pro": "Professioneel abonnement",
-      "enterprise": "Enterprise-plan",
-      "default": "Abonnementsplan"
+    "footer": {
+        "company": {
+            "description": "Uw innovatieve oplossing voor [dienst/product]",
+            "rights": "Alle rechten voorbehouden"
+        },
+        "links": {
+            "company": "Bedrijf",
+            "about": "Over",
+            "careers": "Carrières",
+            "press": "Druk op",
+            "legal": "Legaal",
+            "privacy": "Privacybeleid",
+            "terms": "Servicevoorwaarden",
+            "cookies": "Cookiebeleid",
+            "support": "Steun",
+            "contact": "Contact",
+            "faq": "Veelgestelde vragen",
+            "documentation": "Documentatie"
+        },
+        "newsletter": {
+            "title": "Blijf op de hoogte",
+            "description": "Ontvang het laatste nieuws en speciale aanbiedingen",
+            "placeholder": "Uw e-mailadres",
+            "subscribe": "Abonneren",
+            "success": "Bedankt! ",
+            "error": "Er is een fout opgetreden. "
+        },
+        "social": {
+            "follow": "Volg ons",
+            "facebook": "Facebook",
+            "twitter": "Twitteren",
+            "linkedin": "LinkedIn",
+            "instagram": "Instagram",
+            "youtube": "YouTube"
+        },
+        "contact": {
+            "title": "Neem contact met ons op",
+            "address": "Adres",
+            "phone": "Telefoon",
+            "email": "E-mail"
+        },
+        "backToTop": "Terug naar boven"
     },
-    "messages": {
-      "loadError": "Kan abonnementsgegevens niet laden",
-      "pricingError": "Kan prijsopties niet laden",
-      "portalError": "Kan het klantenportaal niet openen",
-      "cancelSuccess": "Uw abonnement is succesvol opgezegd",
-      "cancelError": "Kan het abonnement niet opzeggen",
-      "cancelErrorGeneric": "Er is een fout opgetreden bij het opzeggen van uw abonnement"
+    "videos": {
+        "contact": {
+            "button": "Neem contact op met de beheerder",
+            "dialog": {
+                "header": "Contactgegevens",
+                "unknownContact": "Onbekende contactpersoon",
+                "email": "E-mail",
+                "phone": "Telefoon",
+                "message": "Bericht",
+                "copyEmailTitle": "Klik om e-mail te kopiëren",
+                "copyPhoneTitle": "Klik om de telefoon te kopiëren",
+                "close": "Dichtbij"
+            }
+        },
+        "gallery": {
+            "title": "Videogalerij",
+            "subtitle": "Ontdek getalenteerde atleten van over de hele wereld"
+        },
+        "empty": {
+            "title": "Geen video's gevonden",
+            "description": "Probeer uw filters of zoektermen aan te passen om te vinden wat u zoekt."
+        },
+        "loading": {
+            "more": "Meer video's laden..."
+        },
+        "search": {
+            "placeholder": "Video's zoeken..."
+        },
+        "filter": {
+            "sport": "Filter op sport",
+            "tag": "Filter op tag",
+            "country": "Filter op land",
+            "allCountries": "Alle landen",
+            "clear": "Wis filters",
+            "allSports": "Alle sporten",
+            "allTags": "Alle labels",
+            "allGenders": "Alle geslachten",
+            "homme": "Mannelijk",
+            "femme": "Vrouwelijk",
+            "all": "Alle",
+            "newVideoNewContact": "Video's van nieuwe contacten",
+            "newVideoOldContact": "Video's van bestaande contacten",
+            "alreadyReadVideo": "Al bekeken",
+            "myVideos": "Mijn video's",
+            "contactStatus": "Contactstatus",
+            "selectContactStatus": "Selecteer een contactstatus",
+            "clearContactStatus": "Duidelijke statussen",
+            "active": "Actieve filters"
+        },
+        "messages": {
+            "loadError": "Kan video's niet laden. "
+        },
+        "insufficientCredits": {
+            "dialog": {
+                "header": "Onvoldoende kredieten",
+                "title": "Je hebt niet genoeg kredieten",
+                "message": "Om atleten te contacteren, heb je credits nodig. ",
+                "currentCredits": "Huidig ​​krediet: {count}",
+                "subscribeButton": "Ontvang meer kredieten",
+                "closeButton": "Dichtbij"
+            }
+        }
     },
-    "confirmations": {
-      "cancel": "Weet u zeker dat u uw abonnement wilt opzeggen? "
+    "admin": {
+        "video": {
+            "moderation": {
+                "title": "Videomoderatie",
+                "enAttente": "In de wacht",
+                "approuvee": "Goedgekeurd",
+                "rejete": "Afgewezen",
+                "unknown": "Onbekend",
+                "rejectedVideo": "Geweigerde video",
+                "approvedVideo": "Goedgekeurde video",
+                "warning": "⚠️Waarschuwing",
+                "autoDeleteWarning": "Afgewezen video's worden na 15 dagen automatisch verwijderd, tenzij ze worden bijgewerkt."
+            },
+            "title": "Videobeheer",
+            "totalVideos": "{{count}} Video('s) in totaal",
+            "prodige": "Wonderkind",
+            "dateCreation": "Datum van creatie",
+            "dateModeration": "Moderatiedatum",
+            "moderatedBy": "Matig door",
+            "moderationComment": {
+                "approve": {
+                    "placeholder": "Optioneel commentaar voor goedkeuring ..."
+                },
+                "reject": {
+                    "placeholder": "Leg de redenen voor de afwijzing uit (verplicht) ..."
+                }
+            },
+            "status": "Status",
+            "search": {
+                "placeholder": "Zoek op titel, wonderkind ..."
+            },
+            "filter": {
+                "status": "Statter op status",
+                "all": "Alle statuten"
+            },
+            "sort": {
+                "placeholder": "Sorteer op...",
+                "dateCreation": {
+                    "desc": "Recenter eerst",
+                    "asc": "Ouder eerst"
+                },
+                "title": {
+                    "asc": "Titel A-Z",
+                    "desc": "Z-A-A-titel"
+                },
+                "status": {
+                    "asc": "A-Z status",
+                    "desc": "Z-A-status"
+                }
+            },
+            "actions": {
+                "view": "Zien",
+                "approve": "Goedkeuren",
+                "desapprove": "Afkeuren",
+                "reject": "Afwijzen"
+            },
+            "empty": {
+                "title": "Geen video gevonden",
+                "description": "Er is momenteel geen video die voldoet aan uw onderzoekscriteria."
+            },
+            "detail": {
+                "title": "Videodetails",
+                "information": "Informatie",
+                "moderation": "Matiging"
+            },
+            "confirm": {
+                "approve": "Weet je zeker dat je de video wilt goedkeuren?'{{title}}\"",
+                "reject": "Weet je zeker dat je de video wilt afwijzen?'{{title}}\"",
+                "delete": "Weet je zeker dat je de video definitief wilt verwijderen?'{{title}}\"? Deze actie is onomkeerbaar."
+            },
+            "validation": {
+                "commentRequired": "Een commentaar waarin de redenen voor de afwijzing worden toegelicht, is verplicht."
+            },
+            "messages": {
+                "loadError": "Fout bij het laden van video's.",
+                "approved": "Video succesvol goedgekeurd.",
+                "rejected": "Succesvol filmpje.",
+                "deleted": "Video succesvol verwijderd.",
+                "moderationError": "Fout bij het modereren van de video.",
+                "deleteError": "Fout bij het verwijderen van de video."
+            }
+        }
     },
-    "maintenance": {
-      "title": "Abonnement Service Onderhoud",
-      "subtitle": "Onderhoud in uitvoering",
-      "description": "Onze abonnementsservice is momenteel in onderhoud. ",
-      "backButton": "Rug",
-      "contactButton": "Neem contact op met ondersteuning"
-    }
-  },
-  "pricing": {
-    "title": "Kies uw abonnement",
-    "subtitle": "Flexibele prijzen voor elke wervingsbehoefte.",
-    "starter": {
-      "title": "Starter",
-      "price": "€ 50,00",
-      "period": "per maand",
-      "button": "Selecteer",
-      "credits": "{credits} kredieten",
-      "feature1": "Databasetoegang",
-      "feature2": "Eenvoudig filterzoeken",
-      "feature3": "Prioritaire ondersteuning"
+    "procrud": {
+        "title": "Wonderbeheer",
+        "labels": {
+            "newProdige": "Nieuw wonderkind",
+            "editProdige": "Wonderkind bewerken",
+            "myProdigies": "Mijn wonderkinderen",
+            "manageProdigies": "Beheer uw wonderkinderen",
+            "totalProdigies": "Totale wonderkinderen",
+            "prodigeDetails": "Wonderkind-details",
+            "sport": "Sport",
+            "selectSport": "Selecteer een sport",
+            "addTag": "Voeg een label toe...",
+            "associatedVideos": "Bijbehorende video's",
+            "videoWithoutTitle": "Eenheidsvideo",
+            "videosCount": "Aantal video's"
+        },
+        "columns": {
+            "nom": "Naam",
+            "nomExport": "Naam wonderkind",
+            "age": "Leeftijd",
+            "sport": "Sport",
+            "videosCount": "Aantal video's",
+            "dateCreation": "Datum van creatie",
+            "gender": "Geslacht",
+            "genre": "Geslacht",
+            "country": "Land"
+        },
+        "pagination": {
+            "itemName": "wonderen",
+            "showing": "Weergave van {eerste} tot en met {laatste} op {TotalRecords} wonderkinderen"
+        },
+        "validation": {
+            "sportRequired": "Sporten is verplicht.",
+            "descriptionRequired": "Voor ‘andere’ sporten is de omschrijving verplicht.",
+            "minTagsRequired": "Minimaal 3 tags vereist.",
+            "maxTagsReached": "Maximaal 10 geautoriseerde tags",
+            "descriptionRequiredForOther": "Verplichte omschrijving voor sport 'anders'"
+        },
+        "placeholders": {
+            "name": "Voer de naam van het wonderkind in",
+            "selectCountry": "Selecteer een land",
+            "describeQualities": "Beschrijf de kwaliteiten en het potentieel van het wonderkind ..."
+        },
+        "tags": {
+            "minMaxInfo": "(min: 3, max: 10)",
+            "selectedCount": "{Count}/10 geselecteerde tags",
+            "selected": "tags geselecteerd",
+            "associatedVideosCount": "{Count} gekoppelde video('s)."
+        },
+        "messages": {
+            "prodigeCreated": "Wonderkind gemaakt",
+            "prodigeUpdated": "Update",
+            "prodigeDeleted": "Wonderkind verwijderd",
+            "prodigiesDeleted": "Wonderkinderen verwijderd",
+            "confirmDeleteProdige": "Weet u zeker dat u {name} wilt verwijderen?",
+            "confirmDeleteProdigies": "Weet je zeker dat je de geselecteerde wonderen wilt verwijderen?"
+        },
+        "sort": {
+            "label": "Sorteer op",
+            "name": {
+                "placeholder": "Sorteer op naam",
+                "down": "Naam ▼",
+                "up": "Naam ▲"
+            }
+        },
+        "empty": {
+            "title": "Nog geen wonderkinderen",
+            "description": "Creëer je eerste wonderkind om aan de slag te gaan"
+        }
     },
-    "pro": {
-      "current_plan": "Huidig ​​abonnement",
-      "title": "Pro",
-      "price": "€ 150,00",
-      "period": "per maand",
-      "button": "Gekozen",
-      "credits": "{credits} kredieten",
-      "feature1": "Databasetoegang",
-      "feature2": "Geavanceerde zoekfilters",
-      "feature3": "Prioritaire ondersteuning"
-    },
-    "elite": {
-      "title": "Elite",
-      "price": "€ 250,00",
-      "period": "per maand",
-      "button": "Selecteer",
-      "credits": "{credits} kredieten",
-      "feature1": "Databasetoegang",
-      "feature2": "Geavanceerde zoekfilters",
-      "feature3": "24/7 Prioritaire ondersteuning"
-    },
-    "point_system": {
-      "new_video_new_contact": "5 punten: nieuwe video, nieuw contact",
-      "new_video_old_contact": "3 punten: nieuwe video, oud contact",
-      "already_viewed": "0 punten: al bekeken"
-    }
-  },
-  "footer": {
-    "company": {
-      "description": "Uw innovatieve oplossing voor [dienst/product]",
-      "rights": "Alle rechten voorbehouden"
-    },
-    "links": {
-      "company": "Bedrijf",
-      "about": "Over",
-      "careers": "Carrières",
-      "press": "Druk op",
-      "legal": "Legaal",
-      "privacy": "Privacybeleid",
-      "terms": "Servicevoorwaarden",
-      "cookies": "Cookiebeleid",
-      "support": "Steun",
-      "contact": "Contact",
-      "faq": "Veelgestelde vragen",
-      "documentation": "Documentatie"
-    },
-    "newsletter": {
-      "title": "Blijf op de hoogte",
-      "description": "Ontvang het laatste nieuws en speciale aanbiedingen",
-      "placeholder": "Uw e-mailadres",
-      "subscribe": "Abonneren",
-      "success": "Bedankt! ",
-      "error": "Er is een fout opgetreden. "
-    },
-    "social": {
-      "follow": "Volg ons",
-      "facebook": "Facebook",
-      "twitter": "Twitteren",
-      "linkedin": "LinkedIn",
-      "instagram": "Instagram",
-      "youtube": "YouTube"
-    },
-    "contact": {
-      "title": "Neem contact met ons op",
-      "address": "Adres",
-      "phone": "Telefoon",
-      "email": "E-mail"
-    },
-    "backToTop": "Terug naar boven"
-  },
-  "videos": {
-    "contact": {
-      "button": "Neem contact op met de beheerder",
-      "dialog": {
-        "header": "Contactgegevens",
-        "unknownContact": "Onbekende contactpersoon",
-        "email": "E-mail",
-        "phone": "Telefoon",
-        "message": "Bericht",
-        "copyEmailTitle": "Klik om e-mail te kopiëren",
-        "copyPhoneTitle": "Klik om de telefoon te kopiëren",
-        "close": "Dichtbij"
-      }
-    },
-    "gallery": {
-      "title": "Videogalerij",
-      "subtitle": "Ontdek getalenteerde atleten van over de hele wereld"
-    },
-    "empty": {
-      "title": "Geen video's gevonden",
-      "description": "Probeer uw filters of zoektermen aan te passen om te vinden wat u zoekt."
-    },
-    "loading": {
-      "more": "Meer video's laden..."
-    },
-    "search": {
-      "placeholder": "Video's zoeken..."
-    },
-    "filter": {
-      "sport": "Filter op sport",
-      "tag": "Filter op tag",
-      "country": "Filter op land",
-      "allCountries": "Alle landen",
-      "clear": "Wis filters",
-      "allSports": "Alle sporten",
-      "allTags": "Alle labels",
-      "allGenders": "Alle geslachten",
-      "homme": "Mannelijk",
-      "femme": "Vrouwelijk",
-      "all": "Alle",
-      "newVideoNewContact": "Video's van nieuwe contacten",
-      "newVideoOldContact": "Video's van bestaande contacten",
-      "alreadyReadVideo": "Al bekeken",
-      "myVideos": "Mijn video's",
-      "contactStatus": "Contactstatus",
-      "selectContactStatus": "Selecteer een contactstatus",
-      "clearContactStatus": "Duidelijke statussen",
-      "active": "Actieve filters"
-    },
-    "messages": {
-      "loadError": "Kan video's niet laden. "
-    },
-    "insufficientCredits": {
-      "dialog": {
-        "header": "Onvoldoende kredieten",
-        "title": "Je hebt niet genoeg kredieten",
-        "message": "Om atleten te contacteren, heb je credits nodig. ",
-        "currentCredits": "Huidig ​​krediet: {count}",
-        "subscribeButton": "Ontvang meer kredieten",
-        "closeButton": "Dichtbij"
-      }
-    }
-  },
-  "admin": {
     "video": {
-      "moderation": {
-        "title": "Videomoderatie",
-        "enAttente": "In de wacht",
-        "approuvee": "Goedgekeurd",
-        "rejete": "Afgewezen",
-        "unknown": "Onbekend",
-        "rejectedVideo": "Geweigerde video",
-        "approvedVideo": "Goedgekeurde video",
-        "warning": "⚠️Waarschuwing",
-        "autoDeleteWarning": "Afgewezen video's worden na 15 dagen automatisch verwijderd, tenzij ze worden bijgewerkt."
-      },
-      "title": "Videobeheer",
-      "totalVideos": "{{count}} Video('s) in totaal",
-      "prodige": "Wonderkind",
-      "dateCreation": "Datum van creatie",
-      "dateModeration": "Moderatiedatum",
-      "moderatedBy": "Matig door",
-      "moderationComment": {
-        "approve": {
-          "placeholder": "Optioneel commentaar voor goedkeuring ..."
+        "labels": {
+            "newVideo": "Nieuwe video",
+            "editVideo": "Bewerk video",
+            "myVideos": "Mijn video's",
+            "manageYourVideos": "Beheer en upload uw atletenvideo's",
+            "prodige": "Wonderkind",
+            "selectProdige": "Selecteer een wonderkind",
+            "videoDetails": "Videodetails",
+            "videoFile": "Videobestand",
+            "manualUrl": "Video-URL (handmatig)",
+            "optional": "Optioneel",
+            "optionalForEdit": "optioneel voor bewerking",
+            "currentFile": "Huidig ​​bestand",
+            "noPreview": "Geen voorbeeld",
+            "noDescription": "Geen beschrijving",
+            "moderationStatus": "Moderatiestatus",
+            "moderationComment": "Moderatie commentaar",
+            "addFirstVideo": "Voeg je eerste video toe"
         },
-        "reject": {
-          "placeholder": "Leg de redenen voor de afwijzing uit (verplicht) ..."
+        "placeholders": {
+            "title": "Videotitel",
+            "description": "Videobeschrijving",
+            "videoUrl": "https://voorbeeld.com/video.mp4",
+            "selectStatus": "Selecteer een status",
+            "moderationComment": "Moderatie commentaar..."
+        },
+        "sort": {
+            "title": {
+                "label": "Soort",
+                "placeholder": "Sorteer op titel",
+                "down": "Titel Z-A",
+                "up": "Titel A-Z"
+            }
+        },
+        "empty": {
+            "title": "Geen video's",
+            "description": "Dit wonderkind heeft nog geen video's. ",
+            "selectProdige": "Selecteer een wonderkind om hun video's te bekijken"
+        },
+        "limits": {
+            "title": "Informatie over videolimiet",
+            "current": "Prodigy {prodigyName}: {current}/{max} gebruikte video's ({remaining} resterend)",
+            "reached": "Maximale limiet voor video's bereikt voor dit wonderkind.",
+            "slotsRemaining": "resterende slot(s).",
+            "usage": "Videogebruik"
+        },
+        "guidelines": {
+            "title": "Belangrijke richtlijnen - lees deze aandachtig door",
+            "expertReview": "Alle video's worden vóór goedkeuring door experts onderzocht",
+            "hideIdentity": "Professionele identiteit moet worden gemaskeerd (geen namen, logo's of identificatiegegevens)",
+            "athleteConsent": "De toestemming van de atleet moet worden verkregen en gedocumenteerd",
+            "prodigyOnly": "Alleen video's waarin wondertechnieken worden gedemonstreerd, zijn toegestaan",
+            "noPersonalInfo": "Er mag geen persoonlijke of vertrouwelijke informatie zichtbaar zijn"
+        },
+        "info": {
+            "uploadedFileUsed": "Het geüploade bestand wordt gebruikt in plaats van de handmatige URL",
+            "newFileWillReplace": "Het nieuwe bestand vervangt het bestaande"
+        },
+        "validation": {
+            "videoRequired": "Upload een videobestand of geef een video-URL op",
+            "descriptionRequired": "Beschrijving is vereist"
+        },
+        "messages": {
+            "downloadStarted": "Downloaden gelanceerd",
+            "downloadStartedDetail": "Downloaden \" {{title}} \" begon",
+            "downloadNotAvailable": "Downloaden is niet beschikbaar",
+            "moderationUpdated": "Moderatie is bijgewerkt",
+            "moderationError": "Fout bij het updaten van de moderatie",
+            "noProdigeSelected": "Selecteer eerst een wonderkind",
+            "titleAndVideoRequired": "De titel en de video zijn vereist",
+            "videoCreated": "Succesvol filmpje",
+            "videoUpdated": "Succesvolle updatevideo",
+            "videoDeleted": "Succesvol filmpje",
+            "confirmDeleteVideo": "Weet je zeker dat je de video '{title}' wilt verwijderen?",
+            "limitReached": "Videolimiet bereikt",
+            "limitReachedDetail": "Je hebt de maximale limiet van {maxVideos} video's bereikt voor het wonderkind {prodigyName}. ",
+            "selectProdigeFirst": "Selecteer eerst een wonderkind"
+        },
+        "actions": {
+            "create": {
+                "success": "Succesvol filmpje",
+                "error": "Fout bij het maken van video's"
+            },
+            "update": {
+                "success": "Succesvolle updatevideo",
+                "error": "Fout bij video-update"
+            },
+            "delete": {
+                "success": "Succesvol filmpje",
+                "error": "Kan video niet verwijderen"
+            },
+            "moderate": {
+                "success": "Succesvol filmpje",
+                "error": "Fout bij videomoderatie"
+            },
+            "report": {
+                "success": "Succesvol filmpje",
+                "error": "Fout bij videorapportage"
+            },
+            "upload": {
+                "success": "Succesvolle televisievideo",
+                "error": "Fout videometer"
+            }
+        },
+        "search": {
+            "noResults": "Geen video gevonden",
+            "placeholder": "Zoek een filmpje..."
+        },
+        "moderation": {
+            "enAttente": "In de wacht",
+            "approuvee": "Goedgekeurd",
+            "rejetee": "Afgewezen",
+            "rejectedVideo": "Geweigerde video",
+            "approvedVideo": "Goedgekeurde video",
+            "warning": "⚠️Waarschuwing",
+            "autoDeleteWarning": "Afgewezen video's worden na 15 dagen automatisch verwijderd, tenzij ze worden bijgewerkt."
         }
-      },
-      "status": "Status",
-      "search": {
-        "placeholder": "Zoek op titel, wonderkind ..."
-      },
-      "filter": {
-        "status": "Statter op status",
-        "all": "Alle statuten"
-      },
-      "sort": {
-        "placeholder": "Sorteer op...",
-        "dateCreation": {
-          "desc": "Recenter eerst",
-          "asc": "Ouder eerst"
-        },
-        "title": {
-          "asc": "Titel A-Z",
-          "desc": "Z-A-A-titel"
-        },
-        "status": {
-          "asc": "A-Z status",
-          "desc": "Z-A-status"
-        }
-      },
-      "actions": {
-        "view": "Zien",
-        "approve": "Goedkeuren",
-        "desapprove": "Afkeuren",
-        "reject": "Afwijzen"
-      },
-      "empty": {
-        "title": "Geen video gevonden",
-        "description": "Er is momenteel geen video die voldoet aan uw onderzoekscriteria."
-      },
-      "detail": {
-        "title": "Videodetails",
-        "information": "Informatie",
-        "moderation": "Matiging"
-      },
-      "confirm": {
-        "approve": "Weet je zeker dat je de video wilt goedkeuren?'{{title}}\"",
-        "reject": "Weet je zeker dat je de video wilt afwijzen?'{{title}}\"",
-        "delete": "Weet je zeker dat je de video definitief wilt verwijderen?'{{title}}\"? Deze actie is onomkeerbaar."
-      },
-      "validation": {
-        "commentRequired": "Een commentaar waarin de redenen voor de afwijzing worden toegelicht, is verplicht."
-      },
-      "messages": {
-        "loadError": "Fout bij het laden van video's.",
-        "approved": "Video succesvol goedgekeurd.",
-        "rejected": "Succesvol filmpje.",
-        "deleted": "Video succesvol verwijderd.",
-        "moderationError": "Fout bij het modereren van de video.",
-        "deleteError": "Fout bij het verwijderen van de video."
-      }
-    }
-  },
-  "procrud": {
-    "title": "Wonderbeheer",
-    "labels": {
-      "newProdige": "Nieuw wonderkind",
-      "editProdige": "Wonderkind bewerken",
-      "myProdigies": "Mijn wonderkinderen",
-      "manageProdigies": "Beheer uw wonderkinderen",
-      "totalProdigies": "Totale wonderkinderen",
-      "prodigeDetails": "Wonderkind-details",
-      "sport": "Sport",
-      "selectSport": "Selecteer een sport",
-      "addTag": "Voeg een label toe...",
-      "associatedVideos": "Bijbehorende video's",
-      "videoWithoutTitle": "Eenheidsvideo",
-      "videosCount": "Aantal video's"
-    },
-    "columns": {
-      "nom": "Naam",
-      "nomExport": "Naam wonderkind",
-      "age": "Leeftijd",
-      "sport": "Sport",
-      "videosCount": "Aantal video's",
-      "dateCreation": "Datum van creatie",
-      "gender": "Geslacht",
-      "genre": "Geslacht",
-      "country": "Land"
-    },
-    "pagination": {
-      "itemName": "wonderen",
-      "showing": "Weergave van {eerste} tot en met {laatste} op {TotalRecords} wonderkinderen"
-    },
-    "validation": {
-      "sportRequired": "Sporten is verplicht.",
-      "descriptionRequired": "Voor ‘andere’ sporten is de omschrijving verplicht.",
-      "minTagsRequired": "Minimaal 3 tags vereist.",
-      "maxTagsReached": "Maximaal 10 geautoriseerde tags",
-      "descriptionRequiredForOther": "Verplichte omschrijving voor sport 'anders'"
-    },
-    "placeholders": {
-      "name": "Voer de naam van het wonderkind in",
-      "selectCountry": "Selecteer een land",
-      "describeQualities": "Beschrijf de kwaliteiten en het potentieel van het wonderkind ..."
     },
     "tags": {
-      "minMaxInfo": "(min: 3, max: 10)",
-      "selectedCount": "{Count}/10 geselecteerde tags",
-      "selected": "tags geselecteerd",
-      "associatedVideosCount": "{Count} gekoppelde video('s)."
-    },
-    "messages": {
-      "prodigeCreated": "Wonderkind gemaakt",
-      "prodigeUpdated": "Update",
-      "prodigeDeleted": "Wonderkind verwijderd",
-      "prodigiesDeleted": "Wonderkinderen verwijderd",
-      "confirmDeleteProdige": "Weet u zeker dat u {name} wilt verwijderen?",
-      "confirmDeleteProdigies": "Weet je zeker dat je de geselecteerde wonderen wilt verwijderen?"
-    },
-    "sort": {
-      "label": "Sorteer op",
-      "name": {
-        "placeholder": "Sorteer op naam",
-        "down": "Naam ▼",
-        "up": "Naam ▲"
-      }
-    },
-    "empty": {
-      "title": "Nog geen wonderkinderen",
-      "description": "Creëer je eerste wonderkind om aan de slag te gaan"
-    }
-  },
-  "video": {
-    "labels": {
-      "newVideo": "Nieuwe video",
-      "editVideo": "Bewerk video",
-      "myVideos": "Mijn video's",
-      "manageYourVideos": "Beheer en upload uw atletenvideo's",
-      "prodige": "Wonderkind",
-      "selectProdige": "Selecteer een wonderkind",
-      "videoDetails": "Videodetails",
-      "videoFile": "Videobestand",
-      "manualUrl": "Video-URL (handmatig)",
-      "optional": "Optioneel",
-      "optionalForEdit": "optioneel voor bewerking",
-      "currentFile": "Huidig ​​bestand",
-      "noPreview": "Geen voorbeeld",
-      "noDescription": "Geen beschrijving",
-      "moderationStatus": "Moderatiestatus",
-      "moderationComment": "Moderatie commentaar",
-      "addFirstVideo": "Voeg je eerste video toe"
-    },
-    "placeholders": {
-      "title": "Videotitel",
-      "description": "Videobeschrijving",
-      "videoUrl": "https://voorbeeld.com/video.mp4",
-      "selectStatus": "Selecteer een status",
-      "moderationComment": "Moderatie commentaar..."
-    },
-    "sort": {
-      "title": {
-        "label": "Soort",
-        "placeholder": "Sorteer op titel",
-        "down": "Titel Z-A",
-        "up": "Titel A-Z"
-      }
-    },
-    "empty": {
-      "title": "Geen video's",
-      "description": "Dit wonderkind heeft nog geen video's. ",
-      "selectProdige": "Selecteer een wonderkind om hun video's te bekijken"
-    },
-    "limits": {
-      "title": "Informatie over videolimiet",
-      "current": "Prodigy {prodigyName}: {current}/{max} gebruikte video's ({remaining} resterend)",
-      "reached": "Maximale limiet voor video's bereikt voor dit wonderkind.",
-      "slotsRemaining": "resterende slot(s).",
-      "usage": "Videogebruik"
-    },
-    "guidelines": {
-      "title": "Belangrijke richtlijnen - lees deze aandachtig door",
-      "expertReview": "Alle video's worden vóór goedkeuring door experts onderzocht",
-      "hideIdentity": "Professionele identiteit moet worden gemaskeerd (geen namen, logo's of identificatiegegevens)",
-      "athleteConsent": "De toestemming van de atleet moet worden verkregen en gedocumenteerd",
-      "prodigyOnly": "Alleen video's waarin wondertechnieken worden gedemonstreerd, zijn toegestaan",
-      "noPersonalInfo": "Er mag geen persoonlijke of vertrouwelijke informatie zichtbaar zijn"
-    },
-    "info": {
-      "uploadedFileUsed": "Het geüploade bestand wordt gebruikt in plaats van de handmatige URL",
-      "newFileWillReplace": "Het nieuwe bestand vervangt het bestaande"
-    },
-    "validation": {
-      "videoRequired": "Upload een videobestand of geef een video-URL op",
-      "descriptionRequired": "Beschrijving is vereist"
-    },
-    "messages": {
-      "downloadStarted": "Downloaden gelanceerd",
-      "downloadStartedDetail": "Downloaden \" {{title}} \" begon",
-      "downloadNotAvailable": "Downloaden is niet beschikbaar",
-      "moderationUpdated": "Moderatie is bijgewerkt",
-      "moderationError": "Fout bij het updaten van de moderatie",
-      "noProdigeSelected": "Selecteer eerst een wonderkind",
-      "titleAndVideoRequired": "De titel en de video zijn vereist",
-      "videoCreated": "Succesvol filmpje",
-      "videoUpdated": "Succesvolle updatevideo",
-      "videoDeleted": "Succesvol filmpje",
-      "confirmDeleteVideo": "Weet je zeker dat je de video '{title}' wilt verwijderen?",
-      "limitReached": "Videolimiet bereikt",
-      "limitReachedDetail": "Je hebt de maximale limiet van {maxVideos} video's bereikt voor het wonderkind {prodigyName}. ",
-      "selectProdigeFirst": "Selecteer eerst een wonderkind"
-    },
-    "actions": {
-      "create": {
-        "success": "Succesvol filmpje",
-        "error": "Fout bij het maken van video's"
-      },
-      "update": {
-        "success": "Succesvolle updatevideo",
-        "error": "Fout bij video-update"
-      },
-      "delete": {
-        "success": "Succesvol filmpje",
-        "error": "Kan video niet verwijderen"
-      },
-      "moderate": {
-        "success": "Succesvol filmpje",
-        "error": "Fout bij videomoderatie"
-      },
-      "report": {
-        "success": "Succesvol filmpje",
-        "error": "Fout bij videorapportage"
-      },
-      "upload": {
-        "success": "Succesvolle televisievideo",
-        "error": "Fout videometer"
-      }
-    },
-    "search": {
-      "noResults": "Geen video gevonden",
-      "placeholder": "Zoek een filmpje..."
-    },
-    "moderation": {
-      "enAttente": "In de wacht",
-      "approuvee": "Goedgekeurd",
-      "rejetee": "Afgewezen",
-      "rejectedVideo": "Geweigerde video",
-      "approvedVideo": "Goedgekeurde video",
-      "warning": "⚠️Waarschuwing",
-      "autoDeleteWarning": "Afgewezen video's worden na 15 dagen automatisch verwijderd, tenzij ze worden bijgewerkt."
-    }
-  },
-  "tags": {
-    "physical": {
-      "vitesse": "Snelheid",
-      "endurance": "Uithoudingsvermogen",
-      "puissance": "Stroom",
-      "reflexes": "reflexen",
-      "agilite": "Wendbaarheid",
-      "explosivite": "Explosiviteit",
-      "souplesse": "Flexibiliteit",
-      "coordination": "Coördinatie",
-      "equilibre": "Evenwicht"
-    },
-    "technical": {
-      "technique": "Technisch",
-      "maitriseDuBallon": "Ballonbeheersing",
-      "precision": "Precisie",
-      "finition": "Afwerking",
-      "passeDecisive": "Assistent",
-      "tirCadre": "Creder schoot",
-      "dribble": "Dribbelen",
-      "jeuDeTete": "Hoofd spel",
-      "tacle": "Aanpakken",
-      "interception": "Onderschepping",
-      "gesteTechnique": "Technisch gebaar",
-      "polyvalence": "Veelzijdigheid"
-    },
-    "mental": {
-      "intelligenceTactique": "Tactische intelligentie",
-      "lectureDuJeu": "Het spel lezen",
-      "anticipation": "Anticipatie",
-      "concentration": "Concentratie",
-      "mental": "Geestelijk",
-      "sangFroid": "Bloedig",
-      "maturite": "Volwassenheid",
-      "gestionDuTemps": "Tijdbeheer",
-      "resilience": "Weerstand",
-      "visionDeJeu": "Spel visie",
-      "decisif": "Besluitvol",
-      "priseDeDecision": "Besluitvorming",
-      "adaptabilite": "Aanpassingsvermogen",
-      "competiteur": "Concurrent",
-      "leadership": "Leiderschap",
-      "espritDEquipe": "Teamgeest",
-      "determination": "Bepaling",
-      "confianceEnSoi": "Zelfvertrouwen",
-      "motivation": "Motivatie",
-      "apprentissageRapide": "Snel leren",
-      "discipline": "Discipline",
-      "regularite": "Regelmatigheid",
-      "enduranceMentale": "Mentaal uithoudingsvermogen"
-    },
-    "behavior": {
-      "travailleur": "Werknemer",
-      "perseverant": "Volhardend",
-      "passionne": "Vaardig",
-      "humilite": "Bescheidenheid",
-      "exemplaire": "Kopiëren",
-      "respectueux": "Respectvol",
-      "charismatique": "Charismatisch",
-      "dynamique": "Dynamisch",
-      "engage": "Betrokken",
-      "fairPlay": "Eerlijk spel",
-      "influenceurDeVestiaire": "Garderobe-beïnvloeder",
-      "attitudeProfessionnelle": "Professionele houding"
-    },
-    "creativity": {
-      "creativite": "Creativiteit",
-      "styleDeJeuUnique": "Unieke speelstijl",
-      "spectaculaire": "Spectaculair",
-      "showman": "Showman",
-      "imagination": "Verbeelding"
-    },
-    "potential": {
-      "grosPotentiel": "Groot potentieel",
-      "enProgres": "Voortgang",
-      "jeunePrometteur": "Veelbelovend jong",
-      "talentNaturel": "Natuurlijk talent"
-    },
-    "unknown": "Onbekend label"
-  },
-  "sports": {
-    "football": "Voetbal",
-    "basketball": "Basketbal",
-    "rugby": "Rugby",
-    "tennis": "Tennis",
-    "boxe": "Boksen",
-    "footballAmericain": "Voetbal",
-    "hockeySurGlace": "Ijshockey",
-    "baseball": "Honkbal",
-    "mma": "MMA",
-    "equitation": "Paardrijden",
-    "hobbyHorse": "Stokpaard",
-    "coursesCanines": "Hondenrennen",
-    "coursesDeLapins": "Konijnenrennen",
-    "fauconnerie": "Valkerij",
-    "autre": "Ander",
-    "unknown": "Onbekende sport"
-  },
-  "primeng": {
-    "version": "Versie 1.3.1",
-    "delete_all": "Verwijder alles",
-    "delete_all_filter": "Verwijder alle filters",
-    "results": "resultaten",
-    "save": "Redden",
-    "cancel": "Annuleren",
-    "search": "Om te onderzoeken",
-    "startdate": "Startdatum",
-    "enddate": "Einddatum",
-    "status": "Status",
-    "transactionnumber": "Transactienummer",
-    "transactiondate": "Transactiedatum",
-    "download": "Downloaden",
-    "amount": "Hoeveelheid",
-    "date": "Datum",
-    "or": "Of",
-    "agency": "Bureau",
-    "customer": "Klant",
-    "lineselected": "geselecteerde lijnen",
-    "areyousure": "Weet je het zeker?",
-    "confirmed": "Bevestigen",
-    "generationinprogress": "Huidige generatie",
-    "purchaselines": "Inkooplijnen",
-    "dashboard": "Dashboard",
-    "name": "Naam",
-    "prenom": "Voornaam",
-    "email": "E-mailadres",
-    "saved": "Opgeslagen",
-    "error": "Fout",
-    "description": "Beschrijving",
-    "leave": "Om te vertrekken",
-    "not_allowed_page": "U beschikt niet over de benodigde rechten om toegang te krijgen tot deze pagina",
-    "validate_action": "Schrijf \"Validate\" om deze actie te valideren",
-    "back": "Rug",
-    "valider": "Valideren",
-    "success": "Succes",
-    "suivant": "Volgende",
-    "precedent": "Vorig",
-    "export": "Exporteren",
-    "import": "Importeren",
-    "import_csv": "Importeer .csv",
-    "no": "Nee",
-    "yes": "Ja",
-    "enabled": "inschakelen",
-    "disabled": "uitzetten",
-    "activate": "inschakelen",
-    "deactivate": "uitzetten",
-    "activated": "geactiveerd",
-    "deactivated": "gehandicapt",
-    "information": "Informatie",
-    "creation_date": "Aanmaakdatum:",
-    "export_csv": "Exporteer .csv",
-    "voir": "Zien",
-    "actif": "Actief",
-    "active": "Actief",
-    "inactif": "Inactief",
-    "inactive": "Inactief",
-    "selectionner": "Selecteer",
-    "refresh": "Vernieuwen",
-    "filter_by": "Filter op",
-    "update": "Om te wijzigen",
-    "delete": "VERWIJDEREN",
-    "edit": "Om te wijzigen",
-    "comment": "Opmerking : ",
-    "comment_without_double_point": "Opmerking ",
-    "double_point": "::",
-    "toast_summary_update_error": "Onmogelijke wijziging",
-    "toast_summary_create_error": "Onmogelijke toevoeging",
-    "toast_summary_delete_error": "Onmogelijke verwijdering",
-    "toast_summary_delete_error2": "Samenvatting van de verwijderfout",
-    "toast_label_warning": "Aandacht",
-    "ok": "OK",
-    "select_date": "Selecteer een datum",
-    "select_hour": "Selecteer een uur",
-    "require": "Het veld is verplicht ",
-    "tiret": "-",
-    "startsWith": "Begint met",
-    "contains": "Bevat",
-    "notContains": "Bevat niet",
-    "endsWith": "Eindigt met",
-    "equals": "Gelijk aan",
-    "notEquals": "Anders van",
-    "noFilter": "Geen filter",
-    "filter": "Filter",
-    "lt": "Minder dan",
-    "lte": "Kleiner dan of gelijk aan",
-    "gt": "Superieur aan",
-    "gte": "Groter dan of gelijk aan",
-    "dateIs": "Datum gelijk aan",
-    "dateIsNot": "Andere datum van",
-    "dateBefore": "Datum vóór",
-    "dateAfter": "Datum na",
-    "clear": "Om te wissen",
-    "apply": "Toepassen",
-    "matchAll": "Alles komt overeen",
-    "matchAny": "Elk",
-    "addRule": "Regel toevoegen",
-    "removeRule": "Regel verwijderen",
-    "accept": "Ja",
-    "reject": "Nee",
-    "choose": "Kiezen",
-    "upload": "Downloaden",
-    "dayNames": [
-      "Zondag",
-      "Maandag",
-      "Dinsdag",
-      "Woensdag",
-      "DONDERDAG",
-      "Vrijdag",
-      "ZATERDAG"
-    ],
-    "dayNamesShort": [
-      "zon",
-      "ma",
-      "mrt",
-      "zee",
-      "spel",
-      "vr",
-      "zat"
-    ],
-    "dayNamesMin": [
-      "D",
-      "L",
-      "M",
-      "M",
-      "J",
-      "V",
-      "S"
-    ],
-    "monthNames": [
-      "Januari",
-      "FEBRUARI",
-      "Maart",
-      "april",
-      "kunnen",
-      "juni",
-      "juli",
-      "augustus",
-      "september",
-      "oktober",
-      "november",
-      "December"
-    ],
-    "monthNamesShort": [
-      "jan",
-      "februari",
-      "Maart",
-      "april",
-      "kunnen",
-      "juni",
-      "juli",
-      "augustus",
-      "zeven",
-      "okt",
-      "nov",
-      "dec"
-    ],
-    "today": "Vandaag",
-    "weekHeader": "Sem",
-    "firstDayOfWeek": 1,
-    "dateFormat": "DD/mm/jj",
-    "weak": "Zwak",
-    "medium": "GEMIDDELD",
-    "strong": "Sterk",
-    "passwordPrompt": "Voer een wachtwoord in",
-    "emptyMessage": "Geen resultaten gevonden",
-    "emptyFilterMessage": "Geen resultaten gevonden",
-    "selectedItemsLabel": "{0} geselecteerde elementen",
-    "double_quote": "\"\"",
-    "asterisk": "*",
-    "value": "Waarde"
-  },
-  "uploader": {
-    "title": "MP4-video-downloader",
-    "note": {
-      "single": "Alleen video's, maximaal {maxSize} per stuk",
-      "multiple": "Alleen video's, maximaal {maxSize} elk, maximaal {maxFiles} bestanden"
-    },
-    "info": {
-      "single": "Download een MP4-video om te beginnen",
-      "fileLimit": "{{current}}/{{max}} Bestanden ({{remaining}} overig)"
-    },
-    "statistics": {
-      "remaining": "overig",
-      "files": "Bestand(en)",
-      "uploading": "in uitvoering",
-      "completed": "klaar (en)"
-    },
-    "status": {
-      "uploading": "Bezig met downloaden...",
-      "completed": "Afgerond",
-      "locked": "Vergrendeld"
-    },
-    "actions": {
-      "preview": "Voorbeeld",
-      "remove": "VERWIJDEREN",
-      "close": "Dichtbij",
-      "upload": "Downloaden",
-      "cancel": "Annuleren"
-    },
-    "empty": {
-      "title": "Er is momenteel geen bestand gedownload",
-      "subtitle": {
-        "single": "Gebruik de bovenstaande downloader om een ​​MP4-video op te slaan of te downloaden",
-        "multiple": "Gebruik de bovenstaande downloader om op te slaan of te downloaden {{maxFiles}} MP4-video's"
-      }
-    },
-    "preview": {
-      "title": "Videovoorbeeld"
-    },
-    "messages": {
-      "fileLimitReached": "Limiet van getroffen bestanden",
-      "uploadComplete": "Downloaden voltooid",
-      "uploadSuccess": "{Bestandsnaam} succesvol gedownload!",
-      "uploadFailed": "Downloadfout",
-      "uploadFailedDetail": "Kan {Bestandsnaam} niet downloaden",
-      "fileRestriction": "Bestandsbeperking",
-      "cannotRemove": "Kan niet verwijderen",
-      "cannotRemoveLocked": "Kan het vergrendelde bestand niet verwijderen",
-      "fileRemoved": "Verwijderd bestand",
-      "fileRemovedSuccess": "Bestand verwijderd",
-      "removalFailed": "Verwijdering mislukt",
-      "removalFailedDetail": "Kan het bestand niet verwijderen. ",
-      "uploadPreparationFailed": "Voorbereiding mislukt",
-      "uploadPreparationFailedDetail": "Kan de download niet voorbereiden. ",
-      "duplicateFile": "Dubbel bestand",
-      "duplicateFileDetail": "Het bestand {Bestandsnaam} is al toegevoegd",
-      "filenameTooLong": "Bestandsnaam te lang",
-      "filenameTooLongDetail": "De bestandsnaam is te lang ({{currentLength}} karakters).  {{maxLength}} tekens of minder voordat u uploadt."
-    },
-    "dashboard": {
-      "strings": {
-        "addMoreFiles": "Voeg meer bestanden toe",
-        "addingMoreFiles": "Meer bestanden toevoegen",
-        "allowAccessDescription": "Als u foto's wilt maken of video's wilt opslaan met uw camera, moet u toegang tot de camera voor deze site toestaan.",
-        "allowAccessTitle": "Geef toegang tot uw camera",
-        "authenticateWith": "Verbinding maken met {plug-innaam}",
-        "authenticateWithTitle": "Authenticeer met {pluginname} om bestanden te selecteren",
-        "back": "Rug",
-        "browse": "doorgaan",
-        "browseFiles": "blader door de bestanden",
-        "cancel": "Annuleren",
-        "cancelUpload": "Annuleer het downloaden",
-        "chooseFiles": "Kies bestanden",
-        "closeModal": "Beklim het raam",
-        "companionError": "Verbinding met Companion mislukt",
-        "complete": "Afgerond",
-        "connectedToInternet": "Internet verbonden",
-        "copyLink": "Kopieer de link",
-        "copyLinkToClipboardFallback": "Kopieer de onderstaande URL",
-        "copyLinkToClipboardSuccess": "Link gekopieerd naar het klembord",
-        "creatingAssembly": "Voorbereiding downloaden...",
-        "creatingAssemblyFailed": "TransLODIT: Kan de Assembly niet maken",
-        "dashboardTitle": "Bestandsdownloader",
-        "dashboardWindowTitle": "Venster voor het downloaden van bestanden (druk op Escape om te sluiten)",
-        "dataUploadedOfTotal": "{Voltooid} op {Totaal}",
-        "done": "Afgerond",
-        "dropHereOr": "Plaats de bestanden hier of %{browse}",
-        "dropHint": "Dien hier uw bestanden in",
-        "dropPasteBoth": "Plaats de bestanden hier, lijm of %{browse}",
-        "dropPasteFiles": "Plaats de bestanden hier, lijm of %{browse}",
-        "dropPasteImportBoth": "Plaats de bestanden hier, lijm, %{browse} of importeer sindsdien",
-        "dropPasteImportFiles": "Plaats de bestanden hier, lijm, %{browse} of importeer sindsdien",
-        "edit": "Om te wijzigen",
-        "editFile": "Wijzig het bestand",
-        "editing": "Wijziging van %{file}",
-        "emptyFolderAdded": "Er is geen bestand toegevoegd vanuit de lege map",
-        "encoding": "Coderen...",
-        "enterCorrectUrl": "Onjuiste URL: zorg ervoor dat u een directe link naar een bestand invoert",
-        "enterUrlToImport": "Voer de URL in om een ​​bestand te importeren",
-        "exceedsSize": "Dit bestand overschrijdt de maximaal toegestane grootte van",
-        "failedToFetch": "Companion kan deze URL niet herstellen. Controleer of deze correct is",
-        "failedToUpload": "Kan %{Bestand} niet downloaden",
-        "fileSource": "Bestandsbron: %{naam}",
-        "filesUploadedOfTotal": {
-          "0": "%{Complete} op %{smart_count} gedownload bestand",
-          "1": "%{Complete} op %{smart_count} gedownloade bestanden"
-        },
-        "filter": "Filter",
-        "finishEditingFile": "Voltooi de wijziging van het bestand",
-        "folderAdded": {
-          "0": "%{smart_count} bestand toegevoegd vanuit %{folder}",
-          "1": "%{smart_count} bestanden toegevoegd vanuit %{folder}"
-        },
-        "import": "Importeren",
-        "importFrom": "Importeren sinds %{name}",
-        "loading": "Laden...",
-        "logOut": "Verbreek de verbinding",
-        "myDevice": "Mijn apparaat",
-        "noFilesFound": "Je hebt hier geen bestand of map",
-        "noInternetConnection": "Geen internetverbinding",
-        "pause": "Pauze",
-        "pauseUpload": "Verdeel de download",
-        "paused": "Pauze",
-        "poweredBy": "Aangedreven door %{uppy}",
-        "processingXFiles": {
-          "0": "%{Smart_count} bestand",
-          "1": "%{Smart_count} bestanden"
-        },
-        "removeFile": "Verwijder het bestand",
-        "resetFilter": "Reset het filter",
-        "resume": "Om te hervatten",
-        "resumeUpload": "Downloaden",
-        "retry": "Probeer het opnieuw",
-        "retryUpload": "Probeer de download te proberen",
-        "save": "Redden",
-        "selectFileNamed": "Selecteer het bestand %{name}",
-        "selectX": {
-          "0": "Selecteer %{smart_count}",
-          "1": "Selecteer %{smart_count}"
-        },
-        "smile": "Glimlach!",
-        "startRecording": "Video-opname starten",
-        "stopRecording": "Video-opname stoppen",
-        "takePicture": "Maak een foto",
-        "timedOut": "Download geblokkeerd gedurende %{seconds} seconden, stopzetting.",
-        "upload": "Downloaden",
-        "uploadComplete": "Downloaden voltooid",
-        "uploadFailed": "Downloadfout",
-        "uploadPaused": "Pauzeer het downloaden",
-        "uploadXFiles": {
-          "0": "Download %{smart_count} bestand",
-          "1": "Download %{smart_count} bestanden"
-        },
-        "uploadXNewFiles": {
-          "0": "Download +%{smart_count} bestand",
-          "1": "Download +%{smart_count} bestanden"
-        },
-        "uploading": "Bezig met downloaden",
-        "uploadingXFiles": {
-          "0": "%{Smart_count} bestand",
-          "1": "%{Smart_count} bestanden"
-        },
-        "xFilesSelected": {
-          "0": "%{smart_count} geselecteerd bestand",
-          "1": "%{smart_count} geselecteerde bestanden"
-        },
-        "xMoreFilesAdded": {
-          "0": "%{smart_count} heeft extra bestand toegevoegd",
-          "1": "%{smart_count} Extra bestanden toegevoegd"
-        },
-        "xTimeLeft": "%{tijd} resterend",
-        "youCanOnlyUploadFileTypes": "Je kunt alleen downloaden: %{types}",
-        "youCanOnlyUploadX": {
-          "0": "Je kunt alleen %{smart_count} bestand downloaden",
-          "1": "Je kunt slechts %{smart_count} bestanden downloaden"
-        },
-        "youHaveToAtLeastSelectX": {
-          "0": "U moet minimaal %{smart_count} bestand selecteren",
-          "1": "U moet minimaal %{smart_count} bestanden selecteren"
-        }
-      }
-    },
-    "service": {
-      "errors": {
-        "presignedUrl": "Mislukt bij het genereren van ondertekende URL's",
-        "removeFile": "Fout bij het verwijderen van bestanden",
-        "uploadFile": "Kan het bestand niet verzenden via de ondertekende URL",
-        "getFileList": "Kan de lijst met bestanden niet herstellen",
-        "updateMetadata": "Het bijwerken van de metagegevens van het bestand is mislukt"
-      }
-    }
-  },
-  "countries": {
-    "ad": "Andorriaans",
-    "ae": "Verenigde Arabische Emiraten",
-    "af": "Afghanistan",
-    "ag": "Antigua en Barbuda",
-    "ai": "Aal",
-    "al": "Albanië",
-    "am": "Armenië",
-    "ao": "Angola",
-    "aq": "Antarctisch",
-    "ar": "Argentinië",
-    "as": "Amerikaans-Samoa",
-    "at": "Oostenrijk",
-    "au": "Australië",
-    "aw": "Aruba",
-    "ax": "Åland-eilanden",
-    "az": "Azerbeidzjan",
-    "ba": "Bosnië en Herzegovina",
-    "bb": "Barbados",
-    "bd": "Bangladesh",
-    "be": "België",
-    "bf": "Burkina Faso",
-    "bg": "Bulgarije",
-    "bh": "Bahrein",
-    "bi": "Burundi",
-    "bj": "Goedaardig",
-    "bl": "Saint-Barthélemy",
-    "bm": "Bermuda",
-    "bn": "Brunei",
-    "bo": "Bolivia",
-    "bq": "Caribisch Nederland",
-    "br": "Brazilië",
-    "bs": "Bahamas",
-    "bt": "Bhoutan",
-    "bv": "Bouvet-eiland",
-    "bw": "Botswana",
-    "by": "Wit-Rusland",
-    "bz": "Belize",
-    "ca": "Canada",
-    "cc": "Cocoseilanden (Keeling)",
-    "cd": "Democratische Republiek Congo",
-    "cf": "Centraal-Afrikaanse Republiek",
-    "cg": "Republiek Congo",
-    "ch": "Zwitsers",
-    "ci": "Ivoorkust",
-    "ck": "Cook Eilanden",
-    "cl": "Chili",
-    "cm": "Kameroen",
-    "cn": "China",
-    "co": "Colombia",
-    "cr": "Costa Rica",
-    "cs": "Tsjechoslowakije",
-    "cu": "Cuba",
-    "cv": "Dop-groen",
-    "cw": "Curacao",
-    "cx": "Kerst eiland",
-    "cy": "Cyprus",
-    "cz": "Tsjechische Republiek",
-    "dd": "Duitse Democratische Republiek",
-    "de": "Duitsland",
-    "dj": "Djibouti",
-    "dk": "Denemarken",
-    "dm": "Dominique",
-    "do": "Dominicaanse Republiek",
-    "dz": "Algerije",
-    "ec": "Evenaar",
-    "ee": "Estland",
-    "eg": "Egypte",
-    "eh": "Westelijke Sahara",
-    "er": "Eritrea",
-    "es": "Spanje",
-    "et": "Ethiopië",
-    "fi": "Finland",
-    "fj": "Fiji",
-    "fk": "Falklandeilanden",
-    "fm": "Micronesië",
-    "fo": "Faeröer eilanden",
-    "fr": "Frankrijk",
-    "fx": "Metropolitaans Frankrijk",
-    "ga": "Gabon",
-    "gb": "Verenigd Koninkrijk",
-    "gd": "Granaat",
-    "ge": "Georgië",
-    "gf": "Guyana",
-    "gg": "Guernsey",
-    "gh": "Ghana",
-    "gi": "Gibraltar",
-    "gl": "Groenland",
-    "gm": "Gambia",
-    "gn": "Guinea",
-    "gp": "Guadeloupe",
-    "gq": "Equatoriaal-Guinea",
-    "gr": "Griekenland",
-    "gs": "Zuid-en Zuid-Sandwich Georgië",
-    "gt": "Guatemala",
-    "gu": "Guam",
-    "gw": "Guinee-Bissau",
-    "gy": "Guyana",
-    "hk": "Hongkong",
-    "hm": "Heard-et-Macdonald-eilanden",
-    "hn": "Honduras",
-    "hr": "Kroatië",
-    "ht": "Haïti",
-    "hu": "Hongarije",
-    "id": "Indonesië",
-    "ie": "Ierland",
-    "il": "Israël",
-    "im": "Man eiland",
-    "in": "Indië",
-    "io": "Brits grondgebied in de Indische Oceaan",
-    "iq": "Irak",
-    "ir": "Iran",
-    "is": "IJsland",
-    "it": "Italië",
-    "je": "Jersey",
-    "jm": "Jamaica",
-    "jo": "Jordanië",
-    "jp": "Japan",
-    "ke": "Kenia",
-    "kg": "Kirgizië",
-    "kh": "Cambodja",
-    "ki": "Kiribati",
-    "km": "Comoren",
-    "kn": "Saint-Christophe-et-Niévès",
-    "kp": "Noord-Korea",
-    "kr": "Zuid-Korea",
-    "kw": "Koeweit",
-    "ky": "Kaaimaneilanden",
-    "kz": "Kazachstan",
-    "la": "Laos",
-    "lb": "Libanon",
-    "lc": "Sainte-Lucie",
-    "li": "Liechtenstein",
-    "lr": "Liberia",
-    "ls": "Lesotho",
-    "lt": "Litouwen",
-    "lu": "Luxemburg",
-    "lv": "Letland",
-    "ly": "Libië",
-    "ma": "Marokko",
-    "mc": "Monaco",
-    "md": "Moldavië",
-    "me": "Montenegro",
-    "mf": "Sint-Maarten",
-    "mg": "Madagascar",
-    "mh": "Marshall eilanden",
-    "mk": "Noord-Macedonië",
-    "ml": "Mali",
-    "mm": "Myanmar",
-    "mn": "Mongolië",
-    "mo": "Macau",
-    "mp": "Noordelijke Marianen",
-    "mq": "Martinique",
-    "mr": "Mauritanië",
-    "ms": "Montserrat",
-    "mt": "Malta",
-    "mu": "Mauritius",
-    "mv": "Maldiven",
-    "mw": "Malawi",
-    "mx": "Mexico",
-    "my": "Maleisië",
-    "mz": "Mozambique",
-    "na": "Namibië",
-    "nc": "Nieuw-Caledonië",
-    "ne": "Niger",
-    "nf": "Norfolkeiland",
-    "ng": "Nigeria",
-    "ni": "Nicaragua",
-    "nl": "Nederland",
-    "no": "Noorwegen",
-    "np": "Nepal",
-    "nr": "Nauru",
-    "nt": "Neutrale zone",
-    "nu": "Niue",
-    "nz": "Nieuw-Zeeland",
-    "om": "Oman",
-    "pa": "Panama",
-    "pe": "Peru",
-    "pf": "Frans-Polynesië",
-    "pg": "Papoea-Nieuw-Guinea",
-    "ph": "Filippijnen",
-    "pk": "Pakistan",
-    "pl": "Polen",
-    "pm": "Saint-Pierre-et-Miquelon",
-    "pn": "Pitcairn",
-    "pr": "Puerto Rico",
-    "ps": "Palestina",
-    "pt": "Portugal",
-    "pw": "Palaos",
-    "py": "Paraguay",
-    "qa": "Katar",
-    "re": "Bijeenkomst",
-    "ro": "Roemenië",
-    "rs": "Servië",
-    "ru": "Rusland",
-    "rw": "Rwanda",
-    "sa": "Saoedi-Arabië",
-    "sb": "Salomonseilanden",
-    "sc": "Seychellen",
-    "sd": "Soedan",
-    "se": "Suède",
-    "sg": "Singapore",
-    "sh": "Sint-Helene",
-    "si": "Slovenië",
-    "sj": "Spitsbergen en Jan Mayen",
-    "sk": "Slowakije",
-    "sl": "Sierra Leone",
-    "sm": "Sint-Marin",
-    "sn": "Senegal",
-    "so": "Somalië",
-    "sr": "Overnaam",
-    "ss": "Zuid-Soedan",
-    "st": "Sao Tomé-et-Principe",
-    "su": "Sovjet-Unie",
-    "sv": "El Salvador",
-    "sx": "Sint-Maarten",
-    "sy": "Syrië",
-    "sz": "Eswatini",
-    "tc": "Turkse en Caicaanse eilanden",
-    "td": "Tsjaad",
-    "tf": "Franse Zuidelijke Landen",
-    "tg": "Togo",
-    "th": "Thailand",
-    "tj": "Tadzjikistan",
-    "tk": "Tokelau",
-    "tl": "Timor-Oosters",
-    "tm": "Turkmenistan",
-    "tn": "Tunesië",
-    "to": "Tonga",
-    "tr": "Turkije",
-    "tt": "Drie-eenheid en Tobago",
-    "tv": "Tuvalu",
-    "tw": "Taiwan",
-    "tz": "Tanzania",
-    "ua": "Oekraïne",
-    "ug": "Oeganda",
-    "um": "Kleine eilanden uit de Verenigde Staten",
-    "us": "VERENIGDE STATEN",
-    "uy": "Uruguay",
-    "uz": "Oezbekistan",
-    "va": "Vaticaanstad",
-    "vc": "Saint-Vincent-et-les-Grenadines",
-    "ve": "Venezuela",
-    "vg": "Britse Maagdeneilanden",
-    "vi": "Maagdeneilanden van de Verenigde Staten",
-    "vn": "Vietnam Vietnam",
-    "vu": "Vanuatu",
-    "wf": "Wallis-et-Futuna",
-    "ws": "Samoa",
-    "xk": "Kosovo",
-    "ye": "Jemen",
-    "yt": "Mayotte",
-    "yu": "Joegoslavië",
-    "za": "Zuid-Afrika",
-    "zm": "Zambia",
-    "zr": "Zaïre",
-    "zw": "Zimbabwe"
-  },
-  "topbar": {
-    "title": "Kaviaarverkenner",
-    "profile": {
-      "title": "Profiel",
-      "edit": "Profiel bewerken",
-      "logout": "Uitloggen",
-      "delete": "Verwijderen",
-      "deleteMobile": "Account verwijderen",
-      "editMobile": "Profiel bewerken",
-      "confirmDelete": "Weet u zeker dat u uw account wilt verwijderen? ",
-      "confirmDeleteTitle": "Account verwijderen",
-      "confirmDeleteMessage": "Weet u zeker dat u uw account definitief wilt verwijderen?",
-      "confirmDeleteWarning": "Deze actie kan niet ongedaan worden gemaakt. ",
-      "deleteConfirm": "Account verwijderen",
-      "deleteSuccessTitle": "Account verwijderd",
-      "deleteSuccessMessage": "Uw account is succesvol verwijderd. ",
-      "deleteErrorTitle": "Verwijderen is mislukt",
-      "deleteErrorMessage": "Het is niet gelukt uw account te verwijderen. "
-    }
-  },
-  "common": {
-    "cancel": "Annuleren"
-  },
-  "legal": {
-    "backToHome": "Terug naar Thuis",
-    "lastUpdated": "Laatst bijgewerkt",
-    "privacy": {
-      "title": "Privacybeleid",
-      "introduction": {
-        "title": "Invoering"
-      },
-      "controller": {
-        "title": "Gegevensbeheerder"
-      },
-      "dpo": {
-        "title": "Functionaris voor gegevensbescherming"
-      },
-      "dataCollected": {
-        "title": "Gegevens verzameld",
-        "identity": {
-          "title": "Identiteits- en contactgegevens"
-        },
-        "athletes": {
-          "title": "Atleet informatie"
+        "physical": {
+            "vitesse": "Snelheid",
+            "endurance": "Uithoudingsvermogen",
+            "puissance": "Stroom",
+            "reflexes": "reflexen",
+            "agilite": "Wendbaarheid",
+            "explosivite": "Explosiviteit",
+            "souplesse": "Flexibiliteit",
+            "coordination": "Coördinatie",
+            "equilibre": "Evenwicht"
         },
         "technical": {
-          "title": "Technische gegevens"
+            "technique": "Technisch",
+            "maitriseDuBallon": "Ballonbeheersing",
+            "precision": "Precisie",
+            "finition": "Afwerking",
+            "passeDecisive": "Assistent",
+            "tirCadre": "Creder schoot",
+            "dribble": "Dribbelen",
+            "jeuDeTete": "Hoofd spel",
+            "tacle": "Aanpakken",
+            "interception": "Onderschepping",
+            "gesteTechnique": "Technisch gebaar",
+            "polyvalence": "Veelzijdigheid"
         },
-        "transaction": {
-          "title": "Transactiegegevens"
-        }
-      },
-      "legalBasis": {
-        "title": "Wettelijke basis voor verwerking"
-      },
-      "userCategories": {
-        "title": "Gebruikerscategorieën",
-        "professionals": {
-          "title": "Professionele gebruikers"
+        "mental": {
+            "intelligenceTactique": "Tactische intelligentie",
+            "lectureDuJeu": "Het spel lezen",
+            "anticipation": "Anticipatie",
+            "concentration": "Concentratie",
+            "mental": "Geestelijk",
+            "sangFroid": "Bloedig",
+            "maturite": "Volwassenheid",
+            "gestionDuTemps": "Tijdbeheer",
+            "resilience": "Weerstand",
+            "visionDeJeu": "Spel visie",
+            "decisif": "Besluitvol",
+            "priseDeDecision": "Besluitvorming",
+            "adaptabilite": "Aanpassingsvermogen",
+            "competiteur": "Concurrent",
+            "leadership": "Leiderschap",
+            "espritDEquipe": "Teamgeest",
+            "determination": "Bepaling",
+            "confianceEnSoi": "Zelfvertrouwen",
+            "motivation": "Motivatie",
+            "apprentissageRapide": "Snel leren",
+            "discipline": "Discipline",
+            "regularite": "Regelmatigheid",
+            "enduranceMentale": "Mentaal uithoudingsvermogen"
         },
-        "nonProfessionals": {
-          "title": "Niet-professionele gebruikers"
+        "behavior": {
+            "travailleur": "Werknemer",
+            "perseverant": "Volhardend",
+            "passionne": "Vaardig",
+            "humilite": "Bescheidenheid",
+            "exemplaire": "Kopiëren",
+            "respectueux": "Respectvol",
+            "charismatique": "Charismatisch",
+            "dynamique": "Dynamisch",
+            "engage": "Betrokken",
+            "fairPlay": "Eerlijk spel",
+            "influenceurDeVestiaire": "Garderobe-beïnvloeder",
+            "attitudeProfessionnelle": "Professionele houding"
         },
-        "minors": {
-          "title": "Bescherming van minderjarigen"
-        }
-      },
-      "retention": {
-        "title": "Gegevensretentie"
-      },
-      "recipients": {
-        "title": "Gegevensontvangers"
-      },
-      "rights": {
-        "title": "Uw rechten"
-      },
-      "cookies": {
-        "title": "Koekjes"
-      },
-      "security": {
-        "title": "Gegevensbeveiliging"
-      },
-      "updates": {
-        "title": "Beleidsupdates"
-      },
-      "contact": {
-        "title": "Neem contact met ons op"
-      }
+        "creativity": {
+            "creativite": "Creativiteit",
+            "styleDeJeuUnique": "Unieke speelstijl",
+            "spectaculaire": "Spectaculair",
+            "showman": "Showman",
+            "imagination": "Verbeelding"
+        },
+        "potential": {
+            "grosPotentiel": "Groot potentieel",
+            "enProgres": "Voortgang",
+            "jeunePrometteur": "Veelbelovend jong",
+            "talentNaturel": "Natuurlijk talent"
+        },
+        "unknown": "Onbekend label"
     },
-    "terms": {
-      "title": "Servicevoorwaarden",
-      "preamble": {
-        "title": "Preambule"
-      },
-      "definitions": {
-        "title": "Definities"
-      },
-      "service": {
-        "title": "Dienstbeschrijving",
-        "important": "Belangrijke mededeling"
-      },
-      "userCategories": {
-        "title": "Gebruikerscategorieën",
-        "professionals": {
-          "title": "Professionele gebruikers"
+    "sports": {
+        "football": "Voetbal",
+        "basketball": "Basketbal",
+        "rugby": "Rugby",
+        "tennis": "Tennis",
+        "boxe": "Boksen",
+        "footballAmericain": "Voetbal",
+        "hockeySurGlace": "Ijshockey",
+        "baseball": "Honkbal",
+        "mma": "MMA",
+        "equitation": "Paardrijden",
+        "hobbyHorse": "Stokpaard",
+        "coursesCanines": "Hondenrennen",
+        "coursesDeLapins": "Konijnenrennen",
+        "fauconnerie": "Valkerij",
+        "autre": "Ander",
+        "unknown": "Onbekende sport"
+    },
+    "primeng": {
+        "version": "Versie 1.3.1",
+        "delete_all": "Verwijder alles",
+        "delete_all_filter": "Verwijder alle filters",
+        "results": "resultaten",
+        "save": "Redden",
+        "cancel": "Annuleren",
+        "search": "Om te onderzoeken",
+        "startdate": "Startdatum",
+        "enddate": "Einddatum",
+        "status": "Status",
+        "transactionnumber": "Transactienummer",
+        "transactiondate": "Transactiedatum",
+        "download": "Downloaden",
+        "amount": "Hoeveelheid",
+        "date": "Datum",
+        "or": "Of",
+        "agency": "Bureau",
+        "customer": "Klant",
+        "lineselected": "geselecteerde lijnen",
+        "areyousure": "Weet je het zeker?",
+        "confirmed": "Bevestigen",
+        "generationinprogress": "Huidige generatie",
+        "purchaselines": "Inkooplijnen",
+        "dashboard": "Dashboard",
+        "name": "Naam",
+        "prenom": "Voornaam",
+        "email": "E-mailadres",
+        "saved": "Opgeslagen",
+        "error": "Fout",
+        "description": "Beschrijving",
+        "leave": "Om te vertrekken",
+        "not_allowed_page": "U beschikt niet over de benodigde rechten om toegang te krijgen tot deze pagina",
+        "validate_action": "Schrijf \"Validate\" om deze actie te valideren",
+        "back": "Rug",
+        "valider": "Valideren",
+        "success": "Succes",
+        "suivant": "Volgende",
+        "precedent": "Vorig",
+        "export": "Exporteren",
+        "import": "Importeren",
+        "import_csv": "Importeer .csv",
+        "no": "Nee",
+        "yes": "Ja",
+        "enabled": "inschakelen",
+        "disabled": "uitzetten",
+        "activate": "inschakelen",
+        "deactivate": "uitzetten",
+        "activated": "geactiveerd",
+        "deactivated": "gehandicapt",
+        "information": "Informatie",
+        "creation_date": "Aanmaakdatum:",
+        "export_csv": "Exporteer .csv",
+        "voir": "Zien",
+        "actif": "Actief",
+        "active": "Actief",
+        "inactif": "Inactief",
+        "inactive": "Inactief",
+        "selectionner": "Selecteer",
+        "refresh": "Vernieuwen",
+        "filter_by": "Filter op",
+        "update": "Om te wijzigen",
+        "delete": "VERWIJDEREN",
+        "edit": "Om te wijzigen",
+        "comment": "Opmerking : ",
+        "comment_without_double_point": "Opmerking ",
+        "double_point": "::",
+        "toast_summary_update_error": "Onmogelijke wijziging",
+        "toast_summary_create_error": "Onmogelijke toevoeging",
+        "toast_summary_delete_error": "Onmogelijke verwijdering",
+        "toast_summary_delete_error2": "Samenvatting van de verwijderfout",
+        "toast_label_warning": "Aandacht",
+        "ok": "OK",
+        "select_date": "Selecteer een datum",
+        "select_hour": "Selecteer een uur",
+        "require": "Het veld is verplicht ",
+        "tiret": "-",
+        "startsWith": "Begint met",
+        "contains": "Bevat",
+        "notContains": "Bevat niet",
+        "endsWith": "Eindigt met",
+        "equals": "Gelijk aan",
+        "notEquals": "Anders van",
+        "noFilter": "Geen filter",
+        "filter": "Filter",
+        "lt": "Minder dan",
+        "lte": "Kleiner dan of gelijk aan",
+        "gt": "Superieur aan",
+        "gte": "Groter dan of gelijk aan",
+        "dateIs": "Datum gelijk aan",
+        "dateIsNot": "Andere datum van",
+        "dateBefore": "Datum vóór",
+        "dateAfter": "Datum na",
+        "clear": "Om te wissen",
+        "apply": "Toepassen",
+        "matchAll": "Alles komt overeen",
+        "matchAny": "Elk",
+        "addRule": "Regel toevoegen",
+        "removeRule": "Regel verwijderen",
+        "accept": "Ja",
+        "reject": "Nee",
+        "choose": "Kiezen",
+        "upload": "Downloaden",
+        "dayNames": [
+            "Zondag",
+            "Maandag",
+            "Dinsdag",
+            "Woensdag",
+            "DONDERDAG",
+            "Vrijdag",
+            "ZATERDAG"
+        ],
+        "dayNamesShort": [
+            "zon",
+            "ma",
+            "mrt",
+            "zee",
+            "spel",
+            "vr",
+            "zat"
+        ],
+        "dayNamesMin": [
+            "D",
+            "L",
+            "M",
+            "M",
+            "J",
+            "V",
+            "S"
+        ],
+        "monthNames": [
+            "Januari",
+            "FEBRUARI",
+            "Maart",
+            "april",
+            "kunnen",
+            "juni",
+            "juli",
+            "augustus",
+            "september",
+            "oktober",
+            "november",
+            "December"
+        ],
+        "monthNamesShort": [
+            "jan",
+            "februari",
+            "Maart",
+            "april",
+            "kunnen",
+            "juni",
+            "juli",
+            "augustus",
+            "zeven",
+            "okt",
+            "nov",
+            "dec"
+        ],
+        "today": "Vandaag",
+        "weekHeader": "Sem",
+        "firstDayOfWeek": 1,
+        "dateFormat": "DD/mm/jj",
+        "weak": "Zwak",
+        "medium": "GEMIDDELD",
+        "strong": "Sterk",
+        "passwordPrompt": "Voer een wachtwoord in",
+        "emptyMessage": "Geen resultaten gevonden",
+        "emptyFilterMessage": "Geen resultaten gevonden",
+        "selectedItemsLabel": "{0} geselecteerde elementen",
+        "double_quote": "\"\"",
+        "asterisk": "*",
+        "value": "Waarde"
+    },
+    "uploader": {
+        "title": "MP4-video-downloader",
+        "note": {
+            "single": "Alleen video's, maximaal {maxSize} per stuk",
+            "multiple": "Alleen video's, maximaal {maxSize} elk, maximaal {maxFiles} bestanden"
         },
-        "nonProfessionals": {
-          "title": "Niet-professionele gebruikers (consumenten)"
+        "info": {
+            "single": "Download een MP4-video om te beginnen",
+            "fileLimit": "{{current}}/{{max}} Bestanden ({{remaining}} overig)"
+        },
+        "statistics": {
+            "remaining": "overig",
+            "files": "Bestand(en)",
+            "uploading": "in uitvoering",
+            "completed": "klaar (en)"
+        },
+        "status": {
+            "uploading": "Bezig met downloaden...",
+            "completed": "Afgerond",
+            "locked": "Vergrendeld"
+        },
+        "actions": {
+            "preview": "Voorbeeld",
+            "remove": "VERWIJDEREN",
+            "close": "Dichtbij",
+            "upload": "Downloaden",
+            "cancel": "Annuleren"
+        },
+        "empty": {
+            "title": "Er is momenteel geen bestand gedownload",
+            "subtitle": {
+                "single": "Gebruik de bovenstaande downloader om een ​​MP4-video op te slaan of te downloaden",
+                "multiple": "Gebruik de bovenstaande downloader om op te slaan of te downloaden {{maxFiles}} MP4-video's"
+            }
+        },
+        "preview": {
+            "title": "Videovoorbeeld"
+        },
+        "messages": {
+            "fileLimitReached": "Limiet van getroffen bestanden",
+            "uploadComplete": "Downloaden voltooid",
+            "uploadSuccess": "{Bestandsnaam} succesvol gedownload!",
+            "uploadFailed": "Downloadfout",
+            "uploadFailedDetail": "Kan {Bestandsnaam} niet downloaden",
+            "fileRestriction": "Bestandsbeperking",
+            "cannotRemove": "Kan niet verwijderen",
+            "cannotRemoveLocked": "Kan het vergrendelde bestand niet verwijderen",
+            "fileRemoved": "Verwijderd bestand",
+            "fileRemovedSuccess": "Bestand verwijderd",
+            "removalFailed": "Verwijdering mislukt",
+            "removalFailedDetail": "Kan het bestand niet verwijderen. ",
+            "uploadPreparationFailed": "Voorbereiding mislukt",
+            "uploadPreparationFailedDetail": "Kan de download niet voorbereiden. ",
+            "duplicateFile": "Dubbel bestand",
+            "duplicateFileDetail": "Het bestand {Bestandsnaam} is al toegevoegd",
+            "filenameTooLong": "Bestandsnaam te lang",
+            "filenameTooLongDetail": "De bestandsnaam is te lang ({{currentLength}} karakters).  {{maxLength}} tekens of minder voordat u uploadt."
+        },
+        "dashboard": {
+            "strings": {
+                "addMoreFiles": "Voeg meer bestanden toe",
+                "addingMoreFiles": "Meer bestanden toevoegen",
+                "allowAccessDescription": "Als u foto's wilt maken of video's wilt opslaan met uw camera, moet u toegang tot de camera voor deze site toestaan.",
+                "allowAccessTitle": "Geef toegang tot uw camera",
+                "authenticateWith": "Verbinding maken met {plug-innaam}",
+                "authenticateWithTitle": "Authenticeer met {pluginname} om bestanden te selecteren",
+                "back": "Rug",
+                "browse": "doorgaan",
+                "browseFiles": "blader door de bestanden",
+                "cancel": "Annuleren",
+                "cancelUpload": "Annuleer het downloaden",
+                "chooseFiles": "Kies bestanden",
+                "closeModal": "Beklim het raam",
+                "companionError": "Verbinding met Companion mislukt",
+                "complete": "Afgerond",
+                "connectedToInternet": "Internet verbonden",
+                "copyLink": "Kopieer de link",
+                "copyLinkToClipboardFallback": "Kopieer de onderstaande URL",
+                "copyLinkToClipboardSuccess": "Link gekopieerd naar het klembord",
+                "creatingAssembly": "Voorbereiding downloaden...",
+                "creatingAssemblyFailed": "TransLODIT: Kan de Assembly niet maken",
+                "dashboardTitle": "Bestandsdownloader",
+                "dashboardWindowTitle": "Venster voor het downloaden van bestanden (druk op Escape om te sluiten)",
+                "dataUploadedOfTotal": "{Voltooid} op {Totaal}",
+                "done": "Afgerond",
+                "dropHereOr": "Plaats de bestanden hier of %{browse}",
+                "dropHint": "Dien hier uw bestanden in",
+                "dropPasteBoth": "Plaats de bestanden hier, lijm of %{browse}",
+                "dropPasteFiles": "Plaats de bestanden hier, lijm of %{browse}",
+                "dropPasteImportBoth": "Plaats de bestanden hier, lijm, %{browse} of importeer sindsdien",
+                "dropPasteImportFiles": "Plaats de bestanden hier, lijm, %{browse} of importeer sindsdien",
+                "edit": "Om te wijzigen",
+                "editFile": "Wijzig het bestand",
+                "editing": "Wijziging van %{file}",
+                "emptyFolderAdded": "Er is geen bestand toegevoegd vanuit de lege map",
+                "encoding": "Coderen...",
+                "enterCorrectUrl": "Onjuiste URL: zorg ervoor dat u een directe link naar een bestand invoert",
+                "enterUrlToImport": "Voer de URL in om een ​​bestand te importeren",
+                "exceedsSize": "Dit bestand overschrijdt de maximaal toegestane grootte van",
+                "failedToFetch": "Companion kan deze URL niet herstellen. Controleer of deze correct is",
+                "failedToUpload": "Kan %{Bestand} niet downloaden",
+                "fileSource": "Bestandsbron: %{naam}",
+                "filesUploadedOfTotal": {
+                    "0": "%{Complete} op %{smart_count} gedownload bestand",
+                    "1": "%{Complete} op %{smart_count} gedownloade bestanden"
+                },
+                "filter": "Filter",
+                "finishEditingFile": "Voltooi de wijziging van het bestand",
+                "folderAdded": {
+                    "0": "%{smart_count} bestand toegevoegd vanuit %{folder}",
+                    "1": "%{smart_count} bestanden toegevoegd vanuit %{folder}"
+                },
+                "import": "Importeren",
+                "importFrom": "Importeren sinds %{name}",
+                "loading": "Laden...",
+                "logOut": "Verbreek de verbinding",
+                "myDevice": "Mijn apparaat",
+                "noFilesFound": "Je hebt hier geen bestand of map",
+                "noInternetConnection": "Geen internetverbinding",
+                "pause": "Pauze",
+                "pauseUpload": "Verdeel de download",
+                "paused": "Pauze",
+                "poweredBy": "Aangedreven door %{uppy}",
+                "processingXFiles": {
+                    "0": "%{Smart_count} bestand",
+                    "1": "%{Smart_count} bestanden"
+                },
+                "removeFile": "Verwijder het bestand",
+                "resetFilter": "Reset het filter",
+                "resume": "Om te hervatten",
+                "resumeUpload": "Downloaden",
+                "retry": "Probeer het opnieuw",
+                "retryUpload": "Probeer de download te proberen",
+                "save": "Redden",
+                "selectFileNamed": "Selecteer het bestand %{name}",
+                "selectX": {
+                    "0": "Selecteer %{smart_count}",
+                    "1": "Selecteer %{smart_count}"
+                },
+                "smile": "Glimlach!",
+                "startRecording": "Video-opname starten",
+                "stopRecording": "Video-opname stoppen",
+                "takePicture": "Maak een foto",
+                "timedOut": "Download geblokkeerd gedurende %{seconds} seconden, stopzetting.",
+                "upload": "Downloaden",
+                "uploadComplete": "Downloaden voltooid",
+                "uploadFailed": "Downloadfout",
+                "uploadPaused": "Pauzeer het downloaden",
+                "uploadXFiles": {
+                    "0": "Download %{smart_count} bestand",
+                    "1": "Download %{smart_count} bestanden"
+                },
+                "uploadXNewFiles": {
+                    "0": "Download +%{smart_count} bestand",
+                    "1": "Download +%{smart_count} bestanden"
+                },
+                "uploading": "Bezig met downloaden",
+                "uploadingXFiles": {
+                    "0": "%{Smart_count} bestand",
+                    "1": "%{Smart_count} bestanden"
+                },
+                "xFilesSelected": {
+                    "0": "%{smart_count} geselecteerd bestand",
+                    "1": "%{smart_count} geselecteerde bestanden"
+                },
+                "xMoreFilesAdded": {
+                    "0": "%{smart_count} heeft extra bestand toegevoegd",
+                    "1": "%{smart_count} Extra bestanden toegevoegd"
+                },
+                "xTimeLeft": "%{tijd} resterend",
+                "youCanOnlyUploadFileTypes": "Je kunt alleen downloaden: %{types}",
+                "youCanOnlyUploadX": {
+                    "0": "Je kunt alleen %{smart_count} bestand downloaden",
+                    "1": "Je kunt slechts %{smart_count} bestanden downloaden"
+                },
+                "youHaveToAtLeastSelectX": {
+                    "0": "U moet minimaal %{smart_count} bestand selecteren",
+                    "1": "U moet minimaal %{smart_count} bestanden selecteren"
+                }
+            }
+        },
+        "service": {
+            "errors": {
+                "presignedUrl": "Mislukt bij het genereren van ondertekende URL's",
+                "removeFile": "Fout bij het verwijderen van bestanden",
+                "uploadFile": "Kan het bestand niet verzenden via de ondertekende URL",
+                "getFileList": "Kan de lijst met bestanden niet herstellen",
+                "updateMetadata": "Het bijwerken van de metagegevens van het bestand is mislukt"
+            }
         }
-      },
-      "account": {
-        "title": "Account en registratie"
-      },
-      "subscription": {
-        "title": "Abonnementen en betalingen",
-        "payment": {
-          "title": "Betalingsvoorwaarden"
-        },
-        "withdrawal": {
-          "title": "Herroepingsrecht"
-        },
-        "credits": {
-          "title": "Kredietsysteem"
+    },
+    "countries": {
+        "ad": "Andorriaans",
+        "ae": "Verenigde Arabische Emiraten",
+        "af": "Afghanistan",
+        "ag": "Antigua en Barbuda",
+        "ai": "Aal",
+        "al": "Albanië",
+        "am": "Armenië",
+        "ao": "Angola",
+        "aq": "Antarctisch",
+        "ar": "Argentinië",
+        "as": "Amerikaans-Samoa",
+        "at": "Oostenrijk",
+        "au": "Australië",
+        "aw": "Aruba",
+        "ax": "Åland-eilanden",
+        "az": "Azerbeidzjan",
+        "ba": "Bosnië en Herzegovina",
+        "bb": "Barbados",
+        "bd": "Bangladesh",
+        "be": "België",
+        "bf": "Burkina Faso",
+        "bg": "Bulgarije",
+        "bh": "Bahrein",
+        "bi": "Burundi",
+        "bj": "Goedaardig",
+        "bl": "Saint-Barthélemy",
+        "bm": "Bermuda",
+        "bn": "Brunei",
+        "bo": "Bolivia",
+        "bq": "Caribisch Nederland",
+        "br": "Brazilië",
+        "bs": "Bahamas",
+        "bt": "Bhoutan",
+        "bv": "Bouvet-eiland",
+        "bw": "Botswana",
+        "by": "Wit-Rusland",
+        "bz": "Belize",
+        "ca": "Canada",
+        "cc": "Cocoseilanden (Keeling)",
+        "cd": "Democratische Republiek Congo",
+        "cf": "Centraal-Afrikaanse Republiek",
+        "cg": "Republiek Congo",
+        "ch": "Zwitsers",
+        "ci": "Ivoorkust",
+        "ck": "Cook Eilanden",
+        "cl": "Chili",
+        "cm": "Kameroen",
+        "cn": "China",
+        "co": "Colombia",
+        "cr": "Costa Rica",
+        "cs": "Tsjechoslowakije",
+        "cu": "Cuba",
+        "cv": "Dop-groen",
+        "cw": "Curacao",
+        "cx": "Kerst eiland",
+        "cy": "Cyprus",
+        "cz": "Tsjechische Republiek",
+        "dd": "Duitse Democratische Republiek",
+        "de": "Duitsland",
+        "dj": "Djibouti",
+        "dk": "Denemarken",
+        "dm": "Dominique",
+        "do": "Dominicaanse Republiek",
+        "dz": "Algerije",
+        "ec": "Evenaar",
+        "ee": "Estland",
+        "eg": "Egypte",
+        "eh": "Westelijke Sahara",
+        "er": "Eritrea",
+        "es": "Spanje",
+        "et": "Ethiopië",
+        "fi": "Finland",
+        "fj": "Fiji",
+        "fk": "Falklandeilanden",
+        "fm": "Micronesië",
+        "fo": "Faeröer eilanden",
+        "fr": "Frankrijk",
+        "fx": "Metropolitaans Frankrijk",
+        "ga": "Gabon",
+        "gb": "Verenigd Koninkrijk",
+        "gd": "Granaat",
+        "ge": "Georgië",
+        "gf": "Guyana",
+        "gg": "Guernsey",
+        "gh": "Ghana",
+        "gi": "Gibraltar",
+        "gl": "Groenland",
+        "gm": "Gambia",
+        "gn": "Guinea",
+        "gp": "Guadeloupe",
+        "gq": "Equatoriaal-Guinea",
+        "gr": "Griekenland",
+        "gs": "Zuid-en Zuid-Sandwich Georgië",
+        "gt": "Guatemala",
+        "gu": "Guam",
+        "gw": "Guinee-Bissau",
+        "gy": "Guyana",
+        "hk": "Hongkong",
+        "hm": "Heard-et-Macdonald-eilanden",
+        "hn": "Honduras",
+        "hr": "Kroatië",
+        "ht": "Haïti",
+        "hu": "Hongarije",
+        "id": "Indonesië",
+        "ie": "Ierland",
+        "il": "Israël",
+        "im": "Man eiland",
+        "in": "Indië",
+        "io": "Brits grondgebied in de Indische Oceaan",
+        "iq": "Irak",
+        "ir": "Iran",
+        "is": "IJsland",
+        "it": "Italië",
+        "je": "Jersey",
+        "jm": "Jamaica",
+        "jo": "Jordanië",
+        "jp": "Japan",
+        "ke": "Kenia",
+        "kg": "Kirgizië",
+        "kh": "Cambodja",
+        "ki": "Kiribati",
+        "km": "Comoren",
+        "kn": "Saint-Christophe-et-Niévès",
+        "kp": "Noord-Korea",
+        "kr": "Zuid-Korea",
+        "kw": "Koeweit",
+        "ky": "Kaaimaneilanden",
+        "kz": "Kazachstan",
+        "la": "Laos",
+        "lb": "Libanon",
+        "lc": "Sainte-Lucie",
+        "li": "Liechtenstein",
+        "lr": "Liberia",
+        "ls": "Lesotho",
+        "lt": "Litouwen",
+        "lu": "Luxemburg",
+        "lv": "Letland",
+        "ly": "Libië",
+        "ma": "Marokko",
+        "mc": "Monaco",
+        "md": "Moldavië",
+        "me": "Montenegro",
+        "mf": "Sint-Maarten",
+        "mg": "Madagascar",
+        "mh": "Marshall eilanden",
+        "mk": "Noord-Macedonië",
+        "ml": "Mali",
+        "mm": "Myanmar",
+        "mn": "Mongolië",
+        "mo": "Macau",
+        "mp": "Noordelijke Marianen",
+        "mq": "Martinique",
+        "mr": "Mauritanië",
+        "ms": "Montserrat",
+        "mt": "Malta",
+        "mu": "Mauritius",
+        "mv": "Maldiven",
+        "mw": "Malawi",
+        "mx": "Mexico",
+        "my": "Maleisië",
+        "mz": "Mozambique",
+        "na": "Namibië",
+        "nc": "Nieuw-Caledonië",
+        "ne": "Niger",
+        "nf": "Norfolkeiland",
+        "ng": "Nigeria",
+        "ni": "Nicaragua",
+        "nl": "Nederland",
+        "no": "Noorwegen",
+        "np": "Nepal",
+        "nr": "Nauru",
+        "nt": "Neutrale zone",
+        "nu": "Niue",
+        "nz": "Nieuw-Zeeland",
+        "om": "Oman",
+        "pa": "Panama",
+        "pe": "Peru",
+        "pf": "Frans-Polynesië",
+        "pg": "Papoea-Nieuw-Guinea",
+        "ph": "Filippijnen",
+        "pk": "Pakistan",
+        "pl": "Polen",
+        "pm": "Saint-Pierre-et-Miquelon",
+        "pn": "Pitcairn",
+        "pr": "Puerto Rico",
+        "ps": "Palestina",
+        "pt": "Portugal",
+        "pw": "Palaos",
+        "py": "Paraguay",
+        "qa": "Katar",
+        "re": "Bijeenkomst",
+        "ro": "Roemenië",
+        "rs": "Servië",
+        "ru": "Rusland",
+        "rw": "Rwanda",
+        "sa": "Saoedi-Arabië",
+        "sb": "Salomonseilanden",
+        "sc": "Seychellen",
+        "sd": "Soedan",
+        "se": "Suède",
+        "sg": "Singapore",
+        "sh": "Sint-Helene",
+        "si": "Slovenië",
+        "sj": "Spitsbergen en Jan Mayen",
+        "sk": "Slowakije",
+        "sl": "Sierra Leone",
+        "sm": "Sint-Marin",
+        "sn": "Senegal",
+        "so": "Somalië",
+        "sr": "Overnaam",
+        "ss": "Zuid-Soedan",
+        "st": "Sao Tomé-et-Principe",
+        "su": "Sovjet-Unie",
+        "sv": "El Salvador",
+        "sx": "Sint-Maarten",
+        "sy": "Syrië",
+        "sz": "Eswatini",
+        "tc": "Turkse en Caicaanse eilanden",
+        "td": "Tsjaad",
+        "tf": "Franse Zuidelijke Landen",
+        "tg": "Togo",
+        "th": "Thailand",
+        "tj": "Tadzjikistan",
+        "tk": "Tokelau",
+        "tl": "Timor-Oosters",
+        "tm": "Turkmenistan",
+        "tn": "Tunesië",
+        "to": "Tonga",
+        "tr": "Turkije",
+        "tt": "Drie-eenheid en Tobago",
+        "tv": "Tuvalu",
+        "tw": "Taiwan",
+        "tz": "Tanzania",
+        "ua": "Oekraïne",
+        "ug": "Oeganda",
+        "um": "Kleine eilanden uit de Verenigde Staten",
+        "us": "VERENIGDE STATEN",
+        "uy": "Uruguay",
+        "uz": "Oezbekistan",
+        "va": "Vaticaanstad",
+        "vc": "Saint-Vincent-et-les-Grenadines",
+        "ve": "Venezuela",
+        "vg": "Britse Maagdeneilanden",
+        "vi": "Maagdeneilanden van de Verenigde Staten",
+        "vn": "Vietnam Vietnam",
+        "vu": "Vanuatu",
+        "wf": "Wallis-et-Futuna",
+        "ws": "Samoa",
+        "xk": "Kosovo",
+        "ye": "Jemen",
+        "yt": "Mayotte",
+        "yu": "Joegoslavië",
+        "za": "Zuid-Afrika",
+        "zm": "Zambia",
+        "zr": "Zaïre",
+        "zw": "Zimbabwe"
+    },
+    "topbar": {
+        "title": "Kaviaarverkenner",
+        "profile": {
+            "title": "Profiel",
+            "edit": "Profiel bewerken",
+            "logout": "Uitloggen",
+            "delete": "Verwijderen",
+            "deleteMobile": "Account verwijderen",
+            "editMobile": "Profiel bewerken",
+            "confirmDelete": "Weet u zeker dat u uw account wilt verwijderen? ",
+            "confirmDeleteTitle": "Account verwijderen",
+            "confirmDeleteMessage": "Weet u zeker dat u uw account definitief wilt verwijderen?",
+            "confirmDeleteWarning": "Deze actie kan niet ongedaan worden gemaakt. ",
+            "deleteConfirm": "Account verwijderen",
+            "deleteSuccessTitle": "Account verwijderd",
+            "deleteSuccessMessage": "Uw account is succesvol verwijderd. ",
+            "deleteErrorTitle": "Verwijderen is mislukt",
+            "deleteErrorMessage": "Het is niet gelukt uw account te verwijderen. "
         }
-      },
-      "obligations": {
-        "title": "Gebruikersverplichtingen"
-      },
-      "content": {
-        "title": "Inhoud en moderatie",
-        "license": {
-          "title": "Inhoudslicentie"
+    },
+    "common": {
+        "cancel": "Annuleren"
+    },
+    "legal": {
+        "backToHome": "Terug naar Thuis",
+        "lastUpdated": "Laatst bijgewerkt",
+        "privacy": {
+            "title": "Privacybeleid",
+            "introduction": {
+                "title": "Invoering"
+            },
+            "controller": {
+                "title": "Gegevensbeheerder"
+            },
+            "dpo": {
+                "title": "Functionaris voor gegevensbescherming"
+            },
+            "dataCollected": {
+                "title": "Gegevens verzameld",
+                "identity": {
+                    "title": "Identiteits- en contactgegevens"
+                },
+                "athletes": {
+                    "title": "Atleet informatie"
+                },
+                "technical": {
+                    "title": "Technische gegevens"
+                },
+                "transaction": {
+                    "title": "Transactiegegevens"
+                }
+            },
+            "legalBasis": {
+                "title": "Wettelijke basis voor verwerking"
+            },
+            "userCategories": {
+                "title": "Gebruikerscategorieën",
+                "professionals": {
+                    "title": "Professionele gebruikers"
+                },
+                "nonProfessionals": {
+                    "title": "Niet-professionele gebruikers"
+                },
+                "minors": {
+                    "title": "Bescherming van minderjarigen"
+                }
+            },
+            "retention": {
+                "title": "Gegevensretentie"
+            },
+            "recipients": {
+                "title": "Gegevensontvangers"
+            },
+            "rights": {
+                "title": "Uw rechten"
+            },
+            "cookies": {
+                "title": "Koekjes"
+            },
+            "security": {
+                "title": "Gegevensbeveiliging"
+            },
+            "updates": {
+                "title": "Beleidsupdates"
+            },
+            "contact": {
+                "title": "Neem contact met ons op"
+            }
+        },
+        "terms": {
+            "title": "Servicevoorwaarden",
+            "preamble": {
+                "title": "Preambule"
+            },
+            "definitions": {
+                "title": "Definities"
+            },
+            "service": {
+                "title": "Dienstbeschrijving",
+                "important": "Belangrijke mededeling"
+            },
+            "userCategories": {
+                "title": "Gebruikerscategorieën",
+                "professionals": {
+                    "title": "Professionele gebruikers"
+                },
+                "nonProfessionals": {
+                    "title": "Niet-professionele gebruikers (consumenten)"
+                }
+            },
+            "account": {
+                "title": "Account en registratie"
+            },
+            "subscription": {
+                "title": "Abonnementen en betalingen",
+                "payment": {
+                    "title": "Betalingsvoorwaarden"
+                },
+                "withdrawal": {
+                    "title": "Herroepingsrecht"
+                },
+                "credits": {
+                    "title": "Kredietsysteem"
+                }
+            },
+            "obligations": {
+                "title": "Gebruikersverplichtingen"
+            },
+            "content": {
+                "title": "Inhoud en moderatie",
+                "license": {
+                    "title": "Inhoudslicentie"
+                }
+            },
+            "liability": {
+                "title": "Beperking van aansprakelijkheid",
+                "disclaimer": "BELANGRIJKE DISCLAIMER",
+                "financial": {
+                    "title": "Financiële disclaimer"
+                },
+                "thirdParty": {
+                    "title": "Diensten van derden"
+                },
+                "information": {
+                    "title": "Informatiedisclaimer"
+                },
+                "limitation": {
+                    "title": "Beperking van aansprakelijkheid"
+                }
+            },
+            "indemnification": {
+                "title": "Schadeloosstelling"
+            },
+            "ip": {
+                "title": "Intellectueel eigendom"
+            },
+            "modifications": {
+                "title": "Dienstwijzigingen"
+            },
+            "termination": {
+                "title": "Beëindiging"
+            },
+            "disputes": {
+                "title": "Geschillenbeslechting",
+                "mediation": {
+                    "title": "Consumentenbemiddeling"
+                },
+                "jurisdiction": {
+                    "title": "Toepasselijk recht en jurisdictie"
+                }
+            },
+            "severability": {
+                "title": "Deelbaarheid"
+            },
+            "contact": {
+                "title": "Contact"
+            }
         }
-      },
-      "liability": {
-        "title": "Beperking van aansprakelijkheid",
-        "disclaimer": "BELANGRIJKE DISCLAIMER",
-        "financial": {
-          "title": "Financiële disclaimer"
+    },
+    "features": {
+        "title": "Bespaar tijd, rekruteer beter",
+        "subtitle": "Alles wat u nodig heeft voor betere wervingsbeslissingen.",
+        "free": {
+            "title": "Volledig Gratis Toegang",
+            "description": "Blader door alle profielen, bekijk video's, gebruik geavanceerde filters zonder te betalen. U betaalt alleen om een speler te contacteren."
         },
-        "thirdParty": {
-          "title": "Diensten van derden"
+        "database": {
+            "title": "Geverifieerde Talenten",
+            "description": "Elk profiel wordt door experts beoordeeld. Geen onbruikbare video's of nepprofielen meer."
         },
-        "information": {
-          "title": "Informatiedisclaimer"
+        "filters": {
+            "title": "Vind het Juiste Profiel in Enkele Klikken",
+            "description": "Filter op sport, leeftijd, land en vaardigheden om precies het talent te vinden dat u zoekt."
         },
-        "limitation": {
-          "title": "Beperking van aansprakelijkheid"
+        "contact": {
+            "title": "Neem Direct Contact op met de Speler",
+            "description": "Krijg met één klik toegang tot geverifieerde contactgegevens van atleten of hun agenten."
+        },
+        "analysis": {
+            "title": "Gestructureerde Video's, Geen Ruis",
+            "description": "Bekijk kwalitatieve, georganiseerde en relevante video's. Geen uren meer door content hoeven te zoeken."
         }
-      },
-      "indemnification": {
-        "title": "Schadeloosstelling"
-      },
-      "ip": {
-        "title": "Intellectueel eigendom"
-      },
-      "modifications": {
-        "title": "Dienstwijzigingen"
-      },
-      "termination": {
-        "title": "Beëindiging"
-      },
-      "disputes": {
-        "title": "Geschillenbeslechting",
-        "mediation": {
-          "title": "Consumentenbemiddeling"
-        },
-        "jurisdiction": {
-          "title": "Toepasselijk recht en jurisdictie"
-        }
-      },
-      "severability": {
-        "title": "Deelbaarheid"
-      },
-      "contact": {
-        "title": "Contact"
-      }
     }
-  },
-  "features": {
-    "title": "Krachtige functies",
-    "subtitle": "Alles wat u nodig heeft voor effectieve werving.",
-    "free": {
-      "title": "Gratis volledige toegang",
-      "description": "Blader door alle profielen, bekijk video's, gebruik geavanceerde filters - helemaal gratis. "
-    },
-    "database": {
-      "title": "Volledige database",
-      "description": "Krijg toegang tot duizenden geverifieerde talentprofielen."
-    },
-    "filters": {
-      "title": "Geavanceerde zoekfilters",
-      "description": "Target profielen nauwkeurig op sport, leeftijd en vaardigheden."
-    },
-    "contact": {
-      "title": "Direct en veilig contact",
-      "description": "Communiceer rechtstreeks met atleten of hun agenten."
-    },
-    "analysis": {
-      "title": "Video-analyse",
-      "description": "Bekijk en analyseer de prestaties van talenten."
-    }
-  }
 }

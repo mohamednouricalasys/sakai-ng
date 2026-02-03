@@ -1,1491 +1,1509 @@
 {
-  "nav": {
-    "profesional": "Spor mesleği",
-    "gallery": "Galeri",
-    "myProdigies": "Benim dahilerim",
-    "myVideos": "Videolarım",
-    "moderation": "Moderasyon",
-    "subscription": "Abonelik"
-  },
-  "shared": {
-    "actions": {
-      "new": "Yeni",
-      "delete": "SİLMEK",
-      "export": "İhracat",
-      "edit": "Değiştirmek için",
-      "save": "Korumak için",
-      "cancel": "İptal etmek",
-      "search": "Araştırmak için...",
-      "add": "Eklemek",
-      "confirm": "Onaylamak",
-      "approve": "Onaylamak",
-      "desapprove": "Onaylamayı reddet",
-      "reject": "Azletmek",
-      "close": "Kapalı"
+    "nav": {
+        "profesional": "Spor mesleği",
+        "gallery": "Galeri",
+        "myProdigies": "Benim dahilerim",
+        "myVideos": "Videolarım",
+        "moderation": "Moderasyon",
+        "subscription": "Abonelik"
     },
-    "common": {
-      "title": "Başlık",
-      "url": "URL'si",
-      "or": "VEYA",
-      "select": "Seçme",
-      "name": "İsim",
-      "age": "Yaş",
-      "description": "Tanım",
-      "actions": "Eylemler",
-      "creationDate": "Oluşturulma tarihi",
-      "tags": "Etiketler",
-      "required": "*",
-      "years": "yıllar",
-      "success": "Başarı",
-      "error": "Hata",
-      "warning": "Uyarı",
-      "confirmation": "Onay",
-      "male": "Adam",
-      "female": "Kadınlar",
-      "processing": "Tedavi sürüyor...",
-      "loading": "Yükleniyor...",
-      "saving": "Kaydediliyor..."
+    "shared": {
+        "actions": {
+            "new": "Yeni",
+            "delete": "SİLMEK",
+            "export": "İhracat",
+            "edit": "Değiştirmek için",
+            "save": "Korumak için",
+            "cancel": "İptal etmek",
+            "search": "Araştırmak için...",
+            "add": "Eklemek",
+            "confirm": "Onaylamak",
+            "approve": "Onaylamak",
+            "desapprove": "Onaylamayı reddet",
+            "reject": "Azletmek",
+            "close": "Kapalı"
+        },
+        "common": {
+            "title": "Başlık",
+            "url": "URL'si",
+            "or": "VEYA",
+            "select": "Seçme",
+            "name": "İsim",
+            "age": "Yaş",
+            "description": "Tanım",
+            "actions": "Eylemler",
+            "creationDate": "Oluşturulma tarihi",
+            "tags": "Etiketler",
+            "required": "*",
+            "years": "yıllar",
+            "success": "Başarı",
+            "error": "Hata",
+            "warning": "Uyarı",
+            "confirmation": "Onay",
+            "male": "Adam",
+            "female": "Kadınlar",
+            "processing": "Tedavi sürüyor...",
+            "loading": "Yükleniyor...",
+            "saving": "Kaydediliyor..."
+        },
+        "validation": {
+            "required": "ZORUNLU",
+            "nameRequired": "İsim zorunludur.",
+            "ageRequired": "Yaş zorunludur.",
+            "titleRequired": "Başlık gerekli.",
+            "genderRequired": "Cinsiyet gereklidir.",
+            "countryRequired": "Ülke gerekli."
+        },
+        "messages": {
+            "confirmDelete": "{item}'i silmek istediğinizden emin misiniz?",
+            "confirmDeleteMultiple": "Seçilen öğeleri silmek istediğinizden emin misiniz?",
+            "itemDeleted": "{item} silindi",
+            "itemsDeleted": "Öğeler silindi",
+            "itemCreated": "{item} oluşturuldu",
+            "itemUpdated": "{item} güncellemesi",
+            "validationError": "Doğrulama hatası",
+            "limitReached": "Sınıra ulaşıldı",
+            "dataLoadError": "Veriler yüklenirken hata oluştu",
+            "saveError": "Kaydedilirken hata oluştu",
+            "deleteError": "Silinirken hata oluştu"
+        }
     },
-    "validation": {
-      "required": "ZORUNLU",
-      "nameRequired": "İsim zorunludur.",
-      "ageRequired": "Yaş zorunludur.",
-      "titleRequired": "Başlık gerekli.",
-      "genderRequired": "Cinsiyet gereklidir.",
-      "countryRequired": "Ülke gerekli."
+    "landing": {
+        "home": "Ev",
+        "features": "Özellikler",
+        "pricing": "Fiyatlandırma",
+        "hero": {
+            "title": "En iyi yetenekleri herkesten önce keşfedin.",
+            "subtitle": "CAVIAR SCOUT, yapılandırılmış videolar ve güvenilir veriler aracılığıyla genç yetenekleri tanımlamak, analiz etmek ve karşılaştırmak için scout'lara, ajanlara ve kulüplere yardımcı olur.",
+            "tagline": "Daha az analiz edin. Daha iyi karar verin. Daha hızlı işe alın.",
+            "button": "Yeteneklere erişin",
+            "freeBadge": "ÜCRETSİZ ERİŞİM",
+            "freeForProfessionals": "Scout'lar, ajanlar ve kulüpler için",
+            "freeHighlight": "Tüm profilleri ve videoları ücretsiz keşfedin",
+            "payOnlyContact": "Ödeme yalnızca bir oyuncuyla iletişim kurmak için"
+        },
+        "valueProposition": {
+            "title": "Profesyoneller Neden Bizi Seçiyor?",
+            "free": {
+                "title": "Profesyoneller için Tamamen Ücretsiz",
+                "description": "Gizli ücret yok, abonelik ücreti yok. ",
+                "badge": "ÖZGÜR"
+            },
+            "access": {
+                "title": "Özel Erişim",
+                "description": "Yetenekli sporcular ve onların temsilcileriyle doğrudan bağlantı kurun."
+            },
+            "verified": {
+                "title": "Doğrulanmış Yetenek Havuzu",
+                "description": "Tüm profiller onaylanmadan önce uzmanlar tarafından incelenir."
+            }
+        }
     },
-    "messages": {
-      "confirmDelete": "{item}'i silmek istediğinizden emin misiniz?",
-      "confirmDeleteMultiple": "Seçilen öğeleri silmek istediğinizden emin misiniz?",
-      "itemDeleted": "{item} silindi",
-      "itemsDeleted": "Öğeler silindi",
-      "itemCreated": "{item} oluşturuldu",
-      "itemUpdated": "{item} güncellemesi",
-      "validationError": "Doğrulama hatası",
-      "limitReached": "Sınıra ulaşıldı",
-      "dataLoadError": "Veriler yüklenirken hata oluştu",
-      "saveError": "Kaydedilirken hata oluştu",
-      "deleteError": "Silinirken hata oluştu"
-    }
-  },
-  "landing": {
-    "home": "Ev",
-    "features": "Özellikler",
-    "pricing": "Fiyatlandırma",
-    "hero": {
-      "title": "Yarının Spor Yıldızlarını Bugün İzleyin",
-      "subtitle": "Video analizi ve gelişmiş işe alım araçları aracılığıyla geleceğin atletik dahilerini keşfetmeye ve değerlendirmeye yönelik profesyonel platform.",
-      "button": "Şimdi Ücretsiz Katılın",
-      "freeBadge": "%100 ÜCRETSİZ",
-      "freeForProfessionals": "Profesyoneller için sıfır maliyetle tam erişim",
-      "freeHighlight": "Yalnızca iletişim bilgilerini istediğinizde ödeme yapın"
+    "auth": {
+        "login": "Giriş yapmak",
+        "register": "Kayıt olmak"
     },
-    "valueProposition": {
-      "title": "Profesyoneller Neden Bizi Seçiyor?",
-      "free": {
-        "title": "Profesyoneller için Tamamen Ücretsiz",
-        "description": "Gizli ücret yok, abonelik ücreti yok. ",
-        "badge": "ÖZGÜR"
-      },
-      "access": {
-        "title": "Özel Erişim",
-        "description": "Yetenekli sporcular ve onların temsilcileriyle doğrudan bağlantı kurun."
-      },
-      "verified": {
-        "title": "Doğrulanmış Yetenek Havuzu",
-        "description": "Tüm profiller onaylanmadan önce uzmanlar tarafından incelenir."
-      }
-    }
-  },
-  "auth": {
-    "login": "Giriş yapmak",
-    "register": "Kayıt olmak"
-  },
-  "subscription": {
-    "loading": "Abonelik ayrıntıları yükleniyor...",
-    "activeSubscription": {
-      "title": "Aktif Abonelik",
-      "credits": "Kredi {count} / {max}",
-      "creditsLabel": "Kredi",
-      "status": {
-        "active": "Aktif"
-      },
-      "buttons": {
-        "manage": "Aboneliği Yönet",
-        "cancel": "Planı İptal Et"
-      }
+    "subscription": {
+        "loading": "Abonelik ayrıntıları yükleniyor...",
+        "activeSubscription": {
+            "title": "Aktif Abonelik",
+            "credits": "Kredi {count} / {max}",
+            "creditsLabel": "Kredi",
+            "status": {
+                "active": "Aktif"
+            },
+            "buttons": {
+                "manage": "Aboneliği Yönet",
+                "cancel": "Planı İptal Et"
+            }
+        },
+        "pricing": {
+            "title": "Planınızı Seçin",
+            "subtitle": "Premium Özelliklerin Kilidini Açın",
+            "description": "İhtiyaçlarınıza uygun mükemmel planı seçin",
+            "loading": "Fiyatlandırma seçenekleri yükleniyor..."
+        },
+        "plans": {
+            "basic": "Temel Plan",
+            "premium": "Prim Planı",
+            "pro": "Profesyonel Plan",
+            "enterprise": "Kurumsal Plan",
+            "default": "Abonelik Planı"
+        },
+        "messages": {
+            "loadError": "Abonelik bilgileri yüklenemedi",
+            "pricingError": "Fiyatlandırma seçenekleri yüklenemedi",
+            "portalError": "Müşteri portalı açılamıyor",
+            "cancelSuccess": "Aboneliğiniz başarıyla iptal edildi",
+            "cancelError": "Abonelik iptal edilemedi",
+            "cancelErrorGeneric": "Aboneliğiniz iptal edilirken bir hata oluştu"
+        },
+        "confirmations": {
+            "cancel": "Aboneliğinizi iptal etmek istediğinizden emin misiniz? "
+        },
+        "maintenance": {
+            "title": "Abonelik Hizmeti Bakımı",
+            "subtitle": "Bakım devam ediyor",
+            "description": "Abonelik hizmetimiz şu anda bakımdadır. ",
+            "backButton": "Geri",
+            "contactButton": "Desteğe başvurun"
+        }
     },
     "pricing": {
-      "title": "Planınızı Seçin",
-      "subtitle": "Premium Özelliklerin Kilidini Açın",
-      "description": "İhtiyaçlarınıza uygun mükemmel planı seçin",
-      "loading": "Fiyatlandırma seçenekleri yükleniyor..."
+        "title": "Planınızı Seçin",
+        "subtitle": "1 iletişim = 1 kredi. Basit, şeffaf.",
+        "happy_hour": "Happy Hour: Uygulama lansman aşamasında iletişimler dahil tüm özellikler şu anda ÜCRETSİZ!",
+        "section_subscriptions": "Aylık abonelikler",
+        "section_packs": "Kredi paketleri",
+        "starter": {
+            "title": "Başlangıç",
+            "price": "25,00 €",
+            "period": "aylık",
+            "button": "Seçme",
+            "credits": "{credits} contacts",
+            "feature1": "Veritabanı erişimi",
+            "feature2": "Basit filtre araması",
+            "feature3": "Öncelikli destek"
+        },
+        "pro": {
+            "title": "Profesyonel",
+            "price": "100,00 €",
+            "period": "aylık",
+            "button": "Seçildi",
+            "credits": "{credits} contacts",
+            "feature1": "Veritabanı erişimi",
+            "feature2": "Gelişmiş arama filtreleri",
+            "feature3": "Öncelikli destek"
+        },
+        "elite": {
+            "title": "Elit",
+            "price": "150,00 €",
+            "period": "aylık",
+            "button": "Seçme",
+            "credits": "{credits} contacts",
+            "feature1": "Veritabanı erişimi",
+            "feature2": "Gelişmiş arama filtreleri",
+            "feature3": "7/24 Öncelikli destek"
+        },
+        "pack5": {
+            "title": "Pack 5",
+            "price": "39,00 €",
+            "period": "tek seferlik",
+            "credits": "{credits} contacts",
+            "button": "Satın Al"
+        },
+        "pack10": {
+            "title": "Pack 10",
+            "price": "69,00 €",
+            "period": "tek seferlik",
+            "credits": "{credits} contacts",
+            "button": "Satın Al"
+        },
+        "credit_model": {
+            "title": "Nasıl çalışır?",
+            "click_equals_credit": "1 tıklama = 1 kredi = 1 iletişim",
+            "description": "Bir oyuncunun iletişim bilgilerine erişmek için her tıkladığınızda hesabınızdan 1 kredi düşülür."
+        }
     },
-    "plans": {
-      "basic": "Temel Plan",
-      "premium": "Prim Planı",
-      "pro": "Profesyonel Plan",
-      "enterprise": "Kurumsal Plan",
-      "default": "Abonelik Planı"
+    "footer": {
+        "company": {
+            "description": "[Hizmet/ürün] için yenilikçi çözümünüz",
+            "rights": "Her hakkı saklıdır"
+        },
+        "links": {
+            "company": "Şirket",
+            "about": "Hakkında",
+            "careers": "Kariyer",
+            "press": "Basmak",
+            "legal": "Yasal",
+            "privacy": "Gizlilik Politikası",
+            "terms": "Hizmet Şartları",
+            "cookies": "Çerez Politikası",
+            "support": "Destek",
+            "contact": "Temas etmek",
+            "faq": "SSS",
+            "documentation": "Dokümantasyon"
+        },
+        "newsletter": {
+            "title": "Güncel Kalın",
+            "description": "En son haberleri ve özel teklifleri alın",
+            "placeholder": "E-posta adresiniz",
+            "subscribe": "Abone",
+            "success": "Teşekkür ederim! ",
+            "error": "Bir hata oluştu. "
+        },
+        "social": {
+            "follow": "Bizi takip edin",
+            "facebook": "Facebook",
+            "twitter": "heyecan",
+            "linkedin": "LinkedIn",
+            "instagram": "instagram",
+            "youtube": "YouTube"
+        },
+        "contact": {
+            "title": "Bize Ulaşın",
+            "address": "Adres",
+            "phone": "Telefon",
+            "email": "E-posta"
+        },
+        "backToTop": "Başa dön"
     },
-    "messages": {
-      "loadError": "Abonelik bilgileri yüklenemedi",
-      "pricingError": "Fiyatlandırma seçenekleri yüklenemedi",
-      "portalError": "Müşteri portalı açılamıyor",
-      "cancelSuccess": "Aboneliğiniz başarıyla iptal edildi",
-      "cancelError": "Abonelik iptal edilemedi",
-      "cancelErrorGeneric": "Aboneliğiniz iptal edilirken bir hata oluştu"
+    "videos": {
+        "contact": {
+            "button": "Yöneticiyle iletişime geçin",
+            "dialog": {
+                "header": "İletişim Bilgileri",
+                "unknownContact": "Bilinmeyen Kişi",
+                "email": "E-posta",
+                "phone": "Telefon",
+                "message": "Mesaj",
+                "copyEmailTitle": "E-postayı kopyalamak için tıklayın",
+                "copyPhoneTitle": "Telefonu kopyalamak için tıklayın",
+                "close": "Kapalı"
+            }
+        },
+        "gallery": {
+            "title": "Video Galerisi",
+            "subtitle": "Dünyanın her yerinden yetenekli sporcuları keşfedin"
+        },
+        "empty": {
+            "title": "Hiçbir Video Bulunamadı",
+            "description": "Aradığınızı bulmak için filtrelerinizi veya arama terimlerinizi ayarlamayı deneyin."
+        },
+        "loading": {
+            "more": "Daha fazla video yükleniyor..."
+        },
+        "search": {
+            "placeholder": "Videoları ara..."
+        },
+        "filter": {
+            "sport": "Spora göre filtrele",
+            "tag": "Etikete göre filtrele",
+            "country": "Ülkeye göre filtrele",
+            "allCountries": "Tüm ülkeler",
+            "clear": "Filtreleri temizle",
+            "allSports": "Tüm sporlar",
+            "allTags": "Tüm etiketler",
+            "allGenders": "Tüm cinsiyetler",
+            "homme": "Erkek",
+            "femme": "Dişi",
+            "all": "Tüm",
+            "newVideoNewContact": "Yeni kişilerden videolar",
+            "newVideoOldContact": "Mevcut kişilerden videolar",
+            "alreadyReadVideo": "Zaten görüntülendi",
+            "myVideos": "Videolarım",
+            "contactStatus": "İletişim Durumu",
+            "selectContactStatus": "Bir kişi durumu seçin",
+            "clearContactStatus": "Durumları temizle",
+            "active": "Aktif filtreler"
+        },
+        "messages": {
+            "loadError": "Videolar yüklenemedi. "
+        },
+        "insufficientCredits": {
+            "dialog": {
+                "header": "Yetersiz Kredi",
+                "title": "Yeterli krediniz yok",
+                "message": "Sporcularla iletişime geçmek için krediye ihtiyacınız var. ",
+                "currentCredits": "Mevcut krediler: {count}",
+                "subscribeButton": "Daha Fazla Kredi Alın",
+                "closeButton": "Kapalı"
+            }
+        }
     },
-    "confirmations": {
-      "cancel": "Aboneliğinizi iptal etmek istediğinizden emin misiniz? "
+    "admin": {
+        "video": {
+            "moderation": {
+                "title": "Video denetimi",
+                "enAttente": "beklemede",
+                "approuvee": "Onaylı",
+                "rejete": "Reddedilmiş",
+                "unknown": "Bilinmiyor",
+                "rejectedVideo": "Reddedilen Video",
+                "approvedVideo": "Onaylanan Video",
+                "warning": "⚠️ Uyarı",
+                "autoDeleteWarning": "Reddedilen videolar, güncellenmediği takdirde 15 gün sonra otomatik olarak silinecektir."
+            },
+            "title": "Video yönetimi",
+            "totalVideos": "{{count}} Toplam video(lar)",
+            "prodige": "Dahi",
+            "dateCreation": "Oluşturulma tarihi",
+            "dateModeration": "Moderasyon tarihi",
+            "moderatedBy": "Denetleyen:",
+            "moderationComment": {
+                "approve": {
+                    "placeholder": "Onay için isteğe bağlı yorum ..."
+                },
+                "reject": {
+                    "placeholder": "Reddedilme nedenlerini açıklayın (zorunlu)..."
+                }
+            },
+            "status": "Durum",
+            "search": {
+                "placeholder": "Başlığa göre ara, harika..."
+            },
+            "filter": {
+                "status": "Duruma göre statü sahibi",
+                "all": "Tüm kanunlar"
+            },
+            "sort": {
+                "placeholder": "Göre sırala...",
+                "dateCreation": {
+                    "desc": "Önce daha yeni",
+                    "asc": "Önce yaşlı"
+                },
+                "title": {
+                    "asc": "Başlık A'dan Z'ye",
+                    "desc": "Z-A-A başlığı"
+                },
+                "status": {
+                    "asc": "A'dan Z'ye durum",
+                    "desc": "Z-A durumu"
+                }
+            },
+            "actions": {
+                "view": "Görmek",
+                "approve": "Onaylamak",
+                "desapprove": "Onaylamayı reddet",
+                "reject": "Azletmek"
+            },
+            "empty": {
+                "title": "Video bulunamadı",
+                "description": "Şu anda araştırma kriterlerinize uygun bir video yok."
+            },
+            "detail": {
+                "title": "Video ayrıntıları",
+                "information": "Bilgi",
+                "moderation": "Moderasyon"
+            },
+            "confirm": {
+                "approve": "Videoyu onaylamak istediğinizden emin misiniz?\"{{title}}\"",
+                "reject": "Videoyu reddetmek istediğinizden emin misiniz?\"{{title}}\"",
+                "delete": "Videoyu kalıcı olarak silmek istediğinizden emin misiniz?\"{{title}}\"? Bu eylem geri alınamaz."
+            },
+            "validation": {
+                "commentRequired": "Reddedilme nedenlerini açıklayan bir yorum zorunludur."
+            },
+            "messages": {
+                "loadError": "Videolar yüklenirken hata oluştu.",
+                "approved": "Video başarıyla onaylandı.",
+                "rejected": "Başarılı video.",
+                "deleted": "Video başarıyla silindi.",
+                "moderationError": "Video denetlenirken hata oluştu.",
+                "deleteError": "Video silinirken hata oluştu."
+            }
+        }
     },
-    "maintenance": {
-      "title": "Abonelik Hizmeti Bakımı",
-      "subtitle": "Bakım devam ediyor",
-      "description": "Abonelik hizmetimiz şu anda bakımdadır. ",
-      "backButton": "Geri",
-      "contactButton": "Desteğe başvurun"
-    }
-  },
-  "pricing": {
-    "title": "Planınızı Seçin",
-    "subtitle": "Her işe alım ihtiyacı için esnek fiyatlandırma.",
-    "starter": {
-      "title": "Başlangıç",
-      "price": "€50,00",
-      "period": "aylık",
-      "button": "Seçme",
-      "credits": "{kredi} kredi",
-      "feature1": "Veritabanı erişimi",
-      "feature2": "Basit filtre araması",
-      "feature3": "Öncelikli destek"
+    "procrud": {
+        "title": "Dahi yönetim",
+        "labels": {
+            "newProdige": "Yeni dahi",
+            "editProdige": "dahiyi düzenle",
+            "myProdigies": "Benim dahilerim",
+            "manageProdigies": "Dahilerinizi yönetin",
+            "totalProdigies": "Toplam dahi",
+            "prodigeDetails": "Harika ayrıntılar",
+            "sport": "Spor",
+            "selectSport": "Bir spor seçin",
+            "addTag": "Etiket ekleyin...",
+            "associatedVideos": "İlgili videolar",
+            "videoWithoutTitle": "Ünite videosu",
+            "videosCount": "Video sayısı"
+        },
+        "columns": {
+            "nom": "İsim",
+            "nomExport": "Harika isim",
+            "age": "Yaş",
+            "sport": "Spor",
+            "videosCount": "Video sayısı",
+            "dateCreation": "Oluşturulma tarihi",
+            "gender": "Cinsiyet",
+            "genre": "Cinsiyet",
+            "country": "Ülke"
+        },
+        "pagination": {
+            "itemName": "harikalar",
+            "showing": "{TotalRecords} Prodigies'te {first} ile {last} arasında görüntüleniyor"
+        },
+        "validation": {
+            "sportRequired": "Spor zorunludur.",
+            "descriptionRequired": "Açıklama \"diğer\" sporlar için zorunludur.",
+            "minTagsRequired": "Minimum 3 etiket gereklidir.",
+            "maxTagsReached": "Maksimum 10 yetkili etiket",
+            "descriptionRequiredForOther": "Spor 'diğer' için zorunlu açıklama"
+        },
+        "placeholders": {
+            "name": "Dahi adını girin",
+            "selectCountry": "Bir ülke seçin",
+            "describeQualities": "Harikanın niteliklerini ve potansiyelini açıklayın ..."
+        },
+        "tags": {
+            "minMaxInfo": "(en az: 3, en fazla: 10)",
+            "selectedCount": "{Count}/10 seçili etiket",
+            "selected": "etiketler seçildi",
+            "associatedVideosCount": "{Count} Video ilişkilendirildi"
+        },
+        "messages": {
+            "prodigeCreated": "Dahi yaratıldı",
+            "prodigeUpdated": "Güncelleme",
+            "prodigeDeleted": "Prodigy silindi",
+            "prodigiesDeleted": "Dahiler silindi",
+            "confirmDeleteProdige": "{name}'i silmek istediğinizden emin misiniz?",
+            "confirmDeleteProdigies": "Seçilen harikaları silmek istediğinizden emin misiniz?"
+        },
+        "sort": {
+            "label": "Göre sırala",
+            "name": {
+                "placeholder": "Ada göre sırala",
+                "down": "İsim ▼",
+                "up": "İsim ▲"
+            }
+        },
+        "empty": {
+            "title": "Henüz harika bir şey yok",
+            "description": "Başlamak için ilk dahinizi yaratın"
+        }
     },
-    "pro": {
-      "current_plan": "Mevcut abonelik",
-      "title": "Profesyonel",
-      "price": "€150,00",
-      "period": "aylık",
-      "button": "Seçildi",
-      "credits": "{kredi} kredi",
-      "feature1": "Veritabanı erişimi",
-      "feature2": "Gelişmiş arama filtreleri",
-      "feature3": "Öncelikli destek"
-    },
-    "elite": {
-      "title": "Elit",
-      "price": "€250,00",
-      "period": "aylık",
-      "button": "Seçme",
-      "credits": "{kredi} kredi",
-      "feature1": "Veritabanı erişimi",
-      "feature2": "Gelişmiş arama filtreleri",
-      "feature3": "7/24 Öncelikli destek"
-    },
-    "point_system": {
-      "new_video_new_contact": "5 puan: yeni video, yeni kişi",
-      "new_video_old_contact": "3 puan: yeni video, eski iletişim",
-      "already_viewed": "0 puan: zaten görüntülendi"
-    }
-  },
-  "footer": {
-    "company": {
-      "description": "[Hizmet/ürün] için yenilikçi çözümünüz",
-      "rights": "Her hakkı saklıdır"
-    },
-    "links": {
-      "company": "Şirket",
-      "about": "Hakkında",
-      "careers": "Kariyer",
-      "press": "Basmak",
-      "legal": "Yasal",
-      "privacy": "Gizlilik Politikası",
-      "terms": "Hizmet Şartları",
-      "cookies": "Çerez Politikası",
-      "support": "Destek",
-      "contact": "Temas etmek",
-      "faq": "SSS",
-      "documentation": "Dokümantasyon"
-    },
-    "newsletter": {
-      "title": "Güncel Kalın",
-      "description": "En son haberleri ve özel teklifleri alın",
-      "placeholder": "E-posta adresiniz",
-      "subscribe": "Abone",
-      "success": "Teşekkür ederim! ",
-      "error": "Bir hata oluştu. "
-    },
-    "social": {
-      "follow": "Bizi takip edin",
-      "facebook": "Facebook",
-      "twitter": "heyecan",
-      "linkedin": "LinkedIn",
-      "instagram": "instagram",
-      "youtube": "YouTube"
-    },
-    "contact": {
-      "title": "Bize Ulaşın",
-      "address": "Adres",
-      "phone": "Telefon",
-      "email": "E-posta"
-    },
-    "backToTop": "Başa dön"
-  },
-  "videos": {
-    "contact": {
-      "button": "Yöneticiyle iletişime geçin",
-      "dialog": {
-        "header": "İletişim Bilgileri",
-        "unknownContact": "Bilinmeyen Kişi",
-        "email": "E-posta",
-        "phone": "Telefon",
-        "message": "Mesaj",
-        "copyEmailTitle": "E-postayı kopyalamak için tıklayın",
-        "copyPhoneTitle": "Telefonu kopyalamak için tıklayın",
-        "close": "Kapalı"
-      }
-    },
-    "gallery": {
-      "title": "Video Galerisi",
-      "subtitle": "Dünyanın her yerinden yetenekli sporcuları keşfedin"
-    },
-    "empty": {
-      "title": "Hiçbir Video Bulunamadı",
-      "description": "Aradığınızı bulmak için filtrelerinizi veya arama terimlerinizi ayarlamayı deneyin."
-    },
-    "loading": {
-      "more": "Daha fazla video yükleniyor..."
-    },
-    "search": {
-      "placeholder": "Videoları ara..."
-    },
-    "filter": {
-      "sport": "Spora göre filtrele",
-      "tag": "Etikete göre filtrele",
-      "country": "Ülkeye göre filtrele",
-      "allCountries": "Tüm ülkeler",
-      "clear": "Filtreleri temizle",
-      "allSports": "Tüm sporlar",
-      "allTags": "Tüm etiketler",
-      "allGenders": "Tüm cinsiyetler",
-      "homme": "Erkek",
-      "femme": "Dişi",
-      "all": "Tüm",
-      "newVideoNewContact": "Yeni kişilerden videolar",
-      "newVideoOldContact": "Mevcut kişilerden videolar",
-      "alreadyReadVideo": "Zaten görüntülendi",
-      "myVideos": "Videolarım",
-      "contactStatus": "İletişim Durumu",
-      "selectContactStatus": "Bir kişi durumu seçin",
-      "clearContactStatus": "Durumları temizle",
-      "active": "Aktif filtreler"
-    },
-    "messages": {
-      "loadError": "Videolar yüklenemedi. "
-    },
-    "insufficientCredits": {
-      "dialog": {
-        "header": "Yetersiz Kredi",
-        "title": "Yeterli krediniz yok",
-        "message": "Sporcularla iletişime geçmek için krediye ihtiyacınız var. ",
-        "currentCredits": "Mevcut krediler: {count}",
-        "subscribeButton": "Daha Fazla Kredi Alın",
-        "closeButton": "Kapalı"
-      }
-    }
-  },
-  "admin": {
     "video": {
-      "moderation": {
-        "title": "Video denetimi",
-        "enAttente": "beklemede",
-        "approuvee": "Onaylı",
-        "rejete": "Reddedilmiş",
-        "unknown": "Bilinmiyor",
-        "rejectedVideo": "Reddedilen Video",
-        "approvedVideo": "Onaylanan Video",
-        "warning": "⚠️ Uyarı",
-        "autoDeleteWarning": "Reddedilen videolar, güncellenmediği takdirde 15 gün sonra otomatik olarak silinecektir."
-      },
-      "title": "Video yönetimi",
-      "totalVideos": "{{count}} Toplam video(lar)",
-      "prodige": "Dahi",
-      "dateCreation": "Oluşturulma tarihi",
-      "dateModeration": "Moderasyon tarihi",
-      "moderatedBy": "Denetleyen:",
-      "moderationComment": {
-        "approve": {
-          "placeholder": "Onay için isteğe bağlı yorum ..."
+        "labels": {
+            "newVideo": "Yeni Video",
+            "editVideo": "Videoyu Düzenle",
+            "myVideos": "Videolarım",
+            "manageYourVideos": "Sporcu videolarınızı yönetin ve yükleyin",
+            "prodige": "Dahi",
+            "selectProdige": "Bir Dahi Seçin",
+            "videoDetails": "Video ayrıntıları",
+            "videoFile": "Video dosyası",
+            "manualUrl": "Video URL'si (manuel)",
+            "optional": "İsteğe bağlı",
+            "optionalForEdit": "düzenleme için isteğe bağlı",
+            "currentFile": "Geçerli dosya",
+            "noPreview": "Önizleme yok",
+            "noDescription": "Açıklama yok",
+            "moderationStatus": "Moderasyon durumu",
+            "moderationComment": "Denetleme yorumu",
+            "addFirstVideo": "İlk videonuzu ekleyin"
         },
-        "reject": {
-          "placeholder": "Reddedilme nedenlerini açıklayın (zorunlu)..."
+        "placeholders": {
+            "title": "Video başlığı",
+            "description": "Video açıklaması",
+            "videoUrl": "https://example.com/video.mp4",
+            "selectStatus": "Bir durum seçin",
+            "moderationComment": "Moderasyon yorumu..."
+        },
+        "sort": {
+            "title": {
+                "label": "Düzenlemek",
+                "placeholder": "Başlığa göre sırala",
+                "down": "Başlık Z-A",
+                "up": "Başlık A'dan Z'ye"
+            }
+        },
+        "empty": {
+            "title": "Video yok",
+            "description": "Bu dahinin henüz bir videosu yok. ",
+            "selectProdige": "Videolarını görmek için bir dahi seçin"
+        },
+        "limits": {
+            "title": "Video sınırı bilgisi",
+            "current": "Prodigy {prodigyName}: {current}/{max} video kullanıldı ({remaining} kaldı)",
+            "reached": "Bu dahi için maksimum video sınırına ulaşıldı.",
+            "slotsRemaining": "kalan yuva(lar)",
+            "usage": "Video Kullanımı"
+        },
+        "guidelines": {
+            "title": "Önemli yönergeler - lütfen dikkatlice okuyun",
+            "expertReview": "Tüm videolar onaylanmadan önce uzmanlar tarafından incelenecektir.",
+            "hideIdentity": "Mesleki kimlik maskelenmelidir (isim, logo veya kimlik bilgisi olmamalıdır)",
+            "athleteConsent": "Sporcunun onayı alınmalı ve belgelenmelidir.",
+            "prodigyOnly": "Yalnızca harika teknikleri gösteren videolara izin verilir",
+            "noPersonalInfo": "Hiçbir kişisel veya gizli bilgi görünmemelidir"
+        },
+        "info": {
+            "uploadedFileUsed": "Yüklenen dosya manuel URL yerine kullanılacak",
+            "newFileWillReplace": "Yeni dosya mevcut dosyanın yerini alacak"
+        },
+        "validation": {
+            "videoRequired": "Lütfen bir video dosyası yükleyin veya bir video URL'si sağlayın",
+            "descriptionRequired": "Açıklama gerekli"
+        },
+        "messages": {
+            "downloadStarted": "İndirme başlatıldı",
+            "downloadStartedDetail": "İndiriliyor \" {{title}} \" başlamak",
+            "downloadNotAvailable": "İndirme kullanılamıyor",
+            "moderationUpdated": "Moderasyon güncellendi",
+            "moderationError": "Moderasyon güncellenirken hata oluştu",
+            "noProdigeSelected": "Lütfen önce bir dahi seçin",
+            "titleAndVideoRequired": "Başlık ve video gerekli",
+            "videoCreated": "Başarılı video",
+            "videoUpdated": "Başarılı güncelleme videosu",
+            "videoDeleted": "Başarılı video",
+            "confirmDeleteVideo": "'{title}' videosunu silmek istediğinizden emin misiniz?",
+            "limitReached": "Video sınırına ulaşıldı",
+            "limitReachedDetail": "Harika {prodigyName} için maksimum {maxVideos} video sınırına ulaştınız. ",
+            "selectProdigeFirst": "Lütfen önce bir dahi seçin"
+        },
+        "actions": {
+            "create": {
+                "success": "Başarılı video",
+                "error": "Video oluşturma hatası"
+            },
+            "update": {
+                "success": "Başarılı güncelleme videosu",
+                "error": "Video güncelleme hatası"
+            },
+            "delete": {
+                "success": "Başarılı video",
+                "error": "Video silinemedi"
+            },
+            "moderate": {
+                "success": "Başarılı video",
+                "error": "Video denetleme hatası"
+            },
+            "report": {
+                "success": "Başarılı video",
+                "error": "Video raporlama hatası"
+            },
+            "upload": {
+                "success": "Başarılı bir şekilde yayınlanan video",
+                "error": "Video göstergesi hatası"
+            }
+        },
+        "search": {
+            "noResults": "Video bulunamadı",
+            "placeholder": "Bir video arayın..."
+        },
+        "moderation": {
+            "enAttente": "beklemede",
+            "approuvee": "Onaylı",
+            "rejetee": "Reddedilmiş",
+            "rejectedVideo": "Reddedilen Video",
+            "approvedVideo": "Onaylanan Video",
+            "warning": "⚠️ Uyarı",
+            "autoDeleteWarning": "Reddedilen videolar, güncellenmediği takdirde 15 gün sonra otomatik olarak silinecektir."
         }
-      },
-      "status": "Durum",
-      "search": {
-        "placeholder": "Başlığa göre ara, harika..."
-      },
-      "filter": {
-        "status": "Duruma göre statü sahibi",
-        "all": "Tüm kanunlar"
-      },
-      "sort": {
-        "placeholder": "Göre sırala...",
-        "dateCreation": {
-          "desc": "Önce daha yeni",
-          "asc": "Önce yaşlı"
-        },
-        "title": {
-          "asc": "Başlık A'dan Z'ye",
-          "desc": "Z-A-A başlığı"
-        },
-        "status": {
-          "asc": "A'dan Z'ye durum",
-          "desc": "Z-A durumu"
-        }
-      },
-      "actions": {
-        "view": "Görmek",
-        "approve": "Onaylamak",
-        "desapprove": "Onaylamayı reddet",
-        "reject": "Azletmek"
-      },
-      "empty": {
-        "title": "Video bulunamadı",
-        "description": "Şu anda araştırma kriterlerinize uygun bir video yok."
-      },
-      "detail": {
-        "title": "Video ayrıntıları",
-        "information": "Bilgi",
-        "moderation": "Moderasyon"
-      },
-      "confirm": {
-        "approve": "Videoyu onaylamak istediğinizden emin misiniz?\"{{title}}\"",
-        "reject": "Videoyu reddetmek istediğinizden emin misiniz?\"{{title}}\"",
-        "delete": "Videoyu kalıcı olarak silmek istediğinizden emin misiniz?\"{{title}}\"? Bu eylem geri alınamaz."
-      },
-      "validation": {
-        "commentRequired": "Reddedilme nedenlerini açıklayan bir yorum zorunludur."
-      },
-      "messages": {
-        "loadError": "Videolar yüklenirken hata oluştu.",
-        "approved": "Video başarıyla onaylandı.",
-        "rejected": "Başarılı video.",
-        "deleted": "Video başarıyla silindi.",
-        "moderationError": "Video denetlenirken hata oluştu.",
-        "deleteError": "Video silinirken hata oluştu."
-      }
-    }
-  },
-  "procrud": {
-    "title": "Dahi yönetim",
-    "labels": {
-      "newProdige": "Yeni dahi",
-      "editProdige": "dahiyi düzenle",
-      "myProdigies": "Benim dahilerim",
-      "manageProdigies": "Dahilerinizi yönetin",
-      "totalProdigies": "Toplam dahi",
-      "prodigeDetails": "Harika ayrıntılar",
-      "sport": "Spor",
-      "selectSport": "Bir spor seçin",
-      "addTag": "Etiket ekleyin...",
-      "associatedVideos": "İlgili videolar",
-      "videoWithoutTitle": "Ünite videosu",
-      "videosCount": "Video sayısı"
-    },
-    "columns": {
-      "nom": "İsim",
-      "nomExport": "Harika isim",
-      "age": "Yaş",
-      "sport": "Spor",
-      "videosCount": "Video sayısı",
-      "dateCreation": "Oluşturulma tarihi",
-      "gender": "Cinsiyet",
-      "genre": "Cinsiyet",
-      "country": "Ülke"
-    },
-    "pagination": {
-      "itemName": "harikalar",
-      "showing": "{TotalRecords} Prodigies'te {first} ile {last} arasında görüntüleniyor"
-    },
-    "validation": {
-      "sportRequired": "Spor zorunludur.",
-      "descriptionRequired": "Açıklama \"diğer\" sporlar için zorunludur.",
-      "minTagsRequired": "Minimum 3 etiket gereklidir.",
-      "maxTagsReached": "Maksimum 10 yetkili etiket",
-      "descriptionRequiredForOther": "Spor 'diğer' için zorunlu açıklama"
-    },
-    "placeholders": {
-      "name": "Dahi adını girin",
-      "selectCountry": "Bir ülke seçin",
-      "describeQualities": "Harikanın niteliklerini ve potansiyelini açıklayın ..."
     },
     "tags": {
-      "minMaxInfo": "(en az: 3, en fazla: 10)",
-      "selectedCount": "{Count}/10 seçili etiket",
-      "selected": "etiketler seçildi",
-      "associatedVideosCount": "{Count} Video ilişkilendirildi"
-    },
-    "messages": {
-      "prodigeCreated": "Dahi yaratıldı",
-      "prodigeUpdated": "Güncelleme",
-      "prodigeDeleted": "Prodigy silindi",
-      "prodigiesDeleted": "Dahiler silindi",
-      "confirmDeleteProdige": "{name}'i silmek istediğinizden emin misiniz?",
-      "confirmDeleteProdigies": "Seçilen harikaları silmek istediğinizden emin misiniz?"
-    },
-    "sort": {
-      "label": "Göre sırala",
-      "name": {
-        "placeholder": "Ada göre sırala",
-        "down": "İsim ▼",
-        "up": "İsim ▲"
-      }
-    },
-    "empty": {
-      "title": "Henüz harika bir şey yok",
-      "description": "Başlamak için ilk dahinizi yaratın"
-    }
-  },
-  "video": {
-    "labels": {
-      "newVideo": "Yeni Video",
-      "editVideo": "Videoyu Düzenle",
-      "myVideos": "Videolarım",
-      "manageYourVideos": "Sporcu videolarınızı yönetin ve yükleyin",
-      "prodige": "Dahi",
-      "selectProdige": "Bir Dahi Seçin",
-      "videoDetails": "Video ayrıntıları",
-      "videoFile": "Video dosyası",
-      "manualUrl": "Video URL'si (manuel)",
-      "optional": "İsteğe bağlı",
-      "optionalForEdit": "düzenleme için isteğe bağlı",
-      "currentFile": "Geçerli dosya",
-      "noPreview": "Önizleme yok",
-      "noDescription": "Açıklama yok",
-      "moderationStatus": "Moderasyon durumu",
-      "moderationComment": "Denetleme yorumu",
-      "addFirstVideo": "İlk videonuzu ekleyin"
-    },
-    "placeholders": {
-      "title": "Video başlığı",
-      "description": "Video açıklaması",
-      "videoUrl": "https://example.com/video.mp4",
-      "selectStatus": "Bir durum seçin",
-      "moderationComment": "Moderasyon yorumu..."
-    },
-    "sort": {
-      "title": {
-        "label": "Düzenlemek",
-        "placeholder": "Başlığa göre sırala",
-        "down": "Başlık Z-A",
-        "up": "Başlık A'dan Z'ye"
-      }
-    },
-    "empty": {
-      "title": "Video yok",
-      "description": "Bu dahinin henüz bir videosu yok. ",
-      "selectProdige": "Videolarını görmek için bir dahi seçin"
-    },
-    "limits": {
-      "title": "Video sınırı bilgisi",
-      "current": "Prodigy {prodigyName}: {current}/{max} video kullanıldı ({remaining} kaldı)",
-      "reached": "Bu dahi için maksimum video sınırına ulaşıldı.",
-      "slotsRemaining": "kalan yuva(lar)",
-      "usage": "Video Kullanımı"
-    },
-    "guidelines": {
-      "title": "Önemli yönergeler - lütfen dikkatlice okuyun",
-      "expertReview": "Tüm videolar onaylanmadan önce uzmanlar tarafından incelenecektir.",
-      "hideIdentity": "Mesleki kimlik maskelenmelidir (isim, logo veya kimlik bilgisi olmamalıdır)",
-      "athleteConsent": "Sporcunun onayı alınmalı ve belgelenmelidir.",
-      "prodigyOnly": "Yalnızca harika teknikleri gösteren videolara izin verilir",
-      "noPersonalInfo": "Hiçbir kişisel veya gizli bilgi görünmemelidir"
-    },
-    "info": {
-      "uploadedFileUsed": "Yüklenen dosya manuel URL yerine kullanılacak",
-      "newFileWillReplace": "Yeni dosya mevcut dosyanın yerini alacak"
-    },
-    "validation": {
-      "videoRequired": "Lütfen bir video dosyası yükleyin veya bir video URL'si sağlayın",
-      "descriptionRequired": "Açıklama gerekli"
-    },
-    "messages": {
-      "downloadStarted": "İndirme başlatıldı",
-      "downloadStartedDetail": "İndiriliyor \" {{title}} \" başlamak",
-      "downloadNotAvailable": "İndirme kullanılamıyor",
-      "moderationUpdated": "Moderasyon güncellendi",
-      "moderationError": "Moderasyon güncellenirken hata oluştu",
-      "noProdigeSelected": "Lütfen önce bir dahi seçin",
-      "titleAndVideoRequired": "Başlık ve video gerekli",
-      "videoCreated": "Başarılı video",
-      "videoUpdated": "Başarılı güncelleme videosu",
-      "videoDeleted": "Başarılı video",
-      "confirmDeleteVideo": "'{title}' videosunu silmek istediğinizden emin misiniz?",
-      "limitReached": "Video sınırına ulaşıldı",
-      "limitReachedDetail": "Harika {prodigyName} için maksimum {maxVideos} video sınırına ulaştınız. ",
-      "selectProdigeFirst": "Lütfen önce bir dahi seçin"
-    },
-    "actions": {
-      "create": {
-        "success": "Başarılı video",
-        "error": "Video oluşturma hatası"
-      },
-      "update": {
-        "success": "Başarılı güncelleme videosu",
-        "error": "Video güncelleme hatası"
-      },
-      "delete": {
-        "success": "Başarılı video",
-        "error": "Video silinemedi"
-      },
-      "moderate": {
-        "success": "Başarılı video",
-        "error": "Video denetleme hatası"
-      },
-      "report": {
-        "success": "Başarılı video",
-        "error": "Video raporlama hatası"
-      },
-      "upload": {
-        "success": "Başarılı bir şekilde yayınlanan video",
-        "error": "Video göstergesi hatası"
-      }
-    },
-    "search": {
-      "noResults": "Video bulunamadı",
-      "placeholder": "Bir video arayın..."
-    },
-    "moderation": {
-      "enAttente": "beklemede",
-      "approuvee": "Onaylı",
-      "rejetee": "Reddedilmiş",
-      "rejectedVideo": "Reddedilen Video",
-      "approvedVideo": "Onaylanan Video",
-      "warning": "⚠️ Uyarı",
-      "autoDeleteWarning": "Reddedilen videolar, güncellenmediği takdirde 15 gün sonra otomatik olarak silinecektir."
-    }
-  },
-  "tags": {
-    "physical": {
-      "vitesse": "Hız",
-      "endurance": "Dayanıklılık",
-      "puissance": "Güç",
-      "reflexes": "Refleksler",
-      "agilite": "Çeviklik",
-      "explosivite": "Patlayıcılık",
-      "souplesse": "Esneklik",
-      "coordination": "Koordinasyon",
-      "equilibre": "Denge"
-    },
-    "technical": {
-      "technique": "Teknik",
-      "maitriseDuBallon": "Balon ustalığı",
-      "precision": "Kesinlik",
-      "finition": "Bitirme",
-      "passeDecisive": "Asistan",
-      "tirCadre": "Creder atış",
-      "dribble": "Top sürme",
-      "jeuDeTete": "Kafa oyunu",
-      "tacle": "Olta takımı",
-      "interception": "Müdahale",
-      "gesteTechnique": "Teknik jest",
-      "polyvalence": "Çok yönlülük"
-    },
-    "mental": {
-      "intelligenceTactique": "Taktik zeka",
-      "lectureDuJeu": "Oyunu okumak",
-      "anticipation": "Beklenti",
-      "concentration": "Konsantrasyon",
-      "mental": "zihinsel",
-      "sangFroid": "Kanlı",
-      "maturite": "Vade",
-      "gestionDuTemps": "Zaman yönetimi",
-      "resilience": "Dayanıklılık",
-      "visionDeJeu": "Oyun vizyonu",
-      "decisif": "Belirleyici",
-      "priseDeDecision": "Karar verme",
-      "adaptabilite": "Uyarlanabilirlik",
-      "competiteur": "Yarışmacı",
-      "leadership": "Liderlik",
-      "espritDEquipe": "Takım ruhu",
-      "determination": "Kararlılık",
-      "confianceEnSoi": "Kendine güven",
-      "motivation": "Motivasyon",
-      "apprentissageRapide": "Hızlı öğrenme",
-      "discipline": "Disiplin",
-      "regularite": "Düzenlilik",
-      "enduranceMentale": "Zihinsel dayanıklılık"
-    },
-    "behavior": {
-      "travailleur": "İşçi",
-      "perseverant": "azim",
-      "passionne": "Hevesli",
-      "humilite": "Tevazu",
-      "exemplaire": "Kopyala",
-      "respectueux": "Saygılı",
-      "charismatique": "Karizmatik",
-      "dynamique": "Dinamik",
-      "engage": "Nişanlı",
-      "fairPlay": "Adil oyun",
-      "influenceurDeVestiaire": "Vestiyer etkileyicisi",
-      "attitudeProfessionnelle": "Profesyonel tutum"
-    },
-    "creativity": {
-      "creativite": "Yaratıcılık",
-      "styleDeJeuUnique": "Benzersiz oyun stili",
-      "spectaculaire": "Muhteşem",
-      "showman": "Şovmen",
-      "imagination": "Hayal gücü"
-    },
-    "potential": {
-      "grosPotentiel": "Büyük potansiyel",
-      "enProgres": "İlerlemek",
-      "jeunePrometteur": "Gelecek vaat eden genç",
-      "talentNaturel": "Doğal yetenek"
-    },
-    "unknown": "Bilinmeyen etiket"
-  },
-  "sports": {
-    "football": "Futbol",
-    "basketball": "Basketbol",
-    "rugby": "Rugby",
-    "tennis": "Tenis",
-    "boxe": "Boks",
-    "footballAmericain": "Futbol",
-    "hockeySurGlace": "Buz hokeyi",
-    "baseball": "Beyzbol",
-    "mma": "MMA",
-    "equitation": "Binicilik",
-    "hobbyHorse": "Hobby Horse",
-    "coursesCanines": "Köpek yarışları",
-    "coursesDeLapins": "Tavşan yarışları",
-    "fauconnerie": "Doğancılık",
-    "autre": "Diğer",
-    "unknown": "Bilinmeyen spor"
-  },
-  "primeng": {
-    "version": "Sürüm 1.3.1",
-    "delete_all": "Her şeyi sil",
-    "delete_all_filter": "Tüm filtreleri sil",
-    "results": "sonuçlar",
-    "save": "Kaydetmek",
-    "cancel": "İptal etmek",
-    "search": "Araştırmak",
-    "startdate": "Başlangıç ​​tarihi",
-    "enddate": "Bitiş tarihi",
-    "status": "Durum",
-    "transactionnumber": "İşlem numarası",
-    "transactiondate": "İşlem tarihi",
-    "download": "İndirmek",
-    "amount": "Miktar",
-    "date": "Tarih",
-    "or": "Veya",
-    "agency": "Ajans",
-    "customer": "Müşteri",
-    "lineselected": "seçilen çizgiler",
-    "areyousure": "Emin misin?",
-    "confirmed": "Onaylamak",
-    "generationinprogress": "Mevcut nesil",
-    "purchaselines": "Satın alma hatları",
-    "dashboard": "Kontrol Paneli",
-    "name": "İsim",
-    "prenom": "İlk adı",
-    "email": "E-posta adresi",
-    "saved": "Kaydedildi",
-    "error": "Hata",
-    "description": "Tanım",
-    "leave": "ayrılmak",
-    "not_allowed_page": "Bu sayfaya erişmek için gerekli haklara sahip değilsiniz",
-    "validate_action": "Bu eylemi doğrulamak için lütfen \"Doğrula\" yazın",
-    "back": "Geri",
-    "valider": "Doğrulamak için",
-    "success": "Başarı",
-    "suivant": "Takip etme",
-    "precedent": "Öncesi",
-    "export": "İhracat",
-    "import": "İçe aktarmak",
-    "import_csv": ".csv'yi içe aktar",
-    "no": "HAYIR",
-    "yes": "Evet",
-    "enabled": "olanak vermek",
-    "disabled": "devre dışı bırakmak",
-    "activate": "olanak vermek",
-    "deactivate": "devre dışı bırakmak",
-    "activated": "etkinleştirildi",
-    "deactivated": "engelli",
-    "information": "Bilgi",
-    "creation_date": "Oluşturulma tarihi:",
-    "export_csv": ".csv'yi dışa aktar",
-    "voir": "Görmek",
-    "actif": "Aktif",
-    "active": "Aktif",
-    "inactif": "Etkin değil",
-    "inactive": "Etkin değil",
-    "selectionner": "Seçme",
-    "refresh": "Yenile",
-    "filter_by": "Şuna göre filtrele:",
-    "update": "Değiştirmek için",
-    "delete": "SİLMEK",
-    "edit": "Değiştirmek için",
-    "comment": "Yorum : ",
-    "comment_without_double_point": "Yorum ",
-    "double_point": "::",
-    "toast_summary_update_error": "İmkansız değişiklik",
-    "toast_summary_create_error": "İmkansız ekleme",
-    "toast_summary_delete_error": "İmkansız silme",
-    "toast_summary_delete_error2": "Silme hatasının özeti",
-    "toast_label_warning": "Dikkat",
-    "ok": "TAMAM",
-    "select_date": "Bir tarih seçin",
-    "select_hour": "Bir saat seçin",
-    "require": "Alan zorunludur ",
-    "tiret": "-",
-    "startsWith": "Şununla başlar:",
-    "contains": "İçerir",
-    "notContains": "içermez",
-    "endsWith": "Şununla biter:",
-    "equals": "Eşittir",
-    "notEquals": "Farklı",
-    "noFilter": "Filtre yok",
-    "filter": "Filtre",
-    "lt": "Daha az",
-    "lte": "Küçük veya eşit",
-    "gt": "Üstün",
-    "gte": "Büyük veya eşittir",
-    "dateIs": "Tarih eşit",
-    "dateIsNot": "Farklı tarih",
-    "dateBefore": "Önceki tarih",
-    "dateAfter": "Tarih sonrası",
-    "clear": "Silmek için",
-    "apply": "Uygula",
-    "matchAll": "Her şey karşılık geliyor",
-    "matchAny": "Herhangi",
-    "addRule": "Kural ekle",
-    "removeRule": "Kuralı sil",
-    "accept": "Evet",
-    "reject": "HAYIR",
-    "choose": "Seçmek",
-    "upload": "İndirmek",
-    "dayNames": [
-      "Pazar",
-      "Pazartesi",
-      "Salı",
-      "Çarşamba",
-      "PERŞEMBE",
-      "Cuma",
-      "CUMARTESİ"
-    ],
-    "dayNamesShort": [
-      "güneş",
-      "pazartesi",
-      "mart",
-      "deniz",
-      "oyun",
-      "cuma",
-      "doygunluk"
-    ],
-    "dayNamesMin": [
-      "D",
-      "L",
-      "M",
-      "M",
-      "J",
-      "V",
-      "S"
-    ],
-    "monthNames": [
-      "Ocak",
-      "ŞUBAT",
-      "Mart",
-      "nisan",
-      "mayıs",
-      "Haziran",
-      "Temmuz",
-      "Ağustos",
-      "eylül",
-      "ekim",
-      "kasım",
-      "Aralık"
-    ],
-    "monthNamesShort": [
-      "Ocak",
-      "Şubat",
-      "Mart",
-      "Nisan",
-      "mayıs",
-      "Haziran",
-      "temmuz",
-      "Ağustos",
-      "Yedi",
-      "ekim",
-      "kasım",
-      "aralık"
-    ],
-    "today": "Bugün",
-    "weekHeader": "Sem",
-    "firstDayOfWeek": 1,
-    "dateFormat": "GG/aa/yy",
-    "weak": "Zayıf",
-    "medium": "ORTALAMA",
-    "strong": "Güçlü",
-    "passwordPrompt": "Bir şifre girin",
-    "emptyMessage": "Sonuç bulunamadı",
-    "emptyFilterMessage": "Sonuç bulunamadı",
-    "selectedItemsLabel": "{0} seçili öğe",
-    "double_quote": "\"\"",
-    "asterisk": "*",
-    "value": "Değer"
-  },
-  "uploader": {
-    "title": "MP4 video indiricisi",
-    "note": {
-      "single": "Yalnızca videolar, her biri en fazla {maxSize}",
-      "multiple": "Yalnızca videolar, her biri en fazla {maxSize}, maksimum {maxFiles} dosya"
-    },
-    "info": {
-      "single": "Başlamak için bir MP4 video indirin",
-      "fileLimit": "{{current}}/{{max}} Dosyalar ({{remaining}} geriye kalan)"
-    },
-    "statistics": {
-      "remaining": "geriye kalan",
-      "files": "Dosya (lar)",
-      "uploading": "devam etmekte",
-      "completed": "bitmiş (ler)"
-    },
-    "status": {
-      "uploading": "İndirme işlemi devam ediyor...",
-      "completed": "Bitti",
-      "locked": "Kilitli"
-    },
-    "actions": {
-      "preview": "Önizleme",
-      "remove": "SİLMEK",
-      "close": "Kapalı",
-      "upload": "İndirmek",
-      "cancel": "İptal etmek"
-    },
-    "empty": {
-      "title": "Şu anda indirilen dosya yok",
-      "subtitle": {
-        "single": "Bir MP4 videosunu kaydetmek veya indirmek için yukarıdaki indiriciyi kullanın",
-        "multiple": "Kaydetmek veya indirmek için yukarıdaki indiriciyi kullanın {{maxFiles}} MP4 videoları"
-      }
-    },
-    "preview": {
-      "title": "Video önizlemesi"
-    },
-    "messages": {
-      "fileLimitReached": "Etkilenen dosyaların sınırı",
-      "uploadComplete": "İndirme tamamlandı",
-      "uploadSuccess": "{Filename} başarıyla indirildi!",
-      "uploadFailed": "İndirme hatası",
-      "uploadFailedDetail": "{Filename} indirilemiyor",
-      "fileRestriction": "Dosya kısıtlaması",
-      "cannotRemove": "Silinemiyor",
-      "cannotRemoveLocked": "Kilitli dosya silinemiyor",
-      "fileRemoved": "Silinen dosya",
-      "fileRemovedSuccess": "Dosya başarıyla silindi",
-      "removalFailed": "Silme hatası",
-      "removalFailedDetail": "Dosya silinemiyor. ",
-      "uploadPreparationFailed": "İndirme hazırlığı hatası",
-      "uploadPreparationFailedDetail": "İndirme işlemi hazırlanamadı. ",
-      "duplicateFile": "Çift dosya",
-      "duplicateFileDetail": "{Filename} dosyası zaten eklenmiş",
-      "filenameTooLong": "Dosya Adı Çok Uzun",
-      "filenameTooLongDetail": "Dosya adı çok uzun ({{currentLength}} karakterler).  {{maxLength}} yüklemeden önce karakter veya daha az."
-    },
-    "dashboard": {
-      "strings": {
-        "addMoreFiles": "Daha fazla dosya ekle",
-        "addingMoreFiles": "Daha fazla dosya ekleme",
-        "allowAccessDescription": "Kameranızla fotoğraf çekmek veya video kaydetmek için lütfen bu sitenin kamerasına erişime izin verin.",
-        "allowAccessTitle": "Lütfen kameranıza erişime izin verin",
-        "authenticateWith": "{pluginname}'e bağlanın",
-        "authenticateWithTitle": "Dosyaları seçmek için lütfen {pluginname} ile kimlik doğrulaması yapın",
-        "back": "Geri",
-        "browse": "geçmek",
-        "browseFiles": "dosyalara göz at",
-        "cancel": "İptal etmek",
-        "cancelUpload": "İndirmeyi iptal et",
-        "chooseFiles": "Dosyaları seçin",
-        "closeModal": "Pencereye tırman",
-        "companionError": "Companion ile bağlantı başarısız oldu",
-        "complete": "Bitti",
-        "connectedToInternet": "İnternete bağlı",
-        "copyLink": "Bağlantıyı kopyala",
-        "copyLinkToClipboardFallback": "Aşağıdaki URL'yi kopyalayın",
-        "copyLinkToClipboardSuccess": "Bağlantı panoya kopyalandı",
-        "creatingAssembly": "Hazırlığı indirin ...",
-        "creatingAssemblyFailed": "TransLODIT: Derleme oluşturulamıyor",
-        "dashboardTitle": "Dosya indirici",
-        "dashboardWindowTitle": "Dosya indirme penceresi (kapatmak için kaçış tuşuna basın)",
-        "dataUploadedOfTotal": "{Total} üzerinde {Tamamlandı}",
-        "done": "Bitti",
-        "dropHereOr": "Dosyaları buraya yerleştirin veya %{browse}",
-        "dropHint": "Dosyalarınızı buraya gönderin",
-        "dropPasteBoth": "Dosyaları buraya yerleştirin, yapıştırın veya %{göz atın}",
-        "dropPasteFiles": "Dosyaları buraya yerleştirin, yapıştırın veya %{göz atın}",
-        "dropPasteImportBoth": "Dosyaları buraya yerleştirin, yapıştırın, %{browse} veya içe aktarın",
-        "dropPasteImportFiles": "Dosyaları buraya yerleştirin, yapıştırın, %{browse} veya içe aktarın",
-        "edit": "Değiştirmek için",
-        "editFile": "Dosyayı değiştirin",
-        "editing": "%{file}'nin değiştirilmesi",
-        "emptyFolderAdded": "Boş klasörden dosya eklenmedi",
-        "encoding": "Kodlanıyor...",
-        "enterCorrectUrl": "Yanlış URL: Bir dosyaya doğrudan bağlantı girdiğinizden emin olun",
-        "enterUrlToImport": "Bir dosyayı içe aktarmak için URL'yi girin",
-        "exceedsSize": "Bu dosya izin verilen maksimum boyutu aşıyor",
-        "failedToFetch": "Tamamlayıcı bu URL'yi kurtaramadı, doğru olduğundan emin olun",
-        "failedToUpload": "%{Dosya} indirilemedi",
-        "fileSource": "Dosya kaynağı: %{name}",
-        "filesUploadedOfTotal": {
-          "0": "İndirilen %{smart_count} dosyada %{Complete}",
-          "1": "İndirilen %{smart_count} dosyada %{Complete}"
-        },
-        "filter": "Filtre",
-        "finishEditingFile": "Dosyanın değiştirilmesini bitirin",
-        "folderAdded": {
-          "0": "%{folder} klasöründen %{smart_count} dosya eklendi",
-          "1": "%{folder} klasöründen %{smart_count} dosya eklendi"
-        },
-        "import": "İçe aktarmak",
-        "importFrom": "%{name} tarihinden beri içe aktar",
-        "loading": "Yükleniyor...",
-        "logOut": "Bağlantıyı kes",
-        "myDevice": "Cihazım",
-        "noFilesFound": "Burada dosyanız veya klasörünüz yok",
-        "noInternetConnection": "İnternet bağlantısı yok",
-        "pause": "Kırmak",
-        "pauseUpload": "İndirme işlemini parçalayın",
-        "paused": "Kırmak",
-        "poweredBy": "%{uppy} tarafından yönlendiriliyor",
-        "processingXFiles": {
-          "0": "%{Smart_count} dosyası",
-          "1": "%{Smart_count} dosya"
-        },
-        "removeFile": "Dosyayı sil",
-        "resetFilter": "Filtreyi sıfırla",
-        "resume": "Devam etmek için",
-        "resumeUpload": "İndirmek",
-        "retry": "Tekrar deneyin",
-        "retryUpload": "İndirmeyi deneyin",
-        "save": "Kaydetmek",
-        "selectFileNamed": "%{name} dosyasını seçin",
-        "selectX": {
-          "0": "%{smart_count}'u seçin",
-          "1": "%{smart_count}'u seçin"
-        },
-        "smile": "Gülümsemek!",
-        "startRecording": "Video kaydını başlat",
-        "stopRecording": "Video kaydını durdur",
-        "takePicture": "Fotoğraf çek",
-        "timedOut": "İndirme %{seconds} saniye boyunca engellendi, iptal edildi.",
-        "upload": "İndirmek",
-        "uploadComplete": "İndirme tamamlandı",
-        "uploadFailed": "İndirme hatası",
-        "uploadPaused": "İndirmeyi duraklat",
-        "uploadXFiles": {
-          "0": "%{smart_count} dosyasını indir",
-          "1": "%{smart_count} dosyayı indir"
-        },
-        "uploadXNewFiles": {
-          "0": "+%{smart_count} dosyasını indir",
-          "1": "+%{smart_count} dosyayı indir"
-        },
-        "uploading": "İndirme işlemi devam ediyor",
-        "uploadingXFiles": {
-          "0": "%{Smart_count} dosyası",
-          "1": "%{Smart_count} dosya"
-        },
-        "xFilesSelected": {
-          "0": "%{smart_count} seçili dosya",
-          "1": "%{smart_count} seçili dosya"
-        },
-        "xMoreFilesAdded": {
-          "0": "%{smart_count} ek dosya ekledi",
-          "1": "%{smart_count} Ek dosya eklendi"
-        },
-        "xTimeLeft": "%{time} kaldı",
-        "youCanOnlyUploadFileTypes": "Yalnızca şunu indirebilirsiniz: %{types}",
-        "youCanOnlyUploadX": {
-          "0": "Yalnızca %{smart_count} dosyasını indirebilirsiniz",
-          "1": "Yalnızca %{smart_count} dosyayı indirebilirsiniz"
-        },
-        "youHaveToAtLeastSelectX": {
-          "0": "En az %{smart_count} dosya seçmelisiniz",
-          "1": "En az %{smart_count} dosya seçmelisiniz"
-        }
-      }
-    },
-    "service": {
-      "errors": {
-        "presignedUrl": "İmzalı URL oluşturma hatası",
-        "removeFile": "Dosya silme hatası",
-        "uploadFile": "Dosyanın imzalı URL aracılığıyla gönderilememesi",
-        "getFileList": "Dosya listesinin kurtarılamaması",
-        "updateMetadata": "Dosyanın meta verilerinin güncellenmemesi"
-      }
-    }
-  },
-  "countries": {
-    "ad": "Andorrialı",
-    "ae": "Birleşik Arap Emirlikleri",
-    "af": "Afganistan",
-    "ag": "Antigua-et-Barbuda",
-    "ai": "Yılanbalığı",
-    "al": "Arnavutluk",
-    "am": "Ermenistan",
-    "ao": "Angola",
-    "aq": "Antarktika",
-    "ar": "Arjantin",
-    "as": "Amerikan Samoası",
-    "at": "Avusturya",
-    "au": "Avustralya",
-    "aw": "Aruba",
-    "ax": "Åland Adaları",
-    "az": "Azerbaycan",
-    "ba": "Bosna Hersek",
-    "bb": "Barbade",
-    "bd": "Bangladeş",
-    "be": "Belçika",
-    "bf": "Burkina Faso",
-    "bg": "Bulgaristan",
-    "bh": "Bahreyn",
-    "bi": "Burundi",
-    "bj": "iyi huylu",
-    "bl": "Saint-Barthélemy",
-    "bm": "Bermuda",
-    "bn": "Brunei",
-    "bo": "Bolivya",
-    "bq": "Hollanda Karayipler",
-    "br": "Brezilya",
-    "bs": "Bahamalar",
-    "bt": "Butan",
-    "bv": "Bouvet Adası",
-    "bw": "Botsvana",
-    "by": "Beyaz Rusya",
-    "bz": "Belize",
-    "ca": "Kanada",
-    "cc": "Cocos Adaları (Keeling)",
-    "cd": "Demokratik Kongo Cumhuriyeti",
-    "cf": "Orta Afrika Cumhuriyeti",
-    "cg": "Kongo Cumhuriyeti",
-    "ch": "İsviçre",
-    "ci": "Fildişi Sahili",
-    "ck": "Cook Adaları",
-    "cl": "Şili",
-    "cm": "Kamerun",
-    "cn": "Çin",
-    "co": "Kolombiya",
-    "cr": "Kosta Rika",
-    "cs": "Çekoslovakya",
-    "cu": "Küba",
-    "cv": "Kapak yeşili",
-    "cw": "Curaçao",
-    "cx": "Noel adası",
-    "cy": "Kıbrıs",
-    "cz": "Çek Cumhuriyeti",
-    "dd": "Alman Demokratik Cumhuriyeti",
-    "de": "Almanya",
-    "dj": "Cibuti",
-    "dk": "Danimarka",
-    "dm": "Dominik",
-    "do": "Dominik Cumhuriyeti",
-    "dz": "Cezayir",
-    "ec": "Ekvator",
-    "ee": "Estonya",
-    "eg": "Mısır",
-    "eh": "Batı Sahra",
-    "er": "Eritre",
-    "es": "İspanya",
-    "et": "Etiyopya",
-    "fi": "Finlandiya",
-    "fj": "Fiji",
-    "fk": "Falkland Adaları",
-    "fm": "Mikronezya",
-    "fo": "Faroe Adaları",
-    "fr": "Fransa",
-    "fx": "Büyükşehir Fransa",
-    "ga": "Gabon",
-    "gb": "Birleşik Krallık",
-    "gd": "El bombası",
-    "ge": "Georgia",
-    "gf": "Guyana",
-    "gg": "Guernsey",
-    "gh": "Gana",
-    "gi": "Cebelitarık",
-    "gl": "Grönland",
-    "gm": "Gambiya",
-    "gn": "Gine",
-    "gp": "Guadeloupe",
-    "gq": "Ekvator Ginesi",
-    "gr": "Yunanistan",
-    "gs": "Güney ve Güney Sandviç Georgia",
-    "gt": "Guatemala",
-    "gu": "Guam",
-    "gw": "Gine-Bissau",
-    "gy": "Guyana",
-    "hk": "Hong Kong",
-    "hm": "Heard-et-Macdonald Adaları",
-    "hn": "Honduras",
-    "hr": "Hırvatistan",
-    "ht": "Haiti",
-    "hu": "Macaristan",
-    "id": "Endonezya",
-    "ie": "İrlanda",
-    "il": "İsrail",
-    "im": "Adam Adası",
-    "in": "Hindistan",
-    "io": "Britanya Hint Okyanusu bölgesi",
-    "iq": "Irak",
-    "ir": "İran",
-    "is": "İzlanda",
-    "it": "İtalya",
-    "je": "Jersey",
-    "jm": "Jamaika",
-    "jo": "Ürdün",
-    "jp": "Japonya",
-    "ke": "Kenya",
-    "kg": "Kırgızistan",
-    "kh": "Kamboçya",
-    "ki": "Kiribati",
-    "km": "Komorlar",
-    "kn": "Saint-Christophe-et-Niévès",
-    "kp": "Kuzey Kore",
-    "kr": "Güney Kore",
-    "kw": "Kuveyt",
-    "ky": "Cayman adaları",
-    "kz": "Kazakistan",
-    "la": "Laos",
-    "lb": "Lübnan",
-    "lc": "Sainte-Lucie",
-    "li": "Lihtenştayn",
-    "lr": "Liberya",
-    "ls": "Lesoto",
-    "lt": "Litvanya",
-    "lu": "Lüksemburg",
-    "lv": "Letonya",
-    "ly": "Libya",
-    "ma": "Fas",
-    "mc": "Monako",
-    "md": "Moldova",
-    "me": "Karadağ",
-    "mf": "Saint-Martin",
-    "mg": "Madagaskar",
-    "mh": "Marshall Adaları",
-    "mk": "Kuzey Makedonya",
-    "ml": "Mali",
-    "mm": "Myanmar",
-    "mn": "Moğolistan",
-    "mo": "Makao",
-    "mp": "Kuzey Mariana Adaları",
-    "mq": "Martinik",
-    "mr": "Moritanya",
-    "ms": "Montserrat",
-    "mt": "Malta",
-    "mu": "Mauritius",
-    "mv": "Maldivler",
-    "mw": "Malawi",
-    "mx": "Meksika",
-    "my": "Malezya",
-    "mz": "Mozambik",
-    "na": "Namibya",
-    "nc": "Yeni Kaledonya",
-    "ne": "Nijer",
-    "nf": "Norfolk Adası",
-    "ng": "Nijerya",
-    "ni": "Nikaragua",
-    "nl": "Hollanda",
-    "no": "Norveç",
-    "np": "Nepal",
-    "nr": "Nauru'lu",
-    "nt": "Tarafsız bölge",
-    "nu": "Niue",
-    "nz": "Yeni Zelanda",
-    "om": "Umman",
-    "pa": "Panama",
-    "pe": "Peru",
-    "pf": "Fransız Polinezyası",
-    "pg": "Papua Yeni Gine",
-    "ph": "Filipinler",
-    "pk": "Pakistan",
-    "pl": "Polonya",
-    "pm": "Saint-Pierre-et-Miquelon",
-    "pn": "Pitcairn",
-    "pr": "Porto Riko",
-    "ps": "Filistin",
-    "pt": "Portekiz",
-    "pw": "Palaos",
-    "py": "Paraguay",
-    "qa": "Katar",
-    "re": "Yeniden Birleşme",
-    "ro": "Romanya",
-    "rs": "Sırbistan",
-    "ru": "Rusya",
-    "rw": "Ruanda",
-    "sa": "Suudi Arabistan",
-    "sb": "Solomon Adaları",
-    "sc": "Seyşeller",
-    "sd": "Sudan",
-    "se": "Süet",
-    "sg": "Singapur",
-    "sh": "Sainte-Hélène",
-    "si": "Slovenya",
-    "sj": "Svalbard ve Jan Mayen",
-    "sk": "Slovakya",
-    "sl": "Sierra Leone",
-    "sm": "Saint-Marin",
-    "sn": "Senegal",
-    "so": "Somali",
-    "sr": "Geçersiz yaz",
-    "ss": "Güney Sudan",
-    "st": "Sao Tomé-et-Principe",
-    "su": "Sovyetler Birliği",
-    "sv": "El Salvador",
-    "sx": "Saint-Martin",
-    "sy": "Suriye",
-    "sz": "Esvatini",
-    "tc": "Türk ve Caican Adaları",
-    "td": "Çad",
-    "tf": "Fransız Güney Toprakları",
-    "tg": "Togo",
-    "th": "Tayland",
-    "tj": "Tacikistan",
-    "tk": "Tokelau",
-    "tl": "Timor-Doğu",
-    "tm": "Türkmenistan",
-    "tn": "Tunus",
-    "to": "Tonga",
-    "tr": "Türkiye",
-    "tt": "Trinity ve Tobago",
-    "tv": "Tuvalu",
-    "tw": "Tayvan",
-    "tz": "Tanzanya",
-    "ua": "Ukrayna",
-    "ug": "Uganda",
-    "um": "Amerika Birleşik Devletleri'ndeki Küçük Adalar",
-    "us": "AMERİKA BİRLEŞİK DEVLETLERİ",
-    "uy": "Uruguay",
-    "uz": "Özbekistan",
-    "va": "Vatikan Şehri",
-    "vc": "Saint-Vincent-et-les Grenadinler",
-    "ve": "Venezuela",
-    "vg": "İngiliz virgin adaları",
-    "vi": "Amerika Birleşik Devletleri'nin Virgin adaları",
-    "vn": "Vietnam Vietnam",
-    "vu": "Vanuatu",
-    "wf": "Wallis-et-Futuna",
-    "ws": "Samoa",
-    "xk": "Kosova",
-    "ye": "Yemen",
-    "yt": "Mayotte",
-    "yu": "Yugoslavya",
-    "za": "Güney Afrika",
-    "zm": "Zambiya",
-    "zr": "Zaire",
-    "zw": "Zimbabve"
-  },
-  "topbar": {
-    "title": "Havyar İzci",
-    "profile": {
-      "title": "Profil",
-      "edit": "Profili Düzenle",
-      "logout": "Oturumu kapat",
-      "delete": "Silmek",
-      "deleteMobile": "Hesabı Sil",
-      "editMobile": "Profili Düzenle",
-      "confirmDelete": "Hesabınızı silmek istediğinizden emin misiniz? ",
-      "confirmDeleteTitle": "Hesabı Sil",
-      "confirmDeleteMessage": "Hesabınızı kalıcı olarak silmek istediğinizden emin misiniz?",
-      "confirmDeleteWarning": "Bu eylem geri alınamaz. ",
-      "deleteConfirm": "Hesabı Sil",
-      "deleteSuccessTitle": "Hesap Silindi",
-      "deleteSuccessMessage": "Hesabınız başarıyla silindi. ",
-      "deleteErrorTitle": "Silme Başarısız",
-      "deleteErrorMessage": "Hesabınız silinemedi. "
-    }
-  },
-  "common": {
-    "cancel": "İptal etmek"
-  },
-  "legal": {
-    "backToHome": "Ana Sayfaya Geri Dön",
-    "lastUpdated": "Son güncelleme",
-    "privacy": {
-      "title": "Gizlilik Politikası",
-      "introduction": {
-        "title": "giriiş"
-      },
-      "controller": {
-        "title": "Veri Denetleyicisi"
-      },
-      "dpo": {
-        "title": "Veri Koruma Görevlisi"
-      },
-      "dataCollected": {
-        "title": "Toplanan Veriler",
-        "identity": {
-          "title": "Kimlik ve İletişim Verileri"
-        },
-        "athletes": {
-          "title": "Sporcu Bilgileri"
+        "physical": {
+            "vitesse": "Hız",
+            "endurance": "Dayanıklılık",
+            "puissance": "Güç",
+            "reflexes": "Refleksler",
+            "agilite": "Çeviklik",
+            "explosivite": "Patlayıcılık",
+            "souplesse": "Esneklik",
+            "coordination": "Koordinasyon",
+            "equilibre": "Denge"
         },
         "technical": {
-          "title": "Teknik Veriler"
+            "technique": "Teknik",
+            "maitriseDuBallon": "Balon ustalığı",
+            "precision": "Kesinlik",
+            "finition": "Bitirme",
+            "passeDecisive": "Asistan",
+            "tirCadre": "Creder atış",
+            "dribble": "Top sürme",
+            "jeuDeTete": "Kafa oyunu",
+            "tacle": "Olta takımı",
+            "interception": "Müdahale",
+            "gesteTechnique": "Teknik jest",
+            "polyvalence": "Çok yönlülük"
         },
-        "transaction": {
-          "title": "İşlem Verileri"
-        }
-      },
-      "legalBasis": {
-        "title": "İşlemenin Yasal Dayanağı"
-      },
-      "userCategories": {
-        "title": "Kullanıcı Kategorileri",
-        "professionals": {
-          "title": "Profesyonel Kullanıcılar"
+        "mental": {
+            "intelligenceTactique": "Taktik zeka",
+            "lectureDuJeu": "Oyunu okumak",
+            "anticipation": "Beklenti",
+            "concentration": "Konsantrasyon",
+            "mental": "zihinsel",
+            "sangFroid": "Kanlı",
+            "maturite": "Vade",
+            "gestionDuTemps": "Zaman yönetimi",
+            "resilience": "Dayanıklılık",
+            "visionDeJeu": "Oyun vizyonu",
+            "decisif": "Belirleyici",
+            "priseDeDecision": "Karar verme",
+            "adaptabilite": "Uyarlanabilirlik",
+            "competiteur": "Yarışmacı",
+            "leadership": "Liderlik",
+            "espritDEquipe": "Takım ruhu",
+            "determination": "Kararlılık",
+            "confianceEnSoi": "Kendine güven",
+            "motivation": "Motivasyon",
+            "apprentissageRapide": "Hızlı öğrenme",
+            "discipline": "Disiplin",
+            "regularite": "Düzenlilik",
+            "enduranceMentale": "Zihinsel dayanıklılık"
         },
-        "nonProfessionals": {
-          "title": "Profesyonel Olmayan Kullanıcılar"
+        "behavior": {
+            "travailleur": "İşçi",
+            "perseverant": "azim",
+            "passionne": "Hevesli",
+            "humilite": "Tevazu",
+            "exemplaire": "Kopyala",
+            "respectueux": "Saygılı",
+            "charismatique": "Karizmatik",
+            "dynamique": "Dinamik",
+            "engage": "Nişanlı",
+            "fairPlay": "Adil oyun",
+            "influenceurDeVestiaire": "Vestiyer etkileyicisi",
+            "attitudeProfessionnelle": "Profesyonel tutum"
         },
-        "minors": {
-          "title": "Küçüklerin Korunması"
-        }
-      },
-      "retention": {
-        "title": "Veri Saklama"
-      },
-      "recipients": {
-        "title": "Veri Alıcıları"
-      },
-      "rights": {
-        "title": "Haklarınız"
-      },
-      "cookies": {
-        "title": "Çerezler"
-      },
-      "security": {
-        "title": "Veri Güvenliği"
-      },
-      "updates": {
-        "title": "Politika Güncellemeleri"
-      },
-      "contact": {
-        "title": "Bize Ulaşın"
-      }
+        "creativity": {
+            "creativite": "Yaratıcılık",
+            "styleDeJeuUnique": "Benzersiz oyun stili",
+            "spectaculaire": "Muhteşem",
+            "showman": "Şovmen",
+            "imagination": "Hayal gücü"
+        },
+        "potential": {
+            "grosPotentiel": "Büyük potansiyel",
+            "enProgres": "İlerlemek",
+            "jeunePrometteur": "Gelecek vaat eden genç",
+            "talentNaturel": "Doğal yetenek"
+        },
+        "unknown": "Bilinmeyen etiket"
     },
-    "terms": {
-      "title": "Hizmet Şartları",
-      "preamble": {
-        "title": "Önsöz"
-      },
-      "definitions": {
-        "title": "Tanımlar"
-      },
-      "service": {
-        "title": "Hizmet Açıklaması",
-        "important": "Önemli Uyarı"
-      },
-      "userCategories": {
-        "title": "Kullanıcı Kategorileri",
-        "professionals": {
-          "title": "Profesyonel Kullanıcılar"
+    "sports": {
+        "football": "Futbol",
+        "basketball": "Basketbol",
+        "rugby": "Rugby",
+        "tennis": "Tenis",
+        "boxe": "Boks",
+        "footballAmericain": "Futbol",
+        "hockeySurGlace": "Buz hokeyi",
+        "baseball": "Beyzbol",
+        "mma": "MMA",
+        "equitation": "Binicilik",
+        "hobbyHorse": "Hobby Horse",
+        "coursesCanines": "Köpek yarışları",
+        "coursesDeLapins": "Tavşan yarışları",
+        "fauconnerie": "Doğancılık",
+        "autre": "Diğer",
+        "unknown": "Bilinmeyen spor"
+    },
+    "primeng": {
+        "version": "Sürüm 1.3.1",
+        "delete_all": "Her şeyi sil",
+        "delete_all_filter": "Tüm filtreleri sil",
+        "results": "sonuçlar",
+        "save": "Kaydetmek",
+        "cancel": "İptal etmek",
+        "search": "Araştırmak",
+        "startdate": "Başlangıç ​​tarihi",
+        "enddate": "Bitiş tarihi",
+        "status": "Durum",
+        "transactionnumber": "İşlem numarası",
+        "transactiondate": "İşlem tarihi",
+        "download": "İndirmek",
+        "amount": "Miktar",
+        "date": "Tarih",
+        "or": "Veya",
+        "agency": "Ajans",
+        "customer": "Müşteri",
+        "lineselected": "seçilen çizgiler",
+        "areyousure": "Emin misin?",
+        "confirmed": "Onaylamak",
+        "generationinprogress": "Mevcut nesil",
+        "purchaselines": "Satın alma hatları",
+        "dashboard": "Kontrol Paneli",
+        "name": "İsim",
+        "prenom": "İlk adı",
+        "email": "E-posta adresi",
+        "saved": "Kaydedildi",
+        "error": "Hata",
+        "description": "Tanım",
+        "leave": "ayrılmak",
+        "not_allowed_page": "Bu sayfaya erişmek için gerekli haklara sahip değilsiniz",
+        "validate_action": "Bu eylemi doğrulamak için lütfen \"Doğrula\" yazın",
+        "back": "Geri",
+        "valider": "Doğrulamak için",
+        "success": "Başarı",
+        "suivant": "Takip etme",
+        "precedent": "Öncesi",
+        "export": "İhracat",
+        "import": "İçe aktarmak",
+        "import_csv": ".csv'yi içe aktar",
+        "no": "HAYIR",
+        "yes": "Evet",
+        "enabled": "olanak vermek",
+        "disabled": "devre dışı bırakmak",
+        "activate": "olanak vermek",
+        "deactivate": "devre dışı bırakmak",
+        "activated": "etkinleştirildi",
+        "deactivated": "engelli",
+        "information": "Bilgi",
+        "creation_date": "Oluşturulma tarihi:",
+        "export_csv": ".csv'yi dışa aktar",
+        "voir": "Görmek",
+        "actif": "Aktif",
+        "active": "Aktif",
+        "inactif": "Etkin değil",
+        "inactive": "Etkin değil",
+        "selectionner": "Seçme",
+        "refresh": "Yenile",
+        "filter_by": "Şuna göre filtrele:",
+        "update": "Değiştirmek için",
+        "delete": "SİLMEK",
+        "edit": "Değiştirmek için",
+        "comment": "Yorum : ",
+        "comment_without_double_point": "Yorum ",
+        "double_point": "::",
+        "toast_summary_update_error": "İmkansız değişiklik",
+        "toast_summary_create_error": "İmkansız ekleme",
+        "toast_summary_delete_error": "İmkansız silme",
+        "toast_summary_delete_error2": "Silme hatasının özeti",
+        "toast_label_warning": "Dikkat",
+        "ok": "TAMAM",
+        "select_date": "Bir tarih seçin",
+        "select_hour": "Bir saat seçin",
+        "require": "Alan zorunludur ",
+        "tiret": "-",
+        "startsWith": "Şununla başlar:",
+        "contains": "İçerir",
+        "notContains": "içermez",
+        "endsWith": "Şununla biter:",
+        "equals": "Eşittir",
+        "notEquals": "Farklı",
+        "noFilter": "Filtre yok",
+        "filter": "Filtre",
+        "lt": "Daha az",
+        "lte": "Küçük veya eşit",
+        "gt": "Üstün",
+        "gte": "Büyük veya eşittir",
+        "dateIs": "Tarih eşit",
+        "dateIsNot": "Farklı tarih",
+        "dateBefore": "Önceki tarih",
+        "dateAfter": "Tarih sonrası",
+        "clear": "Silmek için",
+        "apply": "Uygula",
+        "matchAll": "Her şey karşılık geliyor",
+        "matchAny": "Herhangi",
+        "addRule": "Kural ekle",
+        "removeRule": "Kuralı sil",
+        "accept": "Evet",
+        "reject": "HAYIR",
+        "choose": "Seçmek",
+        "upload": "İndirmek",
+        "dayNames": [
+            "Pazar",
+            "Pazartesi",
+            "Salı",
+            "Çarşamba",
+            "PERŞEMBE",
+            "Cuma",
+            "CUMARTESİ"
+        ],
+        "dayNamesShort": [
+            "güneş",
+            "pazartesi",
+            "mart",
+            "deniz",
+            "oyun",
+            "cuma",
+            "doygunluk"
+        ],
+        "dayNamesMin": [
+            "D",
+            "L",
+            "M",
+            "M",
+            "J",
+            "V",
+            "S"
+        ],
+        "monthNames": [
+            "Ocak",
+            "ŞUBAT",
+            "Mart",
+            "nisan",
+            "mayıs",
+            "Haziran",
+            "Temmuz",
+            "Ağustos",
+            "eylül",
+            "ekim",
+            "kasım",
+            "Aralık"
+        ],
+        "monthNamesShort": [
+            "Ocak",
+            "Şubat",
+            "Mart",
+            "Nisan",
+            "mayıs",
+            "Haziran",
+            "temmuz",
+            "Ağustos",
+            "Yedi",
+            "ekim",
+            "kasım",
+            "aralık"
+        ],
+        "today": "Bugün",
+        "weekHeader": "Sem",
+        "firstDayOfWeek": 1,
+        "dateFormat": "GG/aa/yy",
+        "weak": "Zayıf",
+        "medium": "ORTALAMA",
+        "strong": "Güçlü",
+        "passwordPrompt": "Bir şifre girin",
+        "emptyMessage": "Sonuç bulunamadı",
+        "emptyFilterMessage": "Sonuç bulunamadı",
+        "selectedItemsLabel": "{0} seçili öğe",
+        "double_quote": "\"\"",
+        "asterisk": "*",
+        "value": "Değer"
+    },
+    "uploader": {
+        "title": "MP4 video indiricisi",
+        "note": {
+            "single": "Yalnızca videolar, her biri en fazla {maxSize}",
+            "multiple": "Yalnızca videolar, her biri en fazla {maxSize}, maksimum {maxFiles} dosya"
         },
-        "nonProfessionals": {
-          "title": "Profesyonel Olmayan Kullanıcılar (Tüketiciler)"
+        "info": {
+            "single": "Başlamak için bir MP4 video indirin",
+            "fileLimit": "{{current}}/{{max}} Dosyalar ({{remaining}} geriye kalan)"
+        },
+        "statistics": {
+            "remaining": "geriye kalan",
+            "files": "Dosya (lar)",
+            "uploading": "devam etmekte",
+            "completed": "bitmiş (ler)"
+        },
+        "status": {
+            "uploading": "İndirme işlemi devam ediyor...",
+            "completed": "Bitti",
+            "locked": "Kilitli"
+        },
+        "actions": {
+            "preview": "Önizleme",
+            "remove": "SİLMEK",
+            "close": "Kapalı",
+            "upload": "İndirmek",
+            "cancel": "İptal etmek"
+        },
+        "empty": {
+            "title": "Şu anda indirilen dosya yok",
+            "subtitle": {
+                "single": "Bir MP4 videosunu kaydetmek veya indirmek için yukarıdaki indiriciyi kullanın",
+                "multiple": "Kaydetmek veya indirmek için yukarıdaki indiriciyi kullanın {{maxFiles}} MP4 videoları"
+            }
+        },
+        "preview": {
+            "title": "Video önizlemesi"
+        },
+        "messages": {
+            "fileLimitReached": "Etkilenen dosyaların sınırı",
+            "uploadComplete": "İndirme tamamlandı",
+            "uploadSuccess": "{Filename} başarıyla indirildi!",
+            "uploadFailed": "İndirme hatası",
+            "uploadFailedDetail": "{Filename} indirilemiyor",
+            "fileRestriction": "Dosya kısıtlaması",
+            "cannotRemove": "Silinemiyor",
+            "cannotRemoveLocked": "Kilitli dosya silinemiyor",
+            "fileRemoved": "Silinen dosya",
+            "fileRemovedSuccess": "Dosya başarıyla silindi",
+            "removalFailed": "Silme hatası",
+            "removalFailedDetail": "Dosya silinemiyor. ",
+            "uploadPreparationFailed": "İndirme hazırlığı hatası",
+            "uploadPreparationFailedDetail": "İndirme işlemi hazırlanamadı. ",
+            "duplicateFile": "Çift dosya",
+            "duplicateFileDetail": "{Filename} dosyası zaten eklenmiş",
+            "filenameTooLong": "Dosya Adı Çok Uzun",
+            "filenameTooLongDetail": "Dosya adı çok uzun ({{currentLength}} karakterler).  {{maxLength}} yüklemeden önce karakter veya daha az."
+        },
+        "dashboard": {
+            "strings": {
+                "addMoreFiles": "Daha fazla dosya ekle",
+                "addingMoreFiles": "Daha fazla dosya ekleme",
+                "allowAccessDescription": "Kameranızla fotoğraf çekmek veya video kaydetmek için lütfen bu sitenin kamerasına erişime izin verin.",
+                "allowAccessTitle": "Lütfen kameranıza erişime izin verin",
+                "authenticateWith": "{pluginname}'e bağlanın",
+                "authenticateWithTitle": "Dosyaları seçmek için lütfen {pluginname} ile kimlik doğrulaması yapın",
+                "back": "Geri",
+                "browse": "geçmek",
+                "browseFiles": "dosyalara göz at",
+                "cancel": "İptal etmek",
+                "cancelUpload": "İndirmeyi iptal et",
+                "chooseFiles": "Dosyaları seçin",
+                "closeModal": "Pencereye tırman",
+                "companionError": "Companion ile bağlantı başarısız oldu",
+                "complete": "Bitti",
+                "connectedToInternet": "İnternete bağlı",
+                "copyLink": "Bağlantıyı kopyala",
+                "copyLinkToClipboardFallback": "Aşağıdaki URL'yi kopyalayın",
+                "copyLinkToClipboardSuccess": "Bağlantı panoya kopyalandı",
+                "creatingAssembly": "Hazırlığı indirin ...",
+                "creatingAssemblyFailed": "TransLODIT: Derleme oluşturulamıyor",
+                "dashboardTitle": "Dosya indirici",
+                "dashboardWindowTitle": "Dosya indirme penceresi (kapatmak için kaçış tuşuna basın)",
+                "dataUploadedOfTotal": "{Total} üzerinde {Tamamlandı}",
+                "done": "Bitti",
+                "dropHereOr": "Dosyaları buraya yerleştirin veya %{browse}",
+                "dropHint": "Dosyalarınızı buraya gönderin",
+                "dropPasteBoth": "Dosyaları buraya yerleştirin, yapıştırın veya %{göz atın}",
+                "dropPasteFiles": "Dosyaları buraya yerleştirin, yapıştırın veya %{göz atın}",
+                "dropPasteImportBoth": "Dosyaları buraya yerleştirin, yapıştırın, %{browse} veya içe aktarın",
+                "dropPasteImportFiles": "Dosyaları buraya yerleştirin, yapıştırın, %{browse} veya içe aktarın",
+                "edit": "Değiştirmek için",
+                "editFile": "Dosyayı değiştirin",
+                "editing": "%{file}'nin değiştirilmesi",
+                "emptyFolderAdded": "Boş klasörden dosya eklenmedi",
+                "encoding": "Kodlanıyor...",
+                "enterCorrectUrl": "Yanlış URL: Bir dosyaya doğrudan bağlantı girdiğinizden emin olun",
+                "enterUrlToImport": "Bir dosyayı içe aktarmak için URL'yi girin",
+                "exceedsSize": "Bu dosya izin verilen maksimum boyutu aşıyor",
+                "failedToFetch": "Tamamlayıcı bu URL'yi kurtaramadı, doğru olduğundan emin olun",
+                "failedToUpload": "%{Dosya} indirilemedi",
+                "fileSource": "Dosya kaynağı: %{name}",
+                "filesUploadedOfTotal": {
+                    "0": "İndirilen %{smart_count} dosyada %{Complete}",
+                    "1": "İndirilen %{smart_count} dosyada %{Complete}"
+                },
+                "filter": "Filtre",
+                "finishEditingFile": "Dosyanın değiştirilmesini bitirin",
+                "folderAdded": {
+                    "0": "%{folder} klasöründen %{smart_count} dosya eklendi",
+                    "1": "%{folder} klasöründen %{smart_count} dosya eklendi"
+                },
+                "import": "İçe aktarmak",
+                "importFrom": "%{name} tarihinden beri içe aktar",
+                "loading": "Yükleniyor...",
+                "logOut": "Bağlantıyı kes",
+                "myDevice": "Cihazım",
+                "noFilesFound": "Burada dosyanız veya klasörünüz yok",
+                "noInternetConnection": "İnternet bağlantısı yok",
+                "pause": "Kırmak",
+                "pauseUpload": "İndirme işlemini parçalayın",
+                "paused": "Kırmak",
+                "poweredBy": "%{uppy} tarafından yönlendiriliyor",
+                "processingXFiles": {
+                    "0": "%{Smart_count} dosyası",
+                    "1": "%{Smart_count} dosya"
+                },
+                "removeFile": "Dosyayı sil",
+                "resetFilter": "Filtreyi sıfırla",
+                "resume": "Devam etmek için",
+                "resumeUpload": "İndirmek",
+                "retry": "Tekrar deneyin",
+                "retryUpload": "İndirmeyi deneyin",
+                "save": "Kaydetmek",
+                "selectFileNamed": "%{name} dosyasını seçin",
+                "selectX": {
+                    "0": "%{smart_count}'u seçin",
+                    "1": "%{smart_count}'u seçin"
+                },
+                "smile": "Gülümsemek!",
+                "startRecording": "Video kaydını başlat",
+                "stopRecording": "Video kaydını durdur",
+                "takePicture": "Fotoğraf çek",
+                "timedOut": "İndirme %{seconds} saniye boyunca engellendi, iptal edildi.",
+                "upload": "İndirmek",
+                "uploadComplete": "İndirme tamamlandı",
+                "uploadFailed": "İndirme hatası",
+                "uploadPaused": "İndirmeyi duraklat",
+                "uploadXFiles": {
+                    "0": "%{smart_count} dosyasını indir",
+                    "1": "%{smart_count} dosyayı indir"
+                },
+                "uploadXNewFiles": {
+                    "0": "+%{smart_count} dosyasını indir",
+                    "1": "+%{smart_count} dosyayı indir"
+                },
+                "uploading": "İndirme işlemi devam ediyor",
+                "uploadingXFiles": {
+                    "0": "%{Smart_count} dosyası",
+                    "1": "%{Smart_count} dosya"
+                },
+                "xFilesSelected": {
+                    "0": "%{smart_count} seçili dosya",
+                    "1": "%{smart_count} seçili dosya"
+                },
+                "xMoreFilesAdded": {
+                    "0": "%{smart_count} ek dosya ekledi",
+                    "1": "%{smart_count} Ek dosya eklendi"
+                },
+                "xTimeLeft": "%{time} kaldı",
+                "youCanOnlyUploadFileTypes": "Yalnızca şunu indirebilirsiniz: %{types}",
+                "youCanOnlyUploadX": {
+                    "0": "Yalnızca %{smart_count} dosyasını indirebilirsiniz",
+                    "1": "Yalnızca %{smart_count} dosyayı indirebilirsiniz"
+                },
+                "youHaveToAtLeastSelectX": {
+                    "0": "En az %{smart_count} dosya seçmelisiniz",
+                    "1": "En az %{smart_count} dosya seçmelisiniz"
+                }
+            }
+        },
+        "service": {
+            "errors": {
+                "presignedUrl": "İmzalı URL oluşturma hatası",
+                "removeFile": "Dosya silme hatası",
+                "uploadFile": "Dosyanın imzalı URL aracılığıyla gönderilememesi",
+                "getFileList": "Dosya listesinin kurtarılamaması",
+                "updateMetadata": "Dosyanın meta verilerinin güncellenmemesi"
+            }
         }
-      },
-      "account": {
-        "title": "Hesap ve Kayıt"
-      },
-      "subscription": {
-        "title": "Abonelikler ve Ödemeler",
-        "payment": {
-          "title": "Ödeme Koşulları"
-        },
-        "withdrawal": {
-          "title": "Cayma Hakkı"
-        },
-        "credits": {
-          "title": "Kredi Sistemi"
+    },
+    "countries": {
+        "ad": "Andorrialı",
+        "ae": "Birleşik Arap Emirlikleri",
+        "af": "Afganistan",
+        "ag": "Antigua-et-Barbuda",
+        "ai": "Yılanbalığı",
+        "al": "Arnavutluk",
+        "am": "Ermenistan",
+        "ao": "Angola",
+        "aq": "Antarktika",
+        "ar": "Arjantin",
+        "as": "Amerikan Samoası",
+        "at": "Avusturya",
+        "au": "Avustralya",
+        "aw": "Aruba",
+        "ax": "Åland Adaları",
+        "az": "Azerbaycan",
+        "ba": "Bosna Hersek",
+        "bb": "Barbade",
+        "bd": "Bangladeş",
+        "be": "Belçika",
+        "bf": "Burkina Faso",
+        "bg": "Bulgaristan",
+        "bh": "Bahreyn",
+        "bi": "Burundi",
+        "bj": "iyi huylu",
+        "bl": "Saint-Barthélemy",
+        "bm": "Bermuda",
+        "bn": "Brunei",
+        "bo": "Bolivya",
+        "bq": "Hollanda Karayipler",
+        "br": "Brezilya",
+        "bs": "Bahamalar",
+        "bt": "Butan",
+        "bv": "Bouvet Adası",
+        "bw": "Botsvana",
+        "by": "Beyaz Rusya",
+        "bz": "Belize",
+        "ca": "Kanada",
+        "cc": "Cocos Adaları (Keeling)",
+        "cd": "Demokratik Kongo Cumhuriyeti",
+        "cf": "Orta Afrika Cumhuriyeti",
+        "cg": "Kongo Cumhuriyeti",
+        "ch": "İsviçre",
+        "ci": "Fildişi Sahili",
+        "ck": "Cook Adaları",
+        "cl": "Şili",
+        "cm": "Kamerun",
+        "cn": "Çin",
+        "co": "Kolombiya",
+        "cr": "Kosta Rika",
+        "cs": "Çekoslovakya",
+        "cu": "Küba",
+        "cv": "Kapak yeşili",
+        "cw": "Curaçao",
+        "cx": "Noel adası",
+        "cy": "Kıbrıs",
+        "cz": "Çek Cumhuriyeti",
+        "dd": "Alman Demokratik Cumhuriyeti",
+        "de": "Almanya",
+        "dj": "Cibuti",
+        "dk": "Danimarka",
+        "dm": "Dominik",
+        "do": "Dominik Cumhuriyeti",
+        "dz": "Cezayir",
+        "ec": "Ekvator",
+        "ee": "Estonya",
+        "eg": "Mısır",
+        "eh": "Batı Sahra",
+        "er": "Eritre",
+        "es": "İspanya",
+        "et": "Etiyopya",
+        "fi": "Finlandiya",
+        "fj": "Fiji",
+        "fk": "Falkland Adaları",
+        "fm": "Mikronezya",
+        "fo": "Faroe Adaları",
+        "fr": "Fransa",
+        "fx": "Büyükşehir Fransa",
+        "ga": "Gabon",
+        "gb": "Birleşik Krallık",
+        "gd": "El bombası",
+        "ge": "Georgia",
+        "gf": "Guyana",
+        "gg": "Guernsey",
+        "gh": "Gana",
+        "gi": "Cebelitarık",
+        "gl": "Grönland",
+        "gm": "Gambiya",
+        "gn": "Gine",
+        "gp": "Guadeloupe",
+        "gq": "Ekvator Ginesi",
+        "gr": "Yunanistan",
+        "gs": "Güney ve Güney Sandviç Georgia",
+        "gt": "Guatemala",
+        "gu": "Guam",
+        "gw": "Gine-Bissau",
+        "gy": "Guyana",
+        "hk": "Hong Kong",
+        "hm": "Heard-et-Macdonald Adaları",
+        "hn": "Honduras",
+        "hr": "Hırvatistan",
+        "ht": "Haiti",
+        "hu": "Macaristan",
+        "id": "Endonezya",
+        "ie": "İrlanda",
+        "il": "İsrail",
+        "im": "Adam Adası",
+        "in": "Hindistan",
+        "io": "Britanya Hint Okyanusu bölgesi",
+        "iq": "Irak",
+        "ir": "İran",
+        "is": "İzlanda",
+        "it": "İtalya",
+        "je": "Jersey",
+        "jm": "Jamaika",
+        "jo": "Ürdün",
+        "jp": "Japonya",
+        "ke": "Kenya",
+        "kg": "Kırgızistan",
+        "kh": "Kamboçya",
+        "ki": "Kiribati",
+        "km": "Komorlar",
+        "kn": "Saint-Christophe-et-Niévès",
+        "kp": "Kuzey Kore",
+        "kr": "Güney Kore",
+        "kw": "Kuveyt",
+        "ky": "Cayman adaları",
+        "kz": "Kazakistan",
+        "la": "Laos",
+        "lb": "Lübnan",
+        "lc": "Sainte-Lucie",
+        "li": "Lihtenştayn",
+        "lr": "Liberya",
+        "ls": "Lesoto",
+        "lt": "Litvanya",
+        "lu": "Lüksemburg",
+        "lv": "Letonya",
+        "ly": "Libya",
+        "ma": "Fas",
+        "mc": "Monako",
+        "md": "Moldova",
+        "me": "Karadağ",
+        "mf": "Saint-Martin",
+        "mg": "Madagaskar",
+        "mh": "Marshall Adaları",
+        "mk": "Kuzey Makedonya",
+        "ml": "Mali",
+        "mm": "Myanmar",
+        "mn": "Moğolistan",
+        "mo": "Makao",
+        "mp": "Kuzey Mariana Adaları",
+        "mq": "Martinik",
+        "mr": "Moritanya",
+        "ms": "Montserrat",
+        "mt": "Malta",
+        "mu": "Mauritius",
+        "mv": "Maldivler",
+        "mw": "Malawi",
+        "mx": "Meksika",
+        "my": "Malezya",
+        "mz": "Mozambik",
+        "na": "Namibya",
+        "nc": "Yeni Kaledonya",
+        "ne": "Nijer",
+        "nf": "Norfolk Adası",
+        "ng": "Nijerya",
+        "ni": "Nikaragua",
+        "nl": "Hollanda",
+        "no": "Norveç",
+        "np": "Nepal",
+        "nr": "Nauru'lu",
+        "nt": "Tarafsız bölge",
+        "nu": "Niue",
+        "nz": "Yeni Zelanda",
+        "om": "Umman",
+        "pa": "Panama",
+        "pe": "Peru",
+        "pf": "Fransız Polinezyası",
+        "pg": "Papua Yeni Gine",
+        "ph": "Filipinler",
+        "pk": "Pakistan",
+        "pl": "Polonya",
+        "pm": "Saint-Pierre-et-Miquelon",
+        "pn": "Pitcairn",
+        "pr": "Porto Riko",
+        "ps": "Filistin",
+        "pt": "Portekiz",
+        "pw": "Palaos",
+        "py": "Paraguay",
+        "qa": "Katar",
+        "re": "Yeniden Birleşme",
+        "ro": "Romanya",
+        "rs": "Sırbistan",
+        "ru": "Rusya",
+        "rw": "Ruanda",
+        "sa": "Suudi Arabistan",
+        "sb": "Solomon Adaları",
+        "sc": "Seyşeller",
+        "sd": "Sudan",
+        "se": "Süet",
+        "sg": "Singapur",
+        "sh": "Sainte-Hélène",
+        "si": "Slovenya",
+        "sj": "Svalbard ve Jan Mayen",
+        "sk": "Slovakya",
+        "sl": "Sierra Leone",
+        "sm": "Saint-Marin",
+        "sn": "Senegal",
+        "so": "Somali",
+        "sr": "Geçersiz yaz",
+        "ss": "Güney Sudan",
+        "st": "Sao Tomé-et-Principe",
+        "su": "Sovyetler Birliği",
+        "sv": "El Salvador",
+        "sx": "Saint-Martin",
+        "sy": "Suriye",
+        "sz": "Esvatini",
+        "tc": "Türk ve Caican Adaları",
+        "td": "Çad",
+        "tf": "Fransız Güney Toprakları",
+        "tg": "Togo",
+        "th": "Tayland",
+        "tj": "Tacikistan",
+        "tk": "Tokelau",
+        "tl": "Timor-Doğu",
+        "tm": "Türkmenistan",
+        "tn": "Tunus",
+        "to": "Tonga",
+        "tr": "Türkiye",
+        "tt": "Trinity ve Tobago",
+        "tv": "Tuvalu",
+        "tw": "Tayvan",
+        "tz": "Tanzanya",
+        "ua": "Ukrayna",
+        "ug": "Uganda",
+        "um": "Amerika Birleşik Devletleri'ndeki Küçük Adalar",
+        "us": "AMERİKA BİRLEŞİK DEVLETLERİ",
+        "uy": "Uruguay",
+        "uz": "Özbekistan",
+        "va": "Vatikan Şehri",
+        "vc": "Saint-Vincent-et-les Grenadinler",
+        "ve": "Venezuela",
+        "vg": "İngiliz virgin adaları",
+        "vi": "Amerika Birleşik Devletleri'nin Virgin adaları",
+        "vn": "Vietnam Vietnam",
+        "vu": "Vanuatu",
+        "wf": "Wallis-et-Futuna",
+        "ws": "Samoa",
+        "xk": "Kosova",
+        "ye": "Yemen",
+        "yt": "Mayotte",
+        "yu": "Yugoslavya",
+        "za": "Güney Afrika",
+        "zm": "Zambiya",
+        "zr": "Zaire",
+        "zw": "Zimbabve"
+    },
+    "topbar": {
+        "title": "Havyar İzci",
+        "profile": {
+            "title": "Profil",
+            "edit": "Profili Düzenle",
+            "logout": "Oturumu kapat",
+            "delete": "Silmek",
+            "deleteMobile": "Hesabı Sil",
+            "editMobile": "Profili Düzenle",
+            "confirmDelete": "Hesabınızı silmek istediğinizden emin misiniz? ",
+            "confirmDeleteTitle": "Hesabı Sil",
+            "confirmDeleteMessage": "Hesabınızı kalıcı olarak silmek istediğinizden emin misiniz?",
+            "confirmDeleteWarning": "Bu eylem geri alınamaz. ",
+            "deleteConfirm": "Hesabı Sil",
+            "deleteSuccessTitle": "Hesap Silindi",
+            "deleteSuccessMessage": "Hesabınız başarıyla silindi. ",
+            "deleteErrorTitle": "Silme Başarısız",
+            "deleteErrorMessage": "Hesabınız silinemedi. "
         }
-      },
-      "obligations": {
-        "title": "Kullanıcı Yükümlülükleri"
-      },
-      "content": {
-        "title": "İçerik ve Denetleme",
-        "license": {
-          "title": "İçerik Lisansı"
+    },
+    "common": {
+        "cancel": "İptal etmek"
+    },
+    "legal": {
+        "backToHome": "Ana Sayfaya Geri Dön",
+        "lastUpdated": "Son güncelleme",
+        "privacy": {
+            "title": "Gizlilik Politikası",
+            "introduction": {
+                "title": "giriiş"
+            },
+            "controller": {
+                "title": "Veri Denetleyicisi"
+            },
+            "dpo": {
+                "title": "Veri Koruma Görevlisi"
+            },
+            "dataCollected": {
+                "title": "Toplanan Veriler",
+                "identity": {
+                    "title": "Kimlik ve İletişim Verileri"
+                },
+                "athletes": {
+                    "title": "Sporcu Bilgileri"
+                },
+                "technical": {
+                    "title": "Teknik Veriler"
+                },
+                "transaction": {
+                    "title": "İşlem Verileri"
+                }
+            },
+            "legalBasis": {
+                "title": "İşlemenin Yasal Dayanağı"
+            },
+            "userCategories": {
+                "title": "Kullanıcı Kategorileri",
+                "professionals": {
+                    "title": "Profesyonel Kullanıcılar"
+                },
+                "nonProfessionals": {
+                    "title": "Profesyonel Olmayan Kullanıcılar"
+                },
+                "minors": {
+                    "title": "Küçüklerin Korunması"
+                }
+            },
+            "retention": {
+                "title": "Veri Saklama"
+            },
+            "recipients": {
+                "title": "Veri Alıcıları"
+            },
+            "rights": {
+                "title": "Haklarınız"
+            },
+            "cookies": {
+                "title": "Çerezler"
+            },
+            "security": {
+                "title": "Veri Güvenliği"
+            },
+            "updates": {
+                "title": "Politika Güncellemeleri"
+            },
+            "contact": {
+                "title": "Bize Ulaşın"
+            }
+        },
+        "terms": {
+            "title": "Hizmet Şartları",
+            "preamble": {
+                "title": "Önsöz"
+            },
+            "definitions": {
+                "title": "Tanımlar"
+            },
+            "service": {
+                "title": "Hizmet Açıklaması",
+                "important": "Önemli Uyarı"
+            },
+            "userCategories": {
+                "title": "Kullanıcı Kategorileri",
+                "professionals": {
+                    "title": "Profesyonel Kullanıcılar"
+                },
+                "nonProfessionals": {
+                    "title": "Profesyonel Olmayan Kullanıcılar (Tüketiciler)"
+                }
+            },
+            "account": {
+                "title": "Hesap ve Kayıt"
+            },
+            "subscription": {
+                "title": "Abonelikler ve Ödemeler",
+                "payment": {
+                    "title": "Ödeme Koşulları"
+                },
+                "withdrawal": {
+                    "title": "Cayma Hakkı"
+                },
+                "credits": {
+                    "title": "Kredi Sistemi"
+                }
+            },
+            "obligations": {
+                "title": "Kullanıcı Yükümlülükleri"
+            },
+            "content": {
+                "title": "İçerik ve Denetleme",
+                "license": {
+                    "title": "İçerik Lisansı"
+                }
+            },
+            "liability": {
+                "title": "Sorumluluğun Sınırlandırılması",
+                "disclaimer": "ÖNEMLİ SORUMLULUK REDDİ",
+                "financial": {
+                    "title": "Mali Sorumluluk Reddi"
+                },
+                "thirdParty": {
+                    "title": "Üçüncü Taraf Hizmetleri"
+                },
+                "information": {
+                    "title": "Bilgi Sorumluluk Reddi"
+                },
+                "limitation": {
+                    "title": "Sorumluluğun Sınırlandırılması"
+                }
+            },
+            "indemnification": {
+                "title": "Tazminat"
+            },
+            "ip": {
+                "title": "Fikri Mülkiyet"
+            },
+            "modifications": {
+                "title": "Hizmet Değişiklikleri"
+            },
+            "termination": {
+                "title": "Fesih"
+            },
+            "disputes": {
+                "title": "Uyuşmazlık Çözümü",
+                "mediation": {
+                    "title": "Tüketici Arabuluculuğu"
+                },
+                "jurisdiction": {
+                    "title": "Geçerli Kanun ve Yargı Yetkisi"
+                }
+            },
+            "severability": {
+                "title": "Bölünebilirlik"
+            },
+            "contact": {
+                "title": "Temas etmek"
+            }
         }
-      },
-      "liability": {
-        "title": "Sorumluluğun Sınırlandırılması",
-        "disclaimer": "ÖNEMLİ SORUMLULUK REDDİ",
-        "financial": {
-          "title": "Mali Sorumluluk Reddi"
+    },
+    "features": {
+        "title": "Zaman kazanın, daha iyi işe alın",
+        "subtitle": "Daha iyi işe alım kararları almak için ihtiyacınız olan her şey.",
+        "free": {
+            "title": "Tam Ücretsiz Erişim",
+            "description": "Tüm profillere göz atın, videoları izleyin, gelişmiş filtreleri hiçbir ücret ödemeden kullanın. Yalnızca bir oyuncuyla iletişim kurmak için ödeme yaparsınız."
         },
-        "thirdParty": {
-          "title": "Üçüncü Taraf Hizmetleri"
+        "database": {
+            "title": "Doğrulanmış Yetenekler",
+            "description": "Her profil uzmanlar tarafından incelenir. Artık kullanılamaz videolar ve sahte profiller yok."
         },
-        "information": {
-          "title": "Bilgi Sorumluluk Reddi"
+        "filters": {
+            "title": "Doğru Profili Birkaç Tıkla Bulun",
+            "description": "Tam olarak aradığınız yeteneği bulmak için spor, yaş, ülke ve becerilere göre filtreleyin."
         },
-        "limitation": {
-          "title": "Sorumluluğun Sınırlandırılması"
+        "contact": {
+            "title": "Oyuncuyla Doğrudan İletişim Kurun",
+            "description": "Sporcuların veya menajerlerin doğrulanmış iletişim bilgilerine tek tıkla erişin."
+        },
+        "analysis": {
+            "title": "Yapılandırılmış Videolar, Gürültü Değil",
+            "description": "Kaliteli, düzenli ve ilgili videoları izleyin. Artık saatlerce içerik filtrelemeye gerek yok."
         }
-      },
-      "indemnification": {
-        "title": "Tazminat"
-      },
-      "ip": {
-        "title": "Fikri Mülkiyet"
-      },
-      "modifications": {
-        "title": "Hizmet Değişiklikleri"
-      },
-      "termination": {
-        "title": "Fesih"
-      },
-      "disputes": {
-        "title": "Uyuşmazlık Çözümü",
-        "mediation": {
-          "title": "Tüketici Arabuluculuğu"
-        },
-        "jurisdiction": {
-          "title": "Geçerli Kanun ve Yargı Yetkisi"
-        }
-      },
-      "severability": {
-        "title": "Bölünebilirlik"
-      },
-      "contact": {
-        "title": "Temas etmek"
-      }
     }
-  },
-  "features": {
-    "title": "Güçlü Özellikler",
-    "subtitle": "Etkili işe alım için ihtiyacınız olan her şey.",
-    "free": {
-      "title": "Ücretsiz Tam Erişim",
-      "description": "Tüm profillere göz atın, videoları izleyin, gelişmiş filtreleri kullanın - tamamen ücretsiz. "
-    },
-    "database": {
-      "title": "Veritabanını Tamamla",
-      "description": "Binlerce doğrulanmış yetenek profiline erişin."
-    },
-    "filters": {
-      "title": "Gelişmiş Arama Filtreleri",
-      "description": "Profilleri spora, yaşa ve becerilere göre kesin olarak hedefleyin."
-    },
-    "contact": {
-      "title": "Doğrudan ve Güvenli İletişim",
-      "description": "Sporcularla veya menajerleriyle doğrudan iletişim kurun."
-    },
-    "analysis": {
-      "title": "Video Analizi",
-      "description": "Yeteneklerin performanslarını izleyin ve analiz edin."
-    }
-  }
 }

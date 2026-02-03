@@ -73,12 +73,14 @@
         "features": "Características",
         "pricing": "Precios",
         "hero": {
-            "title": "Descubre las Estrellas Deportivas del Mañana",
-            "subtitle": "La plataforma profesional para descubrir y evaluar futuros prodigios deportivos mediante análisis de vídeo y herramientas avanzadas de reclutamiento.",
-            "button": "Únete Gratis",
-            "freeBadge": "100% GRATIS",
-            "freeForProfessionals": "Acceso completo sin coste para profesionales",
-            "freeHighlight": "Solo pagas al solicitar datos de contacto"
+            "title": "Detecta los mejores talentos antes que nadie.",
+            "subtitle": "CAVIAR SCOUT ayuda a reclutadores, agentes y clubes a identificar, analizar y comparar jóvenes talentos mediante vídeos estructurados y datos fiables.",
+            "tagline": "Analiza menos. Decide mejor. Recluta más rápido.",
+            "button": "Acceder a los talentos",
+            "freeBadge": "ACCESO GRATUITO",
+            "freeForProfessionals": "Para reclutadores, agentes y clubes",
+            "freeHighlight": "Explora todos los perfiles y vídeos sin coste",
+            "payOnlyContact": "Pago solo para contactar a un jugador"
         },
         "valueProposition": {
             "title": "Por Qué los Profesionales Nos Eligen",
@@ -149,42 +151,58 @@
     },
     "pricing": {
         "title": "Elija su plan",
-        "subtitle": "Precios flexibles para cada necesidad de reclutamiento.",
+        "subtitle": "1 contacto = 1 crédito. Simple, transparente.",
+        "happy_hour": "Happy Hour: ¡Todas las funciones son actualmente GRATUITAS, incluidos los contactos, durante la fase de lanzamiento!",
+        "section_subscriptions": "Suscripciones mensuales",
+        "section_packs": "Packs de créditos",
         "starter": {
             "title": "Principiante",
-            "price": "50,00 €",
+            "price": "25,00 €",
             "period": "por mes",
             "button": "Seleccionar",
-            "credits": "{credits} créditos",
+            "credits": "{credits} contacts",
             "feature1": "Acceso a la base de datos",
             "feature2": "Búsqueda de filtro simple",
             "feature3": "Soporte prioritario"
         },
         "pro": {
-            "current_plan": "Suscripción actual",
             "title": "Pro",
-            "price": "150,00 €",
+            "price": "100,00 €",
             "period": "por mes",
             "button": "Seleccionado",
-            "credits": "{credits} créditos",
+            "credits": "{credits} contacts",
             "feature1": "Acceso a la base de datos",
             "feature2": "Filtros de búsqueda avanzados",
             "feature3": "Soporte prioritario"
         },
         "elite": {
             "title": "Élite",
-            "price": "250,00 €",
+            "price": "150,00 €",
             "period": "por mes",
             "button": "Seleccionar",
-            "credits": "{credits} créditos",
+            "credits": "{credits} contacts",
             "feature1": "Acceso a la base de datos",
             "feature2": "Filtros de búsqueda avanzados",
             "feature3": "Soporte prioritario 24/7"
         },
-        "point_system": {
-            "new_video_new_contact": "5 puntos: nuevo video, nuevo contacto",
-            "new_video_old_contact": "3 puntos: nuevo video, contacto antiguo",
-            "already_viewed": "0 puntos: ya visto"
+        "pack5": {
+            "title": "Pack 5",
+            "price": "39,00 €",
+            "period": "único",
+            "credits": "{credits} contacts",
+            "button": "Comprar"
+        },
+        "pack10": {
+            "title": "Pack 10",
+            "price": "69,00 €",
+            "period": "único",
+            "credits": "{credits} contacts",
+            "button": "Comprar"
+        },
+        "credit_model": {
+            "title": "¿Cómo funciona?",
+            "click_equals_credit": "1 clic = 1 crédito = 1 contacto",
+            "description": "Cada vez que haces clic para acceder a los datos de contacto de un jugador, se deduce 1 crédito de tu cuenta."
         }
     },
     "footer": {
@@ -788,11 +806,61 @@
         "reject": "No",
         "choose": "Elegir",
         "upload": "Descargar",
-        "dayNames": ["Domingo", "Lunes", "Martes", "Miércoles", "JUEVES", "Viernes", "SÁBADO"],
-        "dayNamesShort": ["sol", "lun", "mar", "mar", "juego", "vie", "se sentó"],
-        "dayNamesMin": ["D", "L", "METRO", "METRO", "J", "V", "S"],
-        "monthNames": ["Enero", "FEBRERO", "Marzo", "abril", "puede", "Junio", "Julio", "agosto", "septiembre", "octubre", "noviembre", "Diciembre"],
-        "monthNamesShort": ["Ene", "Feb", "Marzo", "abr", "puede", "Junio", "jul", "agosto", "Siete", "oct", "nov", "dic"],
+        "dayNames": [
+            "Domingo",
+            "Lunes",
+            "Martes",
+            "Miércoles",
+            "JUEVES",
+            "Viernes",
+            "SÁBADO"
+        ],
+        "dayNamesShort": [
+            "sol",
+            "lun",
+            "mar",
+            "mar",
+            "juego",
+            "vie",
+            "se sentó"
+        ],
+        "dayNamesMin": [
+            "D",
+            "L",
+            "METRO",
+            "METRO",
+            "J",
+            "V",
+            "S"
+        ],
+        "monthNames": [
+            "Enero",
+            "FEBRERO",
+            "Marzo",
+            "abril",
+            "puede",
+            "Junio",
+            "Julio",
+            "agosto",
+            "septiembre",
+            "octubre",
+            "noviembre",
+            "Diciembre"
+        ],
+        "monthNamesShort": [
+            "Ene",
+            "Feb",
+            "Marzo",
+            "abr",
+            "puede",
+            "Junio",
+            "jul",
+            "agosto",
+            "Siete",
+            "oct",
+            "nov",
+            "dic"
+        ],
         "today": "Hoy",
         "weekHeader": "Sem",
         "firstDayOfWeek": 1,
@@ -1434,27 +1502,27 @@
         }
     },
     "features": {
-        "title": "Características Potentes",
-        "subtitle": "Todo lo que necesitas para un reclutamiento eficaz.",
+        "title": "Ahorra tiempo, recluta mejor",
+        "subtitle": "Todo lo que necesitas para tomar mejores decisiones de reclutamiento.",
         "free": {
-            "title": "Acceso Completo Gratis",
-            "description": "Explora todos los perfiles, mira vídeos, usa filtros avanzados - totalmente gratis. Solo pagas cuando solicitas datos de contacto."
+            "title": "Acceso Completo Gratuito",
+            "description": "Explora todos los perfiles, mira vídeos, usa filtros avanzados sin pagar nada. Solo pagas para contactar a un jugador."
         },
         "database": {
-            "title": "Base de Datos Completa",
-            "description": "Accede a miles de perfiles de talentos verificados."
+            "title": "Talentos Verificados",
+            "description": "Cada perfil es revisado por expertos. Se acabaron los vídeos inutilizables y los perfiles falsos."
         },
         "filters": {
-            "title": "Filtros de Búsqueda Avanzados",
-            "description": "Dirígete con precisión a perfiles por deporte, edad y habilidades."
+            "title": "Encuentra el Perfil Correcto en Pocos Clics",
+            "description": "Filtra por deporte, edad, país y habilidades para encontrar exactamente el talento que buscas."
         },
         "contact": {
-            "title": "Contacto Directo y Seguro",
-            "description": "Comunícate directamente con los atletas o sus agentes."
+            "title": "Contacta Directamente al Jugador",
+            "description": "Accede a los datos de contacto verificados de los atletas o sus agentes en un clic."
         },
         "analysis": {
-            "title": "Análisis de Video",
-            "description": "Mira y analiza el rendimiento de los talentos."
+            "title": "Vídeos Estructurados, No Ruido",
+            "description": "Mira vídeos de calidad, organizados y relevantes. Ya no necesitas filtrar horas de contenido."
         }
     }
 }
