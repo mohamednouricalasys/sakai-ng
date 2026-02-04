@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        @if (credits(); as creditInfo) {
+        <!-- @if (credits(); as creditInfo) {
             <div class="app-credits-badge">
                 <div class="app-credits-icon">
                     <i class="pi pi-star-fill"></i>
@@ -24,7 +24,7 @@
                     <div class="app-credits-fill" [style.width.%]="(creditInfo.totalCredits / creditInfo.monthlyAllocation) * 100"></div>
                 </div>
             </div>
-        }
+        } -->
     </div>
 </div>
 
@@ -35,13 +35,7 @@
         <div class="app-search-container">
             <div class="app-search-input-wrapper">
                 <i class="pi pi-search app-search-icon"></i>
-                <input
-                    type="text"
-                    class="app-search-input"
-                    [(ngModel)]="searchTerm"
-                    [placeholder]="'videos.search.placeholder' | translate"
-                    (input)="onSearchChange()"
-                />
+                <input type="text" class="app-search-input" [(ngModel)]="searchTerm" [placeholder]="'videos.search.placeholder' | translate" (input)="onSearchChange()" />
                 <button *ngIf="searchTerm" class="app-search-clear" (click)="searchTerm = ''; onSearchChange()">
                     <i class="pi pi-times"></i>
                 </button>
@@ -62,16 +56,7 @@
                     styleClass="app-filter-select"
                 />
 
-                <p-select
-                    [options]="tagOptions"
-                    [(ngModel)]="selectedTag"
-                    optionLabel="label"
-                    optionValue="value"
-                    [placeholder]="'videos.filter.tag' | translate"
-                    (onChange)="onTagFilterChange()"
-                    [showClear]="true"
-                    styleClass="app-filter-select"
-                />
+                <p-select [options]="tagOptions" [(ngModel)]="selectedTag" optionLabel="label" optionValue="value" [placeholder]="'videos.filter.tag' | translate" (onChange)="onTagFilterChange()" [showClear]="true" styleClass="app-filter-select" />
 
                 <p-select
                     [options]="countryOptions"
@@ -101,15 +86,7 @@
             <!-- Gender Toggle -->
             <div class="app-gender-toggle-filter">
                 <div *ngFor="let option of genreOptions" class="app-gender-option-filter">
-                    <input
-                        type="radio"
-                        [id]="'genre-' + (option.value || 'all')"
-                        name="genre"
-                        [value]="option.value"
-                        [(ngModel)]="selectedGenre"
-                        (change)="onGenreFilterChange()"
-                        class="app-gender-radio-filter"
-                    />
+                    <input type="radio" [id]="'genre-' + (option.value || 'all')" name="genre" [value]="option.value" [(ngModel)]="selectedGenre" (change)="onGenreFilterChange()" class="app-gender-radio-filter" />
                     <label [for]="'genre-' + (option.value || 'all')" class="app-gender-label-filter">
                         {{ option.label }}
                     </label>
@@ -117,11 +94,7 @@
             </div>
 
             <!-- Clear Filters -->
-            <button
-                *ngIf="searchTerm || selectedSport || selectedTag || selectedCountry || selectedGenre || selectedVideoFilterType"
-                class="app-clear-filters-btn"
-                (click)="clearFilters()"
-            >
+            <button *ngIf="searchTerm || selectedSport || selectedTag || selectedCountry || selectedGenre || selectedVideoFilterType" class="app-clear-filters-btn" (click)="clearFilters()">
                 <i class="pi pi-filter-slash"></i>
                 <span>{{ 'videos.filter.clear' | translate }}</span>
             </button>
@@ -162,7 +135,7 @@
 <!-- Loading State -->
 <div *ngIf="loading()" class="loading-section">
     <div class="app-skeleton-grid">
-        <div *ngFor="let i of [1,2,3,4,5,6]" class="app-skeleton-card">
+        <div *ngFor="let i of [1, 2, 3, 4, 5, 6]" class="app-skeleton-card">
             <div class="app-skeleton-video"></div>
             <div class="app-skeleton-content">
                 <div class="app-skeleton-title"></div>
@@ -184,14 +157,7 @@
             <div class="app-video-card">
                 <!-- Video Player -->
                 <div class="app-video-player-container">
-                    <video
-                        #videoElement
-                        [attr.id]="'video-' + video.id"
-                        class="video-js vjs-default-skin"
-                        controls
-                        preload="metadata"
-                        [src]="getVideoThumbnail(video)"
-                    ></video>
+                    <video #videoElement [attr.id]="'video-' + video.id" class="video-js vjs-default-skin" controls preload="metadata" [src]="getVideoThumbnail(video)"></video>
 
                     <!-- Video Overlay Badge -->
                     <div *ngIf="video?.prodige?.sport" class="app-video-sport-overlay">
@@ -234,9 +200,7 @@
                             <span *ngFor="let tag of video?.prodige?.tags?.slice(0, 3)" class="app-video-tag">
                                 {{ getTagLabel(tag) }}
                             </span>
-                            <span *ngIf="(video?.prodige?.tags?.length ?? 0) > 3" class="app-more-tags-badge">
-                                +{{ getExtraTagsCount(video) }}
-                            </span>
+                            <span *ngIf="(video?.prodige?.tags?.length ?? 0) > 3" class="app-more-tags-badge"> +{{ getExtraTagsCount(video) }} </span>
                         </ng-container>
                     </div>
 
@@ -285,16 +249,7 @@
 </div>
 
 <!-- Contact Dialog -->
-<p-dialog
-    [(visible)]="contactDialogVisible"
-    [modal]="true"
-    [header]="'videos.contact.dialog.header' | translate"
-    [style]="{ width: '380px' }"
-    [closable]="true"
-    [draggable]="false"
-    [resizable]="false"
-    styleClass="app-contact-dialog-modern"
->
+<p-dialog [(visible)]="contactDialogVisible" [modal]="true" [header]="'videos.contact.dialog.header' | translate" [style]="{ width: '380px' }" [closable]="true" [draggable]="false" [resizable]="false" styleClass="app-contact-dialog-modern">
     <ng-template pTemplate="content">
         <div class="app-contact-dialog-content">
             <!-- Contact Avatar -->

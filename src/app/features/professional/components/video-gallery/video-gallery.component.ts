@@ -404,12 +404,12 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         this.userService.getUserById(video.prodige.userId, video.id).subscribe({
             next: async (data) => {
                 // Check if the API returned an error (insufficient credits)
-                if (!data.isSuccess) {
-                    await this.loadUserCredits(); // Refresh credits to show current balance
-                    this.insufficientCreditsErrorMessage = data.errorMessage || null;
-                    this.insufficientCreditsDialogVisible = true;
-                    return;
-                }
+                // if (!data.isSuccess) {
+                //     await this.loadUserCredits(); // Refresh credits to show current balance
+                //     this.insufficientCreditsErrorMessage = data.errorMessage || null;
+                //     this.insufficientCreditsDialogVisible = true;
+                //     return;
+                // }
 
                 this.user = data;
                 await this.loadUserCredits(); // Refresh credits after fetching contact info
