@@ -1,7 +1,7 @@
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { APP_INITIALIZER, ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideRouter, withHashLocation } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import Aura from '@primeng/themes/aura';
 import { providePrimeNG } from 'primeng/config';
 import { MessageService, ConfirmationService } from 'primeng/api';
@@ -94,7 +94,7 @@ export const appConfig: ApplicationConfig = {
             deps: [TranslationService],
         },
         provideZoneChangeDetection({ eventCoalescing: true }),
-        provideRouter(appRoutes, withHashLocation()),
+        provideRouter(appRoutes),
         provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
         provideAnimationsAsync(),
         providePrimeNG({

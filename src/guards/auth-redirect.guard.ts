@@ -9,5 +9,5 @@ export const redirectGuard = () => {
 
     const isAuth = authService.isAuthenticated();
 
-    return isAuth ? router.parseUrl('/professional/gellery') : router.parseUrl('/landing');
+    return isAuth ? router.parseUrl('/professional/gallery') : router.parseUrl('/landing');
 };

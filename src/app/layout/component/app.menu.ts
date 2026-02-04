@@ -28,7 +28,7 @@ export class AppMenu {
             {
                 label: this.translationService.translate('nav.gallery'),
                 icon: 'pi pi-fw pi-star',
-                routerLink: ['/professional/gellery'],
+                routerLink: ['/professional/gallery'],
             },
             {
                 label: this.translationService.translate('nav.myProdigies'),

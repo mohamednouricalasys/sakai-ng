@@ -11,11 +11,12 @@ export const PROFESSIONAL_ROUTES: Routes = [
         path: '',
         component: ProfessionalComponent, // This component provides the layout with the sidebar
         children: [
+            { path: '', redirectTo: 'gallery', pathMatch: 'full' },
             { path: 'prodiges', component: ProdigeCrudComponent },
             { path: 'videos', component: ProdigeVideoCrudComponent },
             { path: 'videos/:id', component: ProdigeVideoCrudComponent },
             { path: 'moderation', component: AdminVideoModerationComponent },
-            { path: 'gellery', component: VideoGalleryComponent },
+            { path: 'gallery', component: VideoGalleryComponent },
         ],
     },
 ];
