@@ -1,5 +1,5 @@
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
-import { APP_INITIALIZER, ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { APP_INITIALIZER, ApplicationConfig, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
 import Aura from '@primeng/themes/aura';
@@ -12,6 +12,7 @@ import { TranslationService } from './app/core/services/translation.service';
 import { environment } from './environments/environment';
 import { authInterceptor } from './app/core/interceptors/auth.interceptor';
 import { Capacitor } from '@capacitor/core';
+import { provideServiceWorker } from '@angular/service-worker';
 
 function initializeKeycloak(keycloak: KeycloakService, userService: UserService) {
     return async () => {
@@ -102,6 +103,9 @@ export const appConfig: ApplicationConfig = {
                 preset: Aura,
                 options: { darkModeSelector: '.app-dark' },
             },
-        }),
+        }), provideServiceWorker('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            registrationStrategy: 'registerWhenStable:30000'
+          }),
     ],
 };
