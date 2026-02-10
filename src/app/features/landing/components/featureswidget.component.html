@@ -1,74 +1,73 @@
-<div id="features" class="py-6 px-6 lg:px-20 mt-8 mx-0 lg:mx-20">
+<section id="features" class="py-6 px-6 lg:px-20 mt-8 mx-0 lg:mx-20" aria-labelledby="features-title">
     <div class="grid grid-cols-12 gap-4 justify-center">
         <div class="col-span-12 text-center mt-20 mb-6">
-            <div class="text-surface-900 dark:text-surface-0 font-normal mb-2 text-4xl">{{ 'features.title' | translate }}</div>
-            <span class="text-muted-color text-2xl">{{ 'features.subtitle' | translate }}</span>
+            <h2 id="features-title" class="text-surface-900 dark:text-surface-0 font-normal mb-2 text-4xl">{{ 'features.title' | translate }}</h2>
+            <p class="text-muted-color text-2xl">{{ 'features.subtitle' | translate }}</p>
         </div>
 
-        <!-- FREE FOR PROFESSIONALS - Highlighted Feature -->
-        <div class="col-span-12 p-0 lg:pb-8 mt-6 lg:mt-0">
+        <article class="col-span-12 p-0 lg:pb-8 mt-6 lg:mt-0">
             <div class="free-feature-card" style="padding: 3px; border-radius: 12px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%)">
                 <div class="p-6 bg-surface-0 dark:bg-surface-900 h-full flex flex-col md:flex-row items-center gap-6" style="border-radius: 10px">
                     <div class="flex items-center justify-center bg-green-100 dark:bg-green-900" style="width: 5rem; height: 5rem; border-radius: 50%; flex-shrink: 0">
-                        <i class="pi pi-fw pi-dollar text-4xl! text-green-600 dark:text-green-400" style="text-decoration: line-through"></i>
+                        <i class="pi pi-fw pi-dollar text-4xl! text-green-600 dark:text-green-400" style="text-decoration: line-through" aria-hidden="true"></i>
                     </div>
                     <div class="flex-1 text-center md:text-left">
                         <div class="flex items-center justify-center md:justify-start gap-3 mb-2">
-                            <h4 class="text-2xl font-bold text-surface-900 dark:text-surface-0 m-0">{{ 'features.free.title' | translate }}</h4>
+                            <h3 class="text-2xl font-bold text-surface-900 dark:text-surface-0 m-0">{{ 'features.free.title' | translate }}</h3>
                             <span class="free-badge-small">{{ 'landing.hero.freeBadge' | translate }}</span>
                         </div>
-                        <span class="text-surface-600 dark:text-surface-200 text-lg">{{ 'features.free.description' | translate }}</span>
+                        <p class="text-surface-600 dark:text-surface-200 text-lg m-0">{{ 'features.free.description' | translate }}</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="col-span-12 md:col-span-12 lg:col-span-4 p-0 lg:pr-8 lg:pb-8 mt-6 lg:mt-0">
+        <article class="col-span-12 md:col-span-12 lg:col-span-4 p-0 lg:pr-8 lg:pb-8 mt-6 lg:mt-0">
             <div style="height: 160px; padding: 2px; border-radius: 10px; background: linear-gradient(90deg, rgba(253, 228, 165, 0.2), rgba(187, 199, 205, 0.2)), linear-gradient(180deg, rgba(253, 228, 165, 0.2), rgba(187, 199, 205, 0.2))">
                 <div class="p-4 bg-surface-0 dark:bg-surface-900 h-full" style="border-radius: 8px">
                     <div class="flex items-center justify-center bg-yellow-200 mb-4" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                        <i class="pi pi-fw pi-users text-2xl! text-yellow-700"></i>
+                        <i class="pi pi-fw pi-users text-2xl! text-yellow-700" aria-hidden="true"></i>
                     </div>
-                    <h5 class="mb-2 text-surface-900 dark:text-surface-0">{{ 'features.database.title' | translate }}</h5>
-                    <span class="text-surface-600 dark:text-surface-200">{{ 'features.database.description' | translate }}</span>
+                    <h3 class="mb-2 text-surface-900 dark:text-surface-0 text-xl font-semibold">{{ 'features.database.title' | translate }}</h3>
+                    <p class="text-surface-600 dark:text-surface-200 m-0">{{ 'features.database.description' | translate }}</p>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="col-span-12 md:col-span-12 lg:col-span-4 p-0 lg:pr-8 lg:pb-8 mt-6 lg:mt-0">
+        <article class="col-span-12 md:col-span-12 lg:col-span-4 p-0 lg:pr-8 lg:pb-8 mt-6 lg:mt-0">
             <div style="height: 160px; padding: 2px; border-radius: 10px; background: linear-gradient(90deg, rgba(145, 226, 237, 0.2), rgba(251, 199, 145, 0.2)), linear-gradient(180deg, rgba(253, 228, 165, 0.2), rgba(172, 180, 223, 0.2))">
                 <div class="p-4 bg-surface-0 dark:bg-surface-900 h-full" style="border-radius: 8px">
                     <div class="flex items-center justify-center bg-cyan-200 mb-4" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                        <i class="pi pi-fw pi-palette text-2xl! text-cyan-700"></i>
+                        <i class="pi pi-fw pi-palette text-2xl! text-cyan-700" aria-hidden="true"></i>
                     </div>
-                    <h5 class="mb-2 text-surface-900 dark:text-surface-0">{{ 'features.filters.title' | translate }}</h5>
-                    <span class="text-surface-600 dark:text-surface-200">{{ 'features.filters.description' | translate }}</span>
+                    <h3 class="mb-2 text-surface-900 dark:text-surface-0 text-xl font-semibold">{{ 'features.filters.title' | translate }}</h3>
+                    <p class="text-surface-600 dark:text-surface-200 m-0">{{ 'features.filters.description' | translate }}</p>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="col-span-12 md:col-span-12 lg:col-span-4 p-0 lg:pb-8 mt-6 lg:mt-0">
+        <article class="col-span-12 md:col-span-12 lg:col-span-4 p-0 lg:pb-8 mt-6 lg:mt-0">
             <div style="height: 160px; padding: 2px; border-radius: 10px; background: linear-gradient(90deg, rgba(145, 226, 237, 0.2), rgba(172, 180, 223, 0.2)), linear-gradient(180deg, rgba(172, 180, 223, 0.2), rgba(246, 158, 188, 0.2))">
                 <div class="p-4 bg-surface-0 dark:bg-surface-900 h-full" style="border-radius: 8px">
                     <div class="flex items-center justify-center bg-indigo-200" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                        <i class="pi pi-fw pi-map text-2xl! text-indigo-700"></i>
+                        <i class="pi pi-fw pi-map text-2xl! text-indigo-700" aria-hidden="true"></i>
                     </div>
-                    <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">{{ 'features.contact.title' | translate }}</div>
-                    <span class="text-surface-600 dark:text-surface-200">{{ 'features.contact.description' | translate }}</span>
+                    <h3 class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">{{ 'features.contact.title' | translate }}</h3>
+                    <p class="text-surface-600 dark:text-surface-200 m-0">{{ 'features.contact.description' | translate }}</p>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="col-span-12 md:col-span-12 lg:col-span-4 p-0 lg:pr-8 lg:pb-8 mt-6 lg:mt-0">
+        <article class="col-span-12 md:col-span-12 lg:col-span-4 p-0 lg:pr-8 lg:pb-8 mt-6 lg:mt-0">
             <div style="height: 160px; padding: 2px; border-radius: 10px; background: linear-gradient(90deg, rgba(187, 199, 205, 0.2), rgba(251, 199, 145, 0.2)), linear-gradient(180deg, rgba(253, 228, 165, 0.2), rgba(145, 210, 204, 0.2))">
                 <div class="p-4 bg-surface-0 dark:bg-surface-900 h-full" style="border-radius: 8px">
                     <div class="flex items-center justify-center bg-slate-200 mb-4" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                        <i class="pi pi-fw pi-id-card text-2xl! text-slate-700"></i>
+                        <i class="pi pi-fw pi-id-card text-2xl! text-slate-700" aria-hidden="true"></i>
                     </div>
-                    <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">{{ 'features.analysis.title' | translate }}</div>
-                    <span class="text-surface-600 dark:text-surface-200">{{ 'features.analysis.description' | translate }}</span>
+                    <h3 class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">{{ 'features.analysis.title' | translate }}</h3>
+                    <p class="text-surface-600 dark:text-surface-200 m-0">{{ 'features.analysis.description' | translate }}</p>
                 </div>
             </div>
-        </div>
+        </article>
     </div>
-</div>
+</section>

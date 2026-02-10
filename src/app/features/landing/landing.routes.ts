@@ -7,6 +7,7 @@ export const LANDING_ROUTES: Routes = [
         path: '',
         canActivate: [landingGuard],
         component: LandingComponent,
+        title: 'Caviar Scout - Plateforme de Gestion Sportive pour Professionnels',
     },
     {
         path: 'privacy',

@@ -13,6 +13,7 @@ import { environment } from './environments/environment';
 import { authInterceptor } from './app/core/interceptors/auth.interceptor';
 import { Capacitor } from '@capacitor/core';
 import { provideServiceWorker } from '@angular/service-worker';
+import { provideClientHydration } from '@angular/platform-browser';
 
 function initializeKeycloak(keycloak: KeycloakService, userService: UserService) {
     return async () => {
@@ -96,6 +97,7 @@ export const appConfig: ApplicationConfig = {
         },
         provideZoneChangeDetection({ eventCoalescing: true }),
         provideRouter(appRoutes),
+        provideClientHydration(),
         provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
         provideAnimationsAsync(),
         providePrimeNG({
@@ -103,9 +105,10 @@ export const appConfig: ApplicationConfig = {
                 preset: Aura,
                 options: { darkModeSelector: '.app-dark' },
             },
-        }), provideServiceWorker('ngsw-worker.js', {
+        }),
+        provideServiceWorker('ngsw-worker.js', {
             enabled: !isDevMode(),
-            registrationStrategy: 'registerWhenStable:30000'
-          }),
+            registrationStrategy: 'registerWhenStable:30000',
+        }),
     ],
 };

@@ -1,25 +1,92 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
     <head>
-        <meta charset="utf-8"/>
-        <title>Caviar Scout</title>
-        <base href="/"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.o"/>
-        <link rel="preconnect" href="https://primefaces.org"/>
-        <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"/>
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"/>
-        <link href="https://fonts.cdnfonts.com/css/lato" rel="stylesheet"/>
+        <meta charset="utf-8" />
+        <title>Caviar Scout - Plateforme de Gestion Sportive pour Professionnels</title>
+        <base href="/" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <script async="" src="https://js.stripe.com/v3/pricing-table.js"></script>
-        <script src="env.js"></script>
-      <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#10b981">
-</head>
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Caviar Scout est la plateforme de gestion sportive gratuite pour les professionnels. Gérez vos équipes, organisez vos matchs et analysez vos performances sans coût." />
+        <meta name="keywords" content="gestion sportive, scoutisme, équipes sportives, organisation matchs, analytics sportif, plateforme gratuite" />
+        <meta name="author" content="Caviar Scout" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://caviarscout.com/" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://caviarscout.com/" />
+        <meta property="og:title" content="Caviar Scout - Plateforme de Gestion Sportive pour Professionnels" />
+        <meta property="og:description" content="La plateforme de gestion sportive gratuite pour les professionnels. Gérez vos équipes, organisez vos matchs et analysez vos performances sans coût." />
+        <meta property="og:image" content="https://caviarscout.com/assets/og-image.png" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="Caviar Scout" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Caviar Scout - Plateforme de Gestion Sportive" />
+        <meta name="twitter:description" content="Gérez vos équipes sportives gratuitement. Organisez vos matchs et analysez vos performances." />
+        <meta name="twitter:image" content="https://caviarscout.com/assets/twitter-image.png" />
+
+        <!-- Performance & Preloading -->
+        <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
+        <link rel="dns-prefetch" href="https://js.stripe.com" />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+        <!-- Fonts - optimized loading -->
+        <link href="https://fonts.cdnfonts.com/css/lato?display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+
+        <!-- Scripts - deferred loading -->
+        <script src="env.js" defer></script>
+        <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+
+        <!-- PWA -->
+        <link rel="manifest" href="manifest.webmanifest" />
+        <meta name="theme-color" content="#10b981" />
+        <meta name="mobile-web-app-capable" content="yes" />
+
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "Caviar Scout",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web, iOS, Android",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "EUR",
+                    "availability": "https://schema.org/InStock"
+                },
+                "description": "Plateforme de gestion sportive gratuite pour les professionnels du scoutisme et du sport.",
+                "url": "https://caviarscout.com",
+                "logo": "https://caviarscout.com/assets/favicon-192x192.png",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Caviar Scout"
+                }
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Caviar Scout",
+                "url": "https://caviarscout.com",
+                "logo": "https://caviarscout.com/assets/favicon-192x192.png",
+                "description": "Plateforme de gestion sportive pour professionnels"
+            }
+        </script>
+    </head>
 
     <body>
         <app-root></app-root>
-      <noscript>Please enable JavaScript to continue using this application.</noscript>
-</body>
+        <noscript>Please enable JavaScript to continue using this application.</noscript>
+    </body>
 </html>
