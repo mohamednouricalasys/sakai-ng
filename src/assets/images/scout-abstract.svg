@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Abstract circles representing talent discovery -->
+  <circle cx="200" cy="200" r="150" stroke="#10b981" stroke-width="2" opacity="0.2"/>
+  <circle cx="200" cy="200" r="100" stroke="#10b981" stroke-width="2" opacity="0.3"/>
+  <circle cx="200" cy="200" r="50" stroke="#10b981" stroke-width="3" opacity="0.5"/>
+
+  <!-- Central dot - the talent -->
+  <circle cx="200" cy="200" r="12" fill="#10b981"/>
+
+  <!-- Connecting lines - scouting paths -->
+  <line x1="200" y1="200" x2="320" y2="120" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
+  <line x1="200" y1="200" x2="80" y2="140" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
+  <line x1="200" y1="200" x2="280" y2="300" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
+
+  <!-- Scout points -->
+  <circle cx="320" cy="120" r="8" fill="#f59e0b"/>
+  <circle cx="80" cy="140" r="8" fill="#f59e0b"/>
+  <circle cx="280" cy="300" r="8" fill="#f59e0b"/>
+</svg>
