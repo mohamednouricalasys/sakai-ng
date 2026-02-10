@@ -4,38 +4,38 @@
     class="flex flex-col pt-6 px-6 lg:px-20 overflow-hidden"
     style="background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, rgb(238, 239, 175) 0%, rgb(195, 227, 250) 100%); clip-path: ellipse(150% 87% at 93% 13%)"
 >
-    <div class="mx-6 md:mx-20 mt-0 md:mt-6">
-        <div class="free-badge-container mb-4">
-            <span class="free-badge">{{ 'landing.hero.freeBadge' | translate }}</span>
-            <span class="free-text ml-3 text-lg font-semibold text-green-700">{{ 'landing.hero.freeForProfessionals' | translate }}</span>
+    <div class="mx-4 md:mx-20 mt-0 md:mt-6">
+        <div class="free-badge-container mb-2 md:mb-4 flex flex-wrap items-center gap-2">
+            <span class="free-badge text-xs md:text-sm">{{ 'landing.hero.freeBadge' | translate }}</span>
+            <span class="free-text text-sm md:text-lg font-semibold text-green-700">{{ 'landing.hero.freeForProfessionals' | translate }}</span>
         </div>
 
-        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight dark:!text-gray-700">
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight dark:!text-gray-700">
             {{ 'landing.hero.title' | translate }}
         </h1>
-        <p class="font-normal text-2xl leading-normal md:mt-4 text-gray-700 dark:text-gray-700">
+        <p class="font-normal text-lg md:text-2xl leading-normal mt-2 md:mt-4 text-gray-700 dark:text-gray-700">
             {{ 'landing.hero.subtitle' | translate }}
         </p>
-        <p class="font-semibold text-xl leading-normal mt-3 text-primary">
+        <p class="font-semibold text-base md:text-xl leading-normal mt-2 md:mt-3 text-primary">
             {{ 'landing.hero.tagline' | translate }}
         </p>
 
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8">
-            <button pButton pRipple [rounded]="true" type="button" [label]="'landing.hero.button' | translate" class="text-xl! px-6! py-3! cta-button" (click)="register()"></button>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-6 md:mt-8">
+            <button pButton pRipple [rounded]="true" type="button" [label]="'landing.hero.button' | translate" class="text-base! md:text-xl! px-4! md:px-6! py-2! md:py-3! cta-button" (click)="register()"></button>
         </div>
 
-        <ul class="list-none p-0 flex flex-col gap-2 mt-4" aria-label="Key benefits">
-            <li class="text-sm text-gray-600 dark:text-gray-600 flex items-center">
-                <i class="pi pi-check-circle text-green-600 mr-2" aria-hidden="true"></i>
+        <ul class="list-none p-0 flex flex-col gap-1 md:gap-2 mt-3 md:mt-4" aria-label="Key benefits">
+            <li class="text-xs md:text-sm text-gray-600 dark:text-gray-600 flex items-center">
+                <i class="pi pi-check-circle text-green-600 mr-2 text-sm md:text-base" aria-hidden="true"></i>
                 {{ 'landing.hero.freeHighlight' | translate }}
             </li>
-            <li class="text-sm text-gray-600 dark:text-gray-600 flex items-center">
-                <i class="pi pi-check-circle text-green-600 mr-2" aria-hidden="true"></i>
+            <li class="text-xs md:text-sm text-gray-600 dark:text-gray-600 flex items-center">
+                <i class="pi pi-check-circle text-green-600 mr-2 text-sm md:text-base" aria-hidden="true"></i>
                 {{ 'landing.hero.payOnlyContact' | translate }}
             </li>
         </ul>
     </div>
-    <div class="flex justify-center md:justify-end">
-        <img src="assets/images/scout-abstract.svg" alt="Football player illustration" width="533" height="533" loading="eager" fetchpriority="high" class="max-w-full h-auto" />
+    <div class="flex justify-center md:justify-end mt-4 md:mt-0">
+        <img src="assets/images/scout-abstract.svg" alt="" width="300" height="300" class="w-40 h-40 md:w-72 md:h-72 opacity-80" aria-hidden="true" />
     </div>
 </section>
