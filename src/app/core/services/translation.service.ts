@@ -23,7 +23,11 @@ export class TranslationService {
     private async initializeTranslations() {
         const detectedLang = this.detectBrowserLanguage();
         const savedLang = localStorage.getItem('selectedLanguage') || detectedLang;
-        await this.loadTranslations();
+        // Only load the current language (+ English fallback) instead of all 11
+        await this.loadLanguage(savedLang);
+        if (savedLang !== 'en') {
+            await this.loadLanguage('en');
+        }
         this.currentLang.set(savedLang);
         this.isLoaded.set(true);
     }
@@ -72,48 +76,41 @@ export class TranslationService {
         return 'en';
     }
 
-    private async loadTranslations() {
-        try {
-            // Import translations synchronously to ensure they're available
-            const [en, es, fr, ar, de, fi, it, nl, pt, tr, zh] = await Promise.all([
-                import('../../../locale/messages.en.json'),
-                import('../../../locale/messages.es.json'),
-                import('../../../locale/messages.fr.json'),
-                import('../../../locale/messages.ar.json'),
-                import('../../../locale/messages.de.json'),
-                import('../../../locale/messages.fi.json'),
-                import('../../../locale/messages.it.json'),
-                import('../../../locale/messages.nl.json'),
-                import('../../../locale/messages.pt.json'),
-                import('../../../locale/messages.tr.json'),
-                import('../../../locale/messages.zh.json'),
-            ]);
+    private readonly langImports: Record<string, () => Promise<any>> = {
+        en: () => import('../../../locale/messages.en.json'),
+        es: () => import('../../../locale/messages.es.json'),
+        fr: () => import('../../../locale/messages.fr.json'),
+        ar: () => import('../../../locale/messages.ar.json'),
+        de: () => import('../../../locale/messages.de.json'),
+        fi: () => import('../../../locale/messages.fi.json'),
+        it: () => import('../../../locale/messages.it.json'),
+        nl: () => import('../../../locale/messages.nl.json'),
+        pt: () => import('../../../locale/messages.pt.json'),
+        tr: () => import('../../../locale/messages.tr.json'),
+        zh: () => import('../../../locale/messages.zh.json'),
+    };
 
-            this.translations = {
-                en: en.default,
-                es: es.default,
-                fr: fr.default,
-                ar: ar.default,
-                de: de.default,
-                fi: fi.default,
-                it: it.default,
-                nl: nl.default,
-                pt: pt.default,
-                tr: tr.default,
-                zh: zh.default,
-            };
+    private async loadLanguage(lang: string): Promise<void> {
+        if (this.translations[lang]) {
+            return; // Already loaded
+        }
+        try {
+            const loader = this.langImports[lang];
+            if (loader) {
+                const module = await loader();
+                this.translations[lang] = module.default;
+            }
         } catch (error) {
-            console.error('Error loading translations:', error);
-            // Fallback translations
-            this.translations = {
-                en: {},
-                fr: {},
-                es: {},
-            };
+            console.error(`Error loading translations for ${lang}:`, error);
+            this.translations[lang] = {};
         }
     }
 
-    setLanguage(lang: string) {
+    async setLanguage(lang: string) {
+        // Lazy-load the language if not yet loaded
+        if (!this.translations[lang]) {
+            await this.loadLanguage(lang);
+        }
         if (this.translations[lang]) {
             this.currentLang.set(lang);
             localStorage.setItem('selectedLanguage', lang);

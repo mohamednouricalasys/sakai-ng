@@ -1,13 +1,17 @@
 import { Routes } from '@angular/router';
-import { LandingComponent } from './landing.component';
+import { LandingFastComponent } from './landing-fast.component';
 import { landingGuard } from '../../../guards/landing.guard';
 
 export const LANDING_ROUTES: Routes = [
     {
         path: '',
         canActivate: [landingGuard],
-        component: LandingComponent,
+        component: LandingFastComponent,
         title: 'Caviar Scout - Plateforme de Gestion Sportive pour Professionnels',
+        data: {
+            description: 'Caviar Scout helps recruiters, agents and clubs identify, analyze and compare young talent through structured videos and reliable data.',
+            keywords: 'football, soccer, talent scout, recruitment, sports, Africa, Senegal, Cameroon, Ivory Coast',
+        },
     },
     {
         path: 'privacy',

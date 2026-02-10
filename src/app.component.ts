@@ -3,6 +3,7 @@ import { Component, effect, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PrimeNG } from 'primeng/config';
 import { TranslationService } from './app/core/services/translation.service';
+import { KeycloakInitService } from './app/core/services/keycloak-init.service';
 
 @Component({
     selector: 'app-root',
@@ -12,16 +13,15 @@ import { TranslationService } from './app/core/services/translation.service';
 })
 export class AppComponent {
     private translationService = inject(TranslationService);
+    private keycloakInitService = inject(KeycloakInitService);
     private config = inject(PrimeNG);
 
-    async ngOnInit() {
-        const savedLang = this.translationService.getCurrentLanguage();
-        this.translationService.setLanguage(savedLang);
+    ngOnInit() {
+        // Fire-and-forget: Keycloak initializes in the background
+        // while the app renders immediately
+        this.keycloakInitService.init();
 
-        // Ensure translations are loaded
-        await this.ensureTranslationsLoaded();
-
-        // Set initial PrimeNG translations
+        // Set PrimeNG translations (already loaded via APP_INITIALIZER)
         this.updatePrimeNGTranslations();
 
         // Listen for language changes
@@ -29,12 +29,6 @@ export class AppComponent {
             const currentLang = this.translationService.currentLanguage();
             this.updatePrimeNGTranslations();
         });
-    }
-
-    private async ensureTranslationsLoaded(): Promise<void> {
-        if (!this.translationService.isTranslationsLoaded()) {
-            await this.translationService.init();
-        }
     }
 
     private updatePrimeNGTranslations() {
