@@ -91,12 +91,27 @@ export class Mp4UploaderComponent implements OnInit, AfterViewInit, OnDestroy {
         const lastDotIndex = originalFilename.lastIndexOf('.');
 
         if (lastDotIndex === -1) {
-            return `${originalFilename}_${guid}`;
+            const sanitizedName = this.sanitizeFilename(originalFilename);
+            return `${sanitizedName}_${guid}`;
         }
 
         const nameWithoutExt = originalFilename.substring(0, lastDotIndex);
-        const extension = originalFilename.substring(lastDotIndex);
-        return `${nameWithoutExt}_${guid}${extension}`;
+        const extension = originalFilename.substring(lastDotIndex).toLowerCase();
+        const sanitizedName = this.sanitizeFilename(nameWithoutExt);
+        return `${sanitizedName}_${guid}${extension}`;
+    }
+
+    private sanitizeFilename(filename: string): string {
+        // Normalize Unicode characters (NFD) to separate base characters from diacritics
+        // Then remove diacritical marks (accents)
+        const normalized = filename.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+        // Replace spaces with underscores and remove any non-alphanumeric characters except - and _
+        return normalized
+            .replace(/\s+/g, '_')
+            .replace(/[^a-zA-Z0-9_-]/g, '')
+            .replace(/_+/g, '_') // Collapse multiple underscores
+            .replace(/^_|_$/g, ''); // Trim leading/trailing underscores
     }
 
     private generateGuid(): string {
