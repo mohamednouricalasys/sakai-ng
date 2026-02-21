@@ -309,6 +309,16 @@
                 "subscribeButton": "احصل على المزيد من الاعتمادات",
                 "closeButton": "يغلق"
             }
+        },
+        "info": {
+            "tooltip": "عرض التفاصيل",
+            "dialog": {
+                "header": "تفاصيل الفيديو",
+                "description": "وصف",
+                "tags": "العلامات",
+                "noDescription": "لا يوجد وصف متاح",
+                "close": "يغلق"
+            }
         }
     },
     "admin": {

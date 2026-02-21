@@ -309,6 +309,16 @@
                 "subscribeButton": "Daha Fazla Kredi Alın",
                 "closeButton": "Kapalı"
             }
+        },
+        "info": {
+            "tooltip": "Ayrıntıları görüntüle",
+            "dialog": {
+                "header": "Video Detayları",
+                "description": "Tanım",
+                "tags": "Etiketler",
+                "noDescription": "Açıklama mevcut değil",
+                "close": "Kapalı"
+            }
         }
     },
     "admin": {

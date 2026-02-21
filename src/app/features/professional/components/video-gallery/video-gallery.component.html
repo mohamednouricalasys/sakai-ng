@@ -187,6 +187,9 @@
                         <div class="app-video-date-badge">
                             {{ video?.dateCreation | date: 'MMM d' }}
                         </div>
+                        <button class="app-info-btn" (click)="openInfoDialog(video)" [title]="'videos.info.tooltip' | translate">
+                            <i class="pi pi-info-circle"></i>
+                        </button>
                     </div>
 
                     <!-- Description (always rendered for consistent height) -->
@@ -348,6 +351,72 @@
     <ng-template pTemplate="footer">
         <button class="app-dialog-close-btn secondary" (click)="closeInsufficientCreditsDialog()">
             {{ 'videos.insufficientCredits.dialog.closeButton' | translate }}
+        </button>
+    </ng-template>
+</p-dialog>
+
+<!-- Video Info Dialog -->
+<p-dialog
+    [(visible)]="infoDialogVisible"
+    [modal]="true"
+    [header]="'videos.info.dialog.header' | translate"
+    [style]="{ width: '500px', maxWidth: '95vw' }"
+    [closable]="true"
+    [draggable]="false"
+    [resizable]="false"
+    styleClass="app-info-dialog"
+>
+    <ng-template pTemplate="content">
+        @if (infoDialogVideo) {
+            <div class="app-info-dialog-content">
+                <!-- Video Title -->
+                <div class="app-info-section">
+                    <h3 class="app-info-title">{{ infoDialogVideo.titre }}</h3>
+                    <div class="app-info-meta">
+                        <span class="app-info-prodige">
+                            <i class="pi pi-user"></i>
+                            {{ infoDialogVideo.prodige?.nom || 'Unknown' }}
+                        </span>
+                        <span *ngIf="infoDialogVideo.prodige?.sport" class="app-info-sport">
+                            <i class="pi pi-trophy"></i>
+                            {{ getSportLabel(infoDialogVideo.prodige!.sport!) }}
+                        </span>
+                        <span *ngIf="infoDialogVideo.prodige?.pays" class="app-info-country">
+                            {{ getCountryDisplay(infoDialogVideo.prodige!.pays) }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Full Description -->
+                <div class="app-info-section">
+                    <h4 class="app-info-label">
+                        <i class="pi pi-align-left"></i>
+                        {{ 'videos.info.dialog.description' | translate }}
+                    </h4>
+                    <p class="app-info-description">
+                        {{ infoDialogVideo.description || ('videos.info.dialog.noDescription' | translate) }}
+                    </p>
+                </div>
+
+                <!-- All Tags -->
+                <div class="app-info-section" *ngIf="(infoDialogVideo.prodige?.tags?.length ?? 0) > 0">
+                    <h4 class="app-info-label">
+                        <i class="pi pi-tags"></i>
+                        {{ 'videos.info.dialog.tags' | translate }}
+                    </h4>
+                    <div class="app-info-tags">
+                        <span *ngFor="let tag of infoDialogVideo.prodige?.tags" class="app-info-tag">
+                            {{ getTagLabel(tag) }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        }
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button class="app-dialog-close-btn" (click)="closeInfoDialog()">
+            {{ 'videos.info.dialog.close' | translate }}
         </button>
     </ng-template>
 </p-dialog>

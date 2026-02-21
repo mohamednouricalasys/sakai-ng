@@ -310,6 +310,16 @@
                 "subscribeButton": "Get More Credits",
                 "closeButton": "Close"
             }
+        },
+        "info": {
+            "tooltip": "View details",
+            "dialog": {
+                "header": "Video Details",
+                "description": "Description",
+                "tags": "Tags",
+                "noDescription": "No description available",
+                "close": "Close"
+            }
         }
     },
     "admin": {

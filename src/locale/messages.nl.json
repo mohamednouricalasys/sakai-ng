@@ -309,6 +309,16 @@
                 "subscribeButton": "Ontvang meer kredieten",
                 "closeButton": "Dichtbij"
             }
+        },
+        "info": {
+            "tooltip": "Bekijk details",
+            "dialog": {
+                "header": "Videodetails",
+                "description": "Beschrijving",
+                "tags": "Labels",
+                "noDescription": "Geen beschrijving beschikbaar",
+                "close": "Dichtbij"
+            }
         }
     },
     "admin": {

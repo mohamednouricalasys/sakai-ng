@@ -309,6 +309,16 @@
                 "subscribeButton": "Hanki lisää krediittejä",
                 "closeButton": "Lähellä"
             }
+        },
+        "info": {
+            "tooltip": "Näytä tiedot",
+            "dialog": {
+                "header": "Videon tiedot",
+                "description": "Kuvaus",
+                "tags": "Tunnisteet",
+                "noDescription": "Kuvausta ei ole saatavilla",
+                "close": "Lähellä"
+            }
         }
     },
     "admin": {

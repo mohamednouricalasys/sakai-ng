@@ -309,6 +309,16 @@
                 "subscribeButton": "获得更多学分",
                 "closeButton": "关闭"
             }
+        },
+        "info": {
+            "tooltip": "查看详情",
+            "dialog": {
+                "header": "视频详情",
+                "description": "描述",
+                "tags": "标签",
+                "noDescription": "无可用描述",
+                "close": "关闭"
+            }
         }
     },
     "admin": {

@@ -100,10 +100,17 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     insufficientCreditsErrorMessage: string | null = null;
     selectedVideo: any = null;
 
+    // Info dialog state
+    infoDialogVisible = false;
+    infoDialogVideo: Video | null = null;
+
     // Search subject for debouncing
     private searchSubject = new Subject<string>();
     private destroy$ = new Subject<void>();
     private resizeHandler = this.onResize.bind(this);
+
+    // Screen orientation for mobile fullscreen
+    private orientationLocked = false;
 
     // Services
     private router = inject(Router);
@@ -159,6 +166,9 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         // Restore main layout scroll when leaving this page
         document.querySelector('.layout-main-container')?.classList.remove('no-scroll');
 
+        // Unlock orientation if still locked
+        this.unlockOrientation();
+
         this.videoPlayers.forEach((player) => {
             if (!player.isDisposed()) {
                 player.dispose();
@@ -188,8 +198,58 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
                 };
                 const player = videojs(el.nativeElement, options);
                 this.videoPlayers.set(videoId, player);
+
+                // Add fullscreen orientation handling for mobile
+                this.setupFullscreenOrientationHandler(player);
             }
         });
+    }
+
+    /**
+     * Sets up fullscreen orientation handling for mobile devices
+     * Rotates to landscape when entering fullscreen for better viewing
+     */
+    private setupFullscreenOrientationHandler(player: any): void {
+        player.on('fullscreenchange', () => {
+            if (!this.isMobile) return;
+
+            if (player.isFullscreen()) {
+                this.lockLandscapeOrientation();
+            } else {
+                this.unlockOrientation();
+            }
+        });
+    }
+
+    /**
+     * Locks screen orientation to landscape for better video viewing on mobile
+     */
+    private async lockLandscapeOrientation(): Promise<void> {
+        try {
+            const screenOrientation = screen.orientation as ScreenOrientation & { lock?: (orientation: string) => Promise<void> };
+            if (screenOrientation?.lock) {
+                await screenOrientation.lock('landscape');
+                this.orientationLocked = true;
+            }
+        } catch (error) {
+            // Orientation lock not supported or failed - ignore silently
+            console.debug('Screen orientation lock not available:', error);
+        }
+    }
+
+    /**
+     * Unlocks screen orientation when exiting fullscreen
+     */
+    private unlockOrientation(): void {
+        try {
+            if (this.orientationLocked && screen.orientation?.unlock) {
+                screen.orientation.unlock();
+                this.orientationLocked = false;
+            }
+        } catch (error) {
+            // Orientation unlock failed - ignore silently
+            console.debug('Screen orientation unlock failed:', error);
+        }
     }
 
     private initializeOptions() {
@@ -493,6 +553,22 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
      */
     closeInsufficientCreditsDialog(): void {
         this.insufficientCreditsDialogVisible = false;
+    }
+
+    /**
+     * Opens the info dialog to display full description and tags
+     */
+    openInfoDialog(video: Video): void {
+        this.infoDialogVideo = video;
+        this.infoDialogVisible = true;
+    }
+
+    /**
+     * Closes the info dialog
+     */
+    closeInfoDialog(): void {
+        this.infoDialogVisible = false;
+        this.infoDialogVideo = null;
     }
 
     private async loadSubscriptionData() {
