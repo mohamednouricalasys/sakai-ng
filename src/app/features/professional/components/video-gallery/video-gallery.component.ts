@@ -475,6 +475,13 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
                 await this.loadUserCredits(); // Refresh credits after fetching contact info
                 this.selectedVideo = video;
                 this.contactDialogVisible = true;
+
+                // Increment contact click counter
+                if (video.prodige?.id) {
+                    this.prodigeService.incrementContactClick(video.prodige.id).subscribe({
+                        error: (err) => console.error('Error incrementing contact click:', err),
+                    });
+                }
             },
             error: (error) => {
                 console.error('Error loading prodiges:', error);
@@ -561,6 +568,13 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     openInfoDialog(video: Video): void {
         this.infoDialogVideo = video;
         this.infoDialogVisible = true;
+
+        // Increment view counter
+        if (video.prodige?.id) {
+            this.prodigeService.incrementView(video.prodige.id).subscribe({
+                error: (err) => console.error('Error incrementing view:', err),
+            });
+        }
     }
 
     /**

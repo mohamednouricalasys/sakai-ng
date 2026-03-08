@@ -16,6 +16,14 @@
                 <span class="stat-value">{{ prodigies().length }}</span>
                 <span class="stat-label">{{ 'procrud.labels.totalProdigies' | translate }}</span>
             </div>
+            <div class="app-hero-stat">
+                <span class="stat-value">{{ totalVues() }}</span>
+                <span class="stat-label">{{ 'procrud.labels.totalViews' | translate }}</span>
+            </div>
+            <div class="app-hero-stat">
+                <span class="stat-value">{{ totalClicsContact() }}</span>
+                <span class="stat-label">{{ 'procrud.labels.totalContactClicks' | translate }}</span>
+            </div>
         </div>
 
         <button class="app-hero-btn" (click)="openNew()">
@@ -109,6 +117,14 @@
                                     <i class="pi pi-map-marker"></i>
                                     {{ getCountryName(item.pays) }}
                                 </span>
+                                <span class="app-meta-item">
+                                    <i class="pi pi-eye"></i>
+                                    {{ item.nombreVues || 0 }}
+                                </span>
+                                <span class="app-meta-item">
+                                    <i class="pi pi-phone"></i>
+                                    {{ item.nombreClicsContact || 0 }}
+                                </span>
                             </div>
 
                             <div class="app-tags-row" *ngIf="item.tags?.length">
@@ -181,10 +197,18 @@
                                 </span>
                             </div>
 
-                            <div style="margin-bottom: 0.75rem;">
+                            <div style="margin-bottom: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
                                 <span class="app-badge primary">
                                     <i class="pi pi-trophy"></i>
                                     {{ getSportLabel(item.sport) }}
+                                </span>
+                                <span class="app-badge secondary">
+                                    <i class="pi pi-eye"></i>
+                                    {{ item.nombreVues || 0 }}
+                                </span>
+                                <span class="app-badge secondary">
+                                    <i class="pi pi-phone"></i>
+                                    {{ item.nombreClicsContact || 0 }}
                                 </span>
                             </div>
 

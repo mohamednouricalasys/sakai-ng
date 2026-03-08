@@ -54,6 +54,20 @@ export class ProdigeService {
         return this.http.delete<void>(`${this.apiUrl}/${id}`);
     }
 
+    /**
+     * Incrémente le compteur de vues d'un prodige.
+     */
+    incrementView(prodigeId: string): Observable<void> {
+        return this.http.post<void>(`${this.apiUrl}/${prodigeId}/view`, {});
+    }
+
+    /**
+     * Incrémente le compteur de clics contact d'un prodige.
+     */
+    incrementContactClick(prodigeId: string): Observable<void> {
+        return this.http.post<void>(`${this.apiUrl}/${prodigeId}/contact-click`, {});
+    }
+
     getSportOptions() {
         return Object.keys(Sport)
             .filter((key) => isNaN(Number(key)))

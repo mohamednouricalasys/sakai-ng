@@ -19,4 +19,7 @@ export interface Prodige {
     modifiePar?: string;
     pays?: string;
     genre?: Genre;
+    // Counters
+    nombreVues?: number;
+    nombreClicsContact?: number;
 }

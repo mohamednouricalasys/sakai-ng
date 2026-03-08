@@ -78,6 +78,10 @@ export class ProdigeCrudComponent implements OnInit {
     readonly deleting = this.store.deleting;
     readonly error = this.store.error;
 
+    // Computed stats
+    readonly totalVues = computed(() => this.prodigies().reduce((sum, p) => sum + (p.nombreVues || 0), 0));
+    readonly totalClicsContact = computed(() => this.prodigies().reduce((sum, p) => sum + (p.nombreClicsContact || 0), 0));
+
     // The current prodige being edited/created
     prodige: Prodige = {};
     submitted: boolean = false;
