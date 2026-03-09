@@ -572,8 +572,11 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         // Increment view counter
         if (video.prodige?.id) {
             this.prodigeService.incrementView(video.prodige.id).subscribe({
+                next: () => console.log('View incremented successfully for prodige:', video.prodige?.id),
                 error: (err) => console.error('Error incrementing view:', err),
             });
+        } else {
+            console.warn('Cannot increment view: prodige.id is undefined', video);
         }
     }
 
