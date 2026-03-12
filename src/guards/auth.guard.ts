@@ -1,5 +1,5 @@
-import { inject, Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
 
 @Injectable({
@@ -13,11 +13,13 @@ export class AuthGuard extends KeycloakAuthGuard {
         super(router, keycloak);
     }
 
-    public async isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
+    public async isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean | UrlTree> {
         if (!this.authenticated) {
-            await this.keycloak.login();
+            // Redirect to landing page instead of forcing login
+            // This prevents infinite loop when token is invalid/expired
+            return this.router.parseUrl('/landing');
         }
 
-        return this.authenticated;
+        return true;
     }
 }

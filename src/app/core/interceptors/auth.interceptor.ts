@@ -1,10 +1,12 @@
 import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 import { from, switchMap, catchError, throwError } from 'rxjs';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
     const keycloakService = inject(KeycloakService);
+    const router = inject(Router);
 
     // URLs that don't need authentication
     const excludedUrls = ['/assets', '/public'];
@@ -35,8 +37,9 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
                     return next(clonedRequest).pipe(
                         catchError((error: HttpErrorResponse) => {
                             // Handle 401 Unauthorized - session expired on backend
+                            // Redirect to landing instead of forcing login to avoid loops
                             if (error.status === 401) {
-                                keycloakService.login();
+                                keycloakService.logout(window.location.origin + '/landing');
                             }
                             return throwError(() => error);
                         }),
@@ -45,8 +48,10 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
             );
         }),
         catchError((error) => {
-            // If token refresh fails, redirect to login
-            keycloakService.login();
+            // If token refresh fails, logout and redirect to landing
+            // This prevents infinite login loops
+            console.warn('Token refresh failed, redirecting to landing', error);
+            keycloakService.logout(window.location.origin + '/landing');
             return throwError(() => error);
         }),
     );

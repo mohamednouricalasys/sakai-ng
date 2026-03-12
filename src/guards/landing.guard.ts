@@ -11,7 +11,7 @@ export const landingGuard = () => {
 
     // If authenticated, redirect to professional area
     if (isAuth) {
-        return router.parseUrl('');
+        return router.parseUrl('/professional/gallery');
     }
 
     // Otherwise allow access to landing page

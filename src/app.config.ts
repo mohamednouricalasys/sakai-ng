@@ -46,25 +46,32 @@ function initializeKeycloak(keycloak: KeycloakService, userService: UserService)
             });
 
             if (authenticated) {
-                await userService.loadUserProfile();
+                try {
+                    await userService.loadUserProfile();
+                } catch (error) {
+                    console.warn('Failed to load user profile, continuing anyway', error);
+                }
 
                 // Set up automatic token refresh every 30 seconds
                 setInterval(async () => {
                     try {
                         await keycloak.updateToken(60);
                     } catch (error) {
-                        // Token refresh failed - session expired, redirect to login
-                        keycloak.login();
+                        // Token refresh failed - don't force login, let guards handle it
+                        console.warn('Token refresh failed', error);
                     }
                 }, 30000);
             }
 
-            // Listen for Keycloak events
+            // Listen for Keycloak events - only handle logout, not token expiry
+            // Token expiry is handled by the refresh interval and guards
             keycloak.keycloakEvents$.subscribe({
                 next: (event) => {
-                    if (event.type === KeycloakEventTypeLegacy.OnAuthLogout || event.type === KeycloakEventTypeLegacy.OnTokenExpired) {
-                        keycloak.login();
+                    if (event.type === KeycloakEventTypeLegacy.OnAuthLogout) {
+                        // User explicitly logged out, redirect to landing
+                        window.location.href = '/landing';
                     }
+                    // Don't auto-login on OnTokenExpired - let guards handle navigation
                 },
             });
         } catch (error) {
