@@ -13,7 +13,6 @@ import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import { OverlayPanel, OverlayPanelModule } from 'primeng/overlaypanel';
 import { MenuItem } from 'primeng/api';
-import { SubscriptionService } from '../../core/services/subscription.service';
 import { TranslatePipe } from '../../core/shared';
 import { TranslationService } from '../../core/services/translation.service';
 import { DialogModule } from 'primeng/dialog';
@@ -47,7 +46,6 @@ export class AppTopbar implements OnInit {
         public layoutService: LayoutService,
         private keycloakService: KeycloakService,
         private userService: UserService,
-        private subscriptionService: SubscriptionService,
         private translationService: TranslationService,
     ) {}
 

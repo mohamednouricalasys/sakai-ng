@@ -307,54 +307,6 @@
     </ng-template>
 </p-dialog>
 
-<!-- Insufficient Credits Dialog -->
-<p-dialog
-    [(visible)]="insufficientCreditsDialogVisible"
-    [modal]="true"
-    [header]="'videos.insufficientCredits.dialog.header' | translate"
-    [style]="{ width: '420px' }"
-    [closable]="true"
-    [draggable]="false"
-    [resizable]="false"
-    styleClass="app-credits-dialog-modern"
->
-    <ng-template pTemplate="content">
-        <div class="app-credits-dialog-content">
-            <!-- Warning Illustration -->
-            <div class="app-credits-warning-icon">
-                <i class="pi pi-exclamation-triangle"></i>
-            </div>
-
-            <h3 class="app-credits-dialog-title">
-                {{ 'videos.insufficientCredits.dialog.title' | translate }}
-            </h3>
-            <p class="app-credits-dialog-message">
-                {{ insufficientCreditsErrorMessage || ('videos.insufficientCredits.dialog.message' | translate) }}
-            </p>
-
-            <!-- Current Credits -->
-            @if (credits(); as creditInfo) {
-                <div class="app-current-credits-display">
-                    <i class="pi pi-star-fill"></i>
-                    <span>{{ 'videos.insufficientCredits.dialog.currentCredits' | translate: { count: creditInfo.totalCredits } }}</span>
-                </div>
-            }
-
-            <!-- Upgrade CTA -->
-            <button class="app-upgrade-btn" (click)="navigateToSubscription()">
-                <i class="pi pi-shopping-cart"></i>
-                <span>{{ 'videos.insufficientCredits.dialog.subscribeButton' | translate }}</span>
-            </button>
-        </div>
-    </ng-template>
-
-    <ng-template pTemplate="footer">
-        <button class="app-dialog-close-btn secondary" (click)="closeInsufficientCreditsDialog()">
-            {{ 'videos.insufficientCredits.dialog.closeButton' | translate }}
-        </button>
-    </ng-template>
-</p-dialog>
-
 <!-- Video Info Dialog -->
 <p-dialog
     [(visible)]="infoDialogVisible"

@@ -1,5 +1,4 @@
 import { Component, inject, OnInit, signal, OnDestroy, AfterViewInit, QueryList, ElementRef, ViewChildren } from '@angular/core';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
@@ -19,7 +18,7 @@ import { COUNTRIES_DATA } from '../../../../core/shared/countries-data';
 import { VideoService } from '../../../../core/services/video.service';
 import { Video, GetVideosPaginatedRequest } from '../../../../core/interfaces/video.interface';
 import { TranslationService } from '../../../../core/services/translation.service';
-import { debounceTime, distinctUntilChanged, firstValueFrom, Subject, takeUntil } from 'rxjs';
+import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 import videojs from 'video.js';
 import { Sport } from '../../../../core/enums/sport.enum';
 import { ProdigeService } from '../../../../core/services/prodige.service';
@@ -29,8 +28,6 @@ import { Genre } from '../../../../core/enums/gender.enum';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { UserService } from '../../../../core/services/user.service';
 import { User } from '../../../../core/interfaces/user.interface';
-import { UserCreditDetailsDto } from '../../../../core/interfaces/user-credit-details-dto.interface';
-import { SubscriptionService } from '../../../../core/services/subscription.service';
 import { VideoFilterType } from '../../../../core/enums/video-filter-type.enum';
 
 @Component({
@@ -69,7 +66,6 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     loading = signal<boolean>(false);
     videos = signal<Video[]>([]);
     hasMore = signal<boolean>(true);
-    credits = signal<UserCreditDetailsDto | null>(null);
 
     // Component state
     pageSize = 10;
@@ -94,10 +90,8 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     countryOptions: SelectItem[] = [];
     videoFilterOptions: SelectItem[] = [];
 
-    // Add these properties to your component class
+    // Contact dialog state
     contactDialogVisible = false;
-    insufficientCreditsDialogVisible = false;
-    insufficientCreditsErrorMessage: string | null = null;
     selectedVideo: any = null;
 
     // Info dialog state
@@ -113,22 +107,18 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     private orientationLocked = false;
 
     // Services
-    private router = inject(Router);
     private prodigeService = inject(ProdigeService);
     private videoService = inject(VideoService);
     private messageService = inject(MessageService);
     private translationService = inject(TranslationService);
     private userService = inject(UserService);
-    private subscriptionService = inject(SubscriptionService);
 
     constructor() {}
 
     async ngOnInit() {
-        // Detect mobile for infinite scroll behavior
         this.checkMobile();
         window.addEventListener('resize', this.resizeHandler);
 
-        // Hide main layout scroll for this page only (desktop)
         if (!this.isMobile) {
             document.querySelector('.layout-main-container')?.classList.add('no-scroll');
         }
@@ -136,9 +126,6 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         this.initializeOptions();
         this.setupSearch();
         this.loadInitialVideos();
-        // TODO: Stripe/Credits disabled - to be reimplemented
-        // await this.loadSubscriptionData();
-        // await this.loadUserCredits();
     }
 
     private checkMobile(): void {
@@ -149,7 +136,6 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         const wasMobile = this.isMobile;
         this.checkMobile();
 
-        // Toggle no-scroll class based on screen size
         if (wasMobile !== this.isMobile) {
             const container = document.querySelector('.layout-main-container');
             if (this.isMobile) {
@@ -161,13 +147,8 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     ngOnDestroy() {
-        // Remove resize listener
         window.removeEventListener('resize', this.resizeHandler);
-
-        // Restore main layout scroll when leaving this page
         document.querySelector('.layout-main-container')?.classList.remove('no-scroll');
-
-        // Unlock orientation if still locked
         this.unlockOrientation();
 
         this.videoPlayers.forEach((player) => {
@@ -199,17 +180,11 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
                 };
                 const player = videojs(el.nativeElement, options);
                 this.videoPlayers.set(videoId, player);
-
-                // Add fullscreen orientation handling for mobile
                 this.setupFullscreenOrientationHandler(player);
             }
         });
     }
 
-    /**
-     * Sets up fullscreen orientation handling for mobile devices
-     * Rotates to landscape when entering fullscreen for better viewing
-     */
     private setupFullscreenOrientationHandler(player: any): void {
         player.on('fullscreenchange', () => {
             if (!this.isMobile) return;
@@ -222,9 +197,6 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         });
     }
 
-    /**
-     * Locks screen orientation to landscape for better video viewing on mobile
-     */
     private async lockLandscapeOrientation(): Promise<void> {
         try {
             const screenOrientation = screen.orientation as ScreenOrientation & { lock?: (orientation: string) => Promise<void> };
@@ -233,14 +205,10 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
                 this.orientationLocked = true;
             }
         } catch (error) {
-            // Orientation lock not supported or failed - ignore silently
             console.debug('Screen orientation lock not available:', error);
         }
     }
 
-    /**
-     * Unlocks screen orientation when exiting fullscreen
-     */
     private unlockOrientation(): void {
         try {
             if (this.orientationLocked && screen.orientation?.unlock) {
@@ -248,22 +216,18 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
                 this.orientationLocked = false;
             }
         } catch (error) {
-            // Orientation unlock failed - ignore silently
             console.debug('Screen orientation unlock failed:', error);
         }
     }
 
     private initializeOptions() {
         this.sportOptions = [{ label: this.t('videos.filter.allSports'), value: null }, ...this.prodigeService.getSportOptions()];
-
         this.tagOptions = [{ label: this.t('videos.filter.allTags'), value: null }, ...this.prodigeService.getTagOptions()];
-
         this.genreOptions = [
             { label: this.t('videos.filter.allGenders'), value: null },
             { label: '♂ ' + this.t('videos.filter.homme'), value: Genre.Homme },
             { label: '♀ ' + this.t('videos.filter.femme'), value: Genre.Femme },
         ];
-
         this.countryOptions = [
             { label: this.t('videos.filter.allCountries'), value: null },
             ...COUNTRIES_DATA.map((country) => ({
@@ -271,8 +235,6 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
                 value: country.code,
             })),
         ];
-
-        // Initialize video filter options
         this.videoFilterOptions = [
             { label: this.t('videos.filter.all'), value: VideoFilterType.All },
             { label: this.t('videos.filter.newVideoNewContact'), value: VideoFilterType.NewVideoNewContact },
@@ -287,22 +249,6 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
             this.resetAndSearch();
         });
     }
-
-    // TODO: Stripe/Credits disabled - to be reimplemented
-    /*
-    private async loadUserCredits() {
-        try {
-            await this.userService.loadUserProfile(); // Ensure this completes first
-            const profile = this.userService.getProfile();
-            if (profile?.id) {
-                const creditDetails = await firstValueFrom(this.userService.getCredisUserById(profile.id));
-                this.credits.set(creditDetails || null);
-            }
-        } catch (error) {
-            console.error('Failed to load user credits:', error);
-        }
-    }
-    */
 
     protected t(key: string, params?: Record<string, any>): string {
         return this.translationService.translate(key, params);
@@ -442,38 +388,25 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         return (video?.prodige?.tags?.length ?? 0) > 3 ? video.prodige.tags.length - 3 : 0;
     }
 
-    /**
-     * Gets the country flag emoji for a given country code
-     */
     getCountryFlag(countryCode?: string): string {
         if (!countryCode) return '';
         const country = COUNTRIES_DATA.find((c) => c.code === countryCode.toUpperCase());
         return country?.flag || '';
     }
 
-    /**
-     * Gets the country display info (flag + code) for a given country code
-     */
     getCountryDisplay(countryCode?: string): string {
         if (!countryCode) return '';
         const flag = this.getCountryFlag(countryCode);
         return flag ? `${flag} ${countryCode.toUpperCase()}` : countryCode.toUpperCase();
     }
 
-    /**
-     * Opens the contact dialog for a specific video/athlete
-     */
     openContactDialog(video: any): void {
-        // Always call the backend - it handles already viewed videos and own videos without consuming credits
         this.userService.getUserById(video.prodige.userId, video.id).subscribe({
-            next: async (data) => {
+            next: (data) => {
                 this.user = data;
-                // TODO: Stripe/Credits disabled - to be reimplemented
-                // await this.loadUserCredits(); // Refresh credits after fetching contact info
                 this.selectedVideo = video;
                 this.contactDialogVisible = true;
 
-                // Increment contact click counter
                 if (video.prodige?.id) {
                     this.prodigeService.incrementContactClick(video.prodige.id).subscribe({
                         error: (err) => console.error('Error incrementing contact click:', err),
@@ -481,47 +414,33 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
                 }
             },
             error: (error) => {
-                console.error('Error loading prodiges:', error);
+                console.error('Error loading user:', error);
                 this.messageService.add({
                     severity: 'error',
                     summary: this.t('shared.common.error'),
                     detail: this.t('shared.messages.dataLoadError'),
                 });
-                this.loading.set(false);
             },
         });
     }
 
-    /**
-     * Closes the contact dialog
-     */
     closeContactDialog(): void {
         this.contactDialogVisible = false;
         this.selectedVideo = null;
     }
 
-    /**
-     * Generates a mock email address for the athlete
-     */
     getContactEmail(video: any): string {
         return this.user?.email ?? '';
     }
 
-    /**
-     * Generates a mock phone number for the athlete
-     */
     getContactPhone(video: any): string {
         return this.user?.phone ?? '';
     }
 
     getFullName(): string {
-        if (!this.user) {
-            return '';
-        }
-
+        if (!this.user) return '';
         const firstName = this.user.firstName || '';
         const lastName = this.user.lastName || '';
-
         return `${firstName} ${lastName}`.trim();
     }
 
@@ -536,65 +455,19 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         });
     }
 
-    /**
-     * Checks if user has sufficient credits to contact an athlete
-     */
-    hasSufficientCredits(): boolean {
-        const creditInfo = this.credits();
-        return creditInfo !== null && creditInfo.totalCredits > 0;
-    }
-
-    /**
-     * Navigates to the subscription page
-     */
-    navigateToSubscription(): void {
-        this.insufficientCreditsDialogVisible = false;
-        this.router.navigate(['/billing/subscription']);
-    }
-
-    /**
-     * Closes the insufficient credits dialog
-     */
-    closeInsufficientCreditsDialog(): void {
-        this.insufficientCreditsDialogVisible = false;
-    }
-
-    /**
-     * Opens the info dialog to display full description and tags
-     */
     openInfoDialog(video: Video): void {
         this.infoDialogVideo = video;
         this.infoDialogVisible = true;
 
-        // Increment view counter
         if (video.prodige?.id) {
             this.prodigeService.incrementView(video.prodige.id).subscribe({
-                next: () => console.log('View incremented successfully for prodige:', video.prodige?.id),
                 error: (err) => console.error('Error incrementing view:', err),
             });
-        } else {
-            console.warn('Cannot increment view: prodige.id is undefined', video);
         }
     }
 
-    /**
-     * Closes the info dialog
-     */
     closeInfoDialog(): void {
         this.infoDialogVisible = false;
         this.infoDialogVideo = null;
     }
-
-    // TODO: Stripe/Credits disabled - to be reimplemented
-    /*
-    private async loadSubscriptionData() {
-        try {
-            const profile = this.userService.getProfile();
-            await this.subscriptionService.createCustomer(profile?.email!, profile?.username!).toPromise();
-        } catch (error) {
-            console.error('Subscription loading error:', error);
-        } finally {
-        }
-    }
-    */
 }

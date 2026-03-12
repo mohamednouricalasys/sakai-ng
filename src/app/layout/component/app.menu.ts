@@ -40,11 +40,6 @@ export class AppMenu {
                 icon: 'pi pi-fw pi-video',
                 routerLink: ['/professional/videos'],
             },
-            {
-                label: this.translationService.translate('nav.subscription'),
-                icon: 'pi pi-fw pi-receipt',
-                routerLink: ['/billing/subscription'],
-            },
         ];
 
         // Add moderation only for moderators

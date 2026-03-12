@@ -18,10 +18,6 @@ export const appRoutes: Routes = [
                 path: 'professional',
                 loadChildren: () => import('./app/features/professional/professional.routes').then((m) => m.PROFESSIONAL_ROUTES),
             },
-            {
-                path: 'billing',
-                loadChildren: () => import('./app/features/billing/billing.routes').then((m) => m.BILLING_ROUTES),
-            },
         ],
     },
     {
