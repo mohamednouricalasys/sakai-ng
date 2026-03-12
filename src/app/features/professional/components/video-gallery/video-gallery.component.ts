@@ -136,8 +136,9 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         this.initializeOptions();
         this.setupSearch();
         this.loadInitialVideos();
-        await this.loadSubscriptionData();
-        await this.loadUserCredits();
+        // TODO: Stripe/Credits disabled - to be reimplemented
+        // await this.loadSubscriptionData();
+        // await this.loadUserCredits();
     }
 
     private checkMobile(): void {
@@ -287,6 +288,8 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         });
     }
 
+    // TODO: Stripe/Credits disabled - to be reimplemented
+    /*
     private async loadUserCredits() {
         try {
             await this.userService.loadUserProfile(); // Ensure this completes first
@@ -299,6 +302,7 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
             console.error('Failed to load user credits:', error);
         }
     }
+    */
 
     protected t(key: string, params?: Record<string, any>): string {
         return this.translationService.translate(key, params);
@@ -463,16 +467,9 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         // Always call the backend - it handles already viewed videos and own videos without consuming credits
         this.userService.getUserById(video.prodige.userId, video.id).subscribe({
             next: async (data) => {
-                // Check if the API returned an error (insufficient credits)
-                // if (!data.isSuccess) {
-                //     await this.loadUserCredits(); // Refresh credits to show current balance
-                //     this.insufficientCreditsErrorMessage = data.errorMessage || null;
-                //     this.insufficientCreditsDialogVisible = true;
-                //     return;
-                // }
-
                 this.user = data;
-                await this.loadUserCredits(); // Refresh credits after fetching contact info
+                // TODO: Stripe/Credits disabled - to be reimplemented
+                // await this.loadUserCredits(); // Refresh credits after fetching contact info
                 this.selectedVideo = video;
                 this.contactDialogVisible = true;
 
@@ -588,6 +585,8 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         this.infoDialogVideo = null;
     }
 
+    // TODO: Stripe/Credits disabled - to be reimplemented
+    /*
     private async loadSubscriptionData() {
         try {
             const profile = this.userService.getProfile();
@@ -597,4 +596,5 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         } finally {
         }
     }
+    */
 }
