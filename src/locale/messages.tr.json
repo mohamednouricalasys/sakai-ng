@@ -1492,6 +1492,39 @@
             }
         }
     },
+    "tour":{
+        "skip": "Pasör",
+        "gallery": {
+            "search": {
+            "title": "Arama",
+            "description": "İsimsiz veya başka bir deyişle videoları izleyin."
+            },
+            "filters": {
+            "title": "Filtreler",
+            "description": "Affinez par sport, etiketlerinizi öder."
+            }
+        },
+        "prodige": {
+            "create": {
+            "title": "Bir dahi yaratın",
+            "description": "Yeni bir sporcu profili ekleyin."
+            },
+            "controls": {
+            "title": "Üç ve affichage",
+            "description": "Yetenek listenizi düzenleyin."
+            }
+        },
+        "video": {
+            "select": {
+            "title": "Seçim",
+            "description": "Videolarınız için bir dahi seçin."
+            },
+            "add": {
+            "title": "Ajur",
+            "description": "Yeni bir video yükleyin (en fazla 3 parça)."
+            }
+        }
+    },
     "features": {
         "title": "Zaman kazanın, daha iyi işe alın",
         "subtitle": "Daha iyi işe alım kararları almak için ihtiyacınız olan her şey.",

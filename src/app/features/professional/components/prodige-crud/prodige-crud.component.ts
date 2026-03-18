@@ -1,6 +1,6 @@
 // prodige-crud.component.ts
 
-import { Component, inject, OnInit, signal, ViewChild, computed, ChangeDetectorRef } from '@angular/core';
+import { Component, inject, OnInit, AfterViewInit, signal, ViewChild, computed, ChangeDetectorRef } from '@angular/core';
 import { ConfirmationService, MessageService, SelectItem } from 'primeng/api';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -34,6 +34,7 @@ import { ProdigeApiHelper, ApiCallbacks } from './prodige-api.helper';
 import { ProdigeStore } from './prodige-store';
 import { UserService } from '../../../../core/services/user.service';
 import { Router } from '@angular/router';
+import { GuidedTourService } from '../../../../core/services/guided-tour.service';
 
 @Component({
     selector: 'app-prodige-crud',
@@ -65,7 +66,7 @@ import { Router } from '@angular/router';
     styleUrl: './prodige-crud.component.scss',
     providers: [MessageService, ProdigeService, ConfirmationService, ProdigeStore],
 })
-export class ProdigeCrudComponent implements OnInit {
+export class ProdigeCrudComponent implements OnInit, AfterViewInit {
     prodigeDialog: boolean = false;
 
     // Use a store instance for state management
@@ -103,6 +104,7 @@ export class ProdigeCrudComponent implements OnInit {
     private confirmationService = inject(ConfirmationService);
     private cdr = inject(ChangeDetectorRef);
     private router = inject(Router);
+    private tourService = inject(GuidedTourService);
 
     // Properties for DataView layout selection
     layout: 'list' | 'grid' = 'list';
@@ -128,6 +130,10 @@ export class ProdigeCrudComponent implements OnInit {
             ...country,
             name: this.t(`countries.${country.code.toLowerCase()}`),
         }));
+    }
+
+    ngAfterViewInit() {
+        setTimeout(() => this.tourService.startTourIfNotSeen('prodige'), 500);
     }
 
     navigateToVideos(prodigeId: string) {

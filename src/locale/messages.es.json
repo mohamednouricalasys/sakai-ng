@@ -1511,6 +1511,39 @@
             }
         }
     },
+    "tour":{
+        "skip": "Pasador",
+        "gallery": {
+            "search": {
+            "title": "Rebuscado",
+            "description": "Busque vídeos por nombre o palabra clave."
+            },
+            "filters": {
+            "title": "Filtros",
+            "description": "Affinez par sport, paga nuestras etiquetas."
+            }
+        },
+        "prodige": {
+            "create": {
+            "title": "Créer un prodigio",
+            "description": "Agregue un nuevo perfil de atleta."
+            },
+            "controls": {
+            "title": "Tri y cartel",
+            "description": "Organisez votre liste de prodiges."
+            }
+        },
+        "video": {
+            "select": {
+            "title": "Selección",
+            "description": "Elija un prodigio para ver sus vídeos."
+            },
+            "add": {
+            "title": "Ajouter",
+            "description": "Sube un nuevo vídeo (máximo 3 por prodige)."
+            }
+        }
+    },
     "features": {
         "title": "Ahorra tiempo, recluta mejor",
         "subtitle": "Todo lo que necesitas para tomar mejores decisiones de reclutamiento.",

@@ -1492,6 +1492,39 @@
             }
         }
     },
+    "tour":{
+        "skip": "Ohjaaja",
+        "gallery": {
+            "search": {
+            "title": "Recherche",
+            "description": "Trouvez des videos par nom tai mot-clé."
+            },
+            "filters": {
+            "title": "Suodattimet",
+            "description": "Affinez par sport, maksaa tunnisteita."
+            }
+        },
+        "prodige": {
+            "create": {
+            "title": "Créer un prodige",
+            "description": "Ajoutez un nouveau profiili d'athlète."
+            },
+            "controls": {
+            "title": "Tri et affichage",
+            "description": "Organisez votre list de prodiges."
+            }
+        },
+        "video": {
+            "select": {
+            "title": "Valinta",
+            "description": "Choisissez un prodige pour voir ses videos."
+            },
+            "add": {
+            "title": "Ajouter",
+            "description": "Lataa uusi video (max 3 par prodige)."
+            }
+        }
+    },
     "features": {
         "title": "Säästä aikaa, rekrytoi paremmin",
         "subtitle": "Kaikki mitä tarvitset parempien rekrytointipäätösten tekemiseen.",

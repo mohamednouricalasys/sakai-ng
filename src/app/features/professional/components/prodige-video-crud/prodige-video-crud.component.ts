@@ -31,6 +31,7 @@ import { Mp4UploaderComponent } from '../../../../core/shared/components/mp4-upl
 import { FileItem } from '../../../../core/interfaces/file-Item.interface';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../../core/services/user.service';
+import { GuidedTourService } from '../../../../core/services/guided-tour.service';
 
 @Component({
     selector: 'app-prodige-video-crud',
@@ -96,6 +97,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     private prodigeService = inject(ProdigeService);
     private userService = inject(UserService);
     private route = inject(ActivatedRoute);
+    private tourService = inject(GuidedTourService);
 
     constructor(private cdr: ChangeDetectorRef) {}
 
@@ -125,6 +127,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
         });
         this.initializeVideoPlayers();
         this.initVideos();
+        setTimeout(() => this.tourService.startTourIfNotSeen('video'), 500);
     }
 
     ngAfterViewChecked() {

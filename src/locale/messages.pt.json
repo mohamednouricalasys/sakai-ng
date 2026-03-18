@@ -1492,6 +1492,39 @@
             }
         }
     },
+    "tour":{
+        "skip": "Passador",
+        "gallery": {
+            "search": {
+            "title": "Pesquisa",
+            "description": "Encontre vídeos de nomes ou palavras."
+            },
+            "filters": {
+            "title": "Filtros",
+            "description": "Affinez par sport, pays ou tags."
+            }
+        },
+        "prodige": {
+            "create": {
+            "title": "Crie um prodígio",
+            "description": "Adicione um novo perfil de atleta."
+            },
+            "controls": {
+            "title": "Tri et affichage",
+            "description": "Organize sua lista de prodígios."
+            }
+        },
+        "video": {
+            "select": {
+            "title": "Seleção",
+            "description": "Escolha um prodígio para ver seus vídeos."
+            },
+            "add": {
+            "title": "Adicionar",
+            "description": "Carregue um novo vídeo (máximo de 3 por prodige)."
+            }
+        }
+    },
     "features": {
         "title": "Economize tempo, recrute melhor",
         "subtitle": "Tudo o que você precisa para tomar melhores decisões de recrutamento.",

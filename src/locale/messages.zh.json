@@ -1492,6 +1492,39 @@
             }
         }
     },
+    "tour":{
+        "skip": "过路人",
+        "gallery": {
+            "search": {
+            "title": "研究",
+            "description": "以 nom 或 mot-clé 的方式播放视频。"
+            },
+            "filters": {
+            "title": "过滤器",
+            "description": "Affinez par sport，支付或标签。"
+            }
+        },
+        "prodige": {
+            "create": {
+            "title": "神童的创造者",
+            "description": "Ajoutez un nouveau profil d'athlète。"
+            },
+            "controls": {
+            "title": "三等附属机构",
+            "description": "组织天才天才名单。"
+            }
+        },
+        "video": {
+            "select": {
+            "title": "选择",
+            "description": "选择观看视频的神童。"
+            },
+            "add": {
+            "title": "阿朱特尔",
+            "description": "上传新视频（最多 3 个标准）。"
+            }
+        }
+    },
     "features": {
         "title": "节省时间，更好招募",
         "subtitle": "做出更好招募决策所需的一切。",

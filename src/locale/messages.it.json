@@ -1492,6 +1492,39 @@
             }
         }
     },
+    "tour":{
+        "skip": "Passante",
+        "gallery": {
+            "search": {
+            "title": "Ricerca",
+            "description": "Trova i video con il nome o la parola chiave."
+            },
+            "filters": {
+            "title": "Filtri",
+            "description": "Affinez par sport, paga i tuoi tag."
+            }
+        },
+        "prodige": {
+            "create": {
+            "title": "Crei un prodigio",
+            "description": "Aggiungi un nuovo profilo di atleta."
+            },
+            "controls": {
+            "title": "Tri et affichage",
+            "description": "Organizza la tua lista di prodigi."
+            }
+        },
+        "video": {
+            "select": {
+            "title": "Selezione",
+            "description": "Scegli un prodigio per vedere i tuoi video."
+            },
+            "add": {
+            "title": "Aggiungi",
+            "description": "Carica un nuovo video (max 3 per prodige)."
+            }
+        }
+    },
     "features": {
         "title": "Risparmia tempo, recluta meglio",
         "subtitle": "Tutto ciò di cui hai bisogno per prendere migliori decisioni di reclutamento.",

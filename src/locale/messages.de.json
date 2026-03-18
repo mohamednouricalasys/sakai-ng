@@ -1492,6 +1492,39 @@
             }
         }
     },
+    "tour":{
+        "skip": "Passant",
+        "gallery": {
+            "search": {
+            "title": "Recherche",
+            "description": "Suchen Sie nach Videos von Ihrem Namen oder Ihrem Freund."
+            },
+            "filters": {
+            "title": "Filter",
+            "description": "Affinez für Sport, zahlt sich aus."
+            }
+        },
+        "prodige": {
+            "create": {
+            "title": "Creer un prodige",
+            "description": "Fügen Sie ein neues Sportlerprofil hinzu."
+            },
+            "controls": {
+            "title": "Tri et affichage",
+            "description": "Organisieren Sie Ihre Wunderliste."
+            }
+        },
+        "video": {
+            "select": {
+            "title": "Auswahl",
+            "description": "Wählen Sie ein Wunder, um diese Videos zu sehen."
+            },
+            "add": {
+            "title": "Ajouter",
+            "description": "Laden Sie ein neues Video hoch (maximal 3 pro Person)."
+            }
+        }
+    },
     "features": {
         "title": "Zeit sparen, besser rekrutieren",
         "subtitle": "Alles, was Sie für bessere Rekrutierungsentscheidungen brauchen.",

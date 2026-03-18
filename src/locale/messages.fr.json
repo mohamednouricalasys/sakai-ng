@@ -1450,6 +1450,39 @@
             }
         }
     },
+    "tour": {
+        "skip": "Passer",
+        "gallery": {
+            "search": {
+                "title": "Recherche",
+                "description": "Trouvez des vidéos par nom ou mot-clé."
+            },
+            "filters": {
+                "title": "Filtres",
+                "description": "Affinez par sport, pays ou tags."
+            }
+        },
+        "prodige": {
+            "create": {
+                "title": "Créer un prodige",
+                "description": "Ajoutez un nouveau profil d'athlète."
+            },
+            "controls": {
+                "title": "Tri et affichage",
+                "description": "Organisez votre liste de prodiges."
+            }
+        },
+        "video": {
+            "select": {
+                "title": "Sélection",
+                "description": "Choisissez un prodige pour voir ses vidéos."
+            },
+            "add": {
+                "title": "Ajouter",
+                "description": "Uploadez une nouvelle vidéo (max 3 par prodige)."
+            }
+        }
+    },
     "features": {
         "title": "Gagnez du temps, recrutez mieux",
         "subtitle": "Tout ce dont vous avez besoin pour prendre de meilleures décisions de recrutement.",

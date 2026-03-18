@@ -18,6 +18,7 @@ import { COUNTRIES_DATA } from '../../../../core/shared/countries-data';
 import { VideoService } from '../../../../core/services/video.service';
 import { Video, GetVideosPaginatedRequest } from '../../../../core/interfaces/video.interface';
 import { TranslationService } from '../../../../core/services/translation.service';
+import { GuidedTourService } from '../../../../core/services/guided-tour.service';
 import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 import videojs from 'video.js';
 import { Sport } from '../../../../core/enums/sport.enum';
@@ -112,6 +113,7 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     private messageService = inject(MessageService);
     private translationService = inject(TranslationService);
     private userService = inject(UserService);
+    private tourService = inject(GuidedTourService);
 
     constructor() {}
 
@@ -165,6 +167,7 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         this.videoElements.changes.subscribe(() => {
             this.initializeVideoPlayers();
         });
+        setTimeout(() => this.tourService.startTourIfNotSeen('gallery'), 500);
     }
 
     private initializeVideoPlayers(): void {

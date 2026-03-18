@@ -1452,6 +1452,39 @@
             }
         }
     },
+    "tour": {
+        "skip": "Skip",
+        "gallery": {
+            "search": {
+                "title": "Search",
+                "description": "Find videos by name or keyword."
+            },
+            "filters": {
+                "title": "Filters",
+                "description": "Refine by sport, country or tags."
+            }
+        },
+        "prodige": {
+            "create": {
+                "title": "Create a prodigy",
+                "description": "Add a new athlete profile."
+            },
+            "controls": {
+                "title": "Sort and display",
+                "description": "Organize your prodigy list."
+            }
+        },
+        "video": {
+            "select": {
+                "title": "Selection",
+                "description": "Choose a prodigy to see their videos."
+            },
+            "add": {
+                "title": "Add",
+                "description": "Upload a new video (max 3 per prodigy)."
+            }
+        }
+    },
     "features": {
         "title": "Save time, recruit better",
         "subtitle": "Everything you need to make better recruitment decisions.",

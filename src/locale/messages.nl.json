@@ -1492,6 +1492,39 @@
             }
         }
     },
+    "tour":{
+        "skip": "Voorbijganger",
+        "gallery": {
+            "search": {
+            "title": "Onderzoek",
+            "description": "Bekijk de video's van de naam of de film."
+            },
+            "filters": {
+            "title": "Filters",
+            "description": "Affinez par sport, betaalt tags."
+            }
+        },
+        "prodige": {
+            "create": {
+            "title": "Creëer een wonderkind",
+            "description": "Voeg een nieuw sportprofiel toe."
+            },
+            "controls": {
+            "title": "Drie en affiche",
+            "description": "Organiseer uw lijst van wonderen."
+            }
+        },
+        "video": {
+            "select": {
+            "title": "Selectie",
+            "description": "Kies een wonder voor uw video's."
+            },
+            "add": {
+            "title": "Ajouter",
+            "description": "Upload een nieuwe video (max. 3 per wonder)."
+            }
+        }
+    },
     "features": {
         "title": "Bespaar tijd, rekruteer beter",
         "subtitle": "Alles wat u nodig heeft voor betere wervingsbeslissingen.",
