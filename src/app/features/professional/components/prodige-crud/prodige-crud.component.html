@@ -50,31 +50,48 @@
                 />
             </div>
 
-            <div class="app-layout-toggle">
+            <div class="app-layout-toggle" role="group" [attr.aria-label]="'procrud.labels.layoutToggle' | translate">
                 <button
                     class="app-layout-btn"
                     [class.active]="layout === 'list'"
                     (click)="layout = 'list'"
+                    [attr.aria-label]="'procrud.labels.listView' | translate"
+                    [attr.aria-pressed]="layout === 'list'"
                 >
-                    <i class="pi pi-bars"></i>
+                    <i class="pi pi-bars" aria-hidden="true"></i>
                 </button>
                 <button
                     class="app-layout-btn"
                     [class.active]="layout === 'grid'"
                     (click)="layout = 'grid'"
+                    [attr.aria-label]="'procrud.labels.gridView' | translate"
+                    [attr.aria-pressed]="layout === 'grid'"
                 >
-                    <i class="pi pi-th-large"></i>
+                    <i class="pi pi-th-large" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Loading State -->
-<div *ngIf="loading()" class="app-loading-section">
-    <div class="app-loading-content">
-        <div class="app-spinner"></div>
-        <span class="app-loading-text">{{ 'shared.common.loading' | translate }}</span>
+<!-- Loading State - Skeleton Cards -->
+<div *ngIf="loading()" class="app-content-section">
+    <div class="app-skeleton-list" role="status" [attr.aria-label]="'shared.common.loading' | translate">
+        <span class="sr-only">{{ 'shared.common.loading' | translate }}</span>
+        @for (i of [1, 2, 3]; track i) {
+            <div class="app-skeleton-card">
+                <div class="app-skeleton-avatar"></div>
+                <div class="app-skeleton-content">
+                    <div class="app-skeleton-line medium"></div>
+                    <div class="app-skeleton-line short"></div>
+                    <div class="app-skeleton-line xs"></div>
+                </div>
+                <div class="app-skeleton-actions">
+                    <div class="app-skeleton-btn"></div>
+                    <div class="app-skeleton-btn"></div>
+                </div>
+            </div>
+        }
     </div>
 </div>
 
@@ -150,11 +167,11 @@
                             </span>
 
                             <div class="app-list-actions">
-                                <button class="app-action-btn edit" (click)="editProdige(item)" [title]="'shared.actions.edit' | translate">
-                                    <i class="pi pi-pencil"></i>
+                                <button class="app-action-btn edit" (click)="editProdige(item)" [attr.aria-label]="'shared.actions.edit' | translate" [title]="'shared.actions.edit' | translate">
+                                    <i class="pi pi-pencil" aria-hidden="true"></i>
                                 </button>
-                                <button class="app-action-btn delete" (click)="deleteProdige(item)" [title]="'shared.actions.delete' | translate">
-                                    <i class="pi pi-trash"></i>
+                                <button class="app-action-btn delete" (click)="deleteProdige(item)" [attr.aria-label]="'shared.actions.delete' | translate" [title]="'shared.actions.delete' | translate">
+                                    <i class="pi pi-trash" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </div>
@@ -226,11 +243,11 @@
                                     {{ item.dateCreation | date: 'dd/MM/yy' }}
                                 </span>
                                 <div class="app-list-actions">
-                                    <button class="app-action-btn-sm edit" (click)="editProdige(item)">
-                                        <i class="pi pi-pencil"></i>
+                                    <button class="app-action-btn-sm edit" (click)="editProdige(item)" [attr.aria-label]="'shared.actions.edit' | translate" [title]="'shared.actions.edit' | translate">
+                                        <i class="pi pi-pencil" aria-hidden="true"></i>
                                     </button>
-                                    <button class="app-action-btn-sm delete" (click)="deleteProdige(item)">
-                                        <i class="pi pi-trash"></i>
+                                    <button class="app-action-btn-sm delete" (click)="deleteProdige(item)" [attr.aria-label]="'shared.actions.delete' | translate" [title]="'shared.actions.delete' | translate">
+                                        <i class="pi pi-trash" aria-hidden="true"></i>
                                     </button>
                                 </div>
                             </div>
@@ -536,4 +553,6 @@
 </p-dialog>
 
 <p-confirmdialog [style]="{ width: '450px' }" />
-<p-toast />
+<div class="app-toast-container" aria-live="polite" aria-atomic="true">
+    <p-toast />
+</div>

@@ -428,7 +428,10 @@
             "addTag": "Ajouter un tag...",
             "associatedVideos": "Vidéos associées",
             "videoWithoutTitle": "Vidéo sans titre",
-            "videosCount": "Nombre de Vidéos"
+            "videosCount": "Nombre de Vidéos",
+            "layoutToggle": "Mode d'affichage",
+            "listView": "Vue liste",
+            "gridView": "Vue grille"
         },
         "columns": {
             "nom": "Nom",
@@ -502,7 +505,10 @@
             "noDescription": "Pas de description",
             "moderationStatus": "Statut de modération",
             "moderationComment": "Commentaire de modération",
-            "addFirstVideo": "Ajouter votre première vidéo"
+            "addFirstVideo": "Ajouter votre première vidéo",
+            "layoutToggle": "Mode d'affichage",
+            "listView": "Vue liste",
+            "gridView": "Vue grille"
         },
         "placeholders": {
             "title": "Titre de la Vidéo",
