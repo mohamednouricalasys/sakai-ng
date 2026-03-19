@@ -1492,36 +1492,36 @@
             }
         }
     },
-    "tour":{
+    "tour": {
         "skip": "Passador",
         "gallery": {
             "search": {
-            "title": "Pesquisa",
-            "description": "Encontre vídeos de nomes ou palavras."
+                "title": "Pesquisa",
+                "description": "Encontre vídeos de nomes ou palavras."
             },
             "filters": {
-            "title": "Filtros",
-            "description": "Affinez par sport, pays ou tags."
+                "title": "Filtros",
+                "description": "Affinez par sport, pays ou tags."
             }
         },
         "prodige": {
             "create": {
-            "title": "Crie um prodígio",
-            "description": "Adicione um novo perfil de atleta."
+                "title": "Crie um prodígio",
+                "description": "Adicione um novo perfil de atleta."
             },
             "controls": {
-            "title": "Tri et affichage",
-            "description": "Organize sua lista de prodígios."
+                "title": "Tri et affichage",
+                "description": "Organize sua lista de prodígios."
             }
         },
         "video": {
             "select": {
-            "title": "Seleção",
-            "description": "Escolha um prodígio para ver seus vídeos."
+                "title": "Seleção",
+                "description": "Escolha um prodígio para ver seus vídeos."
             },
             "add": {
-            "title": "Adicionar",
-            "description": "Carregue um novo vídeo (máximo de 3 por prodige)."
+                "title": "Adicionar",
+                "description": "Carregue um novo vídeo (máximo de 3 por prodige)."
             }
         }
     },
@@ -1548,5 +1548,19 @@
             "title": "Vídeos Estruturados, Não Ruído",
             "description": "Assista a vídeos de qualidade, organizados e relevantes. Não precisa mais filtrar horas de conteúdo."
         }
+    },
+    "cookies": {
+        "title": "Configurações de cookies",
+        "description": "Utilizamos cookies para melhorar sua experiência de navegação, oferecer conteúdo personalizado e analisar nosso tráfego. Ao clicar em \"Aceitar tudo\", você consente com nosso uso de cookies.",
+        "necessary": "Necessários",
+        "necessaryDesc": "Essenciais para o funcionamento adequado do site. Não podem ser desativados.",
+        "analytics": "Analíticos",
+        "analyticsDesc": "Nos ajudam a entender como os visitantes interagem com nosso site.",
+        "marketing": "Marketing",
+        "marketingDesc": "Utilizados para exibir anúncios personalizados.",
+        "acceptAll": "Aceitar tudo",
+        "rejectAll": "Recusar tudo",
+        "customize": "Personalizar",
+        "savePreferences": "Salvar preferências"
     }
 }

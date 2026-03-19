@@ -1514,5 +1514,19 @@
             "title": "Structured Videos, Not Noise",
             "description": "Watch quality, organized and relevant videos. No more sorting through hours of content."
         }
+    },
+    "cookies": {
+        "title": "Cookie Settings",
+        "description": "We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies.",
+        "necessary": "Necessary",
+        "necessaryDesc": "Essential for the website to function properly. Cannot be disabled.",
+        "analytics": "Analytics",
+        "analyticsDesc": "Help us understand how visitors interact with our website.",
+        "marketing": "Marketing",
+        "marketingDesc": "Used to deliver personalized advertisements.",
+        "acceptAll": "Accept All",
+        "rejectAll": "Reject All",
+        "customize": "Customize",
+        "savePreferences": "Save Preferences"
     }
 }

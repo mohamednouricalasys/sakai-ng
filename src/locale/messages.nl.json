@@ -1492,36 +1492,36 @@
             }
         }
     },
-    "tour":{
+    "tour": {
         "skip": "Voorbijganger",
         "gallery": {
             "search": {
-            "title": "Onderzoek",
-            "description": "Bekijk de video's van de naam of de film."
+                "title": "Onderzoek",
+                "description": "Bekijk de video's van de naam of de film."
             },
             "filters": {
-            "title": "Filters",
-            "description": "Affinez par sport, betaalt tags."
+                "title": "Filters",
+                "description": "Affinez par sport, betaalt tags."
             }
         },
         "prodige": {
             "create": {
-            "title": "Creëer een wonderkind",
-            "description": "Voeg een nieuw sportprofiel toe."
+                "title": "Creëer een wonderkind",
+                "description": "Voeg een nieuw sportprofiel toe."
             },
             "controls": {
-            "title": "Drie en affiche",
-            "description": "Organiseer uw lijst van wonderen."
+                "title": "Drie en affiche",
+                "description": "Organiseer uw lijst van wonderen."
             }
         },
         "video": {
             "select": {
-            "title": "Selectie",
-            "description": "Kies een wonder voor uw video's."
+                "title": "Selectie",
+                "description": "Kies een wonder voor uw video's."
             },
             "add": {
-            "title": "Ajouter",
-            "description": "Upload een nieuwe video (max. 3 per wonder)."
+                "title": "Ajouter",
+                "description": "Upload een nieuwe video (max. 3 per wonder)."
             }
         }
     },
@@ -1548,5 +1548,19 @@
             "title": "Gestructureerde Video's, Geen Ruis",
             "description": "Bekijk kwalitatieve, georganiseerde en relevante video's. Geen uren meer door content hoeven te zoeken."
         }
+    },
+    "cookies": {
+        "title": "Cookie-instellingen",
+        "description": "Wij gebruiken cookies om uw surfervaring te verbeteren, gepersonaliseerde inhoud aan te bieden en ons verkeer te analyseren. Door op \"Alles accepteren\" te klikken, stemt u in met ons gebruik van cookies.",
+        "necessary": "Noodzakelijk",
+        "necessaryDesc": "Essentieel voor het goed functioneren van de website. Kunnen niet worden uitgeschakeld.",
+        "analytics": "Analytisch",
+        "analyticsDesc": "Helpen ons te begrijpen hoe bezoekers met onze website omgaan.",
+        "marketing": "Marketing",
+        "marketingDesc": "Gebruikt om gepersonaliseerde advertenties te tonen.",
+        "acceptAll": "Alles accepteren",
+        "rejectAll": "Alles weigeren",
+        "customize": "Aanpassen",
+        "savePreferences": "Voorkeuren opslaan"
     }
 }

@@ -1548,5 +1548,19 @@
             "title": "Yapılandırılmış Videolar, Gürültü Değil",
             "description": "Kaliteli, düzenli ve ilgili videoları izleyin. Artık saatlerce içerik filtrelemeye gerek yok."
         }
+    },
+    "cookies": {
+        "title": "Çerez Ayarları",
+        "description": "Tarama deneyiminizi geliştirmek, kişiselleştirilmiş içerik sunmak ve trafiğimizi analiz etmek için çerezleri kullanıyoruz. ",
+        "necessary": "Gerekli",
+        "necessaryDesc": "Web sitesinin düzgün çalışması için gereklidir. ",
+        "analytics": "Analitik",
+        "analyticsDesc": "Ziyaretçilerin web sitemizle nasıl etkileşimde bulunduğunu anlamamıza yardımcı olun.",
+        "marketing": "Pazarlama",
+        "marketingDesc": "Kişiselleştirilmiş reklamlar sunmak için kullanılır.",
+        "acceptAll": "Tümünü Kabul Et",
+        "rejectAll": "Tümünü Reddet",
+        "customize": "Özelleştirmek",
+        "savePreferences": "Tercihleri ​​Kaydet"
     }
 }

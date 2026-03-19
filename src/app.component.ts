@@ -3,12 +3,16 @@ import { Component, effect, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PrimeNG } from 'primeng/config';
 import { TranslationService } from './app/core/services/translation.service';
+import { CookieConsentComponent } from './app/core/shared/components/cookie-consent/cookie-consent.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, RouterModule],
-    template: `<router-outlet></router-outlet>`,
+    imports: [CommonModule, RouterModule, CookieConsentComponent],
+    template: `
+        <router-outlet></router-outlet>
+        <p-cookie-consent></p-cookie-consent>
+    `,
 })
 export class AppComponent {
     private translationService = inject(TranslationService);

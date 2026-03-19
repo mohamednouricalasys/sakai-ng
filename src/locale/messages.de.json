@@ -1492,36 +1492,36 @@
             }
         }
     },
-    "tour":{
+    "tour": {
         "skip": "Passant",
         "gallery": {
             "search": {
-            "title": "Recherche",
-            "description": "Suchen Sie nach Videos von Ihrem Namen oder Ihrem Freund."
+                "title": "Recherche",
+                "description": "Suchen Sie nach Videos von Ihrem Namen oder Ihrem Freund."
             },
             "filters": {
-            "title": "Filter",
-            "description": "Affinez für Sport, zahlt sich aus."
+                "title": "Filter",
+                "description": "Affinez für Sport, zahlt sich aus."
             }
         },
         "prodige": {
             "create": {
-            "title": "Creer un prodige",
-            "description": "Fügen Sie ein neues Sportlerprofil hinzu."
+                "title": "Creer un prodige",
+                "description": "Fügen Sie ein neues Sportlerprofil hinzu."
             },
             "controls": {
-            "title": "Tri et affichage",
-            "description": "Organisieren Sie Ihre Wunderliste."
+                "title": "Tri et affichage",
+                "description": "Organisieren Sie Ihre Wunderliste."
             }
         },
         "video": {
             "select": {
-            "title": "Auswahl",
-            "description": "Wählen Sie ein Wunder, um diese Videos zu sehen."
+                "title": "Auswahl",
+                "description": "Wählen Sie ein Wunder, um diese Videos zu sehen."
             },
             "add": {
-            "title": "Ajouter",
-            "description": "Laden Sie ein neues Video hoch (maximal 3 pro Person)."
+                "title": "Ajouter",
+                "description": "Laden Sie ein neues Video hoch (maximal 3 pro Person)."
             }
         }
     },
@@ -1548,5 +1548,19 @@
             "title": "Strukturierte Videos, kein Rauschen",
             "description": "Sehen Sie qualitativ hochwertige, organisierte und relevante Videos. Kein stundenlangem Durchsuchen von Inhalten mehr."
         }
+    },
+    "cookies": {
+        "title": "Cookie-Einstellungen",
+        "description": "Wir verwenden Cookies, um Ihr Surferlebnis zu verbessern, personalisierte Inhalte anzubieten und unseren Datenverkehr zu analysieren. Durch Klicken auf \"Alle akzeptieren\" stimmen Sie unserer Verwendung von Cookies zu.",
+        "necessary": "Notwendig",
+        "necessaryDesc": "Wesentlich für das ordnungsgemäße Funktionieren der Website. Können nicht deaktiviert werden.",
+        "analytics": "Analytik",
+        "analyticsDesc": "Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.",
+        "marketing": "Marketing",
+        "marketingDesc": "Werden verwendet, um personalisierte Werbung zu liefern.",
+        "acceptAll": "Alle akzeptieren",
+        "rejectAll": "Alle ablehnen",
+        "customize": "Anpassen",
+        "savePreferences": "Einstellungen speichern"
     }
 }

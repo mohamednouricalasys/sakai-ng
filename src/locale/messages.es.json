@@ -1511,36 +1511,36 @@
             }
         }
     },
-    "tour":{
+    "tour": {
         "skip": "Pasador",
         "gallery": {
             "search": {
-            "title": "Rebuscado",
-            "description": "Busque vídeos por nombre o palabra clave."
+                "title": "Rebuscado",
+                "description": "Busque vídeos por nombre o palabra clave."
             },
             "filters": {
-            "title": "Filtros",
-            "description": "Affinez par sport, paga nuestras etiquetas."
+                "title": "Filtros",
+                "description": "Affinez par sport, paga nuestras etiquetas."
             }
         },
         "prodige": {
             "create": {
-            "title": "Créer un prodigio",
-            "description": "Agregue un nuevo perfil de atleta."
+                "title": "Créer un prodigio",
+                "description": "Agregue un nuevo perfil de atleta."
             },
             "controls": {
-            "title": "Tri y cartel",
-            "description": "Organisez votre liste de prodiges."
+                "title": "Tri y cartel",
+                "description": "Organisez votre liste de prodiges."
             }
         },
         "video": {
             "select": {
-            "title": "Selección",
-            "description": "Elija un prodigio para ver sus vídeos."
+                "title": "Selección",
+                "description": "Elija un prodigio para ver sus vídeos."
             },
             "add": {
-            "title": "Ajouter",
-            "description": "Sube un nuevo vídeo (máximo 3 por prodige)."
+                "title": "Ajouter",
+                "description": "Sube un nuevo vídeo (máximo 3 por prodige)."
             }
         }
     },
@@ -1567,5 +1567,19 @@
             "title": "Vídeos Estructurados, No Ruido",
             "description": "Mira vídeos de calidad, organizados y relevantes. Ya no necesitas filtrar horas de contenido."
         }
+    },
+    "cookies": {
+        "title": "Configuración de cookies",
+        "description": "Utilizamos cookies para mejorar su experiencia de navegación, ofrecer contenido personalizado y analizar nuestro tráfico. Al hacer clic en \"Aceptar todo\", consiente nuestro uso de cookies.",
+        "necessary": "Necesarias",
+        "necessaryDesc": "Esenciales para el correcto funcionamiento del sitio. No se pueden desactivar.",
+        "analytics": "Analíticas",
+        "analyticsDesc": "Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio.",
+        "marketing": "Marketing",
+        "marketingDesc": "Se utilizan para mostrar anuncios personalizados.",
+        "acceptAll": "Aceptar todo",
+        "rejectAll": "Rechazar todo",
+        "customize": "Personalizar",
+        "savePreferences": "Guardar preferencias"
     }
 }

@@ -1548,5 +1548,19 @@
             "title": "结构化视频，而非噪音",
             "description": "观看高质量、有组织且相关的视频。不再需要筛选数小时的内容。"
         }
+    },
+    "cookies": {
+        "title": "Cookie 设置",
+        "description": "我们使用 cookie 来增强您的浏览体验、提供个性化内容并分析我们的流量。",
+        "necessary": "必要的",
+        "necessaryDesc": "对于网站正常运行至关重要。",
+        "analytics": "分析",
+        "analyticsDesc": "帮助我们了解访问者如何与我们的网站互动。",
+        "marketing": "营销",
+        "marketingDesc": "用于投放个性化广告。",
+        "acceptAll": "全部接受",
+        "rejectAll": "全部拒绝",
+        "customize": "定制",
+        "savePreferences": "保存首选项"
     }
 }

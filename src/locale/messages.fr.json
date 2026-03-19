@@ -1512,5 +1512,19 @@
             "title": "Des Vidéos Structurées, Pas du Bruit",
             "description": "Visionnez des vidéos de qualité, organisées et pertinentes. Plus besoin de trier des heures de contenu."
         }
+    },
+    "cookies": {
+        "title": "Paramètres des cookies",
+        "description": "Nous utilisons des cookies pour améliorer votre expérience de navigation, proposer du contenu personnalisé et analyser notre trafic. En cliquant sur \"Tout accepter\", vous consentez à notre utilisation des cookies.",
+        "necessary": "Nécessaires",
+        "necessaryDesc": "Essentiels au bon fonctionnement du site. Ne peuvent pas être désactivés.",
+        "analytics": "Analytiques",
+        "analyticsDesc": "Nous aident à comprendre comment les visiteurs interagissent avec notre site.",
+        "marketing": "Marketing",
+        "marketingDesc": "Utilisés pour diffuser des publicités personnalisées.",
+        "acceptAll": "Tout accepter",
+        "rejectAll": "Tout refuser",
+        "customize": "Personnaliser",
+        "savePreferences": "Enregistrer les préférences"
     }
 }

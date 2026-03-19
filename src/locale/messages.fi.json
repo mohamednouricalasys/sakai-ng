@@ -1548,5 +1548,19 @@
             "title": "Jäsennellyt Videot, Ei Kohinaa",
             "description": "Katso laadukkaita, järjestettyjä ja olennaisia videoita. Ei tarvitse enää selata tuntikausien sisältöä."
         }
+    },
+    "cookies": {
+        "title": "Evästeasetukset",
+        "description": "Käytämme evästeitä parantaaksemme selauskokemustasi, tarjotaksemme personoitua sisältöä ja analysoidaksemme liikennettämme. ",
+        "necessary": "Välttämätön",
+        "necessaryDesc": "Tärkeää, jotta sivusto toimii kunnolla. ",
+        "analytics": "Analytics",
+        "analyticsDesc": "Auta meitä ymmärtämään, kuinka kävijät ovat vuorovaikutuksessa verkkosivustomme kanssa.",
+        "marketing": "Markkinointi",
+        "marketingDesc": "Käytetään räätälöityjen mainosten toimittamiseen.",
+        "acceptAll": "Hyväksy kaikki",
+        "rejectAll": "Hylkää kaikki",
+        "customize": "Mukauta",
+        "savePreferences": "Tallenna asetukset"
     }
 }
