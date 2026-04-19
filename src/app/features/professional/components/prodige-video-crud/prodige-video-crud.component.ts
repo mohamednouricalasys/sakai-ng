@@ -32,6 +32,7 @@ import { FileItem } from '../../../../core/interfaces/file-Item.interface';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../../core/services/user.service';
 import { GuidedTourService } from '../../../../core/services/guided-tour.service';
+import { ImpersonationService } from '../../../../core/services/impersonation.service';
 
 @Component({
     selector: 'app-prodige-video-crud',
@@ -98,6 +99,7 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
     private userService = inject(UserService);
     private route = inject(ActivatedRoute);
     private tourService = inject(GuidedTourService);
+    private impersonationService = inject(ImpersonationService);
 
     constructor(private cdr: ChangeDetectorRef) {}
 
@@ -205,8 +207,10 @@ export class ProdigeVideoCrudComponent implements OnInit, AfterViewInit, OnDestr
 
     private loadProdiges() {
         this.loading.set(true);
-        const profile = this.userService.getProfile();
-        this.prodigeService.getProdigiesByUserId(profile?.id!).subscribe({
+        // Use viewAsUserId if admin is viewing as another user, otherwise use current user's profile
+        const viewAsUserId = this.impersonationService.viewAsUserId();
+        const userId = viewAsUserId || this.userService.getProfile()?.id;
+        this.prodigeService.getProdigiesByUserId(userId!).subscribe({
             next: (data) => {
                 this.prodiges.set(data);
                 if (data && data.length > 0) {

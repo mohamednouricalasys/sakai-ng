@@ -4,12 +4,14 @@ import { RouterModule } from '@angular/router';
 import { PrimeNG } from 'primeng/config';
 import { TranslationService } from './app/core/services/translation.service';
 import { CookieConsentComponent } from './app/core/shared/components/cookie-consent/cookie-consent.component';
+import { ImpersonationBannerComponent } from './app/layout/component/impersonation-banner/impersonation-banner.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, RouterModule, CookieConsentComponent],
+    imports: [CommonModule, RouterModule, CookieConsentComponent, ImpersonationBannerComponent],
     template: `
+        <app-impersonation-banner></app-impersonation-banner>
         <router-outlet></router-outlet>
         <p-cookie-consent></p-cookie-consent>
     `,

@@ -35,6 +35,7 @@ import { ProdigeStore } from './prodige-store';
 import { UserService } from '../../../../core/services/user.service';
 import { Router } from '@angular/router';
 import { GuidedTourService } from '../../../../core/services/guided-tour.service';
+import { ImpersonationService } from '../../../../core/services/impersonation.service';
 
 @Component({
     selector: 'app-prodige-crud',
@@ -105,6 +106,10 @@ export class ProdigeCrudComponent implements OnInit, AfterViewInit {
     private cdr = inject(ChangeDetectorRef);
     private router = inject(Router);
     private tourService = inject(GuidedTourService);
+    private impersonationService = inject(ImpersonationService);
+
+    // Expose impersonation state for template
+    readonly isViewingAsOther = this.impersonationService.isImpersonating;
 
     // Properties for DataView layout selection
     layout: 'list' | 'grid' = 'list';
@@ -155,7 +160,10 @@ export class ProdigeCrudComponent implements OnInit, AfterViewInit {
     loadData() {
         const callbacks = this.getApiCallbacks();
 
-        ProdigeApiHelper.loadProdigies(this.prodigeService, this.userService, this.translationService, this.messageService, callbacks).subscribe({
+        // If viewing as another user (admin impersonation), use their user ID
+        const viewAsUserId = this.impersonationService.viewAsUserId();
+
+        ProdigeApiHelper.loadProdigies(this.prodigeService, this.userService, this.translationService, this.messageService, callbacks, viewAsUserId).subscribe({
             next: (data) => {
                 this.store.setProdigies(data);
             },

@@ -35,6 +35,10 @@ export class AuthService {
         return this.keycloak.isUserInRole('moderator');
     }
 
+    isAdmin(): boolean {
+        return this.keycloak.isUserInRole('admin');
+    }
+
     hasRole(role: string): boolean {
         return this.keycloak.isUserInRole(role);
     }

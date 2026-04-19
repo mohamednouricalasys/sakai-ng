@@ -5,7 +5,8 @@
         "myProdigies": "Mes prodiges",
         "myVideos": "Mes vidéos",
         "moderation": "Modération",
-        "subscription": "Abonnement"
+        "subscription": "Abonnement",
+        "adminUsers": "Gestion des utilisateurs"
     },
     "shared": {
         "actions": {
@@ -323,6 +324,42 @@
         }
     },
     "admin": {
+        "users": {
+            "title": "Gestion des utilisateurs",
+            "search": {
+                "placeholder": "Rechercher par nom d'utilisateur, email ou nom..."
+            },
+            "table": {
+                "username": "Nom d'utilisateur",
+                "email": "Email",
+                "name": "Nom",
+                "roles": "Rôles",
+                "status": "Statut",
+                "created": "Créé",
+                "actions": "Actions"
+            },
+            "actions": {
+                "impersonate": "Voir en tant que"
+            },
+            "pagination": "Affichage de {first} à {last} sur {totalRecords} utilisateurs",
+            "empty": "Aucun utilisateur trouvé",
+            "emailVerified": "Email vérifié",
+            "confirm": {
+                "impersonate": "Voir les données de l'utilisateur \"{username}\" ? Vous verrez ses prodiges et vidéos."
+            },
+            "impersonate": {
+                "title": "Voir en tant qu'utilisateur"
+            },
+            "messages": {
+                "loadError": "Échec du chargement des utilisateurs",
+                "impersonationStarted": "Consultation en tant que {username}",
+                "impersonationError": "Échec de la consultation en tant qu'utilisateur"
+            }
+        },
+        "impersonation": {
+            "banner": "Consultation des données de",
+            "stop": "Quitter le mode consultation"
+        },
         "video": {
             "moderation": {
                 "title": "Modération des Vidéos",

@@ -1,0 +1,84 @@
+<!-- Header -->
+<div class="flex justify-between items-center mb-4">
+    <h1 class="text-2xl font-bold">{{ 'admin.users.title' | translate }}</h1>
+</div>
+
+<!-- Search -->
+<div class="card mb-4">
+    <div class="flex flex-row gap-4">
+        <div class="flex-1">
+            <span class="p-input-icon-left w-full flex flex-row items-center">
+                <i class="pi pi-search pr-2"></i>
+                <input pInputText type="text" [(ngModel)]="searchTerm" [placeholder]="'admin.users.search.placeholder' | translate" (input)="onSearchChange()" class="w-full" />
+            </span>
+        </div>
+    </div>
+</div>
+
+<!-- Users Table -->
+<div class="card">
+    <p-table
+        [value]="users()"
+        [paginator]="true"
+        [rows]="pageSize"
+        [totalRecords]="totalRecords()"
+        [lazy]="true"
+        [loading]="loading()"
+        (onLazyLoad)="onPageChange($event)"
+        [first]="first"
+        [rowsPerPageOptions]="[10, 20, 50]"
+        [showCurrentPageReport]="true"
+        [currentPageReportTemplate]="'admin.users.pagination' | translate"
+        styleClass="p-datatable-sm"
+    >
+        <ng-template #header>
+            <tr>
+                <th>{{ 'admin.users.table.username' | translate }}</th>
+                <th>{{ 'admin.users.table.email' | translate }}</th>
+                <th>{{ 'admin.users.table.name' | translate }}</th>
+                <th>{{ 'admin.users.table.roles' | translate }}</th>
+                <th>{{ 'admin.users.table.status' | translate }}</th>
+                <th>{{ 'admin.users.table.created' | translate }}</th>
+                <th class="text-center">{{ 'admin.users.table.actions' | translate }}</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-user>
+            <tr>
+                <td>
+                    <span class="font-medium">{{ user.username }}</span>
+                </td>
+                <td>
+                    <span class="text-sm">{{ user.email }}</span>
+                    <i *ngIf="user.emailVerified" class="pi pi-check-circle text-green-500 ml-1" [title]="'admin.users.emailVerified' | translate"></i>
+                </td>
+                <td>{{ user.firstName }} {{ user.lastName }}</td>
+                <td>
+                    <div class="flex flex-wrap gap-1">
+                        <p-tag *ngFor="let role of user.roles" [value]="role" [severity]="getRoleSeverity(role)" class="text-xs" />
+                    </div>
+                </td>
+                <td>
+                    <p-tag *ngIf="user.enabled" value="Active" severity="success" />
+                    <p-tag *ngIf="!user.enabled" value="Disabled" severity="danger" />
+                </td>
+                <td>{{ formatDate(user.createdTimestamp) }}</td>
+                <td class="text-center">
+                    <p-button icon="pi pi-user" [label]="'admin.users.actions.impersonate' | translate" [outlined]="true" size="small" (onClick)="impersonateUser(user)" [loading]="impersonating()" [disabled]="impersonating()" />
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template #emptymessage>
+            <tr>
+                <td colspan="7" class="text-center p-4">
+                    <div class="flex flex-col items-center gap-2">
+                        <i class="pi pi-users text-4xl text-gray-300"></i>
+                        <span class="text-gray-500">{{ 'admin.users.empty' | translate }}</span>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-confirmDialog [style]="{ width: '450px' }" />
+<p-toast />

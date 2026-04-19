@@ -47,6 +47,7 @@ export class ProdigeApiHelper {
 
     /**
      * Loads prodigies with error handling and loading states
+     * @param viewAsUserId Optional user ID to view prodigies as (for admin impersonation)
      */
     static loadProdigies(
         prodigeService: ProdigeService,
@@ -54,11 +55,13 @@ export class ProdigeApiHelper {
         translationService: TranslationService,
         messageService: MessageService,
         callbacks: Pick<ApiCallbacks, 'onLoadingStart' | 'onLoadingEnd' | 'onError' | 'onSuccess'>,
+        viewAsUserId?: string,
     ): Observable<Prodige[]> {
         callbacks.onLoadingStart();
 
-        const profile = userService.getProfile();
-        return prodigeService.getProdigiesByUserId(profile?.id!).pipe(
+        // Use viewAsUserId if provided (admin viewing as another user), otherwise use current user's profile
+        const userId = viewAsUserId || userService.getProfile()?.id;
+        return prodigeService.getProdigiesByUserId(userId!).pipe(
             catchError((error) => {
                 console.error('Error loading prodigies:', error);
                 callbacks.onError('Failed to load prodigies');

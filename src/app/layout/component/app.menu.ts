@@ -44,10 +44,19 @@ export class AppMenu {
 
         // Add moderation only for moderators
         if (this.authService.isModerator()) {
-            items.splice(3, 0, {
+            items.push({
                 label: this.translationService.translate('nav.moderation'),
                 icon: 'pi pi-fw pi-check-circle',
                 routerLink: ['/professional/moderation'],
+            });
+        }
+
+        // Add admin users management for admins
+        if (this.authService.isAdmin()) {
+            items.push({
+                label: this.translationService.translate('nav.adminUsers'),
+                icon: 'pi pi-fw pi-users',
+                routerLink: ['/professional/admin-users'],
             });
         }
 

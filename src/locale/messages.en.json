@@ -5,7 +5,8 @@
         "myProdigies": "My prodigies",
         "myVideos": "My videos",
         "moderation": "Moderation",
-        "subscription": "Subscription"
+        "subscription": "Subscription",
+        "adminUsers": "User Management"
     },
     "shared": {
         "actions": {
@@ -323,6 +324,42 @@
         }
     },
     "admin": {
+        "users": {
+            "title": "User Management",
+            "search": {
+                "placeholder": "Search by username, email or name..."
+            },
+            "table": {
+                "username": "Username",
+                "email": "Email",
+                "name": "Name",
+                "roles": "Roles",
+                "status": "Status",
+                "created": "Created",
+                "actions": "Actions"
+            },
+            "actions": {
+                "impersonate": "View As"
+            },
+            "pagination": "Showing {first} to {last} of {totalRecords} users",
+            "empty": "No users found",
+            "emailVerified": "Email verified",
+            "confirm": {
+                "impersonate": "View data as user \"{username}\"? You will see their prodigies and videos."
+            },
+            "impersonate": {
+                "title": "View As User"
+            },
+            "messages": {
+                "loadError": "Failed to load users",
+                "impersonationStarted": "Now viewing as {username}",
+                "impersonationError": "Failed to start viewing as user"
+            }
+        },
+        "impersonation": {
+            "banner": "Viewing data as",
+            "stop": "Exit View Mode"
+        },
         "video": {
             "moderation": {
                 "title": "Video moderation",
