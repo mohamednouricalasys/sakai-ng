@@ -472,6 +472,14 @@
         "empty": {
             "title": "还没有神童",
             "description": "创建你的第一个神童以开始"
+        },
+        "uploadInvite": {
+            "title": "神童已创建！",
+            "heading": "添加您的第一个视频",
+            "message": "您的神童「{name}」已成功创建。视频可以帮助招聘人员发现人才。您想现在上传一个吗？",
+            "hint": "每个神童最多可以上传3个视频。",
+            "uploadNow": "上传视频",
+            "later": "稍后"
         }
     },
     "video": {

@@ -472,6 +472,14 @@
         "empty": {
             "title": "Nog geen wonderkinderen",
             "description": "Creëer je eerste wonderkind om aan de slag te gaan"
+        },
+        "uploadInvite": {
+            "title": "Wonderkind aangemaakt!",
+            "heading": "Voeg je eerste video toe",
+            "message": "Je wonderkind \"{name}\" is succesvol aangemaakt. Video's helpen recruiters talent te ontdekken. Wil je er nu een uploaden?",
+            "hint": "Je kunt maximaal 3 video's per wonderkind uploaden.",
+            "uploadNow": "Video uploaden",
+            "later": "Later"
         }
     },
     "video": {

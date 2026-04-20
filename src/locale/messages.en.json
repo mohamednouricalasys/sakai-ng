@@ -522,6 +522,14 @@
         "empty": {
             "title": "No prodigies yet",
             "description": "Create your first prodigy to get started"
+        },
+        "uploadInvite": {
+            "title": "Prodigy Created!",
+            "heading": "Add your first video",
+            "message": "Your prodigy \"{name}\" has been created successfully. Videos help recruiters discover talent - would you like to upload one now?",
+            "hint": "You can upload up to 3 videos per prodigy.",
+            "uploadNow": "Upload Video",
+            "later": "Later"
         }
     },
     "video": {

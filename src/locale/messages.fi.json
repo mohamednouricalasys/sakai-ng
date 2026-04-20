@@ -472,6 +472,14 @@
         "empty": {
             "title": "Ei vielä ihmelapsia",
             "description": "Aloita luomalla ensimmäinen ihmelapsesi"
+        },
+        "uploadInvite": {
+            "title": "Ihmelapsi luotu!",
+            "heading": "Lisää ensimmäinen videosi",
+            "message": "Ihmelapsesi \"{name}\" on luotu onnistuneesti. Videot auttavat rekrytoijia löytämään kykyjä. Haluatko ladata yhden nyt?",
+            "hint": "Voit ladata enintään 3 videota per ihmelapsi.",
+            "uploadNow": "Lataa video",
+            "later": "Myöhemmin"
         }
     },
     "video": {

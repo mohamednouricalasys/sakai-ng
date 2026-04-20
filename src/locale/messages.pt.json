@@ -472,6 +472,14 @@
         "empty": {
             "title": "Ainda não há prodígios",
             "description": "Crie seu primeiro prodígio para começar"
+        },
+        "uploadInvite": {
+            "title": "Prodígio criado!",
+            "heading": "Adicione seu primeiro vídeo",
+            "message": "Seu prodígio \"{name}\" foi criado com sucesso. Os vídeos ajudam os recrutadores a descobrir talentos. Gostaria de enviar um agora?",
+            "hint": "Você pode enviar até 3 vídeos por prodígio.",
+            "uploadNow": "Enviar vídeo",
+            "later": "Mais tarde"
         }
     },
     "video": {

@@ -511,6 +511,14 @@
         "empty": {
             "title": "Aún no hay prodigios",
             "description": "Crea tu primer prodigio para comenzar"
+        },
+        "uploadInvite": {
+            "title": "¡Prodigio creado!",
+            "heading": "Añade tu primer video",
+            "message": "Tu prodigio \"{name}\" se ha creado correctamente. Los videos ayudan a los reclutadores a descubrir talentos. ¿Te gustaría subir uno ahora?",
+            "hint": "Puedes subir hasta 3 videos por prodigio.",
+            "uploadNow": "Subir video",
+            "later": "Más tarde"
         }
     },
     "video": {

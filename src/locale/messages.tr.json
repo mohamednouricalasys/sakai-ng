@@ -472,6 +472,14 @@
         "empty": {
             "title": "Henüz harika bir şey yok",
             "description": "Başlamak için ilk dahinizi yaratın"
+        },
+        "uploadInvite": {
+            "title": "Dahi oluşturuldu!",
+            "heading": "İlk videonuzu ekleyin",
+            "message": "Dahiniz \"{name}\" başarıyla oluşturuldu. Videolar, işe alımcıların yetenekleri keşfetmesine yardımcı olur. Şimdi bir tane yüklemek ister misiniz?",
+            "hint": "Her dahi için en fazla 3 video yükleyebilirsiniz.",
+            "uploadNow": "Video yükle",
+            "later": "Daha sonra"
         }
     },
     "video": {

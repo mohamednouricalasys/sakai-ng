@@ -69,6 +69,9 @@ import { ImpersonationService } from '../../../../core/services/impersonation.se
 })
 export class ProdigeCrudComponent implements OnInit, AfterViewInit {
     prodigeDialog: boolean = false;
+    uploadVideoInviteDialog: boolean = false;
+    newlyCreatedProdigeId: string | null = null;
+    newlyCreatedProdigeName: string | null = null;
 
     // Use a store instance for state management
     private readonly store = inject(ProdigeStore);
@@ -297,11 +300,12 @@ export class ProdigeCrudComponent implements OnInit, AfterViewInit {
         this.store.setSaving(true);
 
         const callbacks = this.getApiCallbacks();
+        const isNewProdige = !this.prodige.id;
 
         ProdigeApiHelper.saveProdige(this.prodige, this.prodigeService, this.userService, this.translationService, this.messageService, callbacks).subscribe({
             next: (savedProdige) => {
                 if (savedProdige) {
-                    if (this.prodige.id) {
+                    if (!isNewProdige) {
                         this.store.updateProdige(savedProdige);
                     } else {
                         this.store.addProdige(savedProdige);
@@ -310,16 +314,38 @@ export class ProdigeCrudComponent implements OnInit, AfterViewInit {
                     this.messageService.add({
                         severity: 'success',
                         summary: this.t('shared.common.success'),
-                        detail: this.prodige.id ? this.t('procrud.messages.prodigeUpdated') : this.t('procrud.messages.prodigeCreated'),
+                        detail: isNewProdige ? this.t('procrud.messages.prodigeCreated') : this.t('procrud.messages.prodigeUpdated'),
                         life: 3000,
                     });
 
                     this.prodigeDialog = false;
                     this.prodige = {};
                     setTimeout(() => this.dv?.cd?.detectChanges?.(), 0);
+
+                    // Show upload video invitation for newly created Prodigies
+                    if (isNewProdige && savedProdige.id) {
+                        this.newlyCreatedProdigeId = savedProdige.id;
+                        this.newlyCreatedProdigeName = savedProdige.nom || '';
+                        this.uploadVideoInviteDialog = true;
+                    }
                 }
             },
         });
+    }
+
+    goToUploadVideo() {
+        this.uploadVideoInviteDialog = false;
+        if (this.newlyCreatedProdigeId) {
+            this.router.navigate(['/professional/videos', this.newlyCreatedProdigeId]);
+        }
+        this.newlyCreatedProdigeId = null;
+        this.newlyCreatedProdigeName = null;
+    }
+
+    skipUploadVideo() {
+        this.uploadVideoInviteDialog = false;
+        this.newlyCreatedProdigeId = null;
+        this.newlyCreatedProdigeName = null;
     }
 
     getSelectedCountry(): Country | undefined {

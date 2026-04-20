@@ -117,3 +117,60 @@
         }
     }
 }
+
+// Upload Video Invitation Dialog
+.app-upload-invite {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.app-upload-invite-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--app-primary), var(--app-primary-dark, var(--app-primary)));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(var(--app-primary-rgb, 99, 102, 241), 0.3);
+
+    i {
+        font-size: 2rem;
+        color: #fff;
+    }
+}
+
+.app-upload-invite-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    margin: 0 0 0.75rem;
+}
+
+.app-upload-invite-message {
+    font-size: 0.95rem;
+    color: var(--app-text-secondary);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.app-upload-invite-hint {
+    font-size: 0.85rem;
+    color: var(--app-text-muted);
+    margin: 0;
+    padding: 0.75rem 1rem;
+    background: var(--app-bg-secondary);
+    border-radius: var(--app-radius-md);
+    display: inline-block;
+
+    &::before {
+        content: '\e935'; // pi-info-circle
+        font-family: 'primeicons';
+        margin-right: 0.5rem;
+        color: var(--app-primary);
+    }
+}

@@ -522,6 +522,14 @@
         "empty": {
             "title": "Aucun prodige pour le moment",
             "description": "Créez votre premier prodige pour commencer"
+        },
+        "uploadInvite": {
+            "title": "Prodige créé !",
+            "heading": "Ajoutez votre première vidéo",
+            "message": "Votre prodige \"{name}\" a été créé avec succès. Les vidéos aident les recruteurs à découvrir les talents - voulez-vous en téléverser une maintenant ?",
+            "hint": "Vous pouvez téléverser jusqu'à 3 vidéos par prodige.",
+            "uploadNow": "Téléverser une vidéo",
+            "later": "Plus tard"
         }
     },
     "video": {

@@ -552,6 +552,47 @@
     </ng-template>
 </p-dialog>
 
+<!-- Upload Video Invitation Dialog -->
+<p-dialog
+    [(visible)]="uploadVideoInviteDialog"
+    [style]="{ width: '90vw', 'max-width': '480px' }"
+    [header]="'procrud.uploadInvite.title' | translate"
+    [modal]="true"
+    [closable]="true"
+    [closeOnEscape]="true"
+    styleClass="app-dialog-modern"
+>
+    <ng-template #content>
+        <div class="app-upload-invite">
+            <div class="app-upload-invite-icon">
+                <i class="pi pi-video"></i>
+            </div>
+            <h3 class="app-upload-invite-heading">
+                {{ 'procrud.uploadInvite.heading' | translate }}
+            </h3>
+            <p class="app-upload-invite-message">
+                {{ 'procrud.uploadInvite.message' | translate: { name: newlyCreatedProdigeName } }}
+            </p>
+            <p class="app-upload-invite-hint">
+                {{ 'procrud.uploadInvite.hint' | translate }}
+            </p>
+        </div>
+    </ng-template>
+
+    <ng-template #footer>
+        <div class="app-dialog-actions">
+            <button class="app-dialog-btn secondary" (click)="skipUploadVideo()">
+                <i class="pi pi-clock"></i>
+                {{ 'procrud.uploadInvite.later' | translate }}
+            </button>
+            <button class="app-dialog-btn primary" (click)="goToUploadVideo()">
+                <i class="pi pi-upload"></i>
+                {{ 'procrud.uploadInvite.uploadNow' | translate }}
+            </button>
+        </div>
+    </ng-template>
+</p-dialog>
+
 <p-confirmdialog [style]="{ width: '450px' }" />
 <div class="app-toast-container" aria-live="polite" aria-atomic="true">
     <p-toast />

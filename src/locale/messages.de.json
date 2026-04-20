@@ -472,6 +472,14 @@
         "empty": {
             "title": "Noch keine Wunderkinder",
             "description": "Erstellen Sie Ihr erstes Wunderkind, um loszulegen"
+        },
+        "uploadInvite": {
+            "title": "Wunderkind erstellt!",
+            "heading": "Laden Sie Ihr erstes Video hoch",
+            "message": "Ihr Wunderkind \"{name}\" wurde erfolgreich erstellt. Videos helfen Recruitern, Talente zu entdecken. Möchten Sie jetzt eines hochladen?",
+            "hint": "Sie können bis zu 3 Videos pro Wunderkind hochladen.",
+            "uploadNow": "Video hochladen",
+            "later": "Später"
         }
     },
     "video": {
