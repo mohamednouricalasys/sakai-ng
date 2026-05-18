@@ -10,21 +10,16 @@
                 <p class="app-hero-subtitle hero-subtitle">{{ 'videos.gallery.subtitle' | translate }}</p>
             </div>
         </div>
+    </div>
+</div>
 
-        <!-- @if (credits(); as creditInfo) {
-            <div class="app-credits-badge">
-                <div class="app-credits-icon">
-                    <i class="pi pi-star-fill"></i>
-                </div>
-                <div class="app-credits-info">
-                    <span class="app-credits-label">{{ 'subscription.activeSubscription.creditsLabel' | translate }}</span>
-                    <span class="app-credits-value">{{ creditInfo.totalCredits }} / {{ creditInfo.monthlyAllocation }}</span>
-                </div>
-                <div class="app-credits-bar">
-                    <div class="app-credits-fill" [style.width.%]="(creditInfo.totalCredits / creditInfo.monthlyAllocation) * 100"></div>
-                </div>
-            </div>
-        } -->
+<!-- Guest Login Banner -->
+<div *ngIf="!isAuthenticated" class="guest-banner">
+    <div class="guest-banner-content">
+        <i class="pi pi-lock"></i>
+        <span>{{ 'videos.guest.bannerText' | translate }}</span>
+        <button class="guest-banner-login-btn" (click)="login()">{{ 'videos.guest.loginButton' | translate }}</button>
+        <button class="guest-banner-register-btn" (click)="register()">{{ 'videos.guest.registerButton' | translate }}</button>
     </div>
 </div>
 
@@ -72,6 +67,7 @@
                 />
 
                 <p-select
+                    *ngIf="isAuthenticated"
                     [(ngModel)]="selectedVideoFilterType"
                     [options]="videoFilterOptions"
                     optionLabel="label"
@@ -154,10 +150,10 @@
 <div *ngIf="!loading()" class="app-gallery-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" [scrollWindow]="isMobile" (scrolled)="onScroll($event)">
     <div *ngIf="videos().length > 0" class="app-videos-grid">
         <div *ngFor="let video of videos(); trackBy: trackByVideoId" class="app-video-card-wrapper">
-            <div class="app-video-card">
+            <div class="app-video-card" [class.guest-mode-card]="!isAuthenticated">
                 <!-- Video Player -->
-                <div class="app-video-player-container">
-                    <video #videoElement [attr.id]="'video-' + video.id" class="video-js vjs-default-skin" controls preload="metadata" [src]="getVideoThumbnail(video)"></video>
+                <div class="app-video-player-container" (contextmenu)="$event.preventDefault()">
+                    <video #videoElement [attr.id]="'video-' + video.id" class="video-js vjs-default-skin" controls preload="metadata" controlsList="nodownload" [src]="getVideoThumbnail(video)"></video>
 
                     <!-- Video Overlay Badge -->
                     <div *ngIf="video?.prodige?.sport" class="app-video-sport-overlay">
@@ -170,16 +166,16 @@
                 <div class="app-card-content">
                     <!-- Athlete Header -->
                     <div class="app-athlete-header">
-                        <div class="app-athlete-avatar">
+                        <div class="app-athlete-avatar" [class.guest-blur]="!isAuthenticated">
                             {{ (video?.prodige?.nom || 'A').charAt(0).toUpperCase() }}
                         </div>
                         <div class="app-athlete-info">
-                            <h3 class="app-athlete-name" [title]="video?.titre">
+                            <h3 class="app-athlete-name" [class.guest-blur]="!isAuthenticated" [title]="isAuthenticated ? video?.titre : ''">
                                 {{ formatVideoTitle(video?.titre) }}
                             </h3>
                             <div class="app-athlete-meta">
-                                <span class="app-athlete-prodige">{{ video?.prodige?.nom || 'Unknown' }}</span>
-                                <span *ngIf="video?.prodige?.pays" class="app-athlete-country">
+                                <span class="app-athlete-prodige" [class.guest-blur]="!isAuthenticated">{{ video?.prodige?.nom || 'Unknown' }}</span>
+                                <span *ngIf="video?.prodige?.pays" class="app-athlete-country" [class.guest-blur]="!isAuthenticated">
                                     {{ getCountryDisplay(video.prodige.pays) }}
                                 </span>
                             </div>
@@ -187,13 +183,13 @@
                         <div class="app-video-date-badge">
                             {{ video?.dateCreation | date: 'MMM d' }}
                         </div>
-                        <button class="app-info-btn" (click)="openInfoDialog(video)" [title]="'videos.info.tooltip' | translate">
-                            <i class="pi pi-info-circle"></i>
+                        <button class="app-info-btn" [class.guest-locked]="!isAuthenticated" (click)="openInfoDialog(video)" [title]="isAuthenticated ? ('videos.info.tooltip' | translate) : ('videos.guest.loginButton' | translate)">
+                            <i [class]="isAuthenticated ? 'pi pi-info-circle' : 'pi pi-lock'"></i>
                         </button>
                     </div>
 
                     <!-- Description (always rendered for consistent height) -->
-                    <p class="app-video-description">
+                    <p class="app-video-description" [class.guest-blur]="!isAuthenticated">
                         {{ video?.description ? formatVideoDescription(video?.description) : '&nbsp;' }}
                     </p>
 
@@ -209,9 +205,14 @@
 
                     <!-- Contact Action -->
                     <div class="app-card-action">
-                        <button class="app-contact-btn" (click)="openContactDialog(video)">
+                        <button *ngIf="isAuthenticated" class="app-contact-btn" (click)="openContactDialog(video)">
                             <i class="pi pi-send"></i>
                             <span>{{ 'videos.contact.button' | translate }}</span>
+                            <i class="pi pi-arrow-right arrow-icon"></i>
+                        </button>
+                        <button *ngIf="!isAuthenticated" class="app-contact-btn guest-contact-btn" (click)="login()">
+                            <i class="pi pi-lock"></i>
+                            <span>{{ 'videos.guest.contactLocked' | translate }}</span>
                             <i class="pi pi-arrow-right arrow-icon"></i>
                         </button>
                     </div>
@@ -251,8 +252,8 @@
     </div>
 </div>
 
-<!-- Contact Dialog -->
-<p-dialog [(visible)]="contactDialogVisible" [modal]="true" [header]="'videos.contact.dialog.header' | translate" [style]="{ width: '380px' }" [closable]="true" [draggable]="false" [resizable]="false" styleClass="app-contact-dialog-modern">
+<!-- Contact Dialog (authenticated only) -->
+<p-dialog *ngIf="isAuthenticated" [(visible)]="contactDialogVisible" [modal]="true" [header]="'videos.contact.dialog.header' | translate" [style]="{ width: '380px' }" [closable]="true" [draggable]="false" [resizable]="false" styleClass="app-contact-dialog-modern">
     <ng-template pTemplate="content">
         <div class="app-contact-dialog-content">
             <!-- Contact Avatar -->
@@ -307,8 +308,9 @@
     </ng-template>
 </p-dialog>
 
-<!-- Video Info Dialog -->
+<!-- Video Info Dialog (authenticated only) -->
 <p-dialog
+    *ngIf="isAuthenticated"
     [(visible)]="infoDialogVisible"
     [modal]="true"
     [header]="'videos.info.dialog.header' | translate"

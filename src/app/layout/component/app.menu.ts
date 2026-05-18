@@ -24,23 +24,28 @@ export class AppMenu {
     model: MenuItem[] = [];
 
     ngOnInit() {
-        const items = [
+        const items: MenuItem[] = [
             {
                 label: this.translationService.translate('nav.gallery'),
                 icon: 'pi pi-fw pi-star',
                 routerLink: ['/professional/gallery'],
             },
-            {
-                label: this.translationService.translate('nav.myProdigies'),
-                icon: 'pi pi-fw pi-id-card',
-                routerLink: ['/professional/prodiges'],
-            },
-            {
-                label: this.translationService.translate('nav.myVideos'),
-                icon: 'pi pi-fw pi-video',
-                routerLink: ['/professional/videos'],
-            },
         ];
+
+        if (this.authService.isAuthenticated()) {
+            items.push(
+                {
+                    label: this.translationService.translate('nav.myProdigies'),
+                    icon: 'pi pi-fw pi-id-card',
+                    routerLink: ['/professional/prodiges'],
+                },
+                {
+                    label: this.translationService.translate('nav.myVideos'),
+                    icon: 'pi pi-fw pi-video',
+                    routerLink: ['/professional/videos'],
+                },
+            );
+        }
 
         // Add moderation only for moderators
         if (this.authService.isModerator()) {

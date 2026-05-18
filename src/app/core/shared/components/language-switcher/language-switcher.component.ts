@@ -26,11 +26,11 @@ export class LanguageSwitcherComponent {
         { label: '中文', value: 'zh' },
     ];
 
-    selectedLanguage = this.translationService.getCurrentLanguage();
+    // Read synchronously from localStorage to avoid the async init race condition
+    selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
 
-    onLanguageChange(event: any) {
-        this.translationService.setLanguage(event.value);
-        // Optionally reload the page to apply changes immediately
+    async onLanguageChange(event: any) {
+        await this.translationService.setLanguage(event.value);
         window.location.reload();
     }
 }

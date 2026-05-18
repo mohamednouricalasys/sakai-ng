@@ -28,8 +28,20 @@
 
         <div class="layout-topbar-menu hidden lg:block">
             <div class="layout-topbar-menu-content">
-                <!-- Profile quick action -->
-                <div class="relative">
+                <!-- Guest: login / register buttons -->
+                <ng-container *ngIf="!isLoggedIn">
+                    <button type="button" class="layout-topbar-action" (click)="login()">
+                        <i class="pi pi-sign-in"></i>
+                        <span>{{ 'auth.login' | translate }}</span>
+                    </button>
+                    <button type="button" class="layout-topbar-action" (click)="register()">
+                        <i class="pi pi-user-plus"></i>
+                        <span>{{ 'auth.register' | translate }}</span>
+                    </button>
+                </ng-container>
+
+                <!-- Authenticated: profile quick action -->
+                <div class="relative" *ngIf="isLoggedIn">
                     <!-- Desktop: overlay panel -->
                     <ng-container *ngIf="!isMobile">
                         <button type="button" class="layout-topbar-action" (click)="toggleDesktopProfile($event)">

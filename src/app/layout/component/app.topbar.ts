@@ -30,6 +30,7 @@ export class AppTopbar implements OnInit {
 
     profile?: KeycloakProfile;
     profileDisplayName?: string;
+    isLoggedIn = false;
 
     // overlay reference for desktop popup
     @ViewChild('profileOverlay') profileOverlay?: OverlayPanel;
@@ -55,14 +56,25 @@ export class AppTopbar implements OnInit {
 
     async ngOnInit(): Promise<void> {
         this.updateIsMobile();
-        try {
-            await this.userService.loadUserProfile();
-            this.profile = this.userService.getProfile();
-            this.profileDisplayName = this.getFullName(this.profile);
-            // no menu model needed for overlay panel
-        } catch (err) {
-            console.error('Failed to load user profile in topbar', err);
+        this.isLoggedIn = this.keycloakService.isLoggedIn();
+
+        if (this.isLoggedIn) {
+            try {
+                await this.userService.loadUserProfile();
+                this.profile = this.userService.getProfile();
+                this.profileDisplayName = this.getFullName(this.profile);
+            } catch (err) {
+                console.error('Failed to load user profile in topbar', err);
+            }
         }
+    }
+
+    login(): void {
+        this.keycloakService.login();
+    }
+
+    register(): void {
+        this.keycloakService.register();
     }
 
     // listen to window resize to update mobile/desktop UI

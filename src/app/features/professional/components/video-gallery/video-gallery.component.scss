@@ -1,7 +1,110 @@
 // Video Gallery Component - Minimal Component-Specific Styles
 // All reusable styles are in /assets/layout/_components.scss with app- prefix
 
-// Host - full height layout to prevent double scroll
+// ── Guest mode ──────────────────────────────────────────────────────────────
+
+.guest-banner {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-700, #1a6eb5));
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    margin: 0 0 1rem;
+
+    .guest-banner-content {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        > i {
+            color: white;
+            font-size: 1.125rem;
+        }
+
+        > span {
+            color: white;
+            font-size: 0.9375rem;
+            font-weight: 500;
+        }
+    }
+}
+
+.guest-banner-login-btn {
+    padding: 0.4375rem 1.125rem;
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.9);
+        transform: translateY(-1px);
+    }
+}
+
+.guest-banner-register-btn {
+    padding: 0.4375rem 1.125rem;
+    background: transparent;
+    color: white;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: white;
+    }
+}
+
+.guest-blur {
+    filter: blur(6px);
+    user-select: none;
+    pointer-events: none;
+}
+
+.guest-mode-card {
+    .app-athlete-avatar.guest-blur {
+        filter: blur(8px);
+    }
+}
+
+.app-info-btn.guest-locked {
+    background: var(--surface-200);
+    color: var(--text-color-secondary);
+
+    &:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: scale(1.1);
+    }
+}
+
+.guest-contact-btn {
+    background: var(--surface-100) !important;
+    color: var(--text-color-secondary) !important;
+    border: 1.5px solid var(--surface-300) !important;
+
+    &:hover {
+        background: var(--primary-color) !important;
+        color: white !important;
+        border-color: var(--primary-color) !important;
+    }
+}
+
+// ── Host - full height layout to prevent double scroll ───────────────────────
+
 :host {
     display: flex;
     flex-direction: column;

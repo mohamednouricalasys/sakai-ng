@@ -30,6 +30,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { UserService } from '../../../../core/services/user.service';
 import { User } from '../../../../core/interfaces/user.interface';
 import { VideoFilterType } from '../../../../core/enums/video-filter-type.enum';
+import { AuthService } from '../../../../../services/auth.service';
 
 @Component({
     selector: 'app-video-gallery',
@@ -62,6 +63,8 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     private videoPlayers = new Map<string, any>();
 
     user: User | undefined;
+
+    isAuthenticated = false;
 
     // Signals
     loading = signal<boolean>(false);
@@ -114,10 +117,12 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     private translationService = inject(TranslationService);
     private userService = inject(UserService);
     private tourService = inject(GuidedTourService);
+    private authService = inject(AuthService);
 
     constructor() {}
 
     async ngOnInit() {
+        this.isAuthenticated = this.authService.isAuthenticated();
         this.checkMobile();
         window.addEventListener('resize', this.resizeHandler);
 
@@ -180,6 +185,9 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
                     preload: 'metadata',
                     responsive: true,
                     fluid: true,
+                    controlBar: {
+                        downloadButton: false,
+                    },
                 };
                 const player = videojs(el.nativeElement, options);
                 this.videoPlayers.set(videoId, player);
@@ -403,7 +411,19 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
         return flag ? `${flag} ${countryCode.toUpperCase()}` : countryCode.toUpperCase();
     }
 
+    login(): void {
+        this.authService.login();
+    }
+
+    register(): void {
+        this.authService.register();
+    }
+
     openContactDialog(video: any): void {
+        if (!this.isAuthenticated) {
+            this.authService.login();
+            return;
+        }
         this.userService.getUserById(video.prodige.userId, video.id).subscribe({
             next: (data) => {
                 this.user = data;
@@ -459,6 +479,10 @@ export class VideoGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     openInfoDialog(video: Video): void {
+        if (!this.isAuthenticated) {
+            this.authService.login();
+            return;
+        }
         this.infoDialogVideo = video;
         this.infoDialogVisible = true;
 

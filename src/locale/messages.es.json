@@ -1,1593 +1,1599 @@
 {
-    "nav": {
-        "profesional": "Profesión deportiva",
-        "gallery": "Galería",
-        "myProdigies": "Mis prodigios",
-        "myVideos": "Mis videos",
-        "moderation": "Moderación",
-        "subscription": "Suscripción"
+  "nav": {
+    "profesional": "Profesión deportiva",
+    "gallery": "Galería",
+    "myProdigies": "Mis prodigios",
+    "myVideos": "Mis videos",
+    "moderation": "Moderación",
+    "subscription": "Suscripción"
+  },
+  "shared": {
+    "actions": {
+      "new": "Nuevo",
+      "delete": "BORRAR",
+      "export": "Exportar",
+      "edit": "Para modificar",
+      "save": "Para salvaguardar",
+      "cancel": "Cancelar",
+      "search": "Investigar ...",
+      "add": "Agregar",
+      "confirm": "Confirmar",
+      "approve": "Aprobar",
+      "desapprove": "Desaprobar",
+      "reject": "Despedir",
+      "close": "Cerca"
     },
-    "shared": {
-        "actions": {
-            "new": "Nuevo",
-            "delete": "BORRAR",
-            "export": "Exportar",
-            "edit": "Para modificar",
-            "save": "Para salvaguardar",
-            "cancel": "Cancelar",
-            "search": "Investigar ...",
-            "add": "Agregar",
-            "confirm": "Confirmar",
-            "approve": "Aprobar",
-            "desapprove": "Desaprobar",
-            "reject": "Despedir",
-            "close": "Cerca"
-        },
-        "common": {
-            "title": "Título",
-            "url": "Url",
-            "or": "O",
-            "select": "Seleccionar",
-            "name": "Nombre",
-            "age": "Edad",
-            "description": "Descripción",
-            "actions": "Comportamiento",
-            "creationDate": "Fecha de creación",
-            "tags": "Etiquetas",
-            "required": "*",
-            "years": "años",
-            "success": "Éxito",
-            "error": "Error",
-            "warning": "Advertencia",
-            "confirmation": "Confirmación",
-            "male": "Hombre",
-            "female": "Mujer",
-            "processing": "Tratamiento en progreso ...",
-            "loading": "Cargando...",
-            "saving": "Guardando..."
-        },
-        "validation": {
-            "required": "OBLIGATORIO",
-            "nameRequired": "El nombre es obligatorio.",
-            "ageRequired": "La edad es obligatoria.",
-            "titleRequired": "El título es obligatorio.",
-            "genderRequired": "El género es obligatorio.",
-            "countryRequired": "El país es obligatorio."
-        },
-        "messages": {
-            "confirmDelete": "¿Está seguro de que desea eliminar {elemento}?",
-            "confirmDeleteMultiple": "¿Está seguro de que desea eliminar los elementos seleccionados?",
-            "itemDeleted": "{elemento} eliminado",
-            "itemsDeleted": "Elementos eliminados",
-            "itemCreated": "{elemento} creado",
-            "itemUpdated": "{elemento} actualización",
-            "validationError": "Error de validación",
-            "limitReached": "Límite alcanzado",
-            "dataLoadError": "Error al cargar datos",
-            "saveError": "Error al guardar",
-            "deleteError": "Error al eliminar"
-        }
+    "common": {
+      "title": "Título",
+      "url": "Url",
+      "or": "O",
+      "select": "Seleccionar",
+      "name": "Nombre",
+      "age": "Edad",
+      "description": "Descripción",
+      "actions": "Comportamiento",
+      "creationDate": "Fecha de creación",
+      "tags": "Etiquetas",
+      "required": "*",
+      "years": "años",
+      "success": "Éxito",
+      "error": "Error",
+      "warning": "Advertencia",
+      "confirmation": "Confirmación",
+      "male": "Hombre",
+      "female": "Mujer",
+      "processing": "Tratamiento en progreso ...",
+      "loading": "Cargando...",
+      "saving": "Guardando..."
     },
-    "landing": {
-        "home": "Inicio",
-        "features": "Características",
-        "pricing": "Precios",
-        "hero": {
-            "title": "Detecta los mejores talentos antes que nadie.",
-            "subtitle": "CAVIAR SCOUT ayuda a reclutadores, agentes y clubes a identificar, analizar y comparar jóvenes talentos mediante vídeos estructurados y datos fiables.",
-            "tagline": "Analiza menos. Decide mejor. Recluta más rápido.",
-            "button": "Acceder a los talentos",
-            "freeBadge": "ACCESO GRATUITO",
-            "freeForProfessionals": "Para reclutadores, agentes y clubes",
-            "freeHighlight": "Explora todos los perfiles y vídeos sin coste",
-            "payOnlyContact": "Pago solo para contactar a un jugador"
-        },
-        "valueProposition": {
-            "title": "Por Qué los Profesionales Nos Eligen",
-            "free": {
-                "title": "Totalmente Gratis para Profesionales",
-                "description": "Sin costes ocultos, sin suscripciones. Los profesionales del deporte tienen acceso completo sin coste alguno.",
-                "badge": "GRATIS"
-            },
-            "access": {
-                "title": "Acceso Exclusivo",
-                "description": "Conecta directamente con atletas talentosos y sus representantes."
-            },
-            "verified": {
-                "title": "Talento Verificado",
-                "description": "Todos los perfiles son revisados por expertos antes de su aprobación."
-            }
-        }
+    "validation": {
+      "required": "OBLIGATORIO",
+      "nameRequired": "El nombre es obligatorio.",
+      "ageRequired": "La edad es obligatoria.",
+      "titleRequired": "El título es obligatorio.",
+      "genderRequired": "El género es obligatorio.",
+      "countryRequired": "El país es obligatorio."
     },
-    "auth": {
-        "login": "Acceso",
-        "register": "Registrarse"
+    "messages": {
+      "confirmDelete": "¿Está seguro de que desea eliminar {elemento}?",
+      "confirmDeleteMultiple": "¿Está seguro de que desea eliminar los elementos seleccionados?",
+      "itemDeleted": "{elemento} eliminado",
+      "itemsDeleted": "Elementos eliminados",
+      "itemCreated": "{elemento} creado",
+      "itemUpdated": "{elemento} actualización",
+      "validationError": "Error de validación",
+      "limitReached": "Límite alcanzado",
+      "dataLoadError": "Error al cargar datos",
+      "saveError": "Error al guardar",
+      "deleteError": "Error al eliminar"
+    }
+  },
+  "landing": {
+    "home": "Inicio",
+    "features": "Características",
+    "pricing": "Precios",
+    "hero": {
+      "title": "Detecta los mejores talentos antes que nadie.",
+      "subtitle": "CAVIAR SCOUT ayuda a reclutadores, agentes y clubes a identificar, analizar y comparar jóvenes talentos mediante vídeos estructurados y datos fiables.",
+      "tagline": "Analiza menos. Decide mejor. Recluta más rápido.",
+      "button": "Acceder a los talentos",
+      "freeBadge": "ACCESO GRATUITO",
+      "freeForProfessionals": "Para reclutadores, agentes y clubes",
+      "freeHighlight": "Explora todos los perfiles y vídeos sin coste",
+      "payOnlyContact": "Pago solo para contactar a un jugador"
     },
-    "subscription": {
-        "loading": "Cargando los detalles de la suscripción...",
-        "activeSubscription": {
-            "title": "Suscripción activa",
-            "credits": "Créditos {count} / {max}",
-            "creditsLabel": "Créditos",
-            "status": {
-                "active": "Activa"
-            },
-            "buttons": {
-                "manage": "Gestionar suscripción",
-                "cancel": "Cancelar plan"
-            }
-        },
-        "pricing": {
-            "title": "Elige tu plan",
-            "subtitle": "Desbloquea funciones premium",
-            "description": "Selecciona el plan perfecto para tus necesidades",
-            "loading": "Cargando las opciones de precios..."
-        },
-        "plans": {
-            "basic": "Plan Básico",
-            "premium": "Plan Premium",
-            "pro": "Plan Profesional",
-            "enterprise": "Plan Empresarial",
-            "default": "Plan de suscripción"
-        },
-        "messages": {
-            "loadError": "No se pudo cargar la información de la suscripción",
-            "pricingError": "No se pudieron cargar las opciones de precios",
-            "portalError": "No se puede abrir el portal del cliente",
-            "cancelSuccess": "Tu suscripción se ha cancelado correctamente",
-            "cancelError": "No se pudo cancelar la suscripción",
-            "cancelErrorGeneric": "Ocurrió un error al cancelar tu suscripción"
-        },
-        "confirmations": {
-            "cancel": "¿Estás seguro de que deseas cancelar tu suscripción? Esta acción no se puede deshacer."
-        },
-        "maintenance": {
-            "title": "Mantenimiento del servicio de suscripción",
-            "subtitle": "Mantenimiento en curso",
-            "description": "Nuestro servicio de suscripción se encuentra actualmente en mantenimiento. Inténtelo de nuevo más tarde.",
-            "backButton": "Atrás",
-            "contactButton": "Contactar con soporte"
-        }
+    "valueProposition": {
+      "title": "Por Qué los Profesionales Nos Eligen",
+      "free": {
+        "title": "Totalmente Gratis para Profesionales",
+        "description": "Sin costes ocultos, sin suscripciones. Los profesionales del deporte tienen acceso completo sin coste alguno.",
+        "badge": "GRATIS"
+      },
+      "access": {
+        "title": "Acceso Exclusivo",
+        "description": "Conecta directamente con atletas talentosos y sus representantes."
+      },
+      "verified": {
+        "title": "Talento Verificado",
+        "description": "Todos los perfiles son revisados por expertos antes de su aprobación."
+      }
+    }
+  },
+  "auth": {
+    "login": "Acceso",
+    "register": "Registrarse"
+  },
+  "subscription": {
+    "loading": "Cargando los detalles de la suscripción...",
+    "activeSubscription": {
+      "title": "Suscripción activa",
+      "credits": "Créditos {count} / {max}",
+      "creditsLabel": "Créditos",
+      "status": {
+        "active": "Activa"
+      },
+      "buttons": {
+        "manage": "Gestionar suscripción",
+        "cancel": "Cancelar plan"
+      }
     },
     "pricing": {
-        "title": "Elija su plan",
-        "subtitle": "1 contacto = 1 crédito. Simple, transparente.",
-        "happy_hour": "Happy Hour: ¡Todas las funciones son actualmente GRATUITAS, incluidos los contactos, durante la fase de lanzamiento!",
-        "section_subscriptions": "Suscripciones mensuales",
-        "section_packs": "Packs de créditos",
-        "starter": {
-            "title": "Principiante",
-            "price": "25,00 €",
-            "period": "por mes",
-            "button": "Seleccionar",
-            "credits": "{credits} contacts",
-            "feature1": "Acceso a la base de datos",
-            "feature2": "Búsqueda de filtro simple",
-            "feature3": "Soporte prioritario"
-        },
-        "pro": {
-            "title": "Pro",
-            "price": "100,00 €",
-            "period": "por mes",
-            "button": "Seleccionado",
-            "credits": "{credits} contacts",
-            "feature1": "Acceso a la base de datos",
-            "feature2": "Filtros de búsqueda avanzados",
-            "feature3": "Soporte prioritario"
-        },
-        "elite": {
-            "title": "Élite",
-            "price": "150,00 €",
-            "period": "por mes",
-            "button": "Seleccionar",
-            "credits": "{credits} contacts",
-            "feature1": "Acceso a la base de datos",
-            "feature2": "Filtros de búsqueda avanzados",
-            "feature3": "Soporte prioritario 24/7"
-        },
-        "pack5": {
-            "title": "Pack 5",
-            "price": "39,00 €",
-            "period": "único",
-            "credits": "{credits} contacts",
-            "button": "Comprar"
-        },
-        "pack10": {
-            "title": "Pack 10",
-            "price": "69,00 €",
-            "period": "único",
-            "credits": "{credits} contacts",
-            "button": "Comprar"
-        },
-        "credit_model": {
-            "title": "¿Cómo funciona?",
-            "click_equals_credit": "1 clic = 1 crédito = 1 contacto",
-            "description": "Cada vez que haces clic para acceder a los datos de contacto de un jugador, se deduce 1 crédito de tu cuenta."
-        }
+      "title": "Elige tu plan",
+      "subtitle": "Desbloquea funciones premium",
+      "description": "Selecciona el plan perfecto para tus necesidades",
+      "loading": "Cargando las opciones de precios..."
     },
-    "footer": {
-        "company": {
-            "description": "Tu solución innovadora para [servicio/producto]",
-            "rights": "Todos los derechos reservados"
-        },
-        "links": {
-            "company": "Empresa",
-            "about": "Acerca de",
-            "careers": "Carreras",
-            "press": "Prensa",
-            "legal": "Legal",
-            "privacy": "Política de Privacidad",
-            "terms": "Términos de Servicio",
-            "cookies": "Política de Cookies",
-            "support": "Soporte",
-            "contact": "Contacto",
-            "faq": "Preguntas Frecuentes",
-            "documentation": "Documentación"
-        },
-        "newsletter": {
-            "title": "Mantente Actualizado",
-            "description": "Recibe las últimas noticias y ofertas especiales",
-            "placeholder": "Tu dirección de email",
-            "subscribe": "Suscribirse",
-            "success": "¡Gracias! Ya estás suscrito.",
-            "error": "Ocurrió un error. Por favor, inténtalo de nuevo."
-        },
-        "social": {
-            "follow": "Síguenos",
-            "facebook": "Facebook",
-            "twitter": "Twitter",
-            "linkedin": "LinkedIn",
-            "instagram": "Instagram",
-            "youtube": "YouTube"
-        },
-        "contact": {
-            "title": "Contáctanos",
-            "address": "Dirección",
-            "phone": "Teléfono",
-            "email": "Email"
-        },
-        "backToTop": "Volver arriba"
+    "plans": {
+      "basic": "Plan Básico",
+      "premium": "Plan Premium",
+      "pro": "Plan Profesional",
+      "enterprise": "Plan Empresarial",
+      "default": "Plan de suscripción"
     },
-    "videos": {
-        "contact": {
-            "button": "Contacta con el gerente",
-            "dialog": {
-                "header": "Información de contacto",
-                "unknownContact": "Contacto desconocido",
-                "email": "Correo electrónico",
-                "phone": "Teléfono",
-                "message": "Mensaje",
-                "copyEmailTitle": "Haga clic para copiar el correo electrónico",
-                "copyPhoneTitle": "Haga clic para copiar el teléfono",
-                "close": "Cerrar"
-            }
-        },
-        "gallery": {
-            "title": "Galería de videos",
-            "subtitle": "Descubre atletas talentosos de todo el mundo"
-        },
-        "empty": {
-            "title": "No se encontraron videos",
-            "description": "Intenta ajustar tus filtros o términos de búsqueda para encontrar lo que buscas."
-        },
-        "loading": {
-            "more": "Cargando más videos..."
-        },
-        "search": {
-            "placeholder": "Buscar videos ..."
-        },
-        "filter": {
-            "sport": "Filtrar por deporte",
-            "tag": "Filtrar por etiqueta",
-            "country": "Filtrar por país",
-            "allCountries": "Todos los paises",
-            "clear": "Limpiar filtros",
-            "allSports": "Todos los deportes",
-            "allTags": "Todas las etiquetas",
-            "allGenders": "Todos los géneros",
-            "homme": "Masculino",
-            "femme": "Femenino",
-            "all": "Todo",
-            "newVideoNewContact": "Videos de nuevos contactos",
-            "newVideoOldContact": "Videos de contactos antiguos",
-            "alreadyReadVideo": "Ya visto",
-            "myVideos": "mis vídeos",
-            "contactStatus": "Estado de contacto",
-            "selectContactStatus": "Seleccione un estado de contacto",
-            "clearContactStatus": "Borrar estados",
-            "active": "Filtros activos"
-        },
-        "messages": {
-            "loadError": "No se pudo cargar videos. "
-        },
-        "insufficientCredits": {
-            "dialog": {
-                "header": "Créditos insuficientes",
-                "title": "No tienes suficientes créditos",
-                "message": "Para contactar a los atletas, necesitas créditos. Suscríbete a un plan para obtener más créditos y desbloquear las funciones de contacto.",
-                "currentCredits": "Créditos actuales: {count}",
-                "subscribeButton": "Obtener más créditos",
-                "closeButton": "Cerrar"
-            }
-        },
-        "info": {
-            "tooltip": "Ver detalles",
-            "dialog": {
-                "header": "Detalles del vídeo",
-                "description": "Descripción",
-                "tags": "Etiquetas",
-                "noDescription": "No hay descripción disponible",
-                "close": "Cerca"
-            }
-        }
+    "messages": {
+      "loadError": "No se pudo cargar la información de la suscripción",
+      "pricingError": "No se pudieron cargar las opciones de precios",
+      "portalError": "No se puede abrir el portal del cliente",
+      "cancelSuccess": "Tu suscripción se ha cancelado correctamente",
+      "cancelError": "No se pudo cancelar la suscripción",
+      "cancelErrorGeneric": "Ocurrió un error al cancelar tu suscripción"
     },
-    "admin": {
-        "video": {
-            "labels": {
-                "newVideo": "Nuevo vídeo",
-                "editVideo": "Editar vídeo",
-                "myVideos": "Mis vídeos",
-                "manageYourVideos": "Gestiona y sube tus videos de atletas",
-                "prodige": "Prodigio",
-                "selectProdige": "Selecciona un prodigio",
-                "videoDetails": "Detalles del vídeo",
-                "videoFile": "archivo de vídeo",
-                "manualUrl": "URL del vídeo (manual)",
-                "optional": "Opcional",
-                "optionalForEdit": "opcional para editar",
-                "currentFile": "archivo actual",
-                "noPreview": "Sin vista previa",
-                "noDescription": "Sin descripción",
-                "moderationStatus": "Estado de moderación",
-                "moderationComment": "Comentario de moderación",
-                "addFirstVideo": "Añade tu primer vídeo"
-            },
-            "placeholders": {
-                "title": "Título del vídeo",
-                "description": "Descripción del vídeo",
-                "videoUrl": "https://ejemplo.com/video.mp4",
-                "selectStatus": "Seleccione un estado",
-                "moderationComment": "Comentario de moderación..."
-            },
-            "sort": {
-                "title": {
-                    "label": "Clasificar",
-                    "placeholder": "Ordenar por título",
-                    "down": "Título Z-A",
-                    "up": "Título A-Z"
-                }
-            },
-            "empty": {
-                "title": "Sin vídeos",
-                "description": "Este prodigio aún no tiene ningún vídeo. ",
-                "selectProdige": "Selecciona un prodigio para ver sus vídeos"
-            },
-            "limits": {
-                "title": "Información sobre el límite de vídeo",
-                "current": "Prodigy {prodigyName}: {current}/{max} vídeos usados ​​({remaining} restantes)",
-                "reached": "Límite máximo de vídeos alcanzado para este prodigio.",
-                "slotsRemaining": "ranura(s) restante(s)",
-                "usage": "Uso de videos"
-            },
-            "guidelines": {
-                "title": "Directrices importantes: lea atentamente",
-                "expertReview": "Todos los videos serán examinados por expertos antes de su aprobación.",
-                "hideIdentity": "La identidad profesional debe estar enmascarada (sin nombres, logotipos o información de identificación)",
-                "athleteConsent": "Se debe obtener y documentar el consentimiento del deportista.",
-                "prodigyOnly": "Solo se permiten videos que demuestren técnicas prodigiosas.",
-                "noPersonalInfo": "Ninguna información personal o confidencial debe ser visible"
-            },
-            "info": {
-                "uploadedFileUsed": "Se utilizará el archivo subido en lugar de la URL manual.",
-                "newFileWillReplace": "El nuevo archivo reemplazará al existente."
-            },
-            "validation": {
-                "videoRequired": "Cargue un archivo de video o proporcione una URL de video",
-                "descriptionRequired": "Se requiere descripción"
-            },
-            "messages": {
-                "downloadStarted": "Descarga iniciada",
-                "downloadStartedDetail": "Descargando \" {{title}} \" comenzó",
-                "downloadNotAvailable": "La descarga no está disponible",
-                "moderationUpdated": "La moderación ha sido actualizada.",
-                "moderationError": "Error al actualizar moderación",
-                "noProdigeSelected": "Por favor primero selecciona un prodigio",
-                "titleAndVideoRequired": "El título y el vídeo son obligatorios.",
-                "videoCreated": "Vídeo exitoso",
-                "videoUpdated": "Vídeo de actualización exitosa",
-                "videoDeleted": "Vídeo exitoso",
-                "confirmDeleteVideo": "¿Estás seguro de que deseas eliminar el vídeo '{title}'?",
-                "limitReached": "Límite de vídeo alcanzado",
-                "limitReachedDetail": "Has alcanzado el límite máximo de {maxVideos} vídeos para el prodigio {prodigyName}. ",
-                "selectProdigeFirst": "Por favor seleccione un prodigio primero"
-            },
-            "actions": {
-                "create": {
-                    "success": "Vídeo exitoso",
-                    "error": "Fallo en la creación del vídeo"
-                },
-                "update": {
-                    "success": "Vídeo de actualización exitosa",
-                    "error": "Fallo en la actualización del vídeo"
-                },
-                "delete": {
-                    "success": "Vídeo exitoso",
-                    "error": "Error al eliminar el vídeo"
-                },
-                "moderate": {
-                    "success": "Vídeo exitoso",
-                    "error": "Error de moderación de vídeo"
-                },
-                "report": {
-                    "success": "Vídeo exitoso",
-                    "error": "Fallo en los informes de vídeo"
-                },
-                "upload": {
-                    "success": "Video televertido exitoso",
-                    "error": "Fallo del indicador de vídeo"
-                }
-            },
-            "search": {
-                "noResults": "No se encontró ningún vídeo",
-                "placeholder": "Busca un vídeo..."
-            },
-            "moderation": {
-                "enAttente": "En espera",
-                "approuvee": "Aprobado",
-                "rejetee": "Rechazado",
-                "rejectedVideo": "Vídeo rechazado",
-                "approvedVideo": "Vídeo aprobado",
-                "warning": "⚠️ Advertencia",
-                "autoDeleteWarning": "Los videos rechazados se eliminarán automáticamente después de 15 días a menos que se actualicen."
-            }
-        }
+    "confirmations": {
+      "cancel": "¿Estás seguro de que deseas cancelar tu suscripción? Esta acción no se puede deshacer."
     },
-    "procrud": {
-        "title": "Gestión de prodigio",
-        "labels": {
-            "newProdige": "Nuevo prodigio",
-            "editProdige": "Editar prodigio",
-            "myProdigies": "Mis prodigios",
-            "manageProdigies": "Gestiona tus prodigios",
-            "totalProdigies": "Total de prodigios",
-            "prodigeDetails": "Detalles del prodigio",
-            "sport": "Deporte",
-            "selectSport": "Seleccione un deporte",
-            "addTag": "Agrega una etiqueta ...",
-            "associatedVideos": "Videos asociados",
-            "videoWithoutTitle": "Video de la unidad",
-            "videosCount": "Número de videos"
-        },
-        "columns": {
-            "nom": "Nombre",
-            "nomExport": "Nombre de prodigio",
-            "age": "Edad",
-            "sport": "Deporte",
-            "videosCount": "Número de videos",
-            "dateCreation": "Fecha de creación",
-            "gender": "Género",
-            "genre": "Género",
-            "country": "País"
-        },
-        "pagination": {
-            "itemName": "maravillas",
-            "showing": "Visualización de {primero} a {último} en {TotalRecords} Prodigies"
-        },
-        "validation": {
-            "sportRequired": "El deporte es obligatorio.",
-            "descriptionRequired": "La descripción es obligatoria para el \"otro\" deporte.",
-            "minTagsRequired": "Se requieren 3 etiquetas mínimas.",
-            "maxTagsReached": "Máximo 10 etiquetas autorizadas",
-            "descriptionRequiredForOther": "Descripción obligatoria para el deporte 'otro'"
-        },
-        "placeholders": {
-            "name": "Ingrese el nombre del prodigio",
-            "selectCountry": "Seleccione un país",
-            "describeQualities": "Describe las cualidades y el potencial del prodigio ...",
-            "describeQualidades": "Describe las cualidades y el potencial del prodigio ..."
-        },
-        "tags": {
-            "minMaxInfo": "(min: 3, máx: 10)",
-            "selectedCount": "{Count}/10 etiquetas seleccionadas",
-            "selected": "etiquetas seleccionadas",
-            "associatedVideosCount": "{Count} Video (s) asociados"
-        },
-        "messages": {
-            "prodigeCreated": "Prodigio creado",
-            "prodigeUpdated": "Actualizar",
-            "prodigeDeleted": "Prodigio eliminado",
-            "prodigiesDeleted": "Prodigios eliminados",
-            "confirmDeleteProdige": "¿Estás seguro de que quieres eliminar {nombre}?",
-            "confirmDeleteProdigies": "¿Estás seguro de que quieres eliminar las maravillas seleccionadas?"
-        },
-        "sort": {
-            "label": "Ordenar por",
-            "name": {
-                "placeholder": "Ordenar por nombre",
-                "down": "Nombre ▼",
-                "up": "Nombre ▲"
-            }
-        },
-        "empty": {
-            "title": "Aún no hay prodigios",
-            "description": "Crea tu primer prodigio para comenzar"
-        },
-        "uploadInvite": {
-            "title": "¡Prodigio creado!",
-            "heading": "Añade tu primer video",
-            "message": "Tu prodigio \"{name}\" se ha creado correctamente. Los videos ayudan a los reclutadores a descubrir talentos. ¿Te gustaría subir uno ahora?",
-            "hint": "Puedes subir hasta 3 videos por prodigio.",
-            "uploadNow": "Subir video",
-            "later": "Más tarde"
-        }
+    "maintenance": {
+      "title": "Mantenimiento del servicio de suscripción",
+      "subtitle": "Mantenimiento en curso",
+      "description": "Nuestro servicio de suscripción se encuentra actualmente en mantenimiento. Inténtelo de nuevo más tarde.",
+      "backButton": "Atrás",
+      "contactButton": "Contactar con soporte"
+    }
+  },
+  "pricing": {
+    "title": "Elija su plan",
+    "subtitle": "1 contacto = 1 crédito. Simple, transparente.",
+    "happy_hour": "Happy Hour: ¡Todas las funciones son actualmente GRATUITAS, incluidos los contactos, durante la fase de lanzamiento!",
+    "section_subscriptions": "Suscripciones mensuales",
+    "section_packs": "Packs de créditos",
+    "starter": {
+      "title": "Principiante",
+      "price": "25,00 €",
+      "period": "por mes",
+      "button": "Seleccionar",
+      "credits": "{credits} contacts",
+      "feature1": "Acceso a la base de datos",
+      "feature2": "Búsqueda de filtro simple",
+      "feature3": "Soporte prioritario"
     },
+    "pro": {
+      "title": "Pro",
+      "price": "100,00 €",
+      "period": "por mes",
+      "button": "Seleccionado",
+      "credits": "{credits} contacts",
+      "feature1": "Acceso a la base de datos",
+      "feature2": "Filtros de búsqueda avanzados",
+      "feature3": "Soporte prioritario"
+    },
+    "elite": {
+      "title": "Élite",
+      "price": "150,00 €",
+      "period": "por mes",
+      "button": "Seleccionar",
+      "credits": "{credits} contacts",
+      "feature1": "Acceso a la base de datos",
+      "feature2": "Filtros de búsqueda avanzados",
+      "feature3": "Soporte prioritario 24/7"
+    },
+    "pack5": {
+      "title": "Pack 5",
+      "price": "39,00 €",
+      "period": "único",
+      "credits": "{credits} contacts",
+      "button": "Comprar"
+    },
+    "pack10": {
+      "title": "Pack 10",
+      "price": "69,00 €",
+      "period": "único",
+      "credits": "{credits} contacts",
+      "button": "Comprar"
+    },
+    "credit_model": {
+      "title": "¿Cómo funciona?",
+      "click_equals_credit": "1 clic = 1 crédito = 1 contacto",
+      "description": "Cada vez que haces clic para acceder a los datos de contacto de un jugador, se deduce 1 crédito de tu cuenta."
+    }
+  },
+  "footer": {
+    "company": {
+      "description": "Tu solución innovadora para [servicio/producto]",
+      "rights": "Todos los derechos reservados"
+    },
+    "links": {
+      "company": "Empresa",
+      "about": "Acerca de",
+      "careers": "Carreras",
+      "press": "Prensa",
+      "legal": "Legal",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio",
+      "cookies": "Política de Cookies",
+      "support": "Soporte",
+      "contact": "Contacto",
+      "faq": "Preguntas Frecuentes",
+      "documentation": "Documentación"
+    },
+    "newsletter": {
+      "title": "Mantente Actualizado",
+      "description": "Recibe las últimas noticias y ofertas especiales",
+      "placeholder": "Tu dirección de email",
+      "subscribe": "Suscribirse",
+      "success": "¡Gracias! Ya estás suscrito.",
+      "error": "Ocurrió un error. Por favor, inténtalo de nuevo."
+    },
+    "social": {
+      "follow": "Síguenos",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "youtube": "YouTube"
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "address": "Dirección",
+      "phone": "Teléfono",
+      "email": "Email"
+    },
+    "backToTop": "Volver arriba"
+  },
+  "videos": {
+    "contact": {
+      "button": "Contacta con el gerente",
+      "dialog": {
+        "header": "Información de contacto",
+        "unknownContact": "Contacto desconocido",
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "message": "Mensaje",
+        "copyEmailTitle": "Haga clic para copiar el correo electrónico",
+        "copyPhoneTitle": "Haga clic para copiar el teléfono",
+        "close": "Cerrar"
+      }
+    },
+    "gallery": {
+      "title": "Galería de videos",
+      "subtitle": "Descubre atletas talentosos de todo el mundo"
+    },
+    "empty": {
+      "title": "No se encontraron videos",
+      "description": "Intenta ajustar tus filtros o términos de búsqueda para encontrar lo que buscas."
+    },
+    "loading": {
+      "more": "Cargando más videos..."
+    },
+    "search": {
+      "placeholder": "Buscar videos ..."
+    },
+    "filter": {
+      "sport": "Filtrar por deporte",
+      "tag": "Filtrar por etiqueta",
+      "country": "Filtrar por país",
+      "allCountries": "Todos los paises",
+      "clear": "Limpiar filtros",
+      "allSports": "Todos los deportes",
+      "allTags": "Todas las etiquetas",
+      "allGenders": "Todos los géneros",
+      "homme": "Masculino",
+      "femme": "Femenino",
+      "all": "Todo",
+      "newVideoNewContact": "Videos de nuevos contactos",
+      "newVideoOldContact": "Videos de contactos antiguos",
+      "alreadyReadVideo": "Ya visto",
+      "myVideos": "mis vídeos",
+      "contactStatus": "Estado de contacto",
+      "selectContactStatus": "Seleccione un estado de contacto",
+      "clearContactStatus": "Borrar estados",
+      "active": "Filtros activos"
+    },
+    "messages": {
+      "loadError": "No se pudo cargar videos. "
+    },
+    "insufficientCredits": {
+      "dialog": {
+        "header": "Créditos insuficientes",
+        "title": "No tienes suficientes créditos",
+        "message": "Para contactar a los atletas, necesitas créditos. Suscríbete a un plan para obtener más créditos y desbloquear las funciones de contacto.",
+        "currentCredits": "Créditos actuales: {count}",
+        "subscribeButton": "Obtener más créditos",
+        "closeButton": "Cerrar"
+      }
+    },
+    "info": {
+      "tooltip": "Ver detalles",
+      "dialog": {
+        "header": "Detalles del vídeo",
+        "description": "Descripción",
+        "tags": "Etiquetas",
+        "noDescription": "No hay descripción disponible",
+        "close": "Cerca"
+      }
+    },
+    "guest": {
+      "bannerText": "Inicia sesión para ver perfiles completos y contactar atletas",
+      "loginButton": "Iniciar sesión",
+      "registerButton": "Crear cuenta",
+      "contactLocked": "Iniciar sesión para contactar"
+    }
+  },
+  "admin": {
     "video": {
-        "labels": {
-            "newVideo": "Nuevo video",
-            "editVideo": "Editar video",
-            "myVideos": "Mis videos",
-            "manageYourVideos": "Gestiona y sube tus videos de atletas",
-            "prodige": "Prodigio",
-            "selectProdige": "Selecciona un prodigio",
-            "videoDetails": "Detalles del video",
-            "videoFile": "Archivo de video",
-            "manualUrl": "URL de video (manual)",
-            "optional": "Opcional",
-            "currentFile": "Archivo actual"
-        },
-        "placeholders": {
-            "title": "Título de video",
-            "description": "Descripción del video",
-            "videoUrl": "https://exemple.com/video.mp4"
-        },
-        "sort": {
-            "title": {
-                "placeholder": "Ordenar por título",
-                "down": "Título de Z-A-A",
-                "up": "Título A-Z"
-            }
-        },
-        "limits": {
-            "title": "Información de límite de video",
-            "current": "Prodigy {prodigyName}: {current}/{max} videos utilizados ({restantes} restantes)",
-            "reached": "El límite máximo de los videos alcanzó este prodigio.",
-            "slotsRemaining": "ranura(s) restante(s)",
-            "usage": "Uso de videos"
-        },
-        "guidelines": {
-            "title": "Pautas importantes: lea cuidadosamente",
-            "expertReview": "Todos los videos serán examinados por expertos antes de la aprobación",
-            "hideIdentity": "La identidad profesional debe estar enmascarada (sin nombres, logotipos o información de identificación)",
-            "athleteConsent": "El consentimiento del atleta debe obtenerse y documentarse",
-            "prodigyOnly": "Solo se permiten videos que demuestran técnicas de prodigio",
-            "noPersonalInfo": "No se debe visible información personal o confidencial"
-        },
-        "info": {
-            "uploadedFileUsed": "El archivo descargado se utilizará en lugar de URL manual"
-        },
-        "validation": {
-            "videoRequired": "Descargue un archivo de video o proporcione una URL de video"
-        },
-        "messages": {
-            "downloadStarted": "Descargar lanzado",
-            "downloadStartedDetail": "Descarga \" {{title}} \" comenzó",
-            "downloadNotAvailable": "La descarga no está disponible",
-            "moderationUpdated": "La moderación se ha actualizado",
-            "moderationError": "Error al actualizar la moderación",
-            "noProdigeSelected": "Primero seleccione un prodigio",
-            "titleAndVideoRequired": "El título y el video son necesarios",
-            "videoCreated": "Video exitoso",
-            "videoUpdated": "Video de actualización exitoso",
-            "videoDeleted": "Video exitoso",
-            "confirmDeleteVideo": "¿Estás seguro de que quieres eliminar el video '{Title}'?",
-            "limitReached": "Límite de video afectado",
-            "limitReachedDetail": "Has alcanzado el límite máximo de {maxvideos} videos para el prodigio {prodigyname}. Elimine un video existente antes de agregar uno nuevo."
-        },
-        "actions": {
-            "create": {
-                "success": "Video exitoso",
-                "error": "Falla de la creación de video"
-            },
-            "update": {
-                "success": "Video de actualización exitoso",
-                "error": "Falla de actualización de video"
-            },
-            "delete": {
-                "success": "Video exitoso",
-                "error": "No eliminar el video"
-            },
-            "moderate": {
-                "success": "Video exitoso",
-                "error": "Falla de moderación de video"
-            },
-            "report": {
-                "success": "Video exitoso",
-                "error": "Falla de informes de video"
-            },
-            "upload": {
-                "success": "Video televersed exitoso",
-                "error": "Falla"
-            }
-        },
-        "search": {
-            "noResults": "No se encontró un video",
-            "placeholder": "Buscar un video ..."
-        },
-        "moderation": {
-            "enAttente": "En espera",
-            "approuvee": "Aprobado",
-            "rejetee": "Rechazado",
-            "rejectedVideo": "Video rechazado",
-            "approvedVideo": "Video aprobado",
-            "warning": "⚠️ ADVERTENCIA",
-            "autoDeleteWarning": "Los videos rechazados se eliminarán automáticamente después de 15 días a menos que se actualice."
+      "labels": {
+        "newVideo": "Nuevo vídeo",
+        "editVideo": "Editar vídeo",
+        "myVideos": "Mis vídeos",
+        "manageYourVideos": "Gestiona y sube tus videos de atletas",
+        "prodige": "Prodigio",
+        "selectProdige": "Selecciona un prodigio",
+        "videoDetails": "Detalles del vídeo",
+        "videoFile": "archivo de vídeo",
+        "manualUrl": "URL del vídeo (manual)",
+        "optional": "Opcional",
+        "optionalForEdit": "opcional para editar",
+        "currentFile": "archivo actual",
+        "noPreview": "Sin vista previa",
+        "noDescription": "Sin descripción",
+        "moderationStatus": "Estado de moderación",
+        "moderationComment": "Comentario de moderación",
+        "addFirstVideo": "Añade tu primer vídeo"
+      },
+      "placeholders": {
+        "title": "Título del vídeo",
+        "description": "Descripción del vídeo",
+        "videoUrl": "https://ejemplo.com/video.mp4",
+        "selectStatus": "Seleccione un estado",
+        "moderationComment": "Comentario de moderación..."
+      },
+      "sort": {
+        "title": {
+          "label": "Clasificar",
+          "placeholder": "Ordenar por título",
+          "down": "Título Z-A",
+          "up": "Título A-Z"
         }
+      },
+      "empty": {
+        "title": "Sin vídeos",
+        "description": "Este prodigio aún no tiene ningún vídeo. ",
+        "selectProdige": "Selecciona un prodigio para ver sus vídeos"
+      },
+      "limits": {
+        "title": "Información sobre el límite de vídeo",
+        "current": "Prodigy {prodigyName}: {current}/{max} vídeos usados ​​({remaining} restantes)",
+        "reached": "Límite máximo de vídeos alcanzado para este prodigio.",
+        "slotsRemaining": "ranura(s) restante(s)",
+        "usage": "Uso de videos"
+      },
+      "guidelines": {
+        "title": "Directrices importantes: lea atentamente",
+        "expertReview": "Todos los videos serán examinados por expertos antes de su aprobación.",
+        "hideIdentity": "La identidad profesional debe estar enmascarada (sin nombres, logotipos o información de identificación)",
+        "athleteConsent": "Se debe obtener y documentar el consentimiento del deportista.",
+        "prodigyOnly": "Solo se permiten videos que demuestren técnicas prodigiosas.",
+        "noPersonalInfo": "Ninguna información personal o confidencial debe ser visible"
+      },
+      "info": {
+        "uploadedFileUsed": "Se utilizará el archivo subido en lugar de la URL manual.",
+        "newFileWillReplace": "El nuevo archivo reemplazará al existente."
+      },
+      "validation": {
+        "videoRequired": "Cargue un archivo de video o proporcione una URL de video",
+        "descriptionRequired": "Se requiere descripción"
+      },
+      "messages": {
+        "downloadStarted": "Descarga iniciada",
+        "downloadStartedDetail": "Descargando \" {{title}} \" comenzó",
+        "downloadNotAvailable": "La descarga no está disponible",
+        "moderationUpdated": "La moderación ha sido actualizada.",
+        "moderationError": "Error al actualizar moderación",
+        "noProdigeSelected": "Por favor primero selecciona un prodigio",
+        "titleAndVideoRequired": "El título y el vídeo son obligatorios.",
+        "videoCreated": "Vídeo exitoso",
+        "videoUpdated": "Vídeo de actualización exitosa",
+        "videoDeleted": "Vídeo exitoso",
+        "confirmDeleteVideo": "¿Estás seguro de que deseas eliminar el vídeo '{title}'?",
+        "limitReached": "Límite de vídeo alcanzado",
+        "limitReachedDetail": "Has alcanzado el límite máximo de {maxVideos} vídeos para el prodigio {prodigyName}. ",
+        "selectProdigeFirst": "Por favor seleccione un prodigio primero"
+      },
+      "actions": {
+        "create": {
+          "success": "Vídeo exitoso",
+          "error": "Fallo en la creación del vídeo"
+        },
+        "update": {
+          "success": "Vídeo de actualización exitosa",
+          "error": "Fallo en la actualización del vídeo"
+        },
+        "delete": {
+          "success": "Vídeo exitoso",
+          "error": "Error al eliminar el vídeo"
+        },
+        "moderate": {
+          "success": "Vídeo exitoso",
+          "error": "Error de moderación de vídeo"
+        },
+        "report": {
+          "success": "Vídeo exitoso",
+          "error": "Fallo en los informes de vídeo"
+        },
+        "upload": {
+          "success": "Video televertido exitoso",
+          "error": "Fallo del indicador de vídeo"
+        }
+      },
+      "search": {
+        "noResults": "No se encontró ningún vídeo",
+        "placeholder": "Busca un vídeo..."
+      },
+      "moderation": {
+        "enAttente": "En espera",
+        "approuvee": "Aprobado",
+        "rejetee": "Rechazado",
+        "rejectedVideo": "Vídeo rechazado",
+        "approvedVideo": "Vídeo aprobado",
+        "warning": "⚠️ Advertencia",
+        "autoDeleteWarning": "Los videos rechazados se eliminarán automáticamente después de 15 días a menos que se actualicen."
+      }
+    }
+  },
+  "procrud": {
+    "title": "Gestión de prodigio",
+    "labels": {
+      "newProdige": "Nuevo prodigio",
+      "editProdige": "Editar prodigio",
+      "myProdigies": "Mis prodigios",
+      "manageProdigies": "Gestiona tus prodigios",
+      "totalProdigies": "Total de prodigios",
+      "prodigeDetails": "Detalles del prodigio",
+      "sport": "Deporte",
+      "selectSport": "Seleccione un deporte",
+      "addTag": "Agrega una etiqueta ...",
+      "associatedVideos": "Videos asociados",
+      "videoWithoutTitle": "Video de la unidad",
+      "videosCount": "Número de videos"
+    },
+    "columns": {
+      "nom": "Nombre",
+      "nomExport": "Nombre de prodigio",
+      "age": "Edad",
+      "sport": "Deporte",
+      "videosCount": "Número de videos",
+      "dateCreation": "Fecha de creación",
+      "gender": "Género",
+      "genre": "Género",
+      "country": "País"
+    },
+    "pagination": {
+      "itemName": "maravillas",
+      "showing": "Visualización de {primero} a {último} en {TotalRecords} Prodigies"
+    },
+    "validation": {
+      "sportRequired": "El deporte es obligatorio.",
+      "descriptionRequired": "La descripción es obligatoria para el \"otro\" deporte.",
+      "minTagsRequired": "Se requieren 3 etiquetas mínimas.",
+      "maxTagsReached": "Máximo 10 etiquetas autorizadas",
+      "descriptionRequiredForOther": "Descripción obligatoria para el deporte 'otro'"
+    },
+    "placeholders": {
+      "name": "Ingrese el nombre del prodigio",
+      "selectCountry": "Seleccione un país",
+      "describeQualities": "Describe las cualidades y el potencial del prodigio ...",
+      "describeQualidades": "Describe las cualidades y el potencial del prodigio ..."
     },
     "tags": {
-        "physical": {
-            "vitesse": "Velocidad",
-            "endurance": "Resistencia",
-            "puissance": "Fuerza",
-            "reflexes": "Reflejos",
-            "agilite": "Agilidad",
-            "explosivite": "Explosividad",
-            "souplesse": "Flexibilidad",
-            "coordination": "Coordinación",
-            "equilibre": "Balance"
+      "minMaxInfo": "(min: 3, máx: 10)",
+      "selectedCount": "{Count}/10 etiquetas seleccionadas",
+      "selected": "etiquetas seleccionadas",
+      "associatedVideosCount": "{Count} Video (s) asociados"
+    },
+    "messages": {
+      "prodigeCreated": "Prodigio creado",
+      "prodigeUpdated": "Actualizar",
+      "prodigeDeleted": "Prodigio eliminado",
+      "prodigiesDeleted": "Prodigios eliminados",
+      "confirmDeleteProdige": "¿Estás seguro de que quieres eliminar {nombre}?",
+      "confirmDeleteProdigies": "¿Estás seguro de que quieres eliminar las maravillas seleccionadas?"
+    },
+    "sort": {
+      "label": "Ordenar por",
+      "name": {
+        "placeholder": "Ordenar por nombre",
+        "down": "Nombre ▼",
+        "up": "Nombre ▲"
+      }
+    },
+    "empty": {
+      "title": "Aún no hay prodigios",
+      "description": "Crea tu primer prodigio para comenzar"
+    },
+    "uploadInvite": {
+      "title": "¡Prodigio creado!",
+      "heading": "Añade tu primer video",
+      "message": "Tu prodigio \"{name}\" se ha creado correctamente. Los videos ayudan a los reclutadores a descubrir talentos. ¿Te gustaría subir uno ahora?",
+      "hint": "Puedes subir hasta 3 videos por prodigio.",
+      "uploadNow": "Subir video",
+      "later": "Más tarde"
+    }
+  },
+  "video": {
+    "labels": {
+      "newVideo": "Nuevo video",
+      "editVideo": "Editar video",
+      "myVideos": "Mis videos",
+      "manageYourVideos": "Gestiona y sube tus videos de atletas",
+      "prodige": "Prodigio",
+      "selectProdige": "Selecciona un prodigio",
+      "videoDetails": "Detalles del video",
+      "videoFile": "Archivo de video",
+      "manualUrl": "URL de video (manual)",
+      "optional": "Opcional",
+      "currentFile": "Archivo actual"
+    },
+    "placeholders": {
+      "title": "Título de video",
+      "description": "Descripción del video",
+      "videoUrl": "https://exemple.com/video.mp4"
+    },
+    "sort": {
+      "title": {
+        "placeholder": "Ordenar por título",
+        "down": "Título de Z-A-A",
+        "up": "Título A-Z"
+      }
+    },
+    "limits": {
+      "title": "Información de límite de video",
+      "current": "Prodigy {prodigyName}: {current}/{max} videos utilizados ({restantes} restantes)",
+      "reached": "El límite máximo de los videos alcanzó este prodigio.",
+      "slotsRemaining": "ranura(s) restante(s)",
+      "usage": "Uso de videos"
+    },
+    "guidelines": {
+      "title": "Pautas importantes: lea cuidadosamente",
+      "expertReview": "Todos los videos serán examinados por expertos antes de la aprobación",
+      "hideIdentity": "La identidad profesional debe estar enmascarada (sin nombres, logotipos o información de identificación)",
+      "athleteConsent": "El consentimiento del atleta debe obtenerse y documentarse",
+      "prodigyOnly": "Solo se permiten videos que demuestran técnicas de prodigio",
+      "noPersonalInfo": "No se debe visible información personal o confidencial"
+    },
+    "info": {
+      "uploadedFileUsed": "El archivo descargado se utilizará en lugar de URL manual"
+    },
+    "validation": {
+      "videoRequired": "Descargue un archivo de video o proporcione una URL de video"
+    },
+    "messages": {
+      "downloadStarted": "Descargar lanzado",
+      "downloadStartedDetail": "Descarga \" {{title}} \" comenzó",
+      "downloadNotAvailable": "La descarga no está disponible",
+      "moderationUpdated": "La moderación se ha actualizado",
+      "moderationError": "Error al actualizar la moderación",
+      "noProdigeSelected": "Primero seleccione un prodigio",
+      "titleAndVideoRequired": "El título y el video son necesarios",
+      "videoCreated": "Video exitoso",
+      "videoUpdated": "Video de actualización exitoso",
+      "videoDeleted": "Video exitoso",
+      "confirmDeleteVideo": "¿Estás seguro de que quieres eliminar el video '{Title}'?",
+      "limitReached": "Límite de video afectado",
+      "limitReachedDetail": "Has alcanzado el límite máximo de {maxvideos} videos para el prodigio {prodigyname}. Elimine un video existente antes de agregar uno nuevo."
+    },
+    "actions": {
+      "create": {
+        "success": "Video exitoso",
+        "error": "Falla de la creación de video"
+      },
+      "update": {
+        "success": "Video de actualización exitoso",
+        "error": "Falla de actualización de video"
+      },
+      "delete": {
+        "success": "Video exitoso",
+        "error": "No eliminar el video"
+      },
+      "moderate": {
+        "success": "Video exitoso",
+        "error": "Falla de moderación de video"
+      },
+      "report": {
+        "success": "Video exitoso",
+        "error": "Falla de informes de video"
+      },
+      "upload": {
+        "success": "Video televersed exitoso",
+        "error": "Falla"
+      }
+    },
+    "search": {
+      "noResults": "No se encontró un video",
+      "placeholder": "Buscar un video ..."
+    },
+    "moderation": {
+      "enAttente": "En espera",
+      "approuvee": "Aprobado",
+      "rejetee": "Rechazado",
+      "rejectedVideo": "Video rechazado",
+      "approvedVideo": "Video aprobado",
+      "warning": "⚠️ ADVERTENCIA",
+      "autoDeleteWarning": "Los videos rechazados se eliminarán automáticamente después de 15 días a menos que se actualice."
+    }
+  },
+  "tags": {
+    "physical": {
+      "vitesse": "Velocidad",
+      "endurance": "Resistencia",
+      "puissance": "Fuerza",
+      "reflexes": "Reflejos",
+      "agilite": "Agilidad",
+      "explosivite": "Explosividad",
+      "souplesse": "Flexibilidad",
+      "coordination": "Coordinación",
+      "equilibre": "Balance"
+    },
+    "technical": {
+      "technique": "Técnico",
+      "maitriseDuBallon": "Dominio del globo",
+      "precision": "Precisión",
+      "finition": "Refinamiento",
+      "passeDecisive": "Asistente",
+      "tirCadre": "Disparo de acreditación",
+      "dribble": "Regatear",
+      "jeuDeTete": "Juego de la cabeza",
+      "tacle": "Abordar",
+      "interception": "Interceptación",
+      "gesteTechnique": "Gesto técnico",
+      "polyvalence": "Versatilidad"
+    },
+    "mental": {
+      "intelligenceTactique": "Inteligencia táctica",
+      "lectureDuJeu": "Leyendo el juego",
+      "anticipation": "Anticipación",
+      "concentration": "Concentración",
+      "mental": "Mental",
+      "sangFroid": "Sangriento",
+      "maturite": "Madurez",
+      "gestionDuTemps": "Gestión del tiempo",
+      "resilience": "Resiliencia",
+      "visionDeJeu": "Visión del juego",
+      "decisif": "Decisivo",
+      "priseDeDecision": "Toma de decisiones",
+      "adaptabilite": "Adaptabilidad",
+      "competiteur": "Competidor",
+      "leadership": "Liderazgo",
+      "espritDEquipe": "Espíritu de equipo",
+      "determination": "Determinación",
+      "confianceEnSoi": "Autoconfianza",
+      "motivation": "Motivación",
+      "apprentissageRapide": "Aprendizaje rápido",
+      "discipline": "Disciplina",
+      "regularite": "Regularidad",
+      "enduranceMentale": "Resistencia mental"
+    },
+    "behavior": {
+      "travailleur": "Obrero",
+      "perseverant": "Perseverante",
+      "passionne": "Afecto",
+      "humilite": "Humildad",
+      "exemplaire": "Copiar",
+      "respectueux": "Respetuoso",
+      "charismatique": "Carismático",
+      "dynamique": "Dinámica",
+      "engage": "Comprometido",
+      "fairPlay": "Juego limpio",
+      "influenceurDeVestiaire": "Influencer",
+      "attitudeProfessionnelle": "Actitud profesional"
+    },
+    "creativity": {
+      "creativite": "Creatividad",
+      "styleDeJeuUnique": "Estilo de juego único",
+      "spectaculaire": "Espectacular",
+      "showman": "Empresario",
+      "imagination": "Imaginación"
+    },
+    "potential": {
+      "grosPotentiel": "Gran potencial",
+      "enProgres": "Progreso",
+      "jeunePrometteur": "Joven prometedor",
+      "talentNaturel": "Talento natural"
+    },
+    "unknown": "Etiqueta desconocida"
+  },
+  "sports": {
+    "football": "Fútbol",
+    "basketball": "Baloncesto",
+    "rugby": "Rugby",
+    "tennis": "Tenis",
+    "boxe": "Boxeo",
+    "footballAmericain": "Fútbol americano",
+    "hockeySurGlace": "Hockey sobre hielo",
+    "baseball": "Béisbol",
+    "mma": "MMA",
+    "equitation": "Equitación",
+    "hobbyHorse": "Hobby Horse",
+    "coursesCanines": "Carreras de perros",
+    "coursesDeLapins": "Carreras de conejos",
+    "fauconnerie": "Cetrería",
+    "autre": "Otro",
+    "unknown": "Deporte desconocido"
+  },
+  "primeng": {
+    "version": "Versión 1.3.1",
+    "delete_all": "Eliminar todo",
+    "delete_all_filter": "Eliminar todos los filtros",
+    "results": "resultados",
+    "save": "Ahorrar",
+    "cancel": "Cancelar",
+    "search": "Para investigar",
+    "startdate": "Fecha de inicio",
+    "enddate": "Fecha final",
+    "status": "Estado",
+    "transactionnumber": "Número de transacción",
+    "transactiondate": "Fecha de transacción",
+    "download": "Descargar",
+    "amount": "Cantidad",
+    "date": "Fecha",
+    "or": "O",
+    "agency": "Agencia",
+    "customer": "Cliente",
+    "lineselected": "líneas seleccionadas",
+    "areyousure": "¿Está seguro?",
+    "confirmed": "Confirmar",
+    "generationinprogress": "Generación actual",
+    "purchaselines": "Líneas de compra",
+    "dashboard": "Panel",
+    "name": "Nombre",
+    "prenom": "Nombre de pila",
+    "email": "Dirección de correo electrónico",
+    "saved": "Guardado",
+    "error": "Error",
+    "description": "Descripción",
+    "leave": "Para irse",
+    "not_allowed_page": "No tiene los derechos necesarios para acceder a esta página",
+    "validate_action": "Escriba \"validar\" para validar esta acción",
+    "back": "Atrás",
+    "valider": "Para validar",
+    "success": "Éxito",
+    "suivant": "Siguiente",
+    "precedent": "Anterior",
+    "export": "Exportar",
+    "import": "Importar",
+    "import_csv": "Import .csv",
+    "no": "No",
+    "yes": "Sí",
+    "enabled": "permitir",
+    "disabled": "desactivar",
+    "activate": "permitir",
+    "deactivate": "desactivar",
+    "activated": "activado",
+    "deactivated": "desactivado",
+    "information": "Información",
+    "creation_date": "Fecha de creación:",
+    "export_csv": "Exportar .csv",
+    "voir": "Ver",
+    "actif": "Activo",
+    "active": "Activo",
+    "inactif": "Inactivo",
+    "inactive": "Inactivo",
+    "selectionner": "Seleccionar",
+    "refresh": "Refrescar",
+    "filter_by": "Filtrar",
+    "update": "Para modificar",
+    "delete": "BORRAR",
+    "edit": "Para modificar",
+    "comment": "Comentario : ",
+    "comment_without_double_point": "Comentario ",
+    "double_point": "::",
+    "toast_summary_update_error": "Modificación imposible",
+    "toast_summary_create_error": "Añadir imposible",
+    "toast_summary_delete_error": "Eliminación imposible",
+    "toast_summary_delete_error2": "Resumen del error de eliminación",
+    "toast_label_warning": "Atención",
+    "ok": "DE ACUERDO",
+    "select_date": "Seleccione una fecha",
+    "select_hour": "Seleccione una hora",
+    "require": "El campo es obligatorio ",
+    "tiret": "-",
+    "startsWith": "Comienza con",
+    "contains": "Contiene",
+    "notContains": "No contiene",
+    "endsWith": "Termina con",
+    "equals": "Igual a",
+    "notEquals": "Diferente de",
+    "noFilter": "Sin filtro",
+    "filter": "Filtrar",
+    "lt": "Menos que",
+    "lte": "Menos o igual a",
+    "gt": "Superior a",
+    "gte": "Mayor o igual a",
+    "dateIs": "Fecha igual a",
+    "dateIsNot": "Diferente fecha de",
+    "dateBefore": "Fecha anterior a",
+    "dateAfter": "Fecha después",
+    "clear": "Borrar",
+    "apply": "Aplicar",
+    "matchAll": "Todo corresponde",
+    "matchAny": "Cualquier",
+    "addRule": "Agregar regla",
+    "removeRule": "Regla de eliminación",
+    "accept": "Sí",
+    "reject": "No",
+    "choose": "Elegir",
+    "upload": "Descargar",
+    "dayNames": [
+      "Domingo",
+      "Lunes",
+      "Martes",
+      "Miércoles",
+      "JUEVES",
+      "Viernes",
+      "SÁBADO"
+    ],
+    "dayNamesShort": [
+      "sol",
+      "lun",
+      "mar",
+      "mar",
+      "juego",
+      "vie",
+      "se sentó"
+    ],
+    "dayNamesMin": [
+      "D",
+      "L",
+      "METRO",
+      "METRO",
+      "J",
+      "V",
+      "S"
+    ],
+    "monthNames": [
+      "Enero",
+      "FEBRERO",
+      "Marzo",
+      "abril",
+      "puede",
+      "Junio",
+      "Julio",
+      "agosto",
+      "septiembre",
+      "octubre",
+      "noviembre",
+      "Diciembre"
+    ],
+    "monthNamesShort": [
+      "Ene",
+      "Feb",
+      "Marzo",
+      "abr",
+      "puede",
+      "Junio",
+      "jul",
+      "agosto",
+      "Siete",
+      "oct",
+      "nov",
+      "dic"
+    ],
+    "today": "Hoy",
+    "weekHeader": "Sem",
+    "firstDayOfWeek": 1,
+    "dateFormat": "Dd/mm/yy",
+    "weak": "Débil",
+    "medium": "PROMEDIO",
+    "strong": "Fuerte",
+    "passwordPrompt": "Ingrese una contraseña",
+    "emptyMessage": "No se encontraron resultados",
+    "emptyFilterMessage": "No se encontraron resultados",
+    "selectedItemsLabel": "{0} elementos seleccionados",
+    "double_quote": "\"",
+    "asterisk": "*",
+    "value": "Valor"
+  },
+  "uploader": {
+    "title": "Videos MP4 descargador",
+    "note": {
+      "single": "Solo vídeos, hasta {maxSize} cada uno",
+      "multiple": "Solo vídeos, hasta {maxSize} cada uno, máximo {maxFiles} archivos"
+    },
+    "info": {
+      "single": "Descargue un video MP4 para comenzar",
+      "fileLimit": "{{current}}/{{max}} Archivos ({{remaining}} restante)"
+    },
+    "statistics": {
+      "remaining": "restante",
+      "files": "Archivo (s)",
+      "uploading": "en curso",
+      "completed": "terminado (s)"
+    },
+    "status": {
+      "uploading": "Descargar en progreso ...",
+      "completed": "Finalizado",
+      "locked": "Encerrado"
+    },
+    "actions": {
+      "preview": "Avance",
+      "remove": "BORRAR",
+      "close": "Cerca",
+      "upload": "Descargar",
+      "cancel": "Cancelar"
+    },
+    "empty": {
+      "title": "No hay archivo descargado por el momento",
+      "subtitle": {
+        "single": "Use el descargador anterior para guardar o descargar un video MP4",
+        "multiple": "Use el descargador anterior para guardar o descargar hasta {{maxFiles}} Videos MP4"
+      }
+    },
+    "preview": {
+      "title": "Vista previa de video"
+    },
+    "messages": {
+      "fileLimitReached": "Límite de archivos afectados",
+      "uploadComplete": "Descargar completado",
+      "uploadSuccess": "{Nombre de archivo} descargado con éxito!",
+      "uploadFailed": "Descargar falla",
+      "uploadFailedDetail": "No se puede descargar {nombre de archivo}",
+      "fileRestriction": "Restricción de archivo",
+      "cannotRemove": "Incapaz de eliminar",
+      "cannotRemoveLocked": "No se puede eliminar el archivo bloqueado",
+      "fileRemoved": "Archivo eliminado",
+      "fileRemovedSuccess": "Archivo eliminado con éxito",
+      "removalFailed": "Falla de deleción",
+      "removalFailedDetail": "No se puede eliminar el archivo. Por favor intente de nuevo.",
+      "uploadPreparationFailed": "Descargar falla de preparación",
+      "uploadPreparationFailedDetail": "No se puede preparar la descarga. Por favor intente de nuevo.",
+      "duplicateFile": "Archivo doble",
+      "duplicateFileDetail": "El archivo {FileName} ya se ha agregado",
+      "filenameTooLong": "Nombre de archivo demasiado largo",
+      "filenameTooLongDetail": "El nombre del archivo es demasiado largo ({{currentLength}} caracteres). Por favor, renómbrelo a {{maxLength}} caracteres o menos antes de subirlo."
+    },
+    "dashboard": {
+      "strings": {
+        "addMoreFiles": "Agregar más archivos",
+        "addingMoreFiles": "Agregar más archivos",
+        "allowAccessDescription": "Para tomar fotos o guardar videos con su cámara, permita el acceso a la cámara para este sitio.",
+        "allowAccessTitle": "Permita el acceso a su cámara",
+        "authenticateWith": "Conectarse a {pluginName}",
+        "authenticateWithTitle": "Por favor, autentique con {pluginname} para seleccionar archivos",
+        "back": "Atrás",
+        "browse": "pasar a través",
+        "browseFiles": "Explorar los archivos",
+        "cancel": "Cancelar",
+        "cancelUpload": "Cancelar la descarga",
+        "chooseFiles": "Elija archivos",
+        "closeModal": "Escalar por la ventana",
+        "companionError": "Conexión con compañero fallido",
+        "complete": "Finalizado",
+        "connectedToInternet": "Internet conectado",
+        "copyLink": "Copiar el enlace",
+        "copyLinkToClipboardFallback": "Copie la URL a continuación",
+        "copyLinkToClipboardSuccess": "Enlace copiado en el portapapeles",
+        "creatingAssembly": "Descargar preparación ...",
+        "creatingAssemblyFailed": "Translodit: no se puede crear el ensamblaje",
+        "dashboardTitle": "Descargador de archivos",
+        "dashboardWindowTitle": "Ventana de descarga de archivos (presione Escape para cerrar)",
+        "dataUploadedOfTotal": "{Completo} en {Total}",
+        "done": "Finalizado",
+        "dropHereOr": "Coloque los archivos aquí o %{browse}",
+        "dropHint": "Envíe sus archivos aquí",
+        "dropPasteBoth": "Coloque los archivos aquí, pegamento o %{browse}",
+        "dropPasteFiles": "Coloque los archivos aquí, pegamento o %{browse}",
+        "dropPasteImportBoth": "Coloque los archivos aquí, pegue, %{browse} o importar desde",
+        "dropPasteImportFiles": "Coloque los archivos aquí, pegue, %{browse} o importar desde",
+        "edit": "Para modificar",
+        "editFile": "Modificar el archivo",
+        "editing": "Modificación de %{archivo}",
+        "emptyFolderAdded": "No se ha agregado ningún archivo desde la carpeta vacía",
+        "encoding": "Codificación ...",
+        "enterCorrectUrl": "URL incorrecta: asegúrese de ingresar un enlace directo a un archivo",
+        "enterUrlToImport": "Ingrese la URL para importar un archivo",
+        "exceedsSize": "Este archivo excede el tamaño máximo autorizado de",
+        "failedToFetch": "Companion no pudo recuperar esta URL, asegúrese de que sea correcta",
+        "failedToUpload": "No se pudo descargar %{archivo}",
+        "fileSource": "Fuente del archivo: %{nombre}",
+        "filesUploadedOfTotal": {
+          "0": "%{Completo} en %{smart_count} archivo descargado",
+          "1": "%{Completo} en %{smart_count} archivos descargados"
+        },
+        "filter": "Filtrar",
+        "finishEditingFile": "Finalizar la modificación del archivo",
+        "folderAdded": {
+          "0": "%{smart_count} agregado desde %{carpeta}",
+          "1": "%{smart_count} se agregó desde %{carpeta}"
+        },
+        "import": "Importar",
+        "importFrom": "Importar desde %{nombre}",
+        "loading": "Cargando...",
+        "logOut": "Desconectar",
+        "myDevice": "Mi dispositivo",
+        "noFilesFound": "No tiene archivo ni carpeta aquí",
+        "noInternetConnection": "Sin conexión a Internet",
+        "pause": "Romper",
+        "pauseUpload": "Desglosar la descarga",
+        "paused": "Romper",
+        "poweredBy": "Propulsado por %{uppy}",
+        "processingXFiles": {
+          "0": "% {Smart_count}",
+          "1": "% {Smart_count} archivos"
+        },
+        "removeFile": "Eliminar el archivo",
+        "resetFilter": "Restablecer el filtro",
+        "resume": "Para reanudar",
+        "resumeUpload": "Descargar",
+        "retry": "Intentar otra vez",
+        "retryUpload": "Prueba la descarga intentando",
+        "save": "Ahorrar",
+        "selectFileNamed": "Seleccione el archivo %{nombre}",
+        "selectX": {
+          "0": "Seleccionar %{smart_count}",
+          "1": "Seleccionar %{smart_count}"
+        },
+        "smile": "¡Sonrisa!",
+        "startRecording": "Iniciar grabación de video",
+        "stopRecording": "Detener la grabación de video",
+        "takePicture": "Tomar una foto",
+        "timedOut": "Descargar bloqueado por %{segundos} segundos, abandono.",
+        "upload": "Descargar",
+        "uploadComplete": "Descargar completado",
+        "uploadFailed": "Descargar falla",
+        "uploadPaused": "Pausa Descargar",
+        "uploadXFiles": {
+          "0": "Descargar el archivo %{smart_count}",
+          "1": "Descargar archivos %{smart_count}"
+        },
+        "uploadXNewFiles": {
+          "0": "Descargar +%{smart_count} archivo",
+          "1": "Descargar +%{smart_count} archivos"
+        },
+        "uploading": "Descargar en progreso",
+        "uploadingXFiles": {
+          "0": "% {Smart_count}",
+          "1": "% {Smart_count} archivos"
+        },
+        "xFilesSelected": {
+          "0": "%{smart_count} archivo seleccionado",
+          "1": "%{smart_count} archivos seleccionados"
+        },
+        "xMoreFilesAdded": {
+          "0": "%{smart_count} agregó archivo adicional",
+          "1": "%{smart_count} archivos adicionales agregados"
+        },
+        "xTimeLeft": "%{tiempo} restante",
+        "youCanOnlyUploadFileTypes": "Solo puede descargar: %{tipos}",
+        "youCanOnlyUploadX": {
+          "0": "Solo puede descargar el archivo %{smart_count}",
+          "1": "Solo puede descargar los archivos %{smart_count}"
+        },
+        "youHaveToAtLeastSelectX": {
+          "0": "Debe seleccionar al menos %{smart_count}",
+          "1": "Debe seleccionar al menos %{smart_count} archivos"
+        }
+      }
+    },
+    "service": {
+      "errors": {
+        "presignedUrl": "Falla de la generación de URL firmada",
+        "removeFile": "Falla de eliminación de archivos",
+        "uploadFile": "No enviar el archivo a través de la URL firmada",
+        "getFileList": "No recuperar la lista de archivos",
+        "updateMetadata": "No actualizar los metadatos del archivo"
+      }
+    }
+  },
+  "countries": {
+    "ad": "Andorrino",
+    "ae": "Emiratos Árabes Unidos",
+    "af": "Afganistán",
+    "ag": "Antigua-et-barbuda",
+    "ai": "Anguila",
+    "al": "Albania",
+    "am": "Armenia",
+    "ao": "Angola",
+    "aq": "antártico",
+    "ar": "Argentina",
+    "as": "Samoa americana",
+    "at": "Austria",
+    "au": "Australia",
+    "aw": "Aruba",
+    "ax": "Åland Islas",
+    "az": "Azerbaiyán",
+    "ba": "Bosnia y Herzegovina",
+    "bb": "Barbadea",
+    "bd": "Bangladesh",
+    "be": "Bélgica",
+    "bf": "Burkina Faso",
+    "bg": "Bulgaria",
+    "bh": "Bahrain",
+    "bi": "Burundi",
+    "bj": "Benigno",
+    "bl": "Santa Barthélemy",
+    "bm": "islas Bermudas",
+    "bn": "Brunei",
+    "bo": "Bolivia",
+    "bq": "Caribeños de los Países Bajos",
+    "br": "Brasil",
+    "bs": "Bahamas",
+    "bt": "Bhoutan",
+    "bv": "Isla bouvet",
+    "bw": "Botswana",
+    "by": "Bélarus",
+    "bz": "Belgo",
+    "ca": "Canadá",
+    "cc": "Islas Cocos (Keeling)",
+    "cd": "República Democrática del Congo",
+    "cf": "República Centroafricana",
+    "cg": "República del Congo",
+    "ch": "suizo",
+    "ci": "Costa marfil",
+    "ck": "Islas Cook",
+    "cl": "Chile",
+    "cm": "Camerún",
+    "cn": "Porcelana",
+    "co": "Colombia",
+    "cr": "Costa Rica",
+    "cs": "Checoslovaquia",
+    "cu": "Cuba",
+    "cv": "Verde gorra",
+    "cw": "Curaçao",
+    "cx": "Isla de Navidad",
+    "cy": "Chipre",
+    "cz": "República Checa",
+    "dd": "República democrática alemana",
+    "de": "Alemania",
+    "dj": "Djibouti",
+    "dk": "Dinamarca",
+    "dm": "Dominante",
+    "do": "República Dominicana",
+    "dz": "Argelia",
+    "ec": "Ecuador",
+    "ee": "Estonia",
+    "eg": "Egipto",
+    "eh": "Sahara occidental",
+    "er": "Eritrea",
+    "es": "España",
+    "et": "Etiopía",
+    "fi": "Finlandia",
+    "fj": "Fiji",
+    "fk": "Islas Malvinas",
+    "fm": "Micronesia",
+    "fo": "Islas Feroe",
+    "fr": "Francia",
+    "fx": "Francia metropolitana",
+    "ga": "Gabón",
+    "gb": "Reino Unido",
+    "gd": "Granada",
+    "ge": "Georgia",
+    "gf": "Guayana",
+    "gg": "Guía",
+    "gh": "Ghana",
+    "gi": "Gibraltar",
+    "gl": "Tierra Verde",
+    "gm": "Gambia",
+    "gn": "Guinea",
+    "gp": "Guadeloupo",
+    "gq": "Guinea Ecuatorial",
+    "gr": "Grecia",
+    "gs": "Georgia del sur y el sur de Georgia",
+    "gt": "Guatemala",
+    "gu": "Guam",
+    "gw": "Guinea-Bissau",
+    "gy": "Guayana",
+    "hk": "Hong Kong",
+    "hm": "Islas Heard-Et-Macdonald",
+    "hn": "Honduras",
+    "hr": "Croacia",
+    "ht": "Haití",
+    "hu": "Hungría",
+    "id": "Indonesia",
+    "ie": "Irlanda",
+    "il": "Israel",
+    "im": "Isla de hombre",
+    "in": "India",
+    "io": "Territorio del Océano Índico británico",
+    "iq": "Irak",
+    "ir": "Irán",
+    "is": "Islandia",
+    "it": "Italia",
+    "je": "Jersey",
+    "jm": "Jamaica",
+    "jo": "Jordán",
+    "jp": "Japón",
+    "ke": "Kenia",
+    "kg": "Kirguistán",
+    "kh": "Camboya",
+    "ki": "Kiribati",
+    "km": "Comoras",
+    "kn": "Saint-Christophe-Et-Niévès",
+    "kp": "Corea del Norte",
+    "kr": "Corea del Sur",
+    "kw": "Kuwait",
+    "ky": "Islas Caimán",
+    "kz": "Kazajstán",
+    "la": "Laos",
+    "lb": "Líbano",
+    "lc": "Sainte-Lucie",
+    "li": "Liechtenstein",
+    "lr": "Liberia",
+    "ls": "Lesoto",
+    "lt": "Lituania",
+    "lu": "Luxemburgo",
+    "lv": "Letonia",
+    "ly": "Libia",
+    "ma": "Marruecos",
+    "mc": "Mónaco",
+    "md": "Moldava",
+    "me": "Montenegro",
+    "mf": "Santo Martín",
+    "mg": "Madagascar",
+    "mh": "Islas Marshall",
+    "mk": "Macedonia del Norte",
+    "ml": "Malí",
+    "mm": "Myanmar",
+    "mn": "Mongolia",
+    "mo": "Macao",
+    "mp": "Islas Marianas del Norte",
+    "mq": "Martinica",
+    "mr": "Mauritania",
+    "ms": "Montserrat",
+    "mt": "Malta",
+    "mu": "Mauricio",
+    "mv": "Maldivas",
+    "mw": "Malawi",
+    "mx": "México",
+    "my": "Malasia",
+    "mz": "Mozambique",
+    "na": "Namibia",
+    "nc": "Nueva Caledonia",
+    "ne": "Níger",
+    "nf": "Isla Norfolk",
+    "ng": "Nigeria",
+    "ni": "Nicaragua",
+    "nl": "Países Bajos",
+    "no": "Noruega",
+    "np": "Nepal",
+    "nr": "Nauru",
+    "nt": "Zona neutral",
+    "nu": "Niue",
+    "nz": "Nueva Zelanda",
+    "om": "Omán",
+    "pa": "Panamá",
+    "pe": "Perú",
+    "pf": "Polinesia francesa",
+    "pg": "Papúa Nueva Guinea",
+    "ph": "Filipinas",
+    "pk": "Pakistán",
+    "pl": "Polonia",
+    "pm": "Saint-Pierre-et-Miquelon",
+    "pn": "Pitcairn",
+    "pr": "Puerto Rico",
+    "ps": "Palestina",
+    "pt": "Portugal",
+    "pw": "Pala",
+    "py": "Paraguay",
+    "qa": "Katar",
+    "re": "Reunión",
+    "ro": "Rumania",
+    "rs": "Serbia",
+    "ru": "Rusia",
+    "rw": "Ruanda",
+    "sa": "Arabia Saudita",
+    "sb": "Islas Salomón",
+    "sc": "Seychelles",
+    "sd": "Sudán",
+    "se": "Ante",
+    "sg": "Singapur",
+    "sh": "Sainte-Hélène",
+    "si": "Eslovenia",
+    "sj": "Svalbard y Jan Mayen",
+    "sk": "Eslovaquia",
+    "sl": "Sierra Leona",
+    "sm": "Santo Marin",
+    "sn": "Senegal",
+    "so": "Somalia",
+    "sr": "Apresurar",
+    "ss": "Sudán del Sur",
+    "st": "Sao tomé-et-corner",
+    "su": "Unión Soviética",
+    "sv": "El Salvador",
+    "sx": "Santo Martín",
+    "sy": "Siria",
+    "sz": "Eswatini",
+    "tc": "Islas turcas y caicanas",
+    "td": "Chad",
+    "tf": "Tierras del sur francesas",
+    "tg": "Ir",
+    "th": "Tailandia",
+    "tj": "Tadjikistán",
+    "tk": "Tokelau",
+    "tl": "Timor-oriental",
+    "tm": "Turkmenistán",
+    "tn": "Túnez",
+    "to": "Tonga",
+    "tr": "Türkiye",
+    "tt": "Trinidad y Tobago",
+    "tv": "Tuvalu",
+    "tw": "Taiwán",
+    "tz": "Tanzania",
+    "ua": "Ucrania",
+    "ug": "Uganda",
+    "um": "Islas menores de los Estados Unidos",
+    "us": "ESTADOS UNIDOS",
+    "uy": "Uruguay",
+    "uz": "Uzbekistán",
+    "va": "Ciudad del Vaticano",
+    "vc": "Granadines de santo vincente",
+    "ve": "Venezuela",
+    "vg": "Islas Vírgenes Británicas",
+    "vi": "Islas Vírgenes de los Estados Unidos",
+    "vn": "Vietnam Vietnam",
+    "vu": "Vanuatu",
+    "wf": "Wallis-et-futuna",
+    "ws": "Samoa",
+    "xk": "Kosovo",
+    "ye": "Yemen",
+    "yt": "Mayotte",
+    "yu": "Yugoslavia",
+    "za": "Sudáfrica",
+    "zm": "Zambia",
+    "zr": "Zaire",
+    "zw": "Zimbabue"
+  },
+  "topbar": {
+    "title": "Caviar Scout",
+    "profile": {
+      "title": "Perfil",
+      "edit": "Editar perfil",
+      "logout": "Cerrar sesión",
+      "delete": "Borrar",
+      "deleteMobile": "Eliminar cuenta",
+      "editMobile": "Editar perfil",
+      "confirmDelete": "¿Estás seguro de que quieres eliminar tu cuenta? ",
+      "confirmDeleteTitle": "Eliminar cuenta",
+      "confirmDeleteMessage": "¿Estás seguro de que deseas eliminar permanentemente tu cuenta?",
+      "confirmDeleteWarning": "Esta acción no se puede deshacer. ",
+      "deleteConfirm": "Eliminar cuenta",
+      "deleteSuccessTitle": "Cuenta eliminada",
+      "deleteSuccessMessage": "Su cuenta ha sido eliminada exitosamente. ",
+      "deleteErrorTitle": "Eliminación fallida",
+      "deleteErrorMessage": "No se pudo eliminar tu cuenta. "
+    }
+  },
+  "legal": {
+    "backToHome": "Volver al Inicio",
+    "lastUpdated": "Última actualización",
+    "privacy": {
+      "title": "Política de Privacidad",
+      "introduction": {
+        "title": "Introducción"
+      },
+      "controller": {
+        "title": "Responsable del Tratamiento"
+      },
+      "dpo": {
+        "title": "Delegado de Protección de Datos"
+      },
+      "dataCollected": {
+        "title": "Datos Recopilados",
+        "identity": {
+          "title": "Datos de Identificación y Contacto"
+        },
+        "athletes": {
+          "title": "Información de los Atletas"
         },
         "technical": {
-            "technique": "Técnico",
-            "maitriseDuBallon": "Dominio del globo",
-            "precision": "Precisión",
-            "finition": "Refinamiento",
-            "passeDecisive": "Asistente",
-            "tirCadre": "Disparo de acreditación",
-            "dribble": "Regatear",
-            "jeuDeTete": "Juego de la cabeza",
-            "tacle": "Abordar",
-            "interception": "Interceptación",
-            "gesteTechnique": "Gesto técnico",
-            "polyvalence": "Versatilidad"
+          "title": "Datos Técnicos"
         },
-        "mental": {
-            "intelligenceTactique": "Inteligencia táctica",
-            "lectureDuJeu": "Leyendo el juego",
-            "anticipation": "Anticipación",
-            "concentration": "Concentración",
-            "mental": "Mental",
-            "sangFroid": "Sangriento",
-            "maturite": "Madurez",
-            "gestionDuTemps": "Gestión del tiempo",
-            "resilience": "Resiliencia",
-            "visionDeJeu": "Visión del juego",
-            "decisif": "Decisivo",
-            "priseDeDecision": "Toma de decisiones",
-            "adaptabilite": "Adaptabilidad",
-            "competiteur": "Competidor",
-            "leadership": "Liderazgo",
-            "espritDEquipe": "Espíritu de equipo",
-            "determination": "Determinación",
-            "confianceEnSoi": "Autoconfianza",
-            "motivation": "Motivación",
-            "apprentissageRapide": "Aprendizaje rápido",
-            "discipline": "Disciplina",
-            "regularite": "Regularidad",
-            "enduranceMentale": "Resistencia mental"
-        },
-        "behavior": {
-            "travailleur": "Obrero",
-            "perseverant": "Perseverante",
-            "passionne": "Afecto",
-            "humilite": "Humildad",
-            "exemplaire": "Copiar",
-            "respectueux": "Respetuoso",
-            "charismatique": "Carismático",
-            "dynamique": "Dinámica",
-            "engage": "Comprometido",
-            "fairPlay": "Juego limpio",
-            "influenceurDeVestiaire": "Influencer",
-            "attitudeProfessionnelle": "Actitud profesional"
-        },
-        "creativity": {
-            "creativite": "Creatividad",
-            "styleDeJeuUnique": "Estilo de juego único",
-            "spectaculaire": "Espectacular",
-            "showman": "Empresario",
-            "imagination": "Imaginación"
-        },
-        "potential": {
-            "grosPotentiel": "Gran potencial",
-            "enProgres": "Progreso",
-            "jeunePrometteur": "Joven prometedor",
-            "talentNaturel": "Talento natural"
-        },
-        "unknown": "Etiqueta desconocida"
-    },
-    "sports": {
-        "football": "Fútbol",
-        "basketball": "Baloncesto",
-        "rugby": "Rugby",
-        "tennis": "Tenis",
-        "boxe": "Boxeo",
-        "footballAmericain": "Fútbol americano",
-        "hockeySurGlace": "Hockey sobre hielo",
-        "baseball": "Béisbol",
-        "mma": "MMA",
-        "equitation": "Equitación",
-        "hobbyHorse": "Hobby Horse",
-        "coursesCanines": "Carreras de perros",
-        "coursesDeLapins": "Carreras de conejos",
-        "fauconnerie": "Cetrería",
-        "autre": "Otro",
-        "unknown": "Deporte desconocido"
-    },
-    "primeng": {
-        "version": "Versión 1.3.1",
-        "delete_all": "Eliminar todo",
-        "delete_all_filter": "Eliminar todos los filtros",
-        "results": "resultados",
-        "save": "Ahorrar",
-        "cancel": "Cancelar",
-        "search": "Para investigar",
-        "startdate": "Fecha de inicio",
-        "enddate": "Fecha final",
-        "status": "Estado",
-        "transactionnumber": "Número de transacción",
-        "transactiondate": "Fecha de transacción",
-        "download": "Descargar",
-        "amount": "Cantidad",
-        "date": "Fecha",
-        "or": "O",
-        "agency": "Agencia",
-        "customer": "Cliente",
-        "lineselected": "líneas seleccionadas",
-        "areyousure": "¿Está seguro?",
-        "confirmed": "Confirmar",
-        "generationinprogress": "Generación actual",
-        "purchaselines": "Líneas de compra",
-        "dashboard": "Panel",
-        "name": "Nombre",
-        "prenom": "Nombre de pila",
-        "email": "Dirección de correo electrónico",
-        "saved": "Guardado",
-        "error": "Error",
-        "description": "Descripción",
-        "leave": "Para irse",
-        "not_allowed_page": "No tiene los derechos necesarios para acceder a esta página",
-        "validate_action": "Escriba \"validar\" para validar esta acción",
-        "back": "Atrás",
-        "valider": "Para validar",
-        "success": "Éxito",
-        "suivant": "Siguiente",
-        "precedent": "Anterior",
-        "export": "Exportar",
-        "import": "Importar",
-        "import_csv": "Import .csv",
-        "no": "No",
-        "yes": "Sí",
-        "enabled": "permitir",
-        "disabled": "desactivar",
-        "activate": "permitir",
-        "deactivate": "desactivar",
-        "activated": "activado",
-        "deactivated": "desactivado",
-        "information": "Información",
-        "creation_date": "Fecha de creación:",
-        "export_csv": "Exportar .csv",
-        "voir": "Ver",
-        "actif": "Activo",
-        "active": "Activo",
-        "inactif": "Inactivo",
-        "inactive": "Inactivo",
-        "selectionner": "Seleccionar",
-        "refresh": "Refrescar",
-        "filter_by": "Filtrar",
-        "update": "Para modificar",
-        "delete": "BORRAR",
-        "edit": "Para modificar",
-        "comment": "Comentario : ",
-        "comment_without_double_point": "Comentario ",
-        "double_point": "::",
-        "toast_summary_update_error": "Modificación imposible",
-        "toast_summary_create_error": "Añadir imposible",
-        "toast_summary_delete_error": "Eliminación imposible",
-        "toast_summary_delete_error2": "Resumen del error de eliminación",
-        "toast_label_warning": "Atención",
-        "ok": "DE ACUERDO",
-        "select_date": "Seleccione una fecha",
-        "select_hour": "Seleccione una hora",
-        "require": "El campo es obligatorio ",
-        "tiret": "-",
-        "startsWith": "Comienza con",
-        "contains": "Contiene",
-        "notContains": "No contiene",
-        "endsWith": "Termina con",
-        "equals": "Igual a",
-        "notEquals": "Diferente de",
-        "noFilter": "Sin filtro",
-        "filter": "Filtrar",
-        "lt": "Menos que",
-        "lte": "Menos o igual a",
-        "gt": "Superior a",
-        "gte": "Mayor o igual a",
-        "dateIs": "Fecha igual a",
-        "dateIsNot": "Diferente fecha de",
-        "dateBefore": "Fecha anterior a",
-        "dateAfter": "Fecha después",
-        "clear": "Borrar",
-        "apply": "Aplicar",
-        "matchAll": "Todo corresponde",
-        "matchAny": "Cualquier",
-        "addRule": "Agregar regla",
-        "removeRule": "Regla de eliminación",
-        "accept": "Sí",
-        "reject": "No",
-        "choose": "Elegir",
-        "upload": "Descargar",
-        "dayNames": [
-            "Domingo",
-            "Lunes",
-            "Martes",
-            "Miércoles",
-            "JUEVES",
-            "Viernes",
-            "SÁBADO"
-        ],
-        "dayNamesShort": [
-            "sol",
-            "lun",
-            "mar",
-            "mar",
-            "juego",
-            "vie",
-            "se sentó"
-        ],
-        "dayNamesMin": [
-            "D",
-            "L",
-            "METRO",
-            "METRO",
-            "J",
-            "V",
-            "S"
-        ],
-        "monthNames": [
-            "Enero",
-            "FEBRERO",
-            "Marzo",
-            "abril",
-            "puede",
-            "Junio",
-            "Julio",
-            "agosto",
-            "septiembre",
-            "octubre",
-            "noviembre",
-            "Diciembre"
-        ],
-        "monthNamesShort": [
-            "Ene",
-            "Feb",
-            "Marzo",
-            "abr",
-            "puede",
-            "Junio",
-            "jul",
-            "agosto",
-            "Siete",
-            "oct",
-            "nov",
-            "dic"
-        ],
-        "today": "Hoy",
-        "weekHeader": "Sem",
-        "firstDayOfWeek": 1,
-        "dateFormat": "Dd/mm/yy",
-        "weak": "Débil",
-        "medium": "PROMEDIO",
-        "strong": "Fuerte",
-        "passwordPrompt": "Ingrese una contraseña",
-        "emptyMessage": "No se encontraron resultados",
-        "emptyFilterMessage": "No se encontraron resultados",
-        "selectedItemsLabel": "{0} elementos seleccionados",
-        "double_quote": "\"",
-        "asterisk": "*",
-        "value": "Valor"
-    },
-    "uploader": {
-        "title": "Videos MP4 descargador",
-        "note": {
-            "single": "Solo vídeos, hasta {maxSize} cada uno",
-            "multiple": "Solo vídeos, hasta {maxSize} cada uno, máximo {maxFiles} archivos"
-        },
-        "info": {
-            "single": "Descargue un video MP4 para comenzar",
-            "fileLimit": "{{current}}/{{max}} Archivos ({{remaining}} restante)"
-        },
-        "statistics": {
-            "remaining": "restante",
-            "files": "Archivo (s)",
-            "uploading": "en curso",
-            "completed": "terminado (s)"
-        },
-        "status": {
-            "uploading": "Descargar en progreso ...",
-            "completed": "Finalizado",
-            "locked": "Encerrado"
-        },
-        "actions": {
-            "preview": "Avance",
-            "remove": "BORRAR",
-            "close": "Cerca",
-            "upload": "Descargar",
-            "cancel": "Cancelar"
-        },
-        "empty": {
-            "title": "No hay archivo descargado por el momento",
-            "subtitle": {
-                "single": "Use el descargador anterior para guardar o descargar un video MP4",
-                "multiple": "Use el descargador anterior para guardar o descargar hasta {{maxFiles}} Videos MP4"
-            }
-        },
-        "preview": {
-            "title": "Vista previa de video"
-        },
-        "messages": {
-            "fileLimitReached": "Límite de archivos afectados",
-            "uploadComplete": "Descargar completado",
-            "uploadSuccess": "{Nombre de archivo} descargado con éxito!",
-            "uploadFailed": "Descargar falla",
-            "uploadFailedDetail": "No se puede descargar {nombre de archivo}",
-            "fileRestriction": "Restricción de archivo",
-            "cannotRemove": "Incapaz de eliminar",
-            "cannotRemoveLocked": "No se puede eliminar el archivo bloqueado",
-            "fileRemoved": "Archivo eliminado",
-            "fileRemovedSuccess": "Archivo eliminado con éxito",
-            "removalFailed": "Falla de deleción",
-            "removalFailedDetail": "No se puede eliminar el archivo. Por favor intente de nuevo.",
-            "uploadPreparationFailed": "Descargar falla de preparación",
-            "uploadPreparationFailedDetail": "No se puede preparar la descarga. Por favor intente de nuevo.",
-            "duplicateFile": "Archivo doble",
-            "duplicateFileDetail": "El archivo {FileName} ya se ha agregado",
-            "filenameTooLong": "Nombre de archivo demasiado largo",
-            "filenameTooLongDetail": "El nombre del archivo es demasiado largo ({{currentLength}} caracteres). Por favor, renómbrelo a {{maxLength}} caracteres o menos antes de subirlo."
-        },
-        "dashboard": {
-            "strings": {
-                "addMoreFiles": "Agregar más archivos",
-                "addingMoreFiles": "Agregar más archivos",
-                "allowAccessDescription": "Para tomar fotos o guardar videos con su cámara, permita el acceso a la cámara para este sitio.",
-                "allowAccessTitle": "Permita el acceso a su cámara",
-                "authenticateWith": "Conectarse a {pluginName}",
-                "authenticateWithTitle": "Por favor, autentique con {pluginname} para seleccionar archivos",
-                "back": "Atrás",
-                "browse": "pasar a través",
-                "browseFiles": "Explorar los archivos",
-                "cancel": "Cancelar",
-                "cancelUpload": "Cancelar la descarga",
-                "chooseFiles": "Elija archivos",
-                "closeModal": "Escalar por la ventana",
-                "companionError": "Conexión con compañero fallido",
-                "complete": "Finalizado",
-                "connectedToInternet": "Internet conectado",
-                "copyLink": "Copiar el enlace",
-                "copyLinkToClipboardFallback": "Copie la URL a continuación",
-                "copyLinkToClipboardSuccess": "Enlace copiado en el portapapeles",
-                "creatingAssembly": "Descargar preparación ...",
-                "creatingAssemblyFailed": "Translodit: no se puede crear el ensamblaje",
-                "dashboardTitle": "Descargador de archivos",
-                "dashboardWindowTitle": "Ventana de descarga de archivos (presione Escape para cerrar)",
-                "dataUploadedOfTotal": "{Completo} en {Total}",
-                "done": "Finalizado",
-                "dropHereOr": "Coloque los archivos aquí o %{browse}",
-                "dropHint": "Envíe sus archivos aquí",
-                "dropPasteBoth": "Coloque los archivos aquí, pegamento o %{browse}",
-                "dropPasteFiles": "Coloque los archivos aquí, pegamento o %{browse}",
-                "dropPasteImportBoth": "Coloque los archivos aquí, pegue, %{browse} o importar desde",
-                "dropPasteImportFiles": "Coloque los archivos aquí, pegue, %{browse} o importar desde",
-                "edit": "Para modificar",
-                "editFile": "Modificar el archivo",
-                "editing": "Modificación de %{archivo}",
-                "emptyFolderAdded": "No se ha agregado ningún archivo desde la carpeta vacía",
-                "encoding": "Codificación ...",
-                "enterCorrectUrl": "URL incorrecta: asegúrese de ingresar un enlace directo a un archivo",
-                "enterUrlToImport": "Ingrese la URL para importar un archivo",
-                "exceedsSize": "Este archivo excede el tamaño máximo autorizado de",
-                "failedToFetch": "Companion no pudo recuperar esta URL, asegúrese de que sea correcta",
-                "failedToUpload": "No se pudo descargar %{archivo}",
-                "fileSource": "Fuente del archivo: %{nombre}",
-                "filesUploadedOfTotal": {
-                    "0": "%{Completo} en %{smart_count} archivo descargado",
-                    "1": "%{Completo} en %{smart_count} archivos descargados"
-                },
-                "filter": "Filtrar",
-                "finishEditingFile": "Finalizar la modificación del archivo",
-                "folderAdded": {
-                    "0": "%{smart_count} agregado desde %{carpeta}",
-                    "1": "%{smart_count} se agregó desde %{carpeta}"
-                },
-                "import": "Importar",
-                "importFrom": "Importar desde %{nombre}",
-                "loading": "Cargando...",
-                "logOut": "Desconectar",
-                "myDevice": "Mi dispositivo",
-                "noFilesFound": "No tiene archivo ni carpeta aquí",
-                "noInternetConnection": "Sin conexión a Internet",
-                "pause": "Romper",
-                "pauseUpload": "Desglosar la descarga",
-                "paused": "Romper",
-                "poweredBy": "Propulsado por %{uppy}",
-                "processingXFiles": {
-                    "0": "% {Smart_count}",
-                    "1": "% {Smart_count} archivos"
-                },
-                "removeFile": "Eliminar el archivo",
-                "resetFilter": "Restablecer el filtro",
-                "resume": "Para reanudar",
-                "resumeUpload": "Descargar",
-                "retry": "Intentar otra vez",
-                "retryUpload": "Prueba la descarga intentando",
-                "save": "Ahorrar",
-                "selectFileNamed": "Seleccione el archivo %{nombre}",
-                "selectX": {
-                    "0": "Seleccionar %{smart_count}",
-                    "1": "Seleccionar %{smart_count}"
-                },
-                "smile": "¡Sonrisa!",
-                "startRecording": "Iniciar grabación de video",
-                "stopRecording": "Detener la grabación de video",
-                "takePicture": "Tomar una foto",
-                "timedOut": "Descargar bloqueado por %{segundos} segundos, abandono.",
-                "upload": "Descargar",
-                "uploadComplete": "Descargar completado",
-                "uploadFailed": "Descargar falla",
-                "uploadPaused": "Pausa Descargar",
-                "uploadXFiles": {
-                    "0": "Descargar el archivo %{smart_count}",
-                    "1": "Descargar archivos %{smart_count}"
-                },
-                "uploadXNewFiles": {
-                    "0": "Descargar +%{smart_count} archivo",
-                    "1": "Descargar +%{smart_count} archivos"
-                },
-                "uploading": "Descargar en progreso",
-                "uploadingXFiles": {
-                    "0": "% {Smart_count}",
-                    "1": "% {Smart_count} archivos"
-                },
-                "xFilesSelected": {
-                    "0": "%{smart_count} archivo seleccionado",
-                    "1": "%{smart_count} archivos seleccionados"
-                },
-                "xMoreFilesAdded": {
-                    "0": "%{smart_count} agregó archivo adicional",
-                    "1": "%{smart_count} archivos adicionales agregados"
-                },
-                "xTimeLeft": "%{tiempo} restante",
-                "youCanOnlyUploadFileTypes": "Solo puede descargar: %{tipos}",
-                "youCanOnlyUploadX": {
-                    "0": "Solo puede descargar el archivo %{smart_count}",
-                    "1": "Solo puede descargar los archivos %{smart_count}"
-                },
-                "youHaveToAtLeastSelectX": {
-                    "0": "Debe seleccionar al menos %{smart_count}",
-                    "1": "Debe seleccionar al menos %{smart_count} archivos"
-                }
-            }
-        },
-        "service": {
-            "errors": {
-                "presignedUrl": "Falla de la generación de URL firmada",
-                "removeFile": "Falla de eliminación de archivos",
-                "uploadFile": "No enviar el archivo a través de la URL firmada",
-                "getFileList": "No recuperar la lista de archivos",
-                "updateMetadata": "No actualizar los metadatos del archivo"
-            }
+        "transaction": {
+          "title": "Datos de Transacción"
         }
-    },
-    "countries": {
-        "ad": "Andorrino",
-        "ae": "Emiratos Árabes Unidos",
-        "af": "Afganistán",
-        "ag": "Antigua-et-barbuda",
-        "ai": "Anguila",
-        "al": "Albania",
-        "am": "Armenia",
-        "ao": "Angola",
-        "aq": "antártico",
-        "ar": "Argentina",
-        "as": "Samoa americana",
-        "at": "Austria",
-        "au": "Australia",
-        "aw": "Aruba",
-        "ax": "Åland Islas",
-        "az": "Azerbaiyán",
-        "ba": "Bosnia y Herzegovina",
-        "bb": "Barbadea",
-        "bd": "Bangladesh",
-        "be": "Bélgica",
-        "bf": "Burkina Faso",
-        "bg": "Bulgaria",
-        "bh": "Bahrain",
-        "bi": "Burundi",
-        "bj": "Benigno",
-        "bl": "Santa Barthélemy",
-        "bm": "islas Bermudas",
-        "bn": "Brunei",
-        "bo": "Bolivia",
-        "bq": "Caribeños de los Países Bajos",
-        "br": "Brasil",
-        "bs": "Bahamas",
-        "bt": "Bhoutan",
-        "bv": "Isla bouvet",
-        "bw": "Botswana",
-        "by": "Bélarus",
-        "bz": "Belgo",
-        "ca": "Canadá",
-        "cc": "Islas Cocos (Keeling)",
-        "cd": "República Democrática del Congo",
-        "cf": "República Centroafricana",
-        "cg": "República del Congo",
-        "ch": "suizo",
-        "ci": "Costa marfil",
-        "ck": "Islas Cook",
-        "cl": "Chile",
-        "cm": "Camerún",
-        "cn": "Porcelana",
-        "co": "Colombia",
-        "cr": "Costa Rica",
-        "cs": "Checoslovaquia",
-        "cu": "Cuba",
-        "cv": "Verde gorra",
-        "cw": "Curaçao",
-        "cx": "Isla de Navidad",
-        "cy": "Chipre",
-        "cz": "República Checa",
-        "dd": "República democrática alemana",
-        "de": "Alemania",
-        "dj": "Djibouti",
-        "dk": "Dinamarca",
-        "dm": "Dominante",
-        "do": "República Dominicana",
-        "dz": "Argelia",
-        "ec": "Ecuador",
-        "ee": "Estonia",
-        "eg": "Egipto",
-        "eh": "Sahara occidental",
-        "er": "Eritrea",
-        "es": "España",
-        "et": "Etiopía",
-        "fi": "Finlandia",
-        "fj": "Fiji",
-        "fk": "Islas Malvinas",
-        "fm": "Micronesia",
-        "fo": "Islas Feroe",
-        "fr": "Francia",
-        "fx": "Francia metropolitana",
-        "ga": "Gabón",
-        "gb": "Reino Unido",
-        "gd": "Granada",
-        "ge": "Georgia",
-        "gf": "Guayana",
-        "gg": "Guía",
-        "gh": "Ghana",
-        "gi": "Gibraltar",
-        "gl": "Tierra Verde",
-        "gm": "Gambia",
-        "gn": "Guinea",
-        "gp": "Guadeloupo",
-        "gq": "Guinea Ecuatorial",
-        "gr": "Grecia",
-        "gs": "Georgia del sur y el sur de Georgia",
-        "gt": "Guatemala",
-        "gu": "Guam",
-        "gw": "Guinea-Bissau",
-        "gy": "Guayana",
-        "hk": "Hong Kong",
-        "hm": "Islas Heard-Et-Macdonald",
-        "hn": "Honduras",
-        "hr": "Croacia",
-        "ht": "Haití",
-        "hu": "Hungría",
-        "id": "Indonesia",
-        "ie": "Irlanda",
-        "il": "Israel",
-        "im": "Isla de hombre",
-        "in": "India",
-        "io": "Territorio del Océano Índico británico",
-        "iq": "Irak",
-        "ir": "Irán",
-        "is": "Islandia",
-        "it": "Italia",
-        "je": "Jersey",
-        "jm": "Jamaica",
-        "jo": "Jordán",
-        "jp": "Japón",
-        "ke": "Kenia",
-        "kg": "Kirguistán",
-        "kh": "Camboya",
-        "ki": "Kiribati",
-        "km": "Comoras",
-        "kn": "Saint-Christophe-Et-Niévès",
-        "kp": "Corea del Norte",
-        "kr": "Corea del Sur",
-        "kw": "Kuwait",
-        "ky": "Islas Caimán",
-        "kz": "Kazajstán",
-        "la": "Laos",
-        "lb": "Líbano",
-        "lc": "Sainte-Lucie",
-        "li": "Liechtenstein",
-        "lr": "Liberia",
-        "ls": "Lesoto",
-        "lt": "Lituania",
-        "lu": "Luxemburgo",
-        "lv": "Letonia",
-        "ly": "Libia",
-        "ma": "Marruecos",
-        "mc": "Mónaco",
-        "md": "Moldava",
-        "me": "Montenegro",
-        "mf": "Santo Martín",
-        "mg": "Madagascar",
-        "mh": "Islas Marshall",
-        "mk": "Macedonia del Norte",
-        "ml": "Malí",
-        "mm": "Myanmar",
-        "mn": "Mongolia",
-        "mo": "Macao",
-        "mp": "Islas Marianas del Norte",
-        "mq": "Martinica",
-        "mr": "Mauritania",
-        "ms": "Montserrat",
-        "mt": "Malta",
-        "mu": "Mauricio",
-        "mv": "Maldivas",
-        "mw": "Malawi",
-        "mx": "México",
-        "my": "Malasia",
-        "mz": "Mozambique",
-        "na": "Namibia",
-        "nc": "Nueva Caledonia",
-        "ne": "Níger",
-        "nf": "Isla Norfolk",
-        "ng": "Nigeria",
-        "ni": "Nicaragua",
-        "nl": "Países Bajos",
-        "no": "Noruega",
-        "np": "Nepal",
-        "nr": "Nauru",
-        "nt": "Zona neutral",
-        "nu": "Niue",
-        "nz": "Nueva Zelanda",
-        "om": "Omán",
-        "pa": "Panamá",
-        "pe": "Perú",
-        "pf": "Polinesia francesa",
-        "pg": "Papúa Nueva Guinea",
-        "ph": "Filipinas",
-        "pk": "Pakistán",
-        "pl": "Polonia",
-        "pm": "Saint-Pierre-et-Miquelon",
-        "pn": "Pitcairn",
-        "pr": "Puerto Rico",
-        "ps": "Palestina",
-        "pt": "Portugal",
-        "pw": "Pala",
-        "py": "Paraguay",
-        "qa": "Katar",
-        "re": "Reunión",
-        "ro": "Rumania",
-        "rs": "Serbia",
-        "ru": "Rusia",
-        "rw": "Ruanda",
-        "sa": "Arabia Saudita",
-        "sb": "Islas Salomón",
-        "sc": "Seychelles",
-        "sd": "Sudán",
-        "se": "Ante",
-        "sg": "Singapur",
-        "sh": "Sainte-Hélène",
-        "si": "Eslovenia",
-        "sj": "Svalbard y Jan Mayen",
-        "sk": "Eslovaquia",
-        "sl": "Sierra Leona",
-        "sm": "Santo Marin",
-        "sn": "Senegal",
-        "so": "Somalia",
-        "sr": "Apresurar",
-        "ss": "Sudán del Sur",
-        "st": "Sao tomé-et-corner",
-        "su": "Unión Soviética",
-        "sv": "El Salvador",
-        "sx": "Santo Martín",
-        "sy": "Siria",
-        "sz": "Eswatini",
-        "tc": "Islas turcas y caicanas",
-        "td": "Chad",
-        "tf": "Tierras del sur francesas",
-        "tg": "Ir",
-        "th": "Tailandia",
-        "tj": "Tadjikistán",
-        "tk": "Tokelau",
-        "tl": "Timor-oriental",
-        "tm": "Turkmenistán",
-        "tn": "Túnez",
-        "to": "Tonga",
-        "tr": "Türkiye",
-        "tt": "Trinidad y Tobago",
-        "tv": "Tuvalu",
-        "tw": "Taiwán",
-        "tz": "Tanzania",
-        "ua": "Ucrania",
-        "ug": "Uganda",
-        "um": "Islas menores de los Estados Unidos",
-        "us": "ESTADOS UNIDOS",
-        "uy": "Uruguay",
-        "uz": "Uzbekistán",
-        "va": "Ciudad del Vaticano",
-        "vc": "Granadines de santo vincente",
-        "ve": "Venezuela",
-        "vg": "Islas Vírgenes Británicas",
-        "vi": "Islas Vírgenes de los Estados Unidos",
-        "vn": "Vietnam Vietnam",
-        "vu": "Vanuatu",
-        "wf": "Wallis-et-futuna",
-        "ws": "Samoa",
-        "xk": "Kosovo",
-        "ye": "Yemen",
-        "yt": "Mayotte",
-        "yu": "Yugoslavia",
-        "za": "Sudáfrica",
-        "zm": "Zambia",
-        "zr": "Zaire",
-        "zw": "Zimbabue"
-    },
-    "topbar": {
-        "title": "Caviar Scout",
-        "profile": {
-            "title": "Perfil",
-            "edit": "Editar perfil",
-            "logout": "Cerrar sesión",
-            "delete": "Borrar",
-            "deleteMobile": "Eliminar cuenta",
-            "editMobile": "Editar perfil",
-            "confirmDelete": "¿Estás seguro de que quieres eliminar tu cuenta? ",
-            "confirmDeleteTitle": "Eliminar cuenta",
-            "confirmDeleteMessage": "¿Estás seguro de que deseas eliminar permanentemente tu cuenta?",
-            "confirmDeleteWarning": "Esta acción no se puede deshacer. ",
-            "deleteConfirm": "Eliminar cuenta",
-            "deleteSuccessTitle": "Cuenta eliminada",
-            "deleteSuccessMessage": "Su cuenta ha sido eliminada exitosamente. ",
-            "deleteErrorTitle": "Eliminación fallida",
-            "deleteErrorMessage": "No se pudo eliminar tu cuenta. "
+      },
+      "legalBasis": {
+        "title": "Base Legal del Tratamiento"
+      },
+      "userCategories": {
+        "title": "Categorías de Usuarios",
+        "professionals": {
+          "title": "Usuarios Profesionales"
+        },
+        "nonProfessionals": {
+          "title": "Usuarios No Profesionales"
+        },
+        "minors": {
+          "title": "Protección de Menores"
         }
+      },
+      "retention": {
+        "title": "Conservación de Datos"
+      },
+      "recipients": {
+        "title": "Destinatarios de los Datos"
+      },
+      "rights": {
+        "title": "Sus Derechos"
+      },
+      "cookies": {
+        "title": "Cookies"
+      },
+      "security": {
+        "title": "Seguridad de los Datos"
+      },
+      "updates": {
+        "title": "Actualizaciones de la Política"
+      },
+      "contact": {
+        "title": "Contacto"
+      }
     },
-    "legal": {
-        "backToHome": "Volver al Inicio",
-        "lastUpdated": "Última actualización",
-        "privacy": {
-            "title": "Política de Privacidad",
-            "introduction": {
-                "title": "Introducción"
-            },
-            "controller": {
-                "title": "Responsable del Tratamiento"
-            },
-            "dpo": {
-                "title": "Delegado de Protección de Datos"
-            },
-            "dataCollected": {
-                "title": "Datos Recopilados",
-                "identity": {
-                    "title": "Datos de Identificación y Contacto"
-                },
-                "athletes": {
-                    "title": "Información de los Atletas"
-                },
-                "technical": {
-                    "title": "Datos Técnicos"
-                },
-                "transaction": {
-                    "title": "Datos de Transacción"
-                }
-            },
-            "legalBasis": {
-                "title": "Base Legal del Tratamiento"
-            },
-            "userCategories": {
-                "title": "Categorías de Usuarios",
-                "professionals": {
-                    "title": "Usuarios Profesionales"
-                },
-                "nonProfessionals": {
-                    "title": "Usuarios No Profesionales"
-                },
-                "minors": {
-                    "title": "Protección de Menores"
-                }
-            },
-            "retention": {
-                "title": "Conservación de Datos"
-            },
-            "recipients": {
-                "title": "Destinatarios de los Datos"
-            },
-            "rights": {
-                "title": "Sus Derechos"
-            },
-            "cookies": {
-                "title": "Cookies"
-            },
-            "security": {
-                "title": "Seguridad de los Datos"
-            },
-            "updates": {
-                "title": "Actualizaciones de la Política"
-            },
-            "contact": {
-                "title": "Contacto"
-            }
+    "terms": {
+      "title": "Términos de Servicio",
+      "preamble": {
+        "title": "Preámbulo"
+      },
+      "definitions": {
+        "title": "Definiciones"
+      },
+      "service": {
+        "title": "Descripción del Servicio",
+        "important": "Aviso Importante"
+      },
+      "userCategories": {
+        "title": "Categorías de Usuarios",
+        "professionals": {
+          "title": "Usuarios Profesionales"
         },
-        "terms": {
-            "title": "Términos de Servicio",
-            "preamble": {
-                "title": "Preámbulo"
-            },
-            "definitions": {
-                "title": "Definiciones"
-            },
-            "service": {
-                "title": "Descripción del Servicio",
-                "important": "Aviso Importante"
-            },
-            "userCategories": {
-                "title": "Categorías de Usuarios",
-                "professionals": {
-                    "title": "Usuarios Profesionales"
-                },
-                "nonProfessionals": {
-                    "title": "Usuarios No Profesionales (Consumidores)"
-                }
-            },
-            "account": {
-                "title": "Cuenta y Registro"
-            },
-            "subscription": {
-                "title": "Suscripciones y Pagos",
-                "payment": {
-                    "title": "Condiciones de Pago"
-                },
-                "withdrawal": {
-                    "title": "Derecho de Desistimiento"
-                },
-                "credits": {
-                    "title": "Sistema de Créditos"
-                }
-            },
-            "obligations": {
-                "title": "Obligaciones del Usuario"
-            },
-            "content": {
-                "title": "Contenido y Moderación",
-                "license": {
-                    "title": "Licencia de Contenido"
-                }
-            },
-            "liability": {
-                "title": "Limitación de Responsabilidad",
-                "disclaimer": "AVISO IMPORTANTE",
-                "financial": {
-                    "title": "Exclusión de Responsabilidad Financiera"
-                },
-                "thirdParty": {
-                    "title": "Servicios de Terceros"
-                },
-                "information": {
-                    "title": "Cláusula de Información"
-                },
-                "limitation": {
-                    "title": "Limitación de Responsabilidad"
-                }
-            },
-            "indemnification": {
-                "title": "Indemnización"
-            },
-            "ip": {
-                "title": "Propiedad Intelectual"
-            },
-            "modifications": {
-                "title": "Modificaciones del Servicio"
-            },
-            "termination": {
-                "title": "Terminación"
-            },
-            "disputes": {
-                "title": "Resolución de Disputas",
-                "mediation": {
-                    "title": "Mediación de Consumo"
-                },
-                "jurisdiction": {
-                    "title": "Ley Aplicable y Jurisdicción"
-                }
-            },
-            "severability": {
-                "title": "Divisibilidad"
-            },
-            "contact": {
-                "title": "Contacto"
-            }
+        "nonProfessionals": {
+          "title": "Usuarios No Profesionales (Consumidores)"
         }
-    },
-    "tour": {
-        "skip": "Pasador",
-        "gallery": {
-            "search": {
-                "title": "Rebuscado",
-                "description": "Busque vídeos por nombre o palabra clave."
-            },
-            "filters": {
-                "title": "Filtros",
-                "description": "Affinez par sport, paga nuestras etiquetas."
-            }
+      },
+      "account": {
+        "title": "Cuenta y Registro"
+      },
+      "subscription": {
+        "title": "Suscripciones y Pagos",
+        "payment": {
+          "title": "Condiciones de Pago"
         },
-        "prodige": {
-            "create": {
-                "title": "Créer un prodigio",
-                "description": "Agregue un nuevo perfil de atleta."
-            },
-            "controls": {
-                "title": "Tri y cartel",
-                "description": "Organisez votre liste de prodiges."
-            }
+        "withdrawal": {
+          "title": "Derecho de Desistimiento"
         },
-        "video": {
-            "select": {
-                "title": "Selección",
-                "description": "Elija un prodigio para ver sus vídeos."
-            },
-            "add": {
-                "title": "Ajouter",
-                "description": "Sube un nuevo vídeo (máximo 3 por prodige)."
-            }
+        "credits": {
+          "title": "Sistema de Créditos"
         }
-    },
-    "features": {
-        "title": "Ahorra tiempo, recluta mejor",
-        "subtitle": "Todo lo que necesitas para tomar mejores decisiones de reclutamiento.",
-        "free": {
-            "title": "Acceso Completo Gratuito",
-            "description": "Explora todos los perfiles, mira vídeos, usa filtros avanzados sin pagar nada. Solo pagas para contactar a un jugador."
-        },
-        "database": {
-            "title": "Talentos Verificados",
-            "description": "Cada perfil es revisado por expertos. Se acabaron los vídeos inutilizables y los perfiles falsos."
-        },
-        "filters": {
-            "title": "Encuentra el Perfil Correcto en Pocos Clics",
-            "description": "Filtra por deporte, edad, país y habilidades para encontrar exactamente el talento que buscas."
-        },
-        "contact": {
-            "title": "Contacta Directamente al Jugador",
-            "description": "Accede a los datos de contacto verificados de los atletas o sus agentes en un clic."
-        },
-        "analysis": {
-            "title": "Vídeos Estructurados, No Ruido",
-            "description": "Mira vídeos de calidad, organizados y relevantes. Ya no necesitas filtrar horas de contenido."
+      },
+      "obligations": {
+        "title": "Obligaciones del Usuario"
+      },
+      "content": {
+        "title": "Contenido y Moderación",
+        "license": {
+          "title": "Licencia de Contenido"
         }
-    },
-    "cookies": {
-        "title": "Configuración de cookies",
-        "description": "Utilizamos cookies para mejorar su experiencia de navegación, ofrecer contenido personalizado y analizar nuestro tráfico. Al hacer clic en \"Aceptar todo\", consiente nuestro uso de cookies.",
-        "necessary": "Necesarias",
-        "necessaryDesc": "Esenciales para el correcto funcionamiento del sitio. No se pueden desactivar.",
-        "analytics": "Analíticas",
-        "analyticsDesc": "Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio.",
-        "marketing": "Marketing",
-        "marketingDesc": "Se utilizan para mostrar anuncios personalizados.",
-        "acceptAll": "Aceptar todo",
-        "rejectAll": "Rechazar todo",
-        "customize": "Personalizar",
-        "savePreferences": "Guardar preferencias"
+      },
+      "liability": {
+        "title": "Limitación de Responsabilidad",
+        "disclaimer": "AVISO IMPORTANTE",
+        "financial": {
+          "title": "Exclusión de Responsabilidad Financiera"
+        },
+        "thirdParty": {
+          "title": "Servicios de Terceros"
+        },
+        "information": {
+          "title": "Cláusula de Información"
+        },
+        "limitation": {
+          "title": "Limitación de Responsabilidad"
+        }
+      },
+      "indemnification": {
+        "title": "Indemnización"
+      },
+      "ip": {
+        "title": "Propiedad Intelectual"
+      },
+      "modifications": {
+        "title": "Modificaciones del Servicio"
+      },
+      "termination": {
+        "title": "Terminación"
+      },
+      "disputes": {
+        "title": "Resolución de Disputas",
+        "mediation": {
+          "title": "Mediación de Consumo"
+        },
+        "jurisdiction": {
+          "title": "Ley Aplicable y Jurisdicción"
+        }
+      },
+      "severability": {
+        "title": "Divisibilidad"
+      },
+      "contact": {
+        "title": "Contacto"
+      }
     }
+  },
+  "tour": {
+    "skip": "Pasador",
+    "gallery": {
+      "search": {
+        "title": "Rebuscado",
+        "description": "Busque vídeos por nombre o palabra clave."
+      },
+      "filters": {
+        "title": "Filtros",
+        "description": "Affinez par sport, paga nuestras etiquetas."
+      }
+    },
+    "prodige": {
+      "create": {
+        "title": "Créer un prodigio",
+        "description": "Agregue un nuevo perfil de atleta."
+      },
+      "controls": {
+        "title": "Tri y cartel",
+        "description": "Organisez votre liste de prodiges."
+      }
+    },
+    "video": {
+      "select": {
+        "title": "Selección",
+        "description": "Elija un prodigio para ver sus vídeos."
+      },
+      "add": {
+        "title": "Ajouter",
+        "description": "Sube un nuevo vídeo (máximo 3 por prodige)."
+      }
+    }
+  },
+  "features": {
+    "title": "Ahorra tiempo, recluta mejor",
+    "subtitle": "Todo lo que necesitas para tomar mejores decisiones de reclutamiento.",
+    "free": {
+      "title": "Acceso Completo Gratuito",
+      "description": "Explora todos los perfiles, mira vídeos, usa filtros avanzados sin pagar nada. Solo pagas para contactar a un jugador."
+    },
+    "database": {
+      "title": "Talentos Verificados",
+      "description": "Cada perfil es revisado por expertos. Se acabaron los vídeos inutilizables y los perfiles falsos."
+    },
+    "filters": {
+      "title": "Encuentra el Perfil Correcto en Pocos Clics",
+      "description": "Filtra por deporte, edad, país y habilidades para encontrar exactamente el talento que buscas."
+    },
+    "contact": {
+      "title": "Contacta Directamente al Jugador",
+      "description": "Accede a los datos de contacto verificados de los atletas o sus agentes en un clic."
+    },
+    "analysis": {
+      "title": "Vídeos Estructurados, No Ruido",
+      "description": "Mira vídeos de calidad, organizados y relevantes. Ya no necesitas filtrar horas de contenido."
+    }
+  },
+  "cookies": {
+    "title": "Configuración de cookies",
+    "description": "Utilizamos cookies para mejorar su experiencia de navegación, ofrecer contenido personalizado y analizar nuestro tráfico. Al hacer clic en \"Aceptar todo\", consiente nuestro uso de cookies.",
+    "necessary": "Necesarias",
+    "necessaryDesc": "Esenciales para el correcto funcionamiento del sitio. No se pueden desactivar.",
+    "analytics": "Analíticas",
+    "analyticsDesc": "Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio.",
+    "marketing": "Marketing",
+    "marketingDesc": "Se utilizan para mostrar anuncios personalizados.",
+    "acceptAll": "Aceptar todo",
+    "rejectAll": "Rechazar todo",
+    "customize": "Personalizar",
+    "savePreferences": "Guardar preferencias"
+  }
 }
